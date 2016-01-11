@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        html, body, #cesiumContainer {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+            font-family: sans-serif; color: #edffff;
+        }
+
+         html, body {
+             height: 100%;
+             margin: 0;
+             padding: 0;
+         }
+
+
+    </style>
+</head>
+
+<link href="/Cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet"/>
+<script src="/Cesium/Build/Cesium/Cesium.js"></script>
+<div id="cesiumContainer"></div>
+
+<body>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script>
+    var viewer;
+    function worldMap() {
+        viewer = new Cesium.Viewer('cesiumContainer', {
+            navigationHelpButton: false,
+            fullscreenButton: false,
+            infoBox: false,
+            baseLayerPicker: false,
+            homeButton: false,
+            sceneModePicker: false,
+            animation: false,
+            timeline: false
+        });
+
+        var cartographic = new Cesium.Cartographic();
+        var cartesian = new Cesium.Cartesian3();
+        var camera = viewer.scene.camera;
+        var ellipsoid = viewer.scene.mapProjection.ellipsoid;
+
+        window.addEventListener("mousewheel", function () {
+            console.log("휠을 돌림");
+            ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
+            var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7)-0.5;
+            var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+            var height = (cartographic.height * 0.001).toFixed(1);
+
+            console.log(lat, ' ', lng, ' ', height);
+
+            if (height < 1500) {
+                changePage(lat, lng, height);
+            }
+        });
+
+        function changePage(lat, lng, height) {
+            console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
+            self.location="close.html?lat="+lat+"&lng="+lng;
+        }
+    }
+    worldMap();
+
+</script>
+<script src="Cesium/js/map.js"></script>
+</body>
+</html>

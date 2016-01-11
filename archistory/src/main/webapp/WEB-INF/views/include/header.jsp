@@ -41,7 +41,7 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#Home">Home</a></li> <!-- class="active" -->
+          <li><a href="/">Home</a></li> <!-- class="active" -->
           <li><a href="/sboard/usage">Usage</a></li>
           <li><a href="/sboard/list">Review</a></li>
           <li class="dropdown">
