@@ -32,7 +32,6 @@ public class UploadController {
 
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() {
-
 	}
 
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
