@@ -6,8 +6,6 @@
 
 <%@include file="include/header.jsp"%>
 
-
-
 				<iframe src="http://localhost:8080/index.html" style="width:100%; height:100%;"></iframe>
 
 </div>
