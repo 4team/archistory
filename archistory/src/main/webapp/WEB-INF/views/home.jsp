@@ -8,7 +8,7 @@
 
 
 
-				<iframe src="http://localhost:8080/Apps/CesiumViewer/index.html" style="width:100%; height:100%;"></iframe>
+				<iframe src="http://localhost:8080/index.html" style="width:100%; height:100%;"></iframe>
 
 </div>
     
