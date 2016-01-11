@@ -20,8 +20,8 @@
     </style>
 </head>
 
-<link href="/Cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet"/>
-<script src="/Cesium/Build/Cesium/Cesium.js"></script>
+<link href="Cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet"/>
+<script src="Cesium/Build/Cesium/Cesium.js"></script>
 <div id="cesiumContainer"></div>
 
 <body>
@@ -31,6 +31,8 @@
 
 <script>
     var viewer;
+    worldMap();
+
     function worldMap() {
         viewer = new Cesium.Viewer('cesiumContainer', {
             navigationHelpButton: false,
@@ -51,7 +53,7 @@
         window.addEventListener("mousewheel", function () {
             console.log("휠을 돌림");
             ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
-            var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7)-0.5;
+            var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7)-0.7;
             var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
             var height = (cartographic.height * 0.001).toFixed(1);
 
@@ -66,8 +68,8 @@
             console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
             self.location="close.html?lat="+lat+"&lng="+lng;
         }
+
     }
-    worldMap();
 
 </script>
 <script src="Cesium/js/map.js"></script>

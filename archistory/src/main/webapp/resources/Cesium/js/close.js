@@ -19,6 +19,7 @@ var getParameter = function (param) {
 var lat = getParameter('lat');
 var lng = getParameter('lng');
 var map;
+var geocoder = new google.maps.Geocoder;
 closeMap();
 
 function closeMap(){
@@ -27,7 +28,7 @@ function closeMap(){
         console.log(lat, lng);
         map = new google.maps.Map(document.getElementById('closeMap'), {
             center: new google.maps.LatLng(lat, lng),
-            zoom: 8
+            zoom: 7
         });
 
 
@@ -45,7 +46,32 @@ function closeMap(){
         if(zoom<7){
             google.maps.event.clearListeners(map,'zoom_changed');
             $("#closeMap").css({"display":"none"});
-            self.location = "index.html?lat="+lat+"&lng="+lng;
+            self.location = "newTEst.html?lat="+lat+"&lng="+lng;
         }
     });
+
+    map.addListener('click',function(event){
+        console.log(event.latLng.lat());
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+
+        geocoder.geocode({'location':event.latLng},function(result){
+            console.log(result.length);
+            var length = result.length;
+            console.log(result[length-1].formatted_address);
+            var nation = result[length-1].formatted_address;
+
+            if(nation == '대한민국'){
+                console.log('대한민국 지도로 이동');
+                self.location = "koreamap.html?lat="+lat+"&lng="+lng;
+            }else{
+                console.log('구글지도로 다른 나라의 지도표시');
+
+            }
+
+        });
+    });
+
+
 }
+
