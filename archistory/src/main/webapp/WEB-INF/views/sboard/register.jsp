@@ -173,13 +173,13 @@ $(".fileDrop").on("drop", function(event){
 			  
 			  if(checkImageType(data)){
 				  str ="<div class='img'>"
-				  		+"<a href='http://localhost:8081/displayFile?fileName="+getImageLink(data)+"'><img src='http://localhost:8081/displayFile?fileName="+data+"'/></a>"
+				  		+"<a href='http://localhost:8080/displayFile?fileName="+getImageLink(data)+"'><img src='http://localhost:8080/displayFile?fileName="+data+"'/></a>"
 						  +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 						  +"</div>";
 				  
 			  }else{
 				  str = "<div class='img'>"
-				  		+"<a href='http://localhost:8081/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
+				  		+"<a href='http://localhost:8080/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
 						  +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 						  +"</div>";
 			  }
