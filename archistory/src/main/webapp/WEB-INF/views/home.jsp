@@ -36,7 +36,9 @@
 		}
         
         #menu:hover{
-        	background-color: #FFF;
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
         }
         
         #upper-login{
@@ -56,10 +58,7 @@
 	   		margin:2px;
 	   		color:#FFFFFF;
 		}
-		span.glyphicon-menu-hamburger:hover {
-			color:#000;
-		}
-
+		
     </style>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
