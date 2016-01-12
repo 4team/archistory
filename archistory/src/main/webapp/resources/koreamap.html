@@ -38,7 +38,7 @@
 <div id="map"></div>
 
 <!-- 모달 팝업(step 선택 ) -->
-<div class="modal fade" id="stepModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+<div class="modal fade" id="stepModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -64,12 +64,12 @@
 </div>
 
 <!-- 모달 팝업(루트 생성) -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+<div class="modal fade" id="routeCreateModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">루트 생성</h4>
+                <h4 class="modal-title" id="routeCreateModalLabel">루트 생성</h4>
             </div>
             <div class="modal-body">
                 <div id="routeCreateDiv" class="row">
@@ -133,45 +133,64 @@
         $("#nonstepMode").on("click",function(){
             step = false;
             $("#stepModal").modal('hide');
-            $("#myModal").modal('show');
-
-
-        })
+            divClear();
+            $("#routeCreateModal").modal('show');
+        });
 
 
         $("#stepMode").on("click",function(){
             step = true;
             $("#stepModal").modal('hide');
-            $("#myModal").modal('show');
+            divClear();
+            $("#routeCreateModal").modal('show');
+        });
 
-        })
+
+        function divClear(){
+            $("#routename").val("");
+            $("#password").val("");
+            $("#passwordCheck")[0].checked = false;
+            $(".password").hide();
+        };
 
 
         $("#routeCreateBtn").on("click",function(){
-            var name = $("#routename").val();
-            var pass = $("#passwordCheck")[0];
 
-            if(pass.checked == true){
-                // 비밀루트일 때의 처리...
-                var password = $("#password").val();
-                if(password == ""){
-                    alert('비밀번호를 입력해주세요.');
-                    return;
-                }
-                console.log(name);
-                console.log(password);
-                console.log(step);
-
-            }else{
-                // 비밀루트가 아닐 때의 처리...
-                console.log(name);
-                console.log("비밀루트가 아니다.");
-                console.log(step);
-            }
-        });
+        createRoute(step);
 
     });
 
+
+
+    });
+
+    function createRoute(step){
+        var name = $("#routename").val();
+        var pass = $("#passwordCheck")[0];
+
+        if(pass.checked == true){
+            // 비밀루트일 때의 처리...
+            var password = $("#password").val();
+            if(password == ""){
+                alert('비밀번호를 입력해주세요.');
+                return;
+            }
+
+            console.log(name);
+            console.log(password);
+            console.log(step);
+
+            $("#routeCreateModal").modal('hide');
+
+        }else{
+            // 비밀루트가 아닐 때의 처리...
+            console.log(name);
+            console.log("비밀루트가 아니다.");
+            console.log(step);
+
+            $("#routeCreateModal").modal('hide');
+        }
+    };
 
     $("#passwordCheck").on("click",function(){
         if(this.checked){
