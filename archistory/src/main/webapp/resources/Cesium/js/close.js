@@ -28,6 +28,7 @@ function closeMap(){
         console.log(lat, lng);
         map = new google.maps.Map(document.getElementById('closeMap'), {
             center: new google.maps.LatLng(lat, lng),
+            mapTypeControl:false,
             zoom: 7
         });
 
