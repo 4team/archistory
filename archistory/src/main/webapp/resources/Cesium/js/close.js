@@ -66,7 +66,7 @@ function closeMap(){
                 self.location = "koreamap.html?lat="+lat+"&lng="+lng;
             }else{
                 console.log('구글지도로 다른 나라의 지도표시');
-
+                self.location = "otherNation.html?lat="+lat+"&lng="+lng;
             }
 
         });
