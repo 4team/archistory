@@ -176,6 +176,7 @@
                 return;
             }
 
+            console.log("비밀");
             console.log(name);
             console.log(password);
             console.log(step);
@@ -184,8 +185,8 @@
 
         }else{
             // 비밀루트가 아닐 때의 처리...
+            console.log("공개");
             console.log(name);
-            console.log("비밀루트가 아니다.");
             console.log(step);
 
             $("#routeCreateModal").modal('hide');
