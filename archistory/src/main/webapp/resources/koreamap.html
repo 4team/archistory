@@ -156,7 +156,15 @@
 
         $("#routeCreateBtn").on("click",function(){
 
-        createRoute(lat,lng,step);
+
+        createRoute(lat,lng,step,function(){
+            if(step==true){
+                self.location = "stepevent.html?lat="+lat+"&lng="+lng+"&step="+step;
+            }else{
+                self.location = "nonstepevent.html?lat="+lat+"&lng="+lng+"&step="+step;
+            }
+
+        });
 
     });
 
@@ -164,7 +172,7 @@
 
     });
 
-    function createRoute(lat,lng,step){
+    function createRoute(lat,lng,step,callback){
         var lat = lat;
         var lng = lng;
         var step = step;
@@ -192,7 +200,8 @@
             console.log(step);
 
             $("#routeCreateModal").modal('hide');
-        }
+        };
+        callback();
     };
 
     $("#passwordCheck").on("click",function(){
