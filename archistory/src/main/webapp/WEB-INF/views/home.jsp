@@ -49,9 +49,11 @@
         span.glyphicon-menu-hamburger {
 	   		font-size: 1.8em;
 	   		color:#FFFFFF;
+	   		border:1px solid black;
 		}
 		span.glyphicon-menu-hamburger:hover {
 			color:#000000;
+			border:1px solid white;
 		}
 
     </style>
