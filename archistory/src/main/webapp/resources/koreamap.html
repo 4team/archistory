@@ -43,22 +43,22 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">#1_STEP 선택 </h4>
+                <h4 class="modal-title" id="stepLabel">#1_STEP 선택 </h4>
             </div>
             <div class="modal-body">
-                <div id="nonstepMode" style="background-color: gray; width:100px; height:100px; float:left;" >
-                	
+                <div id="nonstepMode" style="background-color: #dd5555; width:180px; height:100px; float:left; text-align: center; padding-top: 35px;" >
+                    NON STEP MODE
                 </div>
-                
-                <div id="stepMode" style="background-color:blue; width:100px; height:100px; float:left;">
-                
+
+                <div id="stepMode" style="background-color:#00aaaa; width:180px; height:100px; float:left; text-align: center; padding-top: 35px;">
+                    STEP MODE
                 </div>
 
             </div>
-            
+
             <div class="modal-footer">
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -113,8 +113,8 @@
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
-             //   center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
-                center: new daum.maps.LatLng(37.4923615,127.0292881),
+                //   center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
+                center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')),
                 level: 3 // 지도의 확대 레벨
             };
 
@@ -124,26 +124,53 @@
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         var lat = mouseEvent.latLng.Ab; // lat
         var lng = mouseEvent.latLng.zb; // lng
+        var step;
 
         console.log("내가 선택한 위도와 경도 : ",lat, lng);
-        
+
         $("#stepModal").modal('show');
 
-        //$("#myModal").modal('show');
+        $("#nonstepMode").on("click",function(){
+            step = false;
+            $("#stepModal").modal('hide');
+            $("#myModal").modal('show');
+
+
+        })
+
+
+        $("#stepMode").on("click",function(){
+            step = true;
+            $("#stepModal").modal('hide');
+            $("#myModal").modal('show');
+
+        })
+
+
+        $("#routeCreateBtn").on("click",function(){
+            var name = $("#routename").val();
+            var pass = $("#passwordCheck")[0];
+
+            if(pass.checked == true){
+                // 비밀루트일 때의 처리...
+                var password = $("#password").val();
+                if(password == ""){
+                    alert('비밀번호를 입력해주세요.');
+                    return;
+                }
+                console.log(name);
+                console.log(password);
+                console.log(step);
+
+            }else{
+                // 비밀루트가 아닐 때의 처리...
+                console.log(name);
+                console.log("비밀루트가 아니다.");
+                console.log(step);
+            }
+        });
 
     });
-
-     $("#nonstepMode").on("click",function(){
-    	 $("#stepModal").modal('hide');
-    	 $("#myModal").modal('show');
-    	 
-     })
-     $("#stepMode").on("click",function(){
-    	 $("#stepModal").modal('hide');
-    	 $("#myModal").modal('show');
-    	 
-     })
-
 
 
     $("#passwordCheck").on("click",function(){
@@ -154,27 +181,6 @@
         }
     });
 
-    $("#routeCreateBtn").on("click",function(){
-        var name = $("#routename").val();
-        var pass = $("#passwordCheck")[0];
-
-        if(pass.checked == true){
-            // 비밀루트일 때의 처리...
-            var password = $("#password").val();
-            if(password == ""){
-                alert('비밀번호를 입력해주세요.');
-                return;
-            }
-            console.log(name);
-            console.log(password);
-
-        }else{
-            // 비밀루트가 아닐 때의 처리...
-            console.log(name);
-            console.log("비밀루트가 아니다.");
-
-        }
-    });
 
 </script>
 </body>
