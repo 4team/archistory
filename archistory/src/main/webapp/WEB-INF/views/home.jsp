@@ -27,12 +27,17 @@
         }
 		
 		#menu{
-			padding:5px;
+			
 			z-index:100;
 			position: absolute;
 			top:5px;
-			left:5px;
+			left:10px;
+			background-color:#303336;
 		}
+        
+        #menu:hover{
+        	background-color: #FFF;
+        }
         
         #upper-login{
         	padding:5px;
@@ -48,12 +53,11 @@
         
         span.glyphicon-menu-hamburger {
 	   		font-size: 1.8em;
+	   		margin:2px;
 	   		color:#FFFFFF;
-	   		border:1px solid black;
 		}
 		span.glyphicon-menu-hamburger:hover {
-			color:#000000;
-			border:1px solid white;
+			color:#000;
 		}
 
     </style>
