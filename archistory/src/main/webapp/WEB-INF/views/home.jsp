@@ -1,4 +1,8 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,9 +47,12 @@
         }
         
         span.glyphicon-menu-hamburger {
-    font-size: 1.8em;
-    color:#FFF;
-}
+	   		font-size: 1.8em;
+	   		color:#FFFFFF;
+		}
+		span.glyphicon-menu-hamburger:hover {
+			color:#000000;
+		}
 
     </style>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -60,10 +67,29 @@
 
 
 <div id="upper-login">
-	<button type="button" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
-	<button type="button" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
+	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
+	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
 </div>
 
 <iframe id="main" src="world.html"></iframe>
+
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+	$("#menu").on("click",function(){
+		alert("menu를 클릭하면 드랍다운 메뉴가 나오도록 구현.");
+	});
+	
+	$("#loginBtn").on("click",function(){
+		alert("로그인하는 DIV가 뜨도록 구현.");
+	});
+	
+	$("#joinBtn").on("click",function(){
+		alert("가입하는 폼이 나오도록 구현.");
+	});
+	
+	
+</script>
+
 </body>
 </html>
