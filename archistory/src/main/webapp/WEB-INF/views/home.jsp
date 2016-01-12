@@ -49,8 +49,8 @@
         	top:5px;
         }
         
-        button{
-        	padding:5px;
+        #joinBtn{
+        	margin-left: 5px;
         }
         
         span.glyphicon-menu-hamburger {
