@@ -45,8 +45,7 @@ function closeMap(){
 
         if(zoom<7){
             google.maps.event.clearListeners(map,'zoom_changed');
-            $("#closeMap").css({"display":"none"});
-            self.location = "newTEst.html?lat="+lat+"&lng="+lng;
+            self.location = "world.html?lat="+lat+"&lng="+lng;
         }
     });
 
