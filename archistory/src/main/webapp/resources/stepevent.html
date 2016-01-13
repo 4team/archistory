@@ -213,7 +213,7 @@
 
         $.ajax({
             type:'post',
-            url: 'http://192.168.0.36:1524/event/create',
+            url: 'http://192.168.0.36:8080/event/create',
             headers: {"Content-Type": "application/json"},
             dataType: 'JSON',
             data:JSON.stringify({routeno:routeno, title:title, content:content, lat:lat, lng:lng}),
