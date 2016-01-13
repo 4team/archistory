@@ -94,7 +94,5 @@ public class BoardController {
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		return "redirect:/board/listPage";
 	}
-	
-
-	
+		
 }

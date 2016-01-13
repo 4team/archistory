@@ -17,7 +17,6 @@ public class RouteController{
 	@Autowired
 	RouteService service;
 	
-
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public void createRoute(@RequestBody RouteVO vo) throws Exception{
 		System.out.println("create controller 호출됨~~");
