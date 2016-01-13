@@ -1,5 +1,11 @@
 package org.kkamnyang.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/route/*")
@@ -20,8 +27,14 @@ public class RouteController{
 	RouteService service;
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public void list(Model model) throws Exception{
-		model.addAttribute("list",service.list());
+	public @ResponseBody List<RouteVO> list(HttpServletRequest request) throws Exception{
+		System.out.println("====================");
+		System.out.println("★모든 루트 리스트의 출력.");
+		System.out.println("====================");
+
+		List<RouteVO> result = service.list();
+		System.out.println(service.list());
+		return result;
 	}
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
