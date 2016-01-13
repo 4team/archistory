@@ -188,9 +188,7 @@
       		  headers:{"Content-Type":"application/json"},
       		  data: JSON.stringify({routename:name, password:password, step:step, lat:lat, lng:lng}),
       		  dataType:'JSON',
-      		  success: function(data){
-      			  
-      			$(".btn-primary").append(data);      			  
+      		  success: function(data){ 			  
 		    }
             });
             
@@ -216,8 +214,7 @@
         		  data: JSON.stringify({routename:name, step:step, lat:lat, lng:lng}),
         		  dataType:'JSON',
         		  success: function(data){
-        			  
-        			$(".btn-primary").append(data);      			  
+        			        			  
   		    }
               });        
         };
