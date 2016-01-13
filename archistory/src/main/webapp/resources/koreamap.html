@@ -114,7 +114,7 @@
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 //   center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
-                center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')),
+                center: new daum.maps.LatLng(37.0393092, 127.938904),
                 level: 3 // 지도의 확대 레벨
             };
 
@@ -156,7 +156,18 @@
 
         $("#routeCreateBtn").on("click",function(){
         	
-	        createRoute(lat,lng,step,function(){
+	        createRoute(lat,lng,step,function(name,password,step,lat,lng,secret){
+
+                alert("ajax호출");
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://192.168.0.36:8080/route/create',
+                    headers:{"Content-Type":"application/json"},
+                    data: JSON.stringify({routename:name, password:password, secret:secret, step:step, lat:lat, lng:lng}),
+                    dataType:'JSON',
+                    success: function(data){
+                    }
+                });
 	            if(step==true){
 	                self.location = "stepevent.html?lat="+lat+"&lng="+lng+"&step="+step;
 	            }else{
@@ -172,25 +183,19 @@
         var step = step;
         var lat = lat;        
         var lng = lng;
-        
+        var secret = secret;
+
         var pass = $("#passwordCheck")[0];
 
         if(pass.checked == true){
             // 비밀루트일 때의 처리...
             var password = $("#password").val();
+            secret = true;
             if(password == ""){
                 alert('비밀번호를 입력해주세요.');
                 return;
             }            
-            $.ajax({
-      		  type: 'POST',
-      		  url: '/route/create',
-      		  headers:{"Content-Type":"application/json"},
-      		  data: JSON.stringify({routename:name, password:password, step:step, lat:lat, lng:lng}),
-      		  dataType:'JSON',
-      		  success: function(data){ 			  
-		    }
-            });
+
             
             console.log("비밀");
             console.log(name);
@@ -206,19 +211,9 @@
             console.log(step);
 
             $("#routeCreateModal").modal('hide');
-        
-            $.ajax({
-        		  type: 'POST',
-        		  url: '/route/create',
-        		  headers:{"Content-Type":"application/json"},
-        		  data: JSON.stringify({routename:name, step:step, lat:lat, lng:lng}),
-        		  dataType:'JSON',
-        		  success: function(data){
-        			        			  
-  		    }
-              });        
+
         };
-        callback();
+        callback(name,password,step,lat,lng,secret);
     };
 
     $("#passwordCheck").on("click",function(){
