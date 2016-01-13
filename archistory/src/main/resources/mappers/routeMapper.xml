@@ -6,7 +6,7 @@
  <mapper namespace="org.kkamnyang.persistence.RouteMapper">
 
  	<insert id="create">
- 		insert into tbl_route(adminno,routename,step,lat,lng) values(1,#{routename},#{step},#{lat},#{lng})
+ 		insert into tbl_route(adminno,routename,step,password,lat,lng) values(1,#{routename},#{step},#{password},#{lat},#{lng})
  	</insert>
  	
  	<select id="list" resultType="org.kkamnyang.domain.RouteVO">

@@ -30,7 +30,7 @@ public class RouteController{
 	}
 	
 	@RequestMapping(value="/view", method = RequestMethod.GET)
-	public void view(@RequestParam Integer routeno,Model model) throws Exception{
+	public void view(@RequestParam("routeno") Integer routeno,Model model) throws Exception{
 		RouteVO vo = service.view(routeno);
 		model.addAttribute("ROUTE", vo);
 	}
@@ -41,7 +41,7 @@ public class RouteController{
 	}
 	
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
-	public void removeRoute(@RequestParam Integer routeno, Model model) throws Exception{
+	public void removeRoute(@RequestParam("routeno") Integer routeno, Model model) throws Exception{
 		service.remove(routeno);
 	}
 }
