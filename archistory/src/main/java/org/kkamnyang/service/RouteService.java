@@ -3,7 +3,7 @@ package org.kkamnyang.service;
 import java.util.List;
 
 import org.kkamnyang.domain.RouteVO;
-import org.kkamnyang.persistence.RouteMapperImpl;
+import org.kkamnyang.persistence.RouteMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class RouteService {
 
 	@Autowired
-	RouteMapperImpl mapper;
+	RouteMapper mapper;
 	
 	public List<RouteVO> list() throws Exception{
 		return mapper.list();
