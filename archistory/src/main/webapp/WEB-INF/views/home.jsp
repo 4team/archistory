@@ -7,7 +7,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>= Archistory =</title>
+</head>
 
     <style>
         html, body, #cesiumContainer {
@@ -59,16 +60,60 @@
 	   		margin-top:3px;
 	   		color:#FFFFFF;
 		}
+		
+		#joinDiv{
+			display:none;
+		}
+		#userJoinDiv{
+			display:none;
+		}
+		#adminJoinDiv{
+			display:none;
+		}
+		
+		 #joinDiv{
+            padding:10px;
+        }
+		
+        .modal-body{
+            height:400px;
+            overflow-y: auto;
+        }
+
+        .modal-title{
+            text-align: center;
+        }
 
     </style>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
+    
+    <script src="Cesium/js/jquery.js"></script>
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
 <body>
 
 <div id="menu">
-	<span class="glyphicon glyphicon-menu-hamburger"></span>
+
+<div class="dropdown">
+  <a id="mDrop" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+    	<span class="glyphicon glyphicon-menu-hamburger"></span>
+  </a>
+
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tour Route</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
+  </ul>
+</div>
 </div>
 
 <div id="upper-login">
@@ -76,21 +121,68 @@
 	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
 </div>
 
+
+
+
+<!-- 모달 팝업(이벤트(스텝) 생성) -->
+<div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="joinModalLabel">회원가입</h4>
+            </div>
+            <div class="modal-body">
+<div id="joinDiv">
+
+	<div class="radio">
+	  <label>
+	    <input type="radio" name="joinType" id="user" value="user" checked>
+	   User
+	  </label>
+	   <label>
+	    <input type="radio" name="joinType" id="admin" value="admin" checked>
+	   Admin
+	  </label>
+	</div>
+	
+	<div id="userJoinDiv">
+	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
+	    <input type="text" class="form-control" id="email" placeholder="Email"><br>
+	    <input type="text" class="form-control" id="password1" placeholder="Password"><br>
+	    <input type="text" class="form-control" id="password2" placeholder="Password Again"><br>   
+    </div>
+    <div id="adminJoinDiv">
+    	<input type="text" class="form-control" id="adminname" placeholder="UserName"><br>
+	    <input type="text" class="form-control" id="adminEmail" placeholder="Email"><br>
+	    <input type="text" class="form-control" id="adminpassword1" placeholder="Password"><br>
+	    <input type="text" class="form-control" id="adminpassword2" placeholder="Password (Again)"><br>
+	    <input type="text" class="form-control" id="phone" placeholder="Phone Number"><br>
+	    <input type="text" class="form-control" id="nation" placeholder="Nation"><br>   
+    </div>
+</div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="eventCreateCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                <button type="button" id="eventCreateBtn" class="btn btn-primary">회원가입</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <iframe id="main" src="world.html"></iframe>
 
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script>
-	$("#menu").on("click",function(){
-		alert("menu를 클릭하면 드랍다운 메뉴가 나오도록 구현.");
-	});
 	
 	$("#loginBtn").on("click",function(){
 		alert("로그인하는 DIV가 뜨도록 구현.");
 	});
 	
 	$("#joinBtn").on("click",function(){
-		alert("가입하는 폼이 나오도록 구현.");
+		$("#joinModal").modal('show');
 	});
 
 </script>
