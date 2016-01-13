@@ -1,118 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+       <meta charset="UTF-8" >
+       <title> Title</title >
 </head>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        #map{
-            width: 100%;
-            height: 100%;
-        }
-  		 .modal-title{
-        	text-align : center;
-        }
-        .modal-dialog{
-        max-width:500px;
- 
- 	   }
- 	   #questionDiv{
- 	   	display: none;
- 	   }
- 	   #selectBox{
- 	   	display: none;
- 	   }
-    
-     
+<style>
+       html, body {
+             height: 100% ;
+             margin: 0 ;
+             padding: 0 ;
+      }
+       #map{
+             width: 100% ;
+             height: 100% ;
+      }
+       .modal-title{
+             text-align : center ;
+      }
+       .modal-dialog{
+             max-width:500px ;
+
+      }
+       #questionDiv{
+             display: none ;
+      }
+       #selectBox{
+             display: none ;
+      }
 
 
-    </style>
 
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=66fca768fabb8a1e238c3ac76f9c9499"></script>
-	<!-- on/off toggle 이용하기 위함 -->
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+
+</style>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js" ></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js" ></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" >
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" >
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" ></script>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=66fca768fabb8a1e238c3ac76f9c9499" ></script>
+<!-- on/off toggle 이용하기 위함 -->
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js" ></script>
 
 <body>
 
-<div id="map"></div>
+<div id= "map"></div >
 
 
 <!-- 모달 팝업(event생성) -->
-<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">×</span>
-					<span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="createEventLable">EVENT</h4>				
-			</div>	
-			<div class="modal-body">
-				<div id="createEventDiv" >
-					
-						<label for="eventName">이름</label><input type="text" class="form-control" id="eventName" placeholder="이벤트 이름을 입력하세요">
-						<button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
-						<label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
-						<label for="imgInput">이미지</label><input type="file" id="imgInput"><br>
-						<label for="videoInput">동영상</label><input type="file" id="videoInput"><br>
-						<label for="camera">카메라</label><input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
-					
-						<input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
-				</div>
-				<div id="questionDiv">			
-							<hr>
-							<h4 class="modal-title">QUESTION</h4>
-				
-							<label for="type">문제 유형</label>
-								<select class="form-control" id="qType">
-									<option>O/X</option>
-									<option>객관식</option>
-								</select><br>
-								
-							<label for="qTitle">문제</label>
-								<textarea class="form-control" id="questionTitle" placeholder="문제를 입력하세요."></textarea><br>
-							<div id="selectBox">
-								<label for="s1">1번 선택지</label><input type="text" class="form-control" id="s1" placeholder="1번 보기를 입력하세요."><br>
-								<label for="s2">2번 선택지</label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요."><br>
-								<label for="s3">3번 선택지</label><input type="text" class="form-control" id="s3" placeholder="3번 보기를 입력하세요."><br>
-								<label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
-							
-								<div id="multipleAnswer" class="checkbox">
-									<label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
-									<label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
-									<label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
-									<label><input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4">4</label>
-								</div>
-							</div>
-							<div id="oxAnswerbox" class="radio"> 
-								<label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o" checked> O </label>
-								<label><input type="radio" name="optionsRadios" id="oxAnswer2" value="x" checked> X </label>							
-							</div>
-								
-				</div>
-			</div>
-			
-			<div class="modal-footer">
-				<button type="button" id="createEventBtn" class="btn btn-create">만들기</button>
-				<button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-			</div>
-			
-		</div>
-	</div>
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden= "true">
+       <div class="modal-dialog" >
+             <div class="modal-content" >
+                   <div class="modal-header" >
+                         <button type="button" class="close" data-dismiss="modal" >
+                               <span aria-hidden="true" >×</ span>
+                               <span class="sr-only" >Close</ span></button >
+                         <h4 class="modal-title" id="createEventLable" >EVENT</ h4>
+                   </div>
+                   <div class="modal-body" >
+                         <div id= "createEventDiv" >
+
+                               <label for="eventName" >이름</ label><input type="text" class="form-control" id= "eventName" placeholder ="이벤트 이름을 입력하세요">
+                               <button type="button" id="search" class="btn btn-info btn-xs" style=" float : right ; margin-right : 10px; margin-top: 5px ;">검색 </button>< br>
+                               <label for="eventinfo" >설명</ label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></ textarea>
+                               <label for="imgInput" >이미지</ label><input type="file" id="imgInput">< br>
+                               <label for="videoInput" >동영상</ label><input type="file" id= "videoInput"><br >
+                               <label for="camera" >카메라</ label><input type="checkbox" id="camera" checked data-toggle ="toggle" data-size="mini" style=" margin-right : 270px ;"><br >
+
+                               <input type="checkbox" id="qCheck" value="option1" ><span style="margin-right :270px;">Question </span>< br>
+                         </div>
+                         <div id= "questionDiv">
+                               <hr>
+                               <h4 class="modal-title" >QUESTION</ h4>
+
+                               <label for="type" >문제 유형</ label>
+                               <select class="form-control" id="qType">
+                                     <option> O/X</option >
+                                     <option> 객관식</option >
+                               </select>< br>
+
+                               <label for="qTitle" >문제</ label>
+                               <textarea class="form-control" id="questionTitle" placeholder= "문제를 입력하세요." ></textarea>< br>
+                               <div id= "selectBox">
+                                     <label for="s1" >1번 선택지</ label><input type="text" class="form-control" id="s1" placeholder="1번 보기를 입력하세요." ><br>
+                                     <label for="s2" >2번 선택지</ label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요." ><br>
+                                     <label for="s3" >3번 선택지</ label><input type="text" class="form-control" id="s3" placeholder="3번 보기를 입력하세요." ><br>
+                                     <label for="s4" >4번 선택지</ label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요." ><br>
+
+                                     <div id= "multipleAnswer" class="checkbox" >
+                                           <label>< input type ="checkbox" name="optionsRadios" id="multipleAnswer1" value="1" >1</ label>
+                                           <label>< input type ="checkbox" name="optionsRadios" id="multipleAnswer2" value="2" >2</ label>
+                                           <label>< input type ="checkbox" name="optionsRadios" id="multipleAnswer3" value="3" >3</ label>
+                                           <label>< input type ="checkbox" name="optionsRadios" id="multipleAnswer4" value="4" >4</ label>
+                                     </div>
+                               </div>
+                               <div id= "oxAnswerbox" class ="radio">
+                                     <label>< input type ="radio" name="optionsRadios" id="oxAnswer1" value="o" checked> O </label >
+                                     <label>< input type ="radio" name="optionsRadios" id="oxAnswer2" value="x" checked> X </label >
+                               </div>
+
+                         </div>
+                   </div>
+
+                   <div class="modal-footer" >
+                         <button type="button" id="createEventBtn" class="btn btn-create" >만들기</ button>
+                         <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss= "modal">취소 </button>
+                   </div>
+
+             </div>
+       </div>
 </div>
 
 
@@ -120,131 +120,126 @@
 
 
 <script>
-    var getParameter = function (param) {
+       var getParameter = function (param) {
 
-        var returnValue;
-        var url = location.href;
-        var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
-        for (var i = 0; i < parameters.length; i++) {
-            var varName = parameters[i].split('=')[0];
-            if (varName.toUpperCase() == param.toUpperCase()) {
-                returnValue = parameters[i].split('=')[1];
-                return decodeURIComponent(returnValue);
+             var returnValue;
+             var url = location.href;
+             var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&' );
+             for (var i = 0; i < parameters.length; i++) {
+                   var varName = parameters[i].split('=' )[0];
+                   if (varName.toUpperCase() == param.toUpperCase()) {
+                        returnValue = parameters[i].split( '=')[1];
+                         return decodeURIComponent(returnValue);
+                  }
             }
-        }
-    };
+      };
 
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-            mapOption = {
-                //   center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
-                center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')),
-                level: 2 // 지도의 확대 레벨
-            };
-    var map = new daum.maps.Map(mapContainer, mapOption);
+       var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                  mapOption = {
+                         //   center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
+                        center: new daum.maps.LatLng(getParameter('lat' ), getParameter('lng')),
+                        level: 2 // 지도의 확대 레벨
+                  };
+       var map = new daum.maps.Map(mapContainer, mapOption);
 
-	var lat= 0;
-	var lng =0;
+       var lat= 0;
+       var lng =0;
 
-    daum.maps.event.addListener(map,'click',function(mouseEvent){
-    	lat= mouseEvent.latLng.Ab;
-		lng = mouseEvent.latLng.zb;
-    	
-    	console.log("내가 선택한 위도와 경도 : ",lat,lng);
-    	
-    	$("#eventModal").modal('show');
+      daum.maps.event.addListener(map, 'click',function (mouseEvent){
+            lat= mouseEvent.latLng.Ab;
+            lng = mouseEvent.latLng.zb;
 
-		$("#cancleEventBtn").on("click",function(){
-			console.log("이벤트 생성 취소");
-			return;
-		});
-	});
+            console.log( "내가 선택한 위도와 경도 : " ,lat,lng);
 
+            $( "#eventModal").modal('show' );
 
-    	$("#createEventBtn").on("click",function(){
-            var routeno = 1;
-			var title = $("#eventName").val();
-			var content = $("#eventinfo").val();
-
-    		createEvent(routeno,title,content,lat,lng,function(){
-				console.log("결과는..."+result);
-				clearEventDiv();
-    		});
-    	});
-
-    
-    function createEvent(routeno,title,content,lat,lng,callback){
-
-		console.log(routeno,title,content,lat,lng);
-
-		$.ajax({
-			type:'post',
-			url:"http://192.168.0.36:8080/event/create",
-			headers: {
-				"Content-Type":"application/json"},
-			datatype: "json",
-			data:JSON.stringify({routeno:1,title:title,content:content,lat:lat,lng:lng}),
-			success: function(data){
-				console.log(result);
-				if(result=='SUCCESS'){
-					console.log("등록되었습니다.");
-				};
-			}
-
-		});
+            $( "#cancleEventBtn").on("click" ,function(){
+                  console.log( "이벤트 생성 취소" );
+                   return;
+            });
+      });
 
 
-    	callback();
-    	  	
-    };
+      $( "#createEventBtn").on("click" ,function(){
+             var routeno = 1;
+             var title = $("#eventName" ).val();
+             var content = $("#eventinfo" ).val();
 
-	function clearEventDiv(){
-		$("#eventName").val("");
-		$("#eventinfo").val("");
-	};
+            createEvent(routeno,title,content,lat,lng, function(){
+                  clearEventDiv();
+            });
+            $( "#eventModal").modal('hide' );
+      });
 
 
-    $("#search").on("click",function(){
-    	console.log("문화재 api를 이용해 검색하였습니다.");
-    });
-    
-    
-    $("#camera").change("toggle",function(){
-    	if(this.checked==true){
-    		console.log("카메라 사용함.");
-    	}else{
-    		console.log("카메라 사용안함.");
-    	}
-    	
-    });
-  
-    
-    
-    $("#qCheck").on("click",function(){
-    	if(this.checked==true){
-    		$("#questionDiv").show();
-    	}else{
-    		$("#questionDiv").hide();
-    	}
-    });
-    
-    
-    $("#qType").on("change",function(){
-    	if(this.value=="객관식"){
-    		$("#oxAnswerbox").hide();
-    		$("#selectBox").show();
-    		$("#multipleAnswerBox").show();
-    		
-    		
-    	}else{
-    		$("#selectBox").hide();
-    		$("#multipleAnswerBox").hide();
-    		$("#oxAnswerbox").show();
-    		
-    	}
-    	
-    });
-    
-  
+       function createEvent(routeno,title,content,lat,lng,callback){
+
+            console.log(routeno,title,content,lat,lng);
+
+            $.ajax({
+                  type: 'post',
+                  url: "http://192.168.0.36:8080/event/create" ,
+                  headers: {
+                         "Content-Type":"application/json" },
+                  datatype: "json",
+                  data:JSON.stringify({routeno:1,title:title,content:content,lat:lat,lng:lng}),
+                  success: function(data){
+                  }
+
+            });
+
+
+            callback();
+
+      };
+
+       function clearEventDiv(){
+            $( "#eventName").val("" );
+            $( "#eventinfo").val("" );
+      };
+
+
+      $( "#search").on("click" ,function(){
+            console.log( "문화재 api를 이용해 검색하였습니다." );
+      });
+
+
+      $( "#camera").change("toggle" ,function(){
+             if(this .checked==true){
+                  console.log( "카메라 사용함." );
+            } else{
+                  console.log( "카메라 사용안함." );
+            }
+
+      });
+
+
+      $( "#qCheck").on("click" ,function(){
+             if(this .checked==true){
+                  $( "#questionDiv").show();
+            } else{
+                  $( "#questionDiv").hide();
+            }
+      });
+
+
+      $( "#qType").on("change" ,function(){
+             if(this .value=="객관식"){
+                  $( "#oxAnswerbox").hide();
+                  $( "#selectBox").show();
+                  $( "#multipleAnswerBox").show();
+
+
+            } else{
+                  $( "#selectBox").hide();
+                  $( "#multipleAnswerBox").hide();
+                  $( "#oxAnswerbox").show();
+
+            }
+
+      });
+
+
 </script>
 </body>
 </html>
