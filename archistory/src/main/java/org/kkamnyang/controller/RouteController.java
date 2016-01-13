@@ -17,6 +17,11 @@ public class RouteController{
 	@Autowired
 	RouteService service;
 	
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public void list(Model model) throws Exception{
+		model.addAttribute("list",service.list());
+	}
+	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public void createRoute(@RequestBody RouteVO vo) throws Exception{
 		System.out.println("create controller 호출됨~~");
