@@ -7,13 +7,13 @@ public class RouteVO {
 	private Integer routeno;
 	private Integer adminno;
 	private String routename;
-	private boolean secret;
+	private boolean secret; //null가능
 	private boolean step;
-	private String password;
-	private double lat;
-	private double lng;
-	private Date regdate;
-	private Date updatedate;	
+	private String password; //null가능
+	private double lat; //null가능
+	private double lng; //null가능
+	private Date regdate; //null가능
+	private Date updatedate; //null가능	
 	
 	
 	public boolean isSecret() {
