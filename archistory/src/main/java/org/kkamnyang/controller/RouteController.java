@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(value="/route/*")
 public class RouteController{
-	
-	
+		
 	@Autowired
 	RouteService service;
 	
