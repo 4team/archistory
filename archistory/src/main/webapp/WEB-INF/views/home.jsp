@@ -31,7 +31,7 @@
 			z-index:100;
 			position: absolute;
 			top:5px;
-			left:10px;
+			left:8px;
 			background-color:#303336;
 		}
         
@@ -59,7 +59,7 @@
 	   		margin-top:3px;
 	   		color:#FFFFFF;
 		}
-		
+
     </style>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -70,7 +70,6 @@
 <div id="menu">
 	<span class="glyphicon glyphicon-menu-hamburger"></span>
 </div>
-
 
 <div id="upper-login">
 	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
@@ -93,8 +92,7 @@
 	$("#joinBtn").on("click",function(){
 		alert("가입하는 폼이 나오도록 구현.");
 	});
-	
-	
+
 </script>
 
 </body>
