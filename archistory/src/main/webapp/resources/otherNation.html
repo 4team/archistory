@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map{
+        width: 100%;
+        height: 1000px;
+        z-index:300;
+    }
+
+</style>
+<body>
+
+<div id="map"></div>
+
+<script src="Cesium/js/other.js"></script>
+<script>
+
+    function initMap() {
+        var lat = getParameter('lat');
+        var lng = getParameter('lng');
+        console.log(lat, lng);
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: 16
+        });
+    };
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjUYVhsr-9THi7kQIHS0azuS10hUB75AU&callback=initMap"></script>
+</body>
+</html>
