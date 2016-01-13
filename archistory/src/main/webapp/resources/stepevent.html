@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>스텝모드 - 이벤트 생성</title>
 </head>
     <style>
         html, body {
@@ -15,7 +15,55 @@
             height: 100%;
         }
 
+        .modal-body{
+            height:460px;
+            overflow-y: auto;
+        }
 
+        .modal-title{
+            text-align: center;
+        }
+
+        #eventCreateDiv{
+            padding:10px;
+        }
+
+        #eventinfo{
+            height:120px;
+        }
+        #eventname{
+            width:450px;
+            white-space: nowrap;
+            display: inline;
+        }
+        #order{
+            width:52px;
+            white-space: nowrap;
+            display: inline;
+        }
+        #imagebox{
+            width:490px;
+            white-space: nowrap;
+            display: inline;
+        }
+
+        #moviebox{
+            width:490px;
+            white-space: nowrap;
+            display: inline;
+        }
+
+        #questionDiv{
+            display: none;
+        }
+
+        #selectBox{
+            display: none;
+        }
+
+        .glyphicon{
+            display: inline;
+        }
     </style>
 
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -28,6 +76,76 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=66fca768fabb8a1e238c3ac76f9c9499"></script>
 <body>
+
+<!-- 모달 팝업(이벤트(스텝) 생성) -->
+<div class="modal fade" id="routeCreateModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="routeCreateModalLabel">이벤트 생성</h4>
+            </div>
+            <div class="modal-body">
+                <div id="eventCreateDiv" class="row">
+                    <label for="eventname">장소명</label><br>
+                    <input type="text" class="form-control" id="eventname" placeholder="장소명을 입력하세요"> <input type="text" class="form-control" id="order" placeholder="순서"><br>
+
+                    <label for="eventinfo">설 명</label>
+                    <textarea class="form-control" id="eventinfo" placeholder="장소에 대한 설명을 입력하세요"></textarea><br>
+
+
+                    <label for="imagebox">이미지</label>
+                    <input type="text" class="form-control" id="imagebox"> <span class="glyphicon glyphicon-open"></span><br>
+                    <br>
+                    <label for="moviebox">동영상</label>
+                    <input type="text" class="form-control" id="moviebox"> <span class="glyphicon glyphicon-open"></span><br>
+                    <br>
+
+                    <span style="margin-left:10px;">카메라 <input type="checkbox" id="cameraCheck" value="cc"></span>
+                    <span style="margin-left:10px;">문제 <input type="checkbox" id="questionCheck" value="qc"></span><br>
+                </div>
+                <div id="questionDiv">
+                    <h4 class="modal-title" id="questionLabel">문제 추가</h4>
+                    <label for="questionType">문제유형</label>
+                    <select class="form-control" id="questionType">
+                        <option>O/X</option>
+                        <option>객관식</option>
+                    </select><br>
+
+                    <label for="questionContent">문제</label>
+                    <textarea class="form-control" id="questionContent" placeholder="문제에 대한 내용을 입력하세요"></textarea><br>
+                    <div id="selectBox">
+                        <label for="s1">1번 선택지</label>
+                        <input type="text" class="form-control" id="s1" placeholder="1번 보기를 입력하세요"><br>
+                        <label for="s2">2번 선택지</label>
+                        <input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요"><br>
+                        <label for="s3">3번 선택지</label>
+                        <input type="text" class="form-control" id="s3" placeholder="3번 보기를 입력하세요"><br>
+                        <label for="s4">4번 선택지</label>
+                        <input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요"><br>
+
+                        <div id="multipleAnswerBox" class="checkbox">
+                            <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
+                            <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
+                            <label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
+                            <label><input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4">4</label>
+                        </div>
+                    </div>
+                    <div id="oxAnswerBox" class="radio">
+                        <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="O" checked>O</label>
+                      <label><input type="radio" name="optionsRadios" id="oxAnswer2" value="X">X</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="eventCreateCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                <button type="button" id="eventCreateBtn" class="btn btn-primary">만들기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div id="map"></div>
 <script>
@@ -52,6 +170,97 @@
                 level: 2 // 지도의 확대 레벨
             };
     var map = new daum.maps.Map(mapContainer, mapOption);
+
+
+    var eventno = 1;
+    var lat = 0;
+    var lng = 0;
+
+    daum.maps.event.addListener(map,'click',function(mouseEvent){
+        lat = mouseEvent.latLng.Ab; // lat
+        lng = mouseEvent.latLng.zb; // lng
+        $("#order").val(eventno);
+        console.log("내가 선택한 위도와 경도 : ",lat, lng);
+        console.log(eventno);
+        $("#routeCreateModal").modal('show');
+
+        $("#eventCreateCancelBtn").on("click",function(){
+            console.log("이벤트 생성 취소.");
+           return;
+        });
+
+    });
+
+
+    $("#eventCreateBtn").on("click",function(){
+        var routeno = 1;
+        var title = $("#eventname").val();
+        var content = $("#eventinfo").val();
+
+
+        createEvent(routeno,title,content,lat,lng,eventno,function(result){
+            console.log("결과는..."+result);
+            eventno++;
+
+            $("#routeCreateModal").modal('hide');
+            clearEventDiv();
+        });
+    });
+
+    function createEvent(routeno,title,content,lat,lng,eventno,callback){
+        console.log(routeno,title,content,lat,lng,eventno);
+
+        $.ajax({
+            type:'post',
+            url: "http://192.168.0.36:8080/event/addEvent",
+            headers: {
+                "Content-Type": "application/json"},
+            dataType: "json",
+            data:JSON.stringify({adminno:1,routename:title,lat:lat,lng:lng}),
+            success: function(result){
+                console.log(result);
+                if(result=='SUCCESS'){
+                    console.log("등록되었습니다.");
+                };
+            }
+        });
+
+        callback();
+    };
+
+    function clearEventDiv(){
+       $("#eventname").val("");
+       $("#eventinfo").val("");
+       $("#imagebox").val("");
+       $("#moviebox").val("");
+    };
+
+    $("#questionCheck").on("click",function(){
+       var question = $("#questionCheck");
+       var qDiv = $("#questionDiv");
+        if(question[0].checked == true){
+            qDiv.show();
+        }else{
+            qDiv.hide();
+        }
+    });
+
+    console.log($("#questionType").select());
+
+    $("#questionType").on("change",function(){
+        console.log(this.value);
+        if(this.value=="객관식"){
+            $("#oxAnswerBox").hide();
+            $("#selectBox").show();
+            $("#multipleAnswerBox").show();
+        }else{
+            $("#multipleAnswerBox").hide();
+            $("#selectBox").hide();
+            $("#oxAnswerBox").show();
+        }
+    });
+
+
 
 </script>
 </body>
