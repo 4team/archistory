@@ -3,6 +3,8 @@ package org.kkamnyang.controller;
 import org.kkamnyang.domain.EventVO;
 import org.kkamnyang.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,10 +26,17 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
-	public void createEvent(@RequestBody EventVO vo) throws Exception{
+	public ResponseEntity<String> createEvent(@RequestBody EventVO vo) throws Exception{
 		System.out.println("event create POST controller 호출됨~~");
 		System.out.println(vo);
-		service.regist(vo);
+		ResponseEntity<String> entity = null;
+		try{
+			service.regist(vo);
+			entity = new ResponseEntity<String>("result",HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result",HttpStatus.BAD_REQUEST);
+		}
+		return entity;
 	}
 	
 	@RequestMapping(value="/view", method = RequestMethod.GET)
