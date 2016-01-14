@@ -31,7 +31,6 @@ public class AdminController {
 			model.addAttribute("adminVO",vo);
 		}else{
 			System.out.println("Admin계정에 없는 게스트의 로그인 시도였다.");			
-			return;
 		}
 	}
 	
