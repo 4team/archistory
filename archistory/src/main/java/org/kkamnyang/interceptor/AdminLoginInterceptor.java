@@ -15,6 +15,8 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
+		
+		System.out.println("POST Handle 실행됨==========");
 		HttpSession session = request.getSession();
 		ModelMap modelMap = modelAndView.getModelMap();
 		Object admin = modelMap.get("adminVO");
@@ -24,6 +26,7 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 			session.setAttribute(LOGIN, admin);
 			response.sendRedirect("/");
 		}
+		
 	}
 
 	@Override

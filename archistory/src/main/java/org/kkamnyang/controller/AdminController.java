@@ -1,5 +1,6 @@
 package org.kkamnyang.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.kkamnyang.domain.AdminDTO;
@@ -8,6 +9,7 @@ import org.kkamnyang.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,7 +21,7 @@ public class AdminController {
 	AdminService service;
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public void login(AdminDTO dto, HttpSession session, Model model) throws Exception{
+	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model,HttpServletResponse response) throws Exception{
 		System.out.println("누군가의 로그인 시도==================");
 		
 		AdminVO vo = service.login(dto);
@@ -31,7 +33,7 @@ public class AdminController {
 			return;
 		}
 		model.addAttribute("adminVO",vo);
-		
+		response.getWriter().print("LOGIN");
 	}
 	
 }
