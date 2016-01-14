@@ -35,7 +35,7 @@ public class EventController {
 	@RequestMapping(value="/elist", method=RequestMethod.GET)
 	public @ResponseBody List<EventVO> elist(@RequestParam("routeno")Integer routeno, HttpServletRequest request) throws Exception{
 		
-		System.out.println("**이벤트 리스트 호출됨**");
+		System.out.println("모든 이벤트 리스트 호출됨.=====");
 		List<EventVO> result = service.elist(routeno);
 		System.out.println(service.elist(routeno));
 		return result;
@@ -43,7 +43,7 @@ public class EventController {
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<String> createEvent(@RequestBody EventVO vo) throws Exception{
-		System.out.println("event create POST controller 호출됨~~");
+		System.out.println("["+vo.getTitle() + "] 이벤트의 생성 호출됨.=====");
 		System.out.println(vo);
 		ResponseEntity<String> entity = null;
 		try{

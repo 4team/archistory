@@ -299,6 +299,7 @@
 			data:JSON.stringify({routeno:routeno,title:title,content:content,lat:lat,lng:lng}),
 			success: function(data){
 				getEventList();
+				self.location = "/admin/login";
 			}
 
 		});
