@@ -103,7 +103,7 @@
         var spinGlobe = viewer.clock.onTick.addEventListener(turnAround);
         spinGlobe;
 
-        window.addEventListener("click",function(){
+        $("#cesiumContainer").on("click",function(){
             console.log("드래그");
             stopAround();
         });
@@ -152,6 +152,9 @@
         };
 
     });
+    
+    
+    
 
 </script>
 <script src="Cesium/js/map.js"></script>

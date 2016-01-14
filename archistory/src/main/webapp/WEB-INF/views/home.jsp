@@ -83,7 +83,42 @@
         .modal-title{
             text-align: center;
         }
+        
+         #myRouteList{
+            position:absolute;
+            padding: 10px;
+            z-index:400;
+            border : 1px solid black;
+            border-radius : 10px;
+            background-color : #FFF;
+            top:50px;
+            left:10px;
+            width:200px;
+            height:400px;
+            overflow-y:scroll;
+        }
+        li{
+            list-style: none;
+            margin-bottom: 15px;
+        }
 
+        small{
+            float:right;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
     </style>
     
     <script src="Cesium/js/jquery.js"></script>
@@ -121,7 +156,10 @@
 	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
 </div>
 
-
+<div id="myRouteList">
+<ul>
+</ul>
+</div>
 
 
 <!-- 모달 팝업(이벤트(스텝) 생성) -->
@@ -185,6 +223,26 @@
 		$("#joinModal").modal('show');
 	});
 
+	 var routeLi = "";
+	    function addList(route) {
+	        routeLi += "<li>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
+	        $("#myRouteList").html(routeLi);
+	    }
+
+	    $.getJSON("http://192.168.0.36:8080/route/list",function(data){
+	        var list = $(data);
+	        console.log(data);
+
+	        list.each(function(idx,value){
+	            var route = this;
+	            addList(route);
+	        });
+	    });
+
+	    $("#myRouteList").on("click","small",function(event){
+	        var select = $(this);
+	        alert("X를 클릭함. routeNo : "+select.attr("data-routeno"));
+	    });
 </script>
 
 </body>
