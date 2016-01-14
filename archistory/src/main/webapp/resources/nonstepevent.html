@@ -218,7 +218,7 @@
 		
 		}
 
-	function getEventList {
+	function getEventList(){
 		$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
 	
 		var list = $(data);
@@ -278,7 +278,7 @@
 
 		$.ajax({
 			type:'post',
-			url:"/event/create",
+			url:"http://192.168.0.36:8080/event/create",
 			headers: {
 				"Content-Type":"application/json"},
 			datatype: "json",
