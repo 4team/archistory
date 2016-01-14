@@ -1,6 +1,5 @@
 package org.kkamnyang.controller;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.kkamnyang.domain.AdminDTO;
@@ -19,6 +18,11 @@ public class AdminController {
 
 	@Autowired
 	AdminService service;
+	
+	@RequestMapping(value="/login",method = RequestMethod.GET)
+	public String loginSeccess() throws Exception{
+		return "/admin";
+	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
