@@ -43,7 +43,7 @@ public class EventController {
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<String> createEvent(@RequestBody EventVO vo) throws Exception{
-		System.out.println(vo.getTitle() + "이벤트의 생성 호출됨.=====");
+		System.out.println("["+vo.getTitle() + "] 이벤트의 생성 호출됨.=====");
 		System.out.println(vo);
 		ResponseEntity<String> entity = null;
 		try{

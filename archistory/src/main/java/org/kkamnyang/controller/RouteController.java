@@ -34,10 +34,8 @@ public class RouteController{
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public void createRoute(@RequestBody RouteVO vo,HttpServletResponse response) throws Exception{
-		System.out.println("create controller 호출됨~~");
-		System.out.println("등록하기 전 INDEX : "+vo.getRouteno());
+		System.out.println("["+vo.getRoutename()+"] 루트 생성 호출됨.=====");
 		service.regist(vo);
-		System.out.println("등록한 후 INDEX : "+vo.getRouteno());
 		Integer nowSequnece = vo.getRouteno();
 		response.getWriter().print(nowSequnece);
 		
