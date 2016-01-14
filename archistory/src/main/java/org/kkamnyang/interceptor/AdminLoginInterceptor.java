@@ -20,7 +20,9 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 		Object admin = modelMap.get("adminVO");
 		
 		if(admin != null){
-			System.out.println("=======");
+			System.out.println("Admin의 로그인 성공======= : AdminLoginInterceptor");
+			session.setAttribute(LOGIN, admin);
+			response.sendRedirect("/");
 		}
 	}
 
