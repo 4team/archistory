@@ -25,7 +25,6 @@ function sleep(delay) {
 
 var lat = getParameter("lat");
 var lng = getParameter("lng")
-console.log(lat);
 
 if(lat !== undefined) {
     viewer.camera.setView({
