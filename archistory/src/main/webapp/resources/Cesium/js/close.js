@@ -37,7 +37,6 @@ function closeMap(){
 
     google.maps.event.addListener(map, 'zoom_changed', function() {
         var zoom = map.getZoom();
-        console.log("세부맵의 줌사이즈 : ",zoom);
 
         var position = map.getCenter();
 
