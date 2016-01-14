@@ -1,5 +1,9 @@
 package org.kkamnyang.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.kkamnyang.domain.EventVO;
 import org.kkamnyang.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/event/*")
@@ -20,9 +25,11 @@ public class EventController {
 	EventService service;
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public void list(Model model) throws Exception{
+	public @ResponseBody List<EventVO> list(HttpServletRequest request) throws Exception{
 		System.out.println("이벤트 리스트GET 호출됨.");
-		model.addAttribute("list",service.list());
+		List<EventVO> result = service.list();
+		System.out.println(service.list());
+		return result;
 	}
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
