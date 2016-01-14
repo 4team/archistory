@@ -19,9 +19,9 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 	
-	@RequestMapping(value="/login",method = RequestMethod.GET)
+	@RequestMapping(value="",method = RequestMethod.GET)
 	public String loginSeccess() throws Exception{
-		return "/admin";
+		return "admin";
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
