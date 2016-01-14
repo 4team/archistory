@@ -20,11 +20,12 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();
 		ModelMap modelMap = modelAndView.getModelMap();
 		Object admin = modelMap.get("adminVO");
+		System.out.println("ADMIN"+admin);
 		
 		if(admin != null){
 			System.out.println("Admin의 로그인 성공======= : AdminLoginInterceptor(postHandle)");
 			session.setAttribute(LOGIN, admin);
-			modelAndView.addObject("data", "LOGIN");
+			response.sendRedirect("/");
 		}
 	}
 
