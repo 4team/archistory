@@ -237,10 +237,10 @@
 		}
 
 	function getEventList() {
-		$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
+		$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(result){
 	
-		var list = $(data);
-		console.log(data);
+		var list = $(result);
+		console.log(result);
 
 		list.each(function(idx,value){
 			var route= this;
