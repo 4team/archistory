@@ -160,7 +160,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: 'http://192.168.0.36:8080/route/create',
+                    url: '/route/create',
                     headers:{"Content-Type":"application/json"},
                     data: JSON.stringify({routename:name, password:password, secret:secret, step:step, lat:lat, lng:lng}),
                     dataType:'JSON',
