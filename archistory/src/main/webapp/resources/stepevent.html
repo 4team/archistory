@@ -37,7 +37,7 @@
             display: inline;
         }
         #order{
-            width:52px;
+            width:45px;
             white-space: nowrap;
             display: inline;
         }
@@ -65,6 +65,9 @@
             display: inline;
         }
 
+        #list{
+            width:60px;
+        }
     </style>
 
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -89,7 +92,7 @@
             <div class="modal-body">
                 <div id="eventCreateDiv" class="row">
                     <label for="eventname">장소명</label><br>
-                    <input type="text" class="form-control" id="eventname" placeholder="장소명을 입력하세요"> <input type="text" class="form-control" id="order" placeholder="순서"><br>
+                    <input type="text" class="form-control" id="eventname" placeholder="장소명을 입력하세요"> <input type="text" class="form-control" id="order" placeholder="순서" readonly="readonly" style="align:center"><br>
 
                     <label for="eventinfo">설 명</label>
                     <textarea class="form-control" id="eventinfo" placeholder="장소에 대한 설명을 입력하세요"></textarea><br>
@@ -159,9 +162,11 @@
             <div class="modal-body">
                 <div id="eventListDiv" class="elist">
                     <ul>
-                        <li><h3>리스트1</h3></li>
-                        <li><h3>리스트2</h3></li>
-                         <li><h3>리스트3</h3></li>
+                        <script>
+                        for (i = 0; i < eventno.length; i++) {
+                        eventno;
+                        }
+                        </script>
                     </ul>
                 </div>
 
@@ -235,6 +240,7 @@
         lat = mouseEvent.latLng.Ab; // lat
         lng = mouseEvent.latLng.zb; // lng
         $("#order").val(eventno);
+
         console.log("내가 선택한 위도와 경도 : ",lat, lng);
         console.log(eventno);
         $("#routeCreateModal").modal('show');
@@ -243,17 +249,16 @@
             console.log("이벤트 생성 취소.");
            return;
         });
-
     });
-
 
     $("#eventCreateBtn").on("click",function(){
         var routeno = 1;
+        var eorder = $("#order").val();
         var title = $("#eventname").val();
         var content = $("#eventinfo").val();
+        $("#list1").val(title);
 
-
-        createEvent(eventno,routeno,title,content,lat,lng,function(data){
+        createEvent(eventno,routeno,eorder,title,content,lat,lng,function(data){
             console.log("결과는..."+data);
             eventno++;
 
@@ -274,20 +279,28 @@
 
     });
     
-    function createEvent(eventno,routeno,title,content,lat,lng,callback){
-        console.log(eventno,routeno,title,content,lat,lng);
+    function createEvent(eventno,routeno,eorder,title,content,lat,lng,callback){
+        console.log(eventno,routeno,eorder,title,content,lat,lng);
+
+        if(title == "") {
+            alert('장소명을 입력해주세요');
+            return;
+        }else if(content == ""){
+            alert('설명을 입력해주세요');
+            return;
+        }
 
         $.ajax({
             type:'post',
             url: 'http://192.168.0.36:8080/event/create',
             headers: {"Content-Type": "application/json"},
             dataType: 'JSON',
-            data:JSON.stringify({routeno:routeno, title:title, content:content, lat:lat, lng:lng}),
+            data:JSON.stringify({routeno:routeno, eorder:eorder, title:title, content:content, lat:lat, lng:lng}),
             success: function(data){
                 console.log(data);
                 if(data=='SUCCESS'){
                     console.log("등록되었습니다.");
-                };
+                }
             }
         }); 
         callback();
