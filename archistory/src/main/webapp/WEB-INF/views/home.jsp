@@ -120,6 +120,19 @@
             border-radius: 10px;
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
         }
+        
+            #loginBody{
+        top:150px;
+        width:350px;
+    }
+
+    #loginH{
+        max-height:180px;
+    }
+
+    .radio{
+        text-align: center;
+    }
     </style>
     
     <script src="Cesium/js/jquery.js"></script>
@@ -163,7 +176,46 @@
 </div>
 
 
-<!-- 모달 팝업(이벤트(스텝) 생성) -->
+
+
+
+<!-- ★로그인 모달 -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" id="loginBody">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="loginModalLabel">로그인</h4>
+            </div>
+            <div class="modal-body" id="loginH">
+                <div id="loginDiv">
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="joinType" id="userLogin" value="user" checked>
+                            User
+                        </label>
+                        <label>
+                            <input type="radio" name="joinType" id="adminLogin" value="admin">
+                            Admin
+                        </label>
+                    </div>
+
+                    <input type="text" class="form-control" id="loginEmail" placeholder="Email"><br>
+                    <input type="text" class="form-control" id="loginPassword1" placeholder="Password"><br>
+                </div>
+
+            </div>
+            <div class="modal-footer"><center>
+                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                <button type="button" id="loginSubmitBtn" class="btn btn-primary">로그인</button></center>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 모달 팝업(회원가입) 생성) -->
 <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
         <div class="modal-content">
@@ -176,7 +228,7 @@
 
 	<div class="radio">
 	  <label>
-	    <input type="radio" name="joinType" id="user" value="user" checked>
+	    <input type="radio" name="joinType" id="user" value="user">
 	   User
 	  </label>
 	   <label>
@@ -227,9 +279,9 @@ $("#main").on("mouseover",function(){
     console.log("마우스아웃");
 });
 
-	$("#loginBtn").on("click",function(){
-		alert("로그인하는 DIV가 뜨도록 구현.");
-	});
+$("#loginBtn").on("click",function(){
+    $("#loginModal").modal('show');
+});
 	
 	$("#joinBtn").on("click",function(){
 		$("#joinModal").modal('show');
