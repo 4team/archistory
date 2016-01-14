@@ -216,6 +216,17 @@
 
 <script>
 	
+
+$("#mDrop").on("mouseover",function(){
+    $(".dropdown-menu").show();
+    console.log("마우스오버");
+});
+
+$("#main").on("mouseover",function(){
+    $(".dropdown-menu").hide();
+    console.log("마우스아웃");
+});
+
 	$("#loginBtn").on("click",function(){
 		alert("로그인하는 DIV가 뜨도록 구현.");
 	});
