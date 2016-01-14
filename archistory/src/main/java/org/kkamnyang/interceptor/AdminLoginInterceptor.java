@@ -27,7 +27,6 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 			modelAndView.addObject("data", "LOGIN");
 			response.sendRedirect("/admin");
 		}
-		
 	}
 
 	@Override
