@@ -192,17 +192,17 @@
 
                     <div class="radio">
                         <label>
-                            <input type="radio" name="joinType" id="userLogin" value="user" checked>
+                            <input type="radio" name="loginType" id="userLogin" value="user">
                             User
                         </label>
                         <label>
-                            <input type="radio" name="joinType" id="adminLogin" value="admin">
+                            <input type="radio" name="loginType" id="adminLogin" value="admin" checked>
                             Admin
                         </label>
                     </div>
 
                     <input type="text" class="form-control" id="loginEmail" placeholder="Email"><br>
-                    <input type="text" class="form-control" id="loginPassword1" placeholder="Password"><br>
+                    <input type="text" class="form-control" id="loginPassword" placeholder="Password"><br>
                 </div>
 
             </div>
@@ -281,6 +281,31 @@ $("#main").on("mouseover",function(){
 
 $("#loginBtn").on("click",function(){
     $("#loginModal").modal('show');
+});
+	
+$("#loginSubmitBtn").on("click",function(){
+    var email = $("#loginEmail").val();
+    var password = $("#loginPassword").val();
+
+    var loginType = $("#loginDiv .radio input:radio[name='loginType']:checked").val();
+
+    console.log(email,password,loginType);
+
+    $.ajax({
+        type:'post',
+        url: "http://192.168.0.36:8080/admin/login",
+        headers: {
+            "Content-Type": "application/json"},
+        dataType: "json",
+        data:JSON.stringify({email:email,password:password}),
+        success: function(data){
+            console.log(data);
+            if(data=='LOGIN'){
+                console.log("로그인 되었습니다.");
+            };
+        }
+    });
+
 });
 	
 	$("#joinBtn").on("click",function(){
