@@ -22,7 +22,7 @@ public class AdminController {
 
 	@RequestMapping(value="/login", method= RequestMethod.GET)
 	public String loginSuccess() throws Exception{
-		return "redirect:admin";
+		return "redirect:/admin";
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
