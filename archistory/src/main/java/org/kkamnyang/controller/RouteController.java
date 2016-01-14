@@ -27,12 +27,8 @@ public class RouteController{
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public @ResponseBody List<RouteVO> list(HttpServletRequest request) throws Exception{
-		System.out.println("====================");
 		System.out.println("★모든 루트 리스트의 출력.");
-		System.out.println("====================");
-
 		List<RouteVO> result = service.list();
-		System.out.println(service.list());
 		return result;
 	}
 	
