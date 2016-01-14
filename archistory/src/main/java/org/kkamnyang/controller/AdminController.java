@@ -20,6 +20,10 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 
+	@RequestMapping(value="/login", method= RequestMethod.GET)
+	public String loginSuccess() throws Exception{
+		return "redirect:admin";
+	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
