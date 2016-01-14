@@ -120,6 +120,8 @@
             border-radius: 10px;
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
         }
+        
+        
     </style>
     
     <script src="Cesium/js/jquery.js"></script>
