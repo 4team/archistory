@@ -21,19 +21,18 @@ public class AdminController {
 	AdminService service;
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model,HttpServletResponse response) throws Exception{
+	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
 		System.out.println("누군가의 로그인 시도==================");
 		
 		AdminVO vo = service.login(dto);
 		
 		if(vo != null){
 			System.out.println("["+vo.getUsername() + "] Admin이 로그인 하였다.");
+			model.addAttribute("adminVO",vo);
 		}else{
 			System.out.println("Admin계정에 없는 게스트의 로그인 시도였다.");			
 			return;
 		}
-		model.addAttribute("adminVO",vo);
-		response.getWriter().print("LOGIN");
 	}
 	
 }

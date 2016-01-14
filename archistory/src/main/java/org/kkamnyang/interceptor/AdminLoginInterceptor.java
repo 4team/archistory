@@ -10,7 +10,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 
-	private static final String LOGIN = "login";
+	private static final String LOGIN = "LOGIN";
 
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
@@ -25,6 +25,7 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 			System.out.println("Admin의 로그인 성공======= : AdminLoginInterceptor(postHandle)");
 			session.setAttribute(LOGIN, admin);
 			response.sendRedirect("/");
+
 		}
 		
 	}
