@@ -163,6 +163,7 @@
 	<h4>이벤트 리스트</h4>
 	<ul>
 	</ul>
+	<button type="button" id="commitList" class= "btn btn-default">완료</button>
 </div>
 
 
@@ -210,11 +211,12 @@
 	var lat= 0;
 	var lng =0;
 	var routeno = getParameter('routeno');
-	var routeLi="";
-
-	function addList(route){
-		routeLi+="<li>"+route.eventname+"<small data-eventno='"+route.eventno+"'>X</small></li>";
-		$("#eventList").html(routeLi);
+	var eventLi="";
+	
+	function addList(event){
+		
+		eventLi+="<li>"+event.title+"<small data-eventno='"+event.eventno+"'>X</small></li>";
+		$("#eventList").html(eventLi);
 		
 		}
 
@@ -223,14 +225,16 @@
 	
 		var list = $(data);
 		console.log(data);
-
+		eventLi="";
+		
 		list.each(function(idx,value){
-			var route= this;
-			addList(route);
-
+			var event= this;
+			addList(event);
 		});
 	});
+		
 	}
+	
 
 		$("#eventList").on("click","small",function(event){
 	        var select = $(this);
@@ -250,9 +254,12 @@
 			console.log("이벤트 생성 취소");
 			return;
 		});
+		
+		//getEventList();
+	
+	
 	});
-
-
+	
 	$("#createEventBtn").on("click",function(){
 
 		var title = $("#eventName").val();
@@ -265,11 +272,18 @@
 
 		createEvent(routeno, title, content, lat, lng, function () {
 			clearEventDiv();
-			getEventList();
+		
+			
 		});
+		
+	
 		$("#eventModal").modal('hide');
+	
 
 	});
+
+
+	
 
 
 	function createEvent(routeno,title,content,lat,lng,callback){
@@ -284,11 +298,11 @@
 			datatype: "json",
 			data:JSON.stringify({routeno:routeno,title:title,content:content,lat:lat,lng:lng}),
 			success: function(data){
+				getEventList();
 			}
 
 		});
-
-
+		
 		callback();
 
 	};
@@ -296,6 +310,7 @@
 	function clearEventDiv(){
 		$("#eventName").val("");
 		$("#eventinfo").val("");
+	
 	};
 
 
