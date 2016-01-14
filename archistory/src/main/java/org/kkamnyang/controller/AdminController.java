@@ -20,11 +20,6 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 
-	@RequestMapping(value="/login", method = RequestMethod.GET)
-	public void loginChecked() throws Exception{
-		
-	}
-	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
 		System.out.println("누군가의 로그인 시도==================");
