@@ -284,6 +284,7 @@
 			datatype: "json",
 			data:JSON.stringify({routeno:routeno,title:title,content:content,lat:lat,lng:lng}),
 			success: function(data){
+				self.location = "/admin/login";
 			}
 
 		});
