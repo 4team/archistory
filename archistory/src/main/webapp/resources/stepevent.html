@@ -64,6 +64,7 @@
         .glyphicon{
             display: inline;
         }
+
     </style>
 
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -146,6 +147,60 @@
     </div>
 </div>
 
+<!-- -----------------------------------이벤트리스트 보이기------------------------------------------ -->
+<!-- 이벤트리스트 모달 -->
+<div class="modal fade" id="eventListModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="eventListModalLabel">이벤트 리스트</h4>
+            </div>
+            <div class="modal-body">
+                <div id="eventListDiv" class="elist">
+                    <ul>
+                        <li><h3>리스트1</h3></li>
+                        <li><h3>리스트2</h3></li>
+                         <li><h3>리스트3</h3></li>
+                    </ul>
+                </div>
+
+            <div class="modal-footer">
+<!--                <button type="button" id="eventListCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>-->
+                <button type="button" id="elistConfirmBtn" class="btn btn-primary">완료</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+<!-- -----------------------------------이벤트리스트 보이기------------------------------------------ -->
+
+
+<!-- -----------------------------------루트등록완료 메세지 모달------------------------------------------ -->
+<!-- 이벤트리스트 모달 -->
+<div class="modal fade" id="eCompleteModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="eCompleteModalLabel">루트 생성 완료</h4>
+            </div>
+            <div class="modal-body">
+                    <div style="align:center">
+                        <h3>루트 등록이 완료되었습니다!</h3><br>
+                    </div>
+                <div class="modal-footer">
+                    <!--                <button type="button" id="eventListCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>-->
+                    <button type="button" id="eCompleteBtn" class="btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- -----------------------------------루트등록완료 메세지 모달------------------------------------------ -->
+
+
+
 
 <div id="map"></div>
 <script>
@@ -166,7 +221,7 @@
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 //   center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
-                center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')),
+                center: new daum.maps.LatLng(37.56653, 127.654545),
                 level: 2 // 지도의 확대 레벨
             };
     var map = new daum.maps.Map(mapContainer, mapOption);
@@ -204,9 +259,20 @@
 
             $("#routeCreateModal").modal('hide');
             clearEventDiv();
+            $("#eventListModal").modal('show');
         });
     });
-    
+
+    $("#elistConfirmBtn").on("click",function(){
+        $("#eventListModal").modal('hide');
+        $("#eCompleteModal").modal('show');
+
+  });
+
+    $("#eCompleteBtn").on("click",function(){
+        $("#eCompleteModal").modal('hide');
+
+    });
     
     function createEvent(eventno,routeno,title,content,lat,lng,callback){
         console.log(eventno,routeno,title,content,lat,lng);
