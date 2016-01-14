@@ -55,9 +55,8 @@ function closeMap(){
         var lng = event.latLng.lng();
 
         geocoder.geocode({'location':event.latLng},function(result){
-            console.log(result.length);
+       
             var length = result.length;
-            console.log(result[length-1].formatted_address);
             var nation = result[length-1].formatted_address;
 
             if(nation == '대한민국'){

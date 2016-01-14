@@ -166,14 +166,13 @@
                     dataType:'JSON',
                     success: function(data){
                     	console.log(data);
-                    	alert(data);
+	            if(step==true){
+	                self.location = "stepevent.html?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
+	            }else{
+	                self.location = "nonstepevent.html?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
+	            }
                     }
                 });
-	            if(step==true){
-	                self.location = "stepevent.html?lat="+lat+"&lng="+lng+"&step="+step;
-	            }else{
-	                self.location = "nonstepevent.html?lat="+lat+"&lng="+lng+"&step="+step;
-	            }
         });
     });
     });
