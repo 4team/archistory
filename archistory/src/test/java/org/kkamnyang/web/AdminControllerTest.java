@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
 import org.kkamnyang.persistence.AdminMapper;
 import org.slf4j.Logger;
@@ -50,10 +51,10 @@ public class AdminControllerTest {
 
 	@Test
 	public void loginTest() throws Exception{
-		AdminVO vo = new AdminVO();
-		vo.setEmail("archistory@knkn.com");
-		vo.setPassword("knkn");
-		AdminVO result = mapper.login(vo);
+		AdminDTO dto = new AdminDTO();
+		dto.setEmail("archistory@knkn.com");
+		dto.setPassword("knkn");
+		AdminVO result = mapper.login(dto);
 		System.out.println(result);
 	}
 }

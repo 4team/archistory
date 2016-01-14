@@ -1,5 +1,6 @@
 package org.kkamnyang.service;
 
+import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
 import org.kkamnyang.persistence.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class AdminService {
 		mapper.delete(adminno);
 	}
 	
-	public AdminVO login(AdminVO vo) throws Exception{
-		return mapper.login(vo);
+	public AdminVO login(AdminDTO dto) throws Exception{
+		return mapper.login(dto);
 	}
 	
 }

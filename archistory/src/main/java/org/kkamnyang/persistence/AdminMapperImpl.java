@@ -1,5 +1,6 @@
 package org.kkamnyang.persistence;
 
+import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
 import org.springframework.stereotype.Repository;
 
@@ -7,8 +8,8 @@ import org.springframework.stereotype.Repository;
 public class AdminMapperImpl extends AbstractCRUDMapper<AdminVO, Integer> implements AdminMapper {
 
 	@Override
-	public AdminVO login(AdminVO vo) throws Exception {
-		return session.selectOne(namespace+".login",vo);
+	public AdminVO login(AdminDTO dto) throws Exception {
+		return session.selectOne(namespace+".login",dto);
 	}
 
 
