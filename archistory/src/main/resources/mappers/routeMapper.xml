@@ -5,7 +5,7 @@
  
  <mapper namespace="org.kkamnyang.persistence.RouteMapper">
 
- 	<insert id="create">
+ 	<insert id="create" useGeneratedKeys="true" keyProperty="routeno">
  		insert into tbl_route(adminno,routename,secret,step,password,lat,lng) values(1,#{routename},#{secret},#{step},#{password},#{lat},#{lng})
  	</insert>
  	

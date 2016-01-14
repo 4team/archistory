@@ -158,7 +158,6 @@
         	
 	        createRoute(lat,lng,step,function(name,password,step,lat,lng,secret){
 
-                alert("ajax호출");
                 $.ajax({
                     type: 'POST',
                     url: 'http://192.168.0.36:8080/route/create',
@@ -166,6 +165,8 @@
                     data: JSON.stringify({routename:name, password:password, secret:secret, step:step, lat:lat, lng:lng}),
                     dataType:'JSON',
                     success: function(data){
+                    	console.log(data);
+                    	alert(data);
                     }
                 });
 	            if(step==true){

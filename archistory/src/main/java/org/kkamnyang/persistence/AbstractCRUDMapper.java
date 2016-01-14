@@ -19,8 +19,8 @@ public class AbstractCRUDMapper<V,K> implements CRUDMapper<V,K>{
 	}
 	
 	@Override
-	public void create(V vo) throws Exception {
-		session.insert(namespace+".create",vo);
+	public int create(V vo) throws Exception {
+		return session.insert(namespace+".create",vo);
 	}
 
 	@Override

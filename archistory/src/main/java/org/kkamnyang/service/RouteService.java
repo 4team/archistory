@@ -17,8 +17,8 @@ public class RouteService {
 		return mapper.list();
 	}
 
-	public void regist(RouteVO vo) throws Exception{
-		mapper.create(vo);
+	public int regist(RouteVO vo) throws Exception{
+		return mapper.create(vo);
 	}
 	
 	public RouteVO view(Integer routeno) throws Exception{
