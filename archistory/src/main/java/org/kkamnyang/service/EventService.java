@@ -18,6 +18,10 @@ public class EventService {
 	public List<EventVO> list() throws Exception{
 		return mapper.list();
 	}
+	
+	public List<EventVO> elist(Integer routeno) throws Exception{
+		return mapper.elist(routeno);
+	}
 
 	public void regist(EventVO vo) throws Exception{
 		mapper.create(vo);
