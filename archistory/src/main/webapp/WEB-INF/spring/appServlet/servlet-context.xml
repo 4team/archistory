@@ -23,4 +23,11 @@
 	
 	<context:component-scan base-package="org.kkamnyang.controller" />	
 	
+	<beans:bean id="loginInterceptor" class="org.kkamnyang.interceptor.AdminLoginInterceptor"></beans:bean>
+	<interceptors>
+	<interceptor>
+	<mapping path="/admin/login"/><beans:ref bean="loginInterceptor"/>
+	</interceptor>
+	</interceptors>
+	
 </beans:beans>

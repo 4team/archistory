@@ -20,7 +20,7 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 		Object admin = modelMap.get("adminVO");
 		
 		if(admin != null){
-			System.out.println("Admin의 로그인 성공======= : AdminLoginInterceptor");
+			System.out.println("Admin의 로그인 성공======= : AdminLoginInterceptor(postHandle)");
 			session.setAttribute(LOGIN, admin);
 			response.sendRedirect("/");
 		}
@@ -29,8 +29,13 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		// TODO Auto-generated method stub
-		return super.preHandle(request, response, handler);
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute(LOGIN) != null){
+			System.out.println("로그인 전에 세션에 있는 로그인 데이터를 초기화한다.======: AdminLoginInterceptor (preHandel)");
+			session.removeAttribute(LOGIN);
+		}
+		return true;
 	}
 	
 	

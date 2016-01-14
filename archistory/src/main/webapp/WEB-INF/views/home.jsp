@@ -163,7 +163,7 @@
 </div>
 
 
-<!-- 모달 팝업(이벤트(스텝) 생성) -->
+<!-- 모달 팝업(회원가입) 생성) -->
 <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
         <div class="modal-content">
