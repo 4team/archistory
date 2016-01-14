@@ -20,10 +20,6 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 
-	@RequestMapping(value="/login", method= RequestMethod.GET)
-	public String loginSuccess() throws Exception{
-		return "redirect:admin";
-	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
@@ -34,9 +30,8 @@ public class AdminController {
 		if(vo != null){
 			System.out.println("["+vo.getUsername() + "] Admin이 로그인 하였다.");
 			model.addAttribute("adminVO",vo);
-			
 		}else{
-			System.out.println("Admin계정에 없는 게스트의 로그인 시도였다.");			
+			System.out.println("Admin계정에 없는 게스트의 로그인 시도였다.");
 		}
 	}
 	
