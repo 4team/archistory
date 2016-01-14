@@ -163,6 +163,47 @@
 </div>
 
 
+
+
+
+<!-- 로그인 모달 -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="loginModalLabel">회원가입</h4>
+            </div>
+            <div class="modal-body">
+                <div id="loginDiv">
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="joinType" id="userLogin" value="user" checked>
+                            User
+                        </label>
+                        <label>
+                            <input type="radio" name="joinType" id="adminLogin" value="admin">
+                            Admin
+                        </label>
+                    </div>
+
+                        <input type="text" class="form-control" id="loginEmail" placeholder="Email"><br>
+                        <input type="text" class="form-control" id="loginPassword1" placeholder="Password"><br>
+
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                <button type="button" id="loginSubmitBtn" class="btn btn-primary">로그인</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- 모달 팝업(회원가입) 생성) -->
 <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
@@ -176,7 +217,7 @@
 
 	<div class="radio">
 	  <label>
-	    <input type="radio" name="joinType" id="user" value="user" checked>
+	    <input type="radio" name="joinType" id="user" value="user">
 	   User
 	  </label>
 	   <label>
