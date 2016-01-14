@@ -12,7 +12,11 @@
  	</insert>
  	
  	<select id="list" resultType="org.kkamnyang.domain.EventVO">
- 		select * from tbl_event
+ 		select * from tbl_event 
+ 	</select>
+ 	
+ 	<select id="elist" resultType="org.kkamnyang.domain.EventVO">
+ 		select * from tbl_event where routeno=#{routeno}
  	</select>
  	
  	<select id="read" resultType="org.kkamnyang.domain.EventVO">

@@ -235,7 +235,7 @@
 		$("#eventList").html(routeLi);
 	}
 
-	$.getJSON("http://192.168.0.36:8080/event/list",function(data){
+	$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
 		var list = $(data);
 		console.log(data);
 
@@ -352,7 +352,7 @@
 
 	});
 
-	$("#commitBtn").on("click",function(){
+/*  	$("#commitBtn").on("click",function(){
 		console.log("이벤트 처리 완료!");
 		$("#listModal").modal('hide');
 		$("#finishModal").modal('show');
@@ -362,7 +362,7 @@
 	$("#okBtn").on("click",function(){
 		console.log("루트 등록 완료!")
 		$("#finishModal").modal('hide');
-	});
+	});  */
 
 </script>
 </body>
