@@ -85,6 +85,7 @@
         }
         
          #myRouteList{
+         display:none;
             position:absolute;
             padding: 10px;
             z-index:400;
