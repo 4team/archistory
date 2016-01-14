@@ -233,9 +233,12 @@
 	function addList(route){
 		routeLi+="<li>"+route.eventname+"<small data-eventno='"+route.eventno+"'>X</small></li>";
 		$("#eventList").html(routeLi);
-	}
+		
+		}
 
-	$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
+	function getEventList {
+		$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
+	
 		var list = $(data);
 		console.log(data);
 
@@ -245,6 +248,7 @@
 
 		});
 	});
+	}
 
 		$("#eventList").on("click","small",function(event){
 	        var select = $(this);
@@ -279,6 +283,7 @@
 
 		createEvent(routeno, title, content, lat, lng, function () {
 			clearEventDiv();
+			getEventList();
 		});
 		$("#eventModal").modal('hide');
 
