@@ -62,19 +62,15 @@
 		}
 		
 		#joinDiv{
-			display:none;
+		
 		}
 		#userJoinDiv{
 			display:none;
 		}
 		#adminJoinDiv{
-			display:none;
+
 		}
-		
-		 #joinDiv{
-            padding:10px;
-        }
-		
+
         .modal-body{
             height:400px;
             overflow-y: auto;
@@ -133,6 +129,16 @@
     .radio{
         text-align: center;
     }
+    
+        #joinH{
+        max-height: 500px;
+    }
+
+    #joinBody{
+        top:50px;
+        width:400px;
+    }
+    
     </style>
     
     <script src="Cesium/js/jquery.js"></script>
@@ -217,13 +223,13 @@
 
 <!-- 모달 팝업(회원가입) 생성) -->
 <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
-    <div class="modal-dialog">
+    <div class="modal-dialog" id="joinBody">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="joinModalLabel">회원가입</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="joinH">
 <div id="joinDiv">
 
 	<div class="radio">
@@ -238,16 +244,16 @@
 	</div>
 	
 	<div id="userJoinDiv">
-	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
 	    <input type="text" class="form-control" id="email" placeholder="Email"><br>
 	    <input type="text" class="form-control" id="password1" placeholder="Password"><br>
-	    <input type="text" class="form-control" id="password2" placeholder="Password Again"><br>   
+	    <input type="text" class="form-control" id="password2" placeholder="Password (Again)"><br>   
+	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
     </div>
     <div id="adminJoinDiv">
-    	<input type="text" class="form-control" id="adminname" placeholder="UserName"><br>
 	    <input type="text" class="form-control" id="adminEmail" placeholder="Email"><br>
 	    <input type="text" class="form-control" id="adminpassword1" placeholder="Password"><br>
 	    <input type="text" class="form-control" id="adminpassword2" placeholder="Password (Again)"><br>
+    	<input type="text" class="form-control" id="adminname" placeholder="UserName"><br>
 	    <input type="text" class="form-control" id="phone" placeholder="Phone Number"><br>
 	    <input type="text" class="form-control" id="nation" placeholder="Nation"><br>   
     </div>
@@ -255,8 +261,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" id="eventCreateCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-                <button type="button" id="eventCreateBtn" class="btn btn-primary">회원가입</button>
+                <center><button type="button" id="eventCreateCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                <button type="button" id="eventCreateBtn" class="btn btn-primary">회원가입</button></center>
             </div>
         </div>
     </div>
@@ -271,12 +277,10 @@
 
 $("#mDrop").on("mouseover",function(){
     $(".dropdown-menu").show();
-    console.log("마우스오버");
 });
 
 $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
-    console.log("마우스아웃");
 });
 
 $("#loginBtn").on("click",function(){
@@ -312,6 +316,16 @@ $("#loginSubmitBtn").on("click",function(){
 		$("#joinModal").modal('show');
 	});
 
+    // 15일 5:29분부터 추가..
+    $("#user").on("click",function(){
+        $("#adminJoinDiv").hide();
+        $("#userJoinDiv").show();
+    });
+    $("#admin").on("click",function(){
+        $("#adminJoinDiv").show();
+        $("#userJoinDiv").hide();
+    });
+	
 	 var routeLi = "";
 	    function addList(route) {
 	        routeLi += "<li>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
