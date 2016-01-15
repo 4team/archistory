@@ -135,7 +135,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  
   	<insert id="addAttach">
 		insert into tbl_attach(fullName,boardNo)
-		values(#{fullName},seq_board.currval)
+		values(#{fullName},LAST_INSERT_ID())
 	</insert>
 	
 	<select id="getAttach" resultType="string">
