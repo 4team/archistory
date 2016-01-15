@@ -27,7 +27,11 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 			session.setAttribute(LOGIN, admin);
 			response.sendRedirect("/admin");
 			return;
+		}else{
+			response.sendRedirect("/");
+			return;
 		}
+		
 	}
 
 	@Override
