@@ -63,9 +63,17 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/modify", method = RequestMethod.POST)
-	public void modifyEvent(EventVO vo) throws Exception{
+	public ResponseEntity<String> modifyEvent(@RequestBody EventVO vo) throws Exception{
 		System.out.println("Event 수정 POST 호출됨.");
-		service.modify(vo);
+		ResponseEntity<String> entity = null;
+		
+		try{
+			service.modify(vo);
+			entity = new ResponseEntity<String>("result",HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result", HttpStatus.BAD_REQUEST);		
+		}
+		return entity;
 	}
 	
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
