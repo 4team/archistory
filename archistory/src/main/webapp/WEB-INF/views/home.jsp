@@ -62,7 +62,7 @@
 		}
 		
 		#joinDiv{
-
+		
 		}
 		#userJoinDiv{
 			display:none;
