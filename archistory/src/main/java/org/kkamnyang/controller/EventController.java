@@ -58,7 +58,7 @@ public class EventController {
 	public @ResponseBody EventVO view(@RequestParam("eventno") Integer eventno, HttpServletRequest request ) throws Exception{
 		System.out.println("Event View GET 호출됨.");
 		EventVO result = service.view(eventno);
-		System.out.println(service.view(eventno));
+		System.out.println(result);
 		return result;
 	}
 	
