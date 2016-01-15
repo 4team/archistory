@@ -29,7 +29,7 @@ function closeMap(){
         map = new google.maps.Map(document.getElementById('closeMap'), {
             center: new google.maps.LatLng(lat, lng),
             mapTypeControl:false,
-            zoom: 12
+            zoom: 16
         });
 
 
