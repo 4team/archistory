@@ -302,8 +302,8 @@
 			};
 	var map = new daum.maps.Map(mapContainer, mapOption);
 
-	var lat= 0;
-	var lng =0;
+	//var lat= 0;
+	//var lng =0;
 	var routeno = getParameter('routeno');
 	var eventLi="";
 
@@ -378,13 +378,14 @@
 			var title = $("#moeventName").val();
 			var content = $("#moeventinfo").val();
 			var eventno = $("#moeventno").val();
+			
 
 			if(title=="" || content==""){
 				alert("이벤트 이름과 설명을 입력해주세요!");
 				return;
 			}
 
-			modifyEvent(eventno,title,content,function(){ //lat,lng 필요 없는 이유 -> 삭제하고, 다시 만드는게 사용자한테 편함.
+			modifyEvent(eventno,title,content,lat,lng,function(){ //lat,lng 필요 없는 이유 -> 삭제하고, 다시 만드는게 사용자한테 편함.
 
 			});
 
@@ -431,6 +432,7 @@
 				$("#moeventName").val(vo.attr("title"));
 				$("#moeventinfo").val(vo.attr("content"));
 				$("#moeventno").val(eventno);
+				$("#mo")
 
 			});
 		}
@@ -457,7 +459,7 @@
 		}
 
 	<!-- 이벤트 수정 기능 -->
-		function modifyEvent(eventno,title,content,callback){
+		function modifyEvent(eventno,title,content,lat,lng,callback){
 
 			console.log("이벤트 수정"+eventno);
 
@@ -467,7 +469,7 @@
 				headers:{
 					"Content-Type" :"application/json"	},
 				datatype : "json",
-				data: JSON.stringify({eventno:eventno,title:title,content:content}),
+				data: JSON.stringify({eventno:eventno,title:title,content:content,lat:lat,lng:lng}),
 				success: function(data){
 					getEventList();
 					console.log(data);
