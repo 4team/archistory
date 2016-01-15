@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -56,10 +55,11 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/view", method = RequestMethod.GET)
-	public void view(@RequestParam("eventno") Integer eventno,Model model) throws Exception{
+	public @ResponseBody EventVO view(@RequestParam("eventno") Integer eventno, HttpServletRequest request ) throws Exception{
 		System.out.println("Event View GET 호출됨.");
-		EventVO vo = service.view(eventno);
-		model.addAttribute("event", vo);
+		EventVO result = service.view(eventno);
+		System.out.println(service.view(eventno));
+		return result;
 	}
 	
 	@RequestMapping(value="/modify", method = RequestMethod.POST)
