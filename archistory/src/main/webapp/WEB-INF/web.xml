@@ -3,6 +3,29 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+<!-- Beginning of web.xml deployment descriptor -->
+<security-constraint>
+<web-resource-collection>
+<web-resource-name>JSP database component</web-resource-name> 
+<url-pattern>/myhome.jsp</url-pattern> 
+<http-method>GET</http-method> 
+<http-method>POST</http-method>
+</web-resource-collection>
+<auth-constraint>
+<role-name>dbadmin</role-name>
+</auth-constraint>
+<user-data-constraint>
+<transport-guarantee>CONFIDENTIAL</transport-guarantee> 
+</user-data-constraint>
+</security-constraint>
+<login-config>
+<auth-method>BASIC</auth-method> 
+</login-config>
+<security-role>
+<role-name>dbadmin</role-name> 
+</security-role>
+<!-- Rest of web.xml deployment descriptor -->
+
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -29,6 +52,10 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+	
+	
 	
 	<filter>
        <filter-name>encodingFilter</filter-name>
