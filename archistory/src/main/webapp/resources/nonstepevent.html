@@ -28,6 +28,13 @@
 	#selectBox{
 		display: none;
 	}
+
+	#moquestionDiv{
+		display: none;
+	}
+	#moselectBox{
+		display: none;
+	}
 	#listModal1{
 		margin-top:50px;
 		margin-left:20px;
@@ -76,6 +83,13 @@
 		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 	}
 
+	.glyphicon{
+		display: inline;
+		margin : 3px;
+	}
+	.gly{
+		float:right;
+	}
 
 
 
@@ -100,7 +114,7 @@
 <div id="map"></div>
 
 
-<!-- 모달 팝업(event생성) -->
+<!--  이벤트 생성 모달 (문제 생성) -->
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -108,7 +122,7 @@
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">×</span>
 					<span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="createEventLable">EVENT</h4>
+				<h4 class="modal-title">이벤트 생성</h4>
 			</div>
 			<div class="modal-body">
 				<div id="createEventDiv" >
@@ -140,7 +154,7 @@
 						<label for="s3">3번 선택지</label><input type="text" class="form-control" id="s3" placeholder="3번 보기를 입력하세요."><br>
 						<label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
 
-						<div id="multipleAnswer" class="checkbox">
+						<div id="multipleAnswerBox" class="checkbox">
 							<label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
 							<label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
 							<label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
@@ -163,6 +177,75 @@
 		</div>
 	</div>
 </div>
+
+<!-- END 모달(event 및 문제 생성)  -->
+
+
+<!--  수정 모달  -->
+<div class="modal fade" id="modiModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">×</span>
+					<span class="sr-only">Close</span></button>
+				<h4 class="modal-title">이벤트 수정</h4>
+			</div>
+			<div class="modal-body">
+				<div id="modiEventDiv">
+                    <input type="hidden" id="moeventno" value="">
+					<label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
+					<button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
+					<label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
+					<label for="imgInput">이미지</label><input type="file" id="moimgInput"><br>
+					<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>
+					<label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+
+					<input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
+				</div>
+				<div id="moquestionDiv">
+					<hr>
+					<h4 class="modal-title">QUESTION</h4>
+
+					<label for="type">문제 유형</label>
+					<select class="form-control" id="moqType">
+						<option>O/X</option>
+						<option>객관식</option>
+					</select><br>
+
+					<label for="qTitle">문제</label>
+					<textarea class="form-control" id="moquestionTitle" placeholder="문제를 입력하세요."></textarea><br>
+					<div id="moselectBox">
+						<label for="s1">1번 선택지</label><input type="text" class="form-control" id="mos1" placeholder="1번 보기를 입력하세요."><br>
+						<label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요."><br>
+						<label for="s3">3번 선택지</label><input type="text" class="form-control" id="mos3" placeholder="3번 보기를 입력하세요."><br>
+						<label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
+
+						<div id="momultipleAnswer" class="checkbox">
+							<label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
+							<label><input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2">2</label>
+							<label><input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3">3</label>
+							<label><input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4">4</label>
+						</div>
+					</div>
+					<div id="mooxAnswerbox" class="radio">
+						<label><input type="radio" name="optionsRadios" id="mooxAnswer1" value="o" checked> O </label>
+						<label><input type="radio" name="optionsRadios" id="mooxAnswer2" value="x" checked> X </label>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" id="modifyEventBtn" class="btn btn-create">수정하기</button>
+				<button type="button" id="mocancleEventBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- END 수정모달  -->
 
 
 <div id="list">
@@ -224,48 +307,175 @@
 	var routeno = 77;<!--getParameter('routeno');-->
 	var eventLi="";
 
+
+
 	<!-- 이벤트 리스트 불러오기-->
 
-	function getEventList(){
-		$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
+		function getEventList(){
+			$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
 
-			var list = $(data);
-			console.log(data);
-			eventLi="";
+				var list = $(data);
+				console.log(list);
+				eventLi="";
 
-			list.each(function(idx,value){
-				var event= this;
-				addList(event);
+				list.each(function(idx,value){
+					var event= this;
+					addList(event);
+				});
 			});
+
+		}
+	<!-- 이벤트 리스트 - 리스트 추가 -->
+		function addList(event){
+
+			eventLi+="<li>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
+					"<span class='glyphicon glyphicon-remove' id='del' value='"+event.eventno+"'></span></div></li>";
+
+			$("#eventList").html(eventLi);
+
+		}
+
+	<!-- 이벤트 리스트 삭제버튼 -->
+		$("#eventList").on("click","#del",function(event){
+			var select = $(this);
+			removeEvent(select.attr("value"),function(){
+			});
+			alert(select.attr("value")+"삭제되었습니다.");
 		});
 
-	}
-
-//	function addList(event){
-//
-//		eventLi+="<li>" +event.title+ "<span class='glyphicon glyphicon-pencil'></span><span class='glyphicon glyphicon-remove' id=" +event.eventno+ "></span></li>";
-//
-//		$("#eventList").html(eventLi);
-//
-//	}
-
-	function addList(event){
-
-		eventLi+="<li>"+event.title+"<small data-eventno='"+event.eventno+"'>X</small></li>";
-		$("#eventList").html(eventLi);
-
-	}
+	<!-- 이벤트 리스트 수정 버튼 -->
+		$("#eventList").on("click","#modi",function(event){
+			var select = $(this);
+			viewEvent(select.attr("value"));
+			$("#modiModal").modal('show');
+		});
 
 
-	$("#eventList").on("click","small",function(event){
-		var select = $(this);
-		//event.preventDefault();
-		removeEvent(select.attr("data-eventno"),function(){
+	<!-- 이벤트 생성 버튼 클릭-->
+
+		$("#createEventBtn").on("click",function(){
+
+			var title = $("#eventName").val();
+			var content = $("#eventinfo").val();
+
+			if(title=="" || content==""){
+				alert("이벤트 이름과 설명을 입력해주세요!");
+				return;
+			}
+
+			createEvent(routeno, title, content, lat, lng, function () {
+				clearEventDiv();
+
+			});
+
+			$("#eventModal").modal('hide');
 
 		});
 
-		alert(select.attr("data-eventno")+"가 삭제되었습니다.");
-	});
+	<!-- 이벤트 수정 버튼 클릭-->
+
+		$("#modifyEventBtn").on("click",function(){
+			var title = $("#moeventName").val();
+			var content = $("#moeventinfo").val();
+			var eventno = $("#moeventno").val();
+
+			if(title=="" || content==""){
+				alert("이벤트 이름과 설명을 입력해주세요!");
+				return;
+			}
+
+			modifyEvent(eventno,title,content,function(){ //lat,lng 필요 없는 이유 -> 삭제하고, 다시 만드는게 사용자한테 편함.
+
+			});
+
+			$("#modiModal").modal('hide');
+
+		});
+
+	<!-- 이벤트 생성 기능 -->
+		function createEvent(routeno,title,content,lat,lng,callback){
+
+			console.log(routeno,title,content,lat,lng);
+
+			$.ajax({
+				type:'post',
+				url:"http://192.168.0.36:8080/event/create",
+				headers: {
+					"Content-Type":"application/json"},
+				datatype: "json",
+				data:JSON.stringify({routeno:routeno,title:title,content:content,lat:lat,lng:lng}),
+				success: function(data){
+					getEventList();
+					console.log(data);
+				}
+			});
+			callback();
+		};
+
+	<!-- 이벤트 생성 창 비우기 기능-->
+		function clearEventDiv(){
+			$("#eventName").val("");
+			$("#eventinfo").val("");
+		}
+
+
+	<!-- 이벤트 읽기 기능 -->
+		function viewEvent(eventno){
+			$.getJSON("http://192.168.0.36:8080/event/view?eventno="+eventno,function(data){
+
+				console.log("이벤트 넘버:"+eventno+"읽어오기");
+
+				var vo = $(data);
+				console.log(vo);
+
+				$("#moeventName").val(vo.attr("title"));
+				$("#moeventinfo").val(vo.attr("content"));
+				$("#moeventno").val(eventno);
+
+			});
+		}
+
+	<!-- 이벤트 삭제 기능 -->
+		function removeEvent(eventno,callback){
+			console.log("이벤트 삭제"+eventno);
+
+			$.ajax({
+				type:'post',
+				url:"http://192.168.0.36:8080/event/remove",
+				headers:{
+					"Content-Type":"application/json"},
+				datatype: "json",
+				data:JSON.stringify({eventno:eventno}),
+				success:function(data){
+					getEventList();
+					console.log(data);
+				}
+
+			});
+			callback();
+
+		}
+
+	<!-- 이벤트 수정 기능 -->
+		function modifyEvent(eventno,title,content,callback){
+
+			console.log("이벤트 수정"+eventno);
+
+			$.ajax({
+				type:'post',
+				url:"http://192.168.0.36:8080/event/modify",
+				headers:{
+					"Content-Type" :"application/json"	},
+				datatype : "json",
+				data: JSON.stringify({eventno:eventno,title:title,content:content}),
+				success: function(data){
+					getEventList();
+					console.log(data);
+				}
+			});
+			callback();
+		}
+
 
 
 
@@ -282,30 +492,10 @@
 			console.log("이벤트 생성 취소");
 
 		});
-
-	});
-
-	<!-- 이벤트 생성 -->
-
-	$("#createEventBtn").on("click",function(){
-
-		var title = $("#eventName").val();
-		var content = $("#eventinfo").val();
-
-		if(title=="" || content==""){
-			alert("이벤트 이름과 설명을 입력해주세요!");
-			return;
-		}
-
-		createEvent(routeno, title, content, lat, lng, function () {
-			clearEventDiv();
-
+		$("#mocancleEventBtn").on("click",function(){
+			console.log("이벤트 수정 취소");
 
 		});
-
-
-		$("#eventModal").modal('hide');
-
 
 	});
 
@@ -313,76 +503,7 @@
 
 
 
-	function createEvent(routeno,title,content,lat,lng,callback){
-
-		console.log(routeno,title,content,lat,lng);
-
-		$.ajax({
-			type:'post',
-			url:"http://192.168.0.36:8080/event/create",
-			headers: {
-				"Content-Type":"application/json"},
-			datatype: "json",
-			data:JSON.stringify({routeno:routeno,title:title,content:content,lat:lat,lng:lng}),
-			success: function(data){
-				getEventList();
-				console.log(data);
-
-			}
-
-		});
-
-		callback();
-
-	};
-
-	function clearEventDiv(){
-		$("#eventName").val("");
-		$("#eventinfo").val("");
-
-	}
-
-	function removeEvent(eventno,callback){
-		console.log(eventno);
-
-		$.ajax({
-			type:'post',
-			url:"http://192.168.0.36:8080/event/remove",
-			headers:{
-				"Content-Type":"application/json"},
-			datatype: "json",
-			data:JSON.stringify({eventno:eventno}),
-			success:function(data){
-				getEventList();
-				console.log(data);
-			}
-
-		});
-		callback();
-
-	}
-
-/*
-	function removeEvent(eventno,callback){
-		console.log(eventno);
-
-		$.ajax({
-			type:'post',
-			url:"http://192.168.0.36:8080/event/remove?eventno="+eventno,
-			headers:{
-				"Content-Type":"application/json"},
-			datatype: "json",
-			success:function(){
-				getEventList();
-			}
-
-		});
-		callback();
-
-	}
-*/
-
-
+	<!-- 이벤트 생성 모달(세부사항)-->
 
 	$("#search").on("click",function(){
 		console.log("문화재 api를 이용해 검색하였습니다.");
@@ -412,29 +533,61 @@
 		if(this.value=="객관식"){
 			$("#oxAnswerbox").hide();
 			$("#selectBox").show();
-			$("#multipleAnswerBox").show();
-
+			//$("#multipleAnswerBox").show();
 
 		}else{
 			$("#selectBox").hide();
-			$("#multipleAnswerBox").hide();
+			//$("#multipleAnswerBox").hide();
 			$("#oxAnswerbox").show();
 
+		}
+	});
+
+	<!-- END 이벤트 생성 모달-->
+
+	<!-- 수정모달(세부사항) -->
+
+	$("#mosearch").on("click",function(){
+		console.log("문화재 api를 이용해 검색하였습니다.");
+	});
+
+
+	$("#mocamera").change("toggle",function(){
+		if(this.checked==true){
+			console.log("카메라 사용함.");
+		}else{
+			console.log("카메라 사용안함.");
 		}
 
 	});
 
-	/*  	$("#commitBtn").on("click",function(){
-	 console.log("이벤트 처리 완료!");
-	 $("#listModal").modal('hide');
-	 $("#finishModal").modal('show');
 
-	 });
+	$("#moqCheck").on("click",function(){
+		if(this.checked==true){
+			$("#moquestionDiv").show();
+		}else{
+			$("#moquestionDiv").hide();
+		}
+	});
 
-	 $("#okBtn").on("click",function(){
-	 console.log("루트 등록 완료!")
-	 $("#finishModal").modal('hide');
-	 });  */
+
+	$("#moqType").on("change",function(){
+		if(this.value=="객관식"){
+			$("#mooxAnswerbox").hide();
+			$("#moselectBox").show();
+			//$("#multipleAnswerBox").show();
+
+		}else{
+			$("#moselectBox").hide();
+			//$("#multipleAnswerBox").hide();
+			$("#mooxAnswerbox").show();
+
+		}
+	});
+
+
+	<!-- END 수정모달 세부사항 -->
+
 
 </script>
 </body>
