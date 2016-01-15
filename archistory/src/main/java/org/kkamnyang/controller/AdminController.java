@@ -6,13 +6,12 @@ import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
 import org.kkamnyang.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value="/admin/*")
@@ -27,7 +26,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
+	public ModelAndView login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
 		System.out.println("누군가의 로그인 시도==================");
 		AdminVO vo = service.login(dto);
 		
@@ -37,6 +36,7 @@ public class AdminController {
 			System.out.println("Admin계정에 없는 게스트의 로그인 시도였다.");
 		}
 		model.addAttribute("adminVO",vo);
+		return (ModelAndView) model;
 	}
 	
 }
