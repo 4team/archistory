@@ -247,7 +247,7 @@
 	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
 	    <input type="text" class="form-control" id="email" placeholder="Email"><br>
 	    <input type="text" class="form-control" id="password1" placeholder="Password"><br>
-	    <input type="text" class="form-control" id="password2" placeholder="Password Again"><br>   
+	    <input type="text" class="form-control" id="password2" placeholder="Password (Again)"><br>   
     </div>
     <div id="adminJoinDiv">
     	<input type="text" class="form-control" id="adminname" placeholder="UserName"><br>
