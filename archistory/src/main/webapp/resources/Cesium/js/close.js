@@ -16,7 +16,7 @@ var getParameter = function (param) {
     }
 };
 
-var lat = getParameter('lat')-0.06;
+var lat = getParameter('lat')-0.02;
 var lng = getParameter('lng');
 var map;
 var geocoder = new google.maps.Geocoder;
@@ -29,7 +29,7 @@ function closeMap(){
         map = new google.maps.Map(document.getElementById('closeMap'), {
             center: new google.maps.LatLng(lat, lng),
             mapTypeControl:false,
-            zoom: 12
+            zoom: 13
         });
 
 
