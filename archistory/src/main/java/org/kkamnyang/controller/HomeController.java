@@ -1,7 +1,5 @@
 package org.kkamnyang.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -30,9 +28,9 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/admin")
+	@RequestMapping(value = "/login")
 	public String admin(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("로그인에 성공하여 admin.jsp를 보낸다.", locale);
 
 		
 		return "admin";
