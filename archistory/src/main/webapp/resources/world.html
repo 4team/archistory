@@ -114,7 +114,7 @@
             var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
             var height = (cartographic.height * 0.001).toFixed(1);
 
-            if (height < 500) {
+            if (height < 10) {
                 changePage(lat, lng, height);
             }
         });
