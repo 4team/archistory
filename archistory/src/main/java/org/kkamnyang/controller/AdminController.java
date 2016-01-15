@@ -1,5 +1,7 @@
 package org.kkamnyang.controller;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpSession;
 
 import org.kkamnyang.domain.AdminDTO;
@@ -18,6 +20,15 @@ public class AdminController {
 
 	@Autowired
 	AdminService service;
+	
+	@RequestMapping(value = "/login")
+	public String admin(Locale locale, Model model) {
+		System.out.println("로그인에 성공하여 admin.jsp를 보낸다.");
+
+		
+		return "admin";
+	}
+	
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
