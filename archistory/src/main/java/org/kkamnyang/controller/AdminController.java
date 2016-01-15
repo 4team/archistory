@@ -30,7 +30,7 @@ public class AdminController {
 		
 		if(vo != null){
 			System.out.println("["+vo.getUsername() + "] Admin이 로그인 하였다.");
-			session.setAttribute("adminVO", vo);
+			session.setAttribute("LOGIN", vo);
 			model.addAttribute("adminVO",vo);
 		}else{
 			System.out.println("Admin계정에 없는 게스트의 로그인 시도였다.");
