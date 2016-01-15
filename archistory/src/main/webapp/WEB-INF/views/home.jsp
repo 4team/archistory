@@ -70,11 +70,7 @@
 		#adminJoinDiv{
 
 		}
-		
-		 #joinDiv{
-            padding:10px;
-        }
-		
+
         .modal-body{
             height:400px;
             overflow-y: auto;
