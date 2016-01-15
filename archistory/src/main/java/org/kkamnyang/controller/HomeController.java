@@ -28,12 +28,5 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/login")
-	public String admin(Locale locale, Model model) {
-		logger.info("로그인에 성공하여 admin.jsp를 보낸다.", locale);
 
-		
-		return "admin";
-	}
-	
 }
