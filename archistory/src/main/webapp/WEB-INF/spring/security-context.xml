@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:security="http://www.springframework.org/schema/security"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+ 
+        
+         <security:http pattern="/common/css/**" security="none" />
+         <security:http pattern="/common/img/**" security="none" />
+         <security:http pattern="/common/js/**" security="none" />
+         
+         <security:http auto-config="true">
+                  <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+<security:intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+
+                   <security:form-login login-page="/login.do"
+                           login-processing-url="/j_spring_security_check.do"
+                           default-target-url="/loginSuccess.do"
+                           authentication-failure-url="/loginFailed.do" />
+ 
+                  <security:logout logout-url="/j_spring_security_logout.do"
+                           logout-success-url="/logout.do"
+                           invalidate-session="true" />
+         </security:http>
+        
+         <authentication-manager>
+               <authentication-provider>
+                       <user-service properties="classpath:conf/users-config.xml" />
+               </authentication-provider>
+        </authentication-manager>
+ 
+</beans>
