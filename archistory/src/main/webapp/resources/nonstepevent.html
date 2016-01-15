@@ -32,7 +32,7 @@
 		margin-top:50px;
 		margin-left:20px;
 	}
-	#eventList{
+	#list{
 		position : absolute;
 		padding : 10px;
 		z-index: 400;
@@ -47,6 +47,11 @@
 
 	}
 
+	#listBottom{
+		margin-bottom: 5px;
+		float: right;
+	}
+
 	li{
 		list-style: none;
 		margin-bottom: 15px;
@@ -54,6 +59,7 @@
 
 	small{
 		float:right;
+		font-size:smaller;
 	}
 
 	::-webkit-scrollbar {
@@ -159,11 +165,16 @@
 </div>
 
 
-<div id="eventList">
+<div id="list">
 	<h4>이벤트 리스트</h4>
-	<ul>
-	</ul>
-	<button type="button" id="commitList" class= "btn btn-default">완료</button>
+	<hr>
+ 	<div id="eventList">
+		<ul>
+		</ul>
+	</div>
+	<div id="listBottom">
+	<button type="button" id="commitList" class= "btn btn-default" >완료</button>
+	</div>
 </div>
 
 
@@ -203,45 +214,62 @@
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 			mapOption = {
 				//   center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
-				center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')),
+				center: new daum.maps.LatLng(36.123123,127.123123),
 				level: 2 // 지도의 확대 레벨
 			};
 	var map = new daum.maps.Map(mapContainer, mapOption);
 
 	var lat= 0;
 	var lng =0;
-	var routeno = getParameter('routeno');
+	var routeno = 77;<!--getParameter('routeno');-->
 	var eventLi="";
-	
-	function addList(event){
-		
-		eventLi+="<li>"+event.title+"<small data-eventno='"+event.eventno+"'>X</small></li>";
-		$("#eventList").html(eventLi);
-		
-		}
+
+	<!-- 이벤트 리스트 불러오기-->
 
 	function getEventList(){
 		$.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
-	
-		var list = $(data);
-		console.log(data);
-		eventLi="";
-		
-		list.each(function(idx,value){
-			var event= this;
-			addList(event);
+
+			var list = $(data);
+			console.log(data);
+			eventLi="";
+
+			list.each(function(idx,value){
+				var event= this;
+				addList(event);
+			});
 		});
-	});
-		
+
 	}
-	
 
-		$("#eventList").on("click","small",function(event){
-	        var select = $(this);
-	        alert("X를 클릭함. routeNo : "+select.attr("data-routeno"));
-	    });
+//	function addList(event){
+//
+//		eventLi+="<li>" +event.title+ "<span class='glyphicon glyphicon-pencil'></span><span class='glyphicon glyphicon-remove' id=" +event.eventno+ "></span></li>";
+//
+//		$("#eventList").html(eventLi);
+//
+//	}
+
+	function addList(event){
+
+		eventLi+="<li>"+event.title+"<small data-eventno='"+event.eventno+"'>X</small></li>";
+		$("#eventList").html(eventLi);
+
+	}
 
 
+	$("#eventList").on("click","small",function(event){
+		var select = $(this);
+		//event.preventDefault();
+		removeEvent(select.attr("data-eventno"),function(){
+
+		});
+
+		alert(select.attr("data-eventno")+"가 삭제되었습니다.");
+	});
+
+
+
+	<!--map 클릭하면-->
 	daum.maps.event.addListener(map,'click',function(mouseEvent){
 		lat= mouseEvent.latLng.Ab;
 		lng = mouseEvent.latLng.zb;
@@ -252,14 +280,13 @@
 
 		$("#cancleEventBtn").on("click",function(){
 			console.log("이벤트 생성 취소");
-			return;
+
 		});
-		
-		//getEventList();
-	
-	
+
 	});
-	
+
+	<!-- 이벤트 생성 -->
+
 	$("#createEventBtn").on("click",function(){
 
 		var title = $("#eventName").val();
@@ -272,18 +299,18 @@
 
 		createEvent(routeno, title, content, lat, lng, function () {
 			clearEventDiv();
-		
-			
+
+
 		});
-		
-	
+
+
 		$("#eventModal").modal('hide');
-	
+
 
 	});
 
 
-	
+
 
 
 	function createEvent(routeno,title,content,lat,lng,callback){
@@ -299,11 +326,12 @@
 			data:JSON.stringify({routeno:routeno,title:title,content:content,lat:lat,lng:lng}),
 			success: function(data){
 				getEventList();
-				self.location = "/admin/login";
+				console.log(data);
+
 			}
 
 		});
-		
+
 		callback();
 
 	};
@@ -311,8 +339,49 @@
 	function clearEventDiv(){
 		$("#eventName").val("");
 		$("#eventinfo").val("");
-	
-	};
+
+	}
+
+	function removeEvent(eventno,callback){
+		console.log(eventno);
+
+		$.ajax({
+			type:'post',
+			url:"http://192.168.0.36:8080/event/remove",
+			headers:{
+				"Content-Type":"application/json"},
+			datatype: "json",
+			data:JSON.stringify({eventno:eventno}),
+			success:function(data){
+				getEventList();
+				console.log(data);
+			}
+
+		});
+		callback();
+
+	}
+
+/*
+	function removeEvent(eventno,callback){
+		console.log(eventno);
+
+		$.ajax({
+			type:'post',
+			url:"http://192.168.0.36:8080/event/remove?eventno="+eventno,
+			headers:{
+				"Content-Type":"application/json"},
+			datatype: "json",
+			success:function(){
+				getEventList();
+			}
+
+		});
+		callback();
+
+	}
+*/
+
 
 
 	$("#search").on("click",function(){
@@ -350,22 +419,22 @@
 			$("#selectBox").hide();
 			$("#multipleAnswerBox").hide();
 			$("#oxAnswerbox").show();
-  
+
 		}
 
 	});
 
-/*  	$("#commitBtn").on("click",function(){
-		console.log("이벤트 처리 완료!");
-		$("#listModal").modal('hide');
-		$("#finishModal").modal('show');
+	/*  	$("#commitBtn").on("click",function(){
+	 console.log("이벤트 처리 완료!");
+	 $("#listModal").modal('hide');
+	 $("#finishModal").modal('show');
 
-	});
+	 });
 
-	$("#okBtn").on("click",function(){
-		console.log("루트 등록 완료!")
-		$("#finishModal").modal('hide');
-	});  */
+	 $("#okBtn").on("click",function(){
+	 console.log("루트 등록 완료!")
+	 $("#finishModal").modal('hide');
+	 });  */
 
 </script>
 </body>

@@ -69,10 +69,16 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
-	public void removeEvent(@RequestBody EventVO vo )throws Exception{
-		System.out.println("**Event 삭제 POST 호출됨.**");
-		System.out.println(vo.getEventno());	
-		service.remove(vo.getEventno());
-	
+	public ResponseEntity<String> removeEvent(@RequestBody EventVO vo) throws Exception{
+		System.out.println("Event 삭제 POST 호출됨.");
+		ResponseEntity<String> entity = null;
+		
+		try{
+			service.remove(vo.getEventno());
+			entity = new ResponseEntity<String>("result",HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result",HttpStatus.BAD_REQUEST);
+		}
+		return entity;
 	}
 }
