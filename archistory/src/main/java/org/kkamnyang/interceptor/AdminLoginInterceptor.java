@@ -25,7 +25,7 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 		if(admin != null){
 			System.out.println("Admin의 로그인 성공======= : AdminLoginInterceptor(postHandle)");
 			session.setAttribute(LOGIN, admin);
-			response.sendRedirect("/login");
+			response.sendRedirect("/admin/login");
 			return;
 		}
 	}
