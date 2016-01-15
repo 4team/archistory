@@ -25,18 +25,25 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 		if(admin != null){
 			System.out.println("Admin의 로그인 성공======= : AdminLoginInterceptor(postHandle)");
 			session.setAttribute(LOGIN, admin);
-			response.sendRedirect("/");
+			response.sendRedirect("/admin");
 		}
 	}
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		HttpSession session = request.getSession();
 		
-		if(session.getAttribute(LOGIN) != null){
-			System.out.println("로그인 전에 세션에 있는 로그인 데이터를 초기화한다.======: AdminLoginInterceptor (preHandel)");
-			session.removeAttribute(LOGIN);
+		try{
+			HttpSession session = request.getSession();
+		
+			if(session.getAttribute(LOGIN) != null){
+				System.out.println("로그인 전에 세션에 있는 로그인 데이터를 초기화한다.======: AdminLoginInterceptor (preHandel)");
+				session.removeAttribute(LOGIN);
+				return false;	
+			}
+		
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 		return true;
 	}
