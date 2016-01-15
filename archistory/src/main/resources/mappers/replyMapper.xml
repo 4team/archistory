@@ -31,8 +31,8 @@ select
 		tbl_reply
 		where
 		boardNo = #{boardNo}
-		order by rno desc
-		limit (#{cri.page}-1)*#{cri.perPageNum}, #{cri.perPageNum}
+		order by replyNo desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
 </select>
 
 <select id="count" resultType="int">
