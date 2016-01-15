@@ -5,13 +5,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace = "org.kkamnyang.mapper.Replymapper">
 
-<select id="list" resultType="replyVO">
+<select id="list" resultType="ReplyVO">
 select * from tbl_reply where boardNo = #{boardNo} order by replyNo desc
 </select>
 
 <insert id="create">
-insert into tbl_reply(replyNo, boardNo, content, writer)
-values(seq_reply.nextval, #{boardNo}, #{content}, #{writer})
+insert into tbl_reply(boardNo, content, writer)
+values(#{boardNo}, #{content}, #{writer})
 </insert>
 
 <update id="update">
@@ -24,21 +24,19 @@ where replyNo = #{replyNo}
 delete from tbl_reply where replyNo = #{replyNo}
 </delete>
 
-<select id="listPage" resultType="replyVO">
-<![CDATA[
-select * from (
-select /*+INDEX_DESC(tbl_reply pk_reply)*/
-rownum rn, replyNo, boardNo, content, writer, regdate, updatedate
-from tbl_reply
-where boardNo = #{boardNo}
-and replyNo > 0
-and rownum <= #{cri.page}*#{cri.perPageNum})
-where rn > (#{cri.page}-1)*#{cri.perPageNum}
-]]>
+<select id="listPage" parameterType="int" resultType="org.kkamnyang.domain.ReplyVO">
+select
+		*
+		from
+		tbl_reply
+		where
+		boardNo = #{boardNo}
+		order by rno desc
+		limit (#{cri.page}-1)*#{cri.perPageNum}, #{cri.perPageNum}
 </select>
 
 <select id="count" resultType="int">
-select count(boardNo) from tbl_reply where boardNo=#{boradNo}
+select count(boardNo) from tbl_reply where boardNo=#{boardNo}
 </select>
 
 <select id="getBoardNo" resultType="int">
