@@ -22,6 +22,8 @@ public class LoginService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String useremail) throws UsernameNotFoundException {
 	
 		UserDetails user = null;
+		
+		
 		try {
 			String password = mapper.getPass(useremail);
 			Collection<SimpleGrantedAuthority> roles = new ArrayList<SimpleGrantedAuthority>();
@@ -30,7 +32,7 @@ public class LoginService implements UserDetailsService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println("LoginService..."+user);
 		return user;
 	}
 

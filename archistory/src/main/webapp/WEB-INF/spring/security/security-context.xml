@@ -18,13 +18,17 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
 	</http>
 	
-	<beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
-
-
+	 <beans:bean id="loginSuccessHandler" class="org.kkamnyang.persistence.LoginSuccessHandler"></beans:bean>
+ <beans:bean id="loginFailureHandler" class="org.kkamnyang.persistence.LoginFailureHandler"></beans:bean>
+	
+	<beans:bean
+		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+    
 	<authentication-manager>
-		<authentication-provider ref="adminService" />
+		<authentication-provider ref="adminAuthentication" />
 	</authentication-manager>
 
-	<beans:bean id="adminService" class="org.kkamnyang.service.AdminService">
-	</beans:bean>
+	<beans:bean id="adminAuthentication"
+		class="org.kkamnyang.persistence.LoginMapperImpl" />
+
 </beans:beans>

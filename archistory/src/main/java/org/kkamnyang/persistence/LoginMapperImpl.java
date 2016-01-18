@@ -12,6 +12,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public class LoginMapperImpl implements AuthenticationProvider {
 
+	
+	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 	
