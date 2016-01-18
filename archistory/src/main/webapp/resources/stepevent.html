@@ -65,6 +65,13 @@
     #eventName{
         width:420px;
     }
+    .fileDrop {
+	  width: 40%;
+	  height: 50px;
+	  border: 1px dotted gray;
+	  background-color: lightslategrey;
+	  margin: auto;
+	}
     li{
         list-style: none;
         margin-bottom: 15px;
@@ -97,6 +104,8 @@
         float:right;
     }
 </style>
+<script type="text/javascript" src="/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -116,6 +125,7 @@
 <div id="map"></div>
 
 <!-- 모달 팝업(이벤트(스텝) 생성) -->
+<form role="form" action="regist" method="post">
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -136,8 +146,11 @@
                     <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
                     <input type="file" id="imgInput"><br>
+                    <div class="fileDrop"></div>
                     </form>
-                    <label for="videoInput">동영상</label><input type="file" id="videoInput"><br>
+                    <label for="videoInput">동영상</label>
+                    <input type="file" id="videoInput"><br>
+                    <div class="fileDrop"></div>
                     <label for="camera">카메라</label><input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
@@ -180,6 +193,7 @@
                 <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal">취소</button>
             </div>
 
+</form>
         </div>
     </div>
 </div>
@@ -589,7 +603,139 @@
 
     <!-- END 수정모달 세부사항 -->
 
-
 </script>
+
+<!-- 파일첨부기능  -->
+<script id="template" type="text/x-handlebars-template">
+<li>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+	</span>
+  </div>
+</li>                
+  </script>
+  
+  <script>
+var template = Handlebars.compile($("#template").html());
+
+$(".fileDrop").on("dragenter dragover", function(event){
+	event.preventDefault();
+});
+
+
+$(".fileDrop").on("drop", function(event){
+	event.preventDefault();
+	
+	var files = event.originalEvent.dataTransfer.files;
+	
+	var file = files[0];
+	console.log(file);
+	var formData = new FormData();
+	
+	formData.append("file", file);	
+	
+	
+	$.ajax({
+		  url: '/uploadAjax',
+		  data: formData,
+		  dataType:'text',
+		  processData: false,
+		  contentType: false,
+		  type: 'POST',
+		  success: function(data){
+			  
+			  var fileInfo = getFileInfo(data);			  
+			  var html = template(fileInfo);
+			  
+			  var str ="";
+			  
+			  console.log(data);
+			  console.log(checkImageType(data));
+			  
+			  if(checkImageType(data)){
+				  str ="<div class='img'>"
+				  		+"<a href='http://localhost:8080/displayFile?fileName="+getImageLink(data)+"'><img src='http://localhost:8080/displayFile?fileName="+data+"'/></a>"
+						  +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+						  +"</div>";
+				  
+			  }else{
+				  str = "<div class='img'>"
+				  		+"<a href='http://localhost:8080/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
+						  +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+						  +"</div>";
+			  }
+			  			  
+			  $(".uploadedList").append(str);
+		  }
+		});	
+});
+  
+$(".uploadedList").on("click", "small", function(event){
+	
+	 var that = $(this);
+		console.log("delete click");
+		 $.ajax({
+			   url:"deleteFile",
+			   type:"post",
+			   data: {fileName:$(this).attr("data-src")},
+			   dataType:"text",
+			   success:function(result){
+				   if(result == 'deleted'){
+					   that.parent("div").remove();
+				   }
+			   }
+		 });
+		});
+
+
+$("#registerForm").submit(function(event){
+	event.preventDefault();
+	
+	var that = $(this);
+	
+	var str ="";
+	$(".uploadedList .delbtn").each(function(index){
+		 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+	});
+	
+	that.append(str);
+
+	that.get(0).submit();
+}); 
+
+
+
+function getOriginalName(fileName){	
+
+	if(checkImageType(fileName)){
+		return;
+	}	
+	var idx = fileName.indexOf("_") + 1 ;
+	return fileName.substr(idx);
+	
+}
+
+
+function getImageLink(fileName){
+	
+	if(!checkImageType(fileName)){
+		return;
+	}
+	var front = fileName.substr(0,12);
+	var end = fileName.substr(14);
+	
+	return front + end;
+	
+}
+
+	function checkImageType(fileName){
+		var pattern = /jpg|gif|png|jpeg/i;		
+		return fileName.match(pattern);
+		
+	}
+	</script>
+
 </body>
 </html>
