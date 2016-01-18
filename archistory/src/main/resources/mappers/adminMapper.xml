@@ -29,5 +29,9 @@
   	<select id="login" resultType="org.kkamnyang.domain.AdminVO">
   		select * from tbl_admin where email = #{email} and password = #{password}
   	</select>
+  	
+  	<select id="getPass" resultType="java.lang.String" parameterType="java.lang.String">
+  		select password from tbl_admin where email = #{email}
+  	</select>
   
 </mapper>

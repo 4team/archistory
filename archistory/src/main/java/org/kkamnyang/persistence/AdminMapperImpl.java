@@ -12,5 +12,10 @@ public class AdminMapperImpl extends AbstractCRUDMapper<AdminVO, Integer> implem
 		return session.selectOne(namespace+".login",dto);
 	}
 
+	@Override
+	public String getPass(String email) throws Exception {
+		return session.selectOne(namespace+".getPass",email);
+	}
+
 
 }

@@ -32,4 +32,8 @@ public class AdminService {
 		return mapper.login(dto);
 	}
 	
+	
+	public String getPass(String useremail) throws Exception{
+		return mapper.getPass(useremail);
+	}
 }
