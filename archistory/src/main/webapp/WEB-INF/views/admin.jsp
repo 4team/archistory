@@ -216,7 +216,7 @@ $("#main").on("mouseover",function(){
 	        $("#myRouteList").html(routeLi);
 	    }
 
-	    function getAllRoutelist(){
+	    function getAllRouteList(){
 		    $.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
 		        var list = $(data);
 		        console.log(data);
