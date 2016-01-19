@@ -141,7 +141,7 @@
     
     </style>
     
-    <script src="Cesium/js/jquery.js"></script>
+    <script src="/Cesium/js/jquery.js"></script>
 
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -270,7 +270,7 @@
 
 
 
-<iframe id="main" src="world.html"></iframe>
+<iframe id="main" src="/world.html"></iframe>
 
 <script>
 	

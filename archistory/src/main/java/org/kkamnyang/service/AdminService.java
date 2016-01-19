@@ -36,4 +36,8 @@ public class AdminService{
 	public String getPass(String useremail) throws Exception{
 		return mapper.getPass(useremail);
 	}
+	
+	public int getNo(String useremail) throws Exception{
+		return mapper.getNo(useremail);
+	}
 }

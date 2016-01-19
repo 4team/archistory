@@ -7,7 +7,7 @@
 
 <body>
 <h2>로그인 성공 </h2>
-이름 : ${sessionScope.userLoginInfo.username} 
+이름 : ${name} 
 <a href="logout">로그아웃</a>
 <a href="page1">페이지1</a>
 </body>

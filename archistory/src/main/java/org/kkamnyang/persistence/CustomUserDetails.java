@@ -6,17 +6,18 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-/**
- * @author Rob Winch
- */
 public class CustomUserDetails implements UserDetails {
+	private final int adminno;
 	private final String email;
-	private final String username;
+	private final String name;
+	private final String password;
 	private final Collection<? extends GrantedAuthority> authorities;
 
-	public CustomUserDetails(String email, String username) {
+	public CustomUserDetails(int adminno, String email, String name, String password) {
+		this.adminno = adminno;
 		this.email = email;
-		this.username = username;
+		this.name = name;
+		this.password = password;
 		this.authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
 	}
 
@@ -24,12 +25,16 @@ public class CustomUserDetails implements UserDetails {
 		return authorities;
 	}
 
-	public String getPassword() {
-		return null;
+	public int getAdminno(){
+		return adminno;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return email;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public boolean isAccountNonExpired() {
@@ -49,7 +54,17 @@ public class CustomUserDetails implements UserDetails {
 	}
 
 	@Override
-	public String toString() {
-		return "CustomUserDetails{" + "username='" + username + '\'' + '}';
+	public String getUsername() {
+		return name;
 	}
+
+	@Override
+	public String toString() {
+		return "User [adminno = " + adminno + ", email=" + email + ", name=" + name + ", password=" + password + ", authorities="
+				+ authorities + "]\n";
+	}
+
+	
+	
+
 }

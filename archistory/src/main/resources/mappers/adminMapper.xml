@@ -34,4 +34,12 @@
   		select password from tbl_admin where email = #{email}
   	</select>
   
+  	<select id="getName" resultType="java.lang.String" parameterType="java.lang.String">
+  		select username from tbl_admin where email = #{email}
+  	</select>
+  	
+  	<select id="getNo" resultType="int" parameterType="java.lang.String">
+  		select adminno from tbl_admin where email = #{email}
+  	</select>
+  	
 </mapper>
