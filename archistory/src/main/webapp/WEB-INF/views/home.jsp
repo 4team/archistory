@@ -270,6 +270,9 @@
 </div>
 
 
+<meta name="_csrf" content="${_csrf.token }"/>
+<meta name="_csrf_header" content="${_csrf.headerName }"/>
+
 
 <iframe id="main" src="/world.html"></iframe>
 
@@ -343,6 +346,12 @@ $("#loginSubmitBtn").on("click",function(){
 	        });
 	    });
 
+	    
+	    function getMetaContentByName(name,content){
+	    	var content = (content == null)?'content':content;
+	    	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
+	    }
+	    
 	    $("#myRouteList").on("click","small",function(event){
 	        var select = $(this);
 	       var routeno = parseInt(select.attr("data-routeno"));
@@ -350,7 +359,7 @@ $("#loginSubmitBtn").on("click",function(){
 	        $.ajax({
 	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
-	            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json"},
+	            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
 	            dataType: "json",
 	            data : JSON.stringify({routeno:routeno}),
 	            success: function(data){
