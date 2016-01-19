@@ -151,6 +151,7 @@
       .glyphicon{
             display: inline;
             margin : 10px;
+            color:#FFFFFF;
         }
         .gly{
             float:right;
