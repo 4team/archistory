@@ -169,7 +169,7 @@
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" id="routeShow">My Route List</a></li>
-    	<ul id="routeUl">
+    	<ul id="myRouteList">
     	</ul>
     <li role="presentation" class="divider"></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
@@ -252,7 +252,7 @@ $("#main").on("mouseover",function(){
 	    });
 	    
 	    $("#routeShow").on("click",function(){
-	    	$("#routeUl").show();
+	    	$("#myRouteList").show();
 	    });
 </script>
 
