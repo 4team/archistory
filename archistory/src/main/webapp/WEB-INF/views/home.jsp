@@ -152,6 +152,8 @@
             display: inline;
             margin : 10px;
             color:#FFFFFF;
+            z-index:400;
+            font-size: 24px;
         }
         .gly{
             float:right;
