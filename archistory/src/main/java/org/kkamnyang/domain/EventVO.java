@@ -13,6 +13,16 @@ public class EventVO {
 	private boolean camera; //null가능
 	private String camMessage; //null가능
 	private Integer eorder; //null가능
+	private String efiles;
+	
+	
+	
+	public String getEfiles() {
+		return efiles;
+	}
+	public void setEfiles(String efiles) {
+		this.efiles = efiles;
+	}
 	
 	public Integer getEventno() {
 		return eventno;

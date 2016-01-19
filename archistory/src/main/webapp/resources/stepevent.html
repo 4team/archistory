@@ -125,7 +125,7 @@
 <div id="map"></div>
 
 <!-- 모달 팝업(이벤트(스텝) 생성) -->
-<form role="form" action="regist" method="post">
+<form role="form" action="/event/attachCreate" method="post">
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -146,7 +146,7 @@
                     <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
                     <input type="file" id="imgInput"><br>
-                    <div class="fileDrop"></div>
+                    <div class="fileDrop" id="imgDrop"></div>
                     </form>
                     <label for="videoInput">동영상</label>
                     <input type="file" id="videoInput"><br>
@@ -324,7 +324,7 @@
     var routeno = getParameter('routeno');
     var eventLi="";
     var eventno = 1;
-
+    var attach = new Array();
 
     <!-- 이벤트 리스트 불러오기-->
 
@@ -353,6 +353,13 @@
 
     }
 
+    /* 
+    <!-- 이벤트 리스트 - 드래그드롭으로 순서변경 -->
+    $(function(){
+    	$( "#eventList" ).sortable();
+    }); */
+    
+    
     <!-- 이벤트 리스트 삭제버튼 -->
     $("#eventList").on("click","#del",function(event){
         var select = $(this);
@@ -374,20 +381,20 @@
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
         var title = $("#eventName").val();
-        var content = $("#eventinfo").val();
-
+        var content = $("#eventinfo").val();		
+		var attach2 = attach.join();
+        
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
-
-        createEvent(routeno, eorder, title, content, lat, lng, function () {
+        
+        createEvent(routeno, eorder, title, content, attach2, lat, lng, function () {
             clearEventDiv();
-
+            console.log("attach2:" + attach2);
         });
 
         $("#eventModal").modal('hide');
-
     });
 
     <!-- 이벤트 수정 버튼 클릭-->
@@ -397,14 +404,13 @@
         var content = $("#moeventinfo").val();
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
-
-
+        
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
 
-        modifyEvent(eventno, eorder, title,content,lat,lng,function(){ //lat,lng 필요 없는 이유 -> 삭제하고, 다시 만드는게 사용자한테 편함.
+        modifyEvent(eventno,eorder,title,content,attach2,lat,lng,function(){ //lat,lng 필요 없는 이유 -> 삭제하고, 다시 만드는게 사용자한테 편함.
 
         });
 
@@ -414,20 +420,20 @@
 
 
     <!-- 이벤트 생성 기능 -->
-    function createEvent(routeno, eorder, title,content,lat,lng,callback){
+    function createEvent(routeno,eorder,title,content,attach2,lat,lng,callback){
 
-        console.log(routeno,eorder,title,content,lat,lng);
+        console.log(routeno,eorder,title,content,attach2,lat,lng);
 
         $.ajax({
             type:'post',
-            url:"/event/create",
+            url:"/event/attachCreate",
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,lat:lat,lng:lng}),
+            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
             success: function(data){
                 getEventList();
-                console.log(data);
+                console.log("data:"+data);
             }
         });
         callback();
@@ -470,7 +476,7 @@
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
                 getEventList();
-                console.log(data);
+                console.log("data:"+data);
             }
 
         });
@@ -479,7 +485,7 @@
     }
 
     <!-- 이벤트 수정 기능 -->
-    function modifyEvent(eventno,eorder,title,content,lat,lng,callback){
+    function modifyEvent(eventno,eorder,title,content,attach2,lat,lng,callback){
 
         console.log("이벤트 수정"+eventno);
 
@@ -489,7 +495,7 @@
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,lat:lat,lng:lng}),
+            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
             success: function(data){
                 getEventList();
                 console.log(data);
@@ -605,7 +611,7 @@
 
 </script>
 
-<!-- 파일첨부기능  -->
+<!-- -----파일첨부기능-------  -->
 <script id="template" type="text/x-handlebars-template">
 <li>
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
@@ -631,7 +637,9 @@ $(".fileDrop").on("drop", function(event){
 	var files = event.originalEvent.dataTransfer.files;
 	
 	var file = files[0];
-	console.log(file);
+	
+	
+	console.log("file:" + file);
 	var formData = new FormData();
 	
 	formData.append("file", file);	
@@ -653,6 +661,11 @@ $(".fileDrop").on("drop", function(event){
 			  
 			  console.log(data);
 			  console.log(checkImageType(data));
+			  console.log("ddddd",$(".uploadedList"));
+			  
+
+				attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
+				console.log("attach:" + attach);
 			  
 			  if(checkImageType(data)){
 				  str ="<div class='img'>"
@@ -665,9 +678,9 @@ $(".fileDrop").on("drop", function(event){
 				  		+"<a href='http://localhost:8080/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
 						  +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 						  +"</div>";
-			  }
-			  			  
+			  } 
 			  $(".uploadedList").append(str);
+			 
 		  }
 		});	
 });
@@ -736,6 +749,6 @@ function getImageLink(fileName){
 		
 	}
 	</script>
-
+<!-------- 파일첨부기능 끝 -------->
 </body>
 </html>
