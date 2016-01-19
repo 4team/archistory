@@ -11,7 +11,7 @@ public class RouteMapperImpl extends AbstractCRUDMapper<RouteVO,Integer> impleme
 
 	@Override
 	public List<RouteVO> list(int adminno) throws Exception {
-		return session.selectList(namespace+".list",adminno);
+		return session.selectList(namespace+".listadmin",adminno);
 	
 	}
 

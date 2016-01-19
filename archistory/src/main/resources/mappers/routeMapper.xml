@@ -8,8 +8,12 @@
  	<insert id="create" useGeneratedKeys="true" keyProperty="routeno">
  		insert into tbl_route(adminno,routename,secret,step,password,lat,lng) values(1,#{routename},#{secret},#{step},#{password},#{lat},#{lng})
  	</insert>
- 	
+ 
  	<select id="list" resultType="org.kkamnyang.domain.RouteVO">
+ 		select * from tbl_route
+ 	</select>
+ 		
+ 	<select id="listadmin" resultType="org.kkamnyang.domain.RouteVO">
  		select * from tbl_route where adminno = #{adminno}
  	</select>
  	
