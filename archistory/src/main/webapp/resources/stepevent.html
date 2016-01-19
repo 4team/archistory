@@ -334,7 +334,7 @@
     <!-- 이벤트 리스트 불러오기-->
 
     function getEventList(){
-        $.getJSON("/event/elist?routeno="+routeno,function(data){
+        $.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
 
             var list = $(data);
             console.log(list);
@@ -431,7 +431,7 @@
 
         $.ajax({
             type:'post',
-            url:"/event/attachCreate",
+            url:"http://192.168.0.36:8080/event/attachCreate",
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
@@ -453,7 +453,7 @@
 
     <!-- 이벤트 읽기 기능 -->
     function viewEvent(eventno){
-        $.getJSON("/event/view?eventno="+eventno,function(data){
+        $.getJSON("http://192.168.0.36:8080/event/view?eventno="+eventno,function(data){
 
             console.log("이벤트 넘버:"+eventno+"읽어오기");
 
@@ -474,7 +474,7 @@
 
         $.ajax({
             type:'post',
-            url:"/event/remove",
+            url:"http://192.168.0.36:8080/event/remove",
             headers:{
                 "Content-Type":"application/json"},
             datatype: "json",
@@ -496,7 +496,7 @@
 
         $.ajax({
             type:'post',
-            url:"/event/modify",
+            url:"http://192.168.0.36:8080/event/modify",
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
