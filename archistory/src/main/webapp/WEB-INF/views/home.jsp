@@ -143,10 +143,10 @@
             position : absolute;
         }
 
-    #joinBody{
-        top:50px;
-        width:400px;
-    }
+	    #joinBody{
+	        top:50px;
+	        width:400px;
+	    }
     
       .glyphicon{
             display: inline;
@@ -195,7 +195,7 @@
 
 <div class="dropdown">
   <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-    	<span class="glyphicon glyphicon-menu-hamburger"></span>
+    	<span class="glyphicon glyphicon-menu-hamburger" id=""></span>
   </a>
 
         <ul class="dropdown-menu" role="menu">
