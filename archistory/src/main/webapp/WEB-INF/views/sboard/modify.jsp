@@ -242,6 +242,7 @@ list-style:none;
 		}	
 	});
 
+	
 	$("#popup_img").on("click", function(){
 		
 		$(".popup").hide('slow');
