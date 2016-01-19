@@ -121,10 +121,14 @@
     // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
     var map = new daum.maps.Map(mapContainer, mapOption);
 
+    var lat= "";
+    var lng= "";
+    var step;
+    
     daum.maps.event.addListener(map,'click',function(mouseEvent){
-        var lat = mouseEvent.latLng.Ab; // lat
-        var lng = mouseEvent.latLng.zb; // lng
-        var step;
+         lat = mouseEvent.latLng.Ab; // lat
+         lng = mouseEvent.latLng.zb; // lng
+        
 
         console.log("내가 선택한 위도와 경도 : ",lat, lng);
 
@@ -153,29 +157,29 @@
             $(".password").hide();
         };
 
-
-        $("#routeCreateBtn").on("click",function(){
-        	
-	        createRoute(lat,lng,step,function(name,password,step,lat,lng,secret){
-
-                $.ajax({
-                    type: 'POST',
-                    url: 'http://192.168.0.36:8080/route/create',
-                    headers:{"Content-Type":"application/json"},
-                    data: JSON.stringify({routename:name, password:password, secret:secret, step:step, lat:lat, lng:lng}),
-                    dataType:'JSON',
-                    success: function(data){
-                    	console.log(data);
-	            if(step==true){
-	                self.location = "stepevent.html?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
-	            }else{
-	                self.location = "nonstepevent.html?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
-	            }
-                    }
-                });
-        });
     });
-    });
+    
+    $("#routeCreateBtn").on("click",function(){
+    	
+        createRoute(lat,lng,step,function(name,password,step,lat,lng,secret){
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://192.168.0.36:8080/route/create',
+                headers:{"Content-Type":"application/json"},
+                data: JSON.stringify({routename:name, password:password, secret:secret, step:step, lat:lat, lng:lng}),
+                dataType:'JSON',
+                success: function(data){
+                	console.log(data);
+            if(step==true){
+                self.location = "stepevent.html?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
+            }else{
+                self.location = "nonstepevent.html?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
+            }
+                }
+            });//end ajax
+    });//end createRoute
+});//end routeCreateBtn
 
     function createRoute(lat,lng,step,callback){
     	

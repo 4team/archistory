@@ -63,7 +63,16 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/modify", method = RequestMethod.POST)
-	public ResponseEntity<String> modifyEvent(@RequestBody EventVO vo) throws Exception{
+	public ResponseEntity<String> modifyEvent(@RequestBody EventVO vo
+			
+			
+			
+			
+			
+			
+			
+			
+			) throws Exception{
 		System.out.println("Event 수정 POST 호출됨.");
 		ResponseEntity<String> entity = null;
 		
