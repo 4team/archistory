@@ -356,7 +356,7 @@ function stopAround() {
     var spinGlobe = viewer.clock.onTick.addEventListener(turnAround);
     spinGlobe;
 
-    $("#cesiumContainer").on("click",function(){
+    $("#main").on("click",function(){
         console.log("드래그");
         stopAround();
     });
@@ -424,6 +424,8 @@ function addMarker(route){
     });
     var ellipse = entity.ellipse;
 }
+
+
 
 $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
     var list = $(data);
