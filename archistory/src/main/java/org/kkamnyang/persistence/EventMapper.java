@@ -8,6 +8,6 @@ public interface EventMapper extends CRUDMapper<EventVO,Integer> {
 
 	public List<EventVO> elist(Integer routeno);
 
-
+	public void attachCreate(EventVO vo);
 	
 }

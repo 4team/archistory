@@ -3,7 +3,6 @@ package org.kkamnyang.service;
 import java.util.List;
 
 import org.kkamnyang.domain.EventVO;
-import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.persistence.EventMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,4 +38,8 @@ public class EventService {
 		mapper.delete(eventno);
 	}
 	
+	public void attachCreate(EventVO vo)throws Exception{
+		System.out.println("이벤서비스호출..");
+		mapper.attachCreate(vo);
+	}
 }

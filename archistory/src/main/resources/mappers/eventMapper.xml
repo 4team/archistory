@@ -34,4 +34,21 @@
  	</delete>
  	
  	
+ 	<insert id="addAttach">
+		insert into tbl_eattach(efullName,eventNo)
+		values(#{efullName},LAST_INSERT_ID())
+	</insert>
+
+	<select id="getAttach" resultType="string">
+		select efullname from tbl_eattach where eventNo=#{eventNo} order by regdate
+	</select>
+
+
+	<delete id="deleteAttach">
+		delete from tbl_eattach where eventNo=#{eventNo}
+	</delete>
+
+	<insert id="replaceAttach">
+		insert into tbl_eattach(efullname,eventNo)values (#{efullname},#{eventNo})
+	</insert>
  </mapper>

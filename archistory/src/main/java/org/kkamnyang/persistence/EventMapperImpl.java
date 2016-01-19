@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.kkamnyang.domain.EventVO;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> implements EventMapper {
@@ -14,5 +15,17 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		return session.selectList(namespace+".elist",routeno);
 	}
 
-	
+	@Transactional
+	@Override
+	public void attachCreate(EventVO vo) {
+		
+		session.insert(namespace + ".create", vo);
+		String efiles = vo.getEfiles();
+		if (efiles == null) {
+			return;
+		}else{
+			System.out.println(efiles);
+			session.insert(namespace + ".addAttach",efiles);
+		}
+	}
 }

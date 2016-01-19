@@ -234,7 +234,7 @@ $("#main").on("mouseover",function(){
 	    
 	    $("#routeUl").on("click","small",function(event){
 	        var select = $(this);
-	        var routeno = select.attr("data-routeno");
+	        var routeno = parseInt(select.attr("data-routeno"));
 	        
 	        $.ajax({
 	            type:"post",

@@ -53,6 +53,23 @@ public class EventController {
 		}
 		return entity;
 	}
+
+	
+	@RequestMapping(value="/attachCreate", method=RequestMethod.POST)
+	public ResponseEntity<String> attachCreate(@RequestBody EventVO vo) throws Exception{
+		System.out.println("["+vo.getTitle() + "] 이벤트 첨부파일생성 호출됨.=====");
+		System.out.println(vo);
+		
+		ResponseEntity<String> entity = null;
+		try{
+			service.attachCreate(vo);
+			entity = new ResponseEntity<String>("result",HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result",HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
 	
 	@RequestMapping(value="/view", method = RequestMethod.GET)
 	public @ResponseBody EventVO view(@RequestParam("eventno") Integer eventno, HttpServletRequest request ) throws Exception{
