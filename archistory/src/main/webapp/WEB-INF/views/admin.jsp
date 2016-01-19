@@ -228,7 +228,20 @@ $("#main").on("mouseover",function(){
 
 	    $("#routeUl").on("click","small",function(event){
 	        var select = $(this);
-	        alert("X를 클릭함. routeNo : "+select.attr("data-routeno"));
+	        
+	        $.ajax({
+	            type:"DELETE",
+	            url: "http://192.168.0.36:8080/route/remove",
+	            headers : {"Content-Type":"application/json","X-Http-Method-Override":"DELETE"},
+	            dataType: "text",
+	            data : JSON.stringify({routeno:select.attr("data-routeno"),adminno:1}),
+	            success: function(data){
+	                if(data=="result"){
+	                 console.log("성공");
+	                }
+	                console.log("삭제되었다.");
+	                }
+	            });
 	    });
 	    
 	    $("#routeShow").on("click",function(){
