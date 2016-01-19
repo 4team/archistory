@@ -249,11 +249,9 @@ $("#main").on("mouseover",function(){
 	            success: function(data,status){
 	            	console.log("Success 안에서 받은 데이터 : "+data);
 	            	console.log(status);
-	            	getAllRouteList();
 	            },
 	            error:function(request,status,error){
-	            	console.log(error);
-	            	console.log("status: "+status+" 에러메세지 :"+error);
+	            	getAllRouteList();
 	            }
 	    	});
 	        getAllRouteList();
