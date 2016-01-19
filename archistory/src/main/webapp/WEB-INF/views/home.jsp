@@ -491,7 +491,7 @@ $("#loginSubmitBtn").on("click",function(){
 
 	    
 	    $("#routeList").on("click",function(){
-	    	 $("#myRouteList").show();
+	    	 $("#myRouteList").toggle();
 	    	 
 	    });
 	    
