@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
-	<http auto-config="true">
+	<http  auto-config="true">
 		<intercept-url pattern="/admin/login_duplicate" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<form-login login-page="/admin/login" username-parameter="email"
 			password-parameter="password" login-processing-url="/admin/login"

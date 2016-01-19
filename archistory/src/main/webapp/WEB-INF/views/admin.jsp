@@ -238,7 +238,7 @@ $("#main").on("mouseover",function(){
 	        $.ajax({
 	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
-	            headers : {"Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
+	            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
 	            dataType: "json",
 	            data : JSON.stringify({routeno:select.attr("data-routeno")}),
 	            success: function(data){
