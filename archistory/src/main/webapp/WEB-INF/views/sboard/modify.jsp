@@ -7,11 +7,30 @@
 
 
 <style type= "text/css">
-.box{
-
-position: relative;
-margin-left :200px;
-
+.fileDrop {
+  width: 40%;
+  height: 100px;
+  border: 1px dotted gray;
+  background-color: lightslategrey;
+  margin: auto;
+}
+small {
+	margin-left: 3px;
+	font-weight: bold;
+	color: gray;
+}
+.img{
+float:left;
+}
+.button{
+margin-left: 5px;
+}
+.x{
+text-align:right;
+}
+.box{	
+	position: relative;
+	margin-left :200px;
 }
 .liii{
 float:left;
