@@ -497,6 +497,6 @@ $("#loginSubmitBtn").on("click",function(){
 	    });
 	    
 </script>
-
+<script src="/Cesium/js/map.js"></script>
 </body>
 </html>
