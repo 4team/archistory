@@ -142,6 +142,10 @@
         width:400px;
     }
     
+    #routeUl{
+    	display:none;
+    }
+    
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -164,7 +168,7 @@
 
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="">My Route List</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" id="routeShow">My Route List</a></li>
     	<ul id="routeUl">
     	</ul>
     <li role="presentation" class="divider"></li>
@@ -225,6 +229,10 @@ $("#main").on("mouseover",function(){
 	    $("#myRouteList").on("click","small",function(event){
 	        var select = $(this);
 	        alert("X를 클릭함. routeNo : "+select.attr("data-routeno"));
+	    });
+	    
+	    $("#routeShow").on("click",function(){
+	    	$("#routeUl").show();
 	    });
 </script>
 
