@@ -226,7 +226,7 @@ $("#main").on("mouseover",function(){
 	        });
 	    });
 
-	    $("#myRouteList").on("click","small",function(event){
+	    $("#routeUl").on("click","small",function(event){
 	        var select = $(this);
 	        alert("X를 클릭함. routeNo : "+select.attr("data-routeno"));
 	    });
