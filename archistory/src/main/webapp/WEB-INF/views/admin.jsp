@@ -146,6 +146,22 @@
     	display:none;
     }
     
+     .glyphicon{
+            display: inline;
+            margin : 10px;
+        }
+        .gly{
+            float:right;
+        }
+        table{
+            border-spacing: 50px;
+        }
+        table,th,td{
+            border-collapse : collapse;
+        }
+        th{
+            text-align: center;
+        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -184,10 +200,95 @@
 	<button type="button" id="myInfo" class="btn btn-primary btn-xs"><font face="verdana" size="2" >${name}님</font></button>
 </div>
 
-<div id="myRouteList">
-<ul>
-</ul>
+<!-- route modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">My route</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title" id="routelist">
+                    <ul></ul>
+                </h5>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- remove route modal-->
+<div class="modal fade" id="removeRouteModal" tabindex="-1" role="dialog" aria-labelledby="removeRouteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <h4 class="modal-title">루트 삭제</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title" id="removeroute">
+                    <ul></ul>
+                </h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="removeRouteBtn" class="btn btn-create">삭제하기</button>
+                <button type="button" id="cancleBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- member route modal-->
+<div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">루트 멤버 등록</h4>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>연락처</th>
+                        <th>이메일</th>
+                        <th>루트완료여부</th>
+                        <th>점수</th>
+                    </tr>
+                    <tr>
+                       <td><input type="text" class="form-control" placeholder="Number"></td>
+                        <td><input type="email" class="form-control"  placeholder="Name"></td>
+                        <td><input type="tel"  class="form-control" name="usertel" placeholder="Phone" ></td>
+                        <td><input type="email" class="form-control" name="useremail"  placeholder="Email"></td>
+                        <td style="width:90px"><select class="form-control">
+                            <option>미완료</option>
+                            <option>완료</option>
+                        </select></td>
+                        <td><input type="text" class="form-control"name="point" placeholder="Score"></td>
+                    </tr>
+                </table>
+                <table id="memTable">
+
+                </table>
+                <span class='glyphicon glyphicon-plus' id="plus"></span>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="registerBtn" class="btn btn-create">등록</button>
+                <button type="button" id="regiCancleBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <meta name="_csrf" content="${_csrf.token }"/>
 <meta name="_csrf_header" content="${_csrf.headerName }"/>
@@ -212,7 +313,7 @@ $("#main").on("mouseover",function(){
 
 	var routeLi = "";
 	    function addList(route) {
-	        routeLi += "<li>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
+	        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
 	        $("#myRouteList").html(routeLi);
 	    }
 
@@ -235,7 +336,134 @@ $("#main").on("mouseover",function(){
 	    	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
 	    }
 	    
-	    $("#myRouteList").on("click","small",function(event){
+	    $("#myRouteList").on("click","li",function(event){
+		       var select = $(this);
+		       var routeno = parseInt(select.attr("data-routeno"));
+		       
+		       $("#editModal").modal('show');
+		       editRoute(select);
+		    });
+
+		    
+		    $("#routeList").on("click",function(){
+		    	 $("#myRouteList").show();
+		    	 
+		    });
+		    
+		   
+		    function editRoute(select){
+		        var editRoute ="<li>" + select.attr("data-routename")+ "<div class='gly'><span class='glyphicon glyphicon-user' id='member' value='"+select.attr("data-routeno")+"'></span>" +
+		                "<span class='glyphicon glyphicon-pencil' id='modi' value='"+select.attr("data-routeno")+"'></span>" +
+		                "<span class='glyphicon glyphicon-remove' id='del' value='"+select.attr("data-routeno")+"'></span></div></li>";
+
+		        $("#routelist").html(editRoute);
+		    }
+		    //멤버 입력
+
+		    $("#routelist").on("click","#member",function(){
+		         var icon= $(this);
+		         console.log(icon.attr("value"));
+		        $("#memberModal").modal('show');
+		        $("#editModal").modal('hide');
+
+		    });
+
+		    //루트 수정 페이지로 이동
+
+		    $("#routelist").on("click","#modi",function(){
+
+		        var icon= $(this);
+		        console.log(icon.attr("value"));
+		        viewRoute(icon.attr("value"));
+
+		    });
+
+
+		    function viewRoute(routeno){
+		            $.getJSON("http://192.168.0.36:8080/route/view?routeno="+routeno,function(data){
+		                console.log("루트 넘버:"+routeno+"읽어오기");
+
+		                var vo = $(data);
+		                console.log(vo);
+
+		                if(vo.attr("step")==true){
+		                 self.location = "/stepevent.html?lat="+vo.attr("lat")+"&lng="+vo.attr("lng")+"&step="+vo.attr("step")+"&routeno="+routeno;
+		                 }else{
+		                 self.location = "/nonstepevent.html?lat="+vo.attr("lat")+"&lng="+vo.attr("lng")+"&step="+vo.attr("step")+"&routeno="+routeno+"&routename="+vo.attr("routename");
+		                 }
+		            });
+		    }
+
+
+		   //루트 삭제로 이동
+		    $("#routelist").on("click","#del",function(){
+		       var route= $(this);
+		        $("#removeRouteModal").modal('show');
+		        var msg = route.attr("value")+"를 삭제하시겠습니까?";
+		        $("#removeroute").html(msg);
+
+
+		        $("#removeRouteBtn").on("click",function(){
+		            removeRoute(route.attr("value"),function(){
+
+		            });
+
+		            $("#removeRouteModal").modal('hide');
+		            $("#editModal").modal('hide');
+		        });
+
+		    });
+
+
+		    function removeRoute(routeno,callback){
+
+		        console.log("루트 삭제" + routeno);
+		        console.log(getMetaContentByName('_csrf'));
+
+		        $.ajax({
+		            type:"post",
+		            url: "http://192.168.0.36:8080/route/remove",
+		            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
+		            dataType: "json",
+		            data : JSON.stringify({routeno:routeno}),
+		            success: function(data){
+		                 console.log("성공");
+		            }
+		            
+		            });
+		        getAllRouteList();
+		        callback();
+		    }
+		    
+
+
+		    $("#registerBtn").on("click",function(){
+		       alert("멤버등록이 완료되었습니다.");
+		    });
+
+		    var contents ;
+
+		    $("#plus").on("click",function(){
+
+
+		                contents+=  "<tr>"
+		            +"<td><input type='text' class='form-control' placeholder='Number'></td>"
+		            +"<td><input type='email' class='form-control'  placeholder='Name'></td>"
+		            +"<td><input type='tel'  class='form-control'  placeholder='Phone' ></td>"
+		            +"<td><input type='email' class='form-control'  placeholder='Email'></td>"
+		            +"<td style='width:90px'><select class='form-control'><option>미완료</option><option>완료</option></select></td>"
+		            +"<td><input type='text' class='form-control'name='point' placeholder='Score'></td></tr>"
+		        $("#memTable").html(contents);
+
+		    });
+
+/* 
+		    $("#routeList").on("click",function(){
+		    	 $("#myRouteList").toggle();
+		    	 
+		    }); */
+	    
+	    /* $("#myRouteList").on("click","small",function(event){
 	        var select = $(this);
 	        var routeno = parseInt(select.attr("data-routeno"));
 	        console.log(getMetaContentByName('_csrf'));
@@ -256,11 +484,13 @@ $("#main").on("mouseover",function(){
 	    	});
 	        getAllRouteList();
 	    });
-	    
-	    $("#routeShow").on("click",function(){
-	    	$("#myRouteList").show();
+	     */
+	     $("#routeShow").on("click",function(){
+	    	 $("#myRouteList").toggle();
+	    	 
 	    });
-</script>
+	     
+	</script>
 
 </body>
 </html>
