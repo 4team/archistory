@@ -332,7 +332,7 @@ $("#loginSubmitBtn").on("click",function(){
 	        $("#myRouteList").html(routeLi);
 	    }
 
-	    $.getJSON("http://192.168.0.36:8080/route/list",function(data){
+	    $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
 	        var list = $(data);
 	        console.log(data);
 
