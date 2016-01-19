@@ -28,7 +28,7 @@
         }
 		
 		#menu{
-			
+			display:none;
 			z-index:100;
 			position: absolute;
 			top:5px;
