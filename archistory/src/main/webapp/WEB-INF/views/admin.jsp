@@ -189,7 +189,8 @@
 </ul>
 </div>
 
-
+<meta name="_csrf" content="${_csrf.token }"/>
+<meta name="_csrf_header" content="${_csrf.headerName }"/>
 
 <iframe id="main" src="/world.html"></iframe>
 
@@ -226,13 +227,18 @@ $("#main").on("mouseover",function(){
 	        });
 	    });
 
+	    function getMetaContentByName(name,content){
+	    	var content = (content == null)?'content':content;
+	    	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
+	    }
+	    
 	    $("#routeUl").on("click","small",function(event){
 	        var select = $(this);
 	        
 	        $.ajax({
 	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
-	            headers : {"Content-Type":"application/json"},
+	            headers : {"Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
 	            dataType: "json",
 	            data : JSON.stringify({routeno:select.attr("data-routeno")}),
 	            success: function(data){
