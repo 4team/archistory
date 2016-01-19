@@ -211,22 +211,26 @@ $("#main").on("mouseover",function(){
 	});
 
 	
-	 var routeLi = "";
 	    function addList(route) {
 	        routeLi += "<li>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
 	        $("#myRouteList").html(routeLi);
 	    }
 
-	    $.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
-	        var list = $(data);
-	        console.log(data);
-
-	        list.each(function(idx,value){
-	            var route = this;
-	            addList(route);
-	        });
-	    });
-
+	    function getAllRoutelist(){
+		    $.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
+		        var list = $(data);
+		        console.log(data);
+	
+				 var routeLi = "";
+		        list.each(function(idx,value){
+		            var route = this;
+		            addList(route);
+		        });
+		    });
+	    }
+	    
+	    getAllRouteList();
+	    
 	    function getMetaContentByName(name,content){
 	    	var content = (content == null)?'content':content;
 	    	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
@@ -243,11 +247,7 @@ $("#main").on("mouseover",function(){
 	            dataType: "json",
 	            data : JSON.stringify({routeno:routeno}),
 	            success: function(data){
-	                if(data=="result"){
-	                 console.log("성공");
-	                }
-	                console.log("삭제되었다.");
-	                }
+	            	getAllRouteList();
 	            });
 	    });
 	    
