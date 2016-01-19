@@ -7,6 +7,7 @@
 
 
 <style type= "text/css">
+
 .fileDrop {
   width: 40%;
   height: 100px;
