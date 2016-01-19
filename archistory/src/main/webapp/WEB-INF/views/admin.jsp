@@ -252,7 +252,7 @@ $("#main").on("mouseover",function(){
 	            	getAllRouteList();
 	            },
 	            error:function(request,status,error){
-	            	console.log(error);
+	            	console.log("status: "+status+" 에러메세지 :"+error);
 	            }
 	    	});
 	        getAllRouteList();
