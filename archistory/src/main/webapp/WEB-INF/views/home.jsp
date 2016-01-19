@@ -345,11 +345,27 @@ $("#loginSubmitBtn").on("click",function(){
 
 	    $("#myRouteList").on("click","small",function(event){
 	        var select = $(this);
-	        alert("X를 클릭함. routeNo : "+select.attr("data-routeno"));
+	       var routeno = parseInt(select.attr("data-routeno"));
+	        
+	        $.ajax({
+	            type:"post",
+	            url: "http://192.168.0.36:8080/route/remove",
+	            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json"},
+	            dataType: "json",
+	            data : JSON.stringify({routeno:routeno}),
+	            success: function(data){
+	                if(data=="result"){
+	                 console.log("성공");
+	                }
+	                console.log("삭제되었다.");
+	                }
+	            });
+	    });
 	    });
 	    
 	    $("#routeList").on("click",function(){
 	    	 $("#myRouteList").show();
+	    	 
 	    });
 	    
 </script>
