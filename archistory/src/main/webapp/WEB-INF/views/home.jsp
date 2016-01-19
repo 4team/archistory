@@ -82,15 +82,7 @@
          #myRouteList{
          display:none;
             position:absolute;
-            padding: 10px;
-            z-index:400;
-            border : 1px solid black;
-            border-radius : 10px;
-            background-color : #FFF;
-            top:50px;
-            left:10px;
-            width:200px;
-            height:400px;
+
             overflow-y:scroll;
         }
         li{
