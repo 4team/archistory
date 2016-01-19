@@ -426,14 +426,16 @@ $("#main").on("mouseover",function(){
 		            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
 		            dataType: "json",
 		            data : JSON.stringify({routeno:routeno}),
-		            success: function(data){
-		                 console.log("성공");
+		            success: function(data,status){
+		            	console.log("Success 안에서 받은 데이터 : "+data);
+		            	console.log(status);
+		            },
+		            error:function(request,status,error){
+		            	getAllRouteList();
 		            }
-		            
-		            });
+		    	});
 		        getAllRouteList();
-		        callback();
-		    }
+		    });
 		    
 
 
