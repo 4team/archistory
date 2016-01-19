@@ -192,7 +192,7 @@
 
 <div class="dropdown">
   <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-    	<span class="glyphicon glyphicon-menu-hamburger" id=""></span>
+    	<span class="glyphicon glyphicon-menu-hamburger"></span>
   </a>
 
         <ul class="dropdown-menu" role="menu">
@@ -308,7 +308,7 @@
 
 
 
-<div id="cesiumContainer"></div>
+<div id="main"></div>
 
 <div id="myLocation"><span class="glyphicon glyphicon-map-marker"></span></div>
 
@@ -336,7 +336,7 @@ function stopAround() {
 
 
 (function worldMap() {
-    viewer = new Cesium.Viewer('cesiumContainer', {
+    viewer = new Cesium.Viewer('main', {
         navigationHelpButton: false,
         fullscreenButton: false,
         infoBox: false,
