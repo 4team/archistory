@@ -186,7 +186,7 @@
 
         <ul class="dropdown-menu" role="menu">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tour Route</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
             <li role="presentation" class="divider"></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
