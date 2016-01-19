@@ -355,7 +355,8 @@ $("#loginSubmitBtn").on("click",function(){
 	    $("#myRouteList").on("click","small",function(event){
 	        var select = $(this);
 	       var routeno = parseInt(select.attr("data-routeno"));
-	        
+	       console.log(getMetaContentByName('_csrf'));
+	       
 	        $.ajax({
 	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
