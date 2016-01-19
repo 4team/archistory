@@ -605,8 +605,7 @@ $("#loginSubmitBtn").on("click",function(){
 	    	 
 	    });
 	    
-	    
-
+	   
 	    function editRoute(select){
 	        var editRoute ="<li>" + select.attr("data-routename")+ "<div class='gly'><span class='glyphicon glyphicon-user' id='member' value='"+select.attr("data-routeno")+"'></span>" +
 	                "<span class='glyphicon glyphicon-pencil' id='modi' value='"+select.attr("data-routeno")+"'></span>" +
