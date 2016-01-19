@@ -247,10 +247,12 @@ $("#main").on("mouseover",function(){
 	            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
 	            dataType: "json",
 	            data : JSON.stringify({routeno:routeno}),
-	            success: function(data){
+	            success: function(result){
+	            	console.log("Success 안에서 받은 데이터 : "+result);
 	            	getAllRouteList();
 	            }
 	    	});
+	        getAllRouteList();
 	    });
 	    
 	    $("#routeShow").on("click",function(){
