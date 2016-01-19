@@ -51,5 +51,17 @@ public class RouteControllerTest {
 		vo.setStep(true);
 		service.regist(vo);
 	}
+	
+	@Test
+	public void testss() throws Exception{
+		try{
+		RouteVO vo = new RouteVO();
+		vo.setRouteno(1);
+		System.out.println(vo.getRouteno());
+		service.remove(1);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 
 }
