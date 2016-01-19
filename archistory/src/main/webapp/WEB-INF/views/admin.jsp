@@ -234,13 +234,14 @@ $("#main").on("mouseover",function(){
 	    
 	    $("#routeUl").on("click","small",function(event){
 	        var select = $(this);
+	        var routeno = parseInt(select.attr("data-routeno"));
 	        
 	        $.ajax({
 	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
-	            headers : {"Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
+	            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
 	            dataType: "json",
-	            data : JSON.stringify({routeno:select.attr("data-routeno")}),
+	            data : JSON.stringify({routeno:routeno}),
 	            success: function(data){
 	                if(data=="result"){
 	                 console.log("성공");

@@ -94,7 +94,7 @@
 		</init-param>
 		<init-param>
 			<param-name>cors.allowed.headers</param-name>
-			<param-value>Access-Control-Allow-Origin,Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-HTTP-Method-Override</param-value>
+			<param-value>X-CSRF-TOKEN,Access-Control-Allow-Origin,Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-HTTP-Method-Override</param-value>
 		</init-param>
 		<init-param>
 			<param-name>cors.exposed.headers</param-name>
