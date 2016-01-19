@@ -233,7 +233,7 @@ $("#main").on("mouseover",function(){
 	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
 	            headers : {"Content-Type":"application/json"},
-	            dataType: "json",
+	            datatype: "json",
 	            data : JSON.stringify({routeno:select.attr("data-routeno")}),
 	            success: function(data){
 	                if(data=="result"){
