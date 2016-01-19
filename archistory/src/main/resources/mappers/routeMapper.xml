@@ -10,7 +10,7 @@
  	</insert>
  	
  	<select id="list" resultType="org.kkamnyang.domain.RouteVO">
- 		select * from tbl_route
+ 		select * from tbl_route where adminno = #{adminno}
  	</select>
  	
  	<select id="read" resultType="org.kkamnyang.domain.RouteVO">

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.annotations.Param;
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,10 @@ public class RouteController{
 	RouteService service;
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public @ResponseBody List<RouteVO> list(HttpServletRequest request) throws Exception{
+	public @ResponseBody List<RouteVO> list(@Param(value="adminno") int adminno, HttpServletRequest request) throws Exception{
 		System.out.println("★모든 루트 리스트의 출력.");
-		List<RouteVO> result = service.list();
+		
+		List<RouteVO> result = service.list(adminno);
 		return result;
 	}
 	

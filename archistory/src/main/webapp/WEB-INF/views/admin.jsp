@@ -200,8 +200,8 @@ $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
 });
 	
-	$("#myInfo").on("click",function(){
 		var adminno = ${adminno};
+	$("#myInfo").on("click",function(){
 		console.log("ADMIN NO : " + adminno);
 	});
 
@@ -212,7 +212,7 @@ $("#main").on("mouseover",function(){
 	        $("#routeUl").html(routeLi);
 	    }
 
-	    $.getJSON("http://192.168.0.36:8080/route/list",function(data){
+	    $.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
 	        var list = $(data);
 	        console.log(data);
 
