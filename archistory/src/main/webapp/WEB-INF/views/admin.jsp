@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>= Archistory =</title>
+    <title>= (admin)Archistory =</title>
 </head>
 
     <style>
@@ -394,25 +394,23 @@ $("#main").on("mouseover",function(){
 		            });
 		    }
 
-
+		var route;
 		   //루트 삭제로 이동
 		    $("#routelist").on("click","#del",function(){
-		       var route= $(this);
+		        route= $(this);
 		        $("#removeRouteModal").modal('show');
 		        var msg = route.attr("value")+"를 삭제하시겠습니까?";
 		        $("#removeroute").html(msg);
 
-
-		        $("#removeRouteBtn").on("click",function(){
-		            removeRoute(route.attr("value"),function(){
-
-		            });
-
-		            $("#removeRouteModal").modal('hide');
-		            $("#editModal").modal('hide');
-		        });
-
 		    });
+		   
+		    $("#removeRouteBtn").on("click",function(){
+	            removeRoute(route.attr("value"),function(){
+	            });
+
+	            $("#removeRouteModal").modal('hide');
+	            $("#editModal").modal('hide');
+	        });
 
 
 		    function removeRoute(routeno,callback){
