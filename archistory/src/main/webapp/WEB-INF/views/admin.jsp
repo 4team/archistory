@@ -214,7 +214,7 @@ $("#main").on("mouseover",function(){
 	 var routeLi = "";
 	    function addList(route) {
 	        routeLi += "<li>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
-	        $("#routeUl").html(routeLi);
+	        $("#myRouteList").html(routeLi);
 	    }
 
 	    $.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
