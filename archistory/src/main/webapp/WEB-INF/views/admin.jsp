@@ -238,13 +238,8 @@ $("#main").on("mouseover",function(){
 	        $.ajax({
 	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
-<<<<<<< HEAD
 	            headers : {"Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
 	            dataType: "json",
-=======
-	            headers : {"Content-Type":"application/json"},
-	            datatype: "json",
->>>>>>> branch 'master' of https://github.com/4team/archistory.git
 	            data : JSON.stringify({routeno:select.attr("data-routeno")}),
 	            success: function(data){
 	                if(data=="result"){
