@@ -33,6 +33,10 @@ text-align:right;
 	position: relative;
 	margin-left :200px;
 }
+.liii{
+float:left;
+padding :5px;}
+
 li{
 list-style:none;
 }
@@ -116,8 +120,6 @@ list-style:none;
     </div>
     
     
-
-
 <script>
 	$(document).ready(function() {
 
@@ -136,21 +138,23 @@ list-style:none;
 		});
 
 	});
-	</script>
 	
-	<script id="template" type="text/x-handlebars-template">
-	<li>
-	  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-	  <div class="mailbox-attachment-info">
-		<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-		<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
-		</span>
-	  </div>
-	</li>            
-	</script> 
+</script>
+
+<script id="template" type="text/x-handlebars-template">
+<div class="liii">
+<li>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+	</span>
+  </div>
+</li>     
+</div>           
+</script> 
 
 <script>
-
 	var template = Handlebars.compile($("#template").html());
 
 
@@ -165,7 +169,9 @@ list-style:none;
 		var files = event.originalEvent.dataTransfer.files;
 		
 		var file = files[0];
-		console.log(file);
+
+		//console.log(file);
+		
 		var formData = new FormData();
 		
 		formData.append("file", file);	
@@ -179,7 +185,8 @@ list-style:none;
 			  type: 'POST',
 			  success: function(data){
 				  
-				  var fileInfo = getFileInfo(data);				  
+				  var fileInfo = getFileInfo(data);
+				  
 				  var html = template(fileInfo);
 				  
 				  $(".uploadedList").append(html);
@@ -242,7 +249,6 @@ list-style:none;
 		}	
 	});
 
-	
 	$("#popup_img").on("click", function(){
 		
 		$(".popup").hide('slow');
