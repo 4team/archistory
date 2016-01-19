@@ -187,6 +187,10 @@
         <ul class="dropdown-menu" role="menu">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
+
+				<ul  id="myRouteList">
+				</ul>
+
             <li role="presentation" class="divider"></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
@@ -201,10 +205,7 @@
 	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
 </div>
 
-<div id="myRouteList">
-<ul>
-</ul>
-</div>
+
 
 
 
