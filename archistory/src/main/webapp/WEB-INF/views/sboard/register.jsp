@@ -30,9 +30,7 @@ text-align:right;
 .box{
 position: relative;
 margin-left :200px;
-
 }
-
 </style>
 
 
