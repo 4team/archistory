@@ -16,6 +16,7 @@ public class SimpleCORSFilter implements Filter {
 
       public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
                 throws ServletException, IOException {
+    	  System.out.println("CORS Filter.... doFilterInternal...");
             response.addHeader("Access-Control-Allow-Origin", "*");
             if (request.getHeader("Access-Control-Request-Method") != null && "OPTIONS".equals(request.getMethod())); {
                 // CORS "pre-flight" request
@@ -27,14 +28,20 @@ public class SimpleCORSFilter implements Filter {
         }
    public void init(FilterConfig filterConfig) {}
    public void destroy() {}
+   
     @Override
-    public void doFilter(
-            ServletRequest request, ServletResponse response,
-            FilterChain chain) throws IOException, ServletException {
-
-            ((HttpServletResponse)response).addHeader(
-                "Access-Control-Allow-Origin", "*"
-            );
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    	 
+    	System.out.println("CORS Filter.... doFilter...");
+        HttpServletResponse res = (HttpServletResponse) response;
+        
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");
+    	res.setHeader("Access-Control-Max-Age", "3600");
+    	res.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+    	res.setHeader("Access-Control-Allow-Origin", "*");
+    	
             chain.doFilter(request, response);
+            
         }
+    
 }

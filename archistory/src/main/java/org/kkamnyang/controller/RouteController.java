@@ -11,14 +11,14 @@ import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping(value="/route/*")
 public class RouteController{
 		
@@ -64,11 +64,12 @@ public class RouteController{
 		service.modify(vo);
 	}
 	
-	@RequestMapping(value="/remove", method = RequestMethod.POST)
+	@RequestMapping(value="/remove", method = RequestMethod.DELETE)
 	public ResponseEntity<String> removeRoute(@RequestBody RouteVO vo) throws Exception{
 		System.out.println("route 삭제 Post 호출됨");
 		ResponseEntity<String> entity = null;
 		try{
+			System.out.println(vo.getRouteno()+"번 루트 삭제... 시도 시작");
 			service.remove(vo.getRouteno());
 			entity = new ResponseEntity<String>("result",HttpStatus.OK);
 		}catch(Exception e){
