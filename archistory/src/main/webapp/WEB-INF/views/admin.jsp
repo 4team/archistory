@@ -232,7 +232,7 @@ $("#main").on("mouseover",function(){
 	    	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
 	    }
 	    
-	    $("#routeUl").on("click","small",function(event){
+	    $("#myRouteList").on("click","small",function(event){
 	        var select = $(this);
 	        var routeno = parseInt(select.attr("data-routeno"));
 	        console.log(getMetaContentByName('_csrf'));
