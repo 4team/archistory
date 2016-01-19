@@ -35,10 +35,10 @@ public class SimpleCORSFilter implements Filter {
     	System.out.println("CORS Filter.... doFilter...");
         HttpServletResponse res = (HttpServletResponse) response;
         
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Origin,Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-HTTP-Method-Override");
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");
     	res.setHeader("Access-Control-Max-Age", "3600");
-    	res.setHeader("Access-Control-Allow-Headers", "x-requested-with");
-    	res.setHeader("Access-Control-Allow-Origin", "*");
     	
             chain.doFilter(request, response);
             
