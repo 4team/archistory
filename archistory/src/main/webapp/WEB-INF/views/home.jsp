@@ -143,7 +143,6 @@
             position : absolute;
         }
 
-<<<<<<< HEAD
     #joinBody{
         top:50px;
         width:400px;
@@ -166,7 +165,6 @@
             text-align: center;
         }
     
-=======
         #myLocation:hover{
             border-color:#aef;
             box-shadow: 0 0 8px #fff;
@@ -177,7 +175,6 @@
 	        font-size:24px;
 	    }
 
->>>>>>> branch 'master' of https://github.com/4team/archistory.git
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
