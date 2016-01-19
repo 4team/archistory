@@ -170,11 +170,6 @@
             box-shadow: 0 0 8px #fff;
         }
 
-	    #locationGly{
-	        color:#FFF;
-	        font-size:24px;
-	    }
-
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -313,7 +308,7 @@
 
 <div id="cesiumContainer"></div>
 
-<div id="myLocation"><span id="locationGly" class="glyphicon glyphicon-map-marker"></span></div>
+<div id="myLocation"><span class="glyphicon glyphicon-map-marker"></span></div>
 
 <!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
 <script>
