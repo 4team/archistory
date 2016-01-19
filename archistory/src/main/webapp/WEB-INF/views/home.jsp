@@ -82,15 +82,7 @@
          #myRouteList{
          display:none;
             position:absolute;
-            padding: 10px;
-            z-index:400;
-            border : 1px solid black;
-            border-radius : 10px;
-            background-color : #FFF;
-            top:50px;
-            left:10px;
-            width:200px;
-            height:400px;
+
             overflow-y:scroll;
         }
         li{
@@ -151,11 +143,10 @@
             position : absolute;
         }
 
-<<<<<<< HEAD
-    #joinBody{
-        top:50px;
-        width:400px;
-    }
+	    #joinBody{
+	        top:50px;
+	        width:400px;
+	    }
     
       .glyphicon{
             display: inline;
@@ -174,7 +165,6 @@
             text-align: center;
         }
     
-=======
         #myLocation:hover{
             border-color:#aef;
             box-shadow: 0 0 8px #fff;
@@ -185,7 +175,6 @@
 	        font-size:24px;
 	    }
 
->>>>>>> branch 'master' of https://github.com/4team/archistory.git
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -206,7 +195,7 @@
 
 <div class="dropdown">
   <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-    	<span class="glyphicon glyphicon-menu-hamburger"></span>
+    	<span class="glyphicon glyphicon-menu-hamburger" id=""></span>
   </a>
 
         <ul class="dropdown-menu" role="menu">
