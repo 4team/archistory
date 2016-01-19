@@ -7,7 +7,6 @@
 
 
 <style type= "text/css">
-
 .fileDrop {
   width: 40%;
   height: 100px;
@@ -29,14 +28,14 @@ margin-left: 5px;
 .x{
 text-align:right;
 }
-.box{	
-	position: relative;
-	margin-left :200px;
+.box{
+position: relative;
+margin-left :200px;
 }
 .liii{
 float:left;
-padding :5px;}
-
+padding :5px;
+}
 li{
 list-style:none;
 }
@@ -120,6 +119,20 @@ list-style:none;
     </div>
     
     
+<script id="template" type="text/x-handlebars-template">
+<div class="liii">
+<li>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+	</span>
+  </div>
+</li>     
+</div>           
+</script> 
+
+
 <script>
 	$(document).ready(function() {
 
@@ -139,22 +152,8 @@ list-style:none;
 
 	});
 	
-</script>
 
-<script id="template" type="text/x-handlebars-template">
-<div class="liii">
-<li>
-  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-  <div class="mailbox-attachment-info">
-	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
-	</span>
-  </div>
-</li>     
-</div>           
-</script> 
 
-<script>
 	var template = Handlebars.compile($("#template").html());
 
 
