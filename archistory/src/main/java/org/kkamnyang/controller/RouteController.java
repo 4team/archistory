@@ -71,8 +71,8 @@ public class RouteController{
 		try{
 			System.out.println(vo.getRouteno()+"번 루트 삭제... 시도 시작");
 			service.remove(vo.getRouteno());
-			entity = new ResponseEntity<String>("result",HttpStatus.OK);
 			System.out.println("삭제 완료");
+			entity = new ResponseEntity<String>("result",HttpStatus.OK);
 		}catch(Exception e){
 			e.getStackTrace();
 			e.getMessage();
