@@ -27,10 +27,17 @@ public class RouteController{
 	@Autowired
 	RouteService service;
 	
+	@RequestMapping(value="/listAll",method=RequestMethod.GET)
+	public @ResponseBody List<RouteVO> listAll(HttpServletRequest request) throws Exception{
+		System.out.println("★모든 루트 리스트의 출력.");
+		List<RouteVO> result = service.listAll();
+		return result;
+	}
+	
+	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public @ResponseBody List<RouteVO> list(@Param(value="adminno") int adminno, HttpServletRequest request) throws Exception{
-		System.out.println("★모든 루트 리스트의 출력.");
-		
+		System.out.println(adminno + "번 ADMIN의 루트리스트 출력.");
 		List<RouteVO> result = service.list(adminno);
 		return result;
 	}

@@ -13,6 +13,10 @@ public class RouteService {
 	@Autowired
 	RouteMapper mapper;
 	
+	public List<RouteVO> listAll() throws Exception{
+		return mapper.list();
+	}
+	
 	public List<RouteVO> list(int adminno) throws Exception{
 		return mapper.list(adminno);
 	}
