@@ -210,7 +210,7 @@ $("#main").on("mouseover",function(){
 		console.log("ADMIN NO : " + adminno);
 	});
 
-	
+	var routeLi = "";
 	    function addList(route) {
 	        routeLi += "<li>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
 	        $("#myRouteList").html(routeLi);
@@ -221,7 +221,7 @@ $("#main").on("mouseover",function(){
 		        var list = $(data);
 		        console.log(data);
 	
-				 var routeLi = "";
+				routeLi = "";
 		        list.each(function(idx,value){
 		            var route = this;
 		            addList(route);
