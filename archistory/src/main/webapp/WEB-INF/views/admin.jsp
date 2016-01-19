@@ -240,6 +240,7 @@ $("#main").on("mouseover",function(){
 	        var select = $(this);
 	        var routeno = parseInt(select.attr("data-routeno"));
 	        console.log(getMetaContentByName('_csrf'));
+	        
 	        $.ajax({
 	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
@@ -248,7 +249,8 @@ $("#main").on("mouseover",function(){
 	            data : JSON.stringify({routeno:routeno}),
 	            success: function(data){
 	            	getAllRouteList();
-	            });
+	            }
+	    	});
 	    });
 	    
 	    $("#routeShow").on("click",function(){
