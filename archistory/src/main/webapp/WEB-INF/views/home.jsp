@@ -454,7 +454,6 @@ $("#loginSubmitBtn").on("click",function(){
 
 	    $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
 	        var list = $(data);
-	        console.log(data);
 
 	        list.each(function(idx,value){
 	            var route = this;
