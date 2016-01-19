@@ -42,4 +42,8 @@
   		select adminno from tbl_admin where email = #{email}
   	</select>
   	
+  	<select id="isEnable" resultType="java.lang.Boolean" parameterType="java.lang.String">
+  		select enabled from tbl_admin where email = #{email}
+  	</select>
+  	
 </mapper>

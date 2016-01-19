@@ -11,6 +11,9 @@ public class AdminVO {
 	private java.lang.String nation;
 	private java.lang.String img;
 	private Date joindate;
+	private boolean enabled;
+	
+	
 	public java.lang.Integer getAdminno() {
 		return adminno;
 	}
@@ -59,13 +62,20 @@ public class AdminVO {
 	public void setJoindate(Date joindate) {
 		this.joindate = joindate;
 	}
+	
+	
+	public boolean isEnable() {
+		return enabled;
+	}
+	public void setEnable(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
 	@Override
 	public String toString() {
 		return "AdminVO [adminno=" + adminno + ", email=" + email + ", password=" + password + ", username=" + username
-				+ ", phone=" + phone + ", nation=" + nation + ", img=" + img + ", joindate=" + joindate + "]\n";
+				+ ", phone=" + phone + ", nation=" + nation + ", img=" + img + ", joindate=" + joindate + ", enabled="
+				+ enabled + "]";
 	}
-	
-	
-	
-	
+
 }

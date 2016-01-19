@@ -3,6 +3,7 @@ package org.kkamnyang.service;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.persistence.AdminMapper;
 import org.kkamnyang.persistence.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,10 @@ public class LoginService implements UserDetailsService{
 		System.out.println("LoginService... loadUserByUsername 호출됨	");
 		
 		try {
+			int adminno = mapper.getNo(useremail);
+			String name = mapper.getName(useremail);
 			String password = mapper.getPass(useremail);
 			
-			String name = mapper.getName(useremail);
-			int adminno = mapper.getNo(useremail);
 			System.out.println("E-mail based Password in query : " + password);
 			
 			Collection<SimpleGrantedAuthority> roles = new ArrayList<SimpleGrantedAuthority>();
@@ -48,6 +49,25 @@ public class LoginService implements UserDetailsService{
 			System.out.println("계정이 없는 ADMIN의 로그인 시도... LoginService(loadUserByUserName");
 			return null;
 		}
+		
+		
+		boolean enable;
+		try {
+			enable = mapper.isEnable(useremail);
+			
+			if(enable == false){
+				System.out.println("이용이 막힌 사용자가 로그인하였다.");
+				return null;
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("enable가져오는데 실패 ");
+			e.printStackTrace();
+		}
+		
+		
+		
 		System.out.println("LoginService..."+user);
 		return user;
 	}
