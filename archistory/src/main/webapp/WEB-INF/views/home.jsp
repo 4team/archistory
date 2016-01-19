@@ -161,7 +161,8 @@
 
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tour Route</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
+    <ul id="myRouteList"></ul>
     <li role="presentation" class="divider"></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
@@ -345,6 +346,10 @@ $("#loginSubmitBtn").on("click",function(){
 	    $("#myRouteList").on("click","small",function(event){
 	        var select = $(this);
 	        alert("X를 클릭함. routeNo : "+select.attr("data-routeno"));
+	    });
+	    
+	    $("#routeList").on("click",function(){
+	    	 $("#myRouteList").show();
 	    });
 </script>
 
