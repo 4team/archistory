@@ -179,10 +179,10 @@
 
 <div id="menu">
 
-    <div class="dropdown">
-        <a id="mDrop" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </a>
+<div class="dropdown">
+  <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+    	<span class="glyphicon glyphicon-menu-hamburger"></span>
+  </a>
 
         <ul class="dropdown-menu" role="menu">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
