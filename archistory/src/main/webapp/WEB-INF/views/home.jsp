@@ -117,28 +117,51 @@
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
         }
         
-            #loginBody{
-        top:150px;
-        width:350px;
-    }
-
-    #loginH{
-        max-height:180px;
-    }
-
-    .radio{
-        text-align: center;
-    }
+        #loginBody{
+	        top:150px;
+	        width:350px;
+	    }
+	
+	    #loginH{
+	        max-height:180px;
+	    }
+	
+	    .radio{
+	        text-align: center;
+	    }
+	    
+	 	 #joinH{
+	        max-height: 500px;
+	    }
+	
+	    #joinBody{
+	        top:50px;
+	        width:400px;
+	    }
     
-        #joinH{
-        max-height: 500px;
-    }
+          #myLocation{
+            padding : 2px;
+            border:1px solid;
+            border-color:#444444;
+            background-color: #303336;
+            width:32px;
+            height:32px;
+            z-index: 330;
+            top:5px;
+            left:43px;
+            position : absolute;
+        }
 
-    #joinBody{
-        top:50px;
-        width:400px;
-    }
-    
+        #myLocation:hover{
+            border-color:#aef;
+            box-shadow: 0 0 8px #fff;
+        }
+
+	    #locationGly{
+	        color:#FFF;
+	        font-size:24px;
+	    }
+
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -149,7 +172,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  
+    
+    <!-- Cesium -->
+  	<link href="Cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet"/>
+	<script src="Cesium/Build/Cesium/Cesium.js"></script>
 <body>
 
 <div id="menu">
@@ -270,12 +296,104 @@
 </div>
 
 
-<meta name="_csrf" content="${_csrf.token }"/>
-<meta name="_csrf_header" content="${_csrf.headerName }"/>
+<div id="cesiumContainer"></div>
+
+<div id="myLocation"><span id="locationGly" class="glyphicon glyphicon-map-marker"></span></div>
+
+<!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
+<script>
+var viewer;
+
+function turnAround(clock){
+
+    (function(clock){
+        var spinRate = 0.1;
+        var currentTime = Date.now();
+        var previousTime = currentTime-70;
+        var delta = ( currentTime - previousTime ) / 1000;
+        previousTime = currentTime;
+        viewer.scene.camera.rotate(Cesium.Cartesian3.UNIT_Z, -spinRate * delta);
+    })();
+};
 
 
-<iframe id="main" src="/world.html"></iframe>
+function stopAround() {
+    viewer.clock.onTick.removeEventListener(turnAround);
+};
 
+
+(function worldMap() {
+    viewer = new Cesium.Viewer('cesiumContainer', {
+        navigationHelpButton: false,
+        fullscreenButton: false,
+        infoBox: false,
+        baseLayerPicker: false,
+        homeButton: false,
+        sceneModePicker: false,
+        animation: false,
+        timeline: false
+    });
+
+    var cartographic = new Cesium.Cartographic();
+    var cartesian = new Cesium.Cartesian3();
+    var camera = viewer.scene.camera;
+    var ellipsoid = viewer.scene.mapProjection.ellipsoid;
+
+
+    var spinGlobe = viewer.clock.onTick.addEventListener(turnAround);
+    spinGlobe;
+
+    $("#cesiumContainer").on("click",function(){
+        console.log("드래그");
+        stopAround();
+    });
+
+    window.addEventListener("mousewheel", function () {
+        ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
+        var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+        var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+        var height = (cartographic.height * 0.001).toFixed(1);
+
+        if (height < 10) {
+            changePage(lat, lng, height);
+        }
+    });
+
+})();
+
+function changePage(lat, lng, height) {
+    console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
+    self.location="close.html?lat="+lat+"&lng="+lng;
+}
+
+
+$("#myLocation").on("click",function(){
+
+    stopAround();
+    //초기 위치 읽어내서 지구를 이동시킨다.
+    navigator.geolocation.getCurrentPosition(success, error);
+
+    function success(position) {
+    	 stopAround();
+        console.log(position);
+        viewer.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(
+                    position.coords.longitude,
+                    position.coords.latitude,
+                    600000
+            )
+        });
+    };
+
+    function error(err) {
+        console.log(err.code + err.message);
+    };
+
+});
+
+</script>
+
+<!-- 클릭 메뉴들과 관련된 스크립트 -->
 <script>
 	
 
