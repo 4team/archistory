@@ -230,11 +230,11 @@ $("#main").on("mouseover",function(){
 	        var select = $(this);
 	        
 	        $.ajax({
-	            type:"DELETE",
+	            type:"post",
 	            url: "http://192.168.0.36:8080/route/remove",
-	            headers : {"Content-Type":"application/json","X-Http-Method-Override":"DELETE"},
-	            dataType: "text",
-	            data : JSON.stringify({routeno:select.attr("data-routeno"),adminno:1}),
+	            headers : {"Content-Type":"application/json"},
+	            dataType: "json",
+	            data : JSON.stringify({routeno:select.attr("data-routeno")}),
 	            success: function(data){
 	                if(data=="result"){
 	                 console.log("성공");
