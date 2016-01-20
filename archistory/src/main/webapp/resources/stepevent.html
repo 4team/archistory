@@ -82,12 +82,7 @@
         float:right;
         font-size:smaller;
     }
-	.img{
-	float:left;
-	}
-	.x{
-	text-align:right;
-	}
+
     ::-webkit-scrollbar {
         width: 10px;
     }
@@ -154,7 +149,6 @@
                         <label for="imgInput">이미지</label>
                         <input type="file" id="imgInput">
                         <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
-                        <ul class="mailbox-attachments clearfix uploadedList" id="imgThumbnail" style="display:inline"></ul>
                         
 <!--                        <label for="videoInput">동영상</label>
                         <input type="file" id="videoInput">
@@ -200,7 +194,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" id="createEventBtn" class="btn btn-create">만들기</button>
-                                <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                                <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal" value="data">취소</button>
                             </div>
 
                             </div>
@@ -231,8 +225,7 @@
                     <label for="imgInput">이미지</label>
                     <input type="file" id="moimgInput"><br>
                     <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
-                    <ul class="mailbox-attachments clearfix uploadedList" id="imgThumbnail" style="display:inline"></ul>
-                                            
+                    
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
                     
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
@@ -466,8 +459,6 @@
     function clearEventDiv(){
         $("#eventName").val("");
         $("#eventinfo").val("");
-        $("#imgThumbnail").remove();
-    	attach=[];
     }
 
     <!-- 이벤트 읽기 기능 -->
@@ -539,9 +530,23 @@
 
         $("#eventModal").modal('show');
 
-        $("#cancleEventBtn").on("click",function(){
+        $("#cancleEventBtn").on("click","#cancleEventBtn",function(){
             console.log("이벤트 생성 취소");
             clearEventDiv();
+            
+            var that = $(this);
+            
+            $.ajax({
+                url:"deleteFile",
+                type:"post",
+                data: {fileName:$(this).attr("data-src")},
+                dataType:"text",
+                success:function(result){
+                    if(result == 'deleted'){
+                        that.parent("div").remove();
+                    }
+                }
+            });
         });
         
         $("#mocancleEventBtn").on("click",function(){
@@ -684,8 +689,8 @@
                 var str ="";
 
                 console.log(data);
-//                console.log(checkImageType(data));
-//                console.log("ddddd",$(".uploadedList"));
+                console.log(checkImageType(data));
+                console.log("ddddd",$(".uploadedList"));
 
                 //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
                 attach.push(data);
@@ -714,7 +719,7 @@
         var that = $(this);
         console.log("delete click");
         $.ajax({
-            url:"/sboard/deleteFile",
+            url:"deleteFile",
             type:"post",
             data: {fileName:$(this).attr("data-src")},
             dataType:"text",
