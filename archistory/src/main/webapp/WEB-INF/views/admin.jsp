@@ -256,22 +256,17 @@
                     <tr>
                         <th>번호</th>
                         <th>이름</th>
-                        <th>연락처</th>
                         <th>이메일</th>
-                        <th>루트완료여부</th>
-                        <th>점수</th>
+                        <th>비밀번호</th>
+                        <th>이미지</th>
                     </tr>
                     <tr>
-                       <td><input type="text" class="form-control" placeholder="Number"></td>
-                        <td><input type="email" class="form-control"  placeholder="Name"></td>
-                        <td><input type="tel"  class="form-control" name="usertel" placeholder="Phone" ></td>
-                        <td><input type="email" class="form-control" name="useremail"  placeholder="Email"></td>
-                        <td style="width:90px"><select class="form-control">
-                            <option>미완료</option>
-                            <option>완료</option>
-                        </select></td>
-                        <td><input type="text" class="form-control"name="point" placeholder="Score"></td>
-                    </tr>
+	                    <td><input type='text' class='form-control' placeholder='Number'></td>
+			            <td><input type='text' class='form-control'  placeholder='Name'></td>
+			            <td><input type='email' class='form-control'  placeholder='Email'></td>
+			            <td><input type='password' class='form-control'  placeholder='password'></td>
+			            <td><input type='file' class='form-control'name='img'></td>
+		            </tr>
                 </table>
                 <table id="memTable">
 
@@ -286,8 +281,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <meta name="_csrf" content="${_csrf.token }"/>
@@ -311,6 +304,8 @@ $("#main").on("mouseover",function(){
 		console.log("ADMIN NO : " + adminno);
 	});
 
+	//route list 보이기 
+	
 	var routeLi = "";
 	    function addList(route) {
 	        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
@@ -336,6 +331,12 @@ $("#main").on("mouseover",function(){
 	    	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
 	    }
 	    
+	    $("#routeShow").on("click",function(){
+	    	 $("#myRouteList").toggle();
+	    	 
+	    });
+	    
+	  //routelist 에서   route 이름 클릭하면 -> 루트 수정, 멤버 등록, 루트 삭제 모달 창 뜸.    
 	    $("#myRouteList").on("click","li",function(event){
 		       var select = $(this);
 		       var routeno = parseInt(select.attr("data-routeno"));
@@ -345,13 +346,13 @@ $("#main").on("mouseover",function(){
 		    });
 
 		    
-		    $("#routeList").on("click",function(){
+		/*     $("#routeList").on("click",function(){
 		    	 $("#myRouteList").show();
 		    	 
-		    });
+		    }); */
 		    
 		   
-		    function editRoute(select){
+		 function editRoute(select){
 		        var editRoute ="<li>" + select.attr("data-routename")+ "<div class='gly'><span class='glyphicon glyphicon-user' id='member' value='"+select.attr("data-routeno")+"'></span>" +
 		                "<span class='glyphicon glyphicon-pencil' id='modi' value='"+select.attr("data-routeno")+"'></span>" +
 		                "<span class='glyphicon glyphicon-remove' id='del' value='"+select.attr("data-routeno")+"'></span></div></li>";
@@ -387,6 +388,7 @@ $("#main").on("mouseover",function(){
 		    }
 
 		var route;
+		
 		   //루트 삭제로 이동
 		    $("#routelist").on("click","#del",function(){
 		        route= $(this);
@@ -448,11 +450,10 @@ $("#main").on("mouseover",function(){
 		    	
 		                contents+=  "<tr>"
 		            +"<td><input type='text' class='form-control' placeholder='Number'></td>"
-		            +"<td><input type='email' class='form-control'  placeholder='Name'></td>"
-		            +"<td><input type='tel'  class='form-control'  placeholder='Phone' ></td>"
+		            +"<td><input type='text' class='form-control'  placeholder='Name'></td>"
 		            +"<td><input type='email' class='form-control'  placeholder='Email'></td>"
-		            +"<td style='width:90px'><select class='form-control'><option>미완료</option><option>완료</option></select></td>"
-		            +"<td><input type='text' class='form-control'name='point' placeholder='Score'></td></tr>"
+		            +"<td><input type='password' class='form-control'  placeholder='password'></td>"
+		            +"<td><input type='file' class='form-control'name='img'></td></tr>"
 		      
 		            $("#memTable").html(contents);
 		           
@@ -460,14 +461,32 @@ $("#main").on("mouseover",function(){
 		    });
 
 		    $("#registerBtn").on("click",function(){
+			       regiMember();
 			       alert("멤버등록이 완료되었습니다.");
 			       $("#memberModal").modal('hide');	
 			    });
 		    
-	     $("#routeShow").on("click",function(){
-	    	 $("#myRouteList").toggle();
-	    	 
-	    });
+		    
+		   function regiMember(){
+			   $.ajax({
+				  type:'post',
+				  url:"http://192.168.0.36:8080/",
+				  headers : {
+					"Content-Type" : "application/json"  
+				  },
+				  datatype:"json",
+				  data:JSON.stringfy({}),
+				  success: function(data){
+					  console.log(data);
+				  }
+				   
+			   });
+				   
+			  
+		   };
+		   
+		
+	
 	       
 	     
 	</script>
