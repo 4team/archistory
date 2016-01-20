@@ -227,6 +227,9 @@
 <!-- ★로그인 모달 -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
     <div class="modal-dialog" id="loginBody">
+
+		<form name="loginForm"  id="loginForm" action="" method="post">
+
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
@@ -234,7 +237,6 @@
             </div>
             <div class="modal-body" id="loginH">
                 <div id="loginDiv">
-
                     <div class="radio">
                         <label>
                             <input type="radio" name="loginType" id="userLogin" value="user">
@@ -256,6 +258,9 @@
                 <button type="button" id="loginSubmitBtn" class="btn btn-primary">로그인</button>
             </div>
         </div>
+
+         </form>           
+
     </div>
 </div>
 
@@ -457,22 +462,17 @@ $("#loginBtn").on("click",function(){
 });
 	
 $("#loginSubmitBtn").on("click",function(){
-    var email = $("#loginEmail").val();
-    var password = $("#loginPassword").val();
-
-    var loginType = $("#loginDiv .radio input:radio[name='loginType']:checked").val();
+    var formData = $("#loginForm").serialize();
 
     console.log(email,password,loginType);
 
-    $.post({
+    $.ajax({
+    	type:"POST",
         url: "http://192.168.0.36:8080/admin/login",
-        headers: {
-            "Content-Type": "application/json"},
-        dataType: "json",
-        data:JSON.stringify({email:email,password:password}),
+        data: formData,
         success: function(data){
             console.log(data);
-            if(data=='LOGIN'){
+            if(data == 'LOGIN'){
                 console.log("로그인 되었습니다.");
             };
         }
