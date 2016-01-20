@@ -228,7 +228,7 @@
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
     <div class="modal-dialog" id="loginBody">
 
-		<form name="loginForm"  id="loginForm" action="" method="post">
+	
 
         <div class="modal-content">
             <div class="modal-header">
@@ -247,9 +247,11 @@
                             Admin
                         </label>
                     </div>
+           <form name="loginForm"  id="loginForm" action="" method="post">
 					<input type="hidden" name="_csrf" value="2ab2ae5c-c2ea-4b4b-b72f-fc81a471e1ea">
                     <input type="text" class="form-control" name ="email" id="email" placeholder="Email"><br>
-                    <input type="text" class="form-control" name="password" id="password" placeholder="Password"><br>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br>
+           </form>   
                 </div>
 
             </div>
@@ -259,7 +261,7 @@
             </div>
         </div>
 
-         </form>           
+            
 
     </div>
 </div>
@@ -462,6 +464,8 @@ $("#loginBtn").on("click",function(){
 });
 	
 $("#loginSubmitBtn").on("click",function(){
+	console.log($("adminLogin"));
+	
     var formData = $("#loginForm").serialize();
 
     $.ajax({
