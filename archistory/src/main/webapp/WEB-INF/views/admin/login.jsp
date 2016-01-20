@@ -25,9 +25,9 @@
 	#contents{
 	top:30%;
 	position:relative;
-	width:300px;
+	width:100px;
 	left:50%;
-	margin-left:-150px;
+	margin-left:-50px;
 
 	}
 	</style>
