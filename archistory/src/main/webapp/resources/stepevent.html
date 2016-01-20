@@ -126,7 +126,7 @@
 <div id="map"></div>
 
 <!-- 모달 팝업(이벤트(스텝) 생성) -->
-<form role="form" action="/event/attachCreate" method="post">
+<form id='registerForm' role="form" action="/event/attachCreate" method="post">
     <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -136,6 +136,7 @@
                         <span class="sr-only">Close</span></button>
                     <h4 class="modal-title">이벤트 생성</h4>
                 </div>
+                                
                 <div class="modal-body">
                     <div id="createEventDiv" >
 
@@ -147,7 +148,7 @@
                         <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                         <label for="imgInput">이미지</label>
                         <input type="file" id="imgInput">
-                        <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>
+                        <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
                         
 <!--                        <label for="videoInput">동영상</label>
                         <input type="file" id="videoInput">
@@ -223,7 +224,10 @@
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
                     <input type="file" id="moimgInput"><br>
+                    <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+                    
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
+                    
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
@@ -728,7 +732,6 @@
 
         that.get(0).submit();
     });
-
 
 
     function getOriginalName(fileName){
