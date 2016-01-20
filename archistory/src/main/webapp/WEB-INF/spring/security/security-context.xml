@@ -9,7 +9,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<http  auto-config="true">
 		<intercept-url pattern="/admin/login_duplicate" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<form-login login-page="/admin/login" username-parameter="email"
-			password-parameter="password" login-processing-url="/"
+			password-parameter="password" login-processing-url="/admin/login"
 			default-target-url="/admin/login_success" authentication-failure-url="/"
 			always-use-default-target='true' />
 
