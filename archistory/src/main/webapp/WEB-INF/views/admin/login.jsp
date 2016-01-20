@@ -29,7 +29,7 @@
 	text-align: center;
 	}
 	
-	#button{
+	#button input{
 	text-align: center;
 	}
 	
