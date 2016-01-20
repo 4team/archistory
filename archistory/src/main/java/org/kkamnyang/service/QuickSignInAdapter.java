@@ -26,11 +26,9 @@ public class QuickSignInAdapter implements SignInAdapter {
     }
     private String extractOriginalUrl(NativeWebRequest request) {
 		return null;
-
     }
     
     private void removeAutheticationAttributes(HttpSession session) {
-
         session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
     }
     private void signin(String userId) {
