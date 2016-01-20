@@ -247,8 +247,8 @@
                             Admin
                         </label>
                     </div>
-           <form name="loginForm"  id="loginForm" action="" method="post">
-					<input type="hidden" name="_csrf" value="2ab2ae5c-c2ea-4b4b-b72f-fc81a471e1ea">
+           <form name="loginForm"  id="loginForm" action="<c:url value='j_spring_security_check' />" method="post">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <input type="text" class="form-control" name ="email" id="email" placeholder="Email"><br>
                     <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br>
            </form>   

@@ -28,10 +28,12 @@ public class AdminController {
     }
 	
 	@RequestMapping(value = "/login",method=RequestMethod.GET)
-	public void adminLogin() {
-
+	public ModelAndView adminLogin() {
+			ModelAndView model = new ModelAndView();
 	        System.out.println("로그인화면이 호출되어 /admin/login.jsp를 보낸다.");
+	        model.setViewName("login");
 
+			return model;
 	}
 	
 	@RequestMapping(value = "/logout",method=RequestMethod.GET)
