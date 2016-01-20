@@ -3,6 +3,7 @@ package org.kkamnyang.persistence;
 import java.util.List;
 
 import org.kkamnyang.domain.MemberVO;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -34,6 +35,11 @@ public class MemberMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> impl
 	public void update(MemberVO vo) throws Exception {
 		session.update(namespace+".update",vo);
 
+	}
+
+	@Override
+	public MemberVO findByEmail(String email) {
+		return session.selectOne(namespace+".getUser",email);
 	}
 
 }

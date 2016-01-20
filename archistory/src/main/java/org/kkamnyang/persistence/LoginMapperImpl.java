@@ -50,7 +50,7 @@ public class LoginMapperImpl implements AuthenticationProvider {
 		roles.add(new SimpleGrantedAuthority("ROLE_USER"));
 		
 		UsernamePasswordAuthenticationToken result = new UsernamePasswordAuthenticationToken(useremail, userpassword,roles);	
-		result.setDetails(new CustomUserDetails(adminno,useremail,name,userpassword));
+		result.setDetails(new AdminDetails(adminno,useremail,name,userpassword));
 		return result;
 	}
 

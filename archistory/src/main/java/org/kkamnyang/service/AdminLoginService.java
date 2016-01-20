@@ -3,9 +3,8 @@ package org.kkamnyang.service;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.kkamnyang.domain.AdminDTO;
+import org.kkamnyang.persistence.AdminDetails;
 import org.kkamnyang.persistence.AdminMapper;
-import org.kkamnyang.persistence.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +14,7 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginService implements UserDetailsService{
+public class AdminLoginService implements UserDetailsService{
 
 	@Autowired
 	private AdminMapper mapper;
@@ -27,12 +26,12 @@ public class LoginService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String useremail) throws UsernameNotFoundException {
 	
-		CustomUserDetails user = null;
+		AdminDetails admin = null;
 		
 		StandardPasswordEncoder encoder = new StandardPasswordEncoder();
         
         
-		System.out.println("LoginService... loadUserByUsername 호출됨	");
+		System.out.println("[ADMIN 로그인 시도] - loadUserByUsername");
 		
 		try {
 			int adminno = mapper.getNo(useremail);
@@ -44,7 +43,7 @@ public class LoginService implements UserDetailsService{
 			Collection<SimpleGrantedAuthority> roles = new ArrayList<SimpleGrantedAuthority>();
 			
 			roles.add(new SimpleGrantedAuthority("ROLE_USER"));
-			user = new CustomUserDetails(adminno,useremail,name,encoder.encode(password));
+			admin = new AdminDetails(adminno,useremail,name,encoder.encode(password));
 		} catch (Exception e) {
 			System.out.println("계정이 없는 ADMIN의 로그인 시도... LoginService(loadUserByUserName");
 			return null;
@@ -68,8 +67,8 @@ public class LoginService implements UserDetailsService{
 		
 		
 		
-		System.out.println("LoginService..."+user);
-		return user;
+		System.out.println("LoginService..."+admin);
+		return admin;
 	}
 
 }

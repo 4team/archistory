@@ -6,14 +6,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class CustomUserDetails implements UserDetails {
+public class AdminDetails implements UserDetails {
 	private final int adminno;
 	private final String email;
 	private final String name;
 	private final String password;
 	private final Collection<? extends GrantedAuthority> authorities;
 
-	public CustomUserDetails(int adminno, String email, String name, String password) {
+	public AdminDetails(int adminno, String email, String name, String password) {
 		this.adminno = adminno;
 		this.email = email;
 		this.name = name;

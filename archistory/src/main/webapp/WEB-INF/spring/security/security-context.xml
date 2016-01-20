@@ -32,7 +32,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 
 
-	<beans:bean id="loginServiceUserDetails" class="org.kkamnyang.service.LoginService"></beans:bean>
+	<beans:bean id="loginServiceUserDetails" class="org.kkamnyang.service.AdminLoginService"></beans:bean>
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 

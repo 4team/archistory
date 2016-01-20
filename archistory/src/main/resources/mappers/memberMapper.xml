@@ -26,4 +26,8 @@
 		delete from tbl_member where memberNo=#{memberNo}
 	</delete>
 	
+	<select id="getUser">
+		select * from tbl_member where email = #{email}
+	</select>
+	
 </mapper>

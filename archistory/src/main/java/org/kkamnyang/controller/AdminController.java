@@ -4,7 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
-import org.kkamnyang.persistence.CustomUserDetails;
+import org.kkamnyang.persistence.AdminDetails;
 import org.kkamnyang.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,9 +22,9 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 	
-	public CustomUserDetails getUser()
+	public AdminDetails getUser()
     {
-        return (CustomUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return (AdminDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 	
 	@RequestMapping(value = "/login",method=RequestMethod.GET)
