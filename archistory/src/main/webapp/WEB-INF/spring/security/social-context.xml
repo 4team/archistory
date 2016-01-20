@@ -11,8 +11,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<context:property-placeholder location="classpath:/org/springframework/social/showcase/config/application.properties" />
-
 	<facebook:config app-id="${facebook.clientId}" app-secret="${facebook.clientSecret}" app-namespace="socialshowcase" />
 
 	<social:jdbc-connection-repository/>	
