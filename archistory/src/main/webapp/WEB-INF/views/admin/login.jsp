@@ -36,6 +36,9 @@
 	form{
 	background-color: #444444;
 	}
+	input{
+	margin : 4px;
+	}
 	</style>
 <body>
 <div id="wrapper">
@@ -56,7 +59,6 @@
     <div id="button">
      <input type="submit" value="로그인">
      <input type="reset" value="리셋">
-    <p>
     </div>
 </form>
 </div>
