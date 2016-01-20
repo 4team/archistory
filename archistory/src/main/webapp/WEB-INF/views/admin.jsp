@@ -170,7 +170,11 @@
         th{
             text-align: center;
         }
-        
+        #routeCreate{
+        display:none;
+        position:absolute;
+        z-index:500;
+   		 }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -296,6 +300,7 @@
     </div>
 </div>
 
+<button type="button" id="routeCreate" class="btn btn-default">루트생성하기</button>
 
 <meta name="_csrf" content="${_csrf.token }"/>
 <meta name="_csrf_header" content="${_csrf.headerName }"/>
@@ -350,20 +355,29 @@ function stopAround() {
     spinGlobe;
 
     $("#main").on("click",function(){
-        console.log("드래그");
+    	$("#routeCreate").hide();
         stopAround();
     });
 
-    window.addEventListener("mousewheel", function () {
-        ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
-        var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
-        var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-        var height = (cartographic.height * 0.001).toFixed(1);
+    viewer.canvas.addEventListener("contextmenu", function (event) {
+        var mousePosition = new Cesium.Cartesian2(event.clientX, event.clientY);
+        var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
+        var cartographic = ellipsoid.cartesianToCartographic(cartesian);
 
-        if (height < 10) {
-            changePage(lat, lng, height);
-        }
-    });
+         var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+         var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+         console.log(lat,lng);
+         console.log(event.clientX);
+        var bnt = $("#routeCreate");
+        bnt.css("left",event.clientX);
+        bnt.css("top",event.clientY)
+        bnt.show();
+
+        bnt.on("click",function(){
+             changePage(lat,lng);
+        });
+     });
+
 
 })();
 
