@@ -46,23 +46,4 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<beans:bean id="adminAuthentication" class="org.kkamnyang.persistence.LoginMapperImpl" />
 
 
-<!-- Configuration of spring social -->
-
-<!-- Note the postSignInUrl is set to /authenticate, the signUp url is set to /signup and a provider specific connect interceptor
-is registered for each post-login connect provider -->
-
-    <beans:bean class="org.springframework.social.connect.web.ProviderSignInController">
-
-        <!-- relies on by-type autowiring for the other constructor-args -->
-    </beans:bean>
-
-    <beans:bean class="org.springframework.social.connect.web.ConnectController">
-        <!-- relies on by-type autowiring for the constructor-args -->
-    </beans:bean>
-
-
-<!-- End configuration of spring social -->
-
-
-
 </beans:beans>
