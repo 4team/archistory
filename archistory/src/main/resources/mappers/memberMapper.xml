@@ -6,7 +6,7 @@
 <mapper namespace="org.kkamnyang.persistence.MemberMapper">
 	<insert id="create">
 		insert into tbl_member(userNo,userName,email,mPassword,img)
-        values(#{userNo},#{userName),#{Email},#{mPassword},#{img})
+        values(#{userNo},#{userName},#{Email},#{mPassword},#{img})
 	</insert>
 	
 	<select id="list" resultType="org.kkamnyang.domain.MemberVO">
@@ -18,7 +18,7 @@
 	</select>
 
 	<update id="update">
-		update tbl_member set userNo=#{userNo},userName=#{userName),email=#{Email},mPassword=#{mPassword},img=#{img}
+		update tbl_member set userNo=#{userNo},userName=#{userName},email=#{Email},mPassword=#{mPassword},img=#{img}
 		where memberNo=#{memberNo}
 	</update>
 	

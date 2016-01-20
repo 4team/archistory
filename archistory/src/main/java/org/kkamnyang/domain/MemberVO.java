@@ -32,8 +32,8 @@ public class MemberVO {
 	public String getEmail() {
 		return Email;
 	}
-	public void setEmail(String email) {
-		Email = email;
+	public void setEmail(String Email) {
+		this.Email = Email;
 	}
 	public String getmPassword() {
 		return mPassword;
