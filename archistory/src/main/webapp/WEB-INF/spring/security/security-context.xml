@@ -19,7 +19,6 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 			<concurrency-control max-sessions="1"
 				expired-url="/admin/login_duplicate" />
 		</session-management>
-  <custom-filter ref="socialAuthenticationFilter" before="PRE_AUTH_FILTER" />
 	</http>
 
 
