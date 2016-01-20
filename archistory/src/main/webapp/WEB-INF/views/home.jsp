@@ -12,16 +12,11 @@
 </head>
 
     <style>
-        html, body, #cesiumContainer {
+        html, body {
             width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
             font-family: sans-serif; color: #edffff;
         }
 
-         html, body {
-             height: 100%;
-             margin: 0;
-             padding: 0;
-         }
         #main{
             width:100%;
             border:0px;
