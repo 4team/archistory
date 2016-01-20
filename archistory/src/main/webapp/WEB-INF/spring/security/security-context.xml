@@ -36,7 +36,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
-	<authentication-manager>
+	<authentication-manager alias="authenticationManager">
 		<authentication-provider user-service-ref="loginService">
 			<password-encoder ref="encoder" />
 		</authentication-provider>
@@ -45,21 +45,6 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<beans:bean id="adminAuthentication" class="org.kkamnyang.persistence.LoginMapperImpl" />
 
 
-
-
-
-    <!--
-        Configures the authentication manager bean which processes authentication
-        requests.
-    -->
-    <authentication-manager alias="authenticationManager">
-        <authentication-provider user-service-ref="userDetailsService">
-            <password-encoder ref="passwordEncoder"/>
-        </authentication-provider>
-
-        <authentication-provider ref="socialAuthenticationProvider"/>
-    </authentication-manager>
-
     <!--
         Configures the social authentication filter which integrates Spring Social
         with Spring Security.
@@ -67,7 +52,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
     <beans:bean id="socialAuthenticationFilter" class="org.springframework.social.security.SocialAuthenticationFilter">
         <beans:constructor-arg index="0" ref="authenticationManager"/>
         <beans:constructor-arg index="1" ref="userIdSource"/>
-        <beans:constructor-arg index="2" ref="userDetailsService"/>
+        <beans:constructor-arg index="2" ref="loginService"/>
         <beans:constructor-arg index="3" ref="connectionFactoryLocator"/>
 
         <!-- Sets the url of the registration form. -->
@@ -79,7 +64,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
         made by using supported social authentication services (FB, Twitter and so on).
     -->
     <beans:bean id="socialAuthenticationProvider" class="org.springframework.social.security.SocialAuthenticationProvider">
-        <beans:constructor-arg index="0" ref="userDetailsService"/>
+        <beans:constructor-arg index="0" ref="loginService"/>
         <beans:constructor-arg index="1" ref="socialUserDetailsService"/>
     </beans:bean>
 
