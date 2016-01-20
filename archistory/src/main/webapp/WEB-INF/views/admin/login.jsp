@@ -19,6 +19,7 @@
 	width:100%;
 	height:700px;
 	}
+	
 	#contents{
 	top:30%;
 	position:relative;
@@ -27,9 +28,11 @@
 	width:300px;
 	text-align: center;
 	}
+	
 	#button{
 	text-align: center;
 	}
+	
 	form{
 	background-color: #444444;
 	}
