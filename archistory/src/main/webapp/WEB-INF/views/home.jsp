@@ -464,8 +464,6 @@ $("#loginBtn").on("click",function(){
 $("#loginSubmitBtn").on("click",function(){
     var formData = $("#loginForm").serialize();
 
-    console.log(email,password,loginType);
-
     $.ajax({
     	type:"POST",
         url: "http://192.168.0.36:8080/admin/login",
