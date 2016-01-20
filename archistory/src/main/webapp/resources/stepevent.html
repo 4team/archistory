@@ -706,7 +706,7 @@
         var that = $(this);
         console.log("delete click");
 
-        var removeSelectedItemFromList = function(attach, fileName) {
+        (function(attach, fileName) {
                     var targetIndex = 0;
                     for(var i = 0; i < attach.length; i++) {
                         if(attach[i] === value) {
@@ -715,7 +715,7 @@
                     }
                     attach.splice(targetIndex,1);
                     return attach;
-                };
+                })();
         
         $.ajax({
             url:"/sboard/deleteFile",
