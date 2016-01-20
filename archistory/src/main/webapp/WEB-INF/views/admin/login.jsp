@@ -28,8 +28,7 @@
 	text-align: center;
 	}
 	#button{
-	margin : auto;
-	display:block;
+	text-align: center;
 	}
 	form{
 	background-color: #444444;
