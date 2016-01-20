@@ -4,8 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title> = ADMIN LOGIN =</title>
 </head>
+	<style>
+	body{
+	background-color: #000000;
+	}
+	form{
+	margin:auto;
+	}
+	</style>
 <body>
 <h2>로그인 </h2>
 <form name="form1" method="post" action="/admin/login">
