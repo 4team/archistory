@@ -247,7 +247,7 @@
                             Admin
                         </label>
                     </div>
-           <form name="loginForm"  id="loginForm" action="<c:url value='j_spring_security_check' />" method="post">
+           <form name="loginForm"  id="loginForm" action="/admin/login" method="post">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <input type="text" class="form-control" name ="email" id="email" placeholder="Email"><br>
                     <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br>
@@ -257,7 +257,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-                <button type="button" id="loginSubmitBtn" class="btn btn-primary">로그인</button>
+                <button type="submit" id="loginSubmitBtn" class="btn btn-primary">로그인</button>
             </div>
         </div>
 
