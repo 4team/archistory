@@ -38,8 +38,8 @@
 <body>
 <div id="wrapper">
 <div id="contents">
-<h2>로그인 </h2>
 <form name="form1" method="post" action="/admin/login">
+<h2>로그인 </h2>
 <table>
     <tr height="40px">
         <td>유저 Email</td>
