@@ -68,8 +68,8 @@
     .fileDrop {
         width: 40%;
         height: 50px;
-        border: 1px dotted gray;
-        background-color: lightslategrey;
+        border: 1px dotted black;
+        background-color: white;
         margin-top:10px;
         margin-bottom:10px;
     }
@@ -230,6 +230,7 @@
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
                     <input type="file" id="moimgInput"><br>
+                    <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>    
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
@@ -475,6 +476,7 @@
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
+            
             $("#mo")
 
         });
