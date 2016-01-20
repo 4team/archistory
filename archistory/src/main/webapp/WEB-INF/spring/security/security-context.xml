@@ -20,8 +20,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 				expired-url="/admin/login_duplicate" />
 		</session-management>
 		
-		<!-- Adds social authentication filter to the Spring Security filter chain. -->
-        <custom-filter ref="socialAuthenticationFilter" before="PRE_AUTH_FILTER" />
+
 	</http>
 
 
@@ -40,7 +39,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
 	<authentication-manager>
-		<authentication-provider user-service-ref="loginService">
+		<authentication-provider user-service-ref="adminAuthentication">
 			<password-encoder ref="encoder" />
 		</authentication-provider>
 	</authentication-manager>
