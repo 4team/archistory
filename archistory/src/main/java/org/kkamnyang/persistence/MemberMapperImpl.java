@@ -6,7 +6,7 @@ import org.kkamnyang.domain.MemberVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MemebrMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> implements MemberMapper {
+public class MemberMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> implements MemberMapper {
 
 	@Override
 	public int create(MemberVO vo) throws Exception {

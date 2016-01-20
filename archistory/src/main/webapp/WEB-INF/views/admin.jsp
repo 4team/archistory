@@ -470,7 +470,7 @@ $("#main").on("mouseover",function(){
 		   function regiMember(){
 			   $.ajax({
 				  type:'post',
-				  url:"http://192.168.0.36:8080/",
+				  url:"http://192.168.0.36:8080/admin/login_success/member/register",
 				  headers : {
 					"Content-Type" : "application/json"  
 				  },
