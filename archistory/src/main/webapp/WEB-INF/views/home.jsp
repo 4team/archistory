@@ -182,8 +182,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
     <!-- Cesium -->
-  	<link href="Cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet"/>
-	<script src="Cesium/Build/Cesium/Cesium.js"></script>
+  	<link href="/Cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet"/>
+	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
 <body>
 
 <div id="menu">
