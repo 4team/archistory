@@ -23,9 +23,8 @@ public class HomeController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model,HttpSecurity http) throws Exception {
+	public String home(Locale locale, Model model) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		 http.csrf().disable();
 		
 		return "home";
 	}
