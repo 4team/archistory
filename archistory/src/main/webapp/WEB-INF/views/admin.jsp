@@ -367,7 +367,7 @@ function stopAround() {
 
          var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
          var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-         var height = (cartographic.height * 0.001).toFixed(1);
+         var height = cartographic.height;
          
          console.log(lat,lng,height);
          console.log(event.clientX);
