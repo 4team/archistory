@@ -29,7 +29,7 @@
 	}
 	button{
 	text-align: center;
-	
+	left:50%;
 	}
 	form{
 	background-color: #444444;
