@@ -28,7 +28,7 @@ public class UploadController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
 
-	private static final String uploadPath = "C:\\archistory";
+	private static final String uploadPath = "C:\\zzz\\upload";
 
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() {
