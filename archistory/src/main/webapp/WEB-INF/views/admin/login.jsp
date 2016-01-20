@@ -29,8 +29,8 @@
 	text-align: center;
 	}
 	
-	#button input{
-	margin:0 auto;
+	#button tr td{
+	text-align: center;
 	}
 	
 	form{
