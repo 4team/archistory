@@ -12,7 +12,6 @@
 	color:#ffffff;
 	}
 	form{
-
 	text-align: center;
 	}
 	h2{
