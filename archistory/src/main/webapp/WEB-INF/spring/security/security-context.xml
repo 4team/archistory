@@ -39,7 +39,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
-	<authentication-manager alias="authenticationManager">
+	<authentication-manager>
 		<authentication-provider user-service-ref="loginService">
 			<password-encoder ref="encoder" />
 		</authentication-provider>
@@ -47,62 +47,5 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
 	<beans:bean id="adminAuthentication" class="org.kkamnyang.persistence.LoginMapperImpl" />
 	
-	  <beans:bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
-        <beans:property name="connectionFactories">
-            <beans:list>
-                <beans:ref bean="facebookFactory" />
-            </beans:list>
-        </beans:property>
-    </beans:bean>
 
-   <beans:bean id="facebookFactory" class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
-        <beans:constructor-arg value="xyz" />
-        <beans:constructor-arg value="xzy" />
-    </beans:bean>
-    <!--
-        Configures the social authentication filter which integrates Spring Social
-        with Spring Security.
-    -->
-    <beans:bean id="socialAuthenticationFilter" class="org.springframework.social.security.SocialAuthenticationFilter">
-        <beans:constructor-arg index="0" ref="authenticationManager"/>
-        <beans:constructor-arg index="1" ref="userIdSource"/>
-        <beans:constructor-arg index="2" ref="loginService"/>
-        <beans:constructor-arg index="3" ref="connectionFactoryLocator"/>
-
-        <!-- Sets the url of the registration form. -->
-        <beans:property name="signupUrl" value="/user/register"/>
-    </beans:bean>
-
-    <!--
-        Configures the social authentication provider which processes authentication requests
-        made by using supported social authentication services (FB, Twitter and so on).
-    -->
-    <beans:bean id="socialAuthenticationProvider" class="org.springframework.social.security.SocialAuthenticationProvider">
-        <beans:constructor-arg index="0" ref="loginService"/>
-        <beans:constructor-arg index="1" ref="socialUserDetailsService"/>
-    </beans:bean>
-
-    <!--
-        This bean is used to load the user specific data when social sign in
-        is used.
-    -->
-    <beans:bean id="socialUserDetailsService" class="org.kkamnyang.service.SocialLoginService">
-        <beans:constructor-arg index="0" ref="loginService"/>
-    </beans:bean>
-
-    <!--
-        This bean encrypts the authorization details of the connection. In
-        our example, the authorization details are stored as plain text.
-        DO NOT USE THIS IN PRODUCTION.
-    -->
-    <beans:bean id="textEncryptor" class="org.springframework.security.crypto.encrypt.Encryptors" factory-method="noOpText" />
-
-    <!-- This bean is load the user specific data when form login is used. -->
-    <beans:bean id="loginService" class="org.kkamnyang.service.UserLoginService" autowire="constructor"/>
-
-    <!--
-        This bean determines the account ID of the user. The example application
-        uses the username as the account ID.
-    -->
-    <beans:bean id="userIdSource" class="org.springframework.social.security.AuthenticationNameUserIdSource"/>
 </beans:beans>
