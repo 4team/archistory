@@ -714,7 +714,7 @@
         var that = $(this);
         console.log("delete click");
         $.ajax({
-            url:"deleteFile",
+            url:"/sboard/deleteFile",
             type:"post",
             data: {fileName:$(this).attr("data-src")},
             dataType:"text",
