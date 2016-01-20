@@ -458,28 +458,7 @@ $("#main").on("mouseover",function(){
 $("#loginBtn").on("click",function(){
     $("#loginModal").modal('show');
 });
-	
-/* $("#loginSubmitBtn").on("click",function(){
-	console.log($("adminLogin"));
-	
-    var formData = $("#loginForm").serialize();
 
-    $.ajax({
-    	type:"POST",
-        url: "http://192.168.0.36:8080/admin/login",
-        data: formData,
-        success: function(data){
-            console.log(data);
-            if(data == 'LOGIN'){
-                console.log("로그인 되었습니다.");
-            };
-        },
-        error:function(){
-        	console.log("로그인 에러라니!");
-        }
-    });
-
-}); */
 	
 	$("#joinBtn").on("click",function(){
 		$("#joinModal").modal('show');
@@ -494,13 +473,7 @@ $("#loginBtn").on("click",function(){
         $("#adminJoinDiv").show();
         $("#userJoinDiv").hide();
     });
-	    
-	
-	 
-	   
-	
 
-	    
 </script>
 <script src="/Cesium/js/map.js"></script>
 </body>
