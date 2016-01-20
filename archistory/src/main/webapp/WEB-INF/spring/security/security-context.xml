@@ -6,7 +6,6 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 <http security="none" pattern="/sboard/*">
 </http>
 
-
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/admin/login_duplicate" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<form-login login-page="/" username-parameter="email"
@@ -20,9 +19,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 				expired-url="/admin/login_duplicate" />
 		</session-management>
 		
-
 	</http>
-
 
 
 	<beans:bean id="loginSuccessHandler"
@@ -33,13 +30,13 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<beans:bean
 		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 
-
 	<beans:bean id="loginServiceUserDetails" class="org.kkamnyang.service.AdminLoginService"></beans:bean>
+	
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
 	<authentication-manager>
-		<authentication-provider user-service-ref="adminAuthentication">
+		<authentication-provider user-service-ref="loginServiceUserDetails">
 			<password-encoder ref="encoder" />
 		</authentication-provider>
 	</authentication-manager>
