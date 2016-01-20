@@ -59,9 +59,7 @@
 	   		color:#FFFFFF;
 		}
 		
-		#joinDiv{
-		
-		}
+
 		#userJoinDiv{
 			display:none;
 		}
