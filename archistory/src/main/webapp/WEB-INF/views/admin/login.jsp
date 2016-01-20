@@ -15,7 +15,9 @@
 
 	text-align: center;
 	}
-	
+	h2{
+	text-align: center;
+	}
 	#wrapper{
 	width:100%;
 	height:700px;
