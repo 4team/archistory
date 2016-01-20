@@ -12,9 +12,16 @@
 	}
 	form{
 	margin:auto;
+	text-align: center;
+	}
+	
+	#contents{
+	margin:auto;
 	}
 	</style>
 <body>
+
+<div id="contents">
 <h2>·Î±×ÀÎ </h2>
 <form name="form1" method="post" action="/admin/login">
 <table>
@@ -35,5 +42,6 @@
     </tr>
 </table>
 </form>
+</div>
 </body>
 </html>
