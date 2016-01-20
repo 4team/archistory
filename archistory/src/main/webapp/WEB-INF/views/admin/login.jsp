@@ -31,6 +31,7 @@
 	
 	#button input{
 	text-align: center;
+	display:block;
 	}
 	
 	form{
