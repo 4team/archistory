@@ -463,7 +463,7 @@ $("#loginBtn").on("click",function(){
     $("#loginModal").modal('show');
 });
 	
-$("#loginSubmitBtn").on("click",function(){
+/* $("#loginSubmitBtn").on("click",function(){
 	console.log($("adminLogin"));
 	
     var formData = $("#loginForm").serialize();
@@ -483,7 +483,7 @@ $("#loginSubmitBtn").on("click",function(){
         }
     });
 
-});
+}); */
 	
 	$("#joinBtn").on("click",function(){
 		$("#joinModal").modal('show');
