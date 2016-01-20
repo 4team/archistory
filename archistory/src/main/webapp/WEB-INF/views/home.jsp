@@ -473,6 +473,9 @@ $("#loginSubmitBtn").on("click",function(){
             if(data == 'LOGIN'){
                 console.log("로그인 되었습니다.");
             };
+        },
+        error:function(){
+        	console.log("로그인 에러라니!");
         }
     });
 
