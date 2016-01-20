@@ -705,18 +705,6 @@
 
         var that = $(this);
         console.log("delete click");
-
-        (function(attach, fileName) {
-                    var targetIndex = 0;
-                    console.log("attach?:" + attach);
-                    for(var i = 0; i < attach.size; i++) {
-                        if(attach[i] === value) {
-                            targetIndex = i;
-                        }
-                    }
-                    attach.splice(targetIndex,1);
-                    return attach;
-                })();
         
         $.ajax({
             url:"/sboard/deleteFile",
