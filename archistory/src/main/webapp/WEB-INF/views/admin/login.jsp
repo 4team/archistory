@@ -9,6 +9,7 @@
 	<style>
 	body{
 	background-color: #000000;
+	color:#ffffff;
 	}
 	form{
 
@@ -20,9 +21,12 @@
 	height:700px;
 	}
 	#contents{
+	top:30%;
+	position:relative;
 	width:300px;
 	left:50%;
 	margin-left:-150px;
+
 	}
 	</style>
 <body>
