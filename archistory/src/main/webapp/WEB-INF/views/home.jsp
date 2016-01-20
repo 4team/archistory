@@ -247,9 +247,9 @@
                             Admin
                         </label>
                     </div>
-					<input type="hidden" name="_csrf" value="${_csrf.token}">
-                    <input type="text" class="form-control" id="email" placeholder="Email"><br>
-                    <input type="text" class="form-control" id="password" placeholder="Password"><br>
+					<input type="hidden" name="_csrf" value="2ab2ae5c-c2ea-4b4b-b72f-fc81a471e1ea">
+                    <input type="text" class="form-control" name ="email" id="email" placeholder="Email"><br>
+                    <input type="text" class="form-control" name="password" id="password" placeholder="Password"><br>
                 </div>
 
             </div>
