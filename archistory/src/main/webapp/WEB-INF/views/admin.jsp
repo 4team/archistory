@@ -358,15 +358,7 @@ $("#main").on("mouseover",function(){
 
 		        $("#routelist").html(editRoute);
 		    }
-		    //멤버 입력
-
-		    $("#routelist").on("click","#member",function(){
-		         var icon= $(this);
-		         console.log(icon.attr("value"));
-		        $("#memberModal").modal('show');
-		        $("#editModal").modal('hide');
-
-		    });
+	
 
 		    //루트 수정 페이지로 이동
 
@@ -435,17 +427,25 @@ $("#main").on("mouseover",function(){
 		        getAllRouteList();
 		    }
 		    
+		    
+		    //멤버 입력
+				
+		    var contents=" ";
+		    
+		    $("#routelist").on("click","#member",function(){
+		         var icon= $(this);
+		         contents=" ";
+		         $("#memTable").html(contents);
+		         
+		         console.log(icon.attr("value"));
+		        $("#memberModal").modal('show');		        
+		        $("#editModal").modal('hide');
 
-
-		    $("#registerBtn").on("click",function(){
-		       alert("멤버등록이 완료되었습니다.");
 		    });
-
-		    var contents ;
+			 
 
 		    $("#plus").on("click",function(){
-
-
+		    	
 		                contents+=  "<tr>"
 		            +"<td><input type='text' class='form-control' placeholder='Number'></td>"
 		            +"<td><input type='email' class='form-control'  placeholder='Name'></td>"
@@ -453,38 +453,17 @@ $("#main").on("mouseover",function(){
 		            +"<td><input type='email' class='form-control'  placeholder='Email'></td>"
 		            +"<td style='width:90px'><select class='form-control'><option>미완료</option><option>완료</option></select></td>"
 		            +"<td><input type='text' class='form-control'name='point' placeholder='Score'></td></tr>"
-		        $("#memTable").html(contents);
+		      
+		            $("#memTable").html(contents);
+		           
 
 		    });
 
-/* 
-		    $("#routeList").on("click",function(){
-		    	 $("#myRouteList").toggle();
-		    	 
-		    }); */
-	    
-	    /* $("#myRouteList").on("click","small",function(event){
-	        var select = $(this);
-	        var routeno = parseInt(select.attr("data-routeno"));
-	        console.log(getMetaContentByName('_csrf'));
-	        
-	        $.ajax({
-	            type:"post",
-	            url: "http://192.168.0.36:8080/route/remove",
-	            headers : {"Access-Control-Allow-Origin":"*","Content-Type":"application/json","X-CSRF-TOKEN":getMetaContentByName('_csrf')},
-	            dataType: "json",
-	            data : JSON.stringify({routeno:routeno}),
-	            success: function(data,status){
-	            	console.log("Success 안에서 받은 데이터 : "+data);
-	            	console.log(status);
-	            },
-	            error:function(request,status,error){
-	            	getAllRouteList();
-	            }
-	    	});
-	        getAllRouteList();
-	    });
-	     */
+		    $("#registerBtn").on("click",function(){
+			       alert("멤버등록이 완료되었습니다.");
+			       $("#memberModal").modal('hide');	
+			    });
+		    
 	     $("#routeShow").on("click",function(){
 	    	 $("#myRouteList").toggle();
 	    	 
