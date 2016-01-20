@@ -228,7 +228,7 @@
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
     <div class="modal-dialog" id="loginBody">
 
-		<form name="loginForm"  id="loginForm" action="" method="post">
+	
 
         <div class="modal-content">
             <div class="modal-header">
@@ -247,9 +247,11 @@
                             Admin
                         </label>
                     </div>
-
-                    <input type="text" class="form-control" id="loginEmail" placeholder="Email"><br>
-                    <input type="text" class="form-control" id="loginPassword" placeholder="Password"><br>
+           <form name="loginForm"  id="loginForm" action="" method="post">
+					<input type="hidden" name="_csrf" value="2ab2ae5c-c2ea-4b4b-b72f-fc81a471e1ea">
+                    <input type="text" class="form-control" name ="email" id="email" placeholder="Email"><br>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br>
+           </form>   
                 </div>
 
             </div>
@@ -259,7 +261,7 @@
             </div>
         </div>
 
-         </form>           
+            
 
     </div>
 </div>
@@ -288,7 +290,7 @@
 	</div>
 	
 	<div id="userJoinDiv">
-	    <input type="text" class="form-control" id="email" placeholder="Email"><br>
+	    <input type="text" class="form-control" id="useremail" placeholder="Email"><br>
 	    <input type="text" class="form-control" id="password1" placeholder="Password"><br>
 	    <input type="text" class="form-control" id="password2" placeholder="Password (Again)"><br>   
 	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
@@ -462,6 +464,8 @@ $("#loginBtn").on("click",function(){
 });
 	
 $("#loginSubmitBtn").on("click",function(){
+	console.log($("adminLogin"));
+	
     var formData = $("#loginForm").serialize();
 
     $.ajax({
@@ -473,6 +477,9 @@ $("#loginSubmitBtn").on("click",function(){
             if(data == 'LOGIN'){
                 console.log("로그인 되었습니다.");
             };
+        },
+        error:function(){
+        	console.log("로그인 에러라니!");
         }
     });
 
