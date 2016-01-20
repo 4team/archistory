@@ -171,7 +171,9 @@
             border-color:#aef;
             box-shadow: 0 0 8px #fff;
         }
-
+		button{
+		margin:auto;
+		}
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -249,9 +251,9 @@
                 </div>
 
             </div>
-            <div class="modal-footer"><center>
+            <div class="modal-footer">
                 <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-                <button type="button" id="loginSubmitBtn" class="btn btn-primary">로그인</button></center>
+                <button type="button" id="loginSubmitBtn" class="btn btn-primary">로그인</button>
             </div>
         </div>
     </div>
@@ -298,8 +300,8 @@
 
             </div>
             <div class="modal-footer">
-                <center><button type="button" id="eventCreateCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-                <button type="button" id="eventCreateBtn" class="btn btn-primary">회원가입</button></center>
+                <button type="button" id="eventCreateCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                <button type="button" id="eventCreateBtn" class="btn btn-primary">회원가입</button>
             </div>
         </div>
     </div>
@@ -462,8 +464,7 @@ $("#loginSubmitBtn").on("click",function(){
 
     console.log(email,password,loginType);
 
-    $.ajax({
-        type:'post',
+    $.post({
         url: "http://192.168.0.36:8080/admin/login",
         headers: {
             "Content-Type": "application/json"},
