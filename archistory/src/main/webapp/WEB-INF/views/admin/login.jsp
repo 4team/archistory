@@ -54,14 +54,8 @@
     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 </table>
     <div id="button">
-<table>
-    <tr>
-
-        <td align="center"><input type="submit" value="로그인"></td>
-        <td align="center"><input type="reset" value="리셋"></td>
-
-    </tr>
-</table>
+     <input type="submit" value="로그인">
+     <input type="reset" value="리셋">
     </div>
 </form>
 </div>
