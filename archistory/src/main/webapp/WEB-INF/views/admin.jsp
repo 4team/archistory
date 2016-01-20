@@ -370,7 +370,7 @@ function stopAround() {
          var height = cartographic.height;
          
          console.log(lat,lng,height);
-         console.log(event.clientZ);
+         console.log(event);
          
         var bnt = $("#routeCreate");
         bnt.css("left",event.clientX);
