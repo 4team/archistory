@@ -12,9 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SocialLoginService implements SocialUserDetailsService {
 	
-	@Autowired
+
 	private UserDetailsService userDetailsService;
-	 
 	
 	public SocialLoginService(){
 		
