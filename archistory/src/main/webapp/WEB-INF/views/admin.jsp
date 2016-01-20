@@ -162,6 +162,7 @@
         th{
             text-align: center;
         }
+        
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -242,6 +243,7 @@
 </div>
 
 <!-- member route modal-->
+
 <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" >
@@ -261,11 +263,11 @@
                         <th>이미지</th>
                     </tr>
                     <tr>
-	                    <td><input type='text' class='form-control' placeholder='Number'></td>
-			            <td><input type='text' class='form-control'  placeholder='Name'></td>
-			            <td><input type='email' class='form-control'  placeholder='Email'></td>
-			            <td><input type='password' class='form-control'  placeholder='password'></td>
-			            <td><input type='file' class='form-control'name='img'></td>
+	                    <td><input type='text' class='form-control' name="number" placeholder='Number' ></td>
+			            <td><input type='text' class='form-control' name="name" placeholder='Name'></td>
+			            <td><input type='email' class='form-control' name="email" placeholder='Email'></td>
+			            <td><input type='password' class='form-control' name="password" placeholder='password'></td>
+			            <td><input type='file' class='form-control'name="img"></td>
 		            </tr>
                 </table>
                 <table id="memTable">
@@ -445,15 +447,17 @@ $("#main").on("mouseover",function(){
 
 		    });
 			 
+		
 
 		    $("#plus").on("click",function(){
-		    	
-		                contents+=  "<tr>"
-		            +"<td><input type='text' class='form-control' placeholder='Number'></td>"
-		            +"<td><input type='text' class='form-control'  placeholder='Name'></td>"
-		            +"<td><input type='email' class='form-control'  placeholder='Email'></td>"
-		            +"<td><input type='password' class='form-control'  placeholder='password'></td>"
-		            +"<td><input type='file' class='form-control'name='img'></td></tr>"
+	    		    
+		                
+		    			contents+=  "<tr>"
+		            +"<td><input type='text' class='form-control' name='member' placeholder='Number'></td>"
+		            +"<td><input type='text' class='form-control' name='member' placeholder='Name'></td>"
+		            +"<td><input type='email' class='form-control'name='member'  placeholder='Email'></td>"
+		            +"<td><input type='password' class='form-control' name='member'  placeholder='password'></td>"
+		            +"<td><input type='file' class='form-control'name='member'></td></tr>"
 		      
 		            $("#memTable").html(contents);
 		           
@@ -466,8 +470,24 @@ $("#main").on("mouseover",function(){
 			       $("#memberModal").modal('hide');	
 			    });
 		    
+		   
 		    
 		   function regiMember(){
+			   
+			   var member = new Object();
+			   
+			   member.userNo = $("input[name='number']");
+			   memebr.userName = $("input[name='name']");
+			   member.Email=$("input[name='email']");
+			   member.mPassword=$("input[name='mPassword']");
+			   member.img=$("input[name='img']");
+			   
+			 /*   var all=[];
+			   
+		   		$("input[name='member']").each(function(index){
+			    	all.push($(this).val());
+			    });
+			 */
 			   $.ajax({
 				  type:'post',
 				  url:"http://192.168.0.36:8080/admin/login_success/member/register",
@@ -475,7 +495,7 @@ $("#main").on("mouseover",function(){
 					"Content-Type" : "application/json"  
 				  },
 				  datatype:"json",
-				  data:JSON.stringfy({}),
+				  data:JSON.stringfy(member),
 				  success: function(data){
 					  console.log(data);
 				  }
