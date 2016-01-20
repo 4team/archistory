@@ -11,16 +11,17 @@
 	background-color: #000000;
 	}
 	form{
-	margin:auto;
+	left:50%;
+	margin-left:-150px;
 	text-align: center;
 	}
 	
 	#wrapper{
 	width:100%;
-	height:100%;
+	height:700px;
 	}
 	#contents{
-	margin:auto;
+	width:300px;
 	}
 	</style>
 <body>
