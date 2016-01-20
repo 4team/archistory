@@ -152,7 +152,7 @@
     	display:none;
     }
     
-     .glyphicon{
+     #positionGly{
             display: inline;
             color:#FFFFFF;
             z-index:400;
@@ -308,7 +308,7 @@
 <div id="main"></div>
 
 
-<div id="myLocation"><span class="glyphicon glyphicon-map-marker"></span></div>
+<div id="myLocation"><span id="positionGly" class="glyphicon glyphicon-map-marker"></span></div>
 
 <!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
 <script>
