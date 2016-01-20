@@ -363,11 +363,10 @@ function stopAround() {
     	ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
         var mousePosition = new Cesium.Cartesian2(event.clientX, event.clientY);
         var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
-        var cartographic = ellipsoid.cartesianToCartographic(cartesian);
 
          var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
          var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-         var height = cartographic.height;
+         var height = (cartographic.height * 0.001).toFixed(1);
          
          console.log(lat,lng,height);
          console.log(event);
