@@ -129,6 +129,19 @@
         #joinH{
         max-height: 500px;
     }
+    
+        #myLocation{
+            padding : 2px;
+            border:1px solid;
+            border-color:#444444;
+            background-color: #303336;
+            width:32px;
+            height:32px;
+            z-index: 330;
+            top:5px;
+            left:43px;
+            position : absolute;
+        }
 
     #joinBody{
         top:50px;
