@@ -392,16 +392,16 @@
         var eorder = $("#order").val();
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
-        //var attach2 = attach.join();
+        var attach2 = attach.join();
 
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
 
-        createEvent(routeno, eorder, title, content, lat, lng, function () {
+        createEvent(routeno, eorder, title, content, attach2, lat, lng, function () {
             clearEventDiv();
-//            console.log("attach2:" + attach2);
+            console.log("attach2:" + attach2);
         });
 
         $("#eventModal").modal('hide');
@@ -420,7 +420,7 @@
             return;
         }
 
-        modifyEvent(eventno,eorder,title,content,lat,lng,function(){ //lat,lng 필요 없는 이유 -> 삭제하고, 다시 만드는게 사용자한테 편함.
+        modifyEvent(eventno,eorder,title,content,attach2,lat,lng,function(){ //lat,lng 필요 없는 이유 -> 삭제하고, 다시 만드는게 사용자한테 편함.
 
         });
 
@@ -430,9 +430,9 @@
 
 
     <!-- 이벤트 생성 기능 -->
-    function createEvent(routeno,eorder,title,content,lat,lng,callback){
+    function createEvent(routeno,eorder,title,content,attach2,lat,lng,callback){
 
-        console.log(routeno,eorder,title,content,lat,lng);
+        console.log(routeno,eorder,title,content,attach2,lat,lng);
 
         $.ajax({
             type:'post',
@@ -440,7 +440,7 @@
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,lat:lat,lng:lng}),
+            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
             success: function(data){
                 getEventList();
                 console.log("data:"+data);
@@ -495,7 +495,7 @@
     }
 
     <!-- 이벤트 수정 기능 -->
-    function modifyEvent(eventno,eorder,title,content,lat,lng,callback){
+    function modifyEvent(eventno,eorder,title,content,attach2,lat,lng,callback){
 
         console.log("이벤트 수정"+eventno);
 
@@ -505,7 +505,7 @@
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,lat:lat,lng:lng}),
+            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
             success: function(data){
                 getEventList();
                 console.log(data);
