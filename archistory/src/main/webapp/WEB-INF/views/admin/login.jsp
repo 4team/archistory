@@ -28,7 +28,8 @@
 	text-align: center;
 	}
 	#button{
-	text-align: center;
+	margin : auto;
+	display:block;
 	}
 	form{
 	background-color: #444444;
