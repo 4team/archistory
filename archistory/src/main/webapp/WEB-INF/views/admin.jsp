@@ -360,7 +360,8 @@ function stopAround() {
     });
 
     viewer.canvas.addEventListener("contextmenu", function (event) {
-        var mousePosition = new Cesium.Cartesian2(event.clientX, event.clientY);
+    	ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
+
         var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
         var cartographic = ellipsoid.cartesianToCartographic(cartesian);
 
