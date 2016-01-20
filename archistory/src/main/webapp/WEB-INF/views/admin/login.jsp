@@ -11,8 +11,7 @@
 	background-color: #000000;
 	}
 	form{
-	left:50%;
-	margin-left:-150px;
+
 	text-align: center;
 	}
 	
@@ -22,6 +21,8 @@
 	}
 	#contents{
 	width:300px;
+	left:50%;
+	margin-left:-150px;
 	}
 	</style>
 <body>
