@@ -359,7 +359,7 @@ function stopAround() {
         stopAround();
     });
 
-    window.addEventListener("contextmenu", function (event) {
+    viewer.canvas.addEventListener("contextmenu", function (event) {
     	ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
         var mousePosition = new Cesium.Cartesian2(event.clientX, event.clientY);
         var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
@@ -370,7 +370,7 @@ function stopAround() {
          var height = cartographic.height;
          
          console.log(lat,lng,height);
-         console.log(event.clientX);
+         console.log(event.clientZ);
          
         var bnt = $("#routeCreate");
         bnt.css("left",event.clientX);
