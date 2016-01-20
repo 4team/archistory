@@ -15,6 +15,10 @@ public class SocialLoginService implements SocialUserDetailsService {
 	@Autowired
 	private UserDetailsService userDetailsService;
 	 
+	
+	public SocialLoginService(){
+		
+	}
     public SocialLoginService(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
