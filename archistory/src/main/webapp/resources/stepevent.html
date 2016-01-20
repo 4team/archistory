@@ -126,7 +126,7 @@
 <div id="map"></div>
 
 <!-- 모달 팝업(이벤트(스텝) 생성) -->
-<form id='registerForm' role="form" action="/event/attachCreate" method="post">
+<form role="form" action="/event/attachCreate" method="post">
     <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -136,7 +136,6 @@
                         <span class="sr-only">Close</span></button>
                     <h4 class="modal-title">이벤트 생성</h4>
                 </div>
-                                
                 <div class="modal-body">
                     <div id="createEventDiv" >
 
@@ -148,7 +147,7 @@
                         <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                         <label for="imgInput">이미지</label>
                         <input type="file" id="imgInput">
-                        <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+                        <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>
                         
 <!--                        <label for="videoInput">동영상</label>
                         <input type="file" id="videoInput">
@@ -194,7 +193,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" id="createEventBtn" class="btn btn-create">만들기</button>
-                                <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal" value="data">취소</button>
+                                <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal">취소</button>
                             </div>
 
                             </div>
@@ -224,10 +223,7 @@
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
                     <input type="file" id="moimgInput"><br>
-                    <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
-                    
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
-                    
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
@@ -304,13 +300,9 @@
         </div>
     </div>
 </div>
-<!-- 
 
-<script type="text/javascript">
-    Sortable.create("eventList");
-</script>
 
- -->
+
 <script>
     var getParameter = function (param) {
 
@@ -530,27 +522,13 @@
 
         $("#eventModal").modal('show');
 
-        $("#cancleEventBtn").on("click","#cancleEventBtn",function(){
+        $("#cancleEventBtn").on("click",function(){
             console.log("이벤트 생성 취소");
-            clearEventDiv();
-            
-            var that = $(this);
-            
-            $.ajax({
-                url:"deleteFile",
-                type:"post",
-                data: {fileName:$(this).attr("data-src")},
-                dataType:"text",
-                success:function(result){
-                    if(result == 'deleted'){
-                        that.parent("div").remove();
-                    }
-                }
-            });
+
         });
-        
         $("#mocancleEventBtn").on("click",function(){
             console.log("이벤트 수정 취소");
+
         });
 
     });
@@ -746,6 +724,7 @@
 
         that.get(0).submit();
     });
+
 
 
     function getOriginalName(fileName){
