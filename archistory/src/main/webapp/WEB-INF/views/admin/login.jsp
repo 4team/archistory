@@ -28,6 +28,7 @@
 	text-align: center;
 	}
 	button{
+	position:relative;
 	text-align: center;
 	left:50%;
 	}
