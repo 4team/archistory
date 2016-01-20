@@ -11,23 +11,28 @@
 	background-color: #000000;
 	color:#ffffff;
 	}
-	form{
-	text-align: center;
-	}
 	h2{
 	text-align: center;
 	}
 	#wrapper{
+	position:absolute;
 	width:100%;
 	height:700px;
 	}
 	#contents{
 	top:30%;
 	position:relative;
-	width:150px;
 	left:50%;
-	margin-left:-75px;
-
+	margin-left:-150px;
+	width:300px;
+	text-align: center;
+	}
+	button{
+	text-align: center;
+	
+	}
+	form{
+	background-color: #444444;
 	}
 	</style>
 <body>
