@@ -29,7 +29,7 @@
 	text-align: center;
 	}
 	
-	#button tr td{
+	#button{
 	text-align: center;
 	}
 	
@@ -53,8 +53,8 @@
     </tr>
     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 </table>
-    <div>
-<table id="button">
+    <div id="button">
+<table>
     <tr>
 
         <td align="center"><input type="submit" value="·Î±×ÀÎ"></td>
