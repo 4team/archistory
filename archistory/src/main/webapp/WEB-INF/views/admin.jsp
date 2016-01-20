@@ -371,6 +371,7 @@ function stopAround() {
          
          console.log(lat,lng,height);
          console.log(event.clientX);
+         
         var bnt = $("#routeCreate");
         bnt.css("left",event.clientX);
         bnt.css("top",event.clientY)
