@@ -66,10 +66,11 @@
         width:420px;
     }
     .fileDrop {
-        width: 40%;
-        height: 50px;
-        border: 1px dotted gray;
-        background-color: lightslategrey;
+        width: 60%;
+        height: 60px;
+        border: 2px dotted black;
+        border-radius: 10px;
+        background-color: powderblue;
         margin-top:10px;
         margin-bottom:10px;
     }
@@ -230,6 +231,7 @@
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
                     <input type="file" id="moimgInput"><br>
+                    <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>    
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
@@ -460,6 +462,7 @@
     function clearEventDiv(){
         $("#eventName").val("");
         $("#eventinfo").val("");
+        $("#imgThumbnail").remove();
     }
 
     <!-- 이벤트 읽기 기능 -->
@@ -474,6 +477,7 @@
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
+            
             $("#mo")
 
         });
@@ -651,15 +655,10 @@
         event.preventDefault();
 
         var files = event.originalEvent.dataTransfer.files;
-
         var file = files[0];
 
-
-        console.log("file:" + file);
         var formData = new FormData();
-
         formData.append("file", file);
-
 
         $.ajax({
             url: '/uploadAjax',
@@ -682,7 +681,8 @@
                 //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
                 attach.push(data);
                 console.log("attach:" + attach);
-
+				var fileName = data;
+				
                 if(checkImageType(data)){
                     str ="<div class='img'>"
                             +"<a href='http://192.168.0.36:8080/displayFile?fileName="+getImageLink(data)+"'><img src='http://192.168.0.36:8080/displayFile?fileName="+data+"'/></a>"
@@ -705,6 +705,19 @@
 
         var that = $(this);
         console.log("delete click");
+
+        (function(attach, fileName) {
+                    var targetIndex = 0;
+                    console.log("attach?:" + attach);
+                    for(var i = 0; i < attach.size; i++) {
+                        if(attach[i] === value) {
+                            targetIndex = i;
+                        }
+                    }
+                    attach.splice(targetIndex,1);
+                    return attach;
+                })();
+        
         $.ajax({
             url:"/sboard/deleteFile",
             type:"post",

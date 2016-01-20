@@ -18,12 +18,7 @@
             width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
             font-family: sans-serif; color: #edffff;
         }
-
-         html, body {
-             height: 100%;
-             margin: 0;
-             padding: 0;
-         }
+        
         #main{
             width:100%;
             border:0px;
@@ -64,9 +59,7 @@
 	   		color:#FFFFFF;
 		}
 		
-		#joinDiv{
-		
-		}
+
 		#userJoinDiv{
 			display:none;
 		}
@@ -136,6 +129,19 @@
         #joinH{
         max-height: 500px;
     }
+    
+        #myLocation{
+            padding : 2px;
+            border:1px solid;
+            border-color:#444444;
+            background-color: #303336;
+            width:32px;
+            height:32px;
+            z-index: 330;
+            top:5px;
+            left:43px;
+            position : absolute;
+        }
 
     #joinBody{
         top:50px;
@@ -148,7 +154,9 @@
     
      .glyphicon{
             display: inline;
-            margin : 10px;
+            color:#FFFFFF;
+            z-index:400;
+            font-size: 24px;
         }
         .gly{
             float:right;
@@ -162,7 +170,11 @@
         th{
             text-align: center;
         }
-        
+        #routeCreate{
+        display:none;
+        position:absolute;
+        z-index:500;
+   		 }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -173,6 +185,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     
+    <!-- Cesium -->
+  	<link href="/Cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet"/>
+	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
   
 <body>
 
@@ -284,11 +300,154 @@
     </div>
 </div>
 
+<button type="button" id="routeCreate" class="btn btn-default">루트생성하기</button>
 
 <meta name="_csrf" content="${_csrf.token }"/>
 <meta name="_csrf_header" content="${_csrf.headerName }"/>
 
-<iframe id="main" src="/world.html"></iframe>
+<div id="main"></div>
+
+
+<div id="myLocation"><span class="glyphicon glyphicon-map-marker"></span></div>
+
+<!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
+<script>
+var viewer;
+
+
+function turnAround(clock){
+
+    (function(clock){
+        var spinRate = 0.1;
+        var currentTime = Date.now();
+        var previousTime = currentTime-70;
+        var delta = ( currentTime - previousTime ) / 1000;
+        previousTime = currentTime;
+        viewer.scene.camera.rotate(Cesium.Cartesian3.UNIT_Z, -spinRate * delta);
+    })();
+};
+
+
+function stopAround() {
+    viewer.clock.onTick.removeEventListener(turnAround);
+};
+
+
+(function worldMap() {
+    viewer = new Cesium.Viewer('main', {
+        navigationHelpButton: false,
+        fullscreenButton: false,
+        infoBox: false,
+        baseLayerPicker: false,
+        homeButton: false,
+        sceneModePicker: false,
+        animation: false,
+        timeline: false
+    });
+
+    var cartographic = new Cesium.Cartographic();
+    var cartesian = new Cesium.Cartesian3();
+    var camera = viewer.scene.camera;
+    var ellipsoid = viewer.scene.mapProjection.ellipsoid;
+
+
+    var spinGlobe = viewer.clock.onTick.addEventListener(turnAround);
+    spinGlobe;
+
+    $("#main").on("click",function(){
+    	$("#routeCreate").hide();
+        stopAround();
+    });
+
+    viewer.canvas.addEventListener("contextmenu", function (event) {
+    	ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
+        var mousePosition = new Cesium.Cartesian2(event.clientX, event.clientY);
+        var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
+
+         var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+         var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+         var height = (cartographic.height * 0.001).toFixed(1);
+         
+         console.log(lat,lng,height);
+         console.log(event);
+         
+        var bnt = $("#routeCreate");
+        bnt.css("left",event.clientX);
+        bnt.css("top",event.clientY)
+        bnt.show();
+
+        bnt.on("click",function(){
+             changePage(lat,lng,height);
+        });
+     });
+
+
+})();
+
+function changePage(lat, lng, height) {
+    console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
+
+    self.location="/close.html?lat="+lat+"&lng="+lng+"&height="+height;
+}
+
+
+$("#myLocation").on("click",function(){
+
+    stopAround();
+    //초기 위치 읽어내서 지구를 이동시킨다.
+    navigator.geolocation.getCurrentPosition(success, error);
+
+    function success(position) {
+    	 stopAround();
+        console.log(position);
+        viewer.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(
+                    position.coords.longitude,
+                    position.coords.latitude,
+                    600000
+            )
+        });
+    };
+
+    function error(err) {
+        console.log(err.code + err.message);
+    };
+
+});
+
+function addMarker(route){
+    var entity = viewer.entities.add({
+        name: route.routename,
+        position: Cesium.Cartesian3.fromDegrees(route.lng, route.lat),
+        billboard : {
+            image : '/Cesium/marker.png',
+            width : 64,
+            height : 64
+        },
+        label : {
+            text : route.routename,
+            font : '12pt verdana',
+            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+            outlineWidth : 2,
+            verticalOrigin : Cesium.VerticalOrigin.TOP,
+            pixelOffset : new Cesium.Cartesian2(0, 32)
+        }
+    });
+    var ellipse = entity.ellipse;
+}
+
+
+
+$.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
+    var list = $(data);
+    console.log(data);
+    list.each(function(idx,value){
+        var route = this;
+        addMarker(route);
+    });
+});
+
+</script>
 
 <script>
 
