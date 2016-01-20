@@ -465,7 +465,7 @@ $("#main").on("mouseover",function(){
 		    });
 
 		    $("#registerBtn").on("click",function(){
-			       regiMember();
+			      
 			       alert("멤버등록이 완료되었습니다.");
 			       $("#memberModal").modal('hide');	
 			    });
@@ -474,13 +474,13 @@ $("#main").on("mouseover",function(){
 		    
 		   function regiMember(){
 			   
-			   var member = new Object();
+		/* 	   var member = new Object();
 			   
 			   member.userNo = $("input[name='number']");
 			   memebr.userName = $("input[name='name']");
 			   member.Email=$("input[name='email']");
 			   member.mPassword=$("input[name='mPassword']");
-			   member.img=$("input[name='img']");
+			   member.img=$("input[name='img']"); */
 			   
 			 /*   var all=[];
 			   
