@@ -29,8 +29,6 @@ public class AdminLoginService implements UserDetailsService{
 		AdminDetails admin = null;
 		
 		StandardPasswordEncoder encoder = new StandardPasswordEncoder();
-        
-        
 		System.out.println("[ADMIN 로그인 시도] - loadUserByUsername");
 		
 		try {
