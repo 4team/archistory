@@ -30,8 +30,7 @@
 	}
 	
 	#button input{
-	text-align: center;
-	display:block;
+	margin:0 auto;
 	}
 	
 	form{
