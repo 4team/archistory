@@ -247,9 +247,9 @@
                             Admin
                         </label>
                     </div>
-
-                    <input type="text" class="form-control" id="loginEmail" placeholder="Email"><br>
-                    <input type="text" class="form-control" id="loginPassword" placeholder="Password"><br>
+					<input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="text" class="form-control" id="email" placeholder="Email"><br>
+                    <input type="text" class="form-control" id="password" placeholder="Password"><br>
                 </div>
 
             </div>
@@ -288,7 +288,7 @@
 	</div>
 	
 	<div id="userJoinDiv">
-	    <input type="text" class="form-control" id="email" placeholder="Email"><br>
+	    <input type="text" class="form-control" id="useremail" placeholder="Email"><br>
 	    <input type="text" class="form-control" id="password1" placeholder="Password"><br>
 	    <input type="text" class="form-control" id="password2" placeholder="Password (Again)"><br>   
 	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
