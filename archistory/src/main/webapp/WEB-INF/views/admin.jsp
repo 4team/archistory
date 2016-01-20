@@ -366,7 +366,9 @@ function stopAround() {
 
          var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
          var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-         console.log(lat,lng);
+         var height = (cartographic.height * 0.001).toFixed(1);
+         
+         console.log(lat,lng,height);
          console.log(event.clientX);
         var bnt = $("#routeCreate");
         bnt.css("left",event.clientX);
@@ -374,7 +376,7 @@ function stopAround() {
         bnt.show();
 
         bnt.on("click",function(){
-             changePage(lat,lng);
+             changePage(lat,lng,height);
         });
      });
 
@@ -383,7 +385,8 @@ function stopAround() {
 
 function changePage(lat, lng, height) {
     console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
-    self.location="close.html?lat="+lat+"&lng="+lng;
+
+    self.location="close.html?lat="+lat+"&lng="+lng+"&height="+height;
 }
 
 
