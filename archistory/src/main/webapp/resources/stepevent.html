@@ -468,7 +468,7 @@
     <!-- 이벤트 읽기 기능 -->
     function viewEvent(eventno){
     	$(".uploadedList").html("");
-	  var template2 = Handlebars.compile($("#templateAttach").html());
+	  var template2 = Handlebars.compile($("#template").html());
 	  
 
          $.getJSON("http://192.168.0.36:8080/event/getAttach/" + eventno, function(list) {
