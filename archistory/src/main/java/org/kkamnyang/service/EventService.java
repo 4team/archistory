@@ -42,4 +42,8 @@ public class EventService {
 		System.out.println("이벤서비스호출..");
 		mapper.attachCreate(vo);
 	}
+	
+	public List<String> getAttach(Integer eventno)throws Exception{
+		return mapper.getAttach(eventno);
+	}
 }
