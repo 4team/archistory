@@ -437,7 +437,7 @@
 
     <!-- 이벤트 생성 기능 -->
     function createEvent(routeno,eorder,title,content,attach2,lat,lng,callback){
-    	clearEventDiv();
+    	
         console.log(routeno,eorder,title,content,attach2,lat,lng);
 
         $.ajax({
@@ -539,10 +539,10 @@
 
     <!--map 클릭하면-->
     daum.maps.event.addListener(map,'click',function(mouseEvent){
+        clearEventDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
         $("#order").val(eventno);
-
 
         console.log("내가 선택한 위도와 경도 : ",lat,lng);
 
