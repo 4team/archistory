@@ -277,7 +277,7 @@
     </div>
 </div>
 
-
+<span class="blink_me"></span>
 
 <script>
     var getParameter = function (param) {
@@ -308,6 +308,13 @@
     var routename = getParameter('routename');
     var eventLi="";
 
+    
+    $(".blink_me").html("["+routename+"] 루트 생성중...");
+    
+    (function blink() { 
+        $('.blink_me').fadeOut(500).fadeIn(500, blink); 
+    })();
+    
     getEventList();
 
 
