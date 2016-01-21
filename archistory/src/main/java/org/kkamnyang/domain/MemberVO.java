@@ -9,7 +9,6 @@ public class MemberVO {
 	private Integer memberNo;
 	private Integer userNo;
 	private String userName;
-	 @JsonProperty("email")
 	private String email;
 	private String mPassword;
 	private String img;
