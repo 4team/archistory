@@ -133,7 +133,7 @@
 <div id="map"></div>
 
 <!-- 모달 팝업(이벤트(스텝) 생성) -->
-<form role="form" id="registerForm" action="/event/attachCreate" method="post">
+<form role="form" id="registerForm" method="post">
     <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -342,7 +342,7 @@
     var routeno = getParameter('routeno');
     var eventLi="";
     var eventno = 1;
-    var attach = new Array();
+    
 
     <!-- 이벤트 리스트 불러오기-->
 
@@ -390,13 +390,12 @@
 
     <!-- 이벤트 생성 버튼 클릭-->
 	
-    var attach2;
 	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
-        attach2 = attach.join();
+        var attach2 = attach.join();
 
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
@@ -655,7 +654,8 @@
 
         var files = event.originalEvent.dataTransfer.files;
         var file = files[0];
-
+        var attach = new Array();
+        
         var formData = new FormData();
         formData.append("file", file);
 
