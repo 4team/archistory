@@ -102,6 +102,7 @@ public class EventController {
 			service.attachModify(vo);
 			entity = new ResponseEntity<String>("result",HttpStatus.OK);
 		}catch(Exception e){
+			e.printStackTrace();
 			entity = new ResponseEntity<String>("result", HttpStatus.BAD_REQUEST);		
 		}
 		return entity;
