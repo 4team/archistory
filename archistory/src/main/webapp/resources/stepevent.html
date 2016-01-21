@@ -407,10 +407,10 @@
         createEvent(routeno, eorder, title, content, attach2, lat, lng, function () {
             console.log("attach2:" + attach2);
             clearEventDiv();
+        	attach = [];
         });
 
         $("#eventModal").modal('hide');
-        attach = [];
     });
 
     <!-- 이벤트 수정 버튼 클릭-->
@@ -421,7 +421,7 @@
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
         attach2 = attach.join();
-        
+        console.log(attach2);
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
