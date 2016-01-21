@@ -474,7 +474,7 @@
          $.getJSON("http://192.168.0.36:8080/event/getAttach/" + eventno, function(list) {
         		 console.log("뷰에서 겟제이슨 들어왔다");
         		 console.log(list);
-        		 var array = list.split(',');
+        		 var array = list[0].split(',');
         		 console.log(array);
         		 
             array.each(function() {
