@@ -116,15 +116,6 @@ public class SearchBoardController {
   }
   
   
-  @RequestMapping(value="/getAttach/{eventno}")
-  @ResponseBody
-  public List<String> getEattach(@PathVariable("eventno")Integer eventno)throws Exception{
-	System.out.println("첨부파일이 로드됨...");
-	System.out.println(eservice.getAttach(eventno));
-	return eservice.getAttach(eventno);  
-  }
-  
-  
   @RequestMapping(value="/usage" , method=RequestMethod.GET)
 	public void usageGET() throws Exception{
 		logger.info("usage get....");

@@ -14,8 +14,7 @@ public class AbstractCRUDMapper<V,K> implements CRUDMapper<V,K>{
 	
 	public AbstractCRUDMapper(){
 		String name = getClass().getName();
-		this.namespace = name.substring(0, name.length()-4);
-		
+		this.namespace = name.substring(0, name.length()-4);		
 	}
 	
 	@Override

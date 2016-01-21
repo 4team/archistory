@@ -36,19 +36,15 @@
  	
  	<insert id="addAttach">
 		insert into tbl_eattach(efullName,eventNo)
-		values(#{efullName},LAST_INSERT_ID())
+		values(#{efiles},LAST_INSERT_ID())
 	</insert>
 
 	<select id="getAttach" resultType="string">
-		select efullname from tbl_eattach where eventNo=#{eventNo} order by regdate
+		select efullname from tbl_eattach where eventNo=#{eventno} order by regdate
 	</select>
 
+	<update id="updateAttach">
+		update tbl_eattach set efullName=#{efiles},eventNo=#{eventno} where eventno=#{eventno}
+	</update>
 
-	<delete id="deleteAttach">
-		delete from tbl_eattach where eventNo=#{eventNo}
-	</delete>
-
-	<insert id="replaceAttach">
-		insert into tbl_eattach(efullname,eventNo)values (#{efullname},#{eventNo})
-	</insert>
  </mapper>

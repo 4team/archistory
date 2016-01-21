@@ -390,6 +390,7 @@
 
     <!-- 이벤트 생성 버튼 클릭-->
 	
+    var attach = new Array();
 	var attach2;
 	
     $("#createEventBtn").on("click",function(){
@@ -404,8 +405,9 @@
         }
 
         createEvent(routeno, eorder, title, content, attach2, lat, lng, function () {
-            clearEventDiv();
             console.log("attach2:" + attach2);
+            clearEventDiv();
+        	attach = [];
         });
 
         $("#eventModal").modal('hide');
@@ -419,6 +421,8 @@
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
         attach2 = attach.join();
+        
+        console.log(attach2);
         
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
@@ -436,7 +440,7 @@
 
     <!-- 이벤트 생성 기능 -->
     function createEvent(routeno,eorder,title,content,attach2,lat,lng,callback){
-
+    	
         console.log(routeno,eorder,title,content,attach2,lat,lng);
 
         $.ajax({
@@ -459,24 +463,36 @@
     function clearEventDiv(){
         $("#eventName").val("");
         $("#eventinfo").val("");
-        $("#imgThumbnail").remove();
+        $(".uploadedList").html("");
         attach=[];
     }
 
     <!-- 이벤트 읽기 기능 -->
     function viewEvent(eventno){
-         var template2 = Handlebars.compile($("#templateAttach").html());
+    	$(".uploadedList").html("");
+	  var template2 = Handlebars.compile($("#template").html());
+	  
 
-         $.getJSON("/sboard/getAttach/" + eventno, function(list) {
+         $.getJSON("http://192.168.0.36:8080/event/getAttach/" + eventno, function(list) {
         		 console.log("뷰에서 겟제이슨 들어왔다");
-            $(list).each(function() {
-         	  console.log(this);
-               var fileInfo = getFileInfo(this);
-               var html = template(fileInfo);
- 			  
- 			  $(".uploadedList").append(html);
-            });
+        		 console.log(list);
+        		 var array = list[0].split(',');
+        		 console.log(array);
+        		 
+        		var length = array.length;
+        		
+        		 for(var i = 0; i < length; i++){
+        			 
+        			var name = array[i];
+        			attach.push(name);
+        			  var fileInfo = getFileInfo(name);
+                      var html = template2(fileInfo);
+        			  
+        			  $(".uploadedList").append(html);
+        		 }
+ 
          });
+         
          
         $.getJSON("http://192.168.0.36:8080/event/view?eventno="+eventno,function(data){
 
@@ -488,9 +504,6 @@
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
-            $("#imgThumbnail").val(eventno);
-            $("#mo")
-
         });
     }
 
@@ -522,7 +535,7 @@
 
         $.ajax({
             type:'post',
-            url:"http://192.168.0.36:8080/event/modify",
+            url:"http://192.168.0.36:8080/event/attachModify",
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
@@ -538,6 +551,7 @@
 
     <!--map 클릭하면-->
     daum.maps.event.addListener(map,'click',function(mouseEvent){
+        clearEventDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
         $("#order").val(eventno);
@@ -598,7 +612,7 @@
 
     <!-- END 이벤트 생성 모달-->
 
-    <!-- 수정모달(세부사항) -->
+    <!---------------------------------------------------- 수정모달(세부사항) --------------------------------------------------------->
 
     $("#mosearch").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
@@ -638,51 +652,34 @@
         }
     });
 
-    <!-- END 수정모달 세부사항 -->
+    <!-------------------------------------------- END 수정모달 세부사항 --------------------------------------------------->
 
 </script>
 
-
-<script id="templateAttach" type="text/x-handlebars-template">
-<div class="liii">
-<li data-src='{{fullName}}'>
-  	<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-<div class="mailbox-attachment-info">
-  	 <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-	</div>    
-</li>
+<script id="template" type="text/x-handlebars-template">
+    <li>
+<div class='img'>
+<a href="{{getLink}}"><img src="{{imgsrc}}"/></a>
+<small data-src="{{fullName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
 </div>
+    </li>
 </script>
 
 
 <!-- -----파일첨부기능-------  -->
-<script id="template" type="text/x-handlebars-template">
-    <li>
-        <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-        <div class="mailbox-attachment-info">
-            <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-            <a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
-            </span>
-        </div>
-    </li>
-</script>
-
 <script>
     var template = Handlebars.compile($("#template").html());
 
     $(".fileDrop").on("dragenter dragover", function(event){
         event.preventDefault();
     });
-
-
-    var attach;
     
     $(".fileDrop").on("drop", function(event){
         event.preventDefault();
 
         var files = event.originalEvent.dataTransfer.files;
         var file = files[0];
-        attach = new Array();
+        
         
         var formData = new FormData();
         formData.append("file", file);

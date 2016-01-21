@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -80,16 +81,7 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/modify", method = RequestMethod.POST)
-	public ResponseEntity<String> modifyEvent(@RequestBody EventVO vo
-			
-			
-			
-			
-			
-			
-			
-			
-			) throws Exception{
+	public ResponseEntity<String> modifyEvent(@RequestBody EventVO vo) throws Exception{
 		System.out.println("Event 수정 POST 호출됨.");
 		ResponseEntity<String> entity = null;
 		
@@ -97,6 +89,20 @@ public class EventController {
 			service.modify(vo);
 			entity = new ResponseEntity<String>("result",HttpStatus.OK);
 		}catch(Exception e){
+			entity = new ResponseEntity<String>("result", HttpStatus.BAD_REQUEST);		
+		}
+		return entity;
+	}
+	
+	@RequestMapping(value="/attachModify", method = RequestMethod.POST)
+	public ResponseEntity<String> attachModify(@RequestBody EventVO vo) throws Exception{
+		System.out.println("컨트롤러에 첨부파일수정 POST 호출됨.");
+		ResponseEntity<String> entity = null;		
+		try{
+			service.attachModify(vo);
+			entity = new ResponseEntity<String>("result",HttpStatus.OK);
+		}catch(Exception e){
+			e.printStackTrace();
 			entity = new ResponseEntity<String>("result", HttpStatus.BAD_REQUEST);		
 		}
 		return entity;
@@ -111,8 +117,20 @@ public class EventController {
 			service.remove(vo.getEventno());
 			entity = new ResponseEntity<String>("result",HttpStatus.OK);
 		}catch(Exception e){
+			e.printStackTrace();
 			entity = new ResponseEntity<String>("result",HttpStatus.BAD_REQUEST);
 		}
 		return entity;
 	}
+	  
+	  @RequestMapping(value="/getAttach/{eventno}")
+	  @ResponseBody
+	  public List<String> getEattach(@PathVariable("eventno")Integer eventno)throws Exception{
+		System.out.println("첨부파일이 로드됨...");
+		System.out.println(service.getAttach(eventno));
+		return service.getAttach(eventno);  
+	  }
+	  
+	  
+	  
 }
