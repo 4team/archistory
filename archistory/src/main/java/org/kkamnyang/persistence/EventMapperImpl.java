@@ -32,4 +32,11 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 	public List<String> getAttach(Integer eventno) {		
 		return session.selectList(namespace + ".getAttach", eventno);
 	}
+
+	@Transactional
+	@Override
+	public void attachModify(EventVO vo) {
+		session.update(namespace + ".update", vo);
+		session.update(namespace + ".updateAttach", vo);	
+	}
 }
