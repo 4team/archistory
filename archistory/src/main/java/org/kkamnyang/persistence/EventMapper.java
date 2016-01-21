@@ -10,4 +10,6 @@ public interface EventMapper extends CRUDMapper<EventVO,Integer> {
 
 	public void attachCreate(EventVO vo);
 	
+	public List<String> getAttach(Integer eventno);
+	
 }

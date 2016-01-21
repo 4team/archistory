@@ -7,10 +7,12 @@ public class MemberVO {
 	private Integer memberNo;
 	private Integer userNo;
 	private String userName;
-	private String Email;
+	private String email;
 	private String mPassword;
 	private String img;
 	private Date regdate;
+	
+	
 	public Integer getMemberNo() {
 		return memberNo;
 	}
@@ -30,10 +32,10 @@ public class MemberVO {
 		this.userName = userName;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
-	public void setEmail(String Email) {
-		this.Email = Email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getmPassword() {
 		return mPassword;
@@ -53,12 +55,11 @@ public class MemberVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	
 	@Override
 	public String toString() {
-		return "MemberVO [memberNo=" + memberNo + ", userNo=" + userNo + ", userName=" + userName + ", Email=" + Email
-				+ ", mPassword=" + mPassword + ", img=" + img + ", regdate=" + regdate + "]";
+		return "MemberVO [memberNo=" + memberNo + ", userNo=" + userNo + ", userName=" + userName + ", email=" + email
+				+ ", mPassword=" + mPassword + ", img=" + img + ", regdate=" + regdate + "]\n";
 	}
 	
-	
-
 }

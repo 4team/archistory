@@ -133,7 +133,7 @@
 <div id="map"></div>
 
 <!-- 모달 팝업(이벤트(스텝) 생성) -->
-<form role="form" id="registerForm" action="/event/attachCreate" method="post">
+<form role="form" id="registerForm" method="post">
     <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -342,7 +342,7 @@
     var routeno = getParameter('routeno');
     var eventLi="";
     var eventno = 1;
-    var attach = new Array();
+    
 
     <!-- 이벤트 리스트 불러오기-->
 
@@ -390,7 +390,7 @@
 
     <!-- 이벤트 생성 버튼 클릭-->
 	
-    var attach2;
+	var attach2;
 	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
@@ -465,6 +465,20 @@
 
     <!-- 이벤트 읽기 기능 -->
     function viewEvent(eventno){
+    	 var eventno = ${eventVO.eventno};
+         var template = Handlebars.compile($("#templateAttach").html());
+
+         $.getJSON("/sboard/getAttach/" + eventno, function(list) {
+        		 console.log("뷰에서 겟제이슨 들어왔다");
+            $(list).each(function() {
+         	  console.log(this);
+               var fileInfo = getFileInfo(this);
+               var html = template(fileInfo);
+ 			  
+ 			  $(".uploadedList").append(html);
+            });
+         });
+         
         $.getJSON("http://192.168.0.36:8080/event/view?eventno="+eventno,function(data){
 
             console.log("이벤트 넘버:"+eventno+"읽어오기");
@@ -475,7 +489,7 @@
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
-            
+            $("#imgThumbnail").val(eventno);
             $("#mo")
 
         });
@@ -629,6 +643,19 @@
 
 </script>
 
+
+<script id="templateAttach" type="text/x-handlebars-template">
+<div class="liii">
+<li data-src='{{fullName}}'>
+  	<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+<div class="mailbox-attachment-info">
+  	 <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	</div>    
+</li>
+</div>
+</script>
+
+
 <!-- -----파일첨부기능-------  -->
 <script id="template" type="text/x-handlebars-template">
     <li>
@@ -649,13 +676,15 @@
     });
 
 
+    var attach;
     
     $(".fileDrop").on("drop", function(event){
         event.preventDefault();
 
         var files = event.originalEvent.dataTransfer.files;
         var file = files[0];
-
+        attach = new Array();
+        
         var formData = new FormData();
         formData.append("file", file);
 
