@@ -190,6 +190,7 @@
         position:absolute;
         z-index:500;
    		 }
+   	
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -292,14 +293,13 @@
                         <th>이름</th>
                         <th>이메일</th>
                         <th>비밀번호</th>
-                        <th>이미지</th>
+
                     </tr>
-                    <tr>
-	                    <td><input type='text' class='form-control' id="number" placeholder='Number' ></td>
-			            <td><input type='text' class='form-control' id="name" placeholder='Name'></td>
-			            <td><input type='email' class='form-control' id="email" placeholder='email'></td>
-			            <td><input type='password' class='form-control' id="password" placeholder='password'></td>
-			            <td><input type='file' class='form-control' id="img"></td>
+                    <tr id="tr1">
+	                    <td><input type='text' class='form-control' id="number1" placeholder='Number' ></td>
+			            <td><input type='text' class='form-control' id="name1" placeholder='Name'></td>
+			            <td><input type='email' class='form-control' id="email1" placeholder='email'></td>
+			            <td><input type='password' class='form-control' id="password1" placeholder='password'></td>
 		            </tr>
                 </table>
                 <table id="memTable">
@@ -466,17 +466,16 @@ $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
 </script>
 
 <script>
-
-
-$("#mDrop").on("mouseover",function(){
+ $("#mDrop").on("mouseover",function(){
     $(".dropdown-menu").show();
 });
 
 $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
-});
+});  
 	
-		var adminno = ${adminno};
+var adminno = ${adminno};
+	
 	$("#myInfo").on("click",function(){
 		console.log("ADMIN NO : " + adminno);
 	});
@@ -509,7 +508,7 @@ $("#main").on("mouseover",function(){
 	    }
 	    
 	    $("#routeShow").on("click",function(){
-	    	 $("#myRouteList").toggle();
+	    	 $("#myRouteList").show();
 	    	 
 	    });
 	    
@@ -609,7 +608,7 @@ $("#main").on("mouseover",function(){
 		    
 		    //멤버 입력
 				
-		    var contents=" ";
+	
 		    
 		    $("#routelist").on("click","#member",function(){
 		         var icon= $(this);
@@ -622,77 +621,90 @@ $("#main").on("mouseover",function(){
 
 		    });
 			 
-		
-
+		    var contents=" ";
+		    var i=1;
+		    var j=1;
+		    var memberJson;
+		    
 		    $("#plus").on("click",function(){
 	    		    
+		    	++i;
+		    	console.log("i:"+i);
 		                
-		    			contents+=  "<tr>"
-		            +"<td><input type='text' class='form-control' name='member' placeholder='Number'></td>"
-		            +"<td><input type='text' class='form-control' name='member' placeholder='Name'></td>"
-		            +"<td><input type='email' class='form-control'name='member'  placeholder='email'></td>"
-		            +"<td><input type='password' class='form-control' name='member'  placeholder='password'></td>"
-		            +"<td><input type='file' class='form-control'name='member'></td></tr>"
+		    	contents=  "<tr id='tr"+i+"'>"
+		            +"<td><input type='text' class='form-control' id='number"+i+"' placeholder='Number'></td>"
+		            +"<td><input type='text' class='form-control' id='name"+i+"' placeholder='Name'></td>"
+		            +"<td><input type='email' class='form-control' id='email"+i+"' placeholder='email'></td>"
+		            +"<td><input type='password' class='form-control' id='password"+i+"'  placeholder='password'></td></tr>"
 		      
-		            $("#memTable").html(contents);
-		           
+		      
+		            $("#memTable").append(contents);
 
 		    });
-
-		    $("#registerBtn").on("click",function(){
-		    	var userNo= $("#number").val();
-		    	var userName= $("#name").val();
-		    	var email= $("#email").val();
-		    	var mPassword= $("#password").val();
-		    //	var img= $("#img").val();
+		    
+		   
+		    
+		    function repeat(){
 		    	
-			      regiMember(userNo,userName,email,mPassword, function(){
-			    	
-			    	  console.log("멤버등록 시도");
-			    	   
-			      });
+		    	   var memberfilter = new Array();
+				   memberfilter[0] = "userNo";
+				   memberfilter[1] = "userName";
+				   memberfilter[2] = "email";
+				   memberfilter[3] = "mPassword";
+		    	 
+		    	   var number = "#number"+j;
+		    	   var name ="#name"+j;
+		    	   var email ="#email"+j;
+		    	   var password ="#password"+j;
+		    	
+		    	   member.userNo = $(number).val();
+				   member.userName = $(name).val();
+				   member.email=$(email).val();
+				   member.mPassword=$(password).val();
+				   
+				   memberJson = JSON.stringify(member, memberfilter, "\t");
+				   
+	
+		    }
+		    
+		    $("#registerBtn").on("click",function(){
+		    	
+	    		 for(var k=1;k<i+1;k++){
+	    			 repeat();
+	    			 regiMember(memberJson, function(){	    	
+				    	  console.log("멤버등록 시도");		    	   
+				      });
+	    			 j++;
+	    		 }
 			   
 			       $("#memberModal").modal('hide');	
 			    });
 		    
-		   
+	
 		    
-		   function regiMember(userNo,userName,email,mPassword,callback){
-			   
-		/* 	   var member = new Object();
-			   
-			   member.userNo = $("input[name='number']");
-			   memebr.userName = $("input[name='name']");
-			   member.email=$("input[name='email']");
-			   member.mPassword=$("input[name='mPassword']");
-			   member.img=$("input[name='img']"); 
-			   
-			   var all=[];
-			   
-		   		$("input[name='member']").each(function(index){
-			    	all.push($(this).val());
-			    });
-			 */
+		    function regiMember(memberJson,callback){
 			 
-			 console.log(userNo,userName,email,mPassword);
-			 
-			   $.ajax({
-				  type:'post',
-				  url:"http://192.168.0.36:8080/member/register",
-				  headers : {
-					"Content-Type" : "application/json"  
-				  },
-				  datatype:"json",
-				  data:JSON.stringify({userNo:userNo,userName:userName,email:email,mPassword:mPassword}),
-				  success: function(data){
-					  console.log(data);
-					  console.log("완전 등록");
-				  }
-				   
-			   });
-				   callback();
-			  
-		   };
+				 console.log(memberJson);
+				 
+				   $.ajax({
+					  type:'post',
+					  url:"http://192.168.0.36:8080/member/register",
+					  headers : {
+						"Content-Type" : "application/json"  
+					  },
+					  datatype:"json",
+					  data:memberJson,
+					  success: function(data){
+						  console.log(data);
+						  console.log("완전 등록");
+					  }
+					   
+				   });
+					   callback();
+				  
+			   };
+
+		   
 		   
 		
 	
