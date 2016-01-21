@@ -676,15 +676,6 @@ $("#main").on("mouseover",function(){
 			 
 			 console.log(userNo,userName,email,mPassword);
 			 
-<<<<<<< HEAD
-			 $.ajax({
-		            type:'post',
-		            url:"http://192.168.0.36:8080/member/register",
-		            headers: {
-		                "Content-Type":"application/json"},
-		            datatype: "json",
-				  data:JSON.stringify({userNo:userNo,userName:userName,email:email,mPassword:mPassword}),
-=======
 			   $.ajax({
 				  type:'post',
 				  url:"http://192.168.0.36:8080/member/register",
@@ -692,8 +683,7 @@ $("#main").on("mouseover",function(){
 					"Content-Type" : "application/json"  
 				  },
 				  datatype:"json",
-				  data:JSON.stringify({userNo:userNo,userName:userName,email:Email,mPassword:mPassword}),
->>>>>>> branch 'master' of https://github.com/4team/archistory.git
+				  data:JSON.stringify({userNo:userNo,userName:userName,email:email,mPassword:mPassword}),
 				  success: function(data){
 					  console.log(data);
 					  console.log("완전 등록");
