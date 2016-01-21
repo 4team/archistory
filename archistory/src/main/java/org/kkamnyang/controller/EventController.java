@@ -116,6 +116,7 @@ public class EventController {
 			service.remove(vo.getEventno());
 			entity = new ResponseEntity<String>("result",HttpStatus.OK);
 		}catch(Exception e){
+			e.printStackTrace();
 			entity = new ResponseEntity<String>("result",HttpStatus.BAD_REQUEST);
 		}
 		return entity;
