@@ -477,14 +477,17 @@
         		 var array = list[0].split(',');
         		 console.log(array);
         		 
-            array.each(function() {
-         	  console.log(this);
-               var fileInfo = getFileInfo(this);
-               var html = template2(fileInfo);
-               
- 			  
- 			  $(".uploadedList").append(html);
-            });
+        		var length = array.length;
+        		
+        		 for(var i = 0, i < length; i++){
+        			 
+        			var name = array[i];
+        			  var fileInfo = getFileInfo(name);
+                      var html = template2(fileInfo);
+        			  
+        			  $(".uploadedList").append(html);
+        		 }
+ 
          });
          
          
