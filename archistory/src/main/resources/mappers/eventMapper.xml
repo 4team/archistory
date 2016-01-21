@@ -40,11 +40,11 @@
 	</insert>
 
 	<select id="getAttach" resultType="string">
-		select efullname from tbl_eattach where eventNo=#{eventNo} order by regdate
+		select efullname from tbl_eattach where eventNo=#{eventno} order by regdate
 	</select>
 
 	<update id="updateAttach">
-		update tbl_eattach set efullName=#{efullName},eventNo=#{eventNo} where eventno=#{eventno}
+		update tbl_eattach set efullName=#{efullName},eventNo=#{eventno} where eventno=#{eventno}
 	</update>
 
  </mapper>
