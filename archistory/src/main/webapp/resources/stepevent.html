@@ -433,6 +433,7 @@
 
     });
 
+    var attach;
 
     <!-- 이벤트 생성 기능 -->
     function createEvent(routeno,eorder,title,content,attach2,lat,lng,callback){
@@ -460,7 +461,7 @@
         $("#eventName").val("");
         $("#eventinfo").val("");
         $("#imgThumbnail").remove();
-        attach=[];
+        attach2="";
     }
 
     <!-- 이벤트 읽기 기능 -->
@@ -674,7 +675,7 @@
     });
 
 
-    var attach;
+  
     
     $(".fileDrop").on("drop", function(event){
         event.preventDefault();
