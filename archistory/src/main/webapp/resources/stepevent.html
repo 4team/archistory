@@ -659,7 +659,7 @@
 <script id="template" type="text/x-handlebars-template">
     <li>
 <div class='img'>
-<a href='http://192.168.0.36:8080/displayFile?fileName="{{getLink}}"'><img src='http://192.168.0.36:8080/displayFile?fileName="{{fileName}}"'/></a>
+<a href="{{getLink}}"><img src="{{imgsrc}}"/></a>
 <small data-src="{{fileName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
 </div>
     </li>
