@@ -19,9 +19,10 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
-	@RequestMapping(value="/register",method=RequestMethod.POST)
+	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public ResponseEntity<String> register(@RequestBody MemberVO vo) throws Exception{
 		ResponseEntity<String> entity = null;
+		System.out.println("========멤버 등록 POST======");
 		System.out.println("========멤버 등록 시도======");
 		
 		try{

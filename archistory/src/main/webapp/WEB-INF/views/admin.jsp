@@ -643,19 +643,21 @@ $("#main").on("mouseover",function(){
 		    	var userNo= $("#number").val();
 		    	var userName= $("#name").val();
 		    	var Email= $("#email").val();
-		    	var mPassword= $("#mPassword").val();
-		    	var img= $("#img").val();
+		    	var mPassword= $("#password").val();
+		    //	var img= $("#img").val();
 		    	
-			      regiMember(userNo,userName,Email,mPassword,img, function(){
-			    	  
+			      regiMember(userNo,userName,Email,mPassword, function(){
+			    	
+			    	  console.log("멤버등록 시도");
+			    	   
 			      });
-			       console.log("멤버등록이 완료되었습니다.");
+			   
 			       $("#memberModal").modal('hide');	
 			    });
 		    
 		   
 		    
-		   function regiMember(userNo,userName,Email,mPassword,img,callback){
+		   function regiMember(userNo,userName,Email,mPassword,callback){
 			   
 		/* 	   var member = new Object();
 			   
@@ -671,14 +673,17 @@ $("#main").on("mouseover",function(){
 			    	all.push($(this).val());
 			    });
 			 */
+			 
+			 console.log(userNo,userName,Email,mPassword);
+			 
 			   $.ajax({
 				  type:'post',
-				  url:"http://192.168.0.36:8080/admin/login_success/member/register",
+				  url:"http://192.168.0.36:8080/member/register",
 				  headers : {
 					"Content-Type" : "application/json"  
 				  },
 				  datatype:"json",
-				  data:JSON.stringify({userNo:userNo,userName:userName,Email:Email,mPassword:mPassword,img:img}),
+				  data:JSON.stringify({userNo:userNo,userName:userName,Email:Email,mPassword:mPassword}),
 				  success: function(data){
 					  console.log(data);
 					  console.log("완전 등록");
