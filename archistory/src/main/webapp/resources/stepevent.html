@@ -437,7 +437,7 @@
 
     <!-- 이벤트 생성 기능 -->
     function createEvent(routeno,eorder,title,content,attach2,lat,lng,callback){
-
+    	clearEventDiv();
         console.log(routeno,eorder,title,content,attach2,lat,lng);
 
         $.ajax({
