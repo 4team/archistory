@@ -43,12 +43,8 @@
 		select efullname from tbl_eattach where eventNo=#{eventNo} order by regdate
 	</select>
 
+	<update id="updateAttach">
+		update tbl_eattach set efullName=#{efullName},eventNo=#{eventNo} where eventno=#{eventno}
+	</update>
 
-	<delete id="deleteAttach">
-		delete from tbl_eattach where eventNo=#{eventNo}
-	</delete>
-
-	<insert id="replaceAttach">
-		insert into tbl_eattach(efullname,eventNo)values (#{efullname},#{eventNo})
-	</insert>
  </mapper>

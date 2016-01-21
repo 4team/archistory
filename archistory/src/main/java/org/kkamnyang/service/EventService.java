@@ -46,4 +46,9 @@ public class EventService {
 	public List<String> getAttach(Integer eventno)throws Exception{
 		return mapper.getAttach(eventno);
 	}
+	
+	public void attachModify(EventVO vo)throws Exception{
+		System.out.println("첨부파일업뎃 서비스 호출.....");
+		mapper.attachModify(vo);
+	}
 }
