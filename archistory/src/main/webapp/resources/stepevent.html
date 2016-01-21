@@ -421,7 +421,9 @@
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
         attach2 = attach.join();
+        
         console.log(attach2);
+        
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
@@ -654,31 +656,23 @@
 
 </script>
 
-
-<script id="templateAttach" type="text/x-handlebars-template">
-<div class="liii">
-<li data-src='{{fullName}}'>
-  	<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-<div class="mailbox-attachment-info">
-  	 <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-	</div>    
-</li>
-</div>
-</script>
-
-
-<!-- -----파일첨부기능-------  -->
 <script id="template" type="text/x-handlebars-template">
     <li>
+	<div class="img">
         <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-        <div class="mailbox-attachment-info">
+	</div>        
+		<div class="mailbox-attachment-info">
             <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+		<div class="x">
             <a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
-            </span>
+		</div>            
+</span>
         </div>
     </li>
 </script>
 
+
+<!-- -----파일첨부기능-------  -->
 <script>
     var template = Handlebars.compile($("#template").html());
 
