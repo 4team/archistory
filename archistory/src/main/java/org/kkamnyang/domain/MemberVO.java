@@ -2,8 +2,6 @@ package org.kkamnyang.domain;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class MemberVO {
 	
 	private Integer memberNo;
