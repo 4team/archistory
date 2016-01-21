@@ -658,15 +658,10 @@
 
 <script id="template" type="text/x-handlebars-template">
     <li>
-	<div class="img">
-        <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-	</div>        
-		<div class="mailbox-attachment-info">
-            <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-		<div class="x">
-            <small data-src="{{fileName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
-		</div>            
-        </div>
+<div class='img'>
+<a href='http://192.168.0.36:8080/displayFile?fileName="{{getLink}}"'><img src='http://192.168.0.36:8080/displayFile?fileName="{{fileName}}"'/></a>
+<small data-src="{{fileName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
+</div>
     </li>
 </script>
 
