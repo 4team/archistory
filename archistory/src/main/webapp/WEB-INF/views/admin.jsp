@@ -84,8 +84,8 @@
             border : 1px solid black;
             border-radius : 10px;
             background-color : #FFF;
-            top:50px;
-            left:10px;
+            top:46px;
+            left:157px;
             width:200px;
             height:400px;
             overflow-y:scroll;
@@ -161,6 +161,19 @@
         .gly{
             float:right;
         }
+        
+        #member{
+         margin: 10px;
+        }
+        
+        #modi{
+         margin: 10px;
+        }
+        
+        #del{
+         margin: 10px;
+        }
+        
         table{
             border-spacing: 50px;
         }
@@ -203,7 +216,7 @@
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" id="routeShow">My Route List</a></li>
     	<ul id="myRouteList">
-    	</ul>
+    	</ul>  
     <li role="presentation" class="divider"></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
@@ -228,6 +241,7 @@
                 <h4 class="modal-title">My route</h4>
             </div>
             <div class="modal-body">
+            
                 <h5 class="modal-title" id="routelist">
                     <ul></ul>
                 </h5>
