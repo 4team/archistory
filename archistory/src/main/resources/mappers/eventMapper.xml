@@ -44,7 +44,7 @@
 	</select>
 
 	<update id="updateAttach">
-		update tbl_eattach set efullName=#{efullName},eventNo=#{eventno} where eventno=#{eventno}
+		update tbl_eattach set efullName=#{efiles},eventNo=#{eventno} where eventno=#{eventno}
 	</update>
 
  </mapper>
