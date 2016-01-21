@@ -11,7 +11,6 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 
 	@Override
 	public List<EventVO> elist(Integer routeno) {
-		// TODO Auto-generated method stub
 		return session.selectList(namespace+".elist",routeno);
 	}
 
@@ -27,5 +26,10 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 			System.out.println(efiles);
 			session.insert(namespace + ".addAttach",efiles);
 		}
+	}
+
+	@Override
+	public List<String> getAttach(Integer eventno) {		
+		return session.selectList(namespace + ".getAttach", eventno);
 	}
 }

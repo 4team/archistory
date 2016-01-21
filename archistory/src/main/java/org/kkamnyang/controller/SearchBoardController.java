@@ -8,6 +8,7 @@ import org.kkamnyang.domain.BoardVO;
 import org.kkamnyang.domain.PageMaker;
 import org.kkamnyang.domain.SearchCriteria;
 import org.kkamnyang.service.BoardService;
+import org.kkamnyang.service.EventService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,7 @@ public class SearchBoardController {
 
   @Inject
   private BoardService service;
+  private EventService eservice;
 
   @RequestMapping(value = "/list", method = RequestMethod.GET)
   public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
@@ -111,6 +113,15 @@ public class SearchBoardController {
 	System.out.println("첨부파일이 로드됨...");
 	System.out.println(service.getAttach(boardNo));
 	return service.getAttach(boardNo);  
+  }
+  
+  
+  @RequestMapping(value="/getAttach/{eventno}")
+  @ResponseBody
+  public List<String> getEattach(@PathVariable("eventno")Integer eventno)throws Exception{
+	System.out.println("첨부파일이 로드됨...");
+	System.out.println(eservice.getAttach(eventno));
+	return eservice.getAttach(eventno);  
   }
   
   
