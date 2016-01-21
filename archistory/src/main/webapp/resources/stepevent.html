@@ -390,7 +390,7 @@
 
     <!-- 이벤트 생성 버튼 클릭-->
 	
-    var attach;
+    var attach = new Array();
 	var attach2;
 	
     $("#createEventBtn").on("click",function(){
@@ -410,6 +410,7 @@
         });
 
         $("#eventModal").modal('hide');
+        attach = [];
     });
 
     <!-- 이벤트 수정 버튼 클릭-->
@@ -686,7 +687,7 @@
 
         var files = event.originalEvent.dataTransfer.files;
         var file = files[0];
-        attach = new Array();
+        
         
         var formData = new FormData();
         formData.append("file", file);
