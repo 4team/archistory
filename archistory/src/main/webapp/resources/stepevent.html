@@ -465,8 +465,7 @@
 
     <!-- 이벤트 읽기 기능 -->
     function viewEvent(eventno){
-    	 var eventno = ${eventVO.eventno};
-         var template = Handlebars.compile($("#templateAttach").html());
+         var template2 = Handlebars.compile($("#templateAttach").html());
 
          $.getJSON("/sboard/getAttach/" + eventno, function(list) {
         		 console.log("뷰에서 겟제이슨 들어왔다");
