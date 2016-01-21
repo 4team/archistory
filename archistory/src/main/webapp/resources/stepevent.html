@@ -476,9 +476,10 @@
             $(list).each(function() {
          	  console.log(this);
                var fileInfo = getFileInfo(this);
-               var html = template2(fileInfo);
+               attach = template2(fileInfo);
+              
  			  
- 			  $(".uploadedList").append(html);
+ 			  $(".uploadedList").append(attach);
             });
          });
          
