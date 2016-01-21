@@ -467,7 +467,7 @@
     function viewEvent(eventno){
          var template2 = Handlebars.compile($("#templateAttach").html());
 
-         $.getJSON("/sboard/getAttach/" + eventno, function(list) {
+         $.getJSON("http://192.168.0.36:8080/sboard/getAttach/" + eventno, function(list) {
         		 console.log("뷰에서 겟제이슨 들어왔다");
             $(list).each(function() {
          	  console.log(this);
