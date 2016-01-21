@@ -90,6 +90,8 @@
             height:400px;
             overflow-y:scroll;
         }
+        
+  
         li{
             list-style: none;
             margin-bottom: 15px;
@@ -293,11 +295,11 @@
                         <th>이미지</th>
                     </tr>
                     <tr>
-	                    <td><input type='text' class='form-control' name="number" placeholder='Number' ></td>
-			            <td><input type='text' class='form-control' name="name" placeholder='Name'></td>
-			            <td><input type='email' class='form-control' name="email" placeholder='Email'></td>
-			            <td><input type='password' class='form-control' name="password" placeholder='password'></td>
-			            <td><input type='file' class='form-control'name="img"></td>
+	                    <td><input type='text' class='form-control' id="number" placeholder='Number' ></td>
+			            <td><input type='text' class='form-control' id="name" placeholder='Name'></td>
+			            <td><input type='email' class='form-control' id="email" placeholder='Email'></td>
+			            <td><input type='password' class='form-control' id="password" placeholder='password'></td>
+			            <td><input type='file' class='form-control' id="img"></td>
 		            </tr>
                 </table>
                 <table id="memTable">
@@ -638,14 +640,22 @@ $("#main").on("mouseover",function(){
 		    });
 
 		    $("#registerBtn").on("click",function(){
-			      
-			       alert("멤버등록이 완료되었습니다.");
+		    	var userNo= $("#number").val();
+		    	var userName= $("#name").val();
+		    	var Email= $("#email").val();
+		    	var mPassword= $("#mPassword").val();
+		    	var img= $("#img").val();
+		    	
+			      regiMember(userNo,userName,Email,mPassword,img, function(){
+			    	  
+			      });
+			       console.log("멤버등록이 완료되었습니다.");
 			       $("#memberModal").modal('hide');	
 			    });
 		    
 		   
 		    
-		   function regiMember(){
+		   function regiMember(userNo,userName,Email,mPassword,img,callback){
 			   
 		/* 	   var member = new Object();
 			   
@@ -653,9 +663,9 @@ $("#main").on("mouseover",function(){
 			   memebr.userName = $("input[name='name']");
 			   member.Email=$("input[name='email']");
 			   member.mPassword=$("input[name='mPassword']");
-			   member.img=$("input[name='img']"); */
+			   member.img=$("input[name='img']"); 
 			   
-			 /*   var all=[];
+			   var all=[];
 			   
 		   		$("input[name='member']").each(function(index){
 			    	all.push($(this).val());
@@ -668,13 +678,14 @@ $("#main").on("mouseover",function(){
 					"Content-Type" : "application/json"  
 				  },
 				  datatype:"json",
-				  data:JSON.stringfy(member),
+				  data:JSON.stringify({userNo:userNo,userName:userName,Email:Email,mPassword:mPassword,img:img}),
 				  success: function(data){
 					  console.log(data);
+					  console.log("완전 등록");
 				  }
 				   
 			   });
-				   
+				   callback();
 			  
 		   };
 		   
