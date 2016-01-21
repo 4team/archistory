@@ -5,8 +5,8 @@
   
 <mapper namespace="org.kkamnyang.persistence.MemberMapper">
 	<insert id="create">
-		insert into tbl_member(userNo,userName,email,mPassword,img)
-        values(#{userNo},#{userName},#{Email},#{mPassword},#{img})
+		insert into tbl_member(userNo,userName,email,mPassword)
+        values(#{userNo},#{userName},#{Email},#{mPassword})
 	</insert>
 	
 	<select id="list" resultType="org.kkamnyang.domain.MemberVO">

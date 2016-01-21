@@ -24,7 +24,7 @@ public class MemberController {
 		ResponseEntity<String> entity = null;
 		System.out.println("========멤버 등록 POST======");
 		System.out.println("========멤버 등록 시도======");
-		
+		System.out.println(vo);
 		try{
 			service.register(vo);
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);

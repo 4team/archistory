@@ -297,7 +297,7 @@
                     <tr>
 	                    <td><input type='text' class='form-control' id="number" placeholder='Number' ></td>
 			            <td><input type='text' class='form-control' id="name" placeholder='Name'></td>
-			            <td><input type='email' class='form-control' id="email" placeholder='Email'></td>
+			            <td><input type='email' class='form-control' id="email" placeholder='email'></td>
 			            <td><input type='password' class='form-control' id="password" placeholder='password'></td>
 			            <td><input type='file' class='form-control' id="img"></td>
 		            </tr>
@@ -630,7 +630,7 @@ $("#main").on("mouseover",function(){
 		    			contents+=  "<tr>"
 		            +"<td><input type='text' class='form-control' name='member' placeholder='Number'></td>"
 		            +"<td><input type='text' class='form-control' name='member' placeholder='Name'></td>"
-		            +"<td><input type='email' class='form-control'name='member'  placeholder='Email'></td>"
+		            +"<td><input type='email' class='form-control'name='member'  placeholder='email'></td>"
 		            +"<td><input type='password' class='form-control' name='member'  placeholder='password'></td>"
 		            +"<td><input type='file' class='form-control'name='member'></td></tr>"
 		      
@@ -642,11 +642,11 @@ $("#main").on("mouseover",function(){
 		    $("#registerBtn").on("click",function(){
 		    	var userNo= $("#number").val();
 		    	var userName= $("#name").val();
-		    	var Email= $("#email").val();
+		    	var email= $("#email").val();
 		    	var mPassword= $("#password").val();
 		    //	var img= $("#img").val();
 		    	
-			      regiMember(userNo,userName,Email,mPassword, function(){
+			      regiMember(userNo,userName,email,mPassword, function(){
 			    	
 			    	  console.log("멤버등록 시도");
 			    	   
@@ -657,13 +657,13 @@ $("#main").on("mouseover",function(){
 		    
 		   
 		    
-		   function regiMember(userNo,userName,Email,mPassword,callback){
+		   function regiMember(userNo,userName,email,mPassword,callback){
 			   
 		/* 	   var member = new Object();
 			   
 			   member.userNo = $("input[name='number']");
 			   memebr.userName = $("input[name='name']");
-			   member.Email=$("input[name='email']");
+			   member.email=$("input[name='email']");
 			   member.mPassword=$("input[name='mPassword']");
 			   member.img=$("input[name='img']"); 
 			   
@@ -674,16 +674,15 @@ $("#main").on("mouseover",function(){
 			    });
 			 */
 			 
-			 console.log(userNo,userName,Email,mPassword);
+			 console.log(userNo,userName,email,mPassword);
 			 
-			   $.ajax({
-				  type:'post',
-				  url:"http://192.168.0.36:8080/member/register",
-				  headers : {
-					"Content-Type" : "application/json"  
-				  },
-				  datatype:"json",
-				  data:JSON.stringify({userNo:userNo,userName:userName,Email:Email,mPassword:mPassword}),
+			 $.ajax({
+		            type:'post',
+		            url:"http://192.168.0.36:8080/member/register",
+		            headers: {
+		                "Content-Type":"application/json"},
+		            datatype: "json",
+				  data:JSON.stringify({userNo:userNo,userName:userName,email:email,mPassword:mPassword}),
 				  success: function(data){
 					  console.log(data);
 					  console.log("완전 등록");
