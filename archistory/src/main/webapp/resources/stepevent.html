@@ -466,7 +466,7 @@
 
     <!-- 이벤트 읽기 기능 -->
     function viewEvent(eventno){
-/*          var template2 = Handlebars.compile($("#templateAttach").html());
+	  var template2 = Handlebars.compile($("#templateAttach").html());
 
          $.getJSON("http://192.168.0.36:8080/event/getAttach/" + eventno, function(list) {
         		 console.log("뷰에서 겟제이슨 들어왔다");
@@ -478,7 +478,7 @@
  			  
  			  $(".uploadedList").append(html);
             });
-         }); */
+         });
          
         $.getJSON("http://192.168.0.36:8080/event/view?eventno="+eventno,function(data){
 
@@ -540,7 +540,7 @@
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
         $("#order").val(eventno);
-        clearEventDiv();
+
 
         console.log("내가 선택한 위도와 경도 : ",lat,lng);
 
