@@ -683,7 +683,7 @@ $("#main").on("mouseover",function(){
 					"Content-Type" : "application/json"  
 				  },
 				  datatype:"json",
-				  data:JSON.stringify({userNo:userNo,userName:userName,Email:Email,mPassword:mPassword}),
+				  data:JSON.stringify({userNo:userNo,userName:userName,email:Email,mPassword:mPassword}),
 				  success: function(data){
 					  console.log(data);
 					  console.log("완전 등록");
