@@ -404,7 +404,7 @@ input.gn-search:focus {
 
 .no-touch .gn-icon-menu:hover::before,
 .no-touch .gn-icon-menu.gn-selected:hover::before {
-		background: white;
+		background: navy;
 		box-shadow: 0 3px #eb5d1e, 0 -6px white, 0 -9px #eb5d1e, 0 -12px white;
 }
 
