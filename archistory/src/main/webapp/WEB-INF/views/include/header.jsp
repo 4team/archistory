@@ -376,5 +376,5 @@ $("#loginBtn").on("click",function(){
     <script src="js/custom.js"></script>
     
     
-</body>
-</html>
+    
+    
