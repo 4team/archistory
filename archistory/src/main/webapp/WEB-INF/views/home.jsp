@@ -139,7 +139,7 @@
 	        width:400px;
 	    }
     
-          #myLocation .th{
+          #myLocation, #th{
             padding : 2px;
             border:1px solid;
             border-color:#444444;
