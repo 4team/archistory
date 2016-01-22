@@ -139,7 +139,7 @@
 	        width:400px;
 	    }
     
-          #myLocation, #th{
+          #myLocation{
             padding : 2px;
             border:1px solid;
             border-color:#444444;
@@ -203,7 +203,7 @@
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span id="th" class="glyphicon glyphicon-map-marker">Menu</span></a>
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
