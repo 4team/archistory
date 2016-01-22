@@ -15,7 +15,7 @@ margin-right:200px;
 }
 
 .col-md-12{
-top:70px;
+top:50px;
 }
 </style>
 
