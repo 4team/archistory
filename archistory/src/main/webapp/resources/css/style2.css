@@ -392,15 +392,15 @@ input.gn-search:focus {
 		overflow: hidden;
 }
 
-/* .gn-icon-menu::before {
+.gn-icon-menu::before {
 		margin-left: -15px;
 		vertical-align: -2px;
 		width: 24px;
 		height: 24px;
-		background: #eb5d1e;
+		/* background: #eb5d1e;
 		box-shadow: 0 3px white, 0 -6px #eb5d1e, 0 -9px white, 0 -12px #eb5d1e;
-		content: '';
-} */
+		content: ''; */
+}
 
 .no-touch .gn-icon-menu:hover::before,
 .no-touch .gn-icon-menu.gn-selected:hover::before {
