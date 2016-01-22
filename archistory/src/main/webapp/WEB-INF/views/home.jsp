@@ -41,7 +41,7 @@
 			position: absolute;
 			top:5px;
 			left:8px;
-			background-color:#303336;
+			/* background-color:#303336; */
 		}
         
         #menu:hover{
@@ -200,7 +200,7 @@
 <body>
 
 
-<div class="container">
+<div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
