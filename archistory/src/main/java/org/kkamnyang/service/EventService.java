@@ -22,8 +22,8 @@ public class EventService {
 		return mapper.elist(routeno);
 	}
 
-	public void regist(EventVO vo) throws Exception{
-		mapper.create(vo);
+	public int regist(EventVO vo) throws Exception{
+		return mapper.create(vo);
 	}
 	
 	public EventVO view(Integer eventno) throws Exception{
