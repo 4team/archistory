@@ -38,7 +38,7 @@
 		
 		#menu{
 			z-index:100;
-			/* position: absolute; */
+			position: absolute;
 			/* top:5px;
 			left:8px; */
 			/* background-color:#303336; */
@@ -201,7 +201,6 @@
 
 
 <div class="menu">
-			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
@@ -222,8 +221,7 @@
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
-				</li>
-</ul>
+				</li>	
 	</div>
 	
 	
