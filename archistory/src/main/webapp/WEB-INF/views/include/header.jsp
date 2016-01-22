@@ -11,16 +11,16 @@
     <title>= Archistory =</title>
     
      <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap.min2.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/nivo-lightbox.css" rel="stylesheet" />
-	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-	<link href="css/animate.css" rel="stylesheet" />
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="/css/animate.css" rel="stylesheet" />
     <!-- Squad theme CSS -->
-    <link href="css/style2.css" rel="stylesheet">
-	<link href="color/default.css" rel="stylesheet">
+    <link href="/css/style2.css" rel="stylesheet">
+	<link href="/color/default.css" rel="stylesheet">
 	
 </head>
 
@@ -196,7 +196,7 @@
 
 <!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 		
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
@@ -356,16 +356,16 @@ $("#loginBtn").on("click",function(){
 </script>
 
  <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min2.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min2.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>	
+	<script src="/js/classie.js"></script>
+	<script src="/js/gnmenu.js"></script>
+	<script src="/js/jquery.scrollTo.js"></script>
+	<script src="/js/nivo-lightbox.min.js"></script>
+	<script src="/js/stellar.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
+    <script src="/js/custom.js"></script>
     
     
     
