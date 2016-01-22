@@ -156,7 +156,7 @@ hr {
 .gn-menu-main a {
 		display: block;
 		height: 100%;
-		color: white;
+		color: #eb5d1e; /*메뉴안에 소메뉴 글씨색*/
 		text-decoration: none;
 		cursor: pointer;
 }
@@ -404,7 +404,7 @@ input.gn-search:focus {
 
 .no-touch .gn-icon-menu:hover::before,
 .no-touch .gn-icon-menu.gn-selected:hover::before {
-		background: black;
+		background: white;
 		box-shadow: 0 3px #eb5d1e, 0 -6px white, 0 -9px #eb5d1e, 0 -12px white;
 }
 
