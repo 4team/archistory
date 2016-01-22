@@ -199,7 +199,9 @@
 	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
 <body>
 
-<div id="menu">
+
+<div class="container">
+			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
@@ -221,8 +223,10 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-</div>
-
+</ul>
+	</div>
+	
+	
 <div id="upper-login">
 	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
 	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
