@@ -293,7 +293,6 @@
                         <th>이름</th>
                         <th>이메일</th>
                         <th>비밀번호</th>
-
                     </tr>
                     <tr id="tr1">
 	                    <td><input type='text' class='form-control' id="number1" placeholder='Number' ></td>
@@ -306,6 +305,7 @@
 
                 </table>
                 <span class='glyphicon glyphicon-plus' id="plus"></span>
+                <span class='glyphicon glyphicon-minus' id="minus"></span>
 
             </div>
             <div class="modal-footer">
@@ -631,18 +631,28 @@ var adminno = ${adminno};
 		    	++i;
 		    	console.log("i:"+i);
 		                
-		    	contents=  "<tr id='tr"+i+"'>"
+		    	contents= "<tr id='tr"+i+"'>"
 		            +"<td><input type='text' class='form-control' id='number"+i+"' placeholder='Number'></td>"
 		            +"<td><input type='text' class='form-control' id='name"+i+"' placeholder='Name'></td>"
 		            +"<td><input type='email' class='form-control' id='email"+i+"' placeholder='email'></td>"
 		            +"<td><input type='password' class='form-control' id='password"+i+"'  placeholder='password'></td></tr>"
-		      
-		      
+		          
 		            $("#memTable").append(contents);
 
 		    });
 		    
-		   
+  		  $("#minus").on("click",function(){
+  			
+  			  console.log("i:"+i);
+  			  
+  			  if(i>1){
+	  			  var trId="#tr"
+	  			  $(trId+i).remove();
+	  			  i--;
+  			  }
+
+		    });
+	
 		    
 		    function repeat(){
 		    	
@@ -656,6 +666,7 @@ var adminno = ${adminno};
 		    	   var name ="#name"+j;
 		    	   var email ="#email"+j;
 		    	   var password ="#password"+j;
+		    	   var member = new Object();
 		    	
 		    	   member.userNo = $(number).val();
 				   member.userName = $(name).val();
@@ -663,27 +674,11 @@ var adminno = ${adminno};
 				   member.mPassword=$(password).val();
 				   
 				   memberJson = JSON.stringify(member, memberfilter, "\t");
-				   
-	
+
 		    }
 		    
-		    $("#registerBtn").on("click",function(){
-		    	
-	    		 for(var k=1;k<i+1;k++){
-	    			 repeat();
-	    			 regiMember(memberJson, function(){	    	
-				    	  console.log("멤버등록 시도");		    	   
-				      });
-	    			 j++;
-	    		 }
-			   
-			       $("#memberModal").modal('hide');	
-			    });
-		    
-	
-		    
 		    function regiMember(memberJson,callback){
-			 
+				 
 				 console.log(memberJson);
 				 
 				   $.ajax({
@@ -697,18 +692,48 @@ var adminno = ${adminno};
 					  success: function(data){
 						  console.log(data);
 						  console.log("완전 등록");
-					  }
-					   
+					  }				   
 				   });
 					   callback();
-				  
-			   };
+		   };
 
-		   
-		   
+		    
+		    function emptyMember(){
+				   $("#number1").val("");
+				   $("#name1").val("");
+				   $("#email1").val("");
+				   $("#password1").val("");
+			}
+			   
+		    
+		    $("#registerBtn").on("click",function(){
+		    	
+	    		 for(var k=1;k<i+1;k++){
+	    			 repeat();
+	    			 regiMember(memberJson, function(){	    	
+				    	  console.log("멤버등록 시도");		    	   
+				      });
+	    			 j++;
+	    		 }
+
+			       $("#memberModal").modal('hide');	
+	    		   alert("멤버등록이 완료되었습니다.")
+	    		   emptyMember();
+	    		   i=1;
+	    		   
+			    });
+		    
+		    
+		    $("#regiCancleBtn").on("click",function(){
+		    	i=1;
+		    	console.log("멤버등록 취소");
+		    	console.log("i:"+i);
+		    	 emptyMember();
+		    	
+		    });
+		    
 		
-	
-	       
+		         
 	     
 	</script>
 
