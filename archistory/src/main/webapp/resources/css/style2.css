@@ -404,7 +404,7 @@ input.gn-search:focus {
 
 .no-touch .gn-icon-menu:hover::before,
 .no-touch .gn-icon-menu.gn-selected:hover::before {
-		background: navy;
+		background: white;
 		box-shadow: 0 3px #eb5d1e, 0 -6px white, 0 -9px #eb5d1e, 0 -12px white;
 }
 
@@ -423,7 +423,7 @@ input.gn-search:focus {
 }
 
 .gn-menu-wrapper.gn-open-all {
-		width: 340px
+		width: 180px
 }
 
 .gn-menu-wrapper.gn-open-all .gn-submenu li {
