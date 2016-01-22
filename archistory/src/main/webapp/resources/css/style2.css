@@ -133,7 +133,8 @@ hr {
 .gn-menu-main ul {
 		margin: 0;
 		padding: 0;
-		background: #fff;
+		/* background: #fff; */
+		opacity:1;
 		color: #eb5d1e;
 		list-style: none;
 		text-transform: none;
