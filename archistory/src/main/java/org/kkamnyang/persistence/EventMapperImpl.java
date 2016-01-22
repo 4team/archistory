@@ -36,6 +36,7 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 	@Transactional
 	@Override
 	public void attachModify(EventVO vo) throws Exception{
+		System.out.println("[EventController]업데이트 어테치!!");
 		session.update(namespace + ".update", vo);
 		session.update(namespace + ".updateAttach",vo);
 	}
