@@ -156,7 +156,7 @@ hr {
 .gn-menu-main a {
 		display: block;
 		height: 100%;
-		color: #eb5d1e; /*메뉴안에 소메뉴 글씨색*/
+		color: white; /*메뉴안에 소메뉴 글씨색*/
 		text-decoration: none;
 		cursor: pointer;
 }
