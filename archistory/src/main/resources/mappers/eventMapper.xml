@@ -5,7 +5,7 @@
  
  <mapper namespace="org.kkamnyang.persistence.EventMapper">
 
- 	<insert id="create">
+ 	<insert id="create" useGeneratedKeys="true" keyProperty="eventno">
  		insert into tbl_event(routeno,title,content,lat,lng,img,video,camera,camMessage,eorder)
  		 values
  		 (#{routeno},#{title},#{content},#{lat},#{lng},#{img},#{video},#{camera},#{camMessage},#{eorder})
@@ -44,11 +44,11 @@
 	</select>
 
 	<update id="updateAttach">
-		update tbl_eattach set efullName=#{efiles},eventNo=#{eventno} where eventNo=#{eventno}
+		update tbl_eattach set efullName=#{efiles} where eventNo=#{eventno}
 	</update>
 	
 	<!-- <delete id="deleteAttach">
-		delete from tbl_eattach where eventno=#{eventno}
+		delete from tbl_eat00tac0h where eventno=#{eventno}
 	</delete>
 
 	<insert id="replaceAttach">

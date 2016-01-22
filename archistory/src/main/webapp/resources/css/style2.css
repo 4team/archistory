@@ -156,7 +156,7 @@ hr {
 .gn-menu-main a {
 		display: block;
 		height: 100%;
-		color: #eb5d1e; /*메뉴안에 소메뉴 글씨색*/
+		color: white; /*메뉴안에 소메뉴 글씨색*/
 		text-decoration: none;
 		cursor: pointer;
 }
@@ -165,7 +165,7 @@ hr {
 .no-touch .gn-menu li.gn-search-item:hover,
 .no-touch .gn-menu li.gn-search-item:hover a {
 		background: #eb5d1e;
-		color: white;
+		color: orange;
 }
 
 .gn-menu-main > li {
@@ -215,7 +215,7 @@ hr {
 		overflow: hidden;
 		width: 60px;
 		border-top: 1px solid #c6d0da;
-		background: white;
+		background: black;
 		-webkit-transform: translateX(-60px);
 		-moz-transform: translateX(-60px);
 		transform: translateX(-60px);

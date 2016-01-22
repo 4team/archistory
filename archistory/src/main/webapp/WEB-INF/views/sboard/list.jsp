@@ -13,6 +13,10 @@ position : fix;
 margin-left :200px;
 margin-right:200px;
 }
+
+.col-md-12{
+top:50px;
+}
 </style>
 
 <div class="center-container">
