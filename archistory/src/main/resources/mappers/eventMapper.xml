@@ -26,11 +26,11 @@
  	<update id="update">
  		update tbl_event set title=#{title},content=#{content}, lat=#{lat}, lng=#{lng},
  		img=#{img},video=#{video},camera=#{camera},camMessage=#{camMessage},eorder=#{eorder} 
- 		where eventno = #{eventno}
+ 		where eventNo = #{eventno}
  	</update>
  	
  	<delete id="delete">
- 		delete from tbl_event where eventno = #{eventno}
+ 		delete from tbl_event where eventNo = #{eventno}
  	</delete>
  	
  	
@@ -40,11 +40,11 @@
 	</insert>
 
 	<select id="getAttach" resultType="string">
-		select efullname from tbl_eattach where eventNo=#{eventno} order by regdate
+		select efullName from tbl_eattach where eventNo=#{eventno} order by regdate
 	</select>
 
 	<update id="updateAttach">
-		update tbl_eattach set efullName=#{efiles},eventno=#{eventno} where eventno=#{eventno}
+		update tbl_eattach set efullName=#{efiles},eventNo=#{eventno} where eventNo=#{eventno}
 	</update>
 	
 	<!-- <delete id="deleteAttach">
