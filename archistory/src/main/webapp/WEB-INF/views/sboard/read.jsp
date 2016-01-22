@@ -53,9 +53,11 @@ padding :5px;}
 li{
 list-style:none;
 }
-.content{
+
+.col-md-12{
 top:50px;
 }
+
 </style>
 
  <div class='popup back' style="display: none;"></div>
