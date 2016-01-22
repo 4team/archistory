@@ -190,7 +190,7 @@ hr {
 }
 
 .gn-menu-main > li:last-child {
-		float: right;
+		float: left;
 		border-right: none;
 }
 
