@@ -146,8 +146,8 @@ hr {
 
 .gn-menu-main {
 		position: fixed;
-		top: 5;
-		left: 5;
+		top: 0;
+		left: 0;
 		width: 24px;
 		height: 24px;
 		font-size: 13px;
