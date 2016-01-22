@@ -320,6 +320,28 @@
 
 <!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
 <script>
+function addMarker(route){
+    var entity = viewer.entities.add({
+        name: route.routename,
+        position: Cesium.Cartesian3.fromDegrees(route.lng, route.lat),
+        billboard : {
+            image : '/Cesium/marker.png',
+            width : 64,
+            height : 64
+        },
+        label : {
+            text : route.routename,
+            font : '12pt verdana',
+            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+            outlineWidth : 2,
+            verticalOrigin : Cesium.VerticalOrigin.TOP,
+            pixelOffset : new Cesium.Cartesian2(0, 32)
+        }
+    });
+    var ellipse = entity.ellipse;
+}
+
+
 
 $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
     var list = $(data);
