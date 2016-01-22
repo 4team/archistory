@@ -201,7 +201,9 @@
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+
+<div id="myLocation"><span class="gn-icon gn-icon-menu glyphicon glyphicon-map-marker"></span></div>
+					<!-- <a class="gn-icon gn-icon-menu"><span>Menu</span></a> -->
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
@@ -314,7 +316,7 @@
     </div>
 </div>
 
-<div id="myLocation"><span class="glyphicon glyphicon-map-marker"></span></div>
+
 
 <!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
 <script>
