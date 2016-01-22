@@ -9,6 +9,19 @@
 <head>
     <meta charset="UTF-8">
     <title>= Archistory =</title>
+    
+     <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="css/style2.css" rel="stylesheet">
+	<link href="color/default.css" rel="stylesheet">
+	
 </head>
 
     <style>
@@ -187,26 +200,27 @@
 <body>
 
 <div id="menu">
-
-<div class="dropdown">
-  <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-    	<span class="glyphicon glyphicon-menu-hamburger"></span>
-  </a>
-
-        <ul class="dropdown-menu" role="menu">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
-
-				<ul  id="myRouteList">
-				</ul>
-
-            <li role="presentation" class="divider"></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
-            <li role="presentation" class="divider"></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
-        </ul>
-    </div>
+<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li class="gn-search-item">
+									<input placeholder="Search" type="search" class="gn-search">
+									<a class="gn-icon gn-icon-search"><span>Search</span></a>
+								</li>
+								<li>
+									<a href="#about" class="gn-icon gn-icon-download">About</a>
+								</li>
+								<li><a href="#service" class="gn-icon gn-icon-cog">Service</a></li>
+								<li><a href="#works" class="gn-icon gn-icon-help">Works</a></li>
+								<li>
+									<a href="#contact" class="gn-icon gn-icon-archive">Contact</a>
+								</li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
 </div>
 
 <div id="upper-login">
