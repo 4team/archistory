@@ -207,18 +207,14 @@
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li class="gn-search-item">
-									<input placeholder="Search" type="search" class="gn-search">
-									<a class="gn-icon gn-icon-search"><span>Search</span></a>
-								</li>
-								<li>
-									<a href="#about" class="gn-icon gn-icon-download">About</a>
-								</li>
-								<li><a href="#service" class="gn-icon gn-icon-cog">Service</a></li>
-								<li><a href="#works" class="gn-icon gn-icon-help">Works</a></li>
-								<li>
-									<a href="#contact" class="gn-icon gn-icon-archive">Contact</a>
-								</li>
+								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><a href="#about" class="gn-icon gn-icon-download" id="routeList">Tour Route</a></li>
+								
+									<ul  id="myRouteList"></ul>
+									
+								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
