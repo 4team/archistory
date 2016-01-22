@@ -39,6 +39,10 @@ padding :5px;
 li{
 list-style:none;
 }
+
+.col-md-12{
+top:50px;
+}
 </style>
 
 <div class="center-container">
