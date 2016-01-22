@@ -35,8 +35,8 @@
  	
  	
  	<insert id="addAttach">
-		insert into tbl_eattach(efullName,eventNo,eattachno)
-		values(#{efiles},#{eventno},LAST_INSERT_ID())
+		insert into tbl_eattach(efullName,eventNo)
+		values(#{efiles},LAST_INSERT_ID())
 	</insert>
 
 	<select id="getAttach" resultType="string">

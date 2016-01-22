@@ -17,7 +17,7 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 	@Transactional
 	@Override
 	public void attachCreate(EventVO vo) throws Exception{
-		
+		try{
 		int eventno = session.insert(namespace + ".create", vo);
 		vo.setEventno(eventno);
 		String efiles = vo.getEfiles();
@@ -26,6 +26,9 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		}else{
 			System.out.println(efiles);
 			session.insert(namespace + ".addAttach",vo);
+		}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 
