@@ -203,7 +203,7 @@
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<div id="myLocation"><a class="glyphicon glyphicon-th"></a></div>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
