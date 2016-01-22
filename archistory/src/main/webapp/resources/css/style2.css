@@ -214,7 +214,6 @@ hr {
 		left: 0;
 		overflow: hidden;
 		width: 60px;
-		height: 366px;
 		border-top: 1px solid #c6d0da;
 		background: white;
 		-webkit-transform: translateX(-60px);
@@ -229,7 +228,7 @@ hr {
 		position: absolute;
 		overflow-y: scroll;
 		width: 370px;
-		height: 50%;
+		height: 100%;
 }
 
 .gn-menu {
@@ -425,7 +424,6 @@ input.gn-search:focus {
 
 .gn-menu-wrapper.gn-open-all {
 		width: 180px
-		height: 366px
 }
 
 .gn-menu-wrapper.gn-open-all .gn-submenu li {
