@@ -202,8 +202,8 @@
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
 
-<div id="myLocation"><span class="gn-icon gn-icon-menu glyphicon glyphicon-map-marker"></span></div>
-					<!-- <a class="gn-icon gn-icon-menu"><span>Menu</span></a> -->
+<!-- <div id="myLocation"><span class="glyphicon glyphicon-map-marker"></span></div> -->
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
