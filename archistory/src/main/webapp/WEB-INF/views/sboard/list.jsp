@@ -9,7 +9,7 @@
 
 <style type= "text/css">
 .box{
-position : fix;
+position : fixed;
 margin-left :200px;
 margin-right:200px;
 }
