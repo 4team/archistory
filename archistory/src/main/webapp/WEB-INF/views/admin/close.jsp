@@ -30,11 +30,17 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjUYVhsr-9THi7kQIHS0azuS10hUB75AU"></script>
 
 <div id="closeMap"></div>
-
+<div id="status">이곳에 루트를 생성! (Click)</div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 <script>
+
+$(document).ready(function(){
+	   $(document).mousemove(function(e){
+	      $('#status').html(e.pageX +', '+ e.pageY);
+	   }); 
+	})
 
 var adminno = ${adminno};
 var lat = ${lat};
