@@ -92,8 +92,6 @@ position: absolute;
 <script>
 //route list 보이기
 
-var adminno=${adminno};
-
 $("#list").on("click",function(){
 	 $("#myRouteList").show();	 
 });
@@ -106,7 +104,7 @@ var routeLi = "";
     }
 
     function getAllRouteList(){
-	    $.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
+	    $.getJSON("http://192.168.0.36:8080/route/listAll", function(data){
 	        var list = $(data);
 
 			routeLi = "";
