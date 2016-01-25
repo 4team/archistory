@@ -733,9 +733,8 @@
 	        console.log(file);
 	        
 	        var formData = new FormData();
-	        var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
 
-	        formData.append("file", file).append(a1);
+	        formData.append("file", file).append("routeno",routeno);
 	        
 	        uploadImg(formData);
 		}
