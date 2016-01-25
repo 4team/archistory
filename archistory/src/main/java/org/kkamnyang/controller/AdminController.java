@@ -119,7 +119,7 @@ public class AdminController {
 	@RequestMapping(value = "/step_kor")
 	public ModelAndView stepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng, Model model) throws Exception{
 
-		System.out.println("[한국]에 STEP [루트를 생성]하였다. 이벤트 생성페이지를 보내준다.");
+		System.out.println("[한국]에 STEP [루트를 생성]하였다. 이벤트 생성페이지를 보내준다. ROUTE NUMBER : " + routeno);
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("routeno", routeno);

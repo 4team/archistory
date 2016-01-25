@@ -63,5 +63,11 @@ public class RouteControllerTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void readTest() throws Exception{
+		System.out.println(service.view(349));
+		
+	}
 
 }
