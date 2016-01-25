@@ -82,6 +82,22 @@ public class AdminController {
 		return view;
 	}
 	
+	@RequestMapping(value = "/korea")
+	public ModelAndView korea(@Param("adminno") Integer adminno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") double height, Model model) throws Exception{
+
+		System.out.println("루트를 생성하는 CLOSE페이지를 호출해서 보내준다.");
+		ModelAndView view = new ModelAndView();
+		
+		view.addObject("adminno", adminno);
+		view.addObject("lat", lat);
+		view.addObject("lng", lng);
+		view.addObject("height", height);
+		
+		view.setViewName("admin/korea");
+		
+		return view;
+	}
+	
 	@RequestMapping(value = "/step_kor", method = RequestMethod.GET)
 	public ModelAndView stepKorea(@Param("routeno") Integer routeno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
 

@@ -18,6 +18,7 @@ var getParameter = function (param) {
 
 var lat = getParameter('lat')-0.02;
 var lng = getParameter('lng');
+var height;
 var map;
 var geocoder = new google.maps.Geocoder;
 closeMap();
@@ -36,16 +37,16 @@ function closeMap(){
     })();
 
     google.maps.event.addListener(map, 'zoom_changed', function() {
-        var zoom = map.getZoom();
+        height = map.getZoom();
 
         var position = map.getCenter();
 
         var lat = position.lat()+2;
         var lng = position.lng();
 
-        if(zoom<7){
+        if(height<7){
             google.maps.event.clearListeners(map,'zoom_changed');
-            self.location = "world.html?lat="+lat+"&lng="+lng;
+            self.location = "http://14.32.66.127:4000/admin/login_success";
         }
     });
 
@@ -58,10 +59,11 @@ function closeMap(){
        
             var length = result.length;
             var nation = result[length-1].formatted_address;
-
+            var routeno = ${adminno};
+            
             if(nation == '대한민국'){
                 console.log('대한민국 지도로 이동');
-                self.location = "koreamap.html?lat="+lat+"&lng="+lng;
+                self.location = "http://14.32.66.127:4000/admin/korea?adminno="+adminno+"lat="+lat+"&lng="+lng+"&height="+height;
             }else{
                 console.log('구글지도로 다른 나라의 지도표시');
                 self.location = "otherNation.html?lat="+lat+"&lng="+lng;
