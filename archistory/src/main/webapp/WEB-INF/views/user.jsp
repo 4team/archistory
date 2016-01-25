@@ -34,7 +34,6 @@
 position: absolute;
 }
  #myRouteList{
-         display:none;
             position:absolute;
             padding: 10px;
             z-index:400;
@@ -105,10 +104,10 @@ position: absolute;
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 <div class="nivo-lightbox-wrap">
 <div class="nivo-lightbox-content">
-		
+		<ul>
 		<li id="myRouteList">
 		</li>
-		
+		</ul>
 		</div>
 		</div>
 		<a href="#" class="nivo-lightbox-close" title="Close"></a>
