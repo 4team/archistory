@@ -18,7 +18,7 @@
 	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
 	<link href="css/animate.css" rel="stylesheet" />
     <!-- Squad theme CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
 
 </head>
@@ -392,7 +392,7 @@
 
     <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min2.js"></script>
     <script src="js/jquery.easing.min.js"></script>	
 	<script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
