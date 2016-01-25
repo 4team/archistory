@@ -33,7 +33,7 @@
 .img-responsive{
 position: absolute;
 }
- /* #myRouteList{
+ #myRouteList{
          display:none;
             position:absolute;
             padding: 10px;
@@ -46,7 +46,7 @@ position: absolute;
             width:200px;
             height:400px;
             overflow-y:scroll;
-        } */
+        }
 </style>
 
 
@@ -106,7 +106,8 @@ position: absolute;
 <div class="nivo-lightbox-wrap">
 <div class="nivo-lightbox-content">
 		
-		<ul id="myRouteList">
+		<ul>
+		<li>fdsadfafsafdsa</li>
 		</ul>
 		
 		</div>
@@ -126,7 +127,7 @@ var routeLi = "";
 
     function addList(route) {
         routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
-        $("#nivo-lightbox-content").html(routeLi);
+        $("#myRouteList").html(routeLi);
     }
 
     function getAllRouteList(){
