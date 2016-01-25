@@ -130,7 +130,7 @@
 
     // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
     var map = new daum.maps.Map(mapContainer, mapOption);
-	var adminno = $("#upper-login button").attr("data-src");
+	var adminno = ${adminno};
     var lat= "";
     var lng= "";
     var step;
@@ -171,7 +171,7 @@
     
     $("#routeCreateBtn").on("click",function(){
     	
-        createRoute(lat,lng,step,function(name,password,step,lat,lng,secret){
+        createRoute(lat,lng,step,adminno,function(name,password,step,lat,lng,secret){
 
             $.ajax({
                 type: 'POST',
@@ -191,7 +191,7 @@
     });//end createRoute
 });//end routeCreateBtn
 
-    function createRoute(lat,lng,step,callback){
+    function createRoute(lat,lng,step,adminno,callback){
     	
         var name = $("#routename").val();
         var step = step;
