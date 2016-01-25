@@ -104,10 +104,12 @@ position: absolute;
 			
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 <div class="nivo-lightbox-wrap">
+<div class="nivo-lightbox-content">
 		
 		<ul id="myRouteList">
 		</ul>
 		
+		</div>
 		</div>
 		<a href="#" class="nivo-lightbox-close" title="Close"></a>
 		</div>
@@ -124,7 +126,7 @@ var routeLi = "";
 
     function addList(route) {
         routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
-        $("#myRouteList").html(routeLi);
+        $("#nivo-lightbox-content").html(routeLi);
     }
 
     function getAllRouteList(){
