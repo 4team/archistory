@@ -25,8 +25,9 @@
     }
     
     #status{
+  		background-color:#FFF;
 	    position:absolute;
-	    font-size:10px;
+	    font-size:12px;
 	    width:150px;
 	    height:20px;
 	    z-index:4000;
