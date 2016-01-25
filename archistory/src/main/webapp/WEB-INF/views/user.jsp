@@ -46,6 +46,9 @@ text-align: center;
 ul{
 list-style:none;
 }
+#closeList{
+position:fixed;
+}
 </style>
 
 
