@@ -169,7 +169,7 @@ return uploadedFileName;
 	  System.out.println(uploadpath);
 	  System.out.println(category);
 
-	  makeDir("C:\\archistory","C:\\archistory\\"+category,"C:\\archistory\\"+category+"\\"+route,"C:\\archistory\\"+category+"\\"+route+"\\"+filetype);
+	  makeDir("C:\\archistory","C:\\archistory"+File.separator+category,"C:\\archistory"+File.separator+category+File.separator+route,"C:\\archistory"+File.separator+category+File.separator+route+File.separator+filetype);
     
 	  return "";
   }
