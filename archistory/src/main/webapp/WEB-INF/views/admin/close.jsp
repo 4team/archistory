@@ -26,35 +26,15 @@
     
     #status{
     position:absolute;
-    width:80px;
+    width:150px;
     height:20px;
-    z-index:2000;
+    z-index:4000;
     }
     </style>
-    
-    <script>
 
-function Move(e) {
-    $('#status').css("left",e.pageX);
-    $('#status').css("top",e.pageY);
-}
-function Move2(event){
-	$('#status').css("left",event.clientX);
-	$('#status').css("top",event.clientY);
-}
-function Follow() {
-    if (document.all) Move2()
-}
-function Loaded() {
-    if (document.layers) {
-         window.captureEvents(Event.MOUSEMOVE)
-         window.onmousemove=Move
-    }
-}
-	</script>
 	
 </head>
-<body onMouseMove="Follow()" onLoad="Loaded()">
+<body>
 <script src="/Cesium/js/jquery.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjUYVhsr-9THi7kQIHS0azuS10hUB75AU"></script>
 
@@ -67,6 +47,11 @@ function Loaded() {
 
 
 <script>
+
+$("#closeMap").on("mousemove",function(e){
+	$('#status').css("left",event.clientX);
+	$('#status').css("top",event.clientY);
+});
 
 var adminno = ${adminno};
 var lat = ${lat};
