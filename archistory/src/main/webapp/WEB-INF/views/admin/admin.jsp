@@ -427,7 +427,7 @@ function changePage(adminno,lat, lng, height) {
 	
     console.log("화면 전환 : ",adminno, ' ', lat, ' ', lng, ' ', height);
     var formData = {adminno:adminno,lat:lat,lng:lng,height:height};
-    $.ajax({
+    $.post({
     	url:"http://14.32.66.127:4000/admin/close",
     	type:"post",
     	data:formData,
