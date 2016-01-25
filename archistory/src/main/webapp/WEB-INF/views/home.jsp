@@ -1,3 +1,18 @@
+Skip to content
+Sign up Sign in
+This repository  
+Search
+Explore
+Features
+Enterprise
+Pricing
+ Watch 3  Star 0  Fork 0 4team/archistory
+ Code  Issues 0  Pull requests 0  Pulse  Graphs
+Tree: 583fce4c86 Find file Copy patharchistory/archistory/src/main/webapp/WEB-INF/views/home.jsp
+583fce4  5 days ago
+ Maruhan 1
+0 contributors
+RawBlameHistory     480 lines (384 sloc)  13.1 KB
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -436,3 +451,5 @@ $("#loginBtn").on("click",function(){
 <script src="/Cesium/js/map.js"></script>
 </body>
 </html>
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
