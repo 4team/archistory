@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class AdminLoginService implements UserDetailsService{
@@ -30,7 +32,6 @@ public class AdminLoginService implements UserDetailsService{
 		
 		StandardPasswordEncoder encoder = new StandardPasswordEncoder();
 		System.out.println("[ADMIN 로그인 시도] - loadUserByUsername");
-		
 		try {
 			int adminno = mapper.getNo(useremail);
 			String name = mapper.getName(useremail);

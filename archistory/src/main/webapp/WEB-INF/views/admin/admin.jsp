@@ -384,7 +384,8 @@ function stopAround() {
     var camera = viewer.scene.camera;
     var ellipsoid = viewer.scene.mapProjection.ellipsoid;
 
-
+    
+    
     var spinGlobe = viewer.clock.onTick.addEventListener(turnAround);
     spinGlobe;
 
@@ -422,7 +423,7 @@ function stopAround() {
 
 function changePage(lat, lng, height) {
     console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
-    self.location="admin/close?lat="+lat+"&lng="+lng+"&height="+height+"&adminno="+adminno;
+    self.location="http://14.32.66.127:4000/admin/close?lat="+lat+"&lng="+lng+"&height="+height;
 }
 
 
@@ -472,8 +473,9 @@ function addMarker(route){
 }
 
 
+var adminno = ${adminno};
 
-$.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
+$.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
     var list = $(data);
     console.log(data);
     list.each(function(idx,value){
@@ -493,7 +495,7 @@ $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
 });  
 	
-var adminno = ${adminno};
+
 	
 	$("#myInfo").on("click",function(){
 		console.log("ADMIN NO : " + adminno);
