@@ -180,7 +180,7 @@
                     <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label><input type="file" id="imgInput">
-                    <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>
+                    <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
                     <!--                        <label for="videoInput">동영상</label>
@@ -196,8 +196,8 @@
 
                     <label for="type">문제 유형</label>
                     <select class="form-control" id="qType">
-                        <option>O/X</option>
-                        <option>객관식</option>
+                        <option value="ox">O/X</option>
+                        <option value="multiple">객관식</option>
                     </select><br>
 
                     <label for="qTitle">문제</label>
@@ -252,7 +252,7 @@
                     <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label><input type="file" id="moimgInput"><br>
-                    <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>
+                    <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
@@ -266,8 +266,8 @@
 
                     <label for="type">문제 유형</label>
                     <select class="form-control" id="moqType">
-                        <option>O/X</option>
-                        <option>객관식</option>
+                        <option value="ox">O/X</option>
+                        <option value="multiple">객관식</option>
                     </select><br>
 
                     <label for="qTitle">문제</label>
@@ -334,7 +334,7 @@
     </div>
 </div>
 
-<span class="blink_me"></span>
+<span class="blink_me">${routename }</span>
 
 <script>
     var getParameter = function (param) {
@@ -350,13 +350,13 @@
             }
         }
     };
-
     
     var maplat = ${lat};
     var maplng = ${lng};
+
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
-                center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
+                center: new daum.maps.LatLng(maplat, maplng), // 지도의 중심좌표
                 //center: new daum.maps.LatLng(37.8861692, 127.7393315),
                 level: 2 // 지도의 확대 레벨
             };
@@ -364,12 +364,12 @@
 
     //var lat= 0;
     //var lng =0;
-    var routeno = getParameter('routeno');
-    var routename = getParameter('routename');
+    var routeno = ${routeno};
     var eventLi="";
+    var routename = ${routename};
 
 
-    $(".blink_me").html("["+routename+"] 루트 생성중...");
+    $("#Rname").val(routename);	
 
     (function blink() {
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
@@ -378,7 +378,7 @@
     getEventList();
 
 
-    <!-- 이벤트 리스트 불러오기-->
+    //이벤트 리스트 불러오기
 
     function getEventList(){
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
@@ -394,7 +394,7 @@
         });
 
     }
-    <!-- 이벤트 리스트 - 리스트 추가 -->
+    //이벤트 리스트 - 리스트 추가 
     function addList(event){
 
         eventLi+="<li>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
@@ -405,7 +405,7 @@
 
     }
 
-    <!-- 이벤트 리스트 삭제버튼 -->
+    //이벤트 리스트 삭제버튼 
     $("#eventList").on("click","#del",function(event){
         var select = $(this);
         removeEvent(select.attr("value"),function(){
@@ -413,7 +413,7 @@
         alert(select.attr("value")+"삭제되었습니다.");
     });
 
-    <!-- 이벤트 리스트 수정 버튼 -->
+   //이벤트 리스트 수정 버튼 
     $("#eventList").on("click","#modi",function(event){
         var select = $(this);
         viewEvent(select.attr("value"));
@@ -421,7 +421,7 @@
     });
 
 
-    <!-- 이벤트 생성 버튼 클릭-->
+    // 이벤트 생성 버튼 클릭
     var attach = new Array();
     var attach2;
 
@@ -442,14 +442,117 @@
             clearEventDiv();
             attach = [];
             
-
         });
+        
+        makeQuestion();
+        createQuestion(qJson,function(){
+        	
+        });
+
 
         $("#eventModal").modal('hide');
 
     });
 
-    <!-- 이벤트 수정 버튼 클릭-->
+    
+    
+    function clearQuestionDiv(){
+
+        $("#questionTitle").val("");
+        $("#qType").val("");
+        $("#s1").val("");
+        $("#s2").val("");
+        $("#s3").val("");
+        $("#s4").val("");
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                $(multi).attr("checked",false);
+            }
+
+            if($(ox).is(":checked")){
+                $(ox).attr("checked",false);
+            }
+        }
+    }
+
+    var qJson;
+
+    function makeQuestion(){
+        var qfilter = new Array();
+        qfilter[0]="eventno";
+        qfilter[1]="question";
+        qfilter[2]="answer";
+        qfilter[3]="point";
+        qfilter[4]="qtype";
+        qfilter[5]="choice1";
+        qfilter[6]="choice2";
+        qfilter[7]="choice3";
+        qfilter[8]="choice4";
+
+        var qObject = new Object();
+
+        qObject.eventno = 165;
+        qObject.question = $("#questionTitle").val();
+        qObject.point = 500;
+        qObject.qtype = $("#qType").val();
+        qObject.choice1 = $("#s1").val();
+        qObject.choice2 = $("#s2").val();
+        qObject.choice3 = $("#s3").val();
+        qObject.choice4 = $("#s4").val();
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                qObject.answer = $(multi).val();
+            }
+
+            if($(ox).is(":checked")){
+                qObject.answer = $(ox).val();
+            }
+        }
+
+        qJson = JSON.stringify(qObject,qfilter,"\t");
+
+        //console.log(qJson)
+
+    }
+
+
+    function createQuestion(qJson,callback){
+
+        console.log("문제 생성 :"+qJson);
+
+        $.ajax({
+            type:"post",
+            url:"http://14.32.66.127:4000/question/register",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            datatype : "json",
+            data: qJson,
+            success:function(data){
+                console.log("data:"+data);
+            }
+        });
+        callback();
+
+
+    }
+    
+    
+    //벤트 수정 버튼 클릭
 
     $("#modifyEventBtn").on("click",function(){
         var title = $("#moeventName").val();
@@ -471,10 +574,11 @@
 
     });
 
-    <!-- 이벤트 생성 기능 -->
+    //이벤트 생성 기능 
     function createEvent(routeno,title,content,attach2,lat,lng,callback){
 
-        console.log(routeno,title,content,attach2,lat,lng);
+    	
+        console.log("이벤트 생성:",routeno,title,content,attach2,lat,lng);
 
         $.ajax({
             type:'post',
@@ -491,7 +595,7 @@
         callback();
     };
 
-    <!-- 이벤트 생성 창 비우기 기능-->
+    //이벤트 생성 창 비우기 기능
     function clearEventDiv(){
         $("#eventName").val("");
         $("#eventinfo").val("");
@@ -500,7 +604,7 @@
     }
 
 
-    <!-- 이벤트 읽기 기능 -->
+    //이벤트 읽기 기능 
     function viewEvent(eventno){
         $(".uploadedList").html("");
         var template2 = Handlebars.compile($("#template").html());
@@ -539,7 +643,7 @@
         });
     }
 
-    <!-- 이벤트 삭제 기능 -->
+    //이벤트 삭제 기능 
     function removeEvent(eventno,callback){
         console.log("이벤트 삭제"+eventno);
 
@@ -560,7 +664,7 @@
 
     }
 
-    <!-- 이벤트 수정 기능 -->
+    //이벤트 수정 기능 
     function modifyEvent(eventno,title,content,attach2,lat,lng,callback){
 
         console.log("이벤트 수정"+eventno);
@@ -583,9 +687,10 @@
 
 
 
-    <!--map 클릭하면-->
+    // map 클릭하면
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         clearEventDiv();
+        clearQuestionDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
 
@@ -605,7 +710,7 @@
     });
 
 
-    <!-- 이벤트 생성 모달(세부사항)-->
+    //이벤트 생성 모달(세부사항)
 
     $("#search").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
@@ -632,7 +737,7 @@
 
 
     $("#qType").on("change",function(){
-        if(this.value=="객관식"){
+        if(this.value=="multiple"){
             $("#oxAnswerbox").hide();
             $("#selectBox").show();
             //$("#multipleAnswerBox").show();
@@ -645,9 +750,9 @@
         }
     });
 
-    <!-- END 이벤트 생성 모달-->
+    // END 이벤트 생성 모달
 
-    <!-- 수정모달(세부사항) -->
+    // 수정모달(세부사항) 
 
     $("#mosearch").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
@@ -674,7 +779,7 @@
 
 
     $("#moqType").on("change",function(){
-        if(this.value=="객관식"){
+        if(this.value=="multiple"){
             $("#mooxAnswerbox").hide();
             $("#moselectBox").show();
             //$("#multipleAnswerBox").show();
@@ -687,10 +792,10 @@
         }
     });
 
-    <!-- END 수정모달 세부사항 -->
+    //END 수정모달 세부사항 
 
 
-    <!-- 이벤트 리스트 완료 클릭-->
+   // 이벤트 리스트 완료 클릭
     $("#commitList").on("click",function(){
         $("#finishModal").modal('show');
 
@@ -701,7 +806,7 @@
 
         var routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
         $("#routeFinish").html(routemsg);
-        //루트 이름 변경 ajax
+  
 
     });
 
@@ -742,7 +847,7 @@
 
 
 
-<!-- -----파일첨부기능-------  -->
+<!-- 파일첨부기능 -->
 <script>
     var template = Handlebars.compile($("#template").html());
 
