@@ -87,7 +87,7 @@ public class AdminController {
 	@RequestMapping(value = "/korea")
 	public ModelAndView korea(@RequestParam("adminno") Integer adminno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("height") double height, Model model) throws Exception{
 
-		System.out.println("루트를 생성하는 CLOSE페이지를 호출해서 보내준다.");
+		System.out.println("루트를 생성하는 Korea페이지를 호출해서 보내준다.");
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("adminno", adminno);

@@ -6,6 +6,7 @@
 <?php
     header('X-Frame-Options: GOFORIT'); 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
