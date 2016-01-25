@@ -366,6 +366,7 @@ function stopAround() {
     viewer.clock.onTick.removeEventListener(turnAround);
 };
 
+var adminno = ${adminno};
 
 (function worldMap() {
     viewer = new Cesium.Viewer('main', {
@@ -404,7 +405,7 @@ function stopAround() {
          var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
          var height = (cartographic.height * 0.001).toFixed(1);
          
-         console.log(lat,lng,height);
+         console.log(adminno,lat,lng,height);
          console.log(event);
          
         var bnt = $("#routeCreate");
@@ -413,19 +414,31 @@ function stopAround() {
         bnt.show();
 
         bnt.on("click",function(){
-             changePage(lat,lng,height);
+             changePage(adminno,lat,lng,height);
         });
      });
 
 
 })();
 
-var adminno = ${adminno};
 
-function changePage(lat, lng, height) {
-    console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
+
+function changePage(adminno,lat, lng, height) {
+	
+    console.log("화면 전환 : ",adminno, ' ', lat, ' ', lng, ' ', height);
+    var formData = {adminno:adminno,lat:lat,lng:lng,height:height};
+    $.ajax({
+    	url:"http://14.32.66.127:4000/admin/close",
+    	type:"post",
+    	data:formData,
+    	success:function(data){
+    		console.log(data);
+    	},
+    	error:function(jqxhr,status,error){
+    		console.log("error!"+error);
+    	}
+    });
     
-    self.location="http://14.32.66.127:4000/admin/close?lat="+lat+"&lng="+lng+"&height="+height+"&adminno="+adminno;
 }
 
 
