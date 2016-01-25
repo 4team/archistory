@@ -169,8 +169,9 @@ return uploadedFileName;
 	  System.out.println(uploadpath);
 	  System.out.println(category);
 
-	  makeDir("C:\\archistory",category,route,filetype);
-    return "";
+	  makeDir("C:\\archistory","C:\\archistory\\"+category,"C:\\archistory\\"+category+"\\"+route,"C:\\archistory\\"+category+"\\"+route+"\\"+filetype);
+    
+	  return "";
   }
   
   private static String calcMoviePath(String uploadPath){
