@@ -96,7 +96,7 @@ display:none;
 		<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
 		</div>
 			
-			
+<!-- 			
 	<div class="modal fade" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" >
@@ -115,7 +115,7 @@ display:none;
         </div>
     </div>
 </div>
-
+ -->
 		
 <script>
 //route list 보이기
