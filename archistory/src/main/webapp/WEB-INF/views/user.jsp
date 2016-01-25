@@ -43,6 +43,9 @@ color: white;
 font-weight: bold;
 text-align: center;
 }
+ul{
+line-style:none;
+}
 </style>
 
 
