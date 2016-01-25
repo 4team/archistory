@@ -53,7 +53,6 @@ $("#closeMap").on("mousemove",function(e){
 	$('#status').css("top",event.clientY);
 });
 
-
 var adminno = ${adminno};
 var lat = ${lat};
 var lng = ${lng};
