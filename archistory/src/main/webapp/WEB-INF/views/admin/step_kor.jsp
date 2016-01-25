@@ -364,6 +364,7 @@
     //var lng =0;
     var routeno = ${routeno};
     var eventLi="";
+    var routename = ${routename};
     var eventno = 1;
     
     (function blink() {
