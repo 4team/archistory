@@ -44,12 +44,12 @@
 <script>
 
 function Move(e) {
-    document.layers['status'].left=e.pageX
-    document.layers['status'].top=e.pageY
+    $('#status').css("left",e.pageX);
+    $('#status').css("top",e.pageY);
 }
-function Move2(){
-    document.all["status"].style.left=event.clientX
-    document.all["status"].style.top=event.clientY
+function Move2(event){
+	$('#status').css("left",event.clientX);
+	$('#status').css("top",event.clientY);
 }
 function Follow() {
     if (document.all) Move2()
