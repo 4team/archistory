@@ -27,11 +27,6 @@
     <link href="css/style2.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
 
-<link rel="stylesheet" href="nivo-lightbox.css" type="text/css" />
-<link rel="stylesheet" href="themes/default/default.css" type="text/css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="nivo-lightbox.min.js"></script>
-
 
 </head>
 
