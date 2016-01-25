@@ -173,6 +173,12 @@
 		button{
 		margin:auto;
 		}
+        #loginModal{
+            z-index: 999;
+        }
+        #joinModal{
+            z-index: 999;
+        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
