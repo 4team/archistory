@@ -689,7 +689,7 @@
     $("#commitList").on("click",function(){
         $("#finishModal").modal('show');
 
-        var routemsg = ${routename}+ " 루트 등록이 완료되었습니다";
+        var routemsg = routename + " 루트 등록이 완료되었습니다";
         $("#routeFinish").html(routemsg);
     });
 
