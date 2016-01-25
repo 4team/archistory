@@ -123,12 +123,17 @@ public class AdminController {
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("routeno", routeno);
-		
-		RouteVO vo = new RouteService().view(routeno);
+		try{
+		RouteService service = new RouteService();
+		RouteVO vo = service.view(routeno);
+		System.out.println(vo.toString());
 		String routename = vo.getRoutename();
 		System.out.println("이벤트 생성페이지로 넘어갈 루트 네임 : "+routename);
-		
 		view.addObject("routename", routename);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		
