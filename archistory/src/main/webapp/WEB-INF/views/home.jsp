@@ -9,19 +9,6 @@
 <head>
     <meta charset="UTF-8">
     <title>= Archistory =</title>
-    
-     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
-
-    <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/nivo-lightbox.css" rel="stylesheet" />
-	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-	<link href="css/animate.css" rel="stylesheet" />
-    <!-- Squad theme CSS -->
-    <link href="css/style2.css" rel="stylesheet">
-	<link href="color/default.css" rel="stylesheet">
-	
 </head>
 
     <style>
@@ -29,7 +16,6 @@
             width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
             font-family: sans-serif; color: #edffff;
         }
-
         #main{
             width:100%;
             border:0px;
@@ -39,9 +25,9 @@
 		#menu{
 			z-index:100;
 			position: absolute;
-			/* top:5px;
-			left:8px; */
-			/* background-color:#303336; */
+			top:5px;
+			left:8px;
+			background-color:#303336;
 		}
         
         #menu:hover{
@@ -76,14 +62,11 @@
 			display:none;
 		}
 		#adminJoinDiv{
-
 		}
-
         .modal-body{
             height:400px;
             overflow-y: auto;
         }
-
         .modal-title{
             text-align: center;
         }
@@ -91,27 +74,22 @@
          #myRouteList{
          display:none;
             position:absolute;
-
             overflow-y:scroll;
         }
         li{
             list-style: none;
             margin-bottom: 15px;
         }
-
         small{
             float:right;
         }
-
         ::-webkit-scrollbar {
             width: 10px;
         }
-
         ::-webkit-scrollbar-track {
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
             border-radius: 10px;
         }
-
         ::-webkit-scrollbar-thumb {
             border-radius: 10px;
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
@@ -151,7 +129,6 @@
             left:43px;
             position : absolute;
         }
-
 	    #joinBody{
 	        top:50px;
 	        width:400px;
@@ -199,30 +176,29 @@
 	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
 <body>
 
+<div id="menu">
 
-<div class="menu">
-			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu">
-								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><a href="#about" class="gn-icon gn-icon-download" id="routeList">Tour Route</a></li>
-								
-									<ul  id="myRouteList"></ul>
-									
-								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
-								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
-								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
-							</ul>
-						</div><!-- /gn-scroller -->
-					</nav>
-				</li>
-</ul>
-	</div>
-	
-	
+<div class="dropdown">
+  <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+    	<span class="glyphicon glyphicon-menu-hamburger"></span>
+  </a>
+
+        <ul class="dropdown-menu" role="menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
+
+				<ul  id="myRouteList">
+				</ul>
+
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
+        </ul>
+    </div>
+</div>
+
 <div id="upper-login">
 	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
 	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
@@ -334,10 +310,7 @@
 <!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
 <script>
 var viewer;
-
-
 function turnAround(clock){
-
     (function(clock){
         var spinRate = 0.1;
         var currentTime = Date.now();
@@ -347,13 +320,9 @@ function turnAround(clock){
         viewer.scene.camera.rotate(Cesium.Cartesian3.UNIT_Z, -spinRate * delta);
     })();
 };
-
-
 function stopAround() {
     viewer.clock.onTick.removeEventListener(turnAround);
 };
-
-
 (function worldMap() {
     viewer = new Cesium.Viewer('main', {
         navigationHelpButton: false,
@@ -365,46 +334,34 @@ function stopAround() {
         animation: false,
         timeline: false
     });
-
     var cartographic = new Cesium.Cartographic();
     var cartesian = new Cesium.Cartesian3();
     var camera = viewer.scene.camera;
     var ellipsoid = viewer.scene.mapProjection.ellipsoid;
-
-
     var spinGlobe = viewer.clock.onTick.addEventListener(turnAround);
     spinGlobe;
-
     $("#main").on("click",function(){
         console.log("드래그");
         stopAround();
     });
-
     window.addEventListener("mousewheel", function () {
         ellipsoid.cartesianToCartographic(camera.positionWC, cartographic);
         var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
         var lng = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
         var height = (cartographic.height * 0.001).toFixed(1);
-
         if (height < 10) {
             changePage(lat, lng, height);
         }
     });
-
 })();
-
 function changePage(lat, lng, height) {
     console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
     self.location="close.html?lat="+lat+"&lng="+lng;
 }
-
-
 $("#myLocation").on("click",function(){
-
     stopAround();
     //초기 위치 읽어내서 지구를 이동시킨다.
     navigator.geolocation.getCurrentPosition(success, error);
-
     function success(position) {
     	 stopAround();
         console.log(position);
@@ -416,13 +373,10 @@ $("#myLocation").on("click",function(){
             )
         });
     };
-
     function error(err) {
         console.log(err.code + err.message);
     };
-
 });
-
 function addMarker(route){
     var entity = viewer.entities.add({
         name: route.routename,
@@ -443,9 +397,6 @@ function addMarker(route){
     });
     var ellipse = entity.ellipse;
 }
-
-
-
 $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
     var list = $(data);
     console.log(data);
@@ -454,30 +405,24 @@ $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
         addMarker(route);
     });
 });
-
 </script>
 
 <!-- 클릭 메뉴들과 관련된 스크립트 -->
 <script>
 	
-
 $("#mDrop").on("mouseover",function(){
     $(".dropdown-menu").show();
 });
-
 $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
 });
-
 $("#loginBtn").on("click",function(){
     $("#loginModal").modal('show');
 });
-
 	
 	$("#joinBtn").on("click",function(){
 		$("#joinModal").modal('show');
 	});
-
     // 15일 5:29분부터 추가..
     $("#user").on("click",function(){
         $("#adminJoinDiv").hide();
@@ -487,23 +432,7 @@ $("#loginBtn").on("click",function(){
         $("#adminJoinDiv").show();
         $("#userJoinDiv").hide();
     });
-
 </script>
 <script src="/Cesium/js/map.js"></script>
-
-
- <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min2.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
-    
-    
 </body>
 </html>
