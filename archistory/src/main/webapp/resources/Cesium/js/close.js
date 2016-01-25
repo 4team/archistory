@@ -16,7 +16,7 @@ var getParameter = function (param) {
     }
 };
 
-var lat = ${lat}-0.02;
+var lat = ${lat};
 var lng = ${lng};
 var height;
 var map;
