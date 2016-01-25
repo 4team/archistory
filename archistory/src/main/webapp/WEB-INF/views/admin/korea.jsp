@@ -181,9 +181,31 @@
                 success: function(data){
                 	console.log(data);
             if(step==true){
-                self.location = "http://14.32.66.127:4000/admin/step_kor?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
+            	
+                var $form = $('<form></form>');
+                $form.attr('action', '/admin/step_kor');
+                $form.attr('method', 'post');
+                $form.appendTo('body');
+                
+                var a1 = $('<input type="hidden" value="'+ data +'" name="routeno">');
+                var a2 = $('<input type="hidden" value="'+ lat +'" name="lat">');
+                var a3 = $('<input type="hidden" value="'+ lng +'" name="lng">');
+                
+                $form.append(a1).append(a2).append(a3);
+                $form.submit();
+     
             }else{
-                self.location = "http://14.32.66.127:4000/admin/nonstep_kor?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data+"&routename="+name;
+            	   var $form = $('<form></form>');
+                   $form.attr('action', '/admin/nonstep_kor');
+                   $form.attr('method', 'post');
+                   $form.appendTo('body');
+                   
+                   var a1 = $('<input type="hidden" value="'+ data +'" name="routeno">');
+                   var a2 = $('<input type="hidden" value="'+ lat +'" name="lat">');
+                   var a3 = $('<input type="hidden" value="'+ lng +'" name="lng">');
+                   
+                   $form.append(a1).append(a2).append(a3);
+                   $form.submit();
             }
                 }
             });//end ajax
