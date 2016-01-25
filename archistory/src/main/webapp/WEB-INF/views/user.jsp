@@ -106,9 +106,8 @@ position: absolute;
 <div class="nivo-lightbox-wrap">
 <div class="nivo-lightbox-content">
 		
-		<ul>
-		<li>fdsadfafsafdsa</li>
-		</ul>
+		<li id="myRouteList">
+		</li>
 		
 		</div>
 		</div>
