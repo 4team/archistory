@@ -460,6 +460,7 @@ input.gn-search:focus {
 	background-image: url(../img/earth.jpg);
 	background-opacity:0.5;
 	background-size: cover;
+	-webkit-filter: blur(3px);
 }
 
 .intro .slogan {
