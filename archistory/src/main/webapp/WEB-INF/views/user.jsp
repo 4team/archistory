@@ -107,8 +107,8 @@ position: absolute;
 <div class="nivo-lightbox-content">
 <div class="nivo-lightbox-error">
 		
-		<p id="myRouteList">
-		</p>
+		<ul id="myRouteList">
+		</ul>
 		
 		</div>
 		</div>
@@ -121,7 +121,7 @@ position: absolute;
 $("#routeList").hide();
 
 $("#list").on("click",function(){
-	 $("#routeList").show();	 
+	 $("#routeList").show();	 	
 });
 
 var routeLi = "";
