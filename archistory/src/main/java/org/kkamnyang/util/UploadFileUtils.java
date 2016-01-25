@@ -110,7 +110,6 @@ public class UploadFileUtils {
 	  int endIndex = removeCate.lastIndexOf("\\");
 	  
 	  String route = removeCate.substring(0, endIndex);
-	  
 	  System.out.println("루트 No : "+route);
 	  
 	  
