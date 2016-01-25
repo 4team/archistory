@@ -402,8 +402,8 @@ function stopAround() {
 
 function changePage(lat, lng, height) {
     console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
-
-    self.location="/close.html?lat="+lat+"&lng="+lng+"&height="+height;
+    $('#main').load("http://14.32.66.127:4000/close.html?lat="+lat+"&lng="+lng+"&height="+height);
+    // self.location="/close.html?lat="+lat+"&lng="+lng+"&height="+height;
 }
 
 
