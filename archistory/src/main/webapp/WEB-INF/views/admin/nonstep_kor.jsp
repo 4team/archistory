@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -132,21 +132,21 @@
 
 
 </style>
-<!-- Ã·ºÎÆÄÀÏ ¿ëµµ -->
+<!-- ì²¨ë¶€íŒŒì¼ ìš©ë„ -->
 <script type="text/javascript" src="/js/upload.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å CSS -->
+<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- ºÎ°¡ÀûÀÎ Å×¸¶ -->
+<!-- ë¶€ê°€ì ì¸ í…Œë§ˆ -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å ÀÚ¹Ù½ºÅ©¸³Æ® -->
+<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  ìë°”ìŠ¤í¬ë¦½íŠ¸ -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=66fca768fabb8a1e238c3ac76f9c9499"></script>
-<!-- on/off toggle ÀÌ¿ëÇÏ±â À§ÇÔ -->
+<!-- on/off toggle ì´ìš©í•˜ê¸° ìœ„í•¨ -->
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 
@@ -156,31 +156,31 @@
 <div id="map"></div>
 
 
-<!--  ÀÌº¥Æ® »ı¼º ¸ğ´Ş (¹®Á¦ »ı¼º) -->
+<!--  ì´ë²¤íŠ¸ ìƒì„± ëª¨ë‹¬ (ë¬¸ì œ ìƒì„±) -->
 <form role="form" id="registerForm" method="post">
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">¡¿</span>
+                    <span aria-hidden="true">Ã—</span>
                     <span class="sr-only">Close</span></button>
-                <h4 class="modal-title">ÀÌº¥Æ® »ı¼º</h4>
+                <h4 class="modal-title">ì´ë²¤íŠ¸ ìƒì„±</h4>
             </div>
             <div class="modal-body">
                 <div id="createEventDiv" >
 
-                    <label for="eventName">ÀÌ¸§</label><input type="text" class="form-control" id="eventName" placeholder="ÀÌº¥Æ® ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä">
-                    <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">°Ë»ö</button><br>
-                    <label for="eventinfo">¼³¸í</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="ÀÌº¥Æ® ¼³¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä."></textarea>
-                    <label for="imgInput">ÀÌ¹ÌÁö</label><input type="file" id="imgInput">
-                    <div class="fileDrop"><h5 align="center";>¸¶¿ì½º·Î ÆÄÀÏÀ» ²ø¾î¿À¼¼¿ä.</h5></div>
+                    <label for="eventName">ì´ë¦„</label><input type="text" class="form-control" id="eventName" placeholder="ì´ë²¤íŠ¸ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”">
+                    <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">ê²€ìƒ‰</button><br>
+                    <label for="eventinfo">ì„¤ëª…</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="ì´ë²¤íŠ¸ ì„¤ëª…ì„ ì…ë ¥í•˜ì„¸ìš”."></textarea>
+                    <label for="imgInput">ì´ë¯¸ì§€</label><input type="file" id="imgInput">
+                    <div class="fileDrop"><h5 align="center";>ë§ˆìš°ìŠ¤ë¡œ íŒŒì¼ì„ ëŒì–´ì˜¤ì„¸ìš”.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
-                    <!--                        <label for="videoInput">µ¿¿µ»ó</label>
+                    <!--                        <label for="videoInput">ë™ì˜ìƒ</label>
                                             <input type="file" id="videoInput">
-                                            <div class="fileDrop"><h5 align="center";>¿©±â¿¡ µ¿¿µ»óÀ» ²ø¾î¿À¼¼¿ä</h5></div>-->
-                    <label for="camera">Ä«¸Ş¶ó</label><input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                                            <div class="fileDrop"><h5 align="center";>ì—¬ê¸°ì— ë™ì˜ìƒì„ ëŒì–´ì˜¤ì„¸ìš”</h5></div>-->
+                    <label for="camera">ì¹´ë©”ë¼</label><input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                 </div>
@@ -188,19 +188,19 @@
                     <hr>
                     <h4 class="modal-title">QUESTION</h4>
 
-                    <label for="type">¹®Á¦ À¯Çü</label>
+                    <label for="type">ë¬¸ì œ ìœ í˜•</label>
                     <select class="form-control" id="qType">
                         <option>O/X</option>
-                        <option>°´°ü½Ä</option>
+                        <option>ê°ê´€ì‹</option>
                     </select><br>
 
-                    <label for="qTitle">¹®Á¦</label>
-                    <textarea class="form-control" id="questionTitle" placeholder="¹®Á¦¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></textarea><br>
+                    <label for="qTitle">ë¬¸ì œ</label>
+                    <textarea class="form-control" id="questionTitle" placeholder="ë¬¸ì œë¥¼ ì…ë ¥í•˜ì„¸ìš”."></textarea><br>
                     <div id="selectBox">
-                        <label for="s1">1¹ø ¼±ÅÃÁö</label><input type="text" class="form-control" id="s1" placeholder="1¹ø º¸±â¸¦ ÀÔ·ÂÇÏ¼¼¿ä."><br>
-                        <label for="s2">2¹ø ¼±ÅÃÁö</label><input type="text" class="form-control" id="s2" placeholder="2¹ø º¸±â¸¦ ÀÔ·ÂÇÏ¼¼¿ä."><br>
-                        <label for="s3">3¹ø ¼±ÅÃÁö</label><input type="text" class="form-control" id="s3" placeholder="3¹ø º¸±â¸¦ ÀÔ·ÂÇÏ¼¼¿ä."><br>
-                        <label for="s4">4¹ø ¼±ÅÃÁö</label><input type="text" class="form-control" id="s4" placeholder="4¹ø º¸±â¸¦ ÀÔ·ÂÇÏ¼¼¿ä."><br>
+                        <label for="s1">1ë²ˆ ì„ íƒì§€</label><input type="text" class="form-control" id="s1" placeholder="1ë²ˆ ë³´ê¸°ë¥¼ ì…ë ¥í•˜ì„¸ìš”."><br>
+                        <label for="s2">2ë²ˆ ì„ íƒì§€</label><input type="text" class="form-control" id="s2" placeholder="2ë²ˆ ë³´ê¸°ë¥¼ ì…ë ¥í•˜ì„¸ìš”."><br>
+                        <label for="s3">3ë²ˆ ì„ íƒì§€</label><input type="text" class="form-control" id="s3" placeholder="3ë²ˆ ë³´ê¸°ë¥¼ ì…ë ¥í•˜ì„¸ìš”."><br>
+                        <label for="s4">4ë²ˆ ì„ íƒì§€</label><input type="text" class="form-control" id="s4" placeholder="4ë²ˆ ë³´ê¸°ë¥¼ ì…ë ¥í•˜ì„¸ìš”."><br>
 
                         <div id="multipleAnswerBox" class="checkbox">
                             <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
@@ -218,39 +218,39 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" id="createEventBtn" class="btn btn-create">¸¸µé±â</button>
-                <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal">Ãë¼Ò</button>
+                <button type="button" id="createEventBtn" class="btn btn-create">ë§Œë“¤ê¸°</button>
+                <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal">ì·¨ì†Œ</button>
             </div>
 
         </div>
     </div>
 </div>
 </form>
-<!-- END ¸ğ´Ş(event ¹× ¹®Á¦ »ı¼º)  -->
+<!-- END ëª¨ë‹¬(event ë° ë¬¸ì œ ìƒì„±)  -->
 
 
-<!--  ¼öÁ¤ ¸ğ´Ş  -->
+<!--  ìˆ˜ì • ëª¨ë‹¬  -->
 <div class="modal fade" id="modiModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">¡¿</span>
+                    <span aria-hidden="true">Ã—</span>
                     <span class="sr-only">Close</span></button>
-                <h4 class="modal-title">ÀÌº¥Æ® ¼öÁ¤</h4>
+                <h4 class="modal-title">ì´ë²¤íŠ¸ ìˆ˜ì •</h4>
             </div>
             <div class="modal-body">
                 <div id="modiEventDiv">
                     <input type="hidden" id="moeventno" value="">
-                    <label for="eventName">ÀÌ¸§</label><input type="text" class="form-control" id="moeventName" placeholder="ÀÌº¥Æ® ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä">
-                    <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">°Ë»ö</button><br>
-                    <label for="eventinfo">¼³¸í</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="ÀÌº¥Æ® ¼³¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä."></textarea>
-                    <label for="imgInput">ÀÌ¹ÌÁö</label><input type="file" id="moimgInput"><br>
-                    <div class="fileDrop"><h5 align="center";>¸¶¿ì½º·Î ÆÄÀÏÀ» ²ø¾î¿À¼¼¿ä.</h5></div>
+                    <label for="eventName">ì´ë¦„</label><input type="text" class="form-control" id="moeventName" placeholder="ì´ë²¤íŠ¸ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”">
+                    <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">ê²€ìƒ‰</button><br>
+                    <label for="eventinfo">ì„¤ëª…</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="ì´ë²¤íŠ¸ ì„¤ëª…ì„ ì…ë ¥í•˜ì„¸ìš”."></textarea>
+                    <label for="imgInput">ì´ë¯¸ì§€</label><input type="file" id="moimgInput"><br>
+                    <div class="fileDrop"><h5 align="center";>ë§ˆìš°ìŠ¤ë¡œ íŒŒì¼ì„ ëŒì–´ì˜¤ì„¸ìš”.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
-                    <!--<label for="videoInput">µ¿¿µ»ó</label><input type="file" id="movideoInput"><br>-->
-                    <label for="camera">Ä«¸Ş¶ó</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                    <!--<label for="videoInput">ë™ì˜ìƒ</label><input type="file" id="movideoInput"><br>-->
+                    <label for="camera">ì¹´ë©”ë¼</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                 </div>
@@ -258,19 +258,19 @@
                     <hr>
                     <h4 class="modal-title">QUESTION</h4>
 
-                    <label for="type">¹®Á¦ À¯Çü</label>
+                    <label for="type">ë¬¸ì œ ìœ í˜•</label>
                     <select class="form-control" id="moqType">
                         <option>O/X</option>
-                        <option>°´°ü½Ä</option>
+                        <option>ê°ê´€ì‹</option>
                     </select><br>
 
-                    <label for="qTitle">¹®Á¦</label>
-                    <textarea class="form-control" id="moquestionTitle" placeholder="¹®Á¦¸¦ ÀÔ·ÂÇÏ¼¼¿ä."></textarea><br>
+                    <label for="qTitle">ë¬¸ì œ</label>
+                    <textarea class="form-control" id="moquestionTitle" placeholder="ë¬¸ì œë¥¼ ì…ë ¥í•˜ì„¸ìš”."></textarea><br>
                     <div id="moselectBox">
-                        <label for="s1">1¹ø ¼±ÅÃÁö</label><input type="text" class="form-control" id="mos1" placeholder="1¹ø º¸±â¸¦ ÀÔ·ÂÇÏ¼¼¿ä."><br>
-                        <label for="s2">2¹ø ¼±ÅÃÁö</label><input type="text" class="form-control" id="mos2" placeholder="2¹ø º¸±â¸¦ ÀÔ·ÂÇÏ¼¼¿ä."><br>
-                        <label for="s3">3¹ø ¼±ÅÃÁö</label><input type="text" class="form-control" id="mos3" placeholder="3¹ø º¸±â¸¦ ÀÔ·ÂÇÏ¼¼¿ä."><br>
-                        <label for="s4">4¹ø ¼±ÅÃÁö</label><input type="text" class="form-control" id="mos4" placeholder="4¹ø º¸±â¸¦ ÀÔ·ÂÇÏ¼¼¿ä."><br>
+                        <label for="s1">1ë²ˆ ì„ íƒì§€</label><input type="text" class="form-control" id="mos1" placeholder="1ë²ˆ ë³´ê¸°ë¥¼ ì…ë ¥í•˜ì„¸ìš”."><br>
+                        <label for="s2">2ë²ˆ ì„ íƒì§€</label><input type="text" class="form-control" id="mos2" placeholder="2ë²ˆ ë³´ê¸°ë¥¼ ì…ë ¥í•˜ì„¸ìš”."><br>
+                        <label for="s3">3ë²ˆ ì„ íƒì§€</label><input type="text" class="form-control" id="mos3" placeholder="3ë²ˆ ë³´ê¸°ë¥¼ ì…ë ¥í•˜ì„¸ìš”."><br>
+                        <label for="s4">4ë²ˆ ì„ íƒì§€</label><input type="text" class="form-control" id="mos4" placeholder="4ë²ˆ ë³´ê¸°ë¥¼ ì…ë ¥í•˜ì„¸ìš”."><br>
 
                         <div id="momultipleAnswer" class="checkbox">
                             <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
@@ -288,31 +288,31 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" id="modifyEventBtn" class="btn btn-create">¼öÁ¤ÇÏ±â</button>
-                <button type="button" id="mocancleEventBtn" class="btn btn-default" data-dismiss="modal">Ãë¼Ò</button>
+                <button type="button" id="modifyEventBtn" class="btn btn-create">ìˆ˜ì •í•˜ê¸°</button>
+                <button type="button" id="mocancleEventBtn" class="btn btn-default" data-dismiss="modal">ì·¨ì†Œ</button>
             </div>
 
         </div>
     </div>
 </div>
 
-<!-- END ¼öÁ¤¸ğ´Ş  -->
+<!-- END ìˆ˜ì •ëª¨ë‹¬  -->
 
 
 <div id="list">
-    ·çÆ® ÀÌ¸§ :<input type="text" id="Rname" placeholder="">
+    ë£¨íŠ¸ ì´ë¦„ :<input type="text" id="Rname" placeholder="">
     <hr>
     <div id="eventList">
         <ul>
         </ul>
     </div>
     <div id="listBottom">
-        <button type="button" id="commitList" class= "btn btn-default" >¿Ï·á</button>
+        <button type="button" id="commitList" class= "btn btn-default" >ì™„ë£Œ</button>
     </div>
 </div>
 
 
-<!-- ¸ğ´Ş(·çÆ® µî·Ï ¿Ï·á)-->
+<!-- ëª¨ë‹¬(ë£¨íŠ¸ ë“±ë¡ ì™„ë£Œ)-->
 <div class="modal fade" id="finishModal" tabindex="-1" role="dialog" aria-labelledby="finishModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" >
@@ -345,11 +345,11 @@
         }
     };
 
-    var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div
+    var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div
             mapOption = {
-                center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
+                center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
                 //center: new daum.maps.LatLng(37.8861692, 127.7393315),
-                level: 2 // ÁöµµÀÇ È®´ë ·¹º§
+                level: 2 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
             };
     var map = new daum.maps.Map(mapContainer, mapOption);
 
@@ -360,7 +360,7 @@
     var eventLi="";
 
 
-    $(".blink_me").html("["+routename+"] ·çÆ® »ı¼ºÁß...");
+    $(".blink_me").html("["+routename+"] ë£¨íŠ¸ ìƒì„±ì¤‘...");
 
     (function blink() {
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
@@ -369,7 +369,7 @@
     getEventList();
 
 
-    <!-- ÀÌº¥Æ® ¸®½ºÆ® ºÒ·¯¿À±â-->
+    <!-- ì´ë²¤íŠ¸ ë¦¬ìŠ¤íŠ¸ ë¶ˆëŸ¬ì˜¤ê¸°-->
 
     function getEventList(){
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
@@ -385,7 +385,7 @@
         });
 
     }
-    <!-- ÀÌº¥Æ® ¸®½ºÆ® - ¸®½ºÆ® Ãß°¡ -->
+    <!-- ì´ë²¤íŠ¸ ë¦¬ìŠ¤íŠ¸ - ë¦¬ìŠ¤íŠ¸ ì¶”ê°€ -->
     function addList(event){
 
         eventLi+="<li>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
@@ -396,15 +396,15 @@
 
     }
 
-    <!-- ÀÌº¥Æ® ¸®½ºÆ® »èÁ¦¹öÆ° -->
+    <!-- ì´ë²¤íŠ¸ ë¦¬ìŠ¤íŠ¸ ì‚­ì œë²„íŠ¼ -->
     $("#eventList").on("click","#del",function(event){
         var select = $(this);
         removeEvent(select.attr("value"),function(){
         });
-        alert(select.attr("value")+"»èÁ¦µÇ¾ú½À´Ï´Ù.");
+        alert(select.attr("value")+"ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
     });
 
-    <!-- ÀÌº¥Æ® ¸®½ºÆ® ¼öÁ¤ ¹öÆ° -->
+    <!-- ì´ë²¤íŠ¸ ë¦¬ìŠ¤íŠ¸ ìˆ˜ì • ë²„íŠ¼ -->
     $("#eventList").on("click","#modi",function(event){
         var select = $(this);
         viewEvent(select.attr("value"));
@@ -412,7 +412,7 @@
     });
 
 
-    <!-- ÀÌº¥Æ® »ı¼º ¹öÆ° Å¬¸¯-->
+    <!-- ì´ë²¤íŠ¸ ìƒì„± ë²„íŠ¼ í´ë¦­-->
     var attach = new Array();
     var attach2;
 
@@ -424,7 +424,7 @@
         attach2 = attach.join();
 
         if(title=="" || content==""){
-            alert("ÀÌº¥Æ® ÀÌ¸§°ú ¼³¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+            alert("ì´ë²¤íŠ¸ ì´ë¦„ê³¼ ì„¤ëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”!");
             return;
         }
 
@@ -440,7 +440,7 @@
 
     });
 
-    <!-- ÀÌº¥Æ® ¼öÁ¤ ¹öÆ° Å¬¸¯-->
+    <!-- ì´ë²¤íŠ¸ ìˆ˜ì • ë²„íŠ¼ í´ë¦­-->
 
     $("#modifyEventBtn").on("click",function(){
         var title = $("#moeventName").val();
@@ -451,7 +451,7 @@
         console.log(attach2);
 
         if(title=="" || content==""){
-            alert("ÀÌº¥Æ® ÀÌ¸§°ú ¼³¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+            alert("ì´ë²¤íŠ¸ ì´ë¦„ê³¼ ì„¤ëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”!");
             return;
         }
 
@@ -462,7 +462,7 @@
 
     });
 
-    <!-- ÀÌº¥Æ® »ı¼º ±â´É -->
+    <!-- ì´ë²¤íŠ¸ ìƒì„± ê¸°ëŠ¥ -->
     function createEvent(routeno,title,content,attach2,lat,lng,callback){
 
         console.log(routeno,title,content,attach2,lat,lng);
@@ -482,7 +482,7 @@
         callback();
     };
 
-    <!-- ÀÌº¥Æ® »ı¼º Ã¢ ºñ¿ì±â ±â´É-->
+    <!-- ì´ë²¤íŠ¸ ìƒì„± ì°½ ë¹„ìš°ê¸° ê¸°ëŠ¥-->
     function clearEventDiv(){
         $("#eventName").val("");
         $("#eventinfo").val("");
@@ -491,7 +491,7 @@
     }
 
 
-    <!-- ÀÌº¥Æ® ÀĞ±â ±â´É -->
+    <!-- ì´ë²¤íŠ¸ ì½ê¸° ê¸°ëŠ¥ -->
     function viewEvent(eventno){
         $(".uploadedList").html("");
         var template2 = Handlebars.compile($("#template").html());
@@ -499,7 +499,7 @@
         $.getJSON("http://14.32.66.127:4000/event/view?eventno="+eventno,function(data){
 
 
-            console.log("ÀÌº¥Æ® ³Ñ¹ö:"+eventno+"ÀĞ¾î¿À±â");
+            console.log("ì´ë²¤íŠ¸ ë„˜ë²„:"+eventno+"ì½ì–´ì˜¤ê¸°");
 
             var vo = $(data);
             console.log(vo);
@@ -510,7 +510,7 @@
         });
 
         $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventno, function(list) {
-            console.log("ºä¿¡¼­ °ÙÁ¦ÀÌ½¼ µé¾î¿Ô´Ù");
+            console.log("ë·°ì—ì„œ ê²Ÿì œì´ìŠ¨ ë“¤ì–´ì™”ë‹¤");
             console.log(list);
             var array = list[0].split(',');
             console.log(array);
@@ -530,9 +530,9 @@
         });
     }
 
-    <!-- ÀÌº¥Æ® »èÁ¦ ±â´É -->
+    <!-- ì´ë²¤íŠ¸ ì‚­ì œ ê¸°ëŠ¥ -->
     function removeEvent(eventno,callback){
-        console.log("ÀÌº¥Æ® »èÁ¦"+eventno);
+        console.log("ì´ë²¤íŠ¸ ì‚­ì œ"+eventno);
 
         $.ajax({
             type:'post',
@@ -551,10 +551,10 @@
 
     }
 
-    <!-- ÀÌº¥Æ® ¼öÁ¤ ±â´É -->
+    <!-- ì´ë²¤íŠ¸ ìˆ˜ì • ê¸°ëŠ¥ -->
     function modifyEvent(eventno,title,content,attach2,lat,lng,callback){
 
-        console.log("ÀÌº¥Æ® ¼öÁ¤"+eventno);
+        console.log("ì´ë²¤íŠ¸ ìˆ˜ì •"+eventno);
 
         $.ajax({
             type:'post',
@@ -574,40 +574,40 @@
 
 
 
-    <!--map Å¬¸¯ÇÏ¸é-->
+    <!--map í´ë¦­í•˜ë©´-->
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         clearEventDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
 
-        console.log("³»°¡ ¼±ÅÃÇÑ À§µµ¿Í °æµµ : ",lat,lng);
+        console.log("ë‚´ê°€ ì„ íƒí•œ ìœ„ë„ì™€ ê²½ë„ : ",lat,lng);
 
         $("#eventModal").modal('show');
 
         $("#cancleEventBtn").on("click",function(){
-            console.log("ÀÌº¥Æ® »ı¼º Ãë¼Ò");
+            console.log("ì´ë²¤íŠ¸ ìƒì„± ì·¨ì†Œ");
 
         });
         $("#mocancleEventBtn").on("click",function(){
-            console.log("ÀÌº¥Æ® ¼öÁ¤ Ãë¼Ò");
+            console.log("ì´ë²¤íŠ¸ ìˆ˜ì • ì·¨ì†Œ");
 
         });
 
     });
 
 
-    <!-- ÀÌº¥Æ® »ı¼º ¸ğ´Ş(¼¼ºÎ»çÇ×)-->
+    <!-- ì´ë²¤íŠ¸ ìƒì„± ëª¨ë‹¬(ì„¸ë¶€ì‚¬í•­)-->
 
     $("#search").on("click",function(){
-        console.log("¹®È­Àç api¸¦ ÀÌ¿ëÇØ °Ë»öÇÏ¿´½À´Ï´Ù.");
+        console.log("ë¬¸í™”ì¬ apië¥¼ ì´ìš©í•´ ê²€ìƒ‰í•˜ì˜€ìŠµë‹ˆë‹¤.");
     });
 
 
     $("#camera").change("toggle",function(){
         if(this.checked==true){
-            console.log("Ä«¸Ş¶ó »ç¿ëÇÔ.");
+            console.log("ì¹´ë©”ë¼ ì‚¬ìš©í•¨.");
         }else{
-            console.log("Ä«¸Ş¶ó »ç¿ë¾ÈÇÔ.");
+            console.log("ì¹´ë©”ë¼ ì‚¬ìš©ì•ˆí•¨.");
         }
 
     });
@@ -623,7 +623,7 @@
 
 
     $("#qType").on("change",function(){
-        if(this.value=="°´°ü½Ä"){
+        if(this.value=="ê°ê´€ì‹"){
             $("#oxAnswerbox").hide();
             $("#selectBox").show();
             //$("#multipleAnswerBox").show();
@@ -636,20 +636,20 @@
         }
     });
 
-    <!-- END ÀÌº¥Æ® »ı¼º ¸ğ´Ş-->
+    <!-- END ì´ë²¤íŠ¸ ìƒì„± ëª¨ë‹¬-->
 
-    <!-- ¼öÁ¤¸ğ´Ş(¼¼ºÎ»çÇ×) -->
+    <!-- ìˆ˜ì •ëª¨ë‹¬(ì„¸ë¶€ì‚¬í•­) -->
 
     $("#mosearch").on("click",function(){
-        console.log("¹®È­Àç api¸¦ ÀÌ¿ëÇØ °Ë»öÇÏ¿´½À´Ï´Ù.");
+        console.log("ë¬¸í™”ì¬ apië¥¼ ì´ìš©í•´ ê²€ìƒ‰í•˜ì˜€ìŠµë‹ˆë‹¤.");
     });
 
 
     $("#mocamera").change("toggle",function(){
         if(this.checked==true){
-            console.log("Ä«¸Ş¶ó »ç¿ëÇÔ.");
+            console.log("ì¹´ë©”ë¼ ì‚¬ìš©í•¨.");
         }else{
-            console.log("Ä«¸Ş¶ó »ç¿ë¾ÈÇÔ.");
+            console.log("ì¹´ë©”ë¼ ì‚¬ìš©ì•ˆí•¨.");
         }
 
     });
@@ -665,7 +665,7 @@
 
 
     $("#moqType").on("change",function(){
-        if(this.value=="°´°ü½Ä"){
+        if(this.value=="ê°ê´€ì‹"){
             $("#mooxAnswerbox").hide();
             $("#moselectBox").show();
             //$("#multipleAnswerBox").show();
@@ -678,10 +678,10 @@
         }
     });
 
-    <!-- END ¼öÁ¤¸ğ´Ş ¼¼ºÎ»çÇ× -->
+    <!-- END ìˆ˜ì •ëª¨ë‹¬ ì„¸ë¶€ì‚¬í•­ -->
 
 
-    <!-- ÀÌº¥Æ® ¸®½ºÆ® ¿Ï·á Å¬¸¯-->
+    <!-- ì´ë²¤íŠ¸ ë¦¬ìŠ¤íŠ¸ ì™„ë£Œ í´ë¦­-->
     $("#commitList").on("click",function(){
         $("#finishModal").modal('show');
 
@@ -690,9 +690,9 @@
         modifyName(routeno,modiRoutename);
 
 
-        var routemsg = modiRoutename+ " ·çÆ® µî·ÏÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù";
+        var routemsg = modiRoutename+ " ë£¨íŠ¸ ë“±ë¡ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤";
         $("#routeFinish").html(routemsg);
-        //·çÆ® ÀÌ¸§ º¯°æ ajax
+        //ë£¨íŠ¸ ì´ë¦„ ë³€ê²½ ajax
 
     });
 
@@ -733,7 +733,7 @@
 
 
 
-<!-- -----ÆÄÀÏÃ·ºÎ±â´É-------  -->
+<!-- -----íŒŒì¼ì²¨ë¶€ê¸°ëŠ¥-------  -->
 <script>
     var template = Handlebars.compile($("#template").html());
 
@@ -812,7 +812,7 @@
 
         var index = $.inArray($(this).attr("data-src"), attach);
         attach.splice(index, 1);
-        console.log("»èÁ¦ ÇÑ µÚÀÇ ¾îÅ×Ä¡ : "+attach);
+        console.log("ì‚­ì œ í•œ ë’¤ì˜ ì–´í…Œì¹˜ : "+attach);
 
 
         $.ajax({
@@ -841,7 +841,7 @@
         });
 
         that.append(str);
-        console.log("str°ªÀº?????:" + str);
+        console.log("strê°’ì€?????:" + str);
         //that.get(0).submit();
     });
 
@@ -875,7 +875,7 @@
 
     }
 </script>
-<!-------- ÆÄÀÏÃ·ºÎ±â´É ³¡ -------->
+<!-------- íŒŒì¼ì²¨ë¶€ê¸°ëŠ¥ ë -------->
 
 </body>
 </html>
