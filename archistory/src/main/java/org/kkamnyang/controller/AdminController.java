@@ -4,8 +4,10 @@ import javax.servlet.http.HttpSession;
 
 import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
+import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.persistence.AdminDetails;
 import org.kkamnyang.service.AdminService;
+import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -105,6 +107,11 @@ public class AdminController {
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("routeno", routeno);
+		
+		RouteVO vo = new RouteService().view(routeno);
+		String routename = vo.getRoutename();
+		
+		view.addObject("routename", routename);
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		
@@ -121,6 +128,10 @@ public class AdminController {
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("routeno", routeno);
+		
+		RouteVO vo = new RouteService().view(routeno);
+		String routename = vo.getRoutename();
+		
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		
