@@ -216,7 +216,7 @@
   </a>
 
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/login">Home</a></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" id="routeShow">My Route List</a></li>
     	<ul id="myRouteList">
     	</ul>  
