@@ -366,7 +366,9 @@
     var eventLi="";
     var routename = ${routename};
     var eventno = 1;
-
+    
+    $("#Rname").val(routename);	
+    
     (function blink() {
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
     })();
@@ -397,7 +399,6 @@
                 "<span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
 
         $("#eventList").html(eventLi);
-        $("#Rname").val(routename);	
 
     }
 
