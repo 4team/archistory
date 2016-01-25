@@ -94,8 +94,7 @@ display:none;
 		</div>
 		<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
 		</div>
-			
-<!-- 			
+				
 	<div class="modal fade" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" >
@@ -106,15 +105,14 @@ display:none;
                 <h4 class="modal-title">Do you wanna travel this route?</h4>
             </div>
             <div class="modal-body">
-            <a href="" class="btn btn-skin" id="yes">YES</a>
-            <a href="" class="btn btn-skin" id="no">NO</a>
+            <a href="#yes" class="btn btn-skin" id="yes">YES</a>
+            <a href="#no" class="btn btn-skin" id="no">NO</a>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
 </div>
- -->
 		
 <script>
 //route list 보이기
@@ -153,7 +151,7 @@ var routeLi = "";
     	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
     }
  
- /*  //routelist 에서   route 이름 클릭하면 -> 루트 수정, 멤버 등록, 루트 삭제 모달 창 뜸.    
+ //routelist 에서   route 이름 클릭하면 -> 루트 수정, 멤버 등록, 루트 삭제 모달 창 뜸.    
     $("#myRouteList").on("click","li",function(event){
 	       var select = $(this);
 	       var routeno = parseInt(select.attr("data-routeno"));
@@ -165,13 +163,9 @@ var routeLi = "";
   
     $("#yes").on("click", function(event){
 	  
-  });
-    
-     */
+  });    
+   
 </script>
-				
-				
 
 </body>
-
 </html>
