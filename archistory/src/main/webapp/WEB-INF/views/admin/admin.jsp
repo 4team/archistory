@@ -420,10 +420,12 @@ function stopAround() {
 
 })();
 
+var adminno = ${adminno};
 
 function changePage(lat, lng, height) {
     console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
-    self.location="http://14.32.66.127:4000/admin/close?lat="+lat+"&lng="+lng+"&height="+height;
+    
+    self.location="http://14.32.66.127:4000/admin/close?lat="+lat+"&lng="+lng+"&height="+height+"&adminno="+adminno;
 }
 
 
@@ -473,7 +475,7 @@ function addMarker(route){
 }
 
 
-var adminno = ${adminno};
+
 
 $.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
     var list = $(data);

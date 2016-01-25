@@ -66,8 +66,8 @@ public class AdminController {
 		return view;
 	}
 	
-	@RequestMapping(value = "/close", method=RequestMethod.GET)
-	public ModelAndView close(@Param("adminno") Integer adminno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+	@RequestMapping(value = "/close")
+	public ModelAndView close(@Param("adminno") Integer adminno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") double height, Model model) throws Exception{
 
 		System.out.println("루트를 생성하는 CLOSE페이지를 호출해서 보내준다.");
 		ModelAndView view = new ModelAndView();
