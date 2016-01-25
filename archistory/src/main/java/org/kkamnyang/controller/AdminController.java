@@ -100,6 +100,22 @@ public class AdminController {
 		return view;
 	}
 	
+	@RequestMapping(value = "/other")
+	public ModelAndView otherNation(@RequestParam("adminno") Integer adminno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("height") double height, Model model) throws Exception{
+		
+		System.out.println("루트를 생성하는 Korea페이지를 호출해서 보내준다.");
+		ModelAndView view = new ModelAndView();
+		
+		view.addObject("adminno", adminno);
+		view.addObject("lat", lat);
+		view.addObject("lng", lng);
+		view.addObject("height", height);
+		
+		view.setViewName("admin/other");
+		
+		return view;
+	}
+	
 	@RequestMapping(value = "/step_kor")
 	public ModelAndView stepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng, Model model) throws Exception{
 

@@ -101,7 +101,21 @@ function closeMap(){
                 
             }else{
                 console.log('구글지도로 다른 나라의 지도표시');
-                $.get("http://14.32.66.127:4000/admin/other",formData,function(data){$(document).replaceWith(data);});
+                
+                var $form = $('<form></form>');
+                $form.attr('action', '/admin/other');
+                $form.attr('method', 'post');
+                $form.appendTo('body');
+                
+                var a1 = $('<input type="hidden" value="'+ adminno +'" name="adminno">');
+                var a2 = $('<input type="hidden" value="'+ lat +'" name="lat">');
+                var a3 = $('<input type="hidden" value="'+ lng +'" name="lng">');
+                var a4 = $('<input type="hidden" value="'+ height +'" name="height">');
+                console.log(adminno,lat,lng,height);
+                
+                $form.append(a1).append(a2).append(a3).append(a4);
+                $form.submit();
+     
             }
 
         });
