@@ -114,7 +114,7 @@ public class UploadFileUtils {
 	  int first = removeCate.indexOf("\\");
 	  endIndex = removeCate.length();
 	  
-	  String filetype = removeCate.substring(first, endIndex);
+	  String filetype = removeCate.substring(first+1, endIndex);
 	  System.out.println("FileTyep : "+ filetype);
 	  
 	  System.out.println("remove Category Path : " + removeCate);
