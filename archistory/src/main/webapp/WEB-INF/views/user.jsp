@@ -37,6 +37,9 @@ position: absolute;
 display:none;
 overflow-y:scroll;
 }
+#myRouteList{
+
+}
 </style>
 
 
@@ -95,13 +98,15 @@ overflow-y:scroll;
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 <div class="nivo-lightbox-wrap">
 <div class="nivo-lightbox-content">
+
 		<ul>
 		<li id="myRouteList">
 		</li>
 		</ul>
+		
 		</div>
 		</div>
-		<a href="#" class="nivo-lightbox-close" title="Close"></a>
+		<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
 		</div>
 			
 <script>
@@ -111,6 +116,9 @@ $("#list").on("click",function(){
 	 $("#routeList").show();	 	
 });
 
+$("#closeList").on("click",function(){
+	 $("#closeList").hide();	 	
+});
 var routeLi = "";
 
     function addList(route) {
