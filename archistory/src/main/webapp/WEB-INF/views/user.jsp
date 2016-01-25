@@ -38,7 +38,7 @@ display:none;
 overflow-y:scroll;
 }
 #myRouteList{
-
+font-size: 20px;
 }
 </style>
 
@@ -119,6 +119,7 @@ $("#list").on("click",function(){
 $("#closeList").on("click",function(){
 	 $("#closeList").hide();	 	
 });
+
 var routeLi = "";
 
     function addList(route) {
