@@ -103,8 +103,16 @@ public class UploadFileUtils {
 	  
 	  String category = uploadPath.substring(14,19);
 	  
-	  int first = meanPath.indexOf("\\");
-	  String removeCate = meanPath.substring(6, first);
+	  int meanLength = meanPath.length();
+	  
+	  String removeCate = meanPath.substring(6, meanLength);
+	  
+	  int endIndex = removeCate.lastIndexOf("\\");
+	  
+	  String route = removeCate.substring(0, endIndex);
+	  System.out.println("루트 No : "+route);
+	  
+	  
 	  System.out.println("remove Category Path : " + removeCate);
 	  
 	  System.out.println(uploadPath);
