@@ -41,6 +41,7 @@ overflow-y:scroll;
 font-size: 10%;
 color: white;
 font-weight: bold;
+text-align: center;
 }
 </style>
 
