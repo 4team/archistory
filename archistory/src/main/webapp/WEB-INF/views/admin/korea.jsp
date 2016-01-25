@@ -180,9 +180,9 @@
                 success: function(data){
                 	console.log(data);
             if(step==true){
-                self.location = "stepevent.html?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
+                self.location = "http://14.32.66.127:4000/admin/step_kor?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data;
             }else{
-                self.location = "nonstepevent.html?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data+"&routename="+name;
+                self.location = "http://14.32.66.127:4000/admin/nonstep_kor?lat="+lat+"&lng="+lng+"&step="+step+"&routeno="+data+"&routename="+name;
             }
                 }
             });//end ajax
