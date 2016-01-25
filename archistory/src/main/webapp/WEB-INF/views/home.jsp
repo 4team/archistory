@@ -1,3 +1,18 @@
+Skip to content
+Sign up Sign in
+This repository  
+Search
+Explore
+Features
+Enterprise
+Pricing
+ Watch 3  Star 0  Fork 0 4team/archistory
+ Code  Issues 0  Pull requests 0  Pulse  Graphs
+Tree: 583fce4c86 Find file Copy patharchistory/archistory/src/main/webapp/WEB-INF/views/home.jsp
+583fce4  5 days ago
+ Maruhan 1
+0 contributors
+RawBlameHistory     480 lines (384 sloc)  13.1 KB
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,19 +24,6 @@
 <head>
     <meta charset="UTF-8">
     <title>= Archistory =</title>
-    
-     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
-
-    <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/nivo-lightbox.css" rel="stylesheet" />
-	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-	<link href="css/animate.css" rel="stylesheet" />
-    <!-- Squad theme CSS -->
-    <link href="css/style2.css" rel="stylesheet">
-	<link href="color/default.css" rel="stylesheet">
-	
 </head>
 
     <style>
@@ -173,12 +175,6 @@
 		button{
 		margin:auto;
 		}
-        #loginModal{
-            z-index: 999;
-        }
-        #joinModal{
-            z-index: 999;
-        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -195,29 +191,29 @@
 	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
 <body>
 
-<div class="menu">
-			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu">
-								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><a href="#about" class="gn-icon gn-icon-download" id="routeList">Tour Route</a></li>
-								
-									<ul  id="myRouteList"></ul>
-									
-								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
-								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
-								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
-							</ul>
-						</div><!-- /gn-scroller -->
-					</nav>
-				</li>
-</ul>
-	</div>
-	
-    
+<div id="menu">
+
+<div class="dropdown">
+  <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+    	<span class="glyphicon glyphicon-menu-hamburger"></span>
+  </a>
+
+        <ul class="dropdown-menu" role="menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
+
+				<ul  id="myRouteList">
+				</ul>
+
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
+        </ul>
+    </div>
+</div>
+
 <div id="upper-login">
 	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
 	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
@@ -453,18 +449,7 @@ $("#loginBtn").on("click",function(){
     });
 </script>
 <script src="/Cesium/js/map.js"></script>
-
-<!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min2.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
-    
 </body>
 </html>
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
