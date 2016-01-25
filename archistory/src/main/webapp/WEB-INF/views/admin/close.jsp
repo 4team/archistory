@@ -83,7 +83,11 @@ function closeMap(){
             
             if(nation == '대한민국'){
                 console.log('대한민국 지도로 이동');
-                $.get("http://14.32.66.127:4000/admin/korea",formData,function(data){$(document).replaceWith(data);});
+                $.get("http://14.32.66.127:4000/admin/korea",formData,
+                		function(data){
+                		$(document).write(data);
+                	}
+                );
                 
             }else{
                 console.log('구글지도로 다른 나라의 지도표시');
