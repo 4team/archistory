@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +39,20 @@
 .img-responsive{
 position: absolute;
 }
+ #list{
+         display:none;
+            position:absolute;
+            padding: 10px;
+            z-index:400;
+            border : 1px solid black;
+            border-radius : 10px;
+            background-color : #FFF;
+            top:46px;
+            left:157px;
+            width:200px;
+            height:400px;
+            overflow-y:scroll;
+        }
 </style>
 
 <body data-spy="scroll">
