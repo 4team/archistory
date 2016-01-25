@@ -65,7 +65,7 @@ public class UploadController {
 	@ResponseBody
 	  @RequestMapping(value ="/uploadAjax", method=RequestMethod.POST, 
 	                  produces = "text/plain;charset=UTF-8")
-	  public ResponseEntity<String> uploadAjax(MultipartFile file)throws Exception{
+	  public ResponseEntity<String> uploadAjax(@RequestParam("routeno") Integer routeno, MultipartFile file)throws Exception{
 	    
 	    logger.info("originalName: " + file.getOriginalFilename());
 	    
@@ -73,7 +73,7 @@ public class UploadController {
 	   
 	    return 
 	      new ResponseEntity<>(
-	          UploadFileUtils.uploadFile(uploadPath, 
+	          UploadFileUtils.uploadFile(uploadPath+"\\event\\"+routeno+"\\movie", 
 	                file.getOriginalFilename(), 
 	                file.getBytes()), 
 	          HttpStatus.CREATED);
@@ -175,8 +175,14 @@ public class UploadController {
 	    return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	  }
 	  
-	  @RequestMapping(value="movieUpload")
-	  public void movieUpload() throws Exception{
+	  @RequestMapping(value="evenMovieUpload", method=RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	  public ResponseEntity<String> movieUpload(@RequestParam("routeno") Integer routeno, MultipartFile filename) throws Exception{
 		  
+		  System.out.println("[동영상 업로드 호출] File Name : "+filename);
+		  
+		    return 
+		  	      new ResponseEntity<>(
+		  	          UploadFileUtils.uploadFile(uploadPath+"\\event\\"+routeno+"\\movie", 
+		  	                filename.getOriginalFilename(), filename.getBytes()), HttpStatus.CREATED);
 	  }
 }
