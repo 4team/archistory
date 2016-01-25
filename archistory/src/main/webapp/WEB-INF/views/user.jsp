@@ -36,7 +36,7 @@ position: absolute;
  #myRouteList{
          display:none;
             position:absolute;
-            padding: 10px;
+           /*  padding: 10px;
             z-index:400;
             border : 1px solid black;
             border-radius : 10px;
@@ -44,7 +44,7 @@ position: absolute;
             top:46px;
             left:157px;
             width:200px;
-            height:400px;
+            height:400px; */
             overflow-y:scroll;
         }
 </style>
