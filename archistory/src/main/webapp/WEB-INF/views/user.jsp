@@ -107,12 +107,14 @@ position: absolute;
 <div class="nivo-lightbox-content">
 <div class="nivo-lightbox-error">
 		
-		<p>
-		<ul id="myRouteList">
-    	</ul>  
+		<p id="myRouteList">
 		</p>
 		
-		</div></div></div></div>
+		</div>
+		</div>
+		</div>
+		<a href="#" class="nivo-lightbox-close" title="Close"></a>
+		</div>
 			
 <script>
 //route list 보이기
