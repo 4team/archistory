@@ -66,7 +66,7 @@ public class RouteControllerTest {
 	
 	@Test
 	public void readTest() throws Exception{
-		System.out.println(service.view(349));
+		System.out.println(service.view(350));
 		
 	}
 
