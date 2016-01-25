@@ -67,23 +67,50 @@ position: absolute;
 		<div class="slogan">
 			<h1>Archistory</h1>
 			<p>If you use it, You can see it. And it's not the same history as before.</p>
-			<div class="row gallery-item">                    
-		<div class="col-md-3">
-		<a href="#about" class="btn btn-skin scroll">Start</a>
-		</div>
-</div>
+		<a href="#about" class="btn btn-skin scroll" id="list">Start</a>
+		<ul id="myRouteList">
+    	</ul>  
 		</div>	
     </section>
 	<!-- /Section: intro -->
-	
-	             
-<div class="row gallery-item">                    
-		<div class="col-md-3">
-			<a href="img/example.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/example@2x.jpg">
-				<img src="img/example.jpg" class="img-responsive" alt="img">
-			</a>
-		</div>
-</div>
+				
+<script>
+//route list 보이기
+
+var adminno=${adminno};
+
+$("#list").on("click",function(){
+	 $("#myRouteList").show();	 
+});
+
+var routeLi = "";
+
+    function addList(route) {
+        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
+        $("#list").html(routeLi);
+    }
+
+    function getAllRouteList(){
+	    $.getJSON("http://192.168.0.36:8080/route/list?adminno="+adminno,function(data){
+	        var list = $(data);
+
+			routeLi = "";
+	        list.each(function(idx,value){
+	            var route = this;
+	            addList(route);
+	        });
+	    });
+    }
+    
+    getAllRouteList();
+    
+    function getMetaContentByName(name,content){
+    	var content = (content == null)?'content':content;
+    	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
+    }
+ 
+</script>
+				
 				
 
     <!-- Core JavaScript Files -->
