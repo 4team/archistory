@@ -23,6 +23,11 @@
         height: 100%;
         z-index: 3000;
     }
+    #status{
+    width:80px;
+    height:20px;
+    z-index:2000;
+    }
     </style>
 </head>
 <body>
