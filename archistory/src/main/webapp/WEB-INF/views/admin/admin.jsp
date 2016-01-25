@@ -588,9 +588,31 @@ $("#main").on("mouseover",function(){
 		                console.log(vo);
 
 		                if(vo.attr("step")==true){
-		                 self.location = "/stepevent.html?lat="+vo.attr("lat")+"&lng="+vo.attr("lng")+"&step="+vo.attr("step")+"&routeno="+routeno+"&routename="+vo.attr("routename");
+		                    var $form = $('<form></form>');
+		                    $form.attr('action', '/admin/step_kor');
+		                    $form.attr('method', 'post');
+		                    $form.appendTo('body');
+		                    
+		                    var a1 = $('<input type="hidden" value="'+ vo.routeno +'" name="routeno">');
+		                    var a2 = $('<input type="hidden" value="'+ vo.lat +'" name="lat">');
+		                    var a3 = $('<input type="hidden" value="'+ vo.lng +'" name="lng">');
+		                    
+		                    $form.append(a1).append(a2).append(a3);
+		                    $form.submit();
+		                	
 		                 }else{
-		                 self.location = "/nonstepevent.html?lat="+vo.attr("lat")+"&lng="+vo.attr("lng")+"&step="+vo.attr("step")+"&routeno="+routeno+"&routename="+vo.attr("routename");
+		                	 
+		                	 var $form = $('<form></form>');
+		                     $form.attr('action', '/admin/nonstep_kor');
+		                     $form.attr('method', 'post');
+		                     $form.appendTo('body');
+		                     
+		                     var a1 = $('<input type="hidden" value="'+ vo.routeno +'" name="routeno">');
+		                     var a2 = $('<input type="hidden" value="'+ vo.lat +'" name="lat">');
+		                     var a3 = $('<input type="hidden" value="'+ vo.lng +'" name="lng">');
+		                     
+		                     $form.append(a1).append(a2).append(a3);
+		                     $form.submit();
 		                 }
 		            });
 		    }
