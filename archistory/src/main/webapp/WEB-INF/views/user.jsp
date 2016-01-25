@@ -9,7 +9,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -94,7 +94,7 @@ list-style:none;
 		<div class="slogan">
 			<h1>Archistory</h1>
 			<p>If you use it, You can see it. And it's not the same history as before.</p>
-		<a href="#about" class="btn btn-skin scroll" id="list">Start</a>
+		<a href="#about" class="btn btn-skin" id="list">Start</a>
 		
 		
 		</div>	
