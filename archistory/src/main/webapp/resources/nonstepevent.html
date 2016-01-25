@@ -188,8 +188,8 @@
 
                     <label for="type">문제 유형</label>
                     <select class="form-control" id="qType">
-                        <option>O/X</option>
-                        <option>객관식</option>
+                        <option value="ox">O/X</option>
+                        <option value="multiple">객관식</option>
                     </select><br>
 
                     <label for="qTitle">문제</label>
@@ -258,8 +258,8 @@
 
                     <label for="type">문제 유형</label>
                     <select class="form-control" id="moqType">
-                        <option>O/X</option>
-                        <option>객관식</option>
+                        <option value="ox">O/X</option>
+                        <option value="multiple">객관식</option>
                     </select><br>
 
                     <label for="qTitle">문제</label>
@@ -431,13 +431,121 @@
             clearEventDiv();
             attach = [];
             
-
         });
+        
+        makeQuestion();
+        createQuestion(qJson);
+
 
         $("#eventModal").modal('hide');
 
     });
 
+    
+    
+    function clearQuestionDiv(){
+
+        $("#questionTitle").val("");
+        $("#qType").val("");
+        $("#s1").val("");
+        $("#s2").val("");
+        $("#s3").val("");
+        $("#s4").val("");
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                $(multi).attr("checked",false);
+            }
+
+            if($(ox).is(":checked")){
+                $(ox).attr("checked",false);
+            }
+        }
+    }
+
+    var qJson;
+
+    function makeQuestion(){
+        var qfilter = new Array();
+        qfilter[0]="eventno";
+        qfilter[1]="question";
+        qfilter[2]="answer";
+        qfilter[3]="point";
+        qfilter[4]="qtype";
+        qfilter[5]="choice1";
+        qfilter[6]="choice2";
+        qfilter[7]="choice3";
+        qfilter[8]="choice4";
+
+        var qObject = new Object();
+
+        qObject.eventno = 165;
+        qObject.question = $("#questionTitle").val();
+        qObject.point = 500;
+        qObject.qtype = $("#qType").val();
+        qObject.choice1 = $("#s1").val();
+        qObject.choice2 = $("#s2").val();
+        qObject.choice3 = $("#s3").val();
+        qObject.choice4 = $("#s4").val();
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                qObject.answer = $(multi).val();
+            }
+
+            if($(ox).is(":checked")){
+                qObject.answer = $(ox).val();
+            }
+        }
+
+        qJson = JSON.stringify(qObject,qfilter,"\t");
+
+        console.log(qJson)
+
+     /*   console.log("question:"+question);
+        console.log("qtype:"+qtype);
+        console.log("choice1: "+choice1);
+        console.log("choice1: "+choice2);
+        console.log("choice1: "+choice3);
+        console.log("choice1: "+choice4);
+        console.log("answer:"+answer);*/
+
+    }
+
+
+    function createQuestion(qJson){
+
+        console.log();
+
+        $.ajax({
+            type:"post",
+            url:"http://14.32.66.127:4000/question/register",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            datatype : "json",
+            data: qJson,
+            success:function(data){
+                console.log("data:"+data);
+            }
+        });
+
+
+    }
+    
+    
     <!-- 이벤트 수정 버튼 클릭-->
 
     $("#modifyEventBtn").on("click",function(){
@@ -575,6 +683,7 @@
     <!--map 클릭하면-->
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         clearEventDiv();
+        clearQuestionDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
 
