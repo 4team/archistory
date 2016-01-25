@@ -186,11 +186,22 @@
             text-align: center;
         }
         #routeCreate{
-        display:none;
-        position:absolute;
-        z-index:500;
+	        display:none;
+	        position:absolute;
+	        z-index:500;
    		 }
-   	
+   		 
+	   	#adminInfo{
+	   		position:absolute;
+	   		display:none;
+	   		background-color:#FFF;
+	   		top:35px;
+	   		right:6px;
+	   		text-align:center;
+	   		z-index:400;
+	   		width:100px;
+	   		height:70px;
+	   	}
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -229,9 +240,16 @@
 </div>
 </div>
 
+
+
 <div id="upper-login">
 	<button type="button" id="myInfo" data-src="${adminno}" class="btn btn-primary btn-xs"><font face="verdana" size="2" >${name}님</font></button>
+	<ul id="adminInfo">
+  	 	<li><a>My Info</a></li>
+    	<li><a id="/admin/logout">Logout</a></li>
+    </ul>
 </div>
+
 
 <!-- route modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -479,6 +497,13 @@ var adminno = ${adminno};
 	$("#myInfo").on("click",function(){
 		console.log("ADMIN NO : " + adminno);
 	});
+	
+	
+	//admin myinfo page
+	$("#myInfo").on("click",function(){
+		$("#adminInfo").toggle();
+	});
+	
 
 	//route list 보이기 
 	
