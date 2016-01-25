@@ -122,7 +122,7 @@ public class UploadFileUtils {
 	  System.out.println(uploadPath);
 	  System.out.println(category);
 
-	  
+	  makeDir(uploadPath,category,route,filetype);
 	  
     Calendar cal = Calendar.getInstance();
     
