@@ -51,7 +51,8 @@ function Loaded() {
          window.onmousemove=Move
     }
 }
-</script>
+	</script>
+	
 </head>
 <body onMouseMove="Follow()" onLoad="Loaded()">
 <script src="/Cesium/js/jquery.js"></script>
