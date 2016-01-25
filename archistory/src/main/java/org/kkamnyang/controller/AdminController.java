@@ -2,7 +2,6 @@ package org.kkamnyang.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.annotations.Param;
 import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
 import org.kkamnyang.persistence.AdminDetails;
