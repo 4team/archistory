@@ -39,7 +39,7 @@
 
 var lat = ${lat};
 var lng = ${lng};
-var height;
+var height = 3;
 var map;
 var geocoder = new google.maps.Geocoder;
 closeMap();
