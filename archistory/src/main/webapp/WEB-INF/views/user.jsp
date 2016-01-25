@@ -60,10 +60,20 @@
     </section>
 	<!-- /Section: intro -->
 	
-	<div class="col-md-3">
-			<a href="img/example.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/example@2x.jpg">
-				<img src="img/example.jpg" class="img-responsive" alt="img">
-			</a>
+		<div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12" >                
+                    <div class="row gallery-item">
+                    
+						<div class="col-md-3">
+								<a href="img/example.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/example@2x.jpg">
+									<img src="img/example.jpg" class="img-responsive" alt="img">
+								</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
 	</div>
 
     <!-- Core JavaScript Files -->
