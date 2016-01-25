@@ -72,9 +72,7 @@ position: absolute;
     </section>
 	<!-- /Section: intro -->
 	
-		<div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12" >                
+	             
                     <div class="row gallery-item">
                     
 						<div class="col-md-3">
@@ -83,9 +81,7 @@ position: absolute;
 								</a>
 						</div>
 					</div>
-				</div>
-			</div>
-	</div>
+				
 
     <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
