@@ -26,7 +26,7 @@ function closeMap(){
 
     (function initMap() {
         console.log(lat, lng);
-        map = new google.maps.Map(document.getElementById('closeMap'), {
+        map = new google.maps.Map(document.getElementById('main'), {
             center: new google.maps.LatLng(lat, lng),
             mapTypeControl:false,
             zoom: 14
