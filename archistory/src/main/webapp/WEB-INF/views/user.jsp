@@ -96,8 +96,17 @@ position: absolute;
 			<h1>Archistory</h1>
 			<p>If you use it, You can see it. And it's not the same history as before.</p>
 		<a href="#about" class="btn btn-skin scroll" id="list">Start</a>
+		
+		<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open">
+<div class="nivo-lightbox-wrap">
+<div class="nivo-lightbox-content">
+<div class="nivo-lightbox-error">
+		
 		<ul id="myRouteList">
     	</ul>  
+		
+		</div></div></div></div>
+		
 		</div>	
     </section>
 	<!-- /Section: intro -->
