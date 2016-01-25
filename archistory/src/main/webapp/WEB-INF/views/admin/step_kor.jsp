@@ -734,7 +734,8 @@
 	        
 	        var formData = new FormData();
 
-	        formData.append("file", file).append("routeno",routeno);
+	        formData.append("file", file)
+	        formData.append("routeno",routeno);
 	        
 	        uploadImg(formData);
 		}
