@@ -121,7 +121,7 @@ $("#list").on("click",function(){
 });
 
 $("#closeList").on("click",function(){
-	 $("#closeList").hide();	 	
+	 $("#routeList").hide();	 	
 });
 
 var routeLi = "";
