@@ -27,6 +27,14 @@
     <link href="css/style2.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
 
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     
 </head>
 
 <style>
@@ -48,6 +56,9 @@ list-style:none;
 }
 #closeList{
 position:fixed;
+}
+#yesModal{
+display:none;
 }
 </style>
 
@@ -73,7 +84,7 @@ position:fixed;
 		<div class="slogan">
 			<h1>Archistory</h1>
 			<p>If you use it, You can see it. And it's not the same history as before.</p>
-		<a href="#about" class="btn btn-skin" id="list">Start</a>
+		<a href="" class="btn btn-skin" id="list">Start</a>
 		
 		
 		</div>	
@@ -92,6 +103,27 @@ position:fixed;
 		<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
 		</div>
 			
+			
+	<div class="modal fade" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Do you wanna travel this route?</h4>
+            </div>
+            <div class="modal-body">
+            <a href="" class="btn btn-skin" id="yes">YES</a>
+            <a href="" class="btn btn-skin" id="no">NO</a>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+		
 <script>
 //route list 보이기
 
@@ -135,9 +167,15 @@ var routeLi = "";
 	       var routeno = parseInt(select.attr("data-routeno"));
 	       
 	       $("#yesModal").modal('show');
-	       editRoute(select);
+	       //editRoute(select);
 	    });
   
+  
+    $("#yes").on("click", function(event){
+	  
+  });
+    
+    
 </script>
 				
 				
