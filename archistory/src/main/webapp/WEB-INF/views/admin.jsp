@@ -556,7 +556,7 @@ var adminno = ${adminno};
 		                console.log(vo);
 
 		                if(vo.attr("step")==true){
-		                 self.location = "/stepevent.html?lat="+vo.attr("lat")+"&lng="+vo.attr("lng")+"&step="+vo.attr("step")+"&routeno="+routeno;
+		                 self.location = "/stepevent.html?lat="+vo.attr("lat")+"&lng="+vo.attr("lng")+"&step="+vo.attr("step")+"&routeno="+routeno+"&routename="+vo.attr("routename");
 		                 }else{
 		                 self.location = "/nonstepevent.html?lat="+vo.attr("lat")+"&lng="+vo.attr("lng")+"&step="+vo.attr("step")+"&routeno="+routeno+"&routename="+vo.attr("routename");
 		                 }

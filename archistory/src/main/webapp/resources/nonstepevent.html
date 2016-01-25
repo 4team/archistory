@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>논스텝모드-이벤트 생성 및 수정</title>
 </head>
 <style>
     html, body {
@@ -59,6 +59,29 @@
         float: right;
     }
 
+    #order{
+        width:33px;
+        height:33px;
+        float:left;
+    }
+    #moorder{
+        width:33px;
+        height:33px;
+        float:left;
+    }
+
+    .fileDrop {
+        width: 60%;
+        height: 60px;
+        border: 2px dotted black;
+        border-radius: 10px;
+        background-color: powderblue;
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+
+
+
     li{
         list-style: none;
         margin-bottom: 15px;
@@ -67,6 +90,14 @@
     small{
         float:right;
         font-size:smaller;
+    }
+
+    .img{
+        margin-bottom:10px;
+        float:left;
+    }
+    .x{
+        text-align:right;
     }
 
     ::-webkit-scrollbar {
@@ -90,15 +121,19 @@
     .gly{
         float:right;
     }
-	.blink_me{
-	position:absolute;
-	top:10px;
-	left:100px;
-	z-index:600;
-	}
+    .blink_me{
+        position:absolute;
+        top:10px;
+        left:100px;
+        z-index:600;
+    }
 
 
 </style>
+<!-- 첨부파일 용도 -->
+<script type="text/javascript" src="/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -120,6 +155,7 @@
 
 
 <!--  이벤트 생성 모달 (문제 생성) -->
+<form role="form" id="registerForm" method="post">
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventCreateModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -135,8 +171,13 @@
                     <label for="eventName">이름</label><input type="text" class="form-control" id="eventName" placeholder="이벤트 이름을 입력하세요">
                     <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
-                    <label for="imgInput">이미지</label><input type="file" id="imgInput"><br>
-                    <label for="videoInput">동영상</label><input type="file" id="videoInput"><br>
+                    <label for="imgInput">이미지</label><input type="file" id="imgInput">
+                    <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>
+                    <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
+
+                    <!--                        <label for="videoInput">동영상</label>
+                                            <input type="file" id="videoInput">
+                                            <div class="fileDrop"><h5 align="center";>여기에 동영상을 끌어오세요</h5></div>-->
                     <label for="camera">카메라</label><input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
@@ -182,7 +223,7 @@
         </div>
     </div>
 </div>
-
+</form>
 <!-- END 모달(event 및 문제 생성)  -->
 
 
@@ -203,7 +244,10 @@
                     <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label><input type="file" id="moimgInput"><br>
-                    <label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>
+                    <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>
+                    <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
+
+                    <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
@@ -301,7 +345,7 @@
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
-                  center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
+                center: new daum.maps.LatLng(getParameter('lat'), getParameter('lng')), // 지도의 중심좌표
                 //center: new daum.maps.LatLng(37.8861692, 127.7393315),
                 level: 2 // 지도의 확대 레벨
             };
@@ -313,20 +357,20 @@
     var routename = getParameter('routename');
     var eventLi="";
 
-    
+
     $(".blink_me").html("["+routename+"] 루트 생성중...");
-    
-    (function blink() { 
-        $('.blink_me').fadeOut(500).fadeIn(500, blink); 
+
+    (function blink() {
+        $('.blink_me').fadeOut(500).fadeIn(500, blink);
     })();
-    
+
     getEventList();
 
 
     <!-- 이벤트 리스트 불러오기-->
 
     function getEventList(){
-        $.getJSON("http://192.168.0.36:8080/event/elist?routeno="+routeno,function(data){
+        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
 
             var list = $(data);
             console.log(list);
@@ -346,7 +390,7 @@
                 "<span class='glyphicon glyphicon-remove' id='del' value='"+event.eventno+"'></span></div></li>";
 
         $("#eventList").html(eventLi);
-        $("#Rname").html(routename);
+        $("#Rname").val(routename);
 
     }
 
@@ -367,19 +411,26 @@
 
 
     <!-- 이벤트 생성 버튼 클릭-->
+    var attach = new Array();
+    var attach2;
+
 
     $("#createEventBtn").on("click",function(){
 
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
+        attach2 = attach.join();
 
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
 
-        createEvent(routeno, title, content, lat, lng, function () {
+        createEvent(routeno, title, content, attach2, lat, lng,  function () {
+            console.log("attach2:" + attach2);
             clearEventDiv();
+            attach = [];
+            
 
         });
 
@@ -393,15 +444,16 @@
         var title = $("#moeventName").val();
         var content = $("#moeventinfo").val();
         var eventno = $("#moeventno").val();
+        attach2 = attach.join();
 
+        console.log(attach2);
 
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
 
-        modifyEvent(eventno,title,content,lat,lng,function(){ //lat,lng 필요 없는 이유 -> 삭제하고, 다시 만드는게 사용자한테 편함.
-
+        modifyEvent(eventno,title,content,attach2,lat,lng,function(){
         });
 
         $("#modiModal").modal('hide');
@@ -409,20 +461,20 @@
     });
 
     <!-- 이벤트 생성 기능 -->
-    function createEvent(routeno,title,content,lat,lng,callback){
+    function createEvent(routeno,title,content,attach2,lat,lng,callback){
 
-        console.log(routeno,title,content,lat,lng);
+        console.log(routeno,title,content,attach2,lat,lng);
 
         $.ajax({
             type:'post',
-            url:"http://192.168.0.36:8080/event/create",
+            url:"http://14.32.66.127:4000/event/attachCreate",
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno,title:title,content:content,lat:lat,lng:lng}),
+            data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
             success: function(data){
                 getEventList();
-                console.log(data);
+                console.log("data:"+data);
             }
         });
         callback();
@@ -432,12 +484,18 @@
     function clearEventDiv(){
         $("#eventName").val("");
         $("#eventinfo").val("");
+        $(".uploadedList").html("");
+        attach=[];
     }
 
 
     <!-- 이벤트 읽기 기능 -->
     function viewEvent(eventno){
-        $.getJSON("http://192.168.0.36:8080/event/view?eventno="+eventno,function(data){
+        $(".uploadedList").html("");
+        var template2 = Handlebars.compile($("#template").html());
+
+        $.getJSON("http://14.32.66.127:4000/event/view?eventno="+eventno,function(data){
+
 
             console.log("이벤트 넘버:"+eventno+"읽어오기");
 
@@ -447,7 +505,25 @@
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
-            $("#mo")
+        });
+
+        $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventno, function(list) {
+            console.log("뷰에서 겟제이슨 들어왔다");
+            console.log(list);
+            var array = list[0].split(',');
+            console.log(array);
+
+            var length = array.length;
+
+            for(var i = 0; i < length; i++){
+
+                var name = array[i];
+                attach.push(name);
+                var fileInfo = getFileInfo(name);
+                var html = template2(fileInfo);
+
+                $(".uploadedList").append(html);
+            }
 
         });
     }
@@ -458,14 +534,14 @@
 
         $.ajax({
             type:'post',
-            url:"http://192.168.0.36:8080/event/remove",
+            url:"http://14.32.66.127:4000/event/remove",
             headers:{
                 "Content-Type":"application/json"},
             datatype: "json",
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
                 getEventList();
-                console.log(data);
+                console.log("data:"+data);
             }
 
         });
@@ -474,17 +550,17 @@
     }
 
     <!-- 이벤트 수정 기능 -->
-    function modifyEvent(eventno,title,content,lat,lng,callback){
+    function modifyEvent(eventno,title,content,attach2,lat,lng,callback){
 
         console.log("이벤트 수정"+eventno);
 
         $.ajax({
             type:'post',
-            url:"http://192.168.0.36:8080/event/modify",
+            url:"http://14.32.66.127:4000/event/attachModify",
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,title:title,content:content,lat:lat,lng:lng}),
+            data: JSON.stringify({eventno:eventno,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
             success: function(data){
                 getEventList();
                 console.log(data);
@@ -498,6 +574,7 @@
 
     <!--map 클릭하면-->
     daum.maps.event.addListener(map,'click',function(mouseEvent){
+        clearEventDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
 
@@ -515,9 +592,6 @@
         });
 
     });
-
-
-
 
 
     <!-- 이벤트 생성 모달(세부사항)-->
@@ -611,6 +685,8 @@
 
         var routemsg = routename+ " 루트 등록이 완료되었습니다";
         $("#routeFinish").html(routemsg);
+        //루트 이름 변경 ajax 
+        
     });
 
     $("#okBtn").on("click",function(){
@@ -620,5 +696,172 @@
     });
 
 </script>
+
+
+<script id="template" type="text/x-handlebars-template">
+    <li>
+        <div class='img'>
+            <a href="{{getLink}}"><img src="{{imgsrc}}"/></a>
+            <small data-src="{{fullName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
+        </div>
+    </li>
+</script>
+
+
+<script id="template" type="text/x-handlebars-template">
+    <li>
+        <div class='img'>
+            <a href="{{getLink}}"><img src="{{imgsrc}}"/></a>
+            <small data-src="{{fullName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
+        </div>
+    </li>
+</script>
+
+
+
+<!-- -----파일첨부기능-------  -->
+<script>
+    var template = Handlebars.compile($("#template").html());
+
+    $(".fileDrop").on("dragenter dragover", function(event){
+        event.preventDefault();
+    });
+
+    $(".fileDrop").on("drop", function(event){
+        event.preventDefault();
+
+        var files = event.originalEvent.dataTransfer.files;
+        console.log(files);
+        var num = files.length;
+
+
+        for(var i = 0 ; i < num; i++){
+            var file = files[i];
+            console.log(file);
+
+            var formData = new FormData();
+            formData.append("file", file);
+
+            uploadImg(formData);
+        }
+
+
+        function uploadImg(formData){
+            $.ajax({
+                url: 'http://14.32.66.127:4000/uploadAjax',
+                data: formData,
+                dataType:'text',
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function(data){
+
+                    var fileInfo = getFileInfo(data);
+                    var html = template(fileInfo);
+
+                    var str ="";
+
+                    console.log(data);
+                    //console.log(checkImageType(data));
+                    //console.log("ddddd",$(".uploadedList"));
+
+                    //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
+                    attach.push(data);
+                    console.log("attach:" + attach);
+
+                    if(checkImageType(data)){
+                        str ="<div class='img'>"
+                                +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
+                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+                                +"</div>";
+
+                    }else{
+                        str = "<div class='img'>"
+                                +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
+                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+                                +"</div>";
+                    }
+                    $(".uploadedList").append(str);
+
+                }
+            });
+        }
+
+
+
+    });
+
+    $(".uploadedList").on("click", "small", function(event){
+
+        var that = $(this);
+        console.log("delete click");
+
+        var index = $.inArray($(this).attr("data-src"), attach);
+        attach.splice(index, 1);
+        console.log("삭제 한 뒤의 어테치 : "+attach);
+
+
+        $.ajax({
+            url:"http://14.32.66.127:4000/sboard/deleteFile",
+            type:"post",
+            data: {fileName:$(this).attr("data-src")},
+            dataType:"text",
+            success:function(result){
+                if(result == 'deleted'){
+                    that.parent("div").remove();
+                }
+            }
+        });
+
+    });
+
+
+    $("#registerForm").submit(function(event){
+        event.preventDefault();
+
+        var that = $(this);
+
+        var str ="";
+        $(".uploadedList .delbtn").each(function(index){
+            str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+        });
+
+        that.append(str);
+        console.log("str값은?????:" + str);
+        //that.get(0).submit();
+    });
+
+
+    function getOriginalName(fileName){
+
+        if(checkImageType(fileName)){
+            return;
+        }
+        var idx = fileName.indexOf("_") + 1 ;
+        return fileName.substr(idx);
+
+    }
+
+
+    function getImageLink(fileName){
+
+        if(!checkImageType(fileName)){
+            return;
+        }
+        var front = fileName.substr(0,12);
+        var end = fileName.substr(14);
+
+        return front + end;
+
+    }
+
+    function checkImageType(fileName){
+        var pattern = /jpg|gif|png|jpeg/i;
+        return fileName.match(pattern);
+
+    }
+</script>
+<!-------- 파일첨부기능 끝 -------->
+
 </body>
 </html>
