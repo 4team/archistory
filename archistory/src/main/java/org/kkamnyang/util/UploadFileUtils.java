@@ -138,11 +138,38 @@ return uploadedFileName;
 //        File.separator + 
 //        new DecimalFormat("00").format(cal.get(Calendar.DATE));
 //    
-    makeDir(uploadPath, "picture");
+//    makeDir(uploadPath, "picture");
 //    
 //    logger.info(datePath);
 //    
+ int srcLenght = uploadPath.length();
 	  
+	  String meanPath = uploadPath.substring(14, srcLenght);
+	  System.out.println("의미있는 경로 : " + meanPath);
+	  
+	  String category = uploadPath.substring(14,19);
+	  
+	  int meanLength = meanPath.length();
+	  
+	  String removeCate = meanPath.substring(6, meanLength);
+	  
+	  int endIndex = removeCate.lastIndexOf("\\");
+	  
+	  String route = removeCate.substring(0, endIndex);
+	  System.out.println("루트 No : "+route);
+	  int first = removeCate.indexOf("\\");
+	  endIndex = removeCate.length();
+	  
+	  
+	  String filetype = removeCate.substring(first+1, endIndex);
+	  System.out.println("FileTyep : "+ filetype);
+	  
+	  System.out.println("remove Category Path : " + removeCate);
+	  
+	  System.out.println(uploadPath);
+	  System.out.println(category);
+
+	  makeDir(uploadPath,category,route,filetype);
     return "\\picture";
   }
   
