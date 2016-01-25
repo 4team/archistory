@@ -170,7 +170,7 @@ return uploadedFileName;
 	  System.out.println(category);
 
 	  makeDir(uploadPath,category,route,filetype);
-    return "\\picture";
+    return "";
   }
   
   private static String calcMoviePath(String uploadPath){
