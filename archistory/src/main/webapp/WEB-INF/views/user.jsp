@@ -105,12 +105,10 @@ position: absolute;
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 <div class="nivo-lightbox-wrap">
 <div class="nivo-lightbox-content">
-<div class="nivo-lightbox-error">
 		
 		<ul id="myRouteList">
 		</ul>
 		
-		</div>
 		</div>
 		</div>
 		<a href="#" class="nivo-lightbox-close" title="Close"></a>
