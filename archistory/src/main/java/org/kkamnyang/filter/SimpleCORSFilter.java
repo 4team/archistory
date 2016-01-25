@@ -16,7 +16,6 @@ public class SimpleCORSFilter implements Filter {
 
       public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
                 throws ServletException, IOException {
-    	  System.out.println("CORS Filter.... doFilterInternal...");
             response.addHeader("Access-Control-Allow-Origin", "*");
             if (request.getHeader("Access-Control-Request-Method") != null && "OPTIONS".equals(request.getMethod())); {
                 // CORS "pre-flight" request
@@ -32,7 +31,6 @@ public class SimpleCORSFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     	 
-    	System.out.println("CORS Filter.... doFilter...");
         HttpServletResponse res = (HttpServletResponse) response;
         
         res.setHeader("Access-Control-Allow-Origin", "*");
