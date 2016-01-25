@@ -31,7 +31,7 @@
     }
     </style>
 </head>
-<body>
+<body onMouseMove="Follow()" onLoad="Loaded()">
 <script src="/Cesium/js/jquery.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjUYVhsr-9THi7kQIHS0azuS10hUB75AU"></script>
 
@@ -40,7 +40,8 @@
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-<script language="Javascript">
+<script>
+
 function Move(e) {
     document.layers['status'].left=e.pageX
     document.layers['status'].top=e.pageY
