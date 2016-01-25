@@ -4,8 +4,10 @@ import javax.servlet.http.HttpSession;
 
 import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
+import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.persistence.AdminDetails;
 import org.kkamnyang.service.AdminService;
+import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -98,13 +100,18 @@ public class AdminController {
 		return view;
 	}
 	
-	@RequestMapping(value = "/step_kor", method = RequestMethod.GET)
-	public ModelAndView stepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng, Model model) throws Exception{
+	@RequestMapping(value = "/step_kor")
+	public ModelAndView stepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("height") int height, Model model) throws Exception{
 
 		System.out.println("[한국]에 STEP [루트를 생성]하였다. 이벤트 생성페이지를 보내준다.");
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("routeno", routeno);
+		
+		RouteVO vo = new RouteService().view(routeno);
+		String routename = vo.getRoutename();
+		
+		view.addObject("routename", routename);
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		
@@ -113,6 +120,7 @@ public class AdminController {
 		return view;
 	}
 	
+
 	@RequestMapping(value="/nonstep_kor", method=RequestMethod.GET)
 	public ModelAndView nonstepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng, Model model) throws Exception{
 		
@@ -120,6 +128,11 @@ public class AdminController {
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("routeno", routeno);
+		
+		RouteVO vo = new RouteService().view(routeno);
+		String routename = vo.getRoutename();
+		
+		view.addObject("routename", routename);
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		

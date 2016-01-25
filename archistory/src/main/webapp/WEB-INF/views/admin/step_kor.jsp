@@ -360,8 +360,8 @@
 
     //var lat= 0;
     //var lng =0;
-    var routeno = getParameter('routeno');
-    var routename = getParameter('routename');
+    var routeno = ${routeno};
+    var routename = ${routename};
     var eventLi="";
     var eventno = 1;
     

@@ -36,7 +36,7 @@
 
 <script>
 
-
+var adminno = ${adminno};
 var lat = ${lat};
 var lng = ${lng};
 var height = 3;
@@ -80,14 +80,15 @@ function closeMap(){
        
             var length = result.length;
             var nation = result[length-1].formatted_address;
-            var adminno = ${adminno};
+            var formData = {adminno:adminno,lat:lat,lng:lng,height:height};
             
             if(nation == '대한민국'){
                 console.log('대한민국 지도로 이동');
-                self.location = "http://14.32.66.127:4000/admin/korea?adminno="+adminno+"&lat="+lat+"&lng="+lng+"&height="+height;
+                $.post("http://14.32.66.127:4000/admin/korea",formData,function(data){document.write(data)});
+                
             }else{
                 console.log('구글지도로 다른 나라의 지도표시');
-                self.location = "otherNation.html?lat="+lat+"&lng="+lng;
+                $.post("http://14.32.66.127:4000/admin/other",formData,function(data){document.write(data)});
             }
 
         });
