@@ -96,6 +96,9 @@ public class UploadFileUtils {
   
   private static String calcPath(String uploadPath){
     
+//	String category = uploadPath.substring();
+	  System.out.println(uploadPath);
+	  
     Calendar cal = Calendar.getInstance();
     
     String yearPath = File.separator+cal.get(Calendar.YEAR);
