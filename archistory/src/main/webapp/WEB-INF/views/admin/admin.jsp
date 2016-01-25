@@ -593,9 +593,9 @@ $("#main").on("mouseover",function(){
 		                    $form.attr('method', 'post');
 		                    $form.appendTo('body');
 		                    
-		                    var a1 = $('<input type="hidden" value="'+ vo.routeno +'" name="routeno">');
-		                    var a2 = $('<input type="hidden" value="'+ vo.lat +'" name="lat">');
-		                    var a3 = $('<input type="hidden" value="'+ vo.lng +'" name="lng">');
+		                    var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
+		                    var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
+		                    var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
 		                    
 		                    $form.append(a1).append(a2).append(a3);
 		                    $form.submit();
@@ -607,9 +607,9 @@ $("#main").on("mouseover",function(){
 		                     $form.attr('method', 'post');
 		                     $form.appendTo('body');
 		                     
-		                     var a1 = $('<input type="hidden" value="'+ vo.routeno +'" name="routeno">');
-		                     var a2 = $('<input type="hidden" value="'+ vo.lat +'" name="lat">');
-		                     var a3 = $('<input type="hidden" value="'+ vo.lng +'" name="lng">');
+		                     var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
+		                     var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
+		                     var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
 		                     
 		                     $form.append(a1).append(a2).append(a3);
 		                     $form.submit();
