@@ -683,11 +683,33 @@
     $("#commitList").on("click",function(){
         $("#finishModal").modal('show');
 
-        var routemsg = routename+ " 루트 등록이 완료되었습니다";
+        var modiRoutename = $("#Rname").val();
+
+        modifyName(routeno,modiRoutename);
+
+
+        var routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
         $("#routeFinish").html(routemsg);
-        //루트 이름 변경 ajax 
-        
+        //루트 이름 변경 ajax
+
     });
+
+    function modifyName(routeno,routename){
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/route/modify",
+            headers:{
+                "Content-Type":"application/json"},
+            datatype:"json",
+            data:JSON.stringify({routeno:routeno,routename:routename}),
+            success: function(data){
+                getEventList();
+                console.log("data:"+data);
+            }
+        });
+
+    }
 
     $("#okBtn").on("click",function(){
         $("#finishModal").modal('hide');
@@ -695,16 +717,6 @@
 
     });
 
-</script>
-
-
-<script id="template" type="text/x-handlebars-template">
-    <li>
-        <div class='img'>
-            <a href="{{getLink}}"><img src="{{imgsrc}}"/></a>
-            <small data-src="{{fullName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
-        </div>
-    </li>
 </script>
 
 
