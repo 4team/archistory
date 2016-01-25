@@ -457,10 +457,11 @@ input.gn-search:focus {
 }
 
 #intro{	
-	background-image: url(../img/earth.jpg);
 	background-opacity:0.5;
 	background-size: cover;
-	-webkit-filter: blur(3px);
+	background-image: url(../img/earth.jpg).animate({-webkit-filter: blur(3px)})}, 100);
+
+	
 }
 
 .intro .slogan {

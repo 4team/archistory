@@ -129,6 +129,15 @@ var routeLi = "";
     	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
     }
  
+  //routelist 에서   route 이름 클릭하면 -> 루트 수정, 멤버 등록, 루트 삭제 모달 창 뜸.    
+    $("#myRouteList").on("click","li",function(event){
+	       var select = $(this);
+	       var routeno = parseInt(select.attr("data-routeno"));
+	       
+	       $("#yesModal").modal('show');
+	       editRoute(select);
+	    });
+  
 </script>
 				
 				
