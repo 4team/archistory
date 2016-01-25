@@ -143,7 +143,7 @@ return uploadedFileName;
 //    logger.info(datePath);
 //    
 	  
-    return "picture";
+    return "\\picture";
   }
   
   private static String calcMoviePath(String uploadPath){
@@ -174,7 +174,7 @@ return uploadedFileName;
 //	  System.out.println(category);
 //
 //	  makeDir(uploadPath,category,route,filetype);
-	  return "movie";
+	  return "\\movie";
 	  
   }
   
