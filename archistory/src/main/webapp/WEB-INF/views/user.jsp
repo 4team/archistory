@@ -76,7 +76,7 @@ display:none;
 		<div class="slogan">
 			<h1>Archistory</h1>
 			<p>If you use it, You can see it. And it's not the same history as before.</p>
-		<a href="" class="btn btn-skin" id="list">Start</a>
+		<a href="#about" class="btn btn-skin" id="list">Start</a>
 		
 		
 		</div>	
