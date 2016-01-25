@@ -23,10 +23,12 @@ public class QuestionController {
 		
 		System.out.println("==============문제 등록 POST=================");
 		ResponseEntity<String> entity = null;
+		System.out.println(vo);
 		
 		try{
 			service.register(vo);
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("========문제 등록 완료!!======");
 		}catch(Exception e){
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.BAD_REQUEST);
 		}
