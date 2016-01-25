@@ -25,6 +25,7 @@
     }
     
     #status{
+    position:absolute;
     width:80px;
     height:20px;
     z-index:2000;
