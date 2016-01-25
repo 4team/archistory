@@ -97,13 +97,15 @@ position: absolute;
 			<p>If you use it, You can see it. And it's not the same history as before.</p>
 		<a href="#about" class="btn btn-skin scroll" id="list">Start</a>
 		
-		<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open">
+		<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 <div class="nivo-lightbox-wrap">
 <div class="nivo-lightbox-content">
 <div class="nivo-lightbox-error">
 		
+		<p>
 		<ul id="myRouteList">
     	</ul>  
+		</p>
 		
 		</div></div></div></div>
 		
@@ -115,7 +117,7 @@ position: absolute;
 //route list 보이기
 
 $("#list").on("click",function(){
-	 $("#myRouteList").show();	 
+	 $("#routeList").show();	 
 });
 
 var routeLi = "";
