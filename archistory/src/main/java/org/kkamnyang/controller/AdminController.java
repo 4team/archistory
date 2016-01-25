@@ -126,6 +126,7 @@ public class AdminController {
 		
 		RouteVO vo = new RouteService().view(routeno);
 		String routename = vo.getRoutename();
+		System.out.println("이벤트 생성페이지로 넘어갈 루트 네임 : "+routename);
 		
 		view.addObject("routename", routename);
 		view.addObject("lat", lat);
