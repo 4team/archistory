@@ -166,7 +166,6 @@
             $("#passwordCheck")[0].checked = false;
             $(".password").hide();
         };
-
     });
     
     $("#routeCreateBtn").on("click",function(){
