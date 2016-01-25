@@ -38,7 +38,9 @@ display:none;
 overflow-y:scroll;
 }
 #myRouteList{
-font-size: 20px;
+font-size: 10%;
+color: white;
+font-weight: bold;
 }
 </style>
 
@@ -123,7 +125,7 @@ $("#closeList").on("click",function(){
 var routeLi = "";
 
     function addList(route) {
-        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
+        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
         $("#myRouteList").html(routeLi);
     }
 
