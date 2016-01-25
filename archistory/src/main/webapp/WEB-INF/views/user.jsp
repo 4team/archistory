@@ -25,49 +25,11 @@
 
 <body data-spy="scroll">
 
-<div class="container">
-			<ul id="gn-menu" class="gn-menu-main">
-				<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu">
-								<li class="gn-search-item">
-									<input placeholder="Search" type="search" class="gn-search">
-									<a class="gn-icon gn-icon-search"><span>Search</span></a>
-								</li>
-								<li>
-									<a href="#about" class="gn-icon gn-icon-download">About</a>
-								</li>
-								<li><a href="#service" class="gn-icon gn-icon-cog">Service</a></li>
-								<li><a href="#works" class="gn-icon gn-icon-help">Works</a></li>
-								<li>
-									<a href="#contact" class="gn-icon gn-icon-archive">Contact</a>
-								</li>
-							</ul>
-						</div><!-- /gn-scroller -->
-					</nav>
-				</li>
-				<li><a href="index.html">NINESTARS</a></li>
-				<li><ul class="company-social">
-                            <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
-                            <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>	</li>
-			</ul>
-	</div>
 
-	<!-- Section: intro -->
-    <section id="intro" class="intro">
-		<div class="slogan">
-			<h1>This is Ninestars</h1>
-			<p>make awesome stuff with Bootstrap framework</p>
-			<a href="#about" class="btn btn-skin scroll">Learn more</a>
-		</div>	
-    </section>
-	<!-- /Section: intro -->
-
+	<!-- Section: contact -->
+    <section id="contact" class="home-section text-center">
+	
+		<div class="container">
 
     <div class="row">
         <div class="col-lg-8 col-md-offset-2">
@@ -75,20 +37,7 @@
                 <form id="contact-form">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                        </div>
-                        <div class="form-group">
+                    <div class="form-group">
                             <label for="subject">
                                 Subject</label>
                             <select id="subject" name="subject" class="form-control" required="required">
@@ -99,23 +48,14 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Message"></textarea>
-                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
-                            Send Message</button>
-                    </div>
-                </div>
                 </form>
-            </div>
-            
-
+            </div>			
+        </div>
+    </div>
+		</div>
+	</section>	
+	
     <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
