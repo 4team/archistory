@@ -1,7 +1,9 @@
 package org.kkamnyang.persistence;
 
 import org.kkamnyang.domain.QuestionVO;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class QuestionMapperImpl extends AbstractCRUDMapper<QuestionVO,Integer> implements QuestionMapper {
 
 	@Override
