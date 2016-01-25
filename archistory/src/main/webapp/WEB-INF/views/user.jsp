@@ -67,20 +67,23 @@ position: absolute;
 		<div class="slogan">
 			<h1>Archistory</h1>
 			<p>If you use it, You can see it. And it's not the same history as before.</p>
-			<a href="#about" class="btn btn-skin scroll">Start</a>
+			<div class="row gallery-item">                    
+		<div class="col-md-3">
+		<a href="#about" class="btn btn-skin scroll">Start</a>
+		</div>
+</div>
 		</div>	
     </section>
 	<!-- /Section: intro -->
 	
 	             
-                    <div class="row gallery-item">
-                    
-						<div class="col-md-3">
-								<a href="img/example.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/example@2x.jpg">
-									<img src="img/example.jpg" class="img-responsive" alt="img">
-								</a>
-						</div>
-					</div>
+<div class="row gallery-item">                    
+		<div class="col-md-3">
+			<a href="img/example.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/example@2x.jpg">
+				<img src="img/example.jpg" class="img-responsive" alt="img">
+			</a>
+		</div>
+</div>
 				
 
     <!-- Core JavaScript Files -->
