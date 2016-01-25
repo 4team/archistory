@@ -59,7 +59,7 @@ function closeMap(){
        
             var length = result.length;
             var nation = result[length-1].formatted_address;
-            var routeno = ${adminno};
+            var adminno = ${adminno};
             
             if(nation == '대한민국'){
                 console.log('대한민국 지도로 이동');
