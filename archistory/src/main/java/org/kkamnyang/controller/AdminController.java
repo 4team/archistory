@@ -25,6 +25,9 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 	
+	@Autowired
+	RouteService route;
+	
 	public AdminDetails getUser()
     {
         return (AdminDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -123,7 +126,7 @@ public class AdminController {
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("routeno", routeno);
-		RouteService route = new RouteService();
+	
 		
 		try{
 			RouteVO vo = route.view(routeno);

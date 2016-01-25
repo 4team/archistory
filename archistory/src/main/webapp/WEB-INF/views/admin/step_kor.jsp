@@ -363,11 +363,10 @@
     //var lat= 0;
     //var lng =0;
     var routeno = ${routeno};
-    var routename = ${routename};
     var eventLi="";
     var eventno = 1;
     
-    $(".blink_me").html("["+routename+"] 루트 생성중...");
+    $(".blink_me").html("["+${routename}+"] 루트 생성중...");
 
     (function blink() {
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
