@@ -40,13 +40,27 @@
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-<script>
+<script language="Javascript">
+function Move(e) {
+    document.layers['status'].left=e.pageX
+    document.layers['status'].top=e.pageY
+}
+function Move2(){
+    document.all["status"].style.left=event.clientX
+    document.all["status"].style.top=event.clientY
+}
+function Follow() {
+    if (document.all) Move2()
+}
+function Loaded() {
+    if (document.layers) {
+         window.captureEvents(Event.MOUSEMOVE)
+         window.onmousemove=Move
+    }
+}
+</script>
 
-$(document).ready(function(){
-	   $(document).mousemove(function(e){
-	      $('#status').html(e.pageX +', '+ e.pageY);
-	   }); 
-	})
+<script>
 
 var adminno = ${adminno};
 var lat = ${lat};
