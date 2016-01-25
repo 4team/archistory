@@ -96,7 +96,7 @@ z-index:9999;
 		<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
 		</div>
 				
-	<div class="modal fade" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+	<div class="modal" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" >
             <div class="modal-header">
