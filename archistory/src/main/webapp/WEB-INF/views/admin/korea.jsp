@@ -55,11 +55,11 @@
             </div>
            <!--  <div class="modal-body">-->
                 <div id="nonstepMode" style="background-color:white; width:180px; height:180px; float:left; text-align: center; padding-top: 15px; padding-left:20px;" >
-                    <img src = "img/nonstep.png">
+                    <img src = "/img/nonstep.png">
                 </div>
 
                 <div id="stepMode" style="background-color:white; width:180px; height:180px; float:left; text-align: center; padding-top: 15px; padding-left:20px;">
-                   <img src = "img/step.png">
+                   <img src = "/img/step.png">
                 </div>
 
             <!-- </div>-->
