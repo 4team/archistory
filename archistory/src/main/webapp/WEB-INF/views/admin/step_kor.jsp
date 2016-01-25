@@ -306,7 +306,7 @@
 
 
 <div id="list">
-   	루트 이름 : ${routename}
+   	루트 이름 : <input type="text" id="Rname">
     <hr>
     <div id="eventList">
         <ul>
@@ -397,7 +397,7 @@
                 "<span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
 
         $("#eventList").html(eventLi);
-        $("#Rname").val(routename);
+        $("#Rname").val(routename);	
 
     }
 
