@@ -230,7 +230,7 @@
 </div>
 
 <div id="upper-login">
-	<button type="button" id="myInfo" class="btn btn-primary btn-xs"><font face="verdana" size="2" >${name}님</font></button>
+	<button type="button" id="myInfo" data-src="${adminno}" class="btn btn-primary btn-xs"><font face="verdana" size="2" >${name}님</font></button>
 </div>
 
 <!-- route modal -->

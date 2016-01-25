@@ -61,7 +61,7 @@ public class AdminController {
 	    view.setViewName("admin");
 	    view.addObject("adminno", getUser().getAdminno());
 	    view.addObject("name", getUser().getUsername());
-	        
+
 		return view;
 	}
 	

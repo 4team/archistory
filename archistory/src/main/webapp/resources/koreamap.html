@@ -120,7 +120,7 @@
 
     // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
     var map = new daum.maps.Map(mapContainer, mapOption);
-
+	var adminno = $("#upper-login button").attr("data-src");
     var lat= "";
     var lng= "";
     var step;
@@ -128,7 +128,7 @@
     daum.maps.event.addListener(map,'click',function(mouseEvent){
          lat = mouseEvent.latLng.Ab; // lat
          lng = mouseEvent.latLng.zb; // lng
-        
+        console.log(adminno);
 
         console.log("내가 선택한 위도와 경도 : ",lat, lng);
 
@@ -167,7 +167,7 @@
                 type: 'POST',
                 url: 'http://192.168.0.36:8080/route/create',
                 headers:{"Content-Type":"application/json"},
-                data: JSON.stringify({routename:name, password:password, secret:secret, step:step, lat:lat, lng:lng}),
+                data: JSON.stringify({adminno:adminno,routename:name, password:password, secret:secret, step:step, lat:lat, lng:lng}),
                 dataType:'JSON',
                 success: function(data){
                 	console.log(data);
