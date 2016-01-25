@@ -418,7 +418,6 @@ var adminno = ${adminno};
         });
      });
 
-
 })();
 
 
