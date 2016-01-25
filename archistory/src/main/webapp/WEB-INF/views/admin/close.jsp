@@ -79,15 +79,24 @@ function closeMap(){
        
             var length = result.length;
             var nation = result[length-1].formatted_address;
-            var formData = {adminno:adminno,lat:lat,lng:lng,height:height};
             
             if(nation == '대한민국'){
+            	
                 console.log('대한민국 지도로 이동');
-                $.get("http://14.32.66.127:4000/admin/korea",formData,
-                		function(data){
-                		document.html(data);
-                	}
-                );
+                
+                var $form = $('<form></form>');
+                $form.attr('action', '/admin/korea');
+                $form.attr('method', 'post');
+                $form.appendTo('body');
+                
+                var adminno = $('<input type="hidden" value="'+ adminno +'" name="adminno">');
+                var lat = $('<input type="hidden" value="'+ lat +'" name="lat">');
+                var lng = $('<input type="hidden" value="'+ lng +'" name="lng">');
+                var height = $('<input type="hidden" value="'+ height +'" name="height">');
+                console.log(adminno,lat,lng,height);
+                $form.append(adminno).append(lat).append(lng).append(height);
+                $form.submit();
+     
                 
             }else{
                 console.log('구글지도로 다른 나라의 지도표시');
