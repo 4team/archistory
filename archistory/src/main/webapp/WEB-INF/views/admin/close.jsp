@@ -89,12 +89,13 @@ function closeMap(){
                 $form.attr('method', 'post');
                 $form.appendTo('body');
                 
-                var adminno = $('<input type="hidden" value="'+ adminno +'" name="adminno">');
-                var lat = $('<input type="hidden" value="'+ lat +'" name="lat">');
-                var lng = $('<input type="hidden" value="'+ lng +'" name="lng">');
-                var height = $('<input type="hidden" value="'+ height +'" name="height">');
+                var a1 = $('<input type="hidden" value="'+ adminno +'" name="adminno">');
+                var a2 = $('<input type="hidden" value="'+ lat +'" name="lat">');
+                var a3 = $('<input type="hidden" value="'+ lng +'" name="lng">');
+                var a4 = $('<input type="hidden" value="'+ height +'" name="height">');
                 console.log(adminno,lat,lng,height);
-                $form.append(adminno).append(lat).append(lng).append(height);
+                
+                $form.append(a1).append(a2).append(a3).append(a4);
                 $form.submit();
      
                 
