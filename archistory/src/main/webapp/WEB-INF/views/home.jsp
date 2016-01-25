@@ -120,6 +120,7 @@
         #loginBody{
 	        top:150px;
 	        width:350px;
+	        z-index:10000;
 	    }
 	
 	    #loginH{
@@ -137,6 +138,7 @@
 	    #joinBody{
 	        top:50px;
 	        width:400px;
+	        z-index:10000;
 	    }
     
           #myLocation{
@@ -182,6 +184,10 @@
         }
 		button{
 		margin:auto;
+		}
+		
+		.modal-content{
+		z-index:10000;
 		}
     </style>
     
@@ -235,7 +241,7 @@
 
 
 <!-- ★로그인 모달 -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
     <div class="modal-dialog" id="loginBody">
 
 	
@@ -493,16 +499,9 @@ $("#loginBtn").on("click",function(){
 
 
  <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min2.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
+
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
     
     
 </body>
