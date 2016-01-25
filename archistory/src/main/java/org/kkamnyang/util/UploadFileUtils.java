@@ -96,7 +96,7 @@ public class UploadFileUtils {
   
   private static String calcPath(String uploadPath){
     
-	  String category = uploadPath.substring(15,5);
+	  String category = uploadPath.substring(15,20);
 	  
 	  System.out.println(uploadPath);
 	  System.out.println(category);
