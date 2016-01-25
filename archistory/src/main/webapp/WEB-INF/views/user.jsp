@@ -37,6 +37,7 @@ position: absolute;
 #routeList{
 display:none;
 overflow-y:scroll;
+z-index: 100;
 }
 #myRouteList{
 font-size: 24px;
