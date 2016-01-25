@@ -132,6 +132,7 @@ public class AdminController {
 		RouteVO vo = new RouteService().view(routeno);
 		String routename = vo.getRoutename();
 		
+		view.addObject("routename", routename);
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		
