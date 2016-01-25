@@ -2,6 +2,7 @@ package org.kkamnyang.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
 import org.kkamnyang.persistence.AdminDetails;
@@ -62,6 +63,32 @@ public class AdminController {
 	    view.addObject("adminno", getUser().getAdminno());
 	    view.addObject("name", getUser().getUsername());
 
+		return view;
+	}
+	
+	@RequestMapping(value = "/close", method=RequestMethod.GET)
+	public ModelAndView close(@Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+
+		System.out.println("루트를 생성하는 CLOSE페이지를 호출해서 보내준다.");
+		ModelAndView view = new ModelAndView();
+		view.addObject("lat", lat);
+		view.addObject("lng", lng);
+		view.addObject("height", height);
+		view.setViewName("admin/close");
+		
+		return view;
+	}
+	
+	@RequestMapping(value = "/step_kor", method = RequestMethod.GET)
+	public ModelAndView stepKorea(@Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+
+		System.out.println("루트를 생성하는 CLOSE페이지를 호출해서 보내준다.");
+		ModelAndView view = new ModelAndView();
+		view.addObject("lat", lat);
+		view.addObject("lng", lng);
+		view.addObject("height", height);
+		view.setViewName("admin/step_kor");
+		
 		return view;
 	}
 	
