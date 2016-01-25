@@ -306,7 +306,7 @@
 
 
 <div id="list">
-   	루트 이름 :<input type="text" id="Rname" placeholder="">
+   	루트 이름 : ${routename}
     <hr>
     <div id="eventList">
         <ul>
