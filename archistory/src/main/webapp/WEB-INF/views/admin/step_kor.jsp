@@ -387,6 +387,7 @@
             list.each(function(idx,value){
                 var event= this;
                 addList(event);
+                eventno++;
             });
         });
     }
