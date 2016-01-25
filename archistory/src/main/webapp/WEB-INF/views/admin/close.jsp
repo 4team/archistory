@@ -79,7 +79,6 @@ function closeMap(){
        
             var length = result.length;
             var nation = result[length-1].formatted_address;
-            var formData = {adminno:adminno,lat:lat,lng:lng,height:height};
             
             if(nation == '대한민국'){
             	
@@ -94,7 +93,7 @@ function closeMap(){
                 var lat = $('<input type="hidden" value="'+ lat +'" name="lat">');
                 var lng = $('<input type="hidden" value="'+ lng +'" name="lng">');
                 var height = $('<input type="hidden" value="'+ height +'" name="height">');
-                
+                console.log(adminno,lat,lng,height);
                 $form.append(adminno).append(lat).append(lng).append(height);
                 $form.submit();
      
