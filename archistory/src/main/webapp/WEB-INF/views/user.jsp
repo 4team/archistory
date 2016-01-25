@@ -77,6 +77,8 @@ position: absolute;
 <script>
 //route list 보이기
 
+var adminno=${adminno};
+
 $("#list").on("click",function(){
 	 $("#myRouteList").show();	 
 });
