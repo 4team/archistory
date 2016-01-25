@@ -85,7 +85,7 @@ function closeMap(){
                 console.log('대한민국 지도로 이동');
                 $.get("http://14.32.66.127:4000/admin/korea",formData,
                 		function(data){
-                		$(document).write(data);
+                		document.html(data);
                 	}
                 );
                 
