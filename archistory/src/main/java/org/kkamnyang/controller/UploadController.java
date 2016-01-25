@@ -73,7 +73,7 @@ public class UploadController {
 	   
 	    return 
 	      new ResponseEntity<>(
-	          UploadFileUtils.uploadFile(uploadPath+"\\event\\"+routeno+"\\movie", 
+	          UploadFileUtils.uploadFile(uploadPath+"\\event\\"+routeno+"\\picture", 
 	                file.getOriginalFilename(), 
 	                file.getBytes()), 
 	          HttpStatus.CREATED);
@@ -182,7 +182,7 @@ public class UploadController {
 		  
 		    return 
 		  	      new ResponseEntity<>(
-		  	          UploadFileUtils.uploadFile(uploadPath+"\\event\\"+routeno+"\\movie", 
+		  	          UploadFileUtils.uploadMovie(uploadPath+"\\event\\"+routeno+"\\movie", 
 		  	                filename.getOriginalFilename(), filename.getBytes()), HttpStatus.CREATED);
 	  }
 }

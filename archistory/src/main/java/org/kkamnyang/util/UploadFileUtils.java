@@ -55,6 +55,36 @@ public class UploadFileUtils {
     
   }
   
+  public static String uploadMovie(String uploadPath, 
+          String originalName, 
+          byte[] fileData)throws Exception{
+
+UUID uid = UUID.randomUUID();
+
+String savedName = uid.toString() +"_"+originalName;
+
+String savedPath = calcMoviePath(uploadPath);
+
+File target = new File(uploadPath +savedPath,savedName);
+
+FileCopyUtils.copy(fileData, target);
+
+String formatName = originalName.substring(originalName.lastIndexOf(".")+1);
+
+String uploadedFileName = null;
+
+if(MediaUtils.getMediaType(formatName) != null){
+uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
+}else{
+uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
+}
+
+return uploadedFileName;
+
+}
+  
+  
+  
   private static  String makeIcon(String uploadPath, 
       String path, 
       String fileName)throws Exception{
