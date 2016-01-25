@@ -111,7 +111,11 @@ public class UploadFileUtils {
 	  
 	  String route = removeCate.substring(0, endIndex);
 	  System.out.println("루트 No : "+route);
+	  int first = removeCate.indexOf("\\");
+	  endIndex = removeCate.length();
 	  
+	  String filetype = removeCate.substring(first, endIndex);
+	  System.out.println("FileTyep : "+ filetype);
 	  
 	  System.out.println("remove Category Path : " + removeCate);
 	  
