@@ -95,7 +95,27 @@ public class UploadFileUtils {
   
   
   private static String calcPath(String uploadPath){
+	  
+    Calendar cal = Calendar.getInstance();
     
+    String yearPath = File.separator+cal.get(Calendar.YEAR);
+    
+    String monthPath = yearPath + 
+        File.separator + 
+        new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1);
+
+    String datePath = monthPath + 
+        File.separator + 
+        new DecimalFormat("00").format(cal.get(Calendar.DATE));
+    
+    makeDir(uploadPath, yearPath,monthPath,datePath);
+    
+    logger.info(datePath);
+    
+    return datePath;
+  }
+  
+  private static String calcMoviePath(String uploadPath){
 	  int srcLenght = uploadPath.length();
 	  
 	  String meanPath = uploadPath.substring(14, srcLenght);
@@ -123,24 +143,7 @@ public class UploadFileUtils {
 	  System.out.println(category);
 
 	  makeDir(uploadPath,category,route,filetype);
-	  
-    Calendar cal = Calendar.getInstance();
-    
-    String yearPath = File.separator+cal.get(Calendar.YEAR);
-    
-    String monthPath = yearPath + 
-        File.separator + 
-        new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1);
-
-    String datePath = monthPath + 
-        File.separator + 
-        new DecimalFormat("00").format(cal.get(Calendar.DATE));
-    
-    makeDir(uploadPath, yearPath,monthPath,datePath);
-    
-    logger.info(datePath);
-    
-    return datePath;
+	  return meanPath;
   }
   
   
