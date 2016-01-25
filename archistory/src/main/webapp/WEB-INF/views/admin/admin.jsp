@@ -427,17 +427,12 @@ function changePage(adminno,lat, lng, height) {
 	
     console.log("화면 전환 : ",adminno, ' ', lat, ' ', lng, ' ', height);
     var formData = {adminno:adminno,lat:lat,lng:lng,height:height};
-    $.post({
-    	url:"http://14.32.66.127:4000/admin/close",
-    	type:"post",
-    	data:formData,
-    	success:function(data){
+    $.post("http://14.32.66.127:4000/admin/close",formData,
+    	function(data){
     		console.log(data);
-    	},
-    	error:function(jqxhr,status,error){
+    	}).fail(function(jqxhr,status,error){
     		console.log("error!"+error);
-    	}
-    });
+    	});
     
 }
 
