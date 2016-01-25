@@ -105,10 +105,8 @@ line-style:none;
 <div class="nivo-lightbox-wrap">
 <div class="nivo-lightbox-content">
 
-		<ul>
-		<li id="myRouteList">
-		</li>
-		</ul>
+		<p id="myRouteList">
+		</p>
 		
 		</div>
 		</div>
