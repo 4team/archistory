@@ -33,21 +33,9 @@
 .img-responsive{
 position: absolute;
 }
- #myRouteList{
-            position:absolute;
-            padding: 10px;
-            z-index:400;
-            border : 1px solid black;
-            border-radius : 10px;
-            background-color : #FFF;
-            top:46px;
-            left:157px;
-            width:200px;
-            height:400px;
-            overflow-y:scroll;
-        }
 #routeList{
 display:none;
+overflow-y:scroll;
 }
 </style>
 
