@@ -32,7 +32,6 @@ public class AdminLoginService implements UserDetailsService{
 		
 		StandardPasswordEncoder encoder = new StandardPasswordEncoder();
 		System.out.println("[ADMIN 로그인 시도] - loadUserByUsername");
-		Model model = (Model) new ModelAndView();
 		try {
 			int adminno = mapper.getNo(useremail);
 			String name = mapper.getName(useremail);
@@ -44,7 +43,6 @@ public class AdminLoginService implements UserDetailsService{
 			
 			roles.add(new SimpleGrantedAuthority("ROLE_USER"));
 			admin = new AdminDetails(adminno,useremail,name,encoder.encode(password));
-			model.addAttribute("adminno", adminno);
 		} catch (Exception e) {
 			System.out.println("계정이 없는 ADMIN의 로그인 시도... LoginService(loadUserByUserName");
 			return null;
