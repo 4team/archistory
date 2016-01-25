@@ -156,7 +156,7 @@ var routeLi = "";
     $("#myRouteList").on("click","li",function(event){
 	       var select = $(this);
 	       var routeno = parseInt(select.attr("data-routeno"));
-	       $("#routeList").hide();	
+	      
 	       $("#yesModal").modal('show');
 	       //editRoute(select);
 	    });
