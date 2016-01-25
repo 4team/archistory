@@ -96,8 +96,10 @@ public class UploadFileUtils {
   
   private static String calcPath(String uploadPath){
     
-//	String category = uploadPath.substring();
+	  String category = uploadPath.substring(15,5);
+	  
 	  System.out.println(uploadPath);
+	  System.out.println(category);
 	  
     Calendar cal = Calendar.getInstance();
     
