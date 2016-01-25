@@ -124,7 +124,7 @@ return uploadedFileName;
   } 
   
   
-  private static String calcPath(String uploadPath){
+  private static String calcPath(String uploadpath){
 	  
 //    Calendar cal = Calendar.getInstance();
 //    
@@ -142,12 +142,12 @@ return uploadedFileName;
 //    
 //    logger.info(datePath);
 //    
- int srcLenght = uploadPath.length();
+ int srcLenght = uploadpath.length();
 	  
-	  String meanPath = uploadPath.substring(14, srcLenght);
+	  String meanPath = uploadpath.substring(14, srcLenght);
 	  System.out.println("의미있는 경로 : " + meanPath);
 	  
-	  String category = uploadPath.substring(14,19);
+	  String category = uploadpath.substring(14,19);
 	  
 	  int meanLength = meanPath.length();
 	  
@@ -166,10 +166,10 @@ return uploadedFileName;
 	  
 	  System.out.println("remove Category Path : " + removeCate);
 	  
-	  System.out.println(uploadPath);
+	  System.out.println(uploadpath);
 	  System.out.println(category);
 
-	  makeDir(uploadPath,category,route,filetype);
+	  makeDir("C:\\archistory",category,route,filetype);
     return "";
   }
   
@@ -201,8 +201,8 @@ return uploadedFileName;
 	  System.out.println(uploadPath);
 	  System.out.println(category);
 
-	  makeDir(uploadPath,category,route,filetype);
-	  return "\\movie";
+	  makeDir("C:\\archistory",category,route,filetype);
+	  return "";
 	  
   }
   
