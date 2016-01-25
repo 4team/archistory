@@ -46,6 +46,9 @@ position: absolute;
             height:400px;
             overflow-y:scroll;
         }
+#routeList{
+display:none;
+}
 </style>
 
 
@@ -115,7 +118,6 @@ position: absolute;
 			
 <script>
 //route list 보이기
-$("#routeList").hide();
 
 $("#list").on("click",function(){
 	 $("#routeList").show();	 	
