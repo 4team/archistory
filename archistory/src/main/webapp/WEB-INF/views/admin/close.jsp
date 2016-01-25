@@ -26,9 +26,12 @@
     
     #status{
     position:absolute;
+    font-size:10px;
     width:150px;
     height:20px;
     z-index:4000;
+    margin-left:5px;
+    margin-top:5px;
     }
     </style>
 
