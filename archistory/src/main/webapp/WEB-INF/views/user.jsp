@@ -100,7 +100,7 @@ var routeLi = "";
 
     function addList(route) {
         routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
-        $("#list").html(routeLi);
+        $("#myRouteList").html(routeLi);
     }
 
     function getAllRouteList(){
