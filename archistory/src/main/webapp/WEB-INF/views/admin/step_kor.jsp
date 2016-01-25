@@ -363,7 +363,6 @@
     //var lat= 0;
     //var lng =0;
     var routeno = ${routeno};
-    var routename = ${routename};
     var eventLi="";
     var eventno = 1;
 
