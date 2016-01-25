@@ -26,6 +26,7 @@
     </style>
 </head>
 <body>
+    <script src="/Cesium/js/jquery.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjUYVhsr-9THi7kQIHS0azuS10hUB75AU"></script>
 
 <div id="closeMap"></div>

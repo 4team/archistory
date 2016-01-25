@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -67,7 +68,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/close")
-	public ModelAndView close(@Param("adminno") Integer adminno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") double height, Model model) throws Exception{
+	public ModelAndView close(@RequestParam("adminno") Integer adminno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("height") double height, Model model) throws Exception{
 
 		System.out.println("루트를 생성하는 CLOSE페이지를 호출해서 보내준다.");
 		ModelAndView view = new ModelAndView();
@@ -82,8 +83,24 @@ public class AdminController {
 		return view;
 	}
 	
+	@RequestMapping(value = "/korea")
+	public ModelAndView korea(@RequestParam("adminno") Integer adminno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("height") double height, Model model) throws Exception{
+
+		System.out.println("루트를 생성하는 CLOSE페이지를 호출해서 보내준다.");
+		ModelAndView view = new ModelAndView();
+		
+		view.addObject("adminno", adminno);
+		view.addObject("lat", lat);
+		view.addObject("lng", lng);
+		view.addObject("height", height);
+		
+		view.setViewName("admin/korea");
+		
+		return view;
+	}
+	
 	@RequestMapping(value = "/step_kor", method = RequestMethod.GET)
-	public ModelAndView stepKorea(@Param("routeno") Integer routeno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+	public ModelAndView stepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("height") int height, Model model) throws Exception{
 
 		System.out.println("[한국]에 STEP [루트를 생성]하였다. 이벤트 생성페이지를 보내준다.");
 		ModelAndView view = new ModelAndView();
@@ -99,7 +116,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/nonstep_kor", method=RequestMethod.GET)
-	public ModelAndView nonstepKorea(@Param("routeno") Integer routeno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+	public ModelAndView nonstepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("height") int height, Model model) throws Exception{
 		
 		System.out.println("[한국]에 NONSTEP [루트를 생성]하였다. 이벤트 생성페이지를 보내준다.");
 		ModelAndView view = new ModelAndView();
