@@ -60,8 +60,19 @@ public class RouteController{
 	}
 	
 	@RequestMapping(value="/modify", method = RequestMethod.POST)
-	public void modifyRoute(RouteVO vo) throws Exception{
-		service.modify(vo);
+	public ResponseEntity<String> modifyRoute(@RequestBody RouteVO vo) throws Exception{
+		System.out.println("===========루트 수정 POST 호출됨.=============");
+		ResponseEntity<String> entity = null;
+		
+		try{
+			
+			service.modify(vo);
+			entity = new ResponseEntity<String>("result", HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result", HttpStatus.BAD_REQUEST);	
+		}
+		
+		return entity;
 	}
 	
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
