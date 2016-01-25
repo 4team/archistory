@@ -422,6 +422,7 @@ function stopAround() {
 
 var adminno = ${adminno};
 
+
 function changePage(lat, lng, height) {
     console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
     self.location="http://14.32.66.127:4000/admin/close?lat="+lat+"&lng="+lng+"&height="+height+"&adminno="+adminno;
