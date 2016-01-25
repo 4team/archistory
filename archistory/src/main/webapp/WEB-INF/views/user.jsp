@@ -59,6 +59,12 @@
 		</div>	
     </section>
 	<!-- /Section: intro -->
+	
+	<div class="col-md-3">
+			<a href="img/example.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/example@2x.jpg">
+				<img src="img/example.jpg" class="img-responsive" alt="img">
+			</a>
+	</div>
 
     <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
