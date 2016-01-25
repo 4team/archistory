@@ -33,10 +33,10 @@
 .img-responsive{
 position: absolute;
 }
- #myRouteList{
+ /* #myRouteList{
          display:none;
             position:absolute;
-           /*  padding: 10px;
+            padding: 10px;
             z-index:400;
             border : 1px solid black;
             border-radius : 10px;
@@ -44,9 +44,9 @@ position: absolute;
             top:46px;
             left:157px;
             width:200px;
-            height:400px; */
+            height:400px;
             overflow-y:scroll;
-        }
+        } */
 </style>
 
 
@@ -104,12 +104,10 @@ position: absolute;
 			
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 <div class="nivo-lightbox-wrap">
-<div class="nivo-lightbox-content">
 		
 		<ul id="myRouteList">
 		</ul>
 		
-		</div>
 		</div>
 		<a href="#" class="nivo-lightbox-close" title="Close"></a>
 		</div>
