@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value="/route/*")
 public class RouteController{
-		
-	
 	
 	@Autowired
 	RouteService service;
