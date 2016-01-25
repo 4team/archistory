@@ -16,8 +16,8 @@ var getParameter = function (param) {
     }
 };
 
-var lat = getParameter('lat')-0.02;
-var lng = getParameter('lng');
+var lat = ${lat}-0.02;
+var lng = ${lng};
 var height;
 var map;
 var geocoder = new google.maps.Geocoder;
