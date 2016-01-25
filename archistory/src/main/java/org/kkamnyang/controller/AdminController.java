@@ -59,7 +59,7 @@ public class AdminController {
 	public ModelAndView adminSuccess(Model model) {
 		System.out.println("로그인에 성공하여 /login_success.jsp를 보낸다.");
 		ModelAndView view = new ModelAndView();
-	    view.setViewName("admin");
+	    view.setViewName("admin/admin");
 	    view.addObject("adminno", getUser().getAdminno());
 	    view.addObject("name", getUser().getUsername());
 
@@ -67,38 +67,48 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/close", method=RequestMethod.GET)
-	public ModelAndView close(@Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+	public ModelAndView close(@Param("adminno") Integer adminno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
 
 		System.out.println("루트를 생성하는 CLOSE페이지를 호출해서 보내준다.");
 		ModelAndView view = new ModelAndView();
+		
+		view.addObject("adminno", adminno);
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		view.addObject("height", height);
+		
 		view.setViewName("admin/close");
 		
 		return view;
 	}
 	
 	@RequestMapping(value = "/step_kor", method = RequestMethod.GET)
-	public ModelAndView stepKorea(@Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+	public ModelAndView stepKorea(@Param("routeno") Integer routeno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
 
 		System.out.println("[한국]에 STEP [루트를 생성]하였다. 이벤트 생성페이지를 보내준다.");
 		ModelAndView view = new ModelAndView();
+		
+		view.addObject("routeno", routeno);
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		view.addObject("height", height);
+		
 		view.setViewName("admin/step_kor");
 		
 		return view;
 	}
 	
 	@RequestMapping(value="/nonstep_kor", method=RequestMethod.GET)
-	public ModelAndView nonstepKorea(@Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+	public ModelAndView nonstepKorea(@Param("routeno") Integer routeno, @Param("lat") double lat, @Param("lng") double lng,@Param("height") int height, Model model) throws Exception{
+		
 		System.out.println("[한국]에 NONSTEP [루트를 생성]하였다. 이벤트 생성페이지를 보내준다.");
 		ModelAndView view = new ModelAndView();
+		
+		view.addObject("routeno", routeno);
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		view.addObject("height", height);
+		
 		view.setViewName("admin/nonstep_kor");
 		
 		return view;
