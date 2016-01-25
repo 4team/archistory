@@ -52,7 +52,7 @@ position:fixed;
 }
 #yesModal{
 display:none;
-z-index:500;
+z-index:9999;
 }
 </style>
 
