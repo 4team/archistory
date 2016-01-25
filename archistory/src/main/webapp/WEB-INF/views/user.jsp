@@ -38,7 +38,9 @@ display:none;
 overflow-y:scroll;
 }
 #myRouteList{
-font-size: 20px;
+font-size: 10%;
+color: white;
+font-weight: bold;
 }
 </style>
 
