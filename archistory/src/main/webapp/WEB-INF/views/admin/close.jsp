@@ -26,9 +26,9 @@
     
     #status{
     position:absolute;
-    width:80px;
+    width:150px;
     height:20px;
-    z-index:2000;
+    z-index:4000;
     }
     </style>
 
