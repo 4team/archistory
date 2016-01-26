@@ -141,7 +141,8 @@ return uploadedFileName;
 //    makeDir(uploadPath, "picture");
 //    
 //    logger.info(datePath);
-//    
+//    ㅏ
+	  System.out.println("ㅍㅏ일 세퍼레이터 "+File.separator);
  int srcLenght = uploadpath.length();
 	  
 	  String meanPath = uploadpath.substring(14, srcLenght);
