@@ -35,6 +35,7 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 			e.printStackTrace();
 		}
 		
+		System.out.println("이벤트넘버:"+eventno);
 		return eventno;
 		
 		
