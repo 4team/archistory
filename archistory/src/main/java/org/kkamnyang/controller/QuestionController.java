@@ -30,6 +30,8 @@ public class QuestionController {
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
 			System.out.println("========문제 등록 완료!!======");
 		}catch(Exception e){
+			
+			e.printStackTrace();
 			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
 		}
 		return entity;
