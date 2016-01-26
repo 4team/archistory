@@ -38,12 +38,12 @@ public class AdminController {
 	        System.out.println("로그인화면이 호출되어 /admin/login.jsp를 보낸다.");
 	}
 	
-	@RequestMapping(value = "/logout",method=RequestMethod.GET)
-	public void adminLogout() {
-		
-		System.out.println("로그아웃하여 /admin/logout.jsp를 보낸다.");
-		
-	}
+//	@RequestMapping(value = "/logout",method=RequestMethod.GET)
+//	public void adminLogout() {
+//		
+//		System.out.println("로그아웃하여 /admin/logout.jsp를 보낸다.");
+//		
+//	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public void login(@RequestBody AdminDTO dto, HttpSession session, Model model) throws Exception{
