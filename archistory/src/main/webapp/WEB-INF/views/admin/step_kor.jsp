@@ -742,13 +742,19 @@
 	        formData.append("file", file)
 	        formData.append("routeno",routeno);
 	        
-	        uploadImg(formData);
+	        if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
+	       		uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');	        	
+	        }else if(filetypeArr[arrNum-1]=="avi" || filetypeArr[arrNum-1]=="mpeg" || filetypeArr[arrNum-1]=="wmv"){
+	        	uploadImg(formData,'http://14.32.66.127:4000/evenMovieUpload');
+	        }
+	        
+	        
 		}
 		
 	
-		function uploadImg(formData){
+		function uploadImg(formData,url){
 	        $.ajax({
-	            url: 'http://14.32.66.127:4000/uploadAjax',
+	            url: url,
 	            data: formData,
 	            dataType:'text',
 	            processData: false,
