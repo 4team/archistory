@@ -208,20 +208,23 @@
 	   	}
 	   	
 	   	#adminInfo:hover{
-	   		right:1px;
-	   		top:1px;
+	   		margin-top:1px;
+	   		margin-right:1px;
         	border : 1px solid;
         	border-color:#aef;
         	box-shadow:0 0 8px #fff;
         }
         
-        #adminInfo a{
+        #adminInfo li{
         	text-align:center;
+        }
+        
+        #adminInfo a{
         	color:#2169C1;
         }
         
        #adminInfo a:hover{
-            text-align:center;
+       		text-decoration:none;
         	color:#aef;
         }
     </style>
