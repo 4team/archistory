@@ -829,15 +829,14 @@
 </script>
 
 
-
-<!-- 파일첨부기능 -->
+<!-- -----파일첨부기능-------  -->
 <script>
     var template = Handlebars.compile($("#template").html());
 
     $(".fileDrop").on("dragenter dragover", function(event){
         event.preventDefault();
     });
-
+    
     $(".fileDrop").on("drop", function(event){
         event.preventDefault();
 
@@ -845,73 +844,90 @@
         console.log(files);
         var num = files.length;
 
+		
+		for(var i = 0 ; i < num; i++){
+	        var file = files[i];
+	        var filename = file.name;
+	        
+	        var filetypeArr = filename.split('.');
+	        var arrNum = filetypeArr.length;
+	        console.log(arrNum);
+	        console.log(filetypeArr[arrNum-1]);
+	        
+	        var formData = new FormData();
 
-        for(var i = 0 ; i < num; i++){
-            var file = files[i];
-            console.log(file);
-
-            var formData = new FormData();
-            formData.append("file", file);
-
-            uploadImg(formData);
-        }
-
-
-        function uploadImg(formData){
-            $.ajax({
-                url: 'http://14.32.66.127:4000/uploadAjax',
-                data: formData,
-                dataType:'text',
-                processData: false,
-                contentType: false,
-                type: 'POST',
-                success: function(data){
-
-                    var fileInfo = getFileInfo(data);
-                    var html = template(fileInfo);
-
-                    var str ="";
-
-                    console.log(data);
-                    //console.log(checkImageType(data));
-                    //console.log("ddddd",$(".uploadedList"));
-
-                    //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
-                    attach.push(data);
-                    console.log("attach:" + attach);
-
-                    if(checkImageType(data)){
-                        str ="<div class='img'>"
-                                +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
-                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
-                                +"</div>";
-
-                    }else{
-                        str = "<div class='img'>"
-                                +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
-                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
-                                +"</div>";
-                    }
-                    $(".uploadedList").append(str);
-
-                }
-            });
-        }
-
-
-
+	        formData.append("file", file);
+	        formData.append("routeno",routeno);
+	        
+	        if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
+	       		
+	        	uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');	        
+	       		
+	        }else if(filetypeArr[arrNum-1] == "avi" || filetypeArr[arrNum-1] == "mpeg" || filetypeArr[arrNum-1] == "wmv" || filetypeArr[arrNum-1] == "mp4"){
+	        	
+	        	uploadImg(formData,'http://14.32.66.127:4000/evenMovieUpload');
+	        	
+	        }
+	        
+	        
+		}
+		
+	
+		function uploadImg(formData,url){
+	        $.ajax({
+	            url: url,
+	            data: formData,
+	            dataType:'text',
+	            processData: false,
+	            contentType: false,
+	            type: 'POST',
+	            success: function(data){
+	
+	                var fileInfo = getFileInfo(data);
+	                var html = template(fileInfo);
+	
+	                var str ="";
+	
+	                console.log(data);
+	                //console.log(checkImageType(data));
+	                //console.log("ddddd",$(".uploadedList"));
+	
+	                //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
+	                attach.push(data);
+	                console.log("attach:" + attach);
+	                
+	                if(checkImageType(data)){
+	                    str ="<div class='img'>"
+	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
+	                            +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+	                            +"</div>";
+	
+	                }else{
+	                    str = "<div class='img'>"
+	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
+	                            +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+	                            +"</div>";
+	                }
+	                $(".uploadedList").append(str);
+	
+	            }
+	        });
+		}
+	
+        
+	
     });
 
     $(".uploadedList").on("click", "small", function(event){
 
         var that = $(this);
         console.log("delete click");
-
+        
         var index = $.inArray($(this).attr("data-src"), attach);
         attach.splice(index, 1);
         console.log("삭제 한 뒤의 어테치 : "+attach);
 
-
+        
         $.ajax({
             url:"http://14.32.66.127:4000/sboard/deleteFile",
             type:"post",
@@ -923,7 +939,7 @@
                 }
             }
         });
-
+                
     });
 
 
@@ -938,7 +954,7 @@
         });
 
         that.append(str);
-        console.log("str값은?????:" + str);
+		console.log("str값은?????:" + str); 
         //that.get(0).submit();
     });
 
@@ -973,6 +989,7 @@
     }
 </script>
 <!-------- 파일첨부기능 끝 -------->
+
 
 </body>
 </html>
