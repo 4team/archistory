@@ -500,8 +500,8 @@ $("#loginBtn").on("click",function(){
 
  <!-- Core JavaScript Files -->
 
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
+	<script src="/js/gnmenu.js"></script>
+	<script src="/js/jquery.scrollTo.js"></script>
     
     
 </body>
