@@ -502,6 +502,7 @@ $("#loginBtn").on("click",function(){
 
 	<script src="/js/gnmenu.js"></script>
 	<script src="/js/jquery.scrollTo.js"></script>
+	<script src="/js/custom.js"></script>
     
     
 </body>
