@@ -410,7 +410,7 @@
     // 이벤트 생성 버튼 클릭
     var attach = new Array();
     var attach2;
-
+    var qJson;
 
     $("#createEventBtn").on("click",function(){
 
@@ -438,35 +438,6 @@
 
     });
 
-    
-    
-    function clearQuestionDiv(){
-
-        $("#questionTitle").val("");
-        $("#qType").val("");
-        $("#s1").val("");
-        $("#s2").val("");
-        $("#s3").val("");
-        $("#s4").val("");
-
-        for(var i=1;i<5;i++) {
-
-            var id = "#multipleAnswer";
-            var multi = id+i;
-            var oxid ="#oxAnswer";
-            var ox =oxid+i;
-
-            if ($(multi).is(":checked")) {
-                $(multi).attr("checked",false);
-            }
-
-            if($(ox).is(":checked")){
-                $(ox).attr("checked",false);
-            }
-        }
-    }
-
-    var qJson;
 
     function makeQuestion(){
         var qfilter = new Array();
@@ -532,6 +503,32 @@
         });
 
 
+    }
+    
+    function clearQuestionDiv(){
+
+        $("#questionTitle").val("");
+        $("#qType").val("");
+        $("#s1").val("");
+        $("#s2").val("");
+        $("#s3").val("");
+        $("#s4").val("");
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                $(multi).attr("checked",false);
+            }
+
+            if($(ox).is(":checked")){
+                $(ox).attr("checked",false);
+            }
+        }
     }
     
     
