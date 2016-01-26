@@ -373,7 +373,6 @@
     function addMarker(event){
     	
     	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
-    	console.log(linePath);
         var marker = new daum.maps.Marker({
             title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
             position: new daum.maps.LatLng(event.lat,event.lng)
@@ -437,8 +436,8 @@
 
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
-    	
 		eventno=1;
+		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
             eventLi="";
