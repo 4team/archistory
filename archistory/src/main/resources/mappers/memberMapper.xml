@@ -26,7 +26,7 @@
 		delete from tbl_member where memberNo=#{memberNo}
 	</delete>
 	
-	<select id="getUser">
+	<select id="getUser" resultType="org.kkamnyang.domain.MemberVO">
 		select * from tbl_member where email = #{email}
 	</select>
 	
