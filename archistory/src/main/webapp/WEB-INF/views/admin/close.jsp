@@ -34,6 +34,27 @@
 	    margin-left:5px;
 	    margin-top:5px;
     }
+    
+    
+     #upper-login{
+        	padding:5px;
+       		position:absolute;
+        	z-index:100;
+        	right: 10px;
+        	top:5px;
+        }
+        
+    #adminInfo{
+	   		position:absolute;
+	   		display:none;
+	   		background-color:#FFF;
+	   		top:35px;
+	   		right:6px;
+	   		text-align:center;
+	   		z-index:400;
+	   		width:100px;
+	   		height:70px;
+	   	}
     </style>
 
 	
@@ -42,8 +63,21 @@
 <script src="/Cesium/js/jquery.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjUYVhsr-9THi7kQIHS0azuS10hUB75AU"></script>
 
+<div id="upper-login">
+	<button type="button" id="myInfo" data-src="${adminno}" class="btn btn-primary btn-xs"><font face="verdana" size="2" >${name}님</font></button>
+	<ul id="adminInfo">
+  	 	<li><a id="myInfo">My Info</a></li>
+    	<li><a href="/admin/logout">Logout</a></li>
+    </ul>
+</div>
+
 <div id="closeMap"></div>
 <div id="status">이곳에 루트를 생성! (Click)</div>
+
+
+
+
+
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
