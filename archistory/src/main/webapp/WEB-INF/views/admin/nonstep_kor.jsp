@@ -567,9 +567,11 @@
                 getEventList();
                 console.log("eventno:"+data);
                                 
-                makeQuestion(data);
-                createQuestion(qJson);
-            }
+                	if(($("#questionTitle").val())!== null){
+                		makeQuestion(data);
+		                createQuestion(qJson);
+		            }
+                }
         });
         callback();
     };
