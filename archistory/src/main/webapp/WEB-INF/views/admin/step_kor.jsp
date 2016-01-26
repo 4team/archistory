@@ -367,7 +367,7 @@
 	//{font-family:'Nanum Gothic', sans-serif;}
     function addMarker(event){
     	
-    	polyline.push(new daum.maps.LatLng(event.lat,event.lng));
+    	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
     	
         var marker = new daum.maps.Marker({
             title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
