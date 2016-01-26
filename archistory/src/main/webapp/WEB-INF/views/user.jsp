@@ -107,8 +107,11 @@ z-index:9999;
                 <h4 class="modal-title">Do you wanna travel this route?</h4>
             </div>
             <div class="modal-body">
-            <a href="#yes" class="btn btn-skin" id="yes">YES</a>
-            <a href="#no" class="btn btn-skin" id="no">NO</a>
+           
+				<h5 class="modal-title" id="yesNo">
+                    <ul></ul>
+                </h5>
+                
             </div>
             <div class="modal-footer">
             </div>
@@ -158,15 +161,28 @@ var routeLi = "";
 	       var select = $(this);
 	       var routeno = parseInt(select.attr("data-routeno"));
 	      
+	       questionModal(select);
 	       $("#yesModal").modal('show');
-	       //editRoute(select);
 	    });
   
-  
-    $("#yes").on("click", function(event){
-	  
-  });    
-   
+    function questionModal(select){
+        var questionModal =   "<li>" + select.attr("data-routename")+
+        "<a href='#yes' class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        "<a href='#no' class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a></li>";
+
+        $("#yesNo").html(questionModal);
+    }
+/* 
+    $("#yesNo").on("click","#yes",function(){
+        var icon= $(this);
+        console.log(icon.attr("value"));
+        viewRoute(icon.attr("value"));
+    });
+    
+    $("#yesNo").on("click","#no",function(){
+        $("#yesModal").modal('hide');
+    }); */
+    
 </script>
 
 </body>
