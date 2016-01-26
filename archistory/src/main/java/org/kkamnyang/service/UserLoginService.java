@@ -22,7 +22,7 @@ public class UserLoginService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		System.out.println("[USER 로그인 시도] - loadUserByUsername");
+		System.out.println("[USER 로그인 시도] - loadUserByUsername"+email+"<메일주소");
 		OurUserDetails user = null;
 		StandardPasswordEncoder encoder = new StandardPasswordEncoder();
 		
@@ -31,6 +31,7 @@ public class UserLoginService implements UserDetailsService {
 			System.out.println("호출된 MemberVO : "+vo);
 			user = new OurUserDetails(vo.getMemberNo(),vo.getUserName(),vo.getEmail(),encoder.encode(vo.getmPassword()),vo.getImg(),vo.getUserNo());
 		}catch(Exception e){
+			e.printStackTrace();
 			System.out.println("계정이 없는 Member의 로그인 시도였다.");
 			return null;
 		}
