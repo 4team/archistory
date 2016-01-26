@@ -5,7 +5,7 @@
  
  <mapper namespace="org.kkamnyang.persistence.EventMapper">
 
- 	<insert id="create">
+ 	<insert id="create" useGeneratedKeys="true" keyProperty="eventno">
  		insert into tbl_event(routeno,title,content,lat,lng,img,video,camera,camMessage,eorder)
  		 values
  		 (#{routeno},#{title},#{content},#{lat},#{lng},#{img},#{video},#{camera},#{camMessage},#{eorder})
@@ -34,7 +34,7 @@
  	</delete>
  	
  	
- 	<insert id="addAttach" useGeneratedKeys="true" keyProperty="eventno">
+ 	<insert id="addAttach">
 		insert into tbl_eattach(efullName,eventNo)
 		values(#{efiles},LAST_INSERT_ID())
 	</insert>
