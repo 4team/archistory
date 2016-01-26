@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>= Archistory(USER) = StepMode </title>
+    <title>= Archistory(USER) = NonStepMode </title>
 </head>
 <style>
     html, body {
