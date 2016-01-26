@@ -14,7 +14,6 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		return session.selectList(namespace+".elist",routeno);
 	}
 
-	@Transactional
 	@Override
 	public void attachCreate(EventVO vo) throws Exception{
 		try{
@@ -37,7 +36,6 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		return session.selectList(namespace + ".getAttach", eventno);
 	}
 
-	@Transactional
 	@Override
 	public void attachModify(EventVO vo) throws Exception{
 		System.out.println("[EventController]업데이트 어테치!!");
