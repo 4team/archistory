@@ -6,8 +6,24 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 <http security="none" pattern="/sboard/*">
 </http>
 
-	<http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
+	<http pattern="/user/*" auto-config="true" use-expressions="true" authentication-manager-ref="userLoginManager">
+		<intercept-url pattern="/user/login" access="permitAll"/>
+		<intercept-url pattern="/user/logout" access="permitAll"/>
+		
+		<form-login login-page="/" username-parameter="email"
+		password-parameter="password" login-processing-url="/user/login_process"
+		default-target-url="/user/login" authentication-failure-url="/"
+		always-use-default-target='true'/>
+				
+			<logout logout-url="/user/logout" logout-success-url="/" delete-cookies="true"/>
+			  <csrf disabled="true"/>
+	</http>
+	
+	
+	<http auto-config="true" use-expressions="true" authentication-manager-ref="adminLoginManager">
+			<intercept-url pattern="/admin/login" access="permitAll"/>
+		<intercept-url pattern="/admin/logout" access="permitAll"/>
+		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		
 		
 		<form-login login-page="/" username-parameter="email"
@@ -24,19 +40,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		</session-management>
 		
 	</http>
-
-<!-- <http pattern="/user/**" auto-config="true" use-expressions="true">
-
-	<intercept-url pattern="/user/login" access="permitAll"/>
 	
-	<form-login login-page="/" username-parameter="email"
-	password-parameter="password" login-processing-url="/user/login_process"
-	default-target-url="/user/login" authentication-failure-url="/"
-	always-use-default-target='true'/>
-			
-		<logout logout-url="/user/logout" logout-success-url="/" delete-cookies="true"/>
-		  <csrf disabled="true"/>
-</http> -->
 
 	<beans:bean id="loginSuccessHandler"
 		class="org.kkamnyang.persistence.LoginSuccessHandler"></beans:bean>
@@ -52,11 +56,13 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
-	<authentication-manager>
+	<authentication-manager id="adminLoginManager">
 		<authentication-provider user-service-ref="loginServiceUserDetails">
 			<password-encoder ref="encoder" />
 		</authentication-provider>
-		
+	</authentication-manager>
+	
+	<authentication-manager id="userLoginManager">
 		<authentication-provider user-service-ref="ourUserDetails">
 			<password-encoder ref="encoder" />
 		</authentication-provider>
