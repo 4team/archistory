@@ -394,7 +394,7 @@
     }
 
     
-    // InfoWindow와 관련된 부분
+   		 // InfoWindow와 관련된 부분
         function showInfo(marker){
         // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
         var iwContent = '<div style="padding:5px;">'+ marker.wd +'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
