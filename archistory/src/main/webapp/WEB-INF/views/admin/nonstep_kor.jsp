@@ -566,6 +566,7 @@ pageEncoding="UTF-8"%>
         $("#eventName").val("");
         $("#eventinfo").val("");
         $(".uploadedList").html("");
+        $("#qCheck").checked("false");
         attach=[];
     }
 
