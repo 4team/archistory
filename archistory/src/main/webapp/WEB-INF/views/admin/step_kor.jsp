@@ -724,7 +724,7 @@
 	        console.log(filetypeArr[arrNum-1]);
 	        
 	        var formData = new FormData();
-
+	        formData.enctype="multipart/form-data";
 	        formData.append("file", file);
 	        formData.append("filename", filename);
 	        formData.append("routeno",routeno);
