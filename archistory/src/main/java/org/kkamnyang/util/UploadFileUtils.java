@@ -154,7 +154,7 @@ return uploadedFileName;
 	  System.out.println("FileTyep : "+ filetype);
 	  makeDir("C:\\archistory","C:\\archistory"+File.separator+category,"C:\\archistory"+File.separator+category+File.separator+route,"C:\\archistory"+File.separator+category+File.separator+route+File.separator+filetype);
 
-	  return uploadpath+File.separator+category+File.separator+route+File.separator+filetype;
+	  return File.separator+category+File.separator+route+File.separator+filetype;
     
   }
   
