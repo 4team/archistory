@@ -566,7 +566,9 @@ pageEncoding="UTF-8"%>
         $("#eventName").val("");
         $("#eventinfo").val("");
         $(".uploadedList").html("");
-        $("#qCheck").checked("false");
+        
+        $("#qCheck").attr('checked', false) ;
+        //$("#questionDiv").hide();
         attach=[];
     }
 
@@ -716,6 +718,7 @@ pageEncoding="UTF-8"%>
     // map 클릭하면
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         clearEventDiv();
+        
         clearQuestionDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
