@@ -493,13 +493,14 @@ $("#loginBtn").on("click",function(){
     
     // 로그인타입에 따른 폼 액션 바꾸기
     $("#userLogin").on("click",function(){
-        $("#loginForm").action = "/user/login";
-        console.log($("#loginForm"));
+        $("#loginForm")[0].action = "/user/login";
+        console.log($("#loginForm")[0]);
     });
     
     $("#adminLogin").on("click",function(){
-        $("#loginForm").action = "/admin/login";
-        console.log($("#loginForm"));
+        $("#loginForm")[0].action = "/admin/login";
+        
+        console.log($("#loginForm")[0]);
     });
     
     
