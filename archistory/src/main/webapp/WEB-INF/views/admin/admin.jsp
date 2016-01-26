@@ -413,7 +413,7 @@ var adminno = ${adminno};
     viewer.scene.moon = undefined;
     viewer.scene.skyAtmosphere.destroy();
     viewer.scene.skyAtmosphere = undefined;
-    viewer.scene.backgroundColor = new Cesium.Color(1,0.8,0.8,0.0);
+    viewer.scene.backgroundColor = new Cesium.Color(1,0.7,0.7,0.0);
     
     var cartographic = new Cesium.Cartographic();
     var cartesian = new Cesium.Cartesian3();
