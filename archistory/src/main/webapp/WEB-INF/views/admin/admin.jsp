@@ -449,7 +449,6 @@ $("#myLocation").on("click",function(){
 
     function success(position) {
     	 stopAround();
-        console.log(position);
         viewer.camera.flyTo({
             destination: Cesium.Cartesian3.fromDegrees(
                     position.coords.longitude,
@@ -491,7 +490,6 @@ function addMarker(route){
 
 $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
     var list = $(data);
-    console.log(data);
     list.each(function(idx,value){
         var route = this;
         addMarker(route);
@@ -512,7 +510,6 @@ $("#main").on("mouseover",function(){
 
 	
 	$("#myInfo").on("click",function(){
-		console.log("ADMIN NO : " + adminno);
 	});
 	
 	
@@ -592,10 +589,8 @@ $("#main").on("mouseover",function(){
 
 		    function viewRoute(routeno){
 		            $.getJSON("http://14.32.66.127:4000/route/view?routeno="+routeno,function(data){
-		                console.log("루트 넘버:"+routeno+"읽어오기");
 
 		                var vo = $(data);
-		                console.log(vo);
 
 		                if(vo.attr("step")==true){
 		                    var $form = $('<form></form>');
@@ -650,7 +645,6 @@ $("#main").on("mouseover",function(){
 		    function removeRoute(routeno,callback){
 
 		        console.log("루트 삭제" + routeno);
-		        console.log(getMetaContentByName('_csrf'));
 
 		        $.ajax({
 		            type:"post",
@@ -693,7 +687,6 @@ $("#main").on("mouseover",function(){
 		    $("#plus").on("click",function(){
 	    		    
 		    	++i;
-		    	console.log("i:"+i);
 		                
 		    	contents= "<tr id='tr"+i+"'>"
 		            +"<td><input type='text' class='form-control' id='number"+i+"' placeholder='Number'></td>"
