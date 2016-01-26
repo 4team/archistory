@@ -647,28 +647,42 @@ pageEncoding="UTF-8"%>
             var vo = $(data);
             console.log(vo);
 
-            $("#moquestionTitle").val(vo.attr("question"));
-            $("#moqType").val(vo.attr("qtype"));
-
-            if(vo.attr("qtype")=="multiple"){
-                for (var i=1; i<5; i++){
-                    var id="#mos";
-                    var multi = id+i;
-                    var choice="choice";
-                    var multi2 = choice+i;
-                    $(multi).val(vo.attr(multi2));
-                    
-                    console.log(vo.attr("answer"));
-
-                    if(i==vo.attr("answer")){
-                        var answerId = "#momultipleAnswer"+i;
-                        $(answerId).attr("checked","true");
-                    }
-                }
-            }
-
-            if('o'==vo.attr("answer")){
-                $("#mooxAnswer1").attr("checked","true");
+            if(!vo){
+            	console.log("문제 없음.");
+            	$("#moqCheck").attr("checked","false");
+            	$("#moquestionDiv").hide();
+            	
+            }else{
+	            $("#moquestionTitle").val(vo.attr("question"));
+	            $("#moqType").val(vo.attr("qtype"));
+	
+	            if(vo.attr("qtype")=="multiple"){
+	            	
+	            	$("#mooxAnswerbox").hide();
+	                $("#moselectBox").show();
+	            	
+	            	
+	                for (var i=1; i<5; i++){
+	                    var id="#mos";
+	                    var multi = id+i;
+	                    var choice="choice";
+	                    var multi2 = choice+i;
+	                    $(multi).val(vo.attr(multi2));
+	                    
+	                    console.log("answer:"+vo.attr("answer"));
+	
+	                    if(i==vo.attr("answer")){
+	                        var answerId = "#momultipleAnswer"+i;
+	                        $(answerId).attr("checked","true");
+	                    }
+	                }
+	            }
+	
+	            if('o'==vo.attr("answer")){
+	                $("#mooxAnswer1").attr("checked","true");
+	                $("#moselectBox").hide();
+	                $("#mooxAnswerbox").show();
+	            }
             }
 
         });
