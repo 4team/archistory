@@ -433,6 +433,7 @@
     })();
 
     getEventList(function(){
+    	console.log("getEventList의 콜백에 들어옴.");
     	
     	// 지도에 표시할 선을 생성합니다
     	var polyline = new daum.maps.Polyline({
@@ -445,11 +446,14 @@
     	
     	polyline.setMap(map);
     	console.log(linePath);
+    	
     });
 
 /*     <!-- 이벤트 리스트 불러오기--> */
 
     function getEventList(callback){
+    	console.log("getEventList가 호출되어 시작됨.");
+    	
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
 			eventno=1;
             var list = $(data);
