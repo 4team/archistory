@@ -21,7 +21,7 @@ function getFileInfo(fullName){
 		getLink = "http://14.32.66.127:4000/displayFile?fileName="+front + end;
 		
 	}else{
-		imgsrc ="/resources/dist/img/file.png";
+		imgsrc ="/dist/img/file.png";
 		fileLink = fullName.substr(12);
 		getLink = "http://14.32.66.127:4000/displayFile?fileName="+fullName;
 	}
