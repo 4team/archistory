@@ -23,6 +23,7 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		eventno = session.insert(namespace + ".create", vo);
 		
 		vo.setEventno(eventno);
+		System.out.println(eventno);
 		String efiles = vo.getEfiles();
 		
 			if (efiles.equals("")) {
