@@ -583,10 +583,11 @@ pageEncoding="UTF-8"%>
         	var answer = "#momultipleAnswer";
         	var answeri = answer+i;
         	$(idi).val("");
-        	$(answeri).attr("checked","false");
+        	$(answeri).attr("checked",false);
     	}
-    	$("#mooxAnswer1").attr("checked","false");
-    	$("#mooxAnswer2").attr("checked","false");
+    	
+    	$("#mooxAnswer1").attr("checked",false);
+    	$("#mooxAnswer2").attr("checked",false);
 
     }
 
