@@ -170,18 +170,6 @@ var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니�
 // 마커 하나를 지도위에 표시합니다 
 addMarker(new daum.maps.LatLng(lat, lng));
 
-// 마커를 생성하고 지도위에 표시하는 함수입니다
-function addMarker(position) {
-    
-    // 마커를 생성합니다
-    var marker = new daum.maps.Marker({
-        position: position
-    });
-
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
-}
-
 function getEventList(callback){
 	console.log("getEventList가 호출되어 시작됨.");
 	eventno=1;
@@ -193,17 +181,26 @@ function getEventList(callback){
 
         list.each(function(idx,value){
             var event= this;
-            addList(event);
             addMarker(event);
             eventno++;
         });
         callback();
     });
-   
-    getEventList();
-
 }
 
+getEventList();
+
+//마커를 생성하고 지도위에 표시하는 함수입니다
+function addMarker(position) {
+    
+    // 마커를 생성합니다
+    var marker = new daum.maps.Marker({
+        position: position
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+}
 </script>
 
 </body>
