@@ -353,7 +353,6 @@
     
     var maplat = ${lat};
     var maplng = ${lng};
-
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 center: new daum.maps.LatLng(maplat, maplng), // 지도의 중심좌표
@@ -367,7 +366,7 @@
     var routeno = ${routeno};
     var eventLi="";
     var routename = ${routename};
-
+    $("#Rname").val(routename);
 
     $("#Rname").val(routename);	
 
@@ -401,7 +400,7 @@
                 "<span class='glyphicon glyphicon-remove' id='del' value='"+event.eventno+"'></span></div></li>";
 
         $("#eventList").html(eventLi);
-        $("#Rname").val(routename);
+    
 
     }
 
@@ -418,6 +417,7 @@
         var select = $(this);
         viewEvent(select.attr("value"));
         $("#modiModal").modal('show');
+        clearEventDiv();
     });
 
 
@@ -445,9 +445,7 @@
         });
         
         makeQuestion();
-        createQuestion(qJson,function(){
-        	
-        });
+        createQuestion(qJson);
 
 
         $("#eventModal").modal('hide');
@@ -530,7 +528,7 @@
     }
 
 
-    function createQuestion(qJson,callback){
+    function createQuestion(qJson){
 
         console.log("문제 생성 :"+qJson);
 
@@ -546,7 +544,6 @@
                 console.log("data:"+data);
             }
         });
-        callback();
 
 
     }
