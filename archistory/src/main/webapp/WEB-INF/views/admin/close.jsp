@@ -63,10 +63,6 @@
 <script src="/Cesium/js/jquery.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjUYVhsr-9THi7kQIHS0azuS10hUB75AU"></script>
 
-<div id="closeMap"></div>
-<div id="status">이곳에 루트를 생성! (Click)</div>
-
-
 <div id="upper-login">
 	<button type="button" id="myInfo" data-src="${adminno}" class="btn btn-primary btn-xs"><font face="verdana" size="2" >${name}님</font></button>
 	<ul id="adminInfo">
@@ -74,6 +70,11 @@
     	<li><a href="/admin/logout">Logout</a></li>
     </ul>
 </div>
+
+<div id="closeMap"></div>
+<div id="status">이곳에 루트를 생성! (Click)</div>
+
+
 
 
 
