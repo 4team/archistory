@@ -3,6 +3,7 @@ package org.kkamnyang.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.kkamnyang.domain.EventVO;
 import org.kkamnyang.service.EventService;
@@ -59,21 +60,15 @@ public class EventController {
 
 	
 	@RequestMapping(value="/attachCreate", method=RequestMethod.POST)
-	public ResponseEntity<String> attachCreate(@RequestBody EventVO vo) throws Exception{
+	public void attachCreate(@RequestBody EventVO vo,HttpServletResponse response) throws Exception{
 		System.out.println("["+vo.getTitle() + "] 이벤트 첨부파일생성 호출됨.=====");
 		System.out.println(vo);
-		
-		ResponseEntity<String> entity = null;
-		try{
-			service.attachCreate(vo);
-		/*	Integer nowEventno = vo.getEventno();
-			response.getWriter().print(nowEventno);
-			*/
-			entity = new ResponseEntity<String>("result",HttpStatus.OK);
-		}catch(Exception e){
-			entity = new ResponseEntity<String>("result",HttpStatus.BAD_REQUEST);
-		}
-		return entity;
+
+		service.attachCreate(vo);
+		Integer nowSequence = vo.getEventno();
+		response.getWriter().print(nowSequence);
+		System.out.println("이벤트 넘버:"+nowSequence);
+			
 	}
 	
 	

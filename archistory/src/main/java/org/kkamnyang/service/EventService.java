@@ -38,9 +38,9 @@ public class EventService {
 		mapper.delete(eventno);
 	}
 	
-	public void attachCreate(EventVO vo)throws Exception{
+	public int attachCreate(EventVO vo)throws Exception{
 		System.out.println("이벤서비스호출..");
-		mapper.attachCreate(vo);
+		return mapper.attachCreate(vo);
 	}
 	
 	public List<String> getAttach(Integer eventno)throws Exception{
