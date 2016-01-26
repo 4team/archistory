@@ -351,7 +351,6 @@
         }
     };
     
-    
     var maplat = ${lat};
     var maplng = ${lng};
 
@@ -727,7 +726,7 @@
 
     });
 
-
+ 
     $("#qCheck").on("click",function(){
         if(this.checked==true){
             $("#questionDiv").show();
