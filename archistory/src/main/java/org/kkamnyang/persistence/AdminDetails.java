@@ -18,7 +18,7 @@ public class AdminDetails implements UserDetails {
 		this.email = email;
 		this.name = name;
 		this.password = password;
-		this.authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
+		this.authorities = AuthorityUtils.createAuthorityList("ROLE_ADMIN");
 	}
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
