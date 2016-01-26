@@ -566,9 +566,11 @@
             success: function(data){
                 getEventList();
                 console.log("eventno:"+data);
-                                
-                	if(($("#questionTitle").val())!== null){
-                		makeQuestion(data);
+                makeQuestion(data);
+                
+                var json = JSON.parse(qJson);
+                	if( json.question !== null){
+                		
 		                createQuestion(qJson);
 		            }
                 }
