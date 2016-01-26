@@ -27,7 +27,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		
 	</http>
 
-<http pattern="/user/*">
+<http pattern="/user/*"  use-expressions="true">
 	<intercept-url pattern="/user/login" access="permitAll"/>
 	<intercept-url pattern="/user/*" access="hasRole('ROLE_USER')"/>
 	
