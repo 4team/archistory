@@ -352,7 +352,7 @@
     var routeno = ${routeno};
     var eventLi="";
     var routename = ${routename};
-    var qEventno=0;
+  
     
     $("#Rname").val(routename);
 
@@ -429,8 +429,6 @@
             console.log("attach2:" + attach2);
             clearEventDiv();
             attach = [];
-            qEventno = data;
-            console.log(qEventno);
         });
         
         makeQuestion();
@@ -442,7 +440,7 @@
     });
 
 
-    function makeQuestion(){
+    function makeQuestion(data){
         var qfilter = new Array();
         qfilter[0]="eventno";
         qfilter[1]="question";
@@ -456,8 +454,7 @@
 
         var qObject = new Object();
 
-        console.log(qEventno);
-        qObject.eventno = qEventno;
+        qObject.eventno = data;
         qObject.question = $("#questionTitle").val();
         qObject.point = 500;
         qObject.qtype = $("#qType").val();
@@ -574,7 +571,9 @@
             success: function(data){
                 getEventList();
                 console.log("eventno:"+data);
-                return data;
+                                
+                makeQuestion(data);
+                createQuestion(qJson);
             }
         });
         callback();
