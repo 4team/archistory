@@ -77,7 +77,7 @@
         }
         
          #myRouteList{
-         display:none;
+         	display:none;
             position:absolute;
             padding: 10px;
             z-index:400;
@@ -193,7 +193,8 @@
    		 
 	   	#adminInfo{
 	   		position:absolute;
-	   		padding:0px;
+	   		border-radius : 10px;
+	   		padding:2px;
 	   		text-align:center;
 	   		border:1px solid;
 	   		display:none;
