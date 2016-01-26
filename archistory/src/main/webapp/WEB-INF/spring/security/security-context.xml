@@ -7,9 +7,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 </http>
 
 	<http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/admin/login_duplicate" access="permitAll" />
-		<intercept-url pattern="/admin/login" access="permitAll" />
-		<!-- <intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" /> -->
+		<intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
 		
 		
 		<form-login login-page="/" username-parameter="email"
@@ -28,7 +26,6 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	</http>
 
 <http pattern="/user/*"  use-expressions="true">
-	<intercept-url pattern="/user/login" access="permitAll"/>
 	<intercept-url pattern="/user/*" access="hasRole('ROLE_USER')"/>
 	
 	<form-login login-page="/" username-parameter="email"
