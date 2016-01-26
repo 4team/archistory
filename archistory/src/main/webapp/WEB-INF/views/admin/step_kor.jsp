@@ -725,7 +725,8 @@
 	        
 	        var formData = new FormData();
 
-	        formData.append("file", file)
+	        formData.append("file", file);
+	        formData.append("fileName", filename);
 	        formData.append("routeno",routeno);
 	        
 	        if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
