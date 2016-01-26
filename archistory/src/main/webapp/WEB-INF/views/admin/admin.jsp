@@ -193,6 +193,7 @@
    		 
 	   	#adminInfo{
 	   		position:absolute;
+	   		padding:0px;
 	   		display:none;
 	   		background-color:#FFF;
 	   		top:35px;
