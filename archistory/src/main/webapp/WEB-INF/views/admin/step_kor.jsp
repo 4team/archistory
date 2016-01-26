@@ -73,6 +73,8 @@
         float:left;
     }
     #moorder{
+        padding:0px;
+    	text-align:center;
         width:33px;
         height:33px;
         float:left;
