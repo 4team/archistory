@@ -707,7 +707,7 @@ pageEncoding="UTF-8"%>
 		                $("#mooxAnswerbox").show();
 		            } //ox중 o일때
 		            
-		            else{
+		            if('x'==vo.attr("answer")){
 		            	    $("#mooxAnswer2").attr("checked",true);
 			                $("#moselectBox").hide();
 			                $("#mooxAnswerbox").show();
