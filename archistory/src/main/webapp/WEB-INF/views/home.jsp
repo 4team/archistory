@@ -499,6 +499,7 @@ $("#loginBtn").on("click",function(){
     
     $("#adminLogin").on("click",function(){
         $("#loginForm")[0].action = "/admin/login";
+        
         console.log($("#loginForm")[0]);
     });
     
