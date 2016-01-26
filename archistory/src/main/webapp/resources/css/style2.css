@@ -470,12 +470,12 @@ input.gn-search:focus {
 	color: #fff;
 	line-height: 1.1em;
 	margin-bottom: 20px;
-	 font-size: 40px;
+	 font-size: 10%;
 }
 .intro .slogan p {
 	color: #eee;
 	margin-bottom: 50px;
-	font-size: 20px;
+	font-size: 5%;
 }
 
 

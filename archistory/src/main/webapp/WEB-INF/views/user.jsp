@@ -172,7 +172,7 @@ var routeLi = "";
 
         $("#yesNo").html(questionModal);
     }
-/* 
+
     $("#yesNo").on("click","#yes",function(){
         var icon= $(this);
         console.log(icon.attr("value"));
@@ -181,8 +181,46 @@ var routeLi = "";
     
     $("#yesNo").on("click","#no",function(){
         $("#yesModal").modal('hide');
-    }); */
+    });
     
+    
+    function viewRoute(routeno){
+        $.getJSON("http://192.168.0.36:8080/route/view?routeno="+routeno,function(data){
+            console.log("루트 넘버:"+routeno+"읽어오기");
+
+            var vo = $(data);
+            console.log(vo);
+
+            if(vo.attr("step")==true){
+                var $form = $('<form></form>');
+                $form.attr('action', '/admin/step_kor');
+                $form.attr('method', 'post');
+                $form.appendTo('body');
+                
+                var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
+                var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
+                var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
+                
+                $form.append(a1).append(a2).append(a3);
+                $form.submit();
+            	
+             }else{
+            	 
+            	 var $form = $('<form></form>');
+                 $form.attr('action', '/admin/nonstep_kor');
+                 $form.attr('method', 'post');
+                 $form.appendTo('body');
+                 
+                 var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
+                 var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
+                 var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
+                 
+                 $form.append(a1).append(a2).append(a3);
+                 $form.submit();
+             }
+        });
+}
+
 </script>
 
 </body>
