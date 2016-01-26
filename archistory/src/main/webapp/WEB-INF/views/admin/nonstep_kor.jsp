@@ -585,6 +585,8 @@ pageEncoding="UTF-8"%>
         	$(idi).val("");
         	$(answeri).attr("checked","false");
     	}
+    	$("#mooxAnswer1").attr("checked","false");
+    	$("#mooxAnswer2").attr("checked","false");
 
     }
 
