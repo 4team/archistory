@@ -352,7 +352,8 @@
     var routeno = ${routeno};
     var eventLi="";
     var routename = ${routename};
-    var qEventno;
+    var qEventno=0;
+    
     $("#Rname").val(routename);
 
 
@@ -454,6 +455,7 @@
 
         var qObject = new Object();
 
+        console.log(qEventno);
         qObject.eventno = qEventno;
         qObject.question = $("#questionTitle").val();
         qObject.point = 500;
@@ -572,7 +574,7 @@
                 getEventList();
                 console.log("eventno:"+data);
                 qEventno = data;
-                
+                console.log("이벤트 넘버:"+qEventno);
             }
         });
         callback();
