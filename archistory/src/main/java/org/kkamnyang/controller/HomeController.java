@@ -3,8 +3,10 @@ package org.kkamnyang.controller;
 import java.util.Locale;
 
 import org.kkamnyang.domain.RouteVO;
+import org.kkamnyang.service.RouteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,10 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 * @throws Exception 
 	 */
+	
+	@Autowired
+	RouteService route;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -37,7 +43,6 @@ public class HomeController {
 		
 		return "user";
 	}
-/*
 	
 	@RequestMapping(value = "/userStep")
 	public ModelAndView stepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng, Model model) throws Exception{
@@ -46,8 +51,7 @@ public class HomeController {
 		ModelAndView view = new ModelAndView();
 		
 		view.addObject("routeno", routeno);
-	
-		
+			
 		try{
 			RouteVO vo = route.view(routeno);
 			System.out.println(vo.toString());
@@ -61,7 +65,7 @@ public class HomeController {
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		
-		view.setViewName("admin/step_kor");
+		view.setViewName("userStep");
 		
 		return view;
 	}
@@ -88,9 +92,8 @@ public class HomeController {
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
 		
-		view.setViewName("admin/nonstep_kor");
+		view.setViewName("userNstep");
 		
 		return view;
 	}
-	*/
 }

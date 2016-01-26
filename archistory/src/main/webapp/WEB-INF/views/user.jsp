@@ -183,7 +183,7 @@ var routeLi = "";
         $("#yesModal").modal('hide');
     });
     
-    
+  
     function viewRoute(routeno){
         $.getJSON("http://192.168.0.36:8080/route/view?routeno="+routeno,function(data){
             console.log("루트 넘버:"+routeno+"읽어오기");
@@ -193,7 +193,7 @@ var routeLi = "";
 
             if(vo.attr("step")==true){
                 var $form = $('<form></form>');
-                $form.attr('action', '/admin/step_kor');
+                $form.attr('action', '/userStep');
                 $form.attr('method', 'post');
                 $form.appendTo('body');
                 
@@ -207,7 +207,7 @@ var routeLi = "";
              }else{
             	 
             	 var $form = $('<form></form>');
-                 $form.attr('action', '/admin/nonstep_kor');
+                 $form.attr('action', '/userNstep');
                  $form.attr('method', 'post');
                  $form.appendTo('body');
                  
