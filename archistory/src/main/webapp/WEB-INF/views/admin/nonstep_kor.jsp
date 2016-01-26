@@ -429,7 +429,8 @@
             console.log("attach2:" + attach2);
             clearEventDiv();
             attach = [];
-            
+            qEventno = data;
+            console.log(qEventno);
         });
         
         makeQuestion();
@@ -573,8 +574,7 @@
             success: function(data){
                 getEventList();
                 console.log("eventno:"+data);
-                qEventno = data;
-                console.log("이벤트 넘버:"+qEventno);
+                return data;
             }
         });
         callback();
