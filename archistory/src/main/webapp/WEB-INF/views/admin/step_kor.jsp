@@ -356,6 +356,11 @@
     
     var events = [];
     
+   	
+   	
+	// 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+	var linePath = [];
+	
     //Daum Map marker와 관련된 것들.
     
      // 마커 이미지 생성성
@@ -397,6 +402,7 @@
     	
     	// 지도에 선을 표시합니다 
     	polyline.setMap(map);  
+    	console.log(linePath);
     }
 
     
@@ -419,10 +425,6 @@
 
     
    	//라인과 관련된
-   	
-   	
-	// 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-	var linePath = [];
 	
 	// 지도에 표시할 선을 생성합니다
 	var polyline = new daum.maps.Polyline({
@@ -452,7 +454,6 @@
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
 			eventno=1;
             var list = $(data);
-            console.log(list);
             eventLi="";
 
             list.each(function(idx,value){
