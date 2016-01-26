@@ -670,11 +670,11 @@ pageEncoding="UTF-8"%>
 
             if(!vo){
             	console.log("문제 없음.");
-            	$("#moqCheck").attr("checked","false");
+            	$("#moqCheck").attr("checked",false);
             	$("#moquestionDiv").hide();
             	
             }else{
-            	$("#moqCheck").attr("checked","true");
+            	$("#moqCheck").attr("checked",true);
             	$("#moquestionDiv").show();
 	            $("#moquestionTitle").val(vo.attr("question"));
 	            $("#moqType").val(vo.attr("qtype"));
@@ -696,13 +696,13 @@ pageEncoding="UTF-8"%>
 	
 	                    if(i==vo.attr("answer")){
 	                        var answerId = "#momultipleAnswer"+i;
-	                        $(answerId).attr("checked","true");
+	                        $(answerId).attr("checked",true);
 	                    }
 	                }
 	            }
 	
 	            if('o'==vo.attr("answer")){
-	                $("#mooxAnswer1").attr("checked","true");
+	                $("#mooxAnswer1").attr("checked",true);
 	                $("#moselectBox").hide();
 	                $("#mooxAnswerbox").show();
 	            }
