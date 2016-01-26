@@ -443,15 +443,11 @@
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
     })();
 
-    getEventList(function(){
-    	// 지도에 선을 표시합니다 
-    	polyline.setMap(map);  
-    	console.log(linePath);
-    });
+    getEventList();
 
 /*     <!-- 이벤트 리스트 불러오기--> */
 
-    function getEventList(callback){
+    function getEventList(){
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
 			eventno=1;
             var list = $(data);
@@ -464,7 +460,8 @@
                 eventno++;
             });
         });
-        callback();
+    	polyline.setMap(map);  
+    	console.log(linePath);
     }
 
 
