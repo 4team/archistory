@@ -66,6 +66,7 @@
         float: right;
     }
     #order{
+    	padding:0px;
         width:33px;
         height:33px;
         float:left;
