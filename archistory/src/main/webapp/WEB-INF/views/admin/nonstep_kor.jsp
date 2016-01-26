@@ -352,6 +352,7 @@
     var routeno = ${routeno};
     var eventLi="";
     var routename = ${routename};
+    var qEventno;
     $("#Rname").val(routename);
 
 
@@ -453,7 +454,7 @@
 
         var qObject = new Object();
 
-        qObject.eventno = 164;
+        qObject.eventno = qEventno;
         qObject.question = $("#questionTitle").val();
         qObject.point = 500;
         qObject.qtype = $("#qType").val();
@@ -569,7 +570,9 @@
             data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
             success: function(data){
                 getEventList();
-                console.log("data:"+data);
+                console.log("eventno:"+data);
+                qEventno = data;
+                
             }
         });
         callback();
