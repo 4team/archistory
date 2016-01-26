@@ -154,7 +154,7 @@
 
 
 <script>
-
+var markers = [];
 var lat = ${lat};
 var lng = ${lng};
 var routeno = ${routeno};
@@ -181,7 +181,6 @@ var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 function addMarker(event){
 
-linePath.push(new daum.maps.LatLng(event.lat,event.lng));
 var marker = new daum.maps.Marker({
     title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
     position: new daum.maps.LatLng(event.lat,event.lng)
@@ -197,28 +196,16 @@ function getEventList(){
 	
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
         var list = $(data);
-
+        eventLi="";
+        
         list.each(function(idx,value){
             var event= this;
-            addMarker(new daum.maps.LatLng(event));
+            addMarker(event);
         });
     });
 }
 
 getEventList();
-
-
-//마커를 생성하고 지도위에 표시하는 함수입니다
-function addMarker(position) {
- 
- // 마커를 생성합니다
- var marker = new daum.maps.Marker({
-     position: position
- });
-
- // 마커가 지도 위에 표시되도록 설정합니다
- marker.setMap(map);
-};
 
 
 </script>
