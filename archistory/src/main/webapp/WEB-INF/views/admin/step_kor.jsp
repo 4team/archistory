@@ -438,8 +438,8 @@
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
     	
+		eventno=1;
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
-			eventno=1;
             var list = $(data);
             eventLi="";
 
@@ -519,7 +519,7 @@
             return;
         }
 
-        createEvent(routeno, eorder, title, content, attach2, lat, lng, function () {
+        createEvent(routeno, eorder, title, content, attach2, lat, lng, function(){
             console.log("attach2:" + attach2);
             clearEventDiv();
         	attach = [];
