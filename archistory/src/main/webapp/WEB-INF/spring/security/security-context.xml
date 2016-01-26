@@ -27,6 +27,20 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		
 	</http>
 
+<http auto-config="true" use-expressions="true">
+	<intercept-url pattern="/user/login" access="permitAll"/>
+	<intercept-url pattern="/user/**" access="hasRole('ROLE_USER')"/>
+	
+	<form-login login-page="/" username-parameter="email"
+	password-parameter="password" login-processing-url="/user/login_process"
+	default-target-url="/user/login" authentication-failure-url="/"
+	always-use-default-target='true' authentication-details-source-ref="ourUserDetails" />
+			
+		<logout logout-url="/user/logout" logout-success-url="/" delete-cookies="true"/>
+		  <csrf disabled="true"/>
+	
+	
+</http>
 
 	<beans:bean id="loginSuccessHandler"
 		class="org.kkamnyang.persistence.LoginSuccessHandler"></beans:bean>
@@ -37,6 +51,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 
 	<beans:bean id="loginServiceUserDetails" class="org.kkamnyang.service.AdminLoginService"></beans:bean>
+	<beans:bean id="ourUserDetails" class="org.kkamnyang.service.UserLoginService"></beans:bean>
 	
 	<beans:bean id="encoder"
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />

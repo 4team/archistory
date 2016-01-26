@@ -21,7 +21,7 @@ public class LoginMapperImpl implements AuthenticationProvider {
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		
-		
+		System.out.println("LoginMapperImple의 파라미터로 들어오는 값은 : "+authentication);
 		int adminno = 99;
 		String useremail = (String)authentication.getPrincipal();
 		String name = authentication.getName();
