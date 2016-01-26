@@ -171,7 +171,7 @@ var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니�
 //addMarker(new daum.maps.LatLng(lat, lng));
 
 
-function getEventList(callback){
+function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
 	
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
