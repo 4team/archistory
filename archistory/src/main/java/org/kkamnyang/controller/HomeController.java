@@ -54,7 +54,7 @@ public class HomeController {
 			
 		try{
 			RouteVO vo = route.view(routeno);
-			System.out.println(vo.toString());
+			System.out.println("vovovovovovovo:" + vo.toString());
 			String routename = vo.getRoutename();
 			System.out.println("이벤트 생성페이지로 넘어갈 루트 네임 : "+routename);
 			view.addObject("routename", "\""+routename+"\"");

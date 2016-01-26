@@ -162,7 +162,7 @@ var lng = ${lng};
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
     center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
-    level: 2 // 지도의 확대 레벨
+    level: 3 // 지도의 확대 레벨
 };
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
