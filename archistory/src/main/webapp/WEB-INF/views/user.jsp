@@ -167,8 +167,8 @@ var routeLi = "";
   
     function questionModal(select){
         var questionModal =   "<li>" + select.attr("data-routename")+
-        "<a href='#yes' class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
-        "<a href='#no' class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
+        "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
 
         $("#yesNo").html(questionModal);
     }
