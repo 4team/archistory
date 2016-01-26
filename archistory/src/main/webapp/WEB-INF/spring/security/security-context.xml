@@ -27,7 +27,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		
 	</http>
 
-<http auto-config="true" use-expressions="true">
+<http pattern="/sboard/*">
 	<intercept-url pattern="/user/login" access="permitAll"/>
 	<intercept-url pattern="/user/*" access="hasRole('ROLE_USER')"/>
 	
@@ -38,8 +38,6 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 			
 		<logout logout-url="/user/logout" logout-success-url="/" delete-cookies="true"/>
 		  <csrf disabled="true"/>
-	
-	
 </http>
 
 	<beans:bean id="loginSuccessHandler"
