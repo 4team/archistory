@@ -487,21 +487,24 @@ $("#loginBtn").on("click",function(){
     // 15일 5:29분부터 추가..
     $("#user").on("click",function(){
         $("#adminJoinDiv").hide();
-
-        $("#loginForm").action = "/user/login";
-        console.log($("#loginForm"));
-        
         $("#userJoinDiv").show();
     });
     $("#admin").on("click",function(){
         $("#adminJoinDiv").show();
-        
-        $("#loginForm").action = "/admin/login";
-        console.log($("#loginForm"));
-        
         $("#userJoinDiv").hide();
     });
 
+    
+    // 로그인타입에 따른 폼 액션 바꾸기
+    $("#userLogin").on("click",function(){
+        $("#loginForm").action = "/user/login";
+        console.log($("#loginForm"));
+    });
+    
+    $("#adminLogin").on("click",function(){
+        $("#loginForm").action = "/admin/login";
+        console.log($("#loginForm"));
+    });
     
     
 </script>
