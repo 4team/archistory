@@ -215,8 +215,8 @@ pageEncoding="UTF-8"%>
                             </div>
                         </div>
                         <div id="oxAnswerbox" class="radio">
-                            <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o" checked> O </label>
-                            <label><input type="radio" name="optionsRadios" id="oxAnswer2" value="x" checked> X </label>
+                            <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o"> O </label>
+                            <label><input type="radio" name="optionsRadios" id="oxAnswer2" value="x"> X </label>
                         </div>
 
                     </div>
@@ -285,8 +285,8 @@ pageEncoding="UTF-8"%>
                         </div>
                     </div>
                     <div id="mooxAnswerbox" class="radio">
-                        <label><input type="radio" name="optionsRadios" id="mooxAnswer1" value="o" checked> O </label>
-                        <label><input type="radio" name="optionsRadios" id="mooxAnswer2" value="x" checked> X </label>
+                        <label><input type="radio" name="optionsRadios" id="mooxAnswer1" value="o"> O </label>
+                        <label><input type="radio" name="optionsRadios" id="mooxAnswer2" value="x"> X </label>
                     </div>
 
                 </div>
