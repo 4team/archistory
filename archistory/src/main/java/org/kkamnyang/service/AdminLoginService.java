@@ -41,7 +41,7 @@ public class AdminLoginService implements UserDetailsService{
 			
 			Collection<SimpleGrantedAuthority> roles = new ArrayList<SimpleGrantedAuthority>();
 			
-			roles.add(new SimpleGrantedAuthority("ROLE_USER"));
+			roles.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 			admin = new AdminDetails(adminno,useremail,name,encoder.encode(password));
 		} catch (Exception e) {
 			System.out.println("계정이 없는 ADMIN의 로그인 시도... LoginService(loadUserByUserName");
