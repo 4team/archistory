@@ -178,9 +178,9 @@
                         <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>                        
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
-<!--                        <label for="videoInput">동영상</label>
+                        <label for="videoInput">동영상</label>
                         <input type="file" id="videoInput">
-                        <div class="fileDrop"><h5 align="center";>여기에 동영상을 끌어오세요</h5></div>-->
+                        <div class="fileDrop"><h5 align="center";>여기에 동영상을 끌어오세요</h5></div>
                         
                         <label for="camera">카메라</label>
                         <input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
