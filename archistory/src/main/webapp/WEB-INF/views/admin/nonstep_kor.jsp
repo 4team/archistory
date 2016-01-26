@@ -654,7 +654,7 @@ pageEncoding="UTF-8"%>
             	
             }else{
             	$("#moqCheck").attr("checked","true");
-            	$("#moquestionDiv").hide();
+            	$("#moquestionDiv").show();
 	            $("#moquestionTitle").val(vo.attr("question"));
 	            $("#moqType").val(vo.attr("qtype"));
 	
