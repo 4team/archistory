@@ -336,6 +336,7 @@
 <span class="blink_me">${routename}</span>
 
 <script>
+    var markers = [];
     
     var maplat = ${lat};
     var maplng = ${lng};
@@ -352,6 +353,66 @@
     var eventLi="";
     var routename = ${routename};
     var eventno = 1;
+    
+    var events = [];
+    
+    //Daum Map marker와 관련된 것들.
+    
+     // 마커 이미지 생성성
+        var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+        var imageSize = new daum.maps.Size(24, 35);
+
+        var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
+
+	//{font-family:'Nanum Gothic', sans-serif;}
+    function addMarker(event){
+        var marker = new daum.maps.Marker({
+            title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
+            position: new daum.maps.LatLng(event.lat,event.lng)
+        });
+
+        marker.setMap(myMap);
+        markers.push(marker);
+
+        daum.maps.event.addListener(marker, 'mouseover', function () {
+            // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+            showInfo(marker);
+        });
+
+
+        daum.maps.event.addListener(marker, 'click', function(event) {
+            // 마커 위에 인포윈도우를 표시합니다
+            var position = marker.getPosition();
+            var roadviewClient = new daum.maps.RoadviewClient();
+
+            var panoId = roadviewClient.getNearestPanoId(position, 50, function(panoId) {
+                roadview.setPanoId(panoId, position);
+            });
+
+            roadview.setPanoId(panoId, position);
+        });
+    }
+
+    
+    // InfoWindow와 관련된 부분
+        function showInfo(marker){
+        // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
+        var iwContent = '<div style="padding:5px;">'+ marker.wd +'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new daum.maps.InfoWindow({
+            content: iwContent
+        });
+
+        infowindow.open(myMap, marker);
+
+        daum.maps.event.addListener(marker, 'mouseout', function() {
+            infowindow.close();
+        });
+    }
+
+    
+    
     
     $("#Rname").val(routename);	
     
@@ -381,7 +442,8 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(event){
-
+		addMarker(event);
+	
         eventLi+="<li>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
                 "<span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
 
