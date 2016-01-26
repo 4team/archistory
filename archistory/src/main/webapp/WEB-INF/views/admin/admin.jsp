@@ -200,7 +200,6 @@
 	   		display:none;
 	   		top:35px;
 	   		right:6px;
-	   		color:#aef;
 	   		text-align:left;
 	   		z-index:400;
 	   		width:100px;
