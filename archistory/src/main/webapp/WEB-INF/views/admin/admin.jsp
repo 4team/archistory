@@ -194,6 +194,7 @@
 	   	#adminInfo{
 	   		position:absolute;
 	   		padding:0px;
+	   		text-align:center;
 	   		border:1px solid;
 	   		display:none;
 	   		top:35px;
