@@ -176,13 +176,13 @@ public class UploadController {
 	  }
 	  
 	  @RequestMapping(value="evenMovieUpload", method=RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	  public ResponseEntity<String> movieUpload(@RequestParam("routeno") Integer routeno, MultipartFile filename) throws Exception{
+	  public ResponseEntity<String> movieUpload(@RequestParam("routeno") String routeno, MultipartFile filename) throws Exception{
 		  
 		  System.out.println("[동영상 업로드 호출] File Name : "+filename);
 		  
 		    return 
 		  	      new ResponseEntity<>(
-		  	          UploadFileUtils.uploadMovie(uploadPath+"\\event\\"+routeno+"\\movie", 
-		  	                filename.getOriginalFilename(), filename.getBytes()), HttpStatus.CREATED);
+		  	          UploadFileUtils.uploadMovie(uploadPath, 
+		  	                filename.getOriginalFilename(), filename.getBytes(),routeno), HttpStatus.CREATED);
 	  }
 }

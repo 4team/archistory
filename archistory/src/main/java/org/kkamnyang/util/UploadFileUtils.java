@@ -57,13 +57,13 @@ public class UploadFileUtils {
   
   public static String uploadMovie(String uploadPath, 
           String originalName, 
-          byte[] fileData)throws Exception{
+          byte[] fileData,String routeno)throws Exception{
 
 UUID uid = UUID.randomUUID();
 
 String savedName = uid.toString() +"_"+originalName;
 
-String savedPath = calcMoviePath(uploadPath);
+String savedPath = calcMoviePath(uploadPath,routeno);
 
 File target = new File(uploadPath +savedPath,savedName);
 
@@ -142,7 +142,6 @@ return uploadedFileName;
 //    
 //    logger.info(datePath);
 //    ㅏ
-	  System.out.println("ㅍㅏ일 세퍼레이터 "+File.separator);
 	  
 	  String category = "event";
 	  String route = routeno;
@@ -158,36 +157,19 @@ return uploadedFileName;
     
   }
   
-  private static String calcMoviePath(String uploadPath){
-	  int srcLenght = uploadPath.length();
-	  
-	  String meanPath = uploadPath.substring(14, srcLenght);
-	  System.out.println("의미있는 경로 : " + meanPath);
-	  
-	  String category = uploadPath.substring(14,19);
-	  
-	  int meanLength = meanPath.length();
-	  
-	  String removeCate = meanPath.substring(6, meanLength);
-	  
-	  int endIndex = removeCate.lastIndexOf("\\");
-	  
-	  String route = removeCate.substring(0, endIndex);
-	  System.out.println("루트 No : "+route);
-	  int first = removeCate.indexOf("\\");
-	  endIndex = removeCate.length();
-	  
-	  
-	  String filetype = removeCate.substring(first+1, endIndex);
-	  System.out.println("FileTyep : "+ filetype);
-	  
-	  System.out.println("remove Category Path : " + removeCate);
+  private static String calcMoviePath(String uploadPath,String routeno){
+	
+	  String category = "event";
+	  String filetype = "movie";
 	  
 	  System.out.println(uploadPath);
 	  System.out.println(category);
+	  System.out.println("루트 No : "+routeno);
+	  System.out.println("FileTyep : "+ filetype);
+	  
 
-	  makeDir("C:\\archistory",category,route,filetype);
-	  return "";
+	  makeDir("C:\\archistory",File.separator+category,File.separator+category+File.separator+routeno,File.separator+category+File.separator+routeno+File.separator+filetype);
+	  return "File.separator+category+File.separator+route+File.separator+filetype";
 	  
   }
   
