@@ -734,7 +734,8 @@
 	        
 	        var filetypeArr = filename.split('.');
 	        var arrNum = filetypeArr.length;
-	        console.log(filetypeArr[arrNum]);
+	        console.log(arrNum);
+	        console.log(filetypeArr[arrNum-1]);
 	        
 	        var formData = new FormData();
 
