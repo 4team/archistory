@@ -745,7 +745,7 @@
 	        if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
 	       		uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');	        
 	       		
-	        }else if(filetypeArr[arrNum-1]=="avi" || filetypeArr[arrNum-1]=="mpeg" || filetypeArr[arrNum-1]=="wmv"){
+	        }else if(filetypeArr[arrNum-1] == "avi" || filetypeArr[arrNum-1] == "mpeg" || filetypeArr[arrNum-1] == "wmv" || filetypeArr[arrNum-1] == "mp4"){
 	        	uploadImg(formData,'http://14.32.66.127:4000/evenMovieUpload');
 	        	
 	        }
