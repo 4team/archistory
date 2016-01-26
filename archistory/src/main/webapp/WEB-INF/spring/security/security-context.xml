@@ -9,13 +9,13 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/admin/login_duplicate" access="permitAll" />
 		<intercept-url pattern="/admin/login" access="permitAll" />
-		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+	<!-- 	<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" /> -->
 		
 		
 		<form-login login-page="/" username-parameter="email"
 			password-parameter="password" login-processing-url="/admin/login"
 			default-target-url="/admin/login_success" authentication-failure-url="/"
-			always-use-default-target='true' />
+			always-use-default-target='true' authentication-details-source-ref="loginServiceUserDetails" />
 			
 			<logout logout-url="/admin/logout" logout-success-url="/" delete-cookies="true"/>
 			  <csrf disabled="true"/>
