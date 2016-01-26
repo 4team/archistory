@@ -447,7 +447,11 @@
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
     })();
 
-    getEventList();
+    getEventList(function(){
+    	// 지도에 선을 표시합니다 
+    	polyline.setMap(map);  
+    	console.log(linePath);
+    });
 
 /*     <!-- 이벤트 리스트 불러오기--> */
 
@@ -460,13 +464,10 @@
             list.each(function(idx,value){
                 var event= this;
                 addList(event);
-        		addMarker(event);
+                
                 eventno++;
             });
         });
-    	// 지도에 선을 표시합니다 
-    	polyline.setMap(map);  
-    	console.log(linePath);
     }
 
 
