@@ -25,7 +25,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		
 	</http>
 
-<http pattern="/user/**" auto-config="true" use-expressions="true">
+<!-- <http pattern="/user/**" auto-config="true" use-expressions="true">
 
 	<intercept-url pattern="/user/login" access="permitAll"/>
 	
@@ -36,7 +36,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 			
 		<logout logout-url="/user/logout" logout-success-url="/" delete-cookies="true"/>
 		  <csrf disabled="true"/>
-</http>
+</http> -->
 
 	<beans:bean id="loginSuccessHandler"
 		class="org.kkamnyang.persistence.LoginSuccessHandler"></beans:bean>
