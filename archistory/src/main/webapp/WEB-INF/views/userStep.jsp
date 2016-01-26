@@ -181,7 +181,6 @@ function getEventList(){
             var event= this;
             addMarker(new daum.maps.LatLng(event));
         });
-        callback();
     });
 }
 
