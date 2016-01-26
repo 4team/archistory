@@ -371,7 +371,7 @@
             position: new daum.maps.LatLng(event.lat,event.lng)
         });
 
-        marker.setMap(myMap);
+        marker.setMap(map);
         markers.push(marker);
 
         daum.maps.event.addListener(marker, 'mouseover', function () {
@@ -404,7 +404,7 @@
             content: iwContent
         });
 
-        infowindow.open(myMap, marker);
+        infowindow.open(map, marker);
 
         daum.maps.event.addListener(marker, 'mouseout', function() {
             infowindow.close();
