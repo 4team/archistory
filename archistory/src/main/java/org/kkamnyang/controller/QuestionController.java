@@ -1,6 +1,8 @@
 package org.kkamnyang.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.kkamnyang.domain.QuestionVO;
 import org.kkamnyang.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/question/*")
@@ -36,8 +40,12 @@ public class QuestionController {
 		return entity;
 	}
 	
-	public QuestionVO view(Integer questionno)throws Exception{
-		return service.view(questionno);
+	@RequestMapping(value="/view", method=RequestMethod.GET)
+	public @ResponseBody QuestionVO view(@RequestParam("eventno") Integer eventno, HttpServletRequest request )throws Exception{
+		System.out.println("====문제 VIEW GET 호출됨.");
+		QuestionVO result = service.view(eventno);
+		System.out.println(result);
+		return result;
 	}
 	
 	public void modify(QuestionVO vo) throws Exception{

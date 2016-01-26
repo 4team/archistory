@@ -12,8 +12,8 @@ public class QuestionMapperImpl extends AbstractCRUDMapper<QuestionVO,Integer> i
 	}
 
 	@Override
-	public QuestionVO read(Integer questionno) throws Exception {
-		return session.selectOne(namespace+".read",questionno);
+	public QuestionVO read(Integer eventno) throws Exception {
+		return session.selectOne(namespace+".read",eventno);
 	}
 
 

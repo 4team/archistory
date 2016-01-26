@@ -16,8 +16,8 @@ public class QuestionService {
 		return mapper.create(vo);
 	}
 	
-	public QuestionVO view(Integer questionno) throws Exception{
-		return mapper.read(questionno);
+	public QuestionVO view(Integer eventno) throws Exception{
+		return mapper.read(eventno);
 	}
 	
 	

@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="read" resultType="org.kkamnyang.domain.QuestionVO">
-		select * from tbl_question where questionno=#{questionno}
+		select * from tbl_question where eventno=#{eventno}
 	</select>
 
 	<update id="update">
