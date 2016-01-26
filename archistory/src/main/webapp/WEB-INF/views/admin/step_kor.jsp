@@ -730,8 +730,9 @@
 		
 		for(var i = 0 ; i < num; i++){
 	        var file = files[i];
-	        console.log(file.name);
-	        var filetypeArr = file.split('.');
+	        var filename = file.name;
+	        
+	        var filetypeArr = filename.split('.');
 	        var arrNum = filetypeArr.length;
 	        console.log(filetypeArr[arrNum]);
 	        
