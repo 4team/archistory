@@ -465,9 +465,9 @@
                 addMarker(event);
                 eventno++;
             });
+            callback();
         });
-        
-        callback();
+       
 
     }
 
