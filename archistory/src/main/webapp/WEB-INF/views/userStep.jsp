@@ -155,17 +155,20 @@
 
 <script>
 
+var lat = ${lat};
+var lng = ${lng};
+
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
-    center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
     level: 2 // 지도의 확대 레벨
 };
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-
 // 마커 하나를 지도위에 표시합니다 
-addMarker(new daum.maps.LatLng(vo.attr("lat"), vo.attr("lng")));
+addMarker(new daum.maps.LatLng(lat, lng));
 
 // 마커를 생성하고 지도위에 표시하는 함수입니다
 function addMarker(position) {
