@@ -169,7 +169,7 @@ return uploadedFileName;
 	  
 
 	  makeDir("C:\\archistory",File.separator+category,File.separator+category+File.separator+routeno,File.separator+category+File.separator+routeno+File.separator+filetype);
-	  return "File.separator+category+File.separator+route+File.separator+filetype";
+	  return File.separator+category+File.separator+routeno+File.separator+filetype;
 	  
   }
   
