@@ -653,6 +653,7 @@ pageEncoding="UTF-8"%>
             	$("#moquestionDiv").hide();
             	
             }else{
+            	$("#moqCheck").attr("checked","true");
 	            $("#moquestionTitle").val(vo.attr("question"));
 	            $("#moqType").val(vo.attr("qtype"));
 	
