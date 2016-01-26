@@ -79,8 +79,8 @@
         width:420px;
     }
     .fileDrop {
-        width: 60%;
-        height: 60px;
+        width: 90%;
+        height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
         background-color: powderblue;
@@ -375,7 +375,7 @@
 
     getEventList();
 
-    <!-- 이벤트 리스트 불러오기-->
+/*     <!-- 이벤트 리스트 불러오기--> */
 
     function getEventList(){
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
@@ -393,7 +393,7 @@
     }
 
 
-    <!-- 이벤트 리스트 - 리스트 추가 -->
+/*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(event){
 
         eventLi+="<li>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
@@ -404,7 +404,7 @@
     }
 
 
-    <!-- 이벤트 리스트 삭제버튼 -->
+  /*   <!-- 이벤트 리스트 삭제버튼 --> */
     $("#eventList").on("click","#del",function(event){
         var select = $(this);
         removeEvent(select.attr("value"),function(){
@@ -412,7 +412,7 @@
         alert(select.attr("value")+"삭제되었습니다.");
     });
 
-    <!-- 이벤트 리스트 수정 버튼 -->
+/*     <!-- 이벤트 리스트 수정 버튼 --> */
     $("#eventList").on("click","#modi",function(event){
         var select = $(this);
         clearEventDiv();
@@ -421,7 +421,7 @@
     });
 
 
-    <!-- 이벤트 생성 버튼 클릭-->
+  /*   <!-- 이벤트 생성 버튼 클릭--> */
 	
     var attach = new Array();
 	var attach2;
@@ -447,7 +447,7 @@
         $("#eventModal").modal('hide');
     });
 
-    <!-- 이벤트 수정 버튼 클릭-->
+/*     <!-- 이벤트 수정 버튼 클릭--> */
 
     $("#modifyEventBtn").on("click",function(){
         var title = $("#moeventName").val();
@@ -472,7 +472,7 @@
     });
 
 
-    <!-- 이벤트 생성 기능 -->
+/*     <!-- 이벤트 생성 기능 --> */
     function createEvent(routeno,eorder,title,content,attach2,lat,lng,callback){
     	
         console.log(routeno,eorder,title,content,attach2,lat,lng);
@@ -493,7 +493,7 @@
     };
 
 
-    <!-- 이벤트 생성 창 비우기 기능-->
+/*     <!-- 이벤트 생성 창 비우기 기능--> */
     function clearEventDiv(){
         $("#eventName").val("");
         $("#eventinfo").val("");
@@ -501,7 +501,7 @@
         attach=[];
     }
 
-    <!-- 이벤트 읽기 기능 -->
+/*     <!-- 이벤트 읽기 기능 --> */
     function viewEvent(eventno){
     	$(".uploadedList").html("");
 	  var template2 = Handlebars.compile($("#template").html());
@@ -539,7 +539,7 @@
         
     }
 
-    <!-- 이벤트 삭제 기능 -->
+    /* <!-- 이벤트 삭제 기능 --> */
     function removeEvent(eventno,callback){
         console.log("이벤트 삭제"+eventno);
 
@@ -560,7 +560,7 @@
 
     }
 
-    <!-- 이벤트 수정 기능 -->
+    /* <!-- 이벤트 수정 기능 --> */
     function modifyEvent(eventno,eorder,title,content,attach2,lat,lng,callback){
 
         console.log("이벤트 수정"+eventno);
@@ -581,7 +581,7 @@
     }
 
 
-    <!--map 클릭하면-->
+ /*    <!--map 클릭하면--> */
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         clearEventDiv();
         lat= mouseEvent.latLng.Ab;
@@ -602,7 +602,7 @@
         });
 
     });
-    <!-- 이벤트 생성 모달(세부사항)-->
+/*     <!-- 이벤트 생성 모달(세부사항)--> */
 
     $("#search").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
@@ -642,9 +642,9 @@
         }
     });
 
-    <!-- END 이벤트 생성 모달-->
+/*     <!-- END 이벤트 생성 모달-->
 
-    <!-- 수정모달(세부사항) -->
+    <!-- 수정모달(세부사항) --> */
 
     $("#mosearch").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
