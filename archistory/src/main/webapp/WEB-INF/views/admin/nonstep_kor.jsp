@@ -566,9 +566,10 @@ pageEncoding="UTF-8"%>
         $("#eventName").val("");
         $("#eventinfo").val("");
         $(".uploadedList").html("");
-        
+       
         $("#qCheck").attr('checked', false) ;
         //$("#questionDiv").hide();
+
         attach=[];
     }
 
