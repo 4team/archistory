@@ -400,11 +400,7 @@
             roadview.setPanoId(panoId, position);
         });
     	
-    	// 지도에 선을 표시합니다 
-    	polyline.setMap(map);  
-    	console.log(linePath);
     }
-
     
    		// InfoWindow와 관련된 부분
         function showInfo(marker){
@@ -462,6 +458,9 @@
                 eventno++;
             });
         });
+    	// 지도에 선을 표시합니다 
+    	polyline.setMap(map);  
+    	console.log(linePath);
     }
 
 
