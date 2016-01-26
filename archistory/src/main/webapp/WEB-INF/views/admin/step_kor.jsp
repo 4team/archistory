@@ -731,7 +731,7 @@
 		for(var i = 0 ; i < num; i++){
 	        var file = files[i];
 	        console.log(file.name);
-	        String filetypeArr = file.split('.');
+	        var filetypeArr = file.split('.');
 	        var arrNum = filetypeArr.length;
 	        console.log(filetypeArr[arrNum]);
 	        
