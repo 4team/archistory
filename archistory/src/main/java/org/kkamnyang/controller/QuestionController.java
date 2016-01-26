@@ -1,6 +1,6 @@
 package org.kkamnyang.controller;
 
-import org.kkamnyang.domain.MemberVO;
+
 import org.kkamnyang.domain.QuestionVO;
 import org.kkamnyang.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class QuestionController {
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
 			System.out.println("========문제 등록 완료!!======");
 		}catch(Exception e){
-			entity = new ResponseEntity<String>("result_OK",HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
 		}
 		return entity;
 	}
