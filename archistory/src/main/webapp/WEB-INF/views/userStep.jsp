@@ -181,7 +181,6 @@ function getEventList(callback){
 
         list.each(function(idx,value){
             var event= this;
-            addList(event);
             addMarker(event);
             eventno++;
         });
