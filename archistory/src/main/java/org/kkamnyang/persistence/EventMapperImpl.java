@@ -15,15 +15,10 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 	}
 
 	@Override
-	public int attachCreate(EventVO vo) throws Exception{
-		
-		int eventno=0;
+	public void attachCreate(EventVO vo) throws Exception{
 		
 		try{
-		eventno = session.insert(namespace + ".create", vo);
 		
-		vo.setEventno(eventno);
-		System.out.println(eventno);
 		String efiles = vo.getEfiles();
 		
 			if (efiles.equals("")) {
@@ -36,11 +31,6 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
-		System.out.println("이벤트넘버:"+eventno);
-		return eventno;
-		
-		
 		
 	}
 

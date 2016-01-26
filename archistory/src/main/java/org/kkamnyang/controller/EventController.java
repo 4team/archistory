@@ -64,7 +64,10 @@ public class EventController {
 		System.out.println("["+vo.getTitle() + "] 이벤트 첨부파일생성 호출됨.=====");
 		System.out.println(vo);
 
+		
+		service.regist(vo);
 		service.attachCreate(vo);
+
 		Integer nowSequence = vo.getEventno();
 		response.getWriter().print(nowSequence);
 		System.out.println("이벤트 넘버:"+nowSequence);
