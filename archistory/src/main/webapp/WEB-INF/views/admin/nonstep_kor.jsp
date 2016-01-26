@@ -568,7 +568,7 @@ pageEncoding="UTF-8"%>
         $(".uploadedList").html("");
        
         $("#qCheck").attr('checked', false) ;
-        //$("#questionDiv").hide();
+        $("#questionDiv").hide();
 
         attach=[];
     }
