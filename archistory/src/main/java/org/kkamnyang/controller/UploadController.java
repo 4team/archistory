@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.IOUtils;
 import org.kkamnyang.util.MediaUtils;
 import org.kkamnyang.util.UploadFileUtils;
@@ -177,13 +179,13 @@ public class UploadController {
 	
 	  @ResponseBody
 	  @RequestMapping(value="evenMovieUpload", method=RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	  public ResponseEntity<String> movieUpload(@RequestParam("routeno") String routeno, MultipartFile filename) throws Exception{
-		  
-		  System.out.println("[동영상 업로드 호출] File Name : "+filename);
+	  public ResponseEntity<String> movieUpload(@RequestParam("routeno") String routeno, MultipartFile file,HttpServletRequest request) throws Exception{
+		  System.out.println(request.toString());
+		  System.out.println("[동영상 업로드 호출] File Name : "+file);
 		  
 		    return 
 		  	      new ResponseEntity<>(
 		  	          UploadFileUtils.uploadMovie(uploadPath, 
-		  	                filename.getOriginalFilename(), filename.getBytes(),routeno), HttpStatus.CREATED);
+		  	                file.getOriginalFilename(), file.getBytes(),routeno), HttpStatus.CREATED);
 	  }
 }
