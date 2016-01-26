@@ -158,6 +158,10 @@
 var lat = ${lat};
 var lng = ${lng};
 var routeno = ${routeno};
+var eventLi="";
+var routename = ${routename};
+var eventno = 1;
+var events = [];
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
@@ -167,8 +171,25 @@ mapOption = {
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-// 마커 하나를 지도위에 표시합니다 
-//addMarker(new daum.maps.LatLng(lat, lng));
+//마커 이미지 생성
+var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+var imageSize = new daum.maps.Size(24, 35);
+
+var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
+
+
+
+function addMarker(event){
+
+linePath.push(new daum.maps.LatLng(event.lat,event.lng));
+var marker = new daum.maps.Marker({
+    title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
+    position: new daum.maps.LatLng(event.lat,event.lng)
+});
+
+marker.setMap(map);
+markers.push(marker);
+};
 
 
 function getEventList(){
@@ -197,7 +218,9 @@ function addMarker(position) {
 
  // 마커가 지도 위에 표시되도록 설정합니다
  marker.setMap(map);
-}
+};
+
+
 </script>
 
 </body>
