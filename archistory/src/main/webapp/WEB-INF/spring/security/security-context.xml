@@ -12,6 +12,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 			password-parameter="password" login-processing-url="/admin/login"
 			default-target-url="/admin/login_success" authentication-failure-url="/"
 			always-use-default-target='true' />
+			<logout logout-url="/admin/logout" logout-success-url="/" delete-cookies="true"/>
 			  <csrf disabled="true"/>
 
 		<session-management>
