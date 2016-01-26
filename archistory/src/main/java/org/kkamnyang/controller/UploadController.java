@@ -181,7 +181,7 @@ public class UploadController {
 	  @RequestMapping(value="evenMovieUpload", method=RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	  public ResponseEntity<String> movieUpload(@RequestParam("routeno") String routeno, MultipartFile file,HttpServletRequest request) throws Exception{
 		  System.out.println(request.toString());
-		  System.out.println("[동영상 업로드 호출] File Name : "+file);
+		  System.out.println("[동영상 업로드 호출] File Name : "+file.getOriginalFilename());
 		  
 		    return 
 		  	      new ResponseEntity<>(
