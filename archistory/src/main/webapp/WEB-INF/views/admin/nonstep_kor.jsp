@@ -572,6 +572,22 @@ pageEncoding="UTF-8"%>
 
         attach=[];
     }
+    
+    //수정 창 비우기 기능 
+    
+    function clearMoEventdiv(){
+ 
+    	for(var i=1;i<5;i++){
+    		var id = "#mos";
+        	var idi= id + i;
+        	var answer = "#momultipleAnswer";
+        	var answeri = answer+i;
+        	$(idi).val("");
+        	$(answeri).attr("checked","false");
+    	}
+
+    }
+
 
 
     //이벤트 수정 버튼 클릭
@@ -594,6 +610,8 @@ pageEncoding="UTF-8"%>
             clearEventDiv();
             attach = [];
         });
+        
+        
 
         
         $("#modiModal").modal('hide');
@@ -737,7 +755,7 @@ pageEncoding="UTF-8"%>
     // map 클릭하면
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         clearEventDiv();
-        
+        clearMoEventdiv();
         clearQuestionDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
