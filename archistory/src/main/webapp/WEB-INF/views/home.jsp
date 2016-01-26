@@ -487,13 +487,23 @@ $("#loginBtn").on("click",function(){
     // 15일 5:29분부터 추가..
     $("#user").on("click",function(){
         $("#adminJoinDiv").hide();
+
+        $("#loginForm").action = "/user/login";
+        console.log($("#loginForm"));
+        
         $("#userJoinDiv").show();
     });
     $("#admin").on("click",function(){
         $("#adminJoinDiv").show();
+        
+        $("#loginForm").action = "/admin/login";
+        console.log($("#loginForm"));
+        
         $("#userJoinDiv").hide();
     });
 
+    
+    
 </script>
 <script src="/Cesium/js/map.js"></script>
 
