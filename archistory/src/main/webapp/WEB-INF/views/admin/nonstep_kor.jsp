@@ -657,16 +657,18 @@ pageEncoding="UTF-8"%>
                     var choice="choice";
                     var multi2 = choice+i;
                     $(multi).val(vo.attr(multi2));
+                    
+                    console.log(vo.attr("answer"));
 
                     if(i==vo.attr("answer")){
                         var answerId = "#momultipleAnswer"+i;
-                        $(answerId).checked("true");
+                        $(answerId).attr("checked","true");
                     }
                 }
             }
 
             if('o'==vo.attr("answer")){
-                $("#mooxAnswer1").checked("true");
+                $("#mooxAnswer1").attr("checked","true");
             }
 
         });
