@@ -60,6 +60,9 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		<authentication-provider user-service-ref="loginServiceUserDetails">
 			<password-encoder ref="encoder" />
 		</authentication-provider>
+		<authentication-provider user-service-ref="ourUserDetails">
+			<password-encoder ref="encoder" />
+		</authentication-provider>
 	</authentication-manager>
 
 	<beans:bean id="adminAuthentication" class="org.kkamnyang.persistence.LoginMapperImpl" />
