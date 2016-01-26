@@ -570,8 +570,10 @@
                 
                 var json = JSON.parse(qJson);
                 console.log("question : "+json.question);
-                	if( json.question != null){
-                		
+                	if(!json.question){
+                		console.log("문제없음.");
+                	}
+                	else{
 		                createQuestion(qJson);
 		            }
                 }
