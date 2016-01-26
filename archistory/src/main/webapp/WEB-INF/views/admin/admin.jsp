@@ -194,15 +194,22 @@
 	   	#adminInfo{
 	   		position:absolute;
 	   		padding:0px;
+	   		border:1px solid;
 	   		display:none;
-	   		background-color:#FFF;
 	   		top:35px;
 	   		right:6px;
 	   		text-align:left;
 	   		z-index:400;
 	   		width:100px;
 	   		height:70px;
+	   		background-color: #303336;
 	   	}
+	   	
+	   	#adminInfo:hover{
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
