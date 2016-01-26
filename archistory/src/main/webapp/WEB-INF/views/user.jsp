@@ -45,7 +45,7 @@ color: white;
 font-weight: bold;
 text-align: center;
 }
-ul{
+ul li{
 list-style:none;
 }
 #closeList{
@@ -107,8 +107,11 @@ z-index:9999;
                 <h4 class="modal-title">Do you wanna travel this route?</h4>
             </div>
             <div class="modal-body">
-            <a href="#yes" class="btn btn-skin" id="yes">YES</a>
-            <a href="#no" class="btn btn-skin" id="no">NO</a>
+           
+				<h3 class="modal-title" id="yesNo">
+                    <ul></ul>
+                </h3>
+                
             </div>
             <div class="modal-footer">
             </div>
@@ -158,15 +161,66 @@ var routeLi = "";
 	       var select = $(this);
 	       var routeno = parseInt(select.attr("data-routeno"));
 	      
+	       questionModal(select);
 	       $("#yesModal").modal('show');
-	       //editRoute(select);
 	    });
   
-  
-    $("#yes").on("click", function(event){
-	  
-  });    
-   
+    function questionModal(select){
+        var questionModal =   "<li>" + select.attr("data-routename")+
+        "<a href='#yes' class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        "<a href='#no' class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
+
+        $("#yesNo").html(questionModal);
+    }
+
+    $("#yesNo").on("click","#yes",function(){
+        var icon= $(this);
+        console.log(icon.attr("value"));
+        viewRoute(icon.attr("value"));
+    });
+    
+    $("#yesNo").on("click","#no",function(){
+        $("#yesModal").modal('hide');
+    });
+    
+    
+    function viewRoute(routeno){
+        $.getJSON("http://192.168.0.36:8080/route/view?routeno="+routeno,function(data){
+            console.log("루트 넘버:"+routeno+"읽어오기");
+
+            var vo = $(data);
+            console.log(vo);
+
+            if(vo.attr("step")==true){
+                var $form = $('<form></form>');
+                $form.attr('action', '/admin/step_kor');
+                $form.attr('method', 'post');
+                $form.appendTo('body');
+                
+                var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
+                var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
+                var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
+                
+                $form.append(a1).append(a2).append(a3);
+                $form.submit();
+            	
+             }else{
+            	 
+            	 var $form = $('<form></form>');
+                 $form.attr('action', '/admin/nonstep_kor');
+                 $form.attr('method', 'post');
+                 $form.appendTo('body');
+                 
+                 var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
+                 var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
+                 var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
+                 
+                 $form.append(a1).append(a2).append(a3);
+                 $form.submit();
+             }
+        });
+}
+
 </script>
 
 </body>

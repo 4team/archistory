@@ -171,7 +171,7 @@
     $("#routeCreateBtn").on("click",function(){
     	
         createRoute(lat,lng,step,adminno,function(name,password,step,lat,lng,secret){
-
+		console.log("위도 경도 값:"+lat,lng);
             $.ajax({
                 type: 'POST',
                 url: 'http://192.168.0.36:8080/route/create',

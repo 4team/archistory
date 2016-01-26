@@ -336,20 +336,6 @@
 <span class="blink_me">${routename}</span>
 
 <script>
-    var getParameter = function (param) {
-
-        var returnValue;
-        var url = location.href;
-        var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
-        for (var i = 0; i < parameters.length; i++) {
-            var varName = parameters[i].split('=')[0];
-            if (varName.toUpperCase() == param.toUpperCase()) {
-                returnValue = parameters[i].split('=')[1];
-                return decodeURIComponent(returnValue);
-            }
-        }
-    };
-
     
     var maplat = ${lat};
     var maplng = ${lng};
@@ -742,13 +728,21 @@
 	        formData.append("file", file)
 	        formData.append("routeno",routeno);
 	        
-	        uploadImg(formData);
+	        if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
+	       		uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');	        
+	       		
+	        }else if(filetypeArr[arrNum-1] == "avi" || filetypeArr[arrNum-1] == "mpeg" || filetypeArr[arrNum-1] == "wmv" || filetypeArr[arrNum-1] == "mp4"){
+	        	uploadImg(formData,'http://14.32.66.127:4000/evenMovieUpload');
+	        	
+	        }
+	        
+	        
 		}
 		
 	
-		function uploadImg(formData){
+		function uploadImg(formData,url){
 	        $.ajax({
-	            url: 'http://14.32.66.127:4000/uploadAjax',
+	            url: url,
 	            data: formData,
 	            dataType:'text',
 	            processData: false,

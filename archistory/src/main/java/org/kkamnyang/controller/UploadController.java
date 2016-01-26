@@ -174,7 +174,8 @@ public class UploadController {
 
 	    return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	  }
-	  
+	
+	  @ResponseBody
 	  @RequestMapping(value="evenMovieUpload", method=RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	  public ResponseEntity<String> movieUpload(@RequestParam("routeno") String routeno, MultipartFile filename) throws Exception{
 		  
