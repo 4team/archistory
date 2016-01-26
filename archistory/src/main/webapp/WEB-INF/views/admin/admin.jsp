@@ -197,7 +197,7 @@
 	   		background-color:#FFF;
 	   		top:35px;
 	   		right:6px;
-	   		text-align:center;
+	   		text-align:left;
 	   		z-index:400;
 	   		width:100px;
 	   		height:70px;
