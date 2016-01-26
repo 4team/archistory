@@ -168,7 +168,7 @@ mapOption = {
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 // 마커 하나를 지도위에 표시합니다 
-//addMarker(new daum.maps.LatLng(lat, lng));
+addMarker(new daum.maps.LatLng(lat, lng));
 
 
 function getEventList(callback){
