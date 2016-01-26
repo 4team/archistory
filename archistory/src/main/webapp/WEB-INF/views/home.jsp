@@ -382,7 +382,6 @@ function stopAround() {
     spinGlobe;
 
     $("#main").on("click",function(){
-        console.log("드래그");
         stopAround();
     });
 
@@ -400,7 +399,6 @@ function stopAround() {
 })();
 
 function changePage(lat, lng, height) {
-    console.log("화면 전환 : ", lat, ' ', lng, ' ', height);
     self.location="close.html?lat="+lat+"&lng="+lng;
 }
 
@@ -413,7 +411,6 @@ $("#myLocation").on("click",function(){
 
     function success(position) {
     	 stopAround();
-        console.log(position);
         viewer.camera.flyTo({
             destination: Cesium.Cartesian3.fromDegrees(
                     position.coords.longitude,
@@ -454,7 +451,6 @@ function addMarker(route){
 
 $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
     var list = $(data);
-    console.log(data);
     list.each(function(idx,value){
         var route = this;
         addMarker(route);
