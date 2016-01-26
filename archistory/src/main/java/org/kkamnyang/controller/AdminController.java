@@ -152,7 +152,7 @@ public class AdminController {
 		
 		System.out.println("[한국]에 NONSTEP [루트를 생성]하였다. 이벤트 생성페이지를 보내준다. ROUTE NUMBER : " + routeno);
 		ModelAndView view = new ModelAndView();
-		
+		System.out.println("경도 위도 값: "+lat+" , "+lng);
 		view.addObject("routeno", routeno);
 		
 		try{
