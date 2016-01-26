@@ -45,7 +45,7 @@ color: white;
 font-weight: bold;
 text-align: center;
 }
-ul{
+ul li{
 list-style:none;
 }
 #closeList{
@@ -108,9 +108,9 @@ z-index:9999;
             </div>
             <div class="modal-body">
            
-				<h5 class="modal-title" id="yesNo">
+				<h3 class="modal-title" id="yesNo">
                     <ul></ul>
-                </h5>
+                </h3>
                 
             </div>
             <div class="modal-footer">
@@ -168,7 +168,7 @@ var routeLi = "";
     function questionModal(select){
         var questionModal =   "<li>" + select.attr("data-routename")+
         "<a href='#yes' class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
-        "<a href='#no' class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a></li>";
+        "<a href='#no' class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
 
         $("#yesNo").html(questionModal);
     }
