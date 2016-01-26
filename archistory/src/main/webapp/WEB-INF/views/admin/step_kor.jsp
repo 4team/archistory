@@ -730,7 +730,7 @@
 		
 		for(var i = 0 ; i < num; i++){
 	        var file = files[i];
-	        console.log(file);
+	        console.log(file.name);
 	        
 	        var formData = new FormData();
 
