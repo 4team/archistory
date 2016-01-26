@@ -65,7 +65,7 @@ public class UploadController {
 	@ResponseBody
 	  @RequestMapping(value ="/uploadAjax", method=RequestMethod.POST, 
 	                  produces = "text/plain;charset=UTF-8")
-	  public ResponseEntity<String> uploadAjax(@RequestParam("routeno") Integer routeno, MultipartFile file)throws Exception{
+	  public ResponseEntity<String> uploadAjax(@RequestParam("routeno") String routeno, MultipartFile file)throws Exception{
 	    
 	    logger.info("originalName: " + file.getOriginalFilename());
 	    
@@ -73,9 +73,9 @@ public class UploadController {
 	   
 	    return 
 	      new ResponseEntity<>(
-	          UploadFileUtils.uploadFile(uploadPath+"\\event\\"+routeno+"\\picture", 
+	          UploadFileUtils.uploadFile(uploadPath, 
 	                file.getOriginalFilename(), 
-	                file.getBytes()), 
+	                file.getBytes(),routeno), 
 	          HttpStatus.CREATED);
 	  }
 	

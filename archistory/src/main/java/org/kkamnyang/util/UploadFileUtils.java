@@ -29,13 +29,13 @@ public class UploadFileUtils {
   
   public static String uploadFile(String uploadPath, 
                               String originalName, 
-                              byte[] fileData)throws Exception{
+                              byte[] fileData,String routeno)throws Exception{
     
     UUID uid = UUID.randomUUID();
     
     String savedName = uid.toString() +"_"+originalName;
     
-    String savedPath = calcPath(uploadPath);
+    String savedPath = calcPath(uploadPath,routeno);
     
     File target = new File(uploadPath +savedPath,savedName);
     
@@ -124,7 +124,7 @@ return uploadedFileName;
   } 
   
   
-  private static String calcPath(String uploadpath){
+  private static String calcPath(String uploadpath,String routeno){
 	  
 //    Calendar cal = Calendar.getInstance();
 //    
@@ -156,7 +156,7 @@ return uploadedFileName;
 	  
 	  int endIndex = removeCate.lastIndexOf("\\");
 	  
-	  String route = removeCate.substring(0, endIndex);
+	  String route = routeno;
 	  System.out.println("루트 No : "+route);
 	  int first = removeCate.indexOf("\\");
 	  endIndex = removeCate.length();
