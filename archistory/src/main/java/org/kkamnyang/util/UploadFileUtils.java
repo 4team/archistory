@@ -143,36 +143,19 @@ return uploadedFileName;
 //    logger.info(datePath);
 //    ㅏ
 	  System.out.println("ㅍㅏ일 세퍼레이터 "+File.separator);
- int srcLenght = uploadpath.length();
 	  
-	  String meanPath = uploadpath.substring(14, srcLenght);
-	  System.out.println("의미있는 경로 : " + meanPath);
-	  
-	  String category = uploadpath.substring(14,19);
-	  
-	  int meanLength = meanPath.length();
-	  
-	  String removeCate = meanPath.substring(6, meanLength);
-	  
-	  int endIndex = removeCate.lastIndexOf("\\");
-	  
+	  String category = "event";
 	  String route = routeno;
-	  System.out.println("루트 No : "+route);
-	  int first = removeCate.indexOf("\\");
-	  endIndex = removeCate.length();
-	  
-	  
-	  String filetype = removeCate.substring(first+1, endIndex);
-	  System.out.println("FileTyep : "+ filetype);
-	  
-	  System.out.println("remove Category Path : " + removeCate);
+	  String filetype = "picture";
 	  
 	  System.out.println(uploadpath);
 	  System.out.println(category);
-
+	  System.out.println("루트 No : "+route);
+	  System.out.println("FileTyep : "+ filetype);
 	  makeDir("C:\\archistory","C:\\archistory"+File.separator+category,"C:\\archistory"+File.separator+category+File.separator+route,"C:\\archistory"+File.separator+category+File.separator+route+File.separator+filetype);
+
+	  return uploadpath+File.separator+category+File.separator+route+File.separator+filetype;
     
-	  return "";
   }
   
   private static String calcMoviePath(String uploadPath){
