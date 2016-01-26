@@ -63,17 +63,13 @@ public class EventController {
 	public void attachCreate(@RequestBody EventVO vo,HttpServletResponse response) throws Exception{
 		System.out.println("["+vo.getTitle() + "] 이벤트 첨부파일생성 호출됨.=====");
 		System.out.println(vo);
-		
-		//ResponseEntity<String> entity = null;
-		try{
+
 			service.attachCreate(vo);
-			Integer nowSequnece = vo.getEventno();
-			response.getWriter().print(nowSequnece);
+			Integer nowSequence = vo.getEventno();
+			response.getWriter().print(nowSequence);
+			System.out.println("이벤트 넘버:"+nowSequence);
 			
-			//entity = new ResponseEntity<String>("result",HttpStatus.OK);
-		}catch(Exception e){
-			//entity = new ResponseEntity<String>("result",HttpStatus.BAD_REQUEST);
-		}
+		
 		
 	}
 	
