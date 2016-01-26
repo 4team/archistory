@@ -455,7 +455,7 @@
 
 /*     <!-- 이벤트 리스트 불러오기--> */
 
-    function getEventList(){
+    function getEventList(callback){
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
 			eventno=1;
             var list = $(data);
@@ -468,6 +468,7 @@
                 eventno++;
             });
         });
+        callback();
     }
 
 
