@@ -570,7 +570,7 @@
                 
                 var json = JSON.parse(qJson);
                 console.log("question : "+json.question);
-                	if( json.question !== null){
+                	if( json.question != null){
                 		
 		                createQuestion(qJson);
 		            }
