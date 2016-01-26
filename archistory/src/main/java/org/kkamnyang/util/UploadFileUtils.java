@@ -152,7 +152,7 @@ return uploadedFileName;
 	  System.out.println(category);
 	  System.out.println("루트 No : "+route);
 	  System.out.println("FileTyep : "+ filetype);
-	  makeDir("C:\\archistory","C:\\archistory"+File.separator+category,"C:\\archistory"+File.separator+category+File.separator+route,"C:\\archistory"+File.separator+category+File.separator+route+File.separator+filetype);
+	  makeDir("C:\\archistory","C:\\archistory\\"+category,"C:\\archistory"+File.separator+category+File.separator+route,"C:\\archistory"+File.separator+category+File.separator+route+File.separator+filetype);
 
 	  return File.separator+category+File.separator+route+File.separator+filetype;
     
@@ -194,6 +194,7 @@ return uploadedFileName;
   
   private static void makeDir(String uploadPath, String... paths){
     
+	  System.out.println("폴더 만드는 곳에 들어왔다."+paths);
     if(new File(paths[paths.length-1]).exists()){
       return;
     }
