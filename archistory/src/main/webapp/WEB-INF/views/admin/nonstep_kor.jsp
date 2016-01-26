@@ -306,7 +306,7 @@
 
 
 <div id="list">
-    루트 이름 :<input type="text" id="Rname" placeholder="">
+   루트 이름 :<input type="text" id="Rname">
     <hr>
     <div id="eventList">
         <ul>
@@ -334,7 +334,7 @@
     </div>
 </div>
 
-<span class="blink_me">${routename }</span>
+<span class="blink_me">${routename}</span>
 
 <script>
     var getParameter = function (param) {
@@ -368,7 +368,6 @@
     var routename = ${routename};
     $("#Rname").val(routename);
 
-    $("#Rname").val(routename);	
 
     (function blink() {
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
@@ -416,8 +415,9 @@
     $("#eventList").on("click","#modi",function(event){
         var select = $(this);
         viewEvent(select.attr("value"));
-        $("#modiModal").modal('show');
         clearEventDiv();
+        $("#modiModal").modal('show');
+   
     });
 
 
