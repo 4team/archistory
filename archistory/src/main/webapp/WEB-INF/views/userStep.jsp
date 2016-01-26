@@ -262,7 +262,7 @@ function getEventList(){
 getEventList();
 
 
-//------------------------------- Geolocation -----------------------------------
+/* //------------------------------- Geolocation -----------------------------------
 
 //HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 if (navigator.geolocation) {
@@ -312,7 +312,7 @@ function displayMarker(locPosition, message) {
 }    
 
 
-
+ */
 /////////////////////////////////////////////////////////////////////////////////////
 
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
