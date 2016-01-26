@@ -63,7 +63,6 @@ public class RouteController{
 		ResponseEntity<String> entity = null;
 		
 		try{
-			
 			service.modify(vo);
 			entity = new ResponseEntity<String>("result", HttpStatus.OK);
 		}catch(Exception e){
