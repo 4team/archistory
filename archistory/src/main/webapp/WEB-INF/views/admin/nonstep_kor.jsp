@@ -431,10 +431,6 @@
             attach = [];
         });
         
-        makeQuestion();
-        createQuestion(qJson);
-
-
         $("#eventModal").modal('hide');
 
     });
