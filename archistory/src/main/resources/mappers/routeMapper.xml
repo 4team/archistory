@@ -22,7 +22,7 @@
  	</select>
  	
  	<update id="update">
- 		update tbl_route set routename = #{routename}, where routeno = #{routeno}
+ 		update tbl_route set routename = #{routename} where routeno = #{routeno}
  	</update>
  	
  	<delete id="delete">

@@ -305,7 +305,7 @@
 
 
 <div id="list">
-   루트 이름 :<input type="text" id="Rname">
+   루트 이름 :<input type="text" id="Rname" placeholder="">
     <hr>
     <div id="eventList">
         <ul>
@@ -434,7 +434,6 @@
         $("#eventModal").modal('hide');
 
     });
-
 
     function makeQuestion(data){
         var qfilter = new Array();
@@ -778,19 +777,23 @@
    // 이벤트 리스트 완료 클릭
     $("#commitList").on("click",function(){
         $("#finishModal").modal('show');
-
+        
         var modiRoutename = $("#Rname").val();
+        var routemsg = routename + " 루트 등록이 완료되었습니다";
+        
+        console.log(modiRoutename, routename,routeno);
 
-        modifyName(routeno,modiRoutename);
+        if( modiRoutename != routename){
+        	modifyName(routeno,modiRoutename);
+        	routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
+        }
 
-
-        var routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
         $("#routeFinish").html(routemsg);
   
 
     });
 
-    function modifyName(routeno,routename){
+    function modifyName(routeno,modiRoutename){
 
         $.ajax({
             type:'post',
@@ -798,9 +801,8 @@
             headers:{
                 "Content-Type":"application/json"},
             datatype:"json",
-            data:JSON.stringify({routeno:routeno,routename:routename}),
+            data:JSON.stringify({routeno:routeno,routename:modiRoutename}),
             success: function(data){
-                getEventList();
                 console.log("data:"+data);
             }
         });
