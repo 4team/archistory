@@ -365,7 +365,7 @@
 
     function getEventList(){
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
-
+			eventno=1;
             var list = $(data);
             console.log(list);
             eventLi="";
