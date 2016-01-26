@@ -351,6 +351,7 @@
         }
     };
     
+    
     var maplat = ${lat};
     var maplng = ${lng};
 
