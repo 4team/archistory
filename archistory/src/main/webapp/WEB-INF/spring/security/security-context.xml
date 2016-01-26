@@ -15,7 +15,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		<form-login login-page="/" username-parameter="email"
 			password-parameter="password" login-processing-url="/admin/login"
 			default-target-url="/admin/login_success" authentication-failure-url="/"
-			always-use-default-target='true' authentication-details-source-ref="loginServiceUserDetails" />
+			always-use-default-target='true'/>
 			
 			<logout logout-url="/admin/logout" logout-success-url="/" delete-cookies="true"/>
 			  <csrf disabled="true"/>
@@ -34,7 +34,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<form-login login-page="/" username-parameter="email"
 	password-parameter="password" login-processing-url="/user/login_process"
 	default-target-url="/user/login" authentication-failure-url="/"
-	always-use-default-target='true' authentication-details-source-ref="ourUserDetails" />
+	always-use-default-target='true'/>
 			
 		<logout logout-url="/user/logout" logout-success-url="/" delete-cookies="true"/>
 		  <csrf disabled="true"/>
