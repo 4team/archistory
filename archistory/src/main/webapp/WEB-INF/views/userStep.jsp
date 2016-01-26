@@ -157,7 +157,7 @@
 
 var lat = ${lat};
 var lng = ${lng};
-
+var routeno = ${routeno};
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
@@ -180,6 +180,28 @@ function addMarker(position) {
 
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
+}
+
+function getEventList(callback){
+	console.log("getEventList가 호출되어 시작됨.");
+	eventno=1;
+	linePath = [];	
+	
+    $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
+        var list = $(data);
+        eventLi="";
+
+        list.each(function(idx,value){
+            var event= this;
+            addList(event);
+            addMarker(event);
+            eventno++;
+        });
+        callback();
+    });
+   
+    getEventList();
+
 }
 
 </script>

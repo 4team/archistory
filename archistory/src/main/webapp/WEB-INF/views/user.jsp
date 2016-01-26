@@ -185,7 +185,7 @@ var routeLi = "";
     
   
     function viewRoute(routeno){
-        $.getJSON("http://192.168.0.36:8080/route/view?routeno="+routeno,function(data){
+        $.getJSON("http://14.32.66.127:4000/route/view?routeno="+routeno,function(data){
             console.log("루트 넘버:"+routeno+"읽어오기");
 
             var vo = $(data);
