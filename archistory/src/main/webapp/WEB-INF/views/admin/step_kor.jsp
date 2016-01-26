@@ -497,10 +497,10 @@
             console.log("이벤트 넘버:"+eventno+"읽어오기");
 
             var vo = $(data);
-
+			
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
-            $("#moorder").val(eventno);
+            $("#moorder").val(vo.attr("eorder"));
         });
         
         $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventno, function(list) {
