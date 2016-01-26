@@ -441,6 +441,7 @@
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
 		eventno=1;
+		linePath = [];	
 		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
@@ -451,7 +452,6 @@
                 addList(event);
                 addMarker(event);
                 eventno++;
-                console.log("ORDER : ",eventno);
             });
             callback();
         });
