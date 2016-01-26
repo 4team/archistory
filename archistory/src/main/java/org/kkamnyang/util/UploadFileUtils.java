@@ -152,7 +152,7 @@ return uploadedFileName;
 	  System.out.println(category);
 	  System.out.println("루트 No : "+route);
 	  System.out.println("FileTyep : "+ filetype);
-	  makeDir(uploadpath,uploadpath+File.separator+category,"C:\\archistory"+File.separator+category+File.separator+route,"C:\\archistory"+File.separator+category+File.separator+route+File.separator+filetype);
+	  makeDir(uploadpath,File.separator+category,File.separator+category+File.separator+route,File.separator+category+File.separator+route+File.separator+filetype);
 
 	  return File.separator+category+File.separator+route+File.separator+filetype;
     
