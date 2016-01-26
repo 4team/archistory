@@ -635,7 +635,7 @@ pageEncoding="UTF-8"%>
 
         });
 
-        $.getJSON("http://14.32.66.127:4000/question/view?questionno="+eventno,function(data){
+        $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventno,function(data){
 
 
             console.log("문제 넘버:"+eventno+"읽어오기");
