@@ -373,7 +373,7 @@
     function addMarker(event){
     	
     	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
-    	
+    	console.log(linePath);
         var marker = new daum.maps.Marker({
             title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
             position: new daum.maps.LatLng(event.lat,event.lng)
