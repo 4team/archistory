@@ -144,6 +144,10 @@
      #search-container td{
      	width:120px;
      }
+     
+     #search-container table{
+     	margin-left: 30px;
+     }
     
     #searchDiv{
     	display:none;
