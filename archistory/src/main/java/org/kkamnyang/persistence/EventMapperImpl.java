@@ -48,17 +48,18 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		session.update(namespace + ".update", vo);
 		
 		if(vo.getEfiles()==null){
-			return;
-		}
-		String attach = session.selectOne(namespace+".getAttach",vo.getEventno());
 
-		
-		System.out.println("이벤트 메퍼 임플에서 가져온 파일 이름: "+attach);
-		
-		if(attach.equals("")){
-			session.insert(namespace+".addAttach",vo);
 		}else{
-			session.update(namespace + ".updateAttach",vo);
+			String attach = session.selectOne(namespace+".getAttach",vo.getEventno());
+	
+			
+			System.out.println("이벤트 메퍼 임플에서 가져온 파일 이름: "+attach);
+			
+			if(attach.equals("")){
+				session.insert(namespace+".addAttach",vo);
+			}else{
+				session.update(namespace + ".updateAttach",vo);
+			}
 		}
 	}
 }
