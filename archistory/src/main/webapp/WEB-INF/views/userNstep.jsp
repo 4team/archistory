@@ -149,9 +149,12 @@
         left:100px;
         z-index:600;
     }
+    #eBox{
+    display:none;
+    
+    }
     .modal-content{
     position:absolute;
-    display:none;
     z-index:99999;
     }
 </style>
