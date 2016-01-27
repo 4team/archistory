@@ -78,16 +78,14 @@ pageEncoding="UTF-8"%>
     }
 
     .fileDrop {
-        width: 60%;
-        height: 60px;
+        width: 90%;
+        height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
         background-color: powderblue;
         margin-top:10px;
         margin-bottom:10px;
     }
-
-
 
     li{
         list-style: none;
@@ -134,13 +132,45 @@ pageEncoding="UTF-8"%>
         left:100px;
         z-index:600;
     }
+    #search-container{
+        font-size:9px;
+        height:100px;
+    }
+
+    #search-container td{
+        width:120px;
+    }
+
+    #search-container td:hover{
+        border-color:#aef;
+        box-shadow:0 0 8px #fff;
+    }
+
+    #search-container table{
+        margin-left: 10px;
+    }
+
+    #searchDiv{
+        display:none;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding:10px;
+        text-align:center;
+        background-color:#fff;
+        z-index:1200;
+        position:absolute;
+        right:150px;
+        top:100px;
+        width:180px;
+        height:400px;
+        overflow-y: scroll;
+    }
 
 
 </style>
 <!-- 첨부파일 용도 -->
 <script type="text/javascript" src="/js/upload.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -160,6 +190,9 @@ pageEncoding="UTF-8"%>
 
 <div id="map"></div>
 
+<div id="searchDiv">
+    <div id="search-container"></div>
+</div>
 
 <!--  이벤트 생성 모달 (문제 생성) -->
 <form role="form" id="registerForm" method="post">
@@ -178,13 +211,14 @@ pageEncoding="UTF-8"%>
                         <label for="eventName">이름</label><input type="text" class="form-control" id="eventName" placeholder="이벤트 이름을 입력하세요">
                         <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                         <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
-                        <label for="imgInput">이미지</label><input type="file" id="imgInput">
+                        <label for="imgInput">이미지</label>
                         <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
                         <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
-                        <!--                        <label for="videoInput">동영상</label>
-                                                <input type="file" id="videoInput">
-                                                <div class="fileDrop"><h5 align="center";>여기에 동영상을 끌어오세요</h5></div>-->
+                        <label for="videoInput">동영상</label>
+                        <input type="text" id="query"><button id="search-button">Youtube Search</button>
+                        <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
+
                         <label for="camera">카메라</label><input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                         <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
@@ -250,7 +284,7 @@ pageEncoding="UTF-8"%>
                     <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
                     <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
-                    <label for="imgInput">이미지</label><input type="file" id="moimgInput"><br>
+                    <label for="imgInput">이미지</label>
                     <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
@@ -336,7 +370,13 @@ pageEncoding="UTF-8"%>
 
 <span class="blink_me">${routename}</span>
 
+<!-- Youtube검색하기 위함 -->
+<script src="/js/auth.js"></script>
+<script src="/js/search.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
 <script>
+    var markers = [];
 
     var maplat = ${lat};
     var maplng = ${lng};
@@ -348,39 +388,120 @@ pageEncoding="UTF-8"%>
             };
     var map = new daum.maps.Map(mapContainer, mapOption);
 
-    //var lat= 0;
-    //var lng =0;
     var routeno = ${routeno};
     var eventLi="";
     var routename = ${routename};
+    var events = [];
+
+
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath = [];
+
+    //Daum Map marker와 관련된 것들.
+
+    // 마커 이미지 생성성
+    var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+    var imageSize = new daum.maps.Size(24, 35);
+
+    var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
+
+    //{font-family:'Nanum Gothic', sans-serif;}
+    function addMarker(event){
+
+        linePath.push(new daum.maps.LatLng(event.lat,event.lng));
+        var marker = new daum.maps.Marker({
+            title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
+            position: new daum.maps.LatLng(event.lat,event.lng)
+        });
+
+        marker.setMap(map);
+        markers.push(marker);
+
+        daum.maps.event.addListener(marker, 'mouseover', function () {
+            // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+            showInfo(marker);
+        });
+
+
+        daum.maps.event.addListener(marker, 'click', function(event) {
+            // 마커 위에 인포윈도우를 표시합니다
+            var position = marker.getPosition();
+            var roadviewClient = new daum.maps.RoadviewClient();
+
+            var panoId = roadviewClient.getNearestPanoId(position, 50, function(panoId) {
+                roadview.setPanoId(panoId, position);
+            });
+
+            roadview.setPanoId(panoId, position);
+        });
+
+    }
+
+    // InfoWindow와 관련된 부분
+    function showInfo(marker){
+        // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
+        var iwContent = '<div style="padding:5px;">'+ marker.wd +'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new daum.maps.InfoWindow({
+            content: iwContent
+        });
+
+        infowindow.open(map, marker);
+
+        daum.maps.event.addListener(marker, 'mouseout', function() {
+            infowindow.close();
+        });
+    }
 
 
     $("#Rname").val(routename);
-
 
     (function blink() {
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
     })();
 
-    getEventList();
 
+    /*     <!-- 이벤트 리스트 불러오기--> */
 
-    //이벤트 리스트 불러오기
+    function getEventList(callback){
+        console.log("getEventList가 호출되어 시작됨.");
+        linePath = [];
 
-    function getEventList(){
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
-
             var list = $(data);
-            console.log(list);
             eventLi="";
 
             list.each(function(idx,value){
                 var event= this;
                 addList(event);
+                addMarker(event);
+
             });
+            callback();
         });
 
+
     }
+
+
+    getEventList(function(){
+        console.log("getEventList의 콜백에 들어옴.");
+
+        // 지도에 표시할 선을 생성합니다
+        var polyline = new daum.maps.Polyline({
+            path: linePath, // 선을 구성하는 좌표배열 입니다
+            strokeWeight: 5, // 선의 두께 입니다
+            strokeColor: '#FFAE00', // 선의 색깔입니다
+            strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+            strokeStyle: 'solid' // 선의 스타일입니다
+        });
+
+        polyline.setMap(map);
+        console.log(linePath);
+
+    });
+
     //이벤트 리스트 - 리스트 추가
     function addList(event){
 
@@ -398,20 +519,20 @@ pageEncoding="UTF-8"%>
         removeQuestion(select.attr("value"));
         removeEvent(select.attr("value"),function(){
         });
-        
-        
+
+
         alert(select.attr("value")+"삭제되었습니다.");
     });
 
     //이벤트 리스트 수정 버튼
     $("#eventList").on("click","#modi",function(event){
         var select = $(this);
-        
+
         viewEvent(select.attr("value"));
         clearEventDiv();
         clearMoEventdiv();
         clearQuestionDiv();
-        
+
         $("#modiModal").modal('show');
 
     });
@@ -427,7 +548,7 @@ pageEncoding="UTF-8"%>
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
         var camera = $("#camera").val();
-        
+
         attach2 = attach.join();
 
         if(title=="" || content==""){
@@ -491,7 +612,7 @@ pageEncoding="UTF-8"%>
     }
 
     var modiJson;
-    
+
     function modiQuestion(){
         var qfilter = new Array();
         qfilter[0]="questionno";
@@ -558,8 +679,8 @@ pageEncoding="UTF-8"%>
     }
 
     function clearQuestionDiv(){
-    	
-    	$("#qCheck").attr("checked",false);
+
+        $("#qCheck").attr("checked",false);
         $("#questionTitle").val("");
         $("#qType").val("");
         $("#s1").val("");
@@ -600,13 +721,27 @@ pageEncoding="UTF-8"%>
             datatype: "json",
             data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera}),
             success: function(data){
-                getEventList();
+                getEventList(function(){
+                    console.log("이벤트 생성한 뒤 getEventList의 콜백에 들어옴.");
+
+                    // 지도에 표시할 선을 생성합니다
+                    polyline = new daum.maps.Polyline({
+                        path: linePath, // 선을 구성하는 좌표배열 입니다
+                        strokeWeight: 5, // 선의 두께 입니다
+                        strokeColor: '#FFAE00', // 선의 색깔입니다
+                        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                        strokeStyle: 'solid' // 선의 스타일입니다
+                    });
+
+                    polyline.setMap(map);
+                    console.log(linePath);
+                });
                 console.log("eventno:"+data);
                 makeQuestion(data);
 
                 var json = JSON.parse(qJson);
                 console.log("question : "+json.question);
-                
+
                 if(!json.question){
                     console.log("이벤트 생성중 - 문제없음.");
                 }
@@ -624,64 +759,31 @@ pageEncoding="UTF-8"%>
         $("#eventName").val("");
         $("#eventinfo").val("");
         $(".uploadedList").html("");
-       
         $("#qCheck").attr('checked', false) ;
         $("#questionDiv").hide();
-
         attach=[];
     }
-    
-    //수정 창 비우기 기능 
-    
+
+    //수정 창 비우기 기능
     function clearMoEventdiv(){
- 
-    	for(var i=1;i<5;i++){
-    		var id = "#mos";
-        	var idi= id + i;
-        	var answer = "#momultipleAnswer";
-        	var answeri = answer+i;
-        	$(idi).val("");
-        	$(answeri).attr("checked",false);
-    	}
-    	
-    	$("#mooxAnswer1").attr("checked",false);
-    	$("#mooxAnswer2").attr("checked",false);
-    	
-    	$("#moqCheck").attr("checked",false);
-    	$("#moquestionDiv").hide();
+
+        for(var i=1;i<5;i++){
+            var id = "#mos";
+            var idi= id + i;
+            var answer = "#momultipleAnswer";
+            var answeri = answer+i;
+            $(idi).val("");
+            $(answeri).attr("checked",false);
+        }
+
+        $("#mooxAnswer1").attr("checked",false);
+        $("#mooxAnswer2").attr("checked",false);
+
+        $("#moqCheck").attr("checked",false);
+        $("#moquestionDiv").hide();
 
     }
 
-
-
-    //이벤트 수정 버튼 클릭
-
-    $("#modifyEventBtn").on("click",function(){
-        var title = $("#moeventName").val();
-        var content = $("#moeventinfo").val();
-        var eventno = $("#moeventno").val();
-        attach2 = attach.join();
-
-        console.log(attach2);
-
-        if(title=="" || content==""){
-            alert("이벤트 이름과 설명을 입력해주세요!");
-            return;
-        }
-        
-
-        modifyEvent(eventno,title,content,attach2,function(){
-            console.log("attach2:" + attach2);
-            clearEventDiv();
-            attach = [];
-        });
-        
-        modiQuestion();
-        modifyQuestion(modiJson);
-        
-        $("#modiModal").modal('hide');
-
-    });
 
 
     //이벤트 읽기 기능
@@ -691,7 +793,6 @@ pageEncoding="UTF-8"%>
 
         $.getJSON("http://14.32.66.127:4000/event/view?eventno="+eventno,function(data){
 
-
             console.log("이벤트 넘버:"+eventno+"읽어오기");
 
             var vo = $(data);
@@ -700,7 +801,7 @@ pageEncoding="UTF-8"%>
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
-        });
+        }); //end event view
 
         $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventno, function(list) {
             console.log("뷰에서 겟제이슨 들어왔다");
@@ -720,68 +821,68 @@ pageEncoding="UTF-8"%>
                 $(".uploadedList").append(html);
             }
 
-        });
+        }); //end getAttach
 
         $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventno,function(data){
 
-        	var vo = $(data);
-        	
-        	var qno = vo.attr("questionno");
+            var vo = $(data);
+
+            var qno = vo.attr("questionno");
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
-           
+
 
             if(typeof qno == "undefined"){
-            	console.log("이벤트 VIEW - 문제 없음.");
-            	$("#moqCheck").attr("checked",false);
-            	$("#moquestionDiv").hide();
-	            }
-            
-            else{
-	            	$("#moqCheck").attr("checked",true);
-	            	$("#moquestionDiv").show();
-		            $("#moquestionTitle").val(vo.attr("question"));
-		            $("#moqType").val(vo.attr("qtype"));
-		
-		            if(vo.attr("qtype")=="multiple"){
-		            	
-		            	$("#mooxAnswerbox").hide();
-		                $("#moselectBox").show();
-		            	
-		            	
-		                for (var i=1; i<5; i++){
-		                    var id="#mos";
-		                    var multi = id+i;
-		                    var choice="choice";
-		                    var multi2 = choice+i;
-		                    $(multi).val(vo.attr(multi2));
-		                    
-		                    console.log("answer:"+vo.attr("answer"));
-		
-		                    if(i==vo.attr("answer")){
-		                        var answerId = "#momultipleAnswer"+i;
-		                        $(answerId).attr("checked",true);
-		                    }
-		                }
-		            } //multiple 일때
-		
-		            if('o'==vo.attr("answer")){
-		                $("#mooxAnswer1").attr("checked",true);
-		                $("#moselectBox").hide();
-		                $("#mooxAnswerbox").show();
-		            } //ox중 o일때
-		            
-		            if('x'==vo.attr("answer")){
-		            	    $("#mooxAnswer2").attr("checked",true);
-			                $("#moselectBox").hide();
-			                $("#mooxAnswerbox").show();
-		            }
-		            
-		            
-	            }//end else
+                console.log("이벤트 VIEW - 문제 없음.");
+                $("#moqCheck").attr("checked",false);
+                $("#moquestionDiv").hide();
+            }
 
-        });
+            else{
+                $("#moqCheck").attr("checked",true);
+                $("#moquestionDiv").show();
+                $("#moquestionTitle").val(vo.attr("question"));
+                $("#moqType").val(vo.attr("qtype"));
+
+                if(vo.attr("qtype")=="multiple"){
+
+                    $("#mooxAnswerbox").hide();
+                    $("#moselectBox").show();
+
+
+                    for (var i=1; i<5; i++){
+                        var id="#mos";
+                        var multi = id+i;
+                        var choice="choice";
+                        var multi2 = choice+i;
+                        $(multi).val(vo.attr(multi2));
+
+                        console.log("answer:"+vo.attr("answer"));
+
+                        if(i==vo.attr("answer")){
+                            var answerId = "#momultipleAnswer"+i;
+                            $(answerId).attr("checked",true);
+                        }
+                    }
+                } //multiple 일때
+
+                if('o'==vo.attr("answer")){
+                    $("#mooxAnswer1").attr("checked",true);
+                    $("#moselectBox").hide();
+                    $("#mooxAnswerbox").show();
+                } //ox중 o일때
+
+                if('x'==vo.attr("answer")){
+                    $("#mooxAnswer2").attr("checked",true);
+                    $("#moselectBox").hide();
+                    $("#mooxAnswerbox").show();
+                }
+
+
+            }//end else
+
+        });// end question  view
     }
 
     //이벤트 삭제 기능
@@ -797,35 +898,62 @@ pageEncoding="UTF-8"%>
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
                 getEventList();
-                console.log("이벤트 처리 결과:"+data);
+                console.log("이벤트 삭제 처리 결과:"+data);
+            }
+        });
+        callback();
+    }
+
+    function removeQuestion(eventno){
+        console.log("문제 삭제"+eventno);
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/question/remove",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            datatype:"json",
+            data:JSON.stringify({eventno:eventno}),
+            success:function(data){
+                console.log("문제 처리 결과 :"+data);
             }
 
         });
-        
-        callback();
+    }
 
-    }
-    
-    function removeQuestion(eventno){
-    	console.log("문제 삭제"+eventno);
-    	
-    	 $.ajax({
-         	type:'post',
-         	url:"http://14.32.66.127:4000/question/remove",
-         	headers:{
-         		"Content-Type":"application/json"
-         	},
-         	datatype:"json",
-         	data:JSON.stringify({eventno:eventno}),
-         	success:function(data){
-         		console.log("문제 처리 결과 :"+data);
-         	}
-         	
-         });
-    }
+
+    //이벤트 수정 버튼 클릭
+
+    $("#modifyEventBtn").on("click",function(){
+        var title = $("#moeventName").val();
+        var content = $("#moeventinfo").val();
+        var eventno = $("#moeventno").val();
+        attach2 = attach.join();
+
+        console.log(attach2);
+
+        if(title=="" || content==""){
+            alert("이벤트 이름과 설명을 입력해주세요!");
+            return;
+        }
+
+
+        modifyEvent(eventno,title,content,attach2,camera,function(){
+            clearEventDiv();
+            attach = [];
+        });
+
+        modiQuestion();
+        modifyQuestion(modiJson);
+
+        $("#modiModal").modal('hide');
+
+    });
+
 
     //이벤트 수정 기능
-    function modifyEvent(eventno,title,content,attach2,callback){
+    function modifyEvent(eventno,title,content,attach2,camera,callback){
 
         console.log("이벤트 수정"+eventno);
 
@@ -835,7 +963,7 @@ pageEncoding="UTF-8"%>
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,title:title,content:content,efiles:attach2}),
+            data: JSON.stringify({eventno:eventno,title:title,content:content,efiles:attach2,camera:camera}),
             success: function(data){
                 getEventList();
                 console.log("이벤트 수정 결과 :"+data);
@@ -843,10 +971,10 @@ pageEncoding="UTF-8"%>
         });
         callback();
     }
-    
-    //문제 수정 기능 
+
+    //문제 수정 기능
     function modifyQuestion(modiJson){
-		console.log("문제 수정 시도!")
+        console.log("문제 수정 시도!")
         console.log(modiJson);
 
         $.ajax({
@@ -860,7 +988,7 @@ pageEncoding="UTF-8"%>
                 console.log("문제 수정 처리 결과 :"+data);
             }
         });
-      
+
     }
 
 
@@ -942,8 +1070,8 @@ pageEncoding="UTF-8"%>
 
     $("#mocamera").change("toggle",function(){
         if(this.checked==true){
-        	$("#mocamera").val(true);
-        	console.log("카메라 ON");
+            $("#mocamera").val(true);
+            console.log("카메라 ON");
         }else{
             $("#mocamera").val(false);
             console.log("카메라 OFF");
@@ -1018,7 +1146,6 @@ pageEncoding="UTF-8"%>
     $("#okBtn").on("click",function(){
         $("#finishModal").modal('hide');
         self.location = "/admin/login_success";
-
     });
 
 </script>
@@ -1192,6 +1319,46 @@ pageEncoding="UTF-8"%>
         return fileName.match(pattern);
 
     }
+
+    /*     <!-- 유투브 검색 --> */
+    $("#search-button").on("click",function(event){
+        $("#searchDiv").show();
+        event.preventDefault();
+
+        console.log('Search Started');
+        var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
+        var q = $('#query').val();
+
+        gapi.client.setApiKey(apiKey);
+        gapi.client.load('youtube', 'v3', function() {
+            isLoad = true;
+        });
+        console.log('Search Request');
+
+        request = gapi.client.youtube.search.list({
+            q: q,
+            part: 'id, snippet',
+            type: 'video',
+            order: 'viewcount',
+            maxResults:20
+        });
+
+
+        request.execute(function(response) {
+            var str = JSON.stringify(response.result);
+            var movie = $(response.result.items);
+            console.log(movie);
+
+            var result = "<table>";
+
+            movie.each(function(index){
+                result += "<tr><td><img data-src='"+this.id.videoId+"' src='"+this.snippet.thumbnails.default.url+"'><br>"+this.snippet.title+"</td></tr>";
+            });
+            result += "</table>";
+            $('#search-container').html(result);
+        });
+    });
+
 </script>
 <!-------- 파일첨부기능 끝 -------->
 

@@ -212,8 +212,7 @@
                 <div class="modal-body">
                     <div id="createEventDiv" >
 
-
-                        <label for="eventName">이름</label><br>
+                       <label for="eventName">이름</label><br>
                         <input type="text" class="form-control" id="order" placeholder="순서" readonly="readonly" style="align:center">
                         <input type="text" class="form-control" id="eventName" placeholder="이벤트 이름을 입력하세요">
                         <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
@@ -237,8 +236,8 @@
 
                             <label for="type">문제 유형</label>
                             <select class="form-control" id="qType">
-                                <option>O/X</option>
-                                <option>객관식</option>
+                                <option value="ox">O/X</option>
+                                <option value="multiple">객관식</option>
                             </select><br>
 
                             <label for="qTitle">문제</label>
@@ -310,11 +309,12 @@
 
                     <label for="type">문제 유형</label>
                     <select class="form-control" id="moqType">
-                        <option>O/X</option>
-                        <option>객관식</option>
+                        <option value="ox">O/X</option>
+                        <option value="multiple">객관식</option>
                     </select><br>
 
                     <label for="qTitle">문제</label>
+                    <input type="hidden" id="qno">
                     <textarea class="form-control" id="moquestionTitle" placeholder="문제를 입력하세요."></textarea><br>
                     <div id="moselectBox">
                         <label for="s1">1번 선택지</label><input type="text" class="form-control" id="mos1" placeholder="1번 보기를 입력하세요."><br>
@@ -350,7 +350,7 @@
 
 
 <div id="list">
-   	루트 이름 : <input type="text" id="Rname">
+   	루트 이름 : <input type="text" id="Rname" placeholder="">
     <hr>
     <div id="eventList">
         <ul>
@@ -398,8 +398,7 @@
             };
     var map = new daum.maps.Map(mapContainer, mapOption);
 
-    //var lat= 0;
-    //var lng =0;
+ 
     var routeno = ${routeno};
     var eventLi="";
     var routename = ${routename};
@@ -471,11 +470,6 @@
 
 
 
-    	
-   		
-   		
-    
-    
     $("#Rname").val(routename);	
     
     (function blink() {
@@ -537,20 +531,28 @@
     }
 
 
-  /*   <!-- 이벤트 리스트 삭제버튼 --> */
+    //이벤트 리스트 삭제버튼
     $("#eventList").on("click","#del",function(event){
         var select = $(this);
+        removeQuestion(select.attr("value"));
         removeEvent(select.attr("value"),function(){
         });
+
+
         alert(select.attr("value")+"삭제되었습니다.");
     });
 
-/*     <!-- 이벤트 리스트 수정 버튼 --> */
+    //이벤트 리스트 수정 버튼
     $("#eventList").on("click","#modi",function(event){
         var select = $(this);
-        clearEventDiv();
+
         viewEvent(select.attr("value"));
+        clearEventDiv();
+        clearMoEventdiv();
+        clearQuestionDiv();
+
         $("#modiModal").modal('show');
+
     });
 
 
@@ -563,6 +565,7 @@
         var eorder = $("#order").val();
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
+        var camera = $("#camera").val();
         attach2 = attach.join();
 
         if(title=="" || content==""){
@@ -570,7 +573,7 @@
             return;
         }
 
-        createEvent(routeno, eorder, title, content, attach2, lat, lng, function(){
+        createEvent(routeno, eorder, title, content, attach2, lat, lng, camera, function(){
             console.log("attach2:" + attach2);
             clearEventDiv();
         	attach = [];
@@ -580,35 +583,151 @@
         $("#eventModal").modal('hide');
     });
 
-/*     <!-- 이벤트 수정 버튼 클릭--> */
+    function makeQuestion(data){
+        var qfilter = new Array();
+        qfilter[0]="eventno";
+        qfilter[1]="question";
+        qfilter[2]="answer";
+        qfilter[3]="point";
+        qfilter[4]="qtype";
+        qfilter[5]="choice1";
+        qfilter[6]="choice2";
+        qfilter[7]="choice3";
+        qfilter[8]="choice4";
 
-    $("#modifyEventBtn").on("click",function(){
-        var title = $("#moeventName").val();
-        var content = $("#moeventinfo").val();
-        var eventno = $("#moeventno").val();
-        var eorder = $("#moorder").val();
-        attach2 = attach.join();
-        
-        console.log(attach2);
-        
-        if(title=="" || content==""){
-            alert("이벤트 이름과 설명을 입력해주세요!");
-            return;
+        var qObject = new Object();
+
+        qObject.eventno = data;
+        qObject.question = $("#questionTitle").val();
+        qObject.point = 500;
+        qObject.qtype = $("#qType").val();
+        qObject.choice1 = $("#s1").val();
+        qObject.choice2 = $("#s2").val();
+        qObject.choice3 = $("#s3").val();
+        qObject.choice4 = $("#s4").val();
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                qObject.answer = $(multi).val();
+            }
+
+            if($(ox).is(":checked")){
+                qObject.answer = $(ox).val();
+            }
         }
 
-        modifyEvent(eventno,eorder,title,content,attach2,lat,lng,function(){
+        qJson = JSON.stringify(qObject,qfilter,"\t");
 
+        //console.log(qJson)
+
+    }
+
+    var modiJson;
+
+    function modiQuestion(){
+        var qfilter = new Array();
+        qfilter[0]="questionno";
+        qfilter[1]="question";
+        qfilter[2]="answer";
+        qfilter[3]="point";
+        qfilter[4]="qtype";
+        qfilter[5]="choice1";
+        qfilter[6]="choice2";
+        qfilter[7]="choice3";
+        qfilter[8]="choice4";
+
+        var qObject = new Object();
+
+        qObject.questionno = $("#qno").val();
+        qObject.question = $("#moquestionTitle").val();
+        qObject.point = 500;
+        qObject.qtype = $("#moqType").val();
+        qObject.choice1 = $("#mos1").val();
+        qObject.choice2 = $("#mos2").val();
+        qObject.choice3 = $("#mos3").val();
+        qObject.choice4 = $("#mos4").val();
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#momultipleAnswer";
+            var multi = id+i;
+            var oxid ="#mooxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                qObject.answer = $(multi).val();
+            }
+
+            if($(ox).is(":checked")){
+                qObject.answer = $(ox).val();
+            }
+        }
+
+        modiJson = JSON.stringify(qObject,qfilter,"\t");
+
+        //console.log(qJson)
+
+    }
+
+    function createQuestion(qJson){
+
+        console.log("문제 생성 :"+qJson);
+
+        $.ajax({
+            type:"post",
+            url:"http://14.32.66.127:4000/question/register",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            datatype : "json",
+            data: qJson,
+            success:function(data){
+                console.log("data:"+data);
+            }
         });
 
-        $("#modiModal").modal('hide');
 
-    });
+    }
+
+    function clearQuestionDiv(){
+
+        $("#qCheck").attr("checked",false);
+        $("#questionTitle").val("");
+        $("#qType").val("");
+        $("#s1").val("");
+        $("#s2").val("");
+        $("#s3").val("");
+        $("#s4").val("");
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                $(multi).attr("checked",false);
+            }
+
+            if($(ox).is(":checked")){
+                $(ox).attr("checked",false);
+            }
+        }
+    }
+
 
 
 /*     <!-- 이벤트 생성 기능 --> */
-    function createEvent(routeno,eorder,title,content,attach2,lat,lng,callback){
+    function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,callback){
     	
-        console.log(routeno,eorder,title,content,attach2,lat,lng);
+        console.log(routeno,eorder,title,content,attach2,lat,lng,camera);
 
         $.ajax({
             type:'post',
@@ -616,7 +735,7 @@
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
+            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera}),
             success: function(data){
                 getEventList(function(){
                 	console.log("이벤트 생성한 뒤 getEventList의 콜백에 들어옴.");
@@ -634,7 +753,19 @@
                 	console.log(linePath);
                 	
                 });
-                console.log("data:"+data);
+                console.log("eventno:"+data);
+                makeQuestion(data);
+
+                var json = JSON.parse(qJson);
+                console.log("question : "+json.question);
+
+                if(!json.question){
+                    console.log("이벤트 생성중 - 문제없음.");
+                }
+                else{
+                    console.log("이벤트 생성중 - 문제있음.")
+                    createQuestion(qJson);
+                }
             }
         });
         callback();
@@ -646,8 +777,32 @@
         $("#eventName").val("");
         $("#eventinfo").val("");
         $(".uploadedList").html("");
+        $("#qCheck").attr('checked', false) ;
+        $("#questionDiv").hide();
         attach=[];
     }
+
+  //수정 창 비우기 기능
+    function clearMoEventdiv(){
+
+        for(var i=1;i<5;i++){
+            var id = "#mos";
+            var idi= id + i;
+            var answer = "#momultipleAnswer";
+            var answeri = answer+i;
+            $(idi).val("");
+            $(answeri).attr("checked",false);
+        }
+
+        $("#mooxAnswer1").attr("checked",false);
+        $("#mooxAnswer2").attr("checked",false);
+
+        $("#moqCheck").attr("checked",false);
+        $("#moquestionDiv").hide();
+
+    }
+
+
 
 /*     <!-- 이벤트 읽기 기능 --> */
     function viewEvent(eventno){
@@ -663,27 +818,90 @@
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moorder").val(vo.attr("eorder"));
-        });
+            $("#moeventno").val(eventno);
+        }); //end event view
         
         $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventno, function(list) {
-   		 console.log("뷰에서 겟제이슨 들어왔다");
-   		 console.log(list);
-   		 var array = list[0].split(',');
-   		 console.log(array);
-   		 
-   		var length = array.length;
-   		
-   		 for(var i = 0; i < length; i++){
-   			 
-   			var name = array[i];
-   			attach.push(name);
-   			  var fileInfo = getFileInfo(name);
-                 var html = template2(fileInfo);
-   			  
-   			  $(".uploadedList").append(html);
-   		 }
+	   		 console.log("뷰에서 겟제이슨 들어왔다");
+	   		 console.log(list);
+	   		 var array = list[0].split(',');
+	   		 console.log(array);
+	   		 
+	   		var length = array.length;
+	   		
+	   		 for(var i = 0; i < length; i++){
+	   			 
+	   			var name = array[i];
+	   			attach.push(name);
+	   			  var fileInfo = getFileInfo(name);
+	                 var html = template2(fileInfo);
+	   			  
+	   			  $(".uploadedList").append(html);
+	   		 }
 
-    });
+   		 });//end getAttach
+        
+        $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventno,function(data){
+
+            var vo = $(data);
+
+            var qno = vo.attr("questionno");
+            console.log("문제 넘버:"+qno+"읽어오기");
+            console.log(vo);
+            $("#qno").val(qno);
+
+
+            if(typeof qno == "undefined"){
+                console.log("이벤트 VIEW - 문제 없음.");
+                $("#moqCheck").attr("checked",false);
+                $("#moquestionDiv").hide();
+            }
+
+            else{
+                $("#moqCheck").attr("checked",true);
+                $("#moquestionDiv").show();
+                $("#moquestionTitle").val(vo.attr("question"));
+                $("#moqType").val(vo.attr("qtype"));
+
+                if(vo.attr("qtype")=="multiple"){
+
+                    $("#mooxAnswerbox").hide();
+                    $("#moselectBox").show();
+
+
+                    for (var i=1; i<5; i++){
+                        var id="#mos";
+                        var multi = id+i;
+                        var choice="choice";
+                        var multi2 = choice+i;
+                        $(multi).val(vo.attr(multi2));
+
+                        console.log("answer:"+vo.attr("answer"));
+
+                        if(i==vo.attr("answer")){
+                            var answerId = "#momultipleAnswer"+i;
+                            $(answerId).attr("checked",true);
+                        }
+                    }
+                } //multiple 일때
+
+                if('o'==vo.attr("answer")){
+                    $("#mooxAnswer1").attr("checked",true);
+                    $("#moselectBox").hide();
+                    $("#mooxAnswerbox").show();
+                } //ox중 o일때
+
+                if('x'==vo.attr("answer")){
+                    $("#mooxAnswer2").attr("checked",true);
+                    $("#moselectBox").hide();
+                    $("#mooxAnswerbox").show();
+                }
+
+
+            }//end else
+
+        }); //end question view 
+        
         
     }
 
@@ -700,16 +918,63 @@
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
                 getEventList();
-                console.log("data:"+data);
+                console.log("이벤트 삭제 처리 결과 :"+data);
+            }
+        });
+        callback();
+    }
+    
+    //이벤트 문제 삭제 기능
+    function removeQuestion(eventno){
+        console.log("문제 삭제"+eventno);
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/question/remove",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            datatype:"json",
+            data:JSON.stringify({eventno:eventno}),
+            success:function(data){
+                console.log("문제 처리 결과 :"+data);
             }
 
         });
-        callback();
-
     }
 
+    
+    /*     <!-- 이벤트 수정 버튼 클릭--> */
+
+    $("#modifyEventBtn").on("click",function(){
+        var title = $("#moeventName").val();
+        var content = $("#moeventinfo").val();
+        var eventno = $("#moeventno").val();
+        var eorder = $("#moorder").val();
+        attach2 = attach.join();
+        
+        console.log(attach2);
+        
+        if(title=="" || content==""){
+            alert("이벤트 이름과 설명을 입력해주세요!");
+            return;
+        }
+
+        modifyEvent(eventno,eorder,title,content,attach2,camera,function(){
+        	 //clearEventDiv();
+             //attach = [];
+        });
+        
+        modiQuestion();
+        modifyQuestion(modiJson);
+
+        $("#modiModal").modal('hide');
+
+    });
+
+
     /* <!-- 이벤트 수정 기능 --> */
-    function modifyEvent(eventno,eorder,title,content,attach2,lat,lng,callback){
+    function modifyEvent(eventno,eorder,title,content,attach2,camera,callback){
 
         console.log("이벤트 수정"+eventno);
 
@@ -719,19 +984,40 @@
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
+            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,camera:camera}),
             success: function(data){
                 getEventList();
-                console.log(data);
+                console.log("이벤트 수정 결과 :"+data);
             }
         });
         callback();
     }
 
+  //문제 수정 기능
+    function modifyQuestion(modiJson){
+        console.log("문제 수정 시도!")
+        console.log(modiJson);
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/question/modify",
+            headers:{
+                "Content-Type" :"application/json"	},
+            datatype : "json",
+            data: modiJson,
+            success: function(data){
+                console.log("문제 수정 처리 결과 :"+data);
+            }
+        });
+
+    }
+    
 
  /*    <!--map 클릭하면--> */
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         clearEventDiv();
+        clearMoEventdiv();
+        clearQuestionDiv();
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
         $("#order").val(eventno);
@@ -758,12 +1044,13 @@
 
 
     $("#camera").change("toggle",function(){
-        if(this.checked==true){
-            console.log("카메라 사용함.");
+    	if(this.checked==true){
+            console.log("카메라 ON");
+            $("#camera").val(true);
         }else{
-            console.log("카메라 사용안함.");
+            console.log("카메라 OFF");
+            $("#camera").val(false);
         }
-
     });
 
 
@@ -777,14 +1064,11 @@
 
 
     $("#qType").on("change",function(){
-        if(this.value=="객관식"){
+        if(this.value=="multiple"){
             $("#oxAnswerbox").hide();
             $("#selectBox").show();
-            //$("#multipleAnswerBox").show();
-
         }else{
             $("#selectBox").hide();
-            //$("#multipleAnswerBox").hide();
             $("#oxAnswerbox").show();
 
         }
@@ -801,9 +1085,11 @@
 
     $("#mocamera").change("toggle",function(){
         if(this.checked==true){
-            console.log("카메라 사용함.");
+            $("#mocamera").val(true);
+            console.log("카메라 ON");
         }else{
-            console.log("카메라 사용안함.");
+            $("#mocamera").val(false);
+            console.log("카메라 OFF");
         }
 
     });
@@ -819,7 +1105,7 @@
 
 
     $("#moqType").on("change",function(){
-        if(this.value=="객관식"){
+        if(this.value=="multiple"){
             $("#mooxAnswerbox").hide();
             $("#moselectBox").show();
             //$("#multipleAnswerBox").show();
@@ -835,17 +1121,46 @@
     /* <!-------------------------------------------- END 수정모달 세부사항 -------------------------------------------------- ->*/
    /*  <!-- 이벤트 리스트 완료 클릭--> */
    
+    // 이벤트 리스트 완료 클릭
     $("#commitList").on("click",function(){
         $("#finishModal").modal('show');
 
+        var modiRoutename = $("#Rname").val();
         var routemsg = routename + " 루트 등록이 완료되었습니다";
+
+        console.log(modiRoutename, routename,routeno);
+
+        if( modiRoutename != routename){
+            modifyName(routeno,modiRoutename);
+            routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
+        }
+
         $("#routeFinish").html(routemsg);
+
+
     });
+
+    //루트 이름 수정
+
+    function modifyName(routeno,modiRoutename){
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/route/modify",
+            headers:{
+                "Content-Type":"application/json"},
+            datatype:"json",
+            data:JSON.stringify({routeno:routeno,routename:modiRoutename}),
+            success: function(data){
+                console.log("data:"+data);
+            }
+        });
+
+    }
 
     $("#okBtn").on("click",function(){
         $("#finishModal").modal('hide');
         self.location = "/admin/login_success";
-
     });
 
 </script>
