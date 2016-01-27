@@ -405,6 +405,10 @@
     var eventLi="";
     var routename = ${routename};
     var eventno = 1;
+    
+    // 1월 27일 9시11시에 은혜가 추가한 변수
+    
+    var youtubeId = "";
 /*     var camera = $("#camera").val(false);
     var mocamera = $("#mocamera").val(false); */
     var events = [];
@@ -576,7 +580,7 @@
             return;
         }
 
-        createEvent(routeno, eorder, title, content, attach2, lat, lng, camera, function(){
+        createEvent(routeno, eorder, title, content, attach2, lat, lng, camera,youtubeId, function(){
             console.log("attach2:" + attach2);
             clearEventDiv();
         	attach = [];
@@ -704,9 +708,9 @@
 
 
 /*     <!-- 이벤트 생성 기능 --> */
-    function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,callback){
+    function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,callback){
     	
-        console.log(routeno,eorder,title,content,attach2,lat,lng,camera);
+        console.log(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId);
 
         $.ajax({
             type:'post',
@@ -714,7 +718,7 @@
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera}),
+            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtube:youtubeId}),
             success: function(data){
         		polyline.setMap(null);
                 getEventList(function(){
@@ -988,7 +992,7 @@
             return;
         }
 
-        modifyEvent(eventno,eorder,title,content,attach2,camera,function(){
+        modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,function(){
         	 //clearEventDiv();
              //attach = [];
         });
@@ -1004,7 +1008,7 @@
 
 
     /* <!-- 이벤트 수정 기능 --> */
-    function modifyEvent(eventno,eorder,title,content,attach2,camera,callback){
+    function modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,callback){
 
         console.log("이벤트 수정"+eventno);
 
@@ -1014,7 +1018,7 @@
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,camera:camera}),
+            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,camera:camera,youtube:youtubeId}),
             success: function(data){
         		polyline.setMap(null);
                 getEventList();
@@ -1406,7 +1410,12 @@
     });
     
     $("#search-container").on('click','img',function(event){
-    	console.log($(this).attr("data-src"));
+    	youtubeId = $(this).attr("data-src");
+    	
+    	console.log("가져온 유투브 아이디 : ",youtubeId);
+    	
+    	
+    	
     });
 </script>
 <!-------- 파일첨부기능 끝 -------->
