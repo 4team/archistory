@@ -137,6 +137,8 @@
     }
     
     #search-container{
+        border: 1px solid black;
+        border-radius: 10px;
     	font-size:9px;
         height:100px;
     }
