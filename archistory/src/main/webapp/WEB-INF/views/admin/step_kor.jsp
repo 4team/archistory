@@ -141,13 +141,17 @@
         height:100px;
     }
     
+     #search-container td{
+     	width:150px;
+     }
+    
     #searchDiv{
     	background-color:#fff;
     	z-index:1200;
     	position:absolute;
     	right:100px;
     	top:100px;
-		width:250px;
+		width:180px;
 		height:400px;
 		overflow-y: scroll; 
     }
