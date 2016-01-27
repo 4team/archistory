@@ -230,16 +230,17 @@ var imageSize = new daum.maps.Size(24, 35);
 var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 
+var eMarker;
 
 function addMarker(event){
 
-var marker = new daum.maps.Marker({
+eMarker = new daum.maps.Marker({
     title: "<div class='title'>" + event.title +"<font class='text'> [" + event.eventno +"]</div> <br>"+event.content + "</font><br><br>",
     position: new daum.maps.LatLng(event.lat,event.lng)
 });
 console.log("addmarker들어옴");
-marker.setMap(map);
-markers.push(marker);
+eMarker.setMap(map);
+markers.push(eMarker);
 };
 
 
@@ -314,7 +315,7 @@ function displayMarker(locPosition, message) {
 
 
 //마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-daum.maps.event.addListener(marker, 'click', function() {
+daum.maps.event.addListener(eMarker, 'click', function() {
 	$("#eBox").modal('show');
 });
 
