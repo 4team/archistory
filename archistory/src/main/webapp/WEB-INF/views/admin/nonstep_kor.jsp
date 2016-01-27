@@ -67,11 +67,15 @@ pageEncoding="UTF-8"%>
     }
 
     #order{
+        padding:0px;
+        text-align:center;
         width:33px;
         height:33px;
         float:left;
     }
     #moorder{
+        padding:0px;
+        text-align:center;
         width:33px;
         height:33px;
         float:left;
@@ -648,6 +652,7 @@ pageEncoding="UTF-8"%>
             datatype: "json",
             data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera}),
             success: function(data){
+                polyline.setMap(null);
                 getEventList(function(){
                     console.log("이벤트 생성한 뒤 getEventList의 콜백에 들어옴.");
 
@@ -894,7 +899,7 @@ pageEncoding="UTF-8"%>
         });
     }
 
-    
+
     var modiJson;
 
     function modiQuestion(eventno){
@@ -960,7 +965,7 @@ pageEncoding="UTF-8"%>
         }
 
         console.log("eventno:"+eventno);
-        
+
         modiQuestion(eventno);
 
         var json = JSON.parse(modiJson);
@@ -970,9 +975,9 @@ pageEncoding="UTF-8"%>
             console.log("<이벤트 수정중> - 문제 NO/NO");
         }
         else if($("#qno").val()== "no_Question"){
-        	 console.log("<이벤트 수정중> - 문제NO/YES");
-        	 createQuestion(modiJson);
-        } 
+            console.log("<이벤트 수정중> - 문제NO/YES");
+            createQuestion(modiJson);
+        }
         else{
             console.log("<이벤트 수정중> - 문제YES/YES");
             modifyQuestion(modiJson);
@@ -983,7 +988,7 @@ pageEncoding="UTF-8"%>
             attach = [];
         });
 
- 
+
         $("#modiModal").modal('hide');
         clearMoEventdiv();
 
