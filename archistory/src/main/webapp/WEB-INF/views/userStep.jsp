@@ -279,14 +279,17 @@ getEventList();
 
 //------------------------------- Geolocation -----------------------------------
 
+var lt;
+var ln;
+
 //HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 if (navigator.geolocation) {
     
     // GeoLocation을 이용해서 접속 위치를 얻어옵니다
     navigator.geolocation.getCurrentPosition(function(position) {
         
-        var lt = position.coords.latitude, // 위도
-            ln = position.coords.longitude; // 경도
+         lt = position.coords.latitude; // 위도
+         ln = position.coords.longitude; // 경도
         
         var locPosition = new daum.maps.LatLng(lt, ln), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
             message = '<div style="padding:5px;">나 요기똥</div>'; // 인포윈도우에 표시될 내용입니다
@@ -325,8 +328,8 @@ function displayMarker(locPosition, message) {
     
     // 인포윈도우를 마커위에 표시합니다 
     infowindow.open(map, marker);
-    console.log("locPosition.lat:" + locPosition.lat);
-    console.log("emarker.lat:" + emarker.lat);
+    console.log("lt:" + lt);
+    console.log("emarker:" + emarker);
 }    
 
 /* function questionPopup(){
