@@ -132,7 +132,7 @@
 	    }
 	    
 	 	 #joinH{
-	        max-height: 530px;
+	        max-height: 650px;
 	    }
 	
 	    #joinBody{
@@ -157,6 +157,7 @@
 	    #joinBody{
 	        top:50px;
 	        width:400px;
+	        overflow: hidden;
 	    }
     
       .glyphicon{
