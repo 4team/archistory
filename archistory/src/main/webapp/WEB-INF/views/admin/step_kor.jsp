@@ -822,7 +822,7 @@
             
             console.log("camera 유무:"+vo.attr("camera"));
             
-            if( typeof vo.attr("camera")== "true"){
+            if( vo.attr("camera") == true){
             	console.log("카메라 있음.")
             	$("#mocamera").attr("checked",true);
             	$("#mocamera").val(true);
