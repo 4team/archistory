@@ -190,7 +190,7 @@
 		z-index:10000;
 		}
 		
-		#duplResult{
+		.duplResult{
 			text-align: center;
 			width:300px;
 			height:30px;
@@ -315,13 +315,14 @@
 	    <input type="text" class="form-control" id="useremail" placeholder="Email"><br>
 	    <input type="password" class="form-control" id="password1" placeholder="Password"><br>
 	    <input type="password" class="form-control" id="password2" placeholder="Password (Again)"><br>   
-    <div id="duplResult"><pre></pre></div>
+    <div class="duplResult"><pre></pre></div>
 	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
     </div>
     <div id="adminJoinDiv">
 	    <input type="text" class="form-control" id="adminEmail" placeholder="Email"><br>
 	    <input type="password" class="form-control" id="adminpassword1" placeholder="Password"><br>
 	    <input type="password" class="form-control" id="adminpassword2" placeholder="Password (Again)"><br>
+    <div class="duplResult"><pre></pre></div>
     	<input type="text" class="form-control" id="adminname" placeholder="UserName"><br>
 	    <input type="text" class="form-control" id="phone" placeholder="Phone Number"><br>
 	    <input type="text" class="form-control" id="nation" placeholder="Nation"><br>   
@@ -514,8 +515,22 @@ $("#loginBtn").on("click",function(){
     	
     	var p1 = $("#adminpassword1").val();
     	var p2 = $("#adminpassword2").val();
-	   	console.log("타이핑중");
-	   	var resultDiv = $("#duplResult");
+	   	console.log("어드민 패스워드 타이핑중");
+	   	var resultDiv = $(".duplResult");
+    	
+	    if(p1 == p2){
+	    	resultDiv.html("<pre>비밀번호가 중복됩니다.</pre>");
+	    }else{
+	    	resultDiv.html("<pre>사용가능한 비밀번호 입니다.</pre>");
+	    }
+    });
+    
+		$("#password2").keyup(function(){
+    	
+    	var p1 = $("#password1").val();
+    	var p2 = $("#password2").val();
+	   	console.log("유저 패스워드 타이핑중");
+	   	var resultDiv = $(".duplResult");
     	
 	    if(p1 == p2){
 	    	resultDiv.html("<pre>비밀번호가 중복됩니다.</pre>");
