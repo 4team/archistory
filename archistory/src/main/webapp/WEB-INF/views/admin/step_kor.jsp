@@ -144,11 +144,13 @@
     }
     
     #searchDiv{
+    	
+    	background-color:#fff;
     	z-index:1200;
     	position:absolute;
-    	margin-right:50px;
+    	float:right;
     	top:100px;
-		width:150px;
+		width:250px;
 		height:400px;
     }
 </style>
