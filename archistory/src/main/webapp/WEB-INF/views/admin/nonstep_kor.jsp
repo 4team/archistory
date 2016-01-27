@@ -659,9 +659,8 @@ pageEncoding="UTF-8"%>
             return;
         }
         
-        
 
-        modifyEvent(eventno,title,content,attach2,lat,lng,function(){
+        modifyEvent(eventno,title,content,attach2,function(){
             console.log("attach2:" + attach2);
             clearEventDiv();
             attach = [];
@@ -813,7 +812,7 @@ pageEncoding="UTF-8"%>
     }
 
     //이벤트 수정 기능
-    function modifyEvent(eventno,title,content,attach2,lat,lng,callback){
+    function modifyEvent(eventno,title,content,attach2,callback){
 
         console.log("이벤트 수정"+eventno);
 
@@ -823,7 +822,7 @@ pageEncoding="UTF-8"%>
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
+            data: JSON.stringify({eventno:eventno,title:title,content:content,efiles:attach2}),
             success: function(data){
                 getEventList();
                 console.log(data);
