@@ -10,11 +10,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
-    <meta name="author" content=""> -->
+    <meta name="author" content="">
+    
     
     <title>= Archistory(USER) = StepMode </title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="css/style2.css" rel="stylesheet">
+	<link href="color/default.css" rel="stylesheet">
+	
 </head>
 <style>
     html, body {
@@ -135,14 +149,25 @@
         left:100px;
         z-index:600;
     }
-    /* .eBox{
-    position:absolute;
-    width:50%;
-    height:50%;
-    } */
 </style>
 
-    <!-- Core JavaScript Files -->
+<script type="text/javascript" src="/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=66fca768fabb8a1e238c3ac76f9c9499"></script>
+<!-- on/off toggle 이용하기 위함 -->
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+
+<!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min2.js"></script>
     <script src="js/jquery.easing.min.js"></script>	
@@ -154,26 +179,14 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
     
- <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/nivo-lightbox.css" rel="stylesheet" />
-	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-	<link href="css/animate.css" rel="stylesheet" />
-    <!-- Squad theme CSS -->
-    <link href="css/style2.css" rel="stylesheet">
-	<link href="color/default.css" rel="stylesheet">
-	
-	<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=66fca768fabb8a1e238c3ac76f9c9499"></script>
-	
 <body>
 
 <div id="map"></div>
 
 
-          <!--   <div class="eBox" id="eBox">
+<div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="boxed-grey">
             <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
                 <form id="contact-form">
                 <div class="row">
@@ -200,7 +213,7 @@
                     </div>
                 </div>
                 </form>
-            </div> -->
+            </div>
             
             
             
@@ -229,17 +242,16 @@ var imageSize = new daum.maps.Size(24, 35);
 var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 
-var eMarker;
 
 function addMarker(event){
 
-eMarker = new daum.maps.Marker({
+var marker = new daum.maps.Marker({
     title: "<div class='title'>" + event.title +"<font class='text'> [" + event.eventno +"]</div> <br>"+event.content + "</font><br><br>",
     position: new daum.maps.LatLng(event.lat,event.lng)
 });
 console.log("addmarker들어옴");
-eMarker.setMap(map);
-markers.push(eMarker);
+marker.setMap(map);
+markers.push(marker);
 };
 
 
@@ -311,7 +323,6 @@ function displayMarker(locPosition, message) {
     infowindow.open(map, marker);
     
 }    
-
 
 </script>
 
