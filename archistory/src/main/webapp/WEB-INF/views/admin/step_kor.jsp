@@ -1032,7 +1032,7 @@
     	    
     	    movie.each(function(index){
 	    	    console.log(this.snippet.title);
-	    	    result += "<tr><td><img src='"+this.snippet.thumbnails.default.url+"'>"+this.snippet.title+"</td></tr>";
+	    	    result += "<tr><td><img src='"+this.snippet.thumbnails.default.url+"'><br>"+this.snippet.title+"</td></tr>";
     	    });
     	    result += "</table>";
     	    $('#search-container').html(result);
