@@ -399,7 +399,7 @@ pageEncoding="UTF-8"%>
 
 
     // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-    var linePath = [];
+    //var linePath = [];
 
     //Daum Map marker와 관련된 것들.
 
@@ -412,7 +412,7 @@ pageEncoding="UTF-8"%>
     //{font-family:'Nanum Gothic', sans-serif;}
     function addMarker(event){
 
-        linePath.push(new daum.maps.LatLng(event.lat,event.lng));
+        //linePath.push(new daum.maps.LatLng(event.lat,event.lng));
         var marker = new daum.maps.Marker({
             title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
             position: new daum.maps.LatLng(event.lat,event.lng)
@@ -470,7 +470,7 @@ pageEncoding="UTF-8"%>
 
     function getEventList(callback){
         console.log("getEventList가 호출되어 시작됨.");
-        linePath = [];
+        //linePath = [];
 
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
@@ -492,7 +492,7 @@ pageEncoding="UTF-8"%>
     getEventList(function(){
         console.log("getEventList의 콜백에 들어옴.");
 
-        // 지도에 표시할 선을 생성합니다
+/*         // 지도에 표시할 선을 생성합니다
         var polyline = new daum.maps.Polyline({
             path: linePath, // 선을 구성하는 좌표배열 입니다
             strokeWeight: 5, // 선의 두께 입니다
@@ -502,7 +502,7 @@ pageEncoding="UTF-8"%>
         });
 
         polyline.setMap(map);
-        console.log(linePath);
+        console.log(linePath); */
 
     });
 
@@ -652,11 +652,11 @@ pageEncoding="UTF-8"%>
             datatype: "json",
             data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera}),
             success: function(data){
-                polyline.setMap(null);
+              //  polyline.setMap(null);
                 getEventList(function(){
-                    console.log("이벤트 생성한 뒤 getEventList의 콜백에 들어옴.");
+                    console.log("<논스텝>이벤트 생성 getEventList의 콜백에 들어옴.");
 
-                    // 지도에 표시할 선을 생성합니다
+                   /*  // 지도에 표시할 선을 생성합니다
                     polyline = new daum.maps.Polyline({
                         path: linePath, // 선을 구성하는 좌표배열 입니다
                         strokeWeight: 5, // 선의 두께 입니다
@@ -666,7 +666,7 @@ pageEncoding="UTF-8"%>
                     });
 
                     polyline.setMap(map);
-                    console.log(linePath);
+                    console.log(linePath); */
                 });
                 console.log("<이벤트 생성!> eventno 가져옴:"+data);
                 makeQuestion(data);
