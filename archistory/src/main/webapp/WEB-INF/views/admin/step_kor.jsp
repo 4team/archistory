@@ -821,13 +821,12 @@
             $("#moeventno").val(eventno);
             
             console.log("camera 유무:"+vo.attr("camera"));
+            $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //카메라 없으면 
             
             if( vo.attr("camera") == true){
             	console.log("카메라 있음.")
-            	$("#mocamera").parent().attr("class","toggle btn btn-xs btn-primary");
-            	//$("#mocamera").attr("checked",true);
+            	$("#mocamera").parent().attr("class","toggle btn btn-xs btn-primary"); //카메라 있으면 
             	$("#mocamera").val(true);
-            
             }
         }); //end event view
         
