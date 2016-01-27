@@ -16,7 +16,7 @@
 	<update id="update">
 		update tbl_question set question=#{question},answer=#{answer},point=#{point},qtype=#{qtype},
 		choice1=#{choice1},choice2=#{choice2},choice3=#{choice3},choice4=#{choice4}
-		where questionno=${questionno}
+		where questionno=#{questionno}
 	</update>
 	
 	<delete id="delete">
