@@ -139,7 +139,6 @@
     position:absolute;
     width:50%;
     height:50%;
-    display:none;
     }
 </style>
 
@@ -312,12 +311,6 @@ function displayMarker(locPosition, message) {
     infowindow.open(map, marker);
     
 }    
-
-
-//마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-daum.maps.event.addListener(eMarker, 'click', function() {
-	$("#eBox").modal('show');
-});
 
 
 </script>
