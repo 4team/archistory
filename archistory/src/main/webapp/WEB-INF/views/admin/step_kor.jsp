@@ -157,6 +157,7 @@
 		height:400px;
 		overflow-y: scroll; 
     }
+    
 </style>
 
 <script type="text/javascript" src="/js/upload.js"></script>
