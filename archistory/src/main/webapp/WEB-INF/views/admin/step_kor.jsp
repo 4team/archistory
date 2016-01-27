@@ -822,7 +822,6 @@
   
 
 
-
 /*     <!-- 이벤트 읽기 기능 --> */
     function viewEvent(eventno){
     	$(".uploadedList").html("");
