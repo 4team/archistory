@@ -182,7 +182,7 @@ var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 function addMarker(event){
 
 var marker = new daum.maps.Marker({
-    title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
+    title: "<div class="title">" + event.title +"<font class="text"> [" + event.eventno +"]</div> <br>"+event.content + "</font><br><br>",
     position: new daum.maps.LatLng(event.lat,event.lng)
 });
 console.log("addmarker들어옴");
