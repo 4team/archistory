@@ -299,7 +299,7 @@
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
-                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                 </div>
@@ -405,7 +405,6 @@
     var eventno = 1;
     var camera = $("#camera").val(false);
     var mocamera = $("#mocamera").val(false);
-    
     var events = [];
     
    	
@@ -822,15 +821,6 @@
             $("#moeventinfo").val(vo.attr("content"));
             $("#moorder").val(vo.attr("eorder"));
             $("#moeventno").val(eventno);
-            
-            console.log("camera 유무:"+vo.attr("camera"));
-            $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //카메라 없으면 
-            
-            if( vo.attr("camera") == true){
-            	console.log("카메라 있음.")
-            	$("#mocamera").parent().attr("class","toggle btn btn-xs btn-primary"); //카메라 있으면 
-            	$("#mocamera").val(true);
-            }
         }); //end event view
         
         $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventno, function(list) {
@@ -963,8 +953,6 @@
         var content = $("#moeventinfo").val();
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
-        var camera = $("#mocamera").val();
-        
         attach2 = attach.join();
         
         console.log(attach2);
@@ -1249,7 +1237,7 @@
 	
 	                var str ="";
 	
-	                console.log("data:"+data);
+	                console.log(data);
 	                //console.log(checkImageType(data));
 	                //console.log("ddddd",$(".uploadedList"));
 	
@@ -1257,16 +1245,15 @@
 	                attach.push(data);
 	                console.log("attach:" + attach);
 	                
-	                
 	                if(checkImageType(data)){
 	                    str ="<div class='img'>"
-	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"&routeno="+routeno+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
+	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
 	                            +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 	                            +"</div>";
 	
 	                }else{
 	                    str = "<div class='img'>"
-	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"&routeno="+routeno+"'>"+ getOriginalName(data)+"</a>"
+	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
 	                            +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 	                            +"</div>";
 	                }
