@@ -288,8 +288,9 @@ markers.push(emarker);
 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
+	 console.log("마커 눌렀는뎅????")
 	 $("#eBox").show();
-      console.log("마커 눌렀는뎅????")
+     
 });
 
 
