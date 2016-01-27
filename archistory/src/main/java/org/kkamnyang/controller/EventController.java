@@ -65,10 +65,11 @@ public class EventController {
 		System.out.println(vo);
 		
 		service.regist(vo);
-		service.attachCreate(vo);
 
 		Integer nowSequence = vo.getEventno();
 		response.getWriter().print(nowSequence);
+		vo.setEventno(nowSequence);
+		service.attachCreate(vo);
 		System.out.println("이벤트 넘버:"+nowSequence);
 			
 	}
