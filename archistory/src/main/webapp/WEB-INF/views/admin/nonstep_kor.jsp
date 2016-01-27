@@ -219,7 +219,7 @@ pageEncoding="UTF-8"%>
                         <input type="text" id="query"><button id="search-button">Youtube Search</button>
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
 
-                        <label for="camera">카메라</label><input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                        <label for="camera">카메라</label><input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                         <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                     </div>
@@ -289,7 +289,7 @@ pageEncoding="UTF-8"%>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
-                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                 </div>
@@ -392,6 +392,8 @@ pageEncoding="UTF-8"%>
     var eventLi="";
     var routename = ${routename};
     var events = [];
+    var camera = $("#camera").val(false);
+    var mocamera = $("#mocamera").val(false);
 
 
     // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
@@ -801,6 +803,12 @@ pageEncoding="UTF-8"%>
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
+            
+            if( typeof vo.attr("camera")== "true"){
+            	$("#mocamera").attr("checked",true);
+            	$("#mocamera").val(true);
+            
+            }
         }); //end event view
 
         $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventno, function(list) {
@@ -929,6 +937,8 @@ pageEncoding="UTF-8"%>
         var title = $("#moeventName").val();
         var content = $("#moeventinfo").val();
         var eventno = $("#moeventno").val();
+        var camera = $("#mocamera").val();
+        
         attach2 = attach.join();
 
         console.log(attach2);
