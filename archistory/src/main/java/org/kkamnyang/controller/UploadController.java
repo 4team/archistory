@@ -188,4 +188,49 @@ public class UploadController {
 		  	          UploadFileUtils.uploadMovie(uploadPath, 
 		  	                file.getOriginalFilename(), file.getBytes(),routeno), HttpStatus.CREATED);
 	  }
+	  
+	  @ResponseBody
+	  @RequestMapping("/movieDisplayFile")
+	  public ResponseEntity<byte[]>  movieDisplayFile(@RequestParam("eventno")String eventno, String fileName)throws Exception{
+	    //byte는 파일데이터가져오기위함
+	    InputStream in = null; 
+	    ResponseEntity<byte[]> entity = null;
+	    
+	    logger.info("FILE NAME: " + fileName);
+	    
+	    try{
+	      
+	      String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
+	      
+	      MediaType mType = MediaUtils.getMediaType(formatName);
+	      
+	      HttpHeaders headers = new HttpHeaders();
+	      
+	      in = new FileInputStream(uploadPath+File.separator+"event"+File.separator+eventno+File.separator+"movie"+File.separator+fileName);
+	      // 여기까지 코딩함......................1/27 2:26PM
+	      if(mType != null){
+	        headers.setContentType(mType);
+	      }else{
+	        
+	        fileName = fileName.substring(fileName.indexOf("_")+1);       
+	        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+	        headers.add("Content-Disposition", "attachment; filename=\""+ 
+	          new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
+	      }
+
+	        entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), 
+	          headers, 
+	          HttpStatus.CREATED);
+	    }catch(Exception e){
+	      e.printStackTrace();
+	      entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+	    }finally{
+	      in.close();
+	    }
+	      return entity;    
+	  }
+
+	  
+	  
+	  
 }
