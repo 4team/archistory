@@ -84,7 +84,7 @@ public class UploadController {
 	
 	@ResponseBody
 	  @RequestMapping("/displayFile")
-	  public ResponseEntity<byte[]>  displayFile(@RequestParam("routeno")String routeno, String fileName)throws Exception{
+	  public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
 	    //byte는 파일데이터가져오기위함
 	    InputStream in = null; 
 	    ResponseEntity<byte[]> entity = null;
