@@ -189,6 +189,12 @@
 		.modal-content{
 		z-index:10000;
 		}
+		
+		#duplResult{
+			text-align: center;
+			width:300px;
+			height:30px;
+		}
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
