@@ -29,6 +29,13 @@ function checkAuth() {
 
 // Handle the result of a gapi.auth.authorize() call.
 function handleAuthResult(authResult) {
+	  request = gapi.client.youtube.search.list({
+  	    q: '',
+  	    part: 'id, snippet',
+  	    type: 'video',
+  	    order: 'date'
+  	  });
+	  
   if (authResult && !authResult.error) {
     // Authorization was successful. Hide authorization prompts and show
     // content that should be visible after authorization succeeds.
