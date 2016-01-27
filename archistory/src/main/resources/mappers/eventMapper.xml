@@ -8,7 +8,7 @@
  	<insert id="create" useGeneratedKeys="true" keyProperty="eventno">
  		insert into tbl_event(routeno,title,content,lat,lng,camera,eorder)
  		 values
- 		 (#{routeno},#{title},#{content},#{lat},#{lng},#{camera},#{eorder})
+ 		 (#{routeno},#{title},#{content},#{lat},#{lng},#{camera},#{eorder},#{youtube})
  	</insert>
  	
  	<select id="list" resultType="org.kkamnyang.domain.EventVO">

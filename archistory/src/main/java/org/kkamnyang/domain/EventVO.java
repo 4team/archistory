@@ -11,6 +11,7 @@ public class EventVO {
 	private boolean camera; //null가능
 	private Integer eorder; //null가능
 	private String efiles;
+	private String youtube;
 	
 	
 	
@@ -119,15 +120,25 @@ public class EventVO {
 	public void setEfiles(String efiles) {
 		this.efiles = efiles;
 	}
+	
 
+	public String getYoutube() {
+		return youtube;
+	}
+
+
+
+	public void setYoutube(String youtube) {
+		this.youtube = youtube;
+	}
 
 
 	@Override
 	public String toString() {
 		return "EventVO [eventno=" + eventno + ", routeno=" + routeno + ", title=" + title + ", content=" + content
 				+ ", lat=" + lat + ", lng=" + lng + ", camera=" + camera + ", eorder=" + eorder + ", efiles=" + efiles
-				+ "]";
+				+ ", youtube=" + youtube + "]";
 	}
-	
-	
+
+
 }
