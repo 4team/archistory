@@ -144,6 +144,10 @@
     }
     
     #searchDiv{
+    	z-index:1200;
+    	position:absolute;
+    	margin-right:50px;
+    	top:100px;
 		width:150px;
 		height:400px;
     }
