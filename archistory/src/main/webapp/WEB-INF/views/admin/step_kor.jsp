@@ -143,8 +143,9 @@
     	overflow-y: hidden;
     }
     
-    #search-container pre{
-
+    #searchDiv{
+		width:150px;
+		height:400px;
     }
 </style>
 
@@ -169,6 +170,10 @@
 
 
 <div id="map"></div>
+
+<div id="searchDiv">
+	<div id="search-container"></div>
+</div>
 
 <!-- 모달 팝업(이벤트(스텝) 생성) -->
 <form role="form" id="registerForm" method="post">
@@ -197,7 +202,7 @@
                         <label for="videoInput">동영상</label>
                         <input type="text" id="query"><button id="search-button">Youtube Search</button>
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
-                        <div id="search-container"></div>
+                        
                         <label for="camera">카메라</label>
                         <input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
@@ -993,6 +998,7 @@
     
 /*     <!-- 유투브 검색 --> */
     $("#search-button").on("click",function(event){
+    	$("#searchDiv").show();
     	event.preventDefault();
     	
     	  console.log('Search Started');
