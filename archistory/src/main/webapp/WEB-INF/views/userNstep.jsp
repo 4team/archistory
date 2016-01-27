@@ -77,7 +77,7 @@
             </div>
             
             <div class="modal-body">            
-                                              
+                 <p id="tAnde"></p>
             </div>
             
             <div class="modal-footer">            
@@ -88,36 +88,6 @@
         </div>
     </div>
 </div>
-           <!--  <div class="eBox" id="eBox">
-            <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
-                <form id="contact-form">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                           <div class="section-heading">
-					<h2>Get in touch</h2>
-					</div>
-                        </div>                        
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                         <button type="submit" class="btn btn-skin" id="btnContactUs">
-                            to the MAP</button>
-                        <button type="submit" class="btn btn-skin" id="btnContactUs">
-                            NEXT</button>
-                    </div>
-                </div>
-                </form>
-            </div> -->
-            
-            
             
 <script>
 var markers = [];
@@ -163,11 +133,8 @@ markers.push(emarker);
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
 	 console.log("마커 눌렀는뎅????")
-	 $("#eBox").modal('show');
-     
+	 $("#eBox").modal('show');     
 });
-
-
 };
 
 
@@ -247,10 +214,13 @@ function displayMarker(locPosition, message) {
     console.log("emarker.getAltitude():" + emarker.getAltitude());
 }    
 
+function addList(event){
+    eventLi+="<li>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
+            "<span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
 
-/* function questionPopup(event){
-	if(lt )		
-} */
+    $("#eventList").html(eventLi);
+
+}
 
 
 </script>

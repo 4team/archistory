@@ -79,24 +79,27 @@ z-index:9999;
 			<h1>Archistory</h1>
 			<p>If you use it, You can see it. And it's not the same history as before.</p>
 		<a class="btn btn-skin" id="list">Start</a>
-		
-		
 		</div>	
     </section>
 	<!-- /Section: intro -->
 			
+			
+			<!-- 루트리스트 뜨는 어두운전체창 -->
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
-<div class="nivo-lightbox-wrap">
-<div class="nivo-lightbox-content">
+			<div class="nivo-lightbox-wrap">
+			<div class="nivo-lightbox-content">
 
-		<p id="myRouteList">
-		</p>
-		
-		</div>
-		</div>
-		<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
-		</div>
-				
+						<p id="myRouteList">
+						</p>
+						
+			</div>
+			</div>
+					<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
+			</div>
+			<!-- END 루트리스트 뜨는 어두운전체창 -->
+
+
+				<!-- 이 루트 들어갈건지 묻는 창 -->
 	<div class="modal" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" >
@@ -118,7 +121,9 @@ z-index:9999;
         </div>
     </div>
 </div>
-		
+		<!-- END 이 루트 들어갈건지 묻는 창 -->
+
+
 <script>
 //route list 보이기
 
@@ -156,7 +161,7 @@ var routeLi = "";
     	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
     }
  
- //routelist 에서   route 이름 클릭하면 -> 루트 수정, 멤버 등록, 루트 삭제 모달 창 뜸.    
+ //myRoutelist 에서   route 이름 클릭하면  
     $("#myRouteList").on("click","li",function(event){
 	       var select = $(this);
 	       var routeno = parseInt(select.attr("data-routeno"));
