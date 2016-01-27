@@ -404,7 +404,6 @@
     var routename = ${routename};
     var eventno = 1;
     var camera = $("#camera").val(false);
-    $("#camera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
     var mocamera = $("#mocamera").val(false);
     
     var events = [];
@@ -781,6 +780,7 @@
         $(".uploadedList").html("");
         $("#qCheck").attr('checked', false) ;
         $("#questionDiv").hide();
+        $("#camera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         attach=[];
     }
 
@@ -800,6 +800,7 @@
         $("#mooxAnswer2").attr("checked",false);
 
         $("#moqCheck").attr("checked",false);
+        $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         $("#moquestionDiv").hide();
 
     }
@@ -1031,6 +1032,7 @@
         clearEventDiv();
         clearMoEventdiv();
         clearQuestionDiv();
+        
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
         $("#order").val(eventno);
