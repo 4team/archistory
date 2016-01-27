@@ -3,6 +3,7 @@ package org.kkamnyang.controller;
 import java.util.List;
 
 import org.kkamnyang.domain.MemberVO;
+import org.kkamnyang.domain.ParticipateVO;
 import org.kkamnyang.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,4 +54,21 @@ public class MemberController {
 	public void remove(Integer MemberNo) throws Exception{
 		service.remove(MemberNo);
 	}
+	
+	
+	public void participate(ParticipateVO vo) throws Exception{
+		System.out.println("==="+vo.getMemberno() + "번 유저가 "+ vo.getRouteno() + "번 루트를 처음으로 참여한다.===");
+		service.participateF(vo);
+		
+	}
+	
+	public void updateParticipate(ParticipateVO vo) throws Exception{
+		System.out.println("===Participate의 업데이트가 호출되었다. "+vo.getMemberno()+"번 유저의 이벤트완료.===");
+		service.participateU(vo);
+	}
+	
+	public void finish(Integer memberNo)throws Exception{
+		service.finish(memberNo);
+	}
+	
 }

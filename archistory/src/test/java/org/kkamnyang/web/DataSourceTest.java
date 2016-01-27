@@ -28,7 +28,7 @@ public class DataSourceTest {
 	@Test
 	public void test() throws Exception {
 		Connection con = ds.getConnection();
-		PreparedStatement pstmt = con.prepareStatement("select * from tbl_admin");
+		PreparedStatement pstmt = con.prepareStatement("select * from tbl_camera");
 		ResultSetMetaData rs = pstmt.getMetaData();
 		
 		for(int i = 0 ; i < rs.getColumnCount(); i++){

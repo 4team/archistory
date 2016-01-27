@@ -3,6 +3,7 @@ package org.kkamnyang.service;
 import java.util.List;
 
 import org.kkamnyang.domain.MemberVO;
+import org.kkamnyang.domain.ParticipateVO;
 import org.kkamnyang.persistence.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,19 @@ public class MemberService {
 	
 	public void remove(Integer MemberNo) throws Exception{
 		mapper.delete(MemberNo);
+	}
+
+	public void participateF(ParticipateVO vo) {
+		mapper.participateF(vo);
+	}
+
+	public void participateU(ParticipateVO vo) {
+		mapper.participateU(vo);
+	}
+
+	public void finish(Integer memberNo) {
+		mapper.finishParticipate(memberNo);
+		
 	}
 	
 }

@@ -84,7 +84,7 @@ public class UploadController {
 	
 	@ResponseBody
 	  @RequestMapping("/displayFile")
-	  public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
+	  public ResponseEntity<byte[]>  displayFile(@RequestParam("eventno")String eventno, String fileName)throws Exception{
 	    //byte는 파일데이터가져오기위함
 	    InputStream in = null; 
 	    ResponseEntity<byte[]> entity = null;
@@ -99,7 +99,7 @@ public class UploadController {
 	      
 	      HttpHeaders headers = new HttpHeaders();
 	      
-	      in = new FileInputStream(uploadPath+fileName);
+	      in = new FileInputStream(uploadPath+File.separator+"event"+File.separator+eventno+File.separator+"picture"+File.separator+fileName);
 	      
 	      if(mType != null){
 	        headers.setContentType(mType);

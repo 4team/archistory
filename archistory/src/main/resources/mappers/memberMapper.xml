@@ -30,4 +30,17 @@
 		select * from tbl_member where email = #{email}
 	</select>
 	
+	<insert id="firstParticipate">
+		insert into tbl_participate(routeNo,memberNo) 
+		values(#{routeno},#{memberno})
+	</insert>
+	
+	<update id="updateParticipate">
+		update tbl_participate set score = #{score}, stage=#{stage}, lastDate = now()
+	</update>
+	
+	<update id="finishRoute">
+		update tbl_participate set finish = true, lastDate = now()
+	</update>
+	
 </mapper>
