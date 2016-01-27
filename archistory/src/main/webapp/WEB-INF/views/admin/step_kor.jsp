@@ -137,7 +137,8 @@
     }
     
     #search-container pre{
-    overflow-x:scroll;
+    	height:30px;
+    	overflow-x:scroll;
     }
 </style>
 
