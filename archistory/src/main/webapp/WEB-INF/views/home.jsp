@@ -519,9 +519,9 @@ $("#loginBtn").on("click",function(){
 	   	var resultDiv = $(".duplResult");
     	
 	    if(p1 == p2){
-	    	resultDiv.html("<ul><li>비밀번호가 중복됩니다.</li></ul>");
+	    	resultDiv.html("<ul><li>비밀번호가 다릅니다.</li></ul>");
 	    }else{
-	    	resultDiv.html("<ul><li>사용가능한 비밀번호 입니다.</li></ul>");
+	    	resultDiv.html("");
 	    }
     });
     
