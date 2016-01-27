@@ -478,7 +478,7 @@ pageEncoding="UTF-8"%>
                 addMarker(event);
 
             });
-            callback();
+            //callback();
         });
 
 
