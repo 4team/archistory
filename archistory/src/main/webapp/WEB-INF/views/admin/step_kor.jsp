@@ -146,6 +146,7 @@
      }
     
     #searchDiv{
+    	display:none;
     	text-align:center;
     	background-color:#fff;
     	z-index:1200;
