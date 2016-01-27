@@ -189,7 +189,7 @@
                         <label for="videoInput">동영상</label>
                         <input type="text" id="query"><input type="button" id="videoInput" value="Youtube검색"  onclick="search()">
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
-                        
+                        <div id="search-container"></div>
                         <label for="camera">카메라</label>
                         <input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
