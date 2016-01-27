@@ -225,7 +225,7 @@ if (navigator.geolocation) {
         
         // 마커와 인포윈도우를 표시합니다
         displayMarker(locPosition, message);
-            
+            console.log("내위도경도:" + lt + "," + ln);
       });
     
 } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
@@ -234,6 +234,7 @@ if (navigator.geolocation) {
         message = 'geolocation을 사용할수 없어요..'
         
     displayMarker(locPosition, message);
+    console.log("geolocation 사용불가");
 }
 
 // 지도에 마커와 인포윈도우를 표시하는 함수입니다
