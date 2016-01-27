@@ -532,10 +532,10 @@ $("#loginBtn").on("click",function(){
 	   	console.log("유저 패스워드 타이핑중");
 	   	var resultDiv = $(".duplResult");
     	
-	    if(p1 == p2){
-	    	resultDiv.html("<ul><li>비밀번호가 중복됩니다.</li></ul>");
+	    if(p1 != p2){
+	    	resultDiv.html("<ul><li>비밀번호가 다릅니다.</li></ul>");
 	    }else{
-	    	resultDiv.html("<pre>사용가능한 비밀번호 입니다.</pre>");
+	    	resultDiv.html("");
 	    }
     });
 </script>
