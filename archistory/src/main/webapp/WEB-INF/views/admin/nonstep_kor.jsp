@@ -720,7 +720,10 @@ pageEncoding="UTF-8"%>
 
             var vo = $(data);
             console.log(vo);
+            console.log("문제 넘버 : "+ vo.attr("questionno"));
+     
             $("#qno").val(vo.attr("questionno"));
+            console.log("qno:"+$("#qno").val());
 
             if(!vo){
             	console.log("문제 없음.");
