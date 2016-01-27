@@ -581,6 +581,9 @@
         });
 
         $("#eventModal").modal('hide');
+        clearEventDiv();
+        clearMoEventdiv();
+       
     });
 
     function makeQuestion(data){
@@ -695,33 +698,6 @@
 
     }
 
-    function clearQuestionDiv(){
-
-        $("#qCheck").attr("checked",false);
-        $("#questionTitle").val("");
-        $("#qType").val("");
-        $("#s1").val("");
-        $("#s2").val("");
-        $("#s3").val("");
-        $("#s4").val("");
-
-        for(var i=1;i<5;i++) {
-
-            var id = "#multipleAnswer";
-            var multi = id+i;
-            var oxid ="#oxAnswer";
-            var ox =oxid+i;
-
-            if ($(multi).is(":checked")) {
-                $(multi).attr("checked",false);
-            }
-
-            if($(ox).is(":checked")){
-                $(ox).attr("checked",false);
-            }
-        }
-    }
-
 
 
 /*     <!-- 이벤트 생성 기능 --> */
@@ -782,6 +758,35 @@
         $("#camera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         attach=[];
     }
+    
+    //이벤트 생성- 문제 창 비우기 기능
+    function clearQuestionDiv(){
+
+        $("#qCheck").attr("checked",false);
+        $("#questionTitle").val("");
+        $("#qType").val("");
+        $("#s1").val("");
+        $("#s2").val("");
+        $("#s3").val("");
+        $("#s4").val("");
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                $(multi).attr("checked",false);
+            }
+
+            if($(ox).is(":checked")){
+                $(ox).attr("checked",false);
+            }
+        }
+    }
+
 
   //수정 창 비우기 기능
     function clearMoEventdiv(){
@@ -803,6 +808,7 @@
         $("#moquestionDiv").hide();
 
     }
+  
 
 
 
@@ -963,6 +969,7 @@
         var content = $("#moeventinfo").val();
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
+        var camera = $("#mocamera").val();
         attach2 = attach.join();
         
         console.log(attach2);
@@ -981,6 +988,8 @@
         modifyQuestion(modiJson);
 
         $("#modiModal").modal('hide');
+        clearMoEventdiv();
+        
 
     });
 
