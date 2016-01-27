@@ -824,7 +824,8 @@
             
             if( vo.attr("camera") == true){
             	console.log("카메라 있음.")
-            	$("#mocamera").attr("checked",true);
+            	$("#mocamera").parent().attr("class","toggle btn btn-xs btn-primary");
+            	//$("#mocamera").attr("checked",true);
             	$("#mocamera").val(true);
             
             }
