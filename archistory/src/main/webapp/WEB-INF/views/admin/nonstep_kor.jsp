@@ -825,7 +825,7 @@ pageEncoding="UTF-8"%>
             data: JSON.stringify({eventno:eventno,title:title,content:content,efiles:attach2}),
             success: function(data){
                 getEventList();
-                console.log(data);
+                console.log("이벤트 수정 결과 :"+data);
             }
         });
         callback();
@@ -833,7 +833,7 @@ pageEncoding="UTF-8"%>
     
     //문제 수정 기능 
     function modifyQuestion(modiJson){
-
+		console.log("문제 수정 시도!")
         console.log(modiJson);
 
         $.ajax({
