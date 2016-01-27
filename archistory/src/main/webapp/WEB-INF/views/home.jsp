@@ -506,6 +506,7 @@ $("#loginBtn").on("click",function(){
     
     $("#adminpassword2").keyup(function(){
 	    if($("#adminpassword1")==$("#adminpassword2")){
+	    	console.log("타이핑중");
 	    	var resultDiv = $("#duplResult");
 	    	resultDiv.append("<h3>비밀번호가 중복됩니다.</h3>");
 	    	resultDiv.show();
