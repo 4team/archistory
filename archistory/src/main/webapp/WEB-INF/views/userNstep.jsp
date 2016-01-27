@@ -122,7 +122,7 @@ var emarker;
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
-    title: '<div class="title">' + event.title +'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
+    title: '이벤트명: ' + event.title + '[' + event.eventno +']',
     position: new daum.maps.LatLng(event.lat,event.lng),
     clickable: true
 });
@@ -154,10 +154,7 @@ function getEventList(){
         });
     });
 }
-
 getEventList();
-
-
 
 function showEvent(event) {
        eventLi += "<div class='form-group'>"+

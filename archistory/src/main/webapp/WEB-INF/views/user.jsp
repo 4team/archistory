@@ -171,7 +171,7 @@ var routeLi = "";
 	    });
   
     function questionModal(select){
-        var questionModal =   "<li>" + select.attr("data-routename")+
+        var questionModal =   "<li>" + select.attr("data-routename")+"</li>"
         "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
         "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
 
