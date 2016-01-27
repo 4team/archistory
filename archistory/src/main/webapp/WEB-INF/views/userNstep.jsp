@@ -285,6 +285,14 @@ function addMarker(event){
 console.log("addmarker들어옴");
 emarker.setMap(map);
 markers.push(emarker);
+
+//마커에 클릭이벤트를 등록합니다
+daum.maps.event.addListener(emarker, 'click', function() {
+	 $("#eBox").show();
+      console.log("마커 눌렀는뎅????")
+});
+
+
 };
 
 
@@ -364,12 +372,6 @@ function displayMarker(locPosition, message) {
     console.log("emarker.getAltitude():" + emarker.getAltitude());
 }    
 
-//마커에 클릭이벤트를 등록합니다
-daum.maps.event.addListener(emarker, 'click', function() {
-      // 마커 위에 인포윈도우를 표시합니다
-      infowindow.open(map, emarker); 
-      console.log("마커 눌렀는뎅????")
-});
 
 /* function questionPopup(event){
 	if(lt )		
