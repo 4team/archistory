@@ -590,7 +590,7 @@ pageEncoding="UTF-8"%>
     function createEvent(routeno,title,content,attach2,lat,lng,camera,callback){
 
 
-        console.log("이벤트 생성:"routeno,title,content,attach2,lat,lng,camera);
+        console.log("이벤트 생성:",routeno,title,content,attach2,lat,lng,camera);
 
         $.ajax({
             type:'post',
