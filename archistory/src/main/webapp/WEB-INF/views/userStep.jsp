@@ -329,6 +329,7 @@ function displayMarker(locPosition, message) {
     // 인포윈도우를 마커위에 표시합니다 
     infowindow.open(map, marker);
     console.log("lt:" + lt);
+    console.log("emarker:" + emarker);
     console.log("emarker.position:" + emarker.position);
 }    
 
@@ -336,6 +337,8 @@ function displayMarker(locPosition, message) {
 	if(locPosition.lat )
 	
 } */
+
+
 </script>
 
 </body>
