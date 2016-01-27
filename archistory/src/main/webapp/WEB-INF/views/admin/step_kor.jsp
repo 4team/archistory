@@ -152,6 +152,12 @@
 <!-- on/off toggle 이용하기 위함 -->
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+
+<!-- Youtube검색하기 위함 -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 <body>
 
 
@@ -182,8 +188,8 @@
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
                         <label for="videoInput">동영상</label>
-                        <input type="text" id="query"><input type="button" id="videoInput" value="Youtube검색">
-                        <div class="fileDrop"><h5 align="center";>여기에 동영상을 끌어오세요</h5></div>
+                        <input type="text" id="query"  onclick="search()"><input type="button" id="videoInput" value="Youtube검색">
+                        <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
                         
                         <label for="camera">카메라</label>
                         <input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
