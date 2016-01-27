@@ -178,11 +178,10 @@
                         <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                         <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                         <label for="imgInput">이미지</label>
-                        <input type="file" id="imgInput">
                         <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>                        
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
-                        <label for="videoInput">동영상</label>
+                        <input type="text" id="query"><label for="videoInput">동영상</label>
                         <input type="button" id="videoInput" value="Youtube검색">
                         <div class="fileDrop"><h5 align="center";>여기에 동영상을 끌어오세요</h5></div>
                         
