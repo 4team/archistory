@@ -50,7 +50,6 @@ public class EventService {
 	
 	public void attachModify(EventVO vo)throws Exception{
 		System.out.println("첨부파일업뎃 서비스 호출.....");
-		mapper.update(vo);
 		mapper.attachModify(vo);
 	}
 }
