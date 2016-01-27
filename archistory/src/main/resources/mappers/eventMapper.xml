@@ -6,7 +6,7 @@
  <mapper namespace="org.kkamnyang.persistence.EventMapper">
 
  	<insert id="create" useGeneratedKeys="true" keyProperty="eventno">
- 		insert into tbl_event(routeno,title,content,lat,lng,camera,eorder)
+ 		insert into tbl_event(routeno,title,content,lat,lng,camera,eorder,youtube)
  		 values
  		 (#{routeno},#{title},#{content},#{lat},#{lng},#{camera},#{eorder},#{youtube})
  	</insert>
