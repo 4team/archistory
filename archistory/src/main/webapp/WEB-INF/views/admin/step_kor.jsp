@@ -135,6 +135,10 @@
         left:100px;
         z-index:600;
     }
+    
+    #search-container{
+    	       overflow-x:scroll;
+    }
 </style>
 
 <script type="text/javascript" src="/js/upload.js"></script>
