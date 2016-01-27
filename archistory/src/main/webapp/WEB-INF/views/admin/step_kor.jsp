@@ -981,7 +981,9 @@
     }
     
 /*     <!-- 유투브 검색 --> */
-    $("#search-button").on("click",function(){
+    $("#search-button").on("click",function(event){
+    	event.preventDefault();
+    	
     	  console.log('Search Started');
     	  var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
     	  var q = $('#query').val();
