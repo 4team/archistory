@@ -1010,12 +1010,16 @@
     	  request.execute(function(response) {
     	    var str = JSON.stringify(response.result);
     	    var movie = $(response.result.items);
+    	    console.log(movie);
+    	    
+	    	var result = "<table><tr>";
     	    
     	    movie.each(function(index){
 	    	    console.log(this.snippet.title);
+	    	    result += "<td>"+this.snippet.title+"</td>";
     	    });
-    	    
-    	    $('#search-container').html('<pre>' + str + '</pre>');
+    	    result += "</tr></table>";
+    	    $('#search-container').html(result);
     	  });
     });
     
