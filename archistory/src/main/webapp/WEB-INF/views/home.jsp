@@ -512,8 +512,10 @@ $("#loginBtn").on("click",function(){
     	
 	    if(p1 == p2){
 	    	var resultDiv = $("#duplResult");
-	    	resultDiv.append("<h3>비밀번호가 중복됩니다.</h3>");
 	    	resultDiv.show();
+	    	resultDiv.append("비밀번호가 중복됩니다.");
+	    }else{
+	    	resultDiv.hide();
 	    }
     });
 </script>
