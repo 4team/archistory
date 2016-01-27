@@ -518,7 +518,7 @@ $("#loginBtn").on("click",function(){
 	   	console.log("어드민 패스워드 타이핑중");
 	   	var resultDiv = $(".duplResult");
     	
-	    if(p1 == p2){
+	    if(p1 != p2){
 	    	resultDiv.html("<ul><li>비밀번호가 다릅니다.</li></ul>");
 	    }else{
 	    	resultDiv.html("");
