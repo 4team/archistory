@@ -29,11 +29,7 @@ function checkAuth() {
 
 // Handle the result of a gapi.auth.authorize() call.
 function handleAuthResult(authResult) {
-	  gapi.client.setApiKey(apiKey);
-	  gapi.client.load('youtube', 'v3', function() {
-	    isLoad = true;
-	  });
-	  
+
   if (authResult && !authResult.error) {
     // Authorization was successful. Hide authorization prompts and show
     // content that should be visible after authorization succeeds.
