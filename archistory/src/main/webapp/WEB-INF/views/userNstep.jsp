@@ -158,6 +158,7 @@ markers.push(emarker);
 daum.maps.event.addListener(emarker, 'click', function(emarker) {
 	 console.log("마커 눌렀는뎅????");
 	 console.log("this:" + this);
+	 console.log(this);
 	 $("#eBox").modal('show');   
 });
 };
