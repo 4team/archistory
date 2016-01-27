@@ -501,7 +501,6 @@
     }
     
     
-    
     getEventList(function(){
     	console.log("getEventList의 콜백에 들어옴.");
     	
