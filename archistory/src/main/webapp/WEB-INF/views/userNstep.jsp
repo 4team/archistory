@@ -152,6 +152,7 @@
     .eBox{
     position:absolute;
     display:none;
+    z-index:999;
     }
 </style>
 
@@ -200,10 +201,9 @@
             </div>
             <div class="modal-body">
             
-                <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Message"></textarea>
+                <label for="name"></label>
+                <textarea name="message" id="message" class="form-control" rows="9" cols="25" 
+                													required="required" placeholder="Message"></textarea>
                                 
             </div>
             <div class="modal-footer">
