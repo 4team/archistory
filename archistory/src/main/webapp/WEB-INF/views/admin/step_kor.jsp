@@ -992,7 +992,7 @@
     	  });
     	  console.log('Search Request');
 
-    	  var request = gapi.client.youtube.search.list({
+    	  request = gapi.client.youtube.search.list({
     	    q: q,
     	    part: 'id, snippet',
     	    type: 'video',
