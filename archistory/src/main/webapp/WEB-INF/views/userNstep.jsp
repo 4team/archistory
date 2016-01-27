@@ -153,7 +153,7 @@
     display:none;
     
     }
-    .modal-content{
+    .modal-dialog{
     position:absolute;
     z-index:99999;
     }
