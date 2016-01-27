@@ -193,12 +193,12 @@
             </div>
             
             <div class="modal-body">            
-                  <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" ></textarea>                            
+                                              
             </div>
             
             <div class="modal-footer">            
-                <button type="submit" class="btn btn-skin">to the MAP</button>
-                        <button type="submit" class="btn btn-skin">NEXT</button>                            
+                <a class="btn btn-skin">to the MAP</button>
+                        <a class="btn btn-skin">NEXT</button>                            
             </div>
             
         </div>
