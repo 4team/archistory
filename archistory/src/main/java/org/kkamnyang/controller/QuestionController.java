@@ -53,6 +53,7 @@ public class QuestionController {
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public ResponseEntity<String> modify(QuestionVO vo) throws Exception{
 		System.out.println("=======문제 수정 POST 호출됨.==========");
+		System.out.println(vo);
 		ResponseEntity<String> entity = null;
 		
 		try{
@@ -60,8 +61,8 @@ public class QuestionController {
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
 		    System.out.println("==============문제 수정 완료 !!===============");
 		}catch(Exception e){
-			e.printStackTrace();
-			//entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+			//e.printStackTrace();
+			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
 		}
 		
 		return entity;
