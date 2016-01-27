@@ -1255,13 +1255,13 @@
 	                
 	                if(checkImageType(data)){
 	                    str ="<div class='img'>"
-	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
+	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"&routeno="+routeno+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"&routeno="+routeno+"'/></a>"
 	                            +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 	                            +"</div>";
 	
 	                }else{
 	                    str = "<div class='img'>"
-	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
+	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"&routeno="+routeno+"'>"+ getOriginalName(data)+"</a>"
 	                            +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 	                            +"</div>";
 	                }
