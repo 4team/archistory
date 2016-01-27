@@ -187,8 +187,37 @@
 
 <div id="map"></div>
 
+<div class="eBox" id="eBox">
+<div class="modal fade" id="finishModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+            
+            <div class="section-heading">
+					<h2>Get in touch</h2>
+					</div>
+            
+            </div>
+            <div class="modal-body">
+            
+                <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                                
+            </div>
+            <div class="modal-footer">
+            
+                <button type="submit" class="btn btn-skin" id="btnContactUs">to the MAP</button>
+                        <button type="submit" class="btn btn-skin" id="btnContactUs">NEXT</button>
+                            
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
-            <div class="eBox" id="eBox">
+           <!--  <div class="eBox" id="eBox">
             <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
                 <form id="contact-form">
                 <div class="row">
@@ -215,7 +244,7 @@
                     </div>
                 </div>
                 </form>
-            </div>
+            </div> -->
             
             
             
