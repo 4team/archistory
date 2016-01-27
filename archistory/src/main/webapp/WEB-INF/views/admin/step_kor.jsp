@@ -161,7 +161,7 @@
         border-radius: 10px;
     	padding:10px;
     	text-align:center;
-    	background-color:#fff;
+    	background-color:#000;
     	z-index:1200;
     	position:absolute;
     	right:150px;
