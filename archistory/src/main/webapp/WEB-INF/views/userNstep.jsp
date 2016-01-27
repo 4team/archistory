@@ -342,7 +342,7 @@ function displayMarker(locPosition, message) {
     infowindow.open(map, marker);
     console.log("lt:" + lt);
     console.log("emarker.getPosition.getLat:" + emarker.getPosition.getLat);
-    console.log("emarker.getAltitude():" + emarker.getAltitude();
+    console.log("emarker.getAltitude():" + emarker.getAltitude());
     console.log(viewpoint);
 }    
 
