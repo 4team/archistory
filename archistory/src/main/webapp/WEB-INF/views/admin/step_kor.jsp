@@ -136,7 +136,7 @@
         z-index:600;
     }
     
-    #search-container{
+    #search-container pre{
     overflow-x:scroll;
     }
 </style>
