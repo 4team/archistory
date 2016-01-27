@@ -508,14 +508,15 @@ $("#loginBtn").on("click",function(){
     	
     	var p1 = $("#adminpassword1").val();
     	var p2 = $("#adminpassword2").val();
-	    	console.log("타이핑중");
+	   	console.log("타이핑중");
+	   	var resultDiv = $("#duplResult");
     	
 	    if(p1 == p2){
-	    	var resultDiv = $("#duplResult");
 	    	resultDiv.show();
-	    	resultDiv.append("비밀번호가 중복됩니다.");
+	    	resultDiv.append("<pre>비밀번호가 중복됩니다.</pre>");
 	    }else{
 	    	resultDiv.hide();
+	    	resultDiv.append("<pre>사용가능한 비밀번호 입니다.</pre>");
 	    }
     });
 </script>
