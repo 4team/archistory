@@ -188,7 +188,7 @@
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
                         <label for="videoInput">동영상</label>
-                        <input type="text" id="query"  onclick="search()"><input type="button" id="videoInput" value="Youtube검색">
+                        <input type="text" id="query"><input type="button" id="videoInput"   onclick="search()">
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
                         
                         <label for="camera">카메라</label>
