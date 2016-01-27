@@ -27,7 +27,7 @@
     <style>
         html, body {
             width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
-            font-family: sans-serif; color: #edffff;
+            font-family: sans-serif; color: white;
         }
 
         #main{
