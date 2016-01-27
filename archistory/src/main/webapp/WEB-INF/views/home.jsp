@@ -319,6 +319,7 @@
 	    <input type="text" class="form-control" id="phone" placeholder="Phone Number"><br>
 	    <input type="text" class="form-control" id="nation" placeholder="Nation"><br>   
     </div>
+    <div id="duplResult"></div>
 </div>
 
             </div>
