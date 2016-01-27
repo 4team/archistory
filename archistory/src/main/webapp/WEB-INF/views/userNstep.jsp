@@ -188,7 +188,7 @@
 <div id="map"></div>
 
 
-            <div class="eBox">
+            <div class="eBox" id="eBox">
             <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
                 <form id="contact-form">
                 <div class="row">
@@ -246,8 +246,6 @@ var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 var emarker;
 
-var viewpoint;
-
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
@@ -271,14 +269,7 @@ function getEventList(){
         list.each(function(idx,value){
             var event= this;
             addMarker(event);
-//            questionPopup(event);
-
-            daum.maps.event.addListener(function() {
-
-            	// 마커의 position과 altitude값을 통해 viewpoint값(화면좌표)를 추출합니다.
-            		viewpoint = projection.viewpointFromCoords(emarker.getPosition(), emarker.getAltitude());
-            		console.log(viewpoint);
-            	});
+ 			//questionPopup(event);
             
         });
     });
@@ -341,15 +332,15 @@ function displayMarker(locPosition, message) {
     console.log("lt:" + lt);
     console.log("emarker.getPosition:" + emarker.getPosition);
     console.log("emarker.getAltitude():" + emarker.getAltitude());
-    console.log(viewpoint);
 }    
 
+$("#map").on("click",function(){
+	 $("#eBox").show();	 	
+});
 
 
-/* 
-function questionPopup(event){
-	if(lt )
-	
+/* function questionPopup(event){
+	if(lt )		
 } */
 
 
