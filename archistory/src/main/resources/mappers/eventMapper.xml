@@ -6,9 +6,9 @@
  <mapper namespace="org.kkamnyang.persistence.EventMapper">
 
  	<insert id="create" useGeneratedKeys="true" keyProperty="eventno">
- 		insert into tbl_event(routeno,title,content,lat,lng,img,video,camera,camMessage,eorder)
+ 		insert into tbl_event(routeno,title,content,lat,lng,camera,eorder)
  		 values
- 		 (#{routeno},#{title},#{content},#{lat},#{lng},#{img},#{video},#{camera},#{camMessage},#{eorder})
+ 		 (#{routeno},#{title},#{content},#{lat},#{lng},#{camera},#{eorder})
  	</insert>
  	
  	<select id="list" resultType="org.kkamnyang.domain.EventVO">
@@ -25,7 +25,7 @@
  	
  	<update id="update">
  		update tbl_event set title=#{title},content=#{content},
- 		img=#{img},video=#{video},camera=#{camera},camMessage=#{camMessage},eorder=#{eorder} 
+ 		camera=#{camera},eorder=#{eorder} 
  		where eventNo = #{eventno}
  	</update>
  	

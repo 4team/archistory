@@ -60,10 +60,9 @@ public class EventController {
 
 	
 	@RequestMapping(value="/attachCreate", method=RequestMethod.POST)
-	public void attachCreate(@RequestBody EventVO vo,HttpServletResponse response) throws Exception{
+	public void attachCreate(@RequestBody EventVO vo, HttpServletResponse response) throws Exception{
 		System.out.println("["+vo.getTitle() + "] 이벤트 첨부파일생성 호출됨.=====");
 		System.out.println(vo);
-
 		
 		service.regist(vo);
 		service.attachCreate(vo);
