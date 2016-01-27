@@ -136,9 +136,13 @@
         z-index:600;
     }
     
-    #search-container pre{
-    	height:50px;
+    #search-container{
+        height:80px;
     	overflow-x:scroll;
+    }
+    
+    #search-container pre{
+
     }
 </style>
 
