@@ -403,8 +403,8 @@
     var eventLi="";
     var routename = ${routename};
     var eventno = 1;
-    var camera = $("#camera").val(false);
-    var mocamera = $("#mocamera").val(false);
+/*     var camera = $("#camera").val(false);
+    var mocamera = $("#mocamera").val(false); */
     var events = [];
     
    	
@@ -755,6 +755,7 @@
         $(".uploadedList").html("");
         $("#qCheck").attr('checked', false) ;
         $("#questionDiv").hide();
+        $("#camera").val(false);
         $("#camera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         attach=[];
     }
@@ -802,8 +803,8 @@
 
         $("#mooxAnswer1").attr("checked",false);
         $("#mooxAnswer2").attr("checked",false);
-
         $("#moqCheck").attr("checked",false);
+        $("#mocamera").val(false);
         $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         $("#moquestionDiv").hide();
 
