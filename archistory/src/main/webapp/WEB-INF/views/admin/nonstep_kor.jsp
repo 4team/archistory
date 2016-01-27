@@ -501,7 +501,7 @@ pageEncoding="UTF-8"%>
 
         var qObject = new Object();
 
-        qObject.questionno = $("#qno").val;
+        qObject.questionno = $("#qno").val();
         qObject.question = $("#moquestionTitle").val();
         qObject.point = 500;
         qObject.qtype = $("#moqType").val();
@@ -716,14 +716,12 @@ pageEncoding="UTF-8"%>
         $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventno,function(data){
 
 
-            console.log("문제 넘버:"+eventno+"읽어오기");
+            console.log("문제 넘버:"+vo.attr("questionno")+"읽어오기");
 
             var vo = $(data);
             console.log(vo);
-            console.log("문제 넘버 : "+ vo.attr("questionno"));
-     
             $("#qno").val(vo.attr("questionno"));
-            console.log("qno:"+$("#qno").val());
+           
 
             if(!vo){
             	console.log("문제 없음.");
