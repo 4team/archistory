@@ -299,7 +299,7 @@
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     
                     <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
-                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                 </div>
@@ -404,6 +404,7 @@
     var routename = ${routename};
     var eventno = 1;
     var camera = $("#camera").val(false);
+    var mocamera = $("#mocamera").val(false);
     var events = [];
     
    	
@@ -818,6 +819,12 @@
             $("#moeventinfo").val(vo.attr("content"));
             $("#moorder").val(vo.attr("eorder"));
             $("#moeventno").val(eventno);
+            
+            if( typeof vo.attr("camera")== "true"){
+            	$("#mocamera").attr("checked",true);
+            	$("#mocamera").val(true);
+            
+            }
         }); //end event view
         
         $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventno, function(list) {
@@ -950,6 +957,8 @@
         var content = $("#moeventinfo").val();
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
+        var camera = $("#mocamera").val();
+        
         attach2 = attach.join();
         
         console.log(attach2);
