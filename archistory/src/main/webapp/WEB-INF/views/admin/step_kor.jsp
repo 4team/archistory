@@ -137,8 +137,10 @@
     }
     
     #search-container{
-        height:80px;
+    	font-size:9px;
+        height:100px;
     	overflow-x:scroll;
+    	overflow-y: hidden;
     }
     
     #search-container pre{
