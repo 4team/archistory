@@ -270,6 +270,7 @@ pageEncoding="UTF-8"%>
                     </select><br>
 
                     <label for="qTitle">문제</label>
+                    <input type="hidden" id="qno">
                     <textarea class="form-control" id="moquestionTitle" placeholder="문제를 입력하세요."></textarea><br>
                     <div id="moselectBox">
                         <label for="s1">1번 선택지</label><input type="text" class="form-control" id="mos1" placeholder="1번 보기를 입력하세요."><br>
@@ -405,6 +406,7 @@ pageEncoding="UTF-8"%>
     //이벤트 리스트 수정 버튼
     $("#eventList").on("click","#modi",function(event){
         var select = $(this);
+        
         viewEvent(select.attr("value"));
         clearEventDiv();
         $("#modiModal").modal('show');
@@ -483,6 +485,52 @@ pageEncoding="UTF-8"%>
 
     }
 
+    var modiJson;
+    
+    function modiQuestion(){
+        var qfilter = new Array();
+        qfilter[0]="questionno";
+        qfilter[1]="question";
+        qfilter[2]="answer";
+        qfilter[3]="point";
+        qfilter[4]="qtype";
+        qfilter[5]="choice1";
+        qfilter[6]="choice2";
+        qfilter[7]="choice3";
+        qfilter[8]="choice4";
+
+        var qObject = new Object();
+
+        qObject.questionno = $("#qno").val;
+        qObject.question = $("#moquestionTitle").val();
+        qObject.point = 500;
+        qObject.qtype = $("#moqType").val();
+        qObject.choice1 = $("#mos1").val();
+        qObject.choice2 = $("#mos2").val();
+        qObject.choice3 = $("#mos3").val();
+        qObject.choice4 = $("#mos4").val();
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#momultipleAnswer";
+            var multi = id+i;
+            var oxid ="#mooxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                qObject.answer = $(multi).val();
+            }
+
+            if($(ox).is(":checked")){
+                qObject.answer = $(ox).val();
+            }
+        }
+
+        modiJson = JSON.stringify(qObject,qfilter,"\t");
+
+        //console.log(qJson)
+
+    }
 
     function createQuestion(qJson){
 
@@ -610,6 +658,8 @@ pageEncoding="UTF-8"%>
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
+        
+        
 
         modifyEvent(eventno,title,content,attach2,lat,lng,function(){
             console.log("attach2:" + attach2);
@@ -617,8 +667,8 @@ pageEncoding="UTF-8"%>
             attach = [];
         });
         
-        
-
+        modiQuestion();
+        modifyQuestion(modiJson);
         
         $("#modiModal").modal('hide');
 
@@ -670,6 +720,7 @@ pageEncoding="UTF-8"%>
 
             var vo = $(data);
             console.log(vo);
+            $("#qno").val(vo.attr("questionno"));
 
             if(!vo){
             	console.log("문제 없음.");
@@ -780,6 +831,25 @@ pageEncoding="UTF-8"%>
             }
         });
         callback();
+    }
+    
+    //문제 수정 기능 
+    function modifyQuestion(modiJson){
+
+        console.log(modiJson);
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/question/modify",
+            headers:{
+                "Content-Type" :"application/json"	},
+            datatype : "json",
+            data: modiJson,
+            success: function(data){
+                console.log("문제 수정 처리 결과 :"+data);
+            }
+        });
+      
     }
 
 

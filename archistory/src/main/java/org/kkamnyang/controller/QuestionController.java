@@ -49,9 +49,24 @@ public class QuestionController {
 		return result;
 	}
 	
-	public void modify(QuestionVO vo) throws Exception{
-		service.modify(vo);
+	
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public ResponseEntity<String> modify(QuestionVO vo) throws Exception{
+		System.out.println("=======문제 수정 POST 호출됨.==========");
+		ResponseEntity<String> entity = null;
+		
+		try{
+			service.modify(vo);
+			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+		    System.out.println("==============문제 수정 완료 !!===============");
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
 	}
+	
+	
 	
 	@RequestMapping(value="/remove", method=RequestMethod.POST)
 	public ResponseEntity<String> remove(@RequestBody EventVO vo) throws Exception{
