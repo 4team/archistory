@@ -1405,7 +1405,7 @@
     	  });
     });
     
-    $("##search-container").on('click','img',function(event){
+    $("#search-container").on('click','img',function(event){
     	console.log(this);
     });
 </script>
