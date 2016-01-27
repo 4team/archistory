@@ -139,12 +139,9 @@
     #search-container{
     	font-size:9px;
         height:100px;
-    	overflow-x:scroll;
-    	overflow-y: hidden;
     }
     
     #searchDiv{
-    	
     	background-color:#fff;
     	z-index:1200;
     	position:absolute;
@@ -152,6 +149,7 @@
     	top:100px;
 		width:250px;
 		height:400px;
+		overflow-y: scroll; 
     }
 </style>
 
