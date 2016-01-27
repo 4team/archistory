@@ -197,8 +197,8 @@
             </div>
             
             <div class="modal-footer">            
-                <a class="btn btn-skin">to the MAP</button>
-                        <a class="btn btn-skin">NEXT</button>                            
+                <a class="btn btn-skin">to the MAP</a>
+                        <a class="btn btn-skin">NEXT</a>                            
             </div>
             
         </div>
