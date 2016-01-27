@@ -394,9 +394,10 @@ pageEncoding="UTF-8"%>
     //이벤트 리스트 삭제버튼
     $("#eventList").on("click","#del",function(event){
         var select = $(this);
+        removeQuestion(select.attr("value"));
         removeEvent(select.attr("value"),function(){
         });
-        removeQuestion(select.attr("value"));
+        
         
         alert(select.attr("value")+"삭제되었습니다.");
     });

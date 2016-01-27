@@ -3,6 +3,7 @@ package org.kkamnyang.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.kkamnyang.domain.EventVO;
 import org.kkamnyang.domain.QuestionVO;
 import org.kkamnyang.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,11 +54,11 @@ public class QuestionController {
 	}
 	
 	@RequestMapping(value="/remove", method=RequestMethod.POST)
-	public ResponseEntity<String> remove(@RequestBody Integer eventno) throws Exception{
+	public ResponseEntity<String> remove(@RequestBody EventVO vo) throws Exception{
 		System.out.println("=======문제 삭제 POST 호출됨=======");
 		ResponseEntity<String> entity = null;
 		try{
-			service.remove(eventno);
+			service.remove(vo.getEventno());
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
 			System.out.println("===========문제 삭제 완료 =============");
 		}catch(Exception e){
