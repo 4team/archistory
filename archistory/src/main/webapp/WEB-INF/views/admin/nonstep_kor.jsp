@@ -722,17 +722,19 @@ pageEncoding="UTF-8"%>
         $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventno,function(data){
 
         	var vo = $(data);
+        	
         	var qno = vo.attr("questionno");
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
            
 
-            if(vo==""){
+            if(vo == undefinded){
             	console.log("이벤트 VIEW - 문제 없음.");
             	$("#moqCheck").attr("checked",false);
             	$("#moquestionDiv").hide();
 	            }
+            
             else{
 	            	$("#moqCheck").attr("checked",true);
 	            	$("#moquestionDiv").show();
