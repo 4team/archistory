@@ -1405,6 +1405,9 @@
     	  });
     });
     
+    $("##search-container").on('click','img',function(event){
+    	console.log(this);
+    });
 </script>
 <!-------- 파일첨부기능 끝 -------->
 
