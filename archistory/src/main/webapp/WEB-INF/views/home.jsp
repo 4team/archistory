@@ -192,8 +192,9 @@
 		
 		.duplResult{
 			text-align: center;
-			width:300px;
+			width:350px;
 			height:30px;
+			font-size: 9px;
 		}
     </style>
     
