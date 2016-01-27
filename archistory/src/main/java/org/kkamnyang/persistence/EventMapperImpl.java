@@ -20,6 +20,7 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		try{
 		
 		String efiles = vo.getEfiles();
+
 		
 			if (efiles.equals("")) {
 				//return eventno;
