@@ -146,13 +146,14 @@
      }
      
      #search-container table{
-     	margin-left: 30px;
+     	margin-left: 20px;
      }
     
     #searchDiv{
     	display:none;
     	border: 1px solid black;
         border-radius: 10px;
+    	padding:5px;
     	text-align:center;
     	background-color:#fff;
     	z-index:1200;
