@@ -184,7 +184,7 @@
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
                         <label for="videoInput">동영상</label>
-                        <input type="text" id="query"><button id="search-button" onclick="search()">Youtube Search</button>
+                        <input type="text" id="query"><button id="search-button">Youtube Search</button>
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
                         <div id="search-container"></div>
                         <label for="camera">카메라</label>
@@ -972,6 +972,33 @@
         return fileName.match(pattern);
 
     }
+    
+/*     <!-- 유투브 검색 --> */
+    $("#search-button").on("click",function(){
+    	  console.log('Search Started');
+    	  var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
+    	  var q = $('#query').val();
+
+    	  gapi.client.setApiKey(apiKey);
+    	  gapi.client.load('youtube', 'v3', function() {
+    	    isLoad = true;
+    	  });
+    	  console.log('Search Request');
+
+    	  request = gapi.client.youtube.search.list({
+    	    q: q,
+    	    part: 'id, snippet',
+    	    type: 'video',
+    	    order: 'date'
+    	  });
+
+
+    	  request.execute(function(response) {
+    	    var str = JSON.stringify(response.result);
+    	    $('#search-container').html('<pre>' + str + '</pre>');
+    	  });
+    });
+    
 </script>
 <!-------- 파일첨부기능 끝 -------->
 <!-- Youtube검색하기 위함 -->
