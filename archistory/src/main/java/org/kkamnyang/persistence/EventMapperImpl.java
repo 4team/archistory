@@ -45,10 +45,17 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		
 		System.out.println("[EventController]업데이트 어테치!!");
 		session.update(namespace + ".update", vo);
+		String attach="";
 		try{
-			session.update(namespace + ".updateAttach",vo);
+			attach = session.selectOne(namespace+".getAttach",vo.getEventno());
 		}catch(Exception e){
-			e.printStackTrace();
+			attach="";
+		}
+		
+		if(attach.equals("")){
+			session.insert(namespace+".addAttach",vo);
+		}else{
+			session.update(namespace + ".updateAttach",vo);
 		}
 	}
 }
