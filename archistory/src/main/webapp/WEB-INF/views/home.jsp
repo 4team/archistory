@@ -315,14 +315,14 @@
 	    <input type="text" class="form-control" id="useremail" placeholder="Email"><br>
 	    <input type="password" class="form-control" id="password1" placeholder="Password"><br>
 	    <input type="password" class="form-control" id="password2" placeholder="Password (Again)"><br>   
-    <div class="duplResult"><pre></pre></div>
+    <div class="duplResult"></div>
 	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
     </div>
     <div id="adminJoinDiv">
 	    <input type="text" class="form-control" id="adminEmail" placeholder="Email"><br>
 	    <input type="password" class="form-control" id="adminpassword1" placeholder="Password"><br>
 	    <input type="password" class="form-control" id="adminpassword2" placeholder="Password (Again)"><br>
-    <div class="duplResult"><pre></pre></div>
+    <div class="duplResult"></div>
     	<input type="text" class="form-control" id="adminname" placeholder="UserName"><br>
 	    <input type="text" class="form-control" id="phone" placeholder="Phone Number"><br>
 	    <input type="text" class="form-control" id="nation" placeholder="Nation"><br>   
@@ -519,9 +519,9 @@ $("#loginBtn").on("click",function(){
 	   	var resultDiv = $(".duplResult");
     	
 	    if(p1 == p2){
-	    	resultDiv.html("<pre>비밀번호가 중복됩니다.</pre>");
+	    	resultDiv.html("<ul><li>비밀번호가 중복됩니다.</li></ul>");
 	    }else{
-	    	resultDiv.html("<pre>사용가능한 비밀번호 입니다.</pre>");
+	    	resultDiv.html("<ul><li>사용가능한 비밀번호 입니다.</li></ul>");
 	    }
     });
     
@@ -533,7 +533,7 @@ $("#loginBtn").on("click",function(){
 	   	var resultDiv = $(".duplResult");
     	
 	    if(p1 == p2){
-	    	resultDiv.html("<pre>비밀번호가 중복됩니다.</pre>");
+	    	resultDiv.html("<ul><li>비밀번호가 중복됩니다.</li></ul>");
 	    }else{
 	    	resultDiv.html("<pre>사용가능한 비밀번호 입니다.</pre>");
 	    }
