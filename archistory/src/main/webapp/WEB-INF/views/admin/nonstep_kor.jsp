@@ -605,10 +605,10 @@ pageEncoding="UTF-8"%>
                 var json = JSON.parse(qJson);
                 console.log("question : "+json.question);
                 if(!json.question){
-                    console.log("문제없음.");
+                    console.log("이벤트 생성중 - 문제없음.");
                 }
                 else{
-                    console.log("문제있음.")
+                    console.log("이벤트 생성중 - 문제있음.")
                     createQuestion(qJson);
                 }
             }
@@ -631,10 +631,6 @@ pageEncoding="UTF-8"%>
     //수정 창 비우기 기능 
     
     function clearMoEventdiv(){
-    	
-    	console.log("문제 없음.");
-    	$("#moqCheck").attr("checked",false);
-    	$("#moquestionDiv").hide();
  
     	for(var i=1;i<5;i++){
     		var id = "#mos";
@@ -647,6 +643,9 @@ pageEncoding="UTF-8"%>
     	
     	$("#mooxAnswer1").attr("checked",false);
     	$("#mooxAnswer2").attr("checked",false);
+    	
+    	$("#moqCheck").attr("checked",false);
+    	$("#moquestionDiv").hide();
 
     }
 
@@ -729,7 +728,7 @@ pageEncoding="UTF-8"%>
            
 
             if(!vo){
-            	console.log("문제 없음.");
+            	console.log("이벤트 VIEW - 문제 없음.");
             	$("#moqCheck").attr("checked",false);
             	$("#moquestionDiv").hide();
             	
