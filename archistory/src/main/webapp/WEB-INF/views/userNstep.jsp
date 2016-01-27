@@ -201,8 +201,6 @@
         </div>
     </div>
 </div>
-</div>
-
            <!--  <div class="eBox" id="eBox">
             <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
                 <form id="contact-form">
