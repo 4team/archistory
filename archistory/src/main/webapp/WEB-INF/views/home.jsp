@@ -191,10 +191,12 @@
 		}
 		
 		.duplResult{
+			padding :0px;
+			margin:0px;
 			text-align: center;
 			width:350px;
 			height:30px;
-			font-size: 9px;
+			font-size: 10px;
 		}
     </style>
     
