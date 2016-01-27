@@ -632,7 +632,9 @@ pageEncoding="UTF-8"%>
     
     function clearMoEventdiv(){
     	
+    	console.log("문제 없음.");
     	$("#moqCheck").attr("checked",false);
+    	$("#moquestionDiv").hide();
  
     	for(var i=1;i<5;i++){
     		var id = "#mos";
