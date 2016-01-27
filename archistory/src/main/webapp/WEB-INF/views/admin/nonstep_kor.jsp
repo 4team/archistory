@@ -728,12 +728,12 @@ pageEncoding="UTF-8"%>
             $("#qno").val(qno);
            
 
-            if(qno=="undefined"){
+            if(qno=='undefined'){
             	console.log("이벤트 VIEW - 문제 없음.");
             	$("#moqCheck").attr("checked",false);
             	$("#moquestionDiv").hide();
-            	
-	            }else{
+	            }
+            else{
 	            	$("#moqCheck").attr("checked",true);
 	            	$("#moquestionDiv").show();
 		            $("#moquestionTitle").val(vo.attr("question"));
