@@ -151,7 +151,7 @@
     }
     #eBox{
     display:none;
-    
+    position:absolute;    
     }
     .modal-dialog{
     position:absolute;
