@@ -99,7 +99,7 @@ public class UploadController {
 	      
 	      HttpHeaders headers = new HttpHeaders();
 	      
-	      in = new FileInputStream(uploadPath+File.separator+"event"+File.separator+routeno+File.separator+"picture"+File.separator+fileName);
+	      in = new FileInputStream(uploadPath+fileName);
 	      
 	      if(mType != null){
 	        headers.setContentType(mType);
