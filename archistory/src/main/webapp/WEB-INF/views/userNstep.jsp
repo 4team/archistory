@@ -155,10 +155,10 @@ emarker.setMap(map);
 markers.push(emarker);
 
 //마커에 클릭이벤트를 등록합니다
-daum.maps.event.addListener(emarker, 'click', function(emarker) {
+daum.maps.event.addListener(emarker, 'click', function(event) {
 	 console.log("마커 눌렀는뎅????");
 	 console.log("this:" + this);
-	 console.log(emarker);
+	 console.log(event);
 	 $("#eBox").modal('show');   
 });
 };
