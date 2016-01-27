@@ -365,6 +365,7 @@ function displayMarker(locPosition, message) {
 
 $("#map").on("click",function(){
 	 $("#eBox").show();	 	
+	 console.log("지도를 눌렀는디???")
 });
 
 
