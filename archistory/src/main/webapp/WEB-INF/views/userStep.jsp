@@ -135,6 +135,10 @@
         left:100px;
         z-index:600;
     }
+    .eBox{
+    width:50%;
+    height:50%;
+    }
 </style>
 
     <!-- Core JavaScript Files -->
@@ -168,7 +172,7 @@
 <div id="map"></div>
 
 
-            <div class="boxed-grey">
+            <div class="eBox">
             <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
                 <form id="contact-form">
                 <div class="row">
