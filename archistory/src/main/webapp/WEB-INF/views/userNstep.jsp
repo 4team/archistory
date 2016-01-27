@@ -270,7 +270,7 @@ function getEventList(){
         list.each(function(idx,value){
             var event= this;
             addMarker(event);
-            questionPopup(event);
+//            questionPopup(event);
         });
     });
 }
@@ -334,11 +334,11 @@ function displayMarker(locPosition, message) {
     console.log(viewpoint);
 }    
 
-
+var viewpoint;
 daum.maps.event.addListener(function() {
 
 // 마커의 position과 altitude값을 통해 viewpoint값(화면좌표)를 추출합니다.
-var viewpoint = projection.viewpointFromCoords(emarker.getPosition(), emarker.getAltitude());
+	viewpoint = projection.viewpointFromCoords(emarker.getPosition(), emarker.getAltitude());
 });
 
 
