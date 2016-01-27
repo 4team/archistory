@@ -307,14 +307,14 @@
 	
 	<div id="userJoinDiv">
 	    <input type="text" class="form-control" id="useremail" placeholder="Email"><br>
-	    <input type="text" class="form-control" id="password1" placeholder="Password"><br>
-	    <input type="text" class="form-control" id="password2" placeholder="Password (Again)"><br>   
+	    <input type="password" class="form-control" id="password1" placeholder="Password"><br>
+	    <input type="password" class="form-control" id="password2" placeholder="Password (Again)"><br>   
 	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
     </div>
     <div id="adminJoinDiv">
 	    <input type="text" class="form-control" id="adminEmail" placeholder="Email"><br>
-	    <input type="text" class="form-control" id="adminpassword1" placeholder="Password"><br>
-	    <input type="text" class="form-control" id="adminpassword2" placeholder="Password (Again)"><br>
+	    <input type="password" class="form-control" id="adminpassword1" placeholder="Password"><br>
+	    <input type="password" class="form-control" id="adminpassword2" placeholder="Password (Again)"><br>
     	<input type="text" class="form-control" id="adminname" placeholder="UserName"><br>
 	    <input type="text" class="form-control" id="phone" placeholder="Phone Number"><br>
 	    <input type="text" class="form-control" id="nation" placeholder="Nation"><br>   
