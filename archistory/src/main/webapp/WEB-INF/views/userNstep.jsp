@@ -339,7 +339,7 @@ daum.maps.event.addListener(function() {
 
 // 마커의 position과 altitude값을 통해 viewpoint값(화면좌표)를 추출합니다.
 var viewpoint = projection.viewpointFromCoords(emarker.getPosition(), emarker.getAltitude());
-}
+});
 
 
 /* 
