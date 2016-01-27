@@ -345,6 +345,8 @@
 <script src="/js/auth.js"></script>
 <script src="/js/search.js"></script>
 <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
+
 <script>
     var markers = [];
     
