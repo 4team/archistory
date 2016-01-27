@@ -340,6 +340,11 @@
 
 <span class="blink_me">${routename}</span>
 
+
+<!-- Youtube검색하기 위함 -->
+<script src="/js/auth.js"></script>
+<script src="/js/search.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 <script>
     var markers = [];
     
@@ -1001,10 +1006,7 @@
     
 </script>
 <!-------- 파일첨부기능 끝 -------->
-<!-- Youtube검색하기 위함 -->
-  <script src="/js/auth.js"></script>
-  <script src="/js/search.js"></script>
-  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
 
 </body>
 </html>
