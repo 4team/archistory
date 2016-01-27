@@ -153,6 +153,39 @@
 <div id="map"></div>
 
 
+<div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="boxed-grey">
+            <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
+                <form id="contact-form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                           <div class="section-heading">
+					<h2>Get in touch</h2>
+					</div>
+                        </div>                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                         <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                            to the MAP</button>
+                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                            NEXT</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            
+            
+            
 <script>
 var markers = [];
 var lat = ${lat};
