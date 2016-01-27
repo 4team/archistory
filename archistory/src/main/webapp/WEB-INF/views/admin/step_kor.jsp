@@ -146,14 +146,14 @@
      }
      
      #search-container table{
-     	margin-left: 20px;
+     	margin-left: 10px;
      }
     
     #searchDiv{
     	display:none;
     	border: 1px solid black;
         border-radius: 10px;
-    	padding:5px;
+    	padding:10px;
     	text-align:center;
     	background-color:#fff;
     	z-index:1200;
@@ -1046,8 +1046,7 @@
 	    	var result = "<table>";
     	    
     	    movie.each(function(index){
-	    	    console.log(this.snippet.title);
-	    	    result += "<tr><td><img src='"+this.snippet.thumbnails.default.url+"'><br>"+this.snippet.title+"</td></tr>";
+	    	    result += "<tr><td><img data-src='"+this.id.videoId+"' src='"+this.snippet.thumbnails.default.url+"'><br>"+this.snippet.title+"</td></tr>";
     	    });
     	    result += "</table>";
     	    $('#search-container').html(result);
