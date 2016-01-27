@@ -483,7 +483,6 @@
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
 		eventno=1;
-		polyline.setMap(null);
 		linePath = [];	
 		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
@@ -715,6 +714,7 @@
             datatype: "json",
             data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera}),
             success: function(data){
+        		polyline.setMap(null);
                 getEventList(function(){
                 	console.log("이벤트 생성한 뒤 getEventList의 콜백에 들어옴.");
                 	
@@ -941,6 +941,7 @@
             datatype: "json",
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
+        		polyline.setMap(null);
                 getEventList();
                 console.log("이벤트 삭제 처리 결과 :"+data);
             }
@@ -1013,6 +1014,7 @@
             datatype : "json",
             data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,camera:camera}),
             success: function(data){
+        		polyline.setMap(null);
                 getEventList();
                 console.log("이벤트 수정 결과 :"+data);
             }
