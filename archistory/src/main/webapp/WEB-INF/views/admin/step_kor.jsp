@@ -1191,7 +1191,7 @@
 <script id="template" type="text/x-handlebars-template">
     <li>
 <div class='img'>
-<a href="{{getLink}}"><img src="{{imgsrc}}"/></a>
+<img src="{{imgsrc}}"/>
 <small data-src="{{fullName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
 </div>
     </li>
