@@ -47,7 +47,7 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 		System.out.println(vo.toString());
 		session.update(namespace + ".update", vo);
 		
-		if(vo.getEfiles()==null){
+		if(vo.getEfiles().equals("")){
 
 		}else{
 			String attach = session.selectOne(namespace+".getAttach",vo.getEventno());
