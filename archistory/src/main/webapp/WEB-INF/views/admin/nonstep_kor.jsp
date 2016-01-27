@@ -426,6 +426,8 @@ pageEncoding="UTF-8"%>
 
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
+        var camera = $("#camera").val();
+        
         attach2 = attach.join();
 
         if(title=="" || content==""){
@@ -433,7 +435,7 @@ pageEncoding="UTF-8"%>
             return;
         }
 
-        createEvent(routeno, title, content, attach2, lat, lng,  function () {
+        createEvent(routeno, title, content, attach2, lat, lng, camera, function () {
             console.log("attach2:" + attach2);
             clearEventDiv();
             attach = [];
@@ -585,10 +587,10 @@ pageEncoding="UTF-8"%>
 
 
     //이벤트 생성 기능
-    function createEvent(routeno,title,content,attach2,lat,lng,callback){
+    function createEvent(routeno,title,content,attach2,lat,lng,camera,callback){
 
 
-        console.log("이벤트 생성:",routeno,title,content,attach2,lat,lng);
+        console.log("이벤트 생성:",routeno,title,content,attach2,lat,lng,camera);
 
         $.ajax({
             type:'post',
@@ -596,7 +598,7 @@ pageEncoding="UTF-8"%>
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng}),
+            data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera}),
             success: function(data){
                 getEventList();
                 console.log("eventno:"+data);
@@ -895,9 +897,11 @@ pageEncoding="UTF-8"%>
 
     $("#camera").change("toggle",function(){
         if(this.checked==true){
-            console.log("카메라 사용함.");
+            console.log("카메라 ON");
+            $("#camera").val("true");
         }else{
-            console.log("카메라 사용안함.");
+            console.log("카메라 OFF");
+            $("#camera").val("false");
         }
 
     });
@@ -937,9 +941,11 @@ pageEncoding="UTF-8"%>
 
     $("#mocamera").change("toggle",function(){
         if(this.checked==true){
-            console.log("카메라 사용함.");
+        	$("#mocamera").val("true");
+        	console.log("카메라 ON");
         }else{
-            console.log("카메라 사용안함.");
+            $("#mocamera").val("false");
+            console.log("카메라 OFF");
         }
 
     });
