@@ -172,7 +172,7 @@
 <div id="map"></div>
 
 
-            <div class="eBox">
+            <div class="eBox" id="eBox">
             <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
                 <form id="contact-form">
                 <div class="row">
@@ -309,6 +309,13 @@ function displayMarker(locPosition, message) {
     infowindow.open(map, marker);
     
 }    
+
+
+//마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+daum.maps.event.addListener(marker, 'click', function() {
+	$("#eBox").modal('show');
+});
+
 
 </script>
 
