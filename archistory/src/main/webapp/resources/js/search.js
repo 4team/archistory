@@ -1,14 +1,6 @@
 // After the API loads, call a function to enable the search box.
 function handleAPILoaded() {
   $('#search-button').attr('disabled', false);
-  var q = $('#query').val();
-  var request = gapi.client.youtube.search.list({
-	    q: q,
-	    part: 'id, snippet',
-	    type: 'video',
-	    order: 'date'
-	  });
-
 }
 
 // Search for a specified string.
