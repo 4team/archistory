@@ -149,6 +149,10 @@
         left:100px;
         z-index:600;
     }
+    .eBox{
+    position:absolute;
+    display:none;
+    }
 </style>
 
 <script type="text/javascript" src="/js/upload.js"></script>
@@ -242,16 +246,16 @@ var imageSize = new daum.maps.Size(24, 35);
 var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 
-
+var emarker;
 function addMarker(event){
 
-var marker = new daum.maps.Marker({
+ emarker = new daum.maps.Marker({
     title: "<div class='title'>" + event.title +"<font class='text'> [" + event.eventno +"]</div> <br>"+event.content + "</font><br><br>",
     position: new daum.maps.LatLng(event.lat,event.lng)
 });
 console.log("addmarker들어옴");
-marker.setMap(map);
-markers.push(marker);
+emarker.setMap(map);
+markers.push(emarker);
 };
 
 
@@ -321,9 +325,14 @@ function displayMarker(locPosition, message) {
     
     // 인포윈도우를 마커위에 표시합니다 
     infowindow.open(map, marker);
-    
+    console.log("locPosition.lat:" + locPosition.lat);
+    conosle.log("emarker.lat:" + emarker.lat);
 }    
 
+/* function questionPopup(){
+	if(locPosition.lat )
+	
+} */
 </script>
 
 </body>
