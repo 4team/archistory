@@ -715,10 +715,8 @@ pageEncoding="UTF-8"%>
 
         $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventno,function(data){
 
-
+        	var vo = $(data);
             console.log("문제 넘버:"+vo.attr("questionno")+"읽어오기");
-
-            var vo = $(data);
             console.log(vo);
             $("#qno").val(vo.attr("questionno"));
            
