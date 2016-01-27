@@ -1245,7 +1245,7 @@
 	
 	                var str ="";
 	
-	                console.log(data);
+	                console.log("data:"+data);
 	                //console.log(checkImageType(data));
 	                //console.log("ddddd",$(".uploadedList"));
 	
@@ -1253,9 +1253,10 @@
 	                attach.push(data);
 	                console.log("attach:" + attach);
 	                
+	                
 	                if(checkImageType(data)){
 	                    str ="<div class='img'>"
-	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"&routeno="+routeno+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"&routeno="+routeno+"'/></a>"
+	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"&routeno="+routeno+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
 	                            +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 	                            +"</div>";
 	
