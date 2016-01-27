@@ -44,8 +44,6 @@
     #eBox{
     display:none;
     position:absolute;
-    text-align:center;
-    overflow-y:scroll;
     }
     .modal-dialog{
     position:absolute;
