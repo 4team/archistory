@@ -157,11 +157,12 @@
     
     #searchDiv{
     	display:none;
-    	border: 1px solid black;
+    	border: 1px solid white;
         border-radius: 10px;
     	padding:10px;
     	text-align:center;
     	background-color:#000;
+    	color:#fff;
     	z-index:1200;
     	position:absolute;
     	right:150px;
