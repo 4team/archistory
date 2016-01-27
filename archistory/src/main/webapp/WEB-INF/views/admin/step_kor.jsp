@@ -226,7 +226,7 @@
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
                         
                         <label for="camera">카메라</label>
-                        <input type="checkbox" id="camera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                        <input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                         <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                      </div>
@@ -403,7 +403,7 @@
     var eventLi="";
     var routename = ${routename};
     var eventno = 1;
-    
+    var camera = $("#camera").val(false);
     var events = [];
     
    	
@@ -564,7 +564,7 @@
         var eorder = $("#order").val();
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
-        var camera = $("#camera").val();
+        camera = $("#camera").val();
         attach2 = attach.join();
 
         if(title=="" || content==""){
