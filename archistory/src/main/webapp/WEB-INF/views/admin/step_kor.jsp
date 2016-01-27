@@ -155,7 +155,7 @@
     	background-color:#fff;
     	z-index:1200;
     	position:absolute;
-    	right:100px;
+    	right:150px;
     	top:100px;
 		width:180px;
 		height:400px;
