@@ -409,6 +409,9 @@ pageEncoding="UTF-8"%>
         
         viewEvent(select.attr("value"));
         clearEventDiv();
+        clearMoEventdiv();
+        clearQuestionDiv();
+        
         $("#modiModal").modal('show');
 
     });
@@ -849,7 +852,6 @@ pageEncoding="UTF-8"%>
         });
       
     }
-
 
 
 
