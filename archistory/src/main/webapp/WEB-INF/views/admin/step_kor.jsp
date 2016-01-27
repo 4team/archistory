@@ -1009,9 +1009,13 @@
 
     	  request.execute(function(response) {
     	    var str = JSON.stringify(response.result);
+    	    var movie = response.result.items;
     	    
-    	    console.log(response.result.items);
-    	    $('#search-container').html('<pre>' + str.items + '</pre>');
+    	    movie.each(function(index){
+	    	    console.log(this.snippet.title);
+    	    });
+    	    
+    	    $('#search-container').html('<pre>' + str + '</pre>');
     	  });
     });
     
