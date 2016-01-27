@@ -197,21 +197,19 @@
             <div class="section-heading">
 					<h2>Get in touch</h2>
 					</div>
-            
             </div>
-            <div class="modal-body">
             
+            <div class="modal-body">            
                 <label for="name"></label>
                 <textarea name="message" id="message" class="form-control" rows="9" cols="25" 
-                													required="required" placeholder="Message"></textarea>
-                                
+                													required="required" placeholder="Message"></textarea>                            
             </div>
-            <div class="modal-footer">
             
+            <div class="modal-footer">            
                 <button type="submit" class="btn btn-skin" id="btnContactUs">to the MAP</button>
-                        <button type="submit" class="btn btn-skin" id="btnContactUs">NEXT</button>
-                            
+                        <button type="submit" class="btn btn-skin" id="btnContactUs">NEXT</button>                            
             </div>
+            
         </div>
     </div>
 </div>
