@@ -374,6 +374,7 @@ $("#map").on("click",function(){
 daum.maps.event.addListener(emarker, 'click', function() {
       // 마커 위에 인포윈도우를 표시합니다
       infowindow.open(map, emarker); 
+      console.log("마커 눌렀는뎅????")
 });
 
 /* function questionPopup(event){
