@@ -1003,7 +1003,7 @@
     	    q: q,
     	    part: 'id, snippet',
     	    type: 'video',
-    	    order: 'date'
+    	    order: 'viewcount'
     	  });
 
 
