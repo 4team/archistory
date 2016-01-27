@@ -155,7 +155,7 @@ emarker.setMap(map);
 markers.push(emarker);
 
 //마커에 클릭이벤트를 등록합니다
-daum.maps.event.addListener(emarker, 'click', function() {
+daum.maps.event.addListener(emarker, 'click', function(emarker) {
 	 console.log("마커 눌렀는뎅????");
 	 console.log("emarker.eventno:" + emarker.eventno);
 	 $("#eBox").modal('show');   
