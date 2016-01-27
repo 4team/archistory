@@ -396,6 +396,8 @@ pageEncoding="UTF-8"%>
         var select = $(this);
         removeEvent(select.attr("value"),function(){
         });
+        removeQuestion(select.attr("value"));
+        
         alert(select.attr("value")+"삭제되었습니다.");
     });
 
@@ -737,21 +739,26 @@ pageEncoding="UTF-8"%>
 
         });
         
-        $.ajax({
-        	type:'post',
-        	url:"http://14.32.66.127:4000/question/remove",
-        	headers:{
-        		"Content-Type":"application/json"
-        	},
-        	datatype:"json",
-        	data:JSON.stringify({eventno:eventno}),
-        	success:function(data){
-        		console.log("문제 처리 결과 :"+data);
-        	}
-        	
-        });
         callback();
 
+    }
+    
+    function removeQuestion(eventno){
+    	console.log("문제 삭제"+eventno);
+    	
+    	 $.ajax({
+         	type:'post',
+         	url:"http://14.32.66.127:4000/question/remove",
+         	headers:{
+         		"Content-Type":"application/json"
+         	},
+         	datatype:"json",
+         	data:JSON.stringify({eventno:eventno}),
+         	success:function(data){
+         		console.log("문제 처리 결과 :"+data);
+         	}
+         	
+         });
     }
 
     //이벤트 수정 기능
