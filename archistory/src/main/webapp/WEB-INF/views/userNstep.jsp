@@ -279,7 +279,8 @@ function addMarker(event){
 
  emarker = new daum.maps.Marker({
     title: '<div class="title">' + event.title +'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
-    position: new daum.maps.LatLng(event.lat,event.lng)
+    position: new daum.maps.LatLng(event.lat,event.lng),
+    clickable: true
 });
 console.log("addmarker들어옴");
 emarker.setMap(map);
