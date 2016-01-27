@@ -627,7 +627,7 @@ pageEncoding="UTF-8"%>
             datatype : "json",
             data: qJson,
             success:function(data){
-                console.log("data:"+data);
+                console.log("문제 생성 결과:"+data);
             }
         });
 
@@ -663,7 +663,7 @@ pageEncoding="UTF-8"%>
                     polyline.setMap(map);
                     console.log(linePath);
                 });
-                console.log("eventno:"+data);
+                console.log("<이벤트 생성!> eventno 가져옴:"+data);
                 makeQuestion(data);
 
                 var json = JSON.parse(qJson);
@@ -984,7 +984,6 @@ pageEncoding="UTF-8"%>
         });
 
  
-
         $("#modiModal").modal('hide');
         clearMoEventdiv();
 
