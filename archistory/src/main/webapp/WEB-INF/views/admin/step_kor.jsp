@@ -800,7 +800,9 @@
             $(idi).val("");
             $(answeri).attr("checked",false);
         }
-
+        
+        $("#moquestionTitle").val("");
+        $("#moqType").val("");
         $("#mooxAnswer1").attr("checked",false);
         $("#mooxAnswer2").attr("checked",false);
         $("#moqCheck").attr("checked",false);
