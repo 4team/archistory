@@ -556,7 +556,8 @@ pageEncoding="UTF-8"%>
     }
 
     function clearQuestionDiv(){
-
+    	
+    	$("#qCheck").attr("checked",false);
         $("#questionTitle").val("");
         $("#qType").val("");
         $("#s1").val("");
@@ -630,6 +631,8 @@ pageEncoding="UTF-8"%>
     //수정 창 비우기 기능 
     
     function clearMoEventdiv(){
+    	
+    	$("#moqCheck").attr("checked",false);
  
     	for(var i=1;i<5;i++){
     		var id = "#mos";
