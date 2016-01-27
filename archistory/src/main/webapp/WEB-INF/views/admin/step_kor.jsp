@@ -1016,7 +1016,7 @@
     	    
     	    movie.each(function(index){
 	    	    console.log(this.snippet.title);
-	    	    result += "<td>"+this.snippet.title+"</td>";
+	    	    result += "<td><img src='"+this.snippet.thumbnails.default.url+"'>"+this.snippet.title+"</td>";
     	    });
     	    result += "</tr></table>";
     	    $('#search-container').html(result);
