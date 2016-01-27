@@ -802,11 +802,11 @@ pageEncoding="UTF-8"%>
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
-            console.log("qno:"+$("#qno"));
 
 
             if(typeof qno == "undefined"){
                 console.log("이벤트 VIEW - 문제 없음.");
+                $("#qno").val("no_Question");
                 $("#moqCheck").attr("checked",false);
                 $("#moquestionDiv").hide();
             }
@@ -969,10 +969,10 @@ pageEncoding="UTF-8"%>
         if(!json.question){
             console.log("<이벤트 수정중> - 문제 NO/NO");
         }
- /*        else if(){
+        else if($("#qno").val()== "no_Question"){
         	 console.log("<이벤트 수정중> - 문제NO/YES");
         	 createQuestion(modiJson);
-        } */
+        } 
         else{
             console.log("<이벤트 수정중> - 문제YES/YES");
             modifyQuestion(modiJson);
