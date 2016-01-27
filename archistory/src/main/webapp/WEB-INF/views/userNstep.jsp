@@ -188,9 +188,7 @@
 <div id="map"></div>
 
 
-<div class="row">
-        <div class="col-lg-8 col-md-offset-2">
-            <div class="boxed-grey">
+            <div class="eBox">
             <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
                 <form id="contact-form">
                 <div class="row">
@@ -210,9 +208,9 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                         <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                         <button type="submit" class="btn btn-skin" id="btnContactUs">
                             to the MAP</button>
-                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                        <button type="submit" class="btn btn-skin" id="btnContactUs">
                             NEXT</button>
                     </div>
                 </div>
@@ -253,7 +251,7 @@ var viewpoint;
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
-    title: "<div class='title'>" + event.title +"<font class='text'> [" + event.eventno +"]</div> <br>"+event.content + "</font><br><br>",
+    title: '<div class="title">' + event.title +'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
     position: new daum.maps.LatLng(event.lat,event.lng)
 });
 console.log("addmarker들어옴");
@@ -341,7 +339,7 @@ function displayMarker(locPosition, message) {
     // 인포윈도우를 마커위에 표시합니다 
     infowindow.open(map, marker);
     console.log("lt:" + lt);
-    console.log("emarker.getPosition.getLat:" + emarker.getPosition.getLat);
+    console.log("emarker.getPosition:" + emarker.getPosition);
     console.log("emarker.getAltitude():" + emarker.getAltitude());
     console.log(viewpoint);
 }    
