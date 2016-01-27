@@ -1406,7 +1406,7 @@
     });
     
     $("#search-container").on('click','img',function(event){
-    	console.log(this.attr("data-src"));
+    	console.log($(this).attr("data-src"));
     });
 </script>
 <!-------- 파일첨부기능 끝 -------->
