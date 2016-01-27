@@ -132,7 +132,7 @@
 	    }
 	    
 	 	 #joinH{
-	        max-height: 650px;
+	        max-height: 480px;
 	    }
 	
 	    #joinBody{
