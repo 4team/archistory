@@ -154,7 +154,6 @@
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 
 <!-- Youtube검색하기 위함 -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="/js/auth.js"></script>
   <script src="/js/search.js"></script>
   <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
