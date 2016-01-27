@@ -181,8 +181,8 @@
                         <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>                        
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
-                        <input type="text" id="query"><label for="videoInput">동영상</label>
-                        <input type="button" id="videoInput" value="Youtube검색">
+                        <label for="videoInput">동영상</label>
+                        <input type="text" id="query"><input type="button" id="videoInput" value="Youtube검색">
                         <div class="fileDrop"><h5 align="center";>여기에 동영상을 끌어오세요</h5></div>
                         
                         <label for="camera">카메라</label>
