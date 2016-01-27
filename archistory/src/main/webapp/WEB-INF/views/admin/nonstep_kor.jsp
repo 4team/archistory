@@ -732,9 +732,23 @@ pageEncoding="UTF-8"%>
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
                 getEventList();
-                console.log("data:"+data);
+                console.log("이벤트 처리 결과:"+data);
             }
 
+        });
+        
+        $.ajax({
+        	type:'post',
+        	url:"http://14.32.66.127:4000/question/remove",
+        	headers:{
+        		"Content-Type":"application/json"
+        	},
+        	datatype:"json",
+        	data:JSON.stringify({eventno:eventno}),
+        	success:function(data){
+        		console.log("문제 처리 결과 :"+data);
+        	}
+        	
         });
         callback();
 

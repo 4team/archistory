@@ -18,8 +18,8 @@ public class QuestionMapperImpl extends AbstractCRUDMapper<QuestionVO,Integer> i
 
 
 	@Override
-	public void delete(Integer questionno) throws Exception {
-		session.delete(namespace+".delete",questionno);
+	public void delete(Integer eventno) throws Exception {
+		session.delete(namespace+".delete",eventno);
 
 	}
 

@@ -20,7 +20,7 @@
 	</update>
 	
 	<delete id="delete">
-		delete from tbl_question where questionno=#{questionno}
+		delete from tbl_question where eventno=#{eventno}
 	</delete>
 	
 	

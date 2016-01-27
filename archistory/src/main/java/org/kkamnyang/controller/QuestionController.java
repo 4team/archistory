@@ -52,8 +52,19 @@ public class QuestionController {
 		service.modify(vo);
 	}
 	
-	public void remove(Integer questionno) throws Exception{
-		service.remove(questionno);
+	@RequestMapping(value="/remove", method=RequestMethod.POST)
+	public ResponseEntity<String> remove(@RequestBody Integer eventno) throws Exception{
+		System.out.println("=======문제 삭제 POST 호출됨=======");
+		ResponseEntity<String> entity = null;
+		try{
+			service.remove(eventno);
+			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("===========문제 삭제 완료 =============");
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
 	}
 	
 	

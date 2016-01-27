@@ -25,7 +25,7 @@ public class QuestionService {
 		mapper.update(vo);
 	}
 	
-	public void remove(Integer questionno) throws Exception{
-		mapper.delete(questionno);
+	public void remove(Integer eventno) throws Exception{
+		mapper.delete(eventno);
 	}
 }
