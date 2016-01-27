@@ -147,7 +147,7 @@
      
      #search-container table tr td img:hover{
      	border : 1px solid;
-        border-color:#aef;
+        border-color:#41C0FF;
         box-shadow:0 0 8px #fff;
      }
      
