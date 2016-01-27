@@ -364,12 +364,6 @@ function displayMarker(locPosition, message) {
     console.log("emarker.getAltitude():" + emarker.getAltitude());
 }    
 
-$("#map").on("click",function(){
-	 $("#eBox").show();	 	
-	 console.log("지도를 눌렀는디???")
-});
-
-
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
       // 마커 위에 인포윈도우를 표시합니다
