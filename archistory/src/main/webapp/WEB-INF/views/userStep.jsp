@@ -161,6 +161,7 @@
     <link href="css/style2.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
 	
+	<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=66fca768fabb8a1e238c3ac76f9c9499"></script>
 	
 <body>
 
