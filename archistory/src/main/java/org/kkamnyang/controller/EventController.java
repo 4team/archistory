@@ -71,7 +71,7 @@ public class EventController {
 		vo.setEventno(nowSequence);
 		service.attachCreate(vo);
 		System.out.println("이벤트 넘버:"+nowSequence);
-			
+		
 	}
 	
 	
