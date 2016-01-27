@@ -1009,7 +1009,7 @@
 
     	  request.execute(function(response) {
     	    var str = JSON.stringify(response.result);
-    	    var movie = response.result.items;
+    	    var movie = $(response.result.items);
     	    
     	    movie.each(function(index){
 	    	    console.log(this.snippet.title);
