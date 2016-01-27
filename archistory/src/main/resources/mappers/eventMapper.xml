@@ -25,7 +25,7 @@
  	
  	<update id="update">
  		update tbl_event set title=#{title},content=#{content},
- 		img=#{img},video=#{video},camera=#{camera},camMessage=#{camMessage},eorder=#{eorder} 
+ 		camera=#{camera},eorder=#{eorder} 
  		where eventNo = #{eventno}
  	</update>
  	
