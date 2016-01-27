@@ -1267,7 +1267,7 @@
 	                
 	                if(checkImageType(data)){
 	                    str ="<div class='img'>"
-	                            +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
+	                            +"<img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/>"
 	                            +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
 	                            +"</div>";
 	
