@@ -148,7 +148,7 @@
     	background-color:#fff;
     	z-index:1200;
     	position:absolute;
-    	float:right;
+    	right:100px;
     	top:100px;
 		width:250px;
 		height:400px;
