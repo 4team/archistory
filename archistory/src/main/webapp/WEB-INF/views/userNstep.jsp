@@ -129,12 +129,14 @@ var routename = ${routename};
 var eventno = 1;
 var events = [];
 
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+var mapContainer = document.getElementById('map'),// 지도를 표시할 div  
+
 mapOption = { 
     center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
     level: 3 // 지도의 확대 레벨
-    console.log(lat,lng);
 };
+
+console.log(lat,lng);
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
