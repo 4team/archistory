@@ -145,7 +145,7 @@
      	width:120px;
      }
      
-     #search-container td:hover{
+     #search-container table tr td:hover{
         border-color:#aef;
         box-shadow:0 0 8px #fff;
      }
