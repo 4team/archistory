@@ -1010,8 +1010,8 @@
     	  request.execute(function(response) {
     	    var str = JSON.stringify(response.result);
     	    
-    	    console.log(response.result);
-    	    $('#search-container').html('<pre>' + str.title + '</pre>');
+    	    console.log(response.result.items);
+    	    $('#search-container').html('<pre>' + str.items + '</pre>');
     	  });
     });
     
