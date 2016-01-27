@@ -142,10 +142,11 @@
     }
     
      #search-container td{
-     	width:150px;
+     	width:120px;
      }
     
     #searchDiv{
+    	text-align:center;
     	background-color:#fff;
     	z-index:1200;
     	position:absolute;
