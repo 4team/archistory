@@ -1159,6 +1159,7 @@ pageEncoding="UTF-8"%>
         console.log(modiRoutename, routename,routeno);
 
         if( modiRoutename != routename){
+        	console.log("루트 이름 수정 완료!"+modiRoutename);
             modifyName(routeno,modiRoutename);
             routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
         }
