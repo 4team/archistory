@@ -899,10 +899,10 @@ pageEncoding="UTF-8"%>
     $("#camera").change("toggle",function(){
         if(this.checked==true){
             console.log("카메라 ON");
-            $("#camera").val("1");
+            $("#camera").val(true);
         }else{
             console.log("카메라 OFF");
-            $("#camera").val("0");
+            $("#camera").val(false);
         }
 
     });
@@ -942,10 +942,10 @@ pageEncoding="UTF-8"%>
 
     $("#mocamera").change("toggle",function(){
         if(this.checked==true){
-        	$("#mocamera").val("1");
+        	$("#mocamera").val(true);
         	console.log("카메라 ON");
         }else{
-            $("#mocamera").val("0");
+            $("#mocamera").val(false);
             console.log("카메라 OFF");
         }
 
