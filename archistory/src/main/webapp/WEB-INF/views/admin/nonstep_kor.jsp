@@ -392,8 +392,6 @@ pageEncoding="UTF-8"%>
     var eventLi="";
     var routename = ${routename};
     var events = [];
-    var camera = $("#camera").val(false);
-    var mocamera = $("#mocamera").val(false);
 
 
     // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
@@ -565,6 +563,8 @@ pageEncoding="UTF-8"%>
         });
 
         $("#eventModal").modal('hide');
+        clearEventDiv();
+        clearMoEventdiv();
 
     });
 
@@ -680,34 +680,6 @@ pageEncoding="UTF-8"%>
 
     }
 
-    function clearQuestionDiv(){
-
-        $("#qCheck").attr("checked",false);
-        $("#questionTitle").val("");
-        $("#qType").val("");
-        $("#s1").val("");
-        $("#s2").val("");
-        $("#s3").val("");
-        $("#s4").val("");
-
-        for(var i=1;i<5;i++) {
-
-            var id = "#multipleAnswer";
-            var multi = id+i;
-            var oxid ="#oxAnswer";
-            var ox =oxid+i;
-
-            if ($(multi).is(":checked")) {
-                $(multi).attr("checked",false);
-            }
-
-            if($(ox).is(":checked")){
-                $(ox).attr("checked",false);
-            }
-        }
-    }
-
-
 
     //이벤트 생성 기능
     function createEvent(routeno,title,content,attach2,lat,lng,camera,callback){
@@ -763,8 +735,40 @@ pageEncoding="UTF-8"%>
         $(".uploadedList").html("");
         $("#qCheck").attr('checked', false) ;
         $("#questionDiv").hide();
+        $("#camera").val(false);
+        $("#camera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         attach=[];
     }
+
+    //이벤트 생성- 문제 창 비우기 기능
+    function clearQuestionDiv(){
+
+        $("#qCheck").attr("checked",false);
+        $("#questionTitle").val("");
+        $("#qType").val("");
+        $("#s1").val("");
+        $("#s2").val("");
+        $("#s3").val("");
+        $("#s4").val("");
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#multipleAnswer";
+            var multi = id+i;
+            var oxid ="#oxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                $(multi).attr("checked",false);
+            }
+
+            if($(ox).is(":checked")){
+                $(ox).attr("checked",false);
+            }
+        }
+    }
+
+
 
     //수정 창 비우기 기능
     function clearMoEventdiv(){
@@ -778,10 +782,13 @@ pageEncoding="UTF-8"%>
             $(answeri).attr("checked",false);
         }
 
+        $("#moquestionTitle").val("");
+        $("#moqType").val("");
         $("#mooxAnswer1").attr("checked",false);
         $("#mooxAnswer2").attr("checked",false);
-
         $("#moqCheck").attr("checked",false);
+        $("#mocamera").val(false);
+        $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         $("#moquestionDiv").hide();
 
     }
@@ -803,14 +810,14 @@ pageEncoding="UTF-8"%>
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
-            
+
             console.log("camera 유무:"+vo.attr("camera"));
-            $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //카메라 없으면 
-            
+            $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //카메라 없으면
+
             if( vo.attr("camera") == true){
-            	console.log("카메라 있음.")
-            	$("#mocamera").parent().attr("class","toggle btn btn-xs btn-primary"); //카메라 있으면 
-            	$("#mocamera").val(true);
+                console.log("카메라 있음.")
+                $("#mocamera").parent().attr("class","toggle btn btn-xs btn-primary"); //카메라 있으면
+                $("#mocamera").val(true);
             }
         }); //end event view
 
@@ -941,7 +948,7 @@ pageEncoding="UTF-8"%>
         var content = $("#moeventinfo").val();
         var eventno = $("#moeventno").val();
         var camera = $("#mocamera").val();
-        
+
         attach2 = attach.join();
 
         console.log(attach2);
@@ -961,6 +968,7 @@ pageEncoding="UTF-8"%>
         modifyQuestion(modiJson);
 
         $("#modiModal").modal('hide');
+        clearMoEventdiv();
 
     });
 
@@ -1163,11 +1171,10 @@ pageEncoding="UTF-8"%>
 
 </script>
 
-
 <script id="template" type="text/x-handlebars-template">
     <li>
         <div class='img'>
-            <a href="{{getLink}}"><img src="{{imgsrc}}"/></a>
+            <img src="{{imgsrc}}"/>
             <small data-src="{{fullName}}"><div class='x'>X</div></small><input type='hidden' name='files' value="{{fileName}}">
         </div>
     </li>
@@ -1243,7 +1250,7 @@ pageEncoding="UTF-8"%>
 
                     if(checkImageType(data)){
                         str ="<div class='img'>"
-                                +"<a href='http://14.32.66.127:4000/displayFile?fileName="+getImageLink(data)+"'><img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/></a>"
+                                +"<img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/>"
                                 +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
                                 +"</div>";
 

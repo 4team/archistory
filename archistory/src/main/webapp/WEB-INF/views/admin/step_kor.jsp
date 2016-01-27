@@ -560,6 +560,7 @@
 	
     var attach = new Array();
 	var attach2;
+	var qJson;
 	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
@@ -825,7 +826,8 @@
             console.log("이벤트 넘버:"+eventno+"읽어오기");
 
             var vo = $(data);
-			
+            console.log(vo);
+            
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moorder").val(vo.attr("eorder"));
