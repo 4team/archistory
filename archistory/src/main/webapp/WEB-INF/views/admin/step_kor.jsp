@@ -404,7 +404,9 @@
     var routename = ${routename};
     var eventno = 1;
     var camera = $("#camera").val(false);
+    $("#camera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
     var mocamera = $("#mocamera").val(false);
+    
     var events = [];
     
    	
