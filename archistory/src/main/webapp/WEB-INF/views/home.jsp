@@ -315,7 +315,7 @@
 	    <input type="text" class="form-control" id="useremail" placeholder="Email"><br>
 	    <input type="password" class="form-control" id="password1" placeholder="Password"><br>
 	    <input type="password" class="form-control" id="password2" placeholder="Password (Again)"><br>   
-    <div id="duplResult"></div>
+    <div id="duplResult"><pre></pre></div>
 	    <input type="text" class="form-control" id="username" placeholder="UserName"><br>
     </div>
     <div id="adminJoinDiv">
