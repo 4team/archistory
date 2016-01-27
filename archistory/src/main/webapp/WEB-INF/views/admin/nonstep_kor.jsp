@@ -729,7 +729,7 @@ pageEncoding="UTF-8"%>
             $("#qno").val(qno);
            
 
-            if(vo == undefinded){
+            if(vo == undefined){
             	console.log("이벤트 VIEW - 문제 없음.");
             	$("#moqCheck").attr("checked",false);
             	$("#moquestionDiv").hide();
