@@ -153,8 +153,6 @@
 <div id="map"></div>
 
 
-<div class="row">
-        <div class="col-lg-8 col-md-offset-2">
             <div class="boxed-grey">
             <a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
                 <form id="contact-form">
