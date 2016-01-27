@@ -590,7 +590,7 @@ pageEncoding="UTF-8"%>
     function createEvent(routeno,title,content,attach2,lat,lng,camera,callback){
 
 
-        console.log("이벤트 생성:",routeno,title,content,attach2,lat,lng,camera);
+        console.log("이벤트 생성:"routeno,title,content,attach2,lat,lng,camera);
 
         $.ajax({
             type:'post',
@@ -606,6 +606,7 @@ pageEncoding="UTF-8"%>
 
                 var json = JSON.parse(qJson);
                 console.log("question : "+json.question);
+                
                 if(!json.question){
                     console.log("이벤트 생성중 - 문제없음.");
                 }
@@ -898,10 +899,10 @@ pageEncoding="UTF-8"%>
     $("#camera").change("toggle",function(){
         if(this.checked==true){
             console.log("카메라 ON");
-            $("#camera").val("true");
+            $("#camera").val("1");
         }else{
             console.log("카메라 OFF");
-            $("#camera").val("false");
+            $("#camera").val("0");
         }
 
     });
@@ -941,10 +942,10 @@ pageEncoding="UTF-8"%>
 
     $("#mocamera").change("toggle",function(){
         if(this.checked==true){
-        	$("#mocamera").val("true");
+        	$("#mocamera").val("1");
         	console.log("카메라 ON");
         }else{
-            $("#mocamera").val("false");
+            $("#mocamera").val("0");
             console.log("카메라 OFF");
         }
 
