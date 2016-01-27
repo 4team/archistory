@@ -1030,13 +1030,13 @@
     	    var movie = $(response.result.items);
     	    console.log(movie);
     	    
-	    	var result = "<table><tr>";
+	    	var result = "<table>";
     	    
     	    movie.each(function(index){
 	    	    console.log(this.snippet.title);
-	    	    result += "<td><img src='"+this.snippet.thumbnails.default.url+"'>"+this.snippet.title+"</td>";
+	    	    result += "<tr><td><img src='"+this.snippet.thumbnails.default.url+"'>"+this.snippet.title+"</td></tr>";
     	    });
-    	    result += "</tr></table>";
+    	    result += "</table>";
     	    $('#search-container').html(result);
     	  });
     });
