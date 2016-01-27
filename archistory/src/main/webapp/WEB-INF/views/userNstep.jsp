@@ -149,13 +149,25 @@ function getEventList(){
         list.each(function(idx,value){
             var event= this;
             addMarker(event);
- 			//questionPopup(event);
+			showEvent(event);
             
         });
     });
 }
 
 getEventList();
+
+
+
+function showEvent(event) {
+       eventLi += "<div class='form-group'>"+
+       "<label for='title'>"+event.title+"</label>"+
+       "<p class='form-control' id='title'>"+event.content+"</p>"+
+                "</div>"
+       $("#tAnde").html(eventLi);
+   }
+   
+
 
 
 //------------------------------- Geolocation -----------------------------------
@@ -214,13 +226,7 @@ function displayMarker(locPosition, message) {
     console.log("emarker.getAltitude():" + emarker.getAltitude());
 }    
 
-function addList(event){
-    eventLi+="<li>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
-            "<span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
-
-    $("#eventList").html(eventLi);
-
-}
+//-----------------------------------END Geolocation-----------------------------------------
 
 
 </script>
