@@ -503,7 +503,12 @@ $("#loginBtn").on("click",function(){
         console.log($("#loginForm")[0]);
     });
     
-    
+    if($("#adminpassword1")==$("#adminpassword2")){
+    	var resultDiv = $("#duplResult");
+    	resultDiv.append("<h3>비밀번호가 중복됩니다.</h3>");
+    	resultDiv.show();
+    	
+    }
 </script>
 <script src="/Cesium/js/map.js"></script>
 
