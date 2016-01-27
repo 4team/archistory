@@ -43,11 +43,13 @@
     }
     #eBox{
     display:none;
-    position:absolute;    
+    position:absolute;
+    text-align:center;
+    overflow-y:scroll;
     }
     .modal-dialog{
     position:absolute;
-    z-index:99999;
+    z-index:999;
     }
 </style>
 
