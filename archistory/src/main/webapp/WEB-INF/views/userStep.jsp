@@ -136,8 +136,10 @@
         z-index:600;
     }
     .eBox{
+    position:absolute;
     width:50%;
     height:50%;
+    display:none;
     }
 </style>
 
