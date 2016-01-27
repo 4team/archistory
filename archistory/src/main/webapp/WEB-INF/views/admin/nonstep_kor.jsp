@@ -518,7 +518,7 @@ pageEncoding="UTF-8"%>
         var select = $(this);
         removeQuestion(select.attr("value"));
         removeEvent(select.attr("value"),function(){
-        });
+        }); //문제가 있으면 삭제 되게
 
 
         alert(select.attr("value")+"삭제되었습니다.");
@@ -613,52 +613,6 @@ pageEncoding="UTF-8"%>
 
     }
 
-    var modiJson;
-
-    function modiQuestion(){
-        var qfilter = new Array();
-        qfilter[0]="questionno";
-        qfilter[1]="question";
-        qfilter[2]="answer";
-        qfilter[3]="point";
-        qfilter[4]="qtype";
-        qfilter[5]="choice1";
-        qfilter[6]="choice2";
-        qfilter[7]="choice3";
-        qfilter[8]="choice4";
-
-        var qObject = new Object();
-
-        qObject.questionno = $("#qno").val();
-        qObject.question = $("#moquestionTitle").val();
-        qObject.point = 500;
-        qObject.qtype = $("#moqType").val();
-        qObject.choice1 = $("#mos1").val();
-        qObject.choice2 = $("#mos2").val();
-        qObject.choice3 = $("#mos3").val();
-        qObject.choice4 = $("#mos4").val();
-
-        for(var i=1;i<5;i++) {
-
-            var id = "#momultipleAnswer";
-            var multi = id+i;
-            var oxid ="#mooxAnswer";
-            var ox =oxid+i;
-
-            if ($(multi).is(":checked")) {
-                qObject.answer = $(multi).val();
-            }
-
-            if($(ox).is(":checked")){
-                qObject.answer = $(ox).val();
-            }
-        }
-
-        modiJson = JSON.stringify(qObject,qfilter,"\t");
-
-        //console.log(qJson)
-
-    }
 
     function createQuestion(qJson){
 
@@ -679,7 +633,6 @@ pageEncoding="UTF-8"%>
 
 
     }
-
 
     //이벤트 생성 기능
     function createEvent(routeno,title,content,attach2,lat,lng,camera,callback){
@@ -849,6 +802,7 @@ pageEncoding="UTF-8"%>
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
+            console.log("qno:"+$("#qno"));
 
 
             if(typeof qno == "undefined"){
@@ -940,6 +894,53 @@ pageEncoding="UTF-8"%>
         });
     }
 
+    
+    var modiJson;
+
+    function modiQuestion(eventno){
+        var qfilter = new Array();
+        qfilter[0]="eventno";
+        qfilter[1]="question";
+        qfilter[2]="answer";
+        qfilter[3]="point";
+        qfilter[4]="qtype";
+        qfilter[5]="choice1";
+        qfilter[6]="choice2";
+        qfilter[7]="choice3";
+        qfilter[8]="choice4";
+
+        var qObject = new Object();
+
+        qObject.eventno = eventno;
+        qObject.question = $("#moquestionTitle").val();
+        qObject.point = 500;
+        qObject.qtype = $("#moqType").val();
+        qObject.choice1 = $("#mos1").val();
+        qObject.choice2 = $("#mos2").val();
+        qObject.choice3 = $("#mos3").val();
+        qObject.choice4 = $("#mos4").val();
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#momultipleAnswer";
+            var multi = id+i;
+            var oxid ="#mooxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                qObject.answer = $(multi).val();
+            }
+
+            if($(ox).is(":checked")){
+                qObject.answer = $(ox).val();
+            }
+        }
+
+        modiJson = JSON.stringify(qObject,qfilter,"\t");
+
+        //console.log(qJson)
+
+    }
 
     //이벤트 수정 버튼 클릭
 
@@ -958,14 +959,31 @@ pageEncoding="UTF-8"%>
             return;
         }
 
+        console.log("eventno:"+eventno);
+        
+        modiQuestion(eventno);
+
+        var json = JSON.parse(modiJson);
+        console.log("question : "+json.question);
+
+        if(!json.question){
+            console.log("<이벤트 수정중> - 문제 NO/NO");
+        }
+ /*        else if(){
+        	 console.log("<이벤트 수정중> - 문제NO/YES");
+        	 createQuestion(modiJson);
+        } */
+        else{
+            console.log("<이벤트 수정중> - 문제YES/YES");
+            modifyQuestion(modiJson);
+        }
 
         modifyEvent(eventno,title,content,attach2,camera,function(){
             clearEventDiv();
             attach = [];
         });
 
-        modiQuestion();
-        modifyQuestion(modiJson);
+ 
 
         $("#modiModal").modal('hide');
         clearMoEventdiv();
