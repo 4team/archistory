@@ -137,8 +137,6 @@
     }
     
     #search-container{
-        border: 1px solid black;
-        border-radius: 10px;
     	font-size:9px;
         height:100px;
     }
@@ -153,6 +151,8 @@
     
     #searchDiv{
     	display:none;
+    	border: 1px solid black;
+        border-radius: 10px;
     	text-align:center;
     	background-color:#fff;
     	z-index:1200;
