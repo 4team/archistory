@@ -861,34 +861,29 @@ $("#main").on("mouseover",function(){
 
 	            $("#memberlist").html(memberLi);
 
-	            console.log("data:"+data);
-
-				if(typeof data=="undefined" ){ //멤버데이터 없으면
-					console.log("멤버 리스트 없음.");
-
-	                var msg = "<li> 멤버를 추가해 주세요.</li>"
-	                            +"<li><span class='glyphicon glyphicon-plus' id='memPlus'></span></li>";
-	                $("#memberlist").html(msg);
-
-	            }
-
-
 	        }
 
 	        function getMemberList(){
 	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
-	                var list = $(data);
+	            	console.log("멤버 GETJSON!");
+	            	memberLi = "";
+	            	var list = $(data);
+	            	
+	            	if(!list){
+	            		console.log("멤버 리스트 없음.");
 
-	                memberLi = "";
+		                var msg = "<li> 멤버를 추가해 주세요.</li>"
+		                            +"<li><span class='glyphicon glyphicon-plus' id='memPlus'></span></li>";
+		                $("#memberlist").html(msg);
+
+	            	}
 
 	                list.each(function(idx,value){
 		                var member = this;
 		                memberList(member);
-		                console.log("멤버 :"+member);
 	                });
 	            });
-	            
-	            console.log("멤버 GETJSON!");
+	         
 	        }
 
 	    
