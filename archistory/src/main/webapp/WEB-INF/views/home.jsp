@@ -219,7 +219,7 @@
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<i class="fa fa-bars fa-2"><a class="gn-icon"></a></i>
+					<a class="gn-icon gn-icon-menu"><i class="fa fa-bars fa-2"></i></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
