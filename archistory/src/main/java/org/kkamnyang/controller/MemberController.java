@@ -34,6 +34,7 @@ public class MemberController {
 		service.register(vo);
 		Integer memberno =vo.getMemberNo();
 		response.getWriter().print(memberno);
+		System.out.println("memberno:"+ memberno);
 		System.out.println("========멤버 등록 완료!!======");
 		
 	}
