@@ -510,7 +510,12 @@
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
 		eventno=1;
-    	marker.setMap(null);
+    	if(markers){
+    		for(var i = 0 ; i < markers.lenght; i++){
+				markers[0].setMap(null);
+    		}
+    	}
+		
 		linePath = [];	
 		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
