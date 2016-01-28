@@ -445,9 +445,9 @@
     	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
 
     	if(event.eorder==1){
-			markerImage = "/img/start-marker.png";
+			markerImage = new daum.maps.MarkerImage("/img/start-marker.png",imageSize);
 		}else if(event.eorder==eventno){
-			markerImage = "/img/finish-marker.png";
+			markerImage = new daum.maps.MarkerImage("/img/finish-marker.png",imageSize);
 		}
         
 			var marker = new daum.maps.Marker({
