@@ -224,7 +224,8 @@
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
                         <label for="videoInput">동영상</label>
-                        <input type="text" id="query"><button id="search-button">Youtube Search</button>
+                        	Youtube Search <input type="text" id="query"><button type="button" id="search"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
+                    	<ul id="youtubeList"></ul>
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
                         
                         <label for="camera">카메라</label>
@@ -300,7 +301,9 @@
                     <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>    
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     
-                    <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
+                    <label for="videoInput">동영상</label><br>
+                    	Youtube Search <input type="text" id="mquery"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
+                    <ul id="myoutubeList"></ul>
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
@@ -387,6 +390,111 @@
 <script src="/js/search.js"></script>
 <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 
+<script>
+
+/*     <!-- 유투브 검색 --> */
+    $("#search").on("click",function(event){
+    	event.preventDefault();
+    	$("#searchDiv").show();
+    	
+    	  console.log('Search Started');
+    	  var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
+    	  var q = $('#query').val();
+    	console.log(q);
+
+    	  gapi.client.setApiKey(apiKey);
+    	  gapi.client.load('youtube', 'v3', function() {
+    	    isLoad = true;
+    	  });
+    	  console.log('Search Request');
+
+    	  request = gapi.client.youtube.search.list({
+    	    q: q,
+    	    part: 'id, snippet',
+    	    type: 'video',
+    	    maxResults:20
+    	  });
+
+
+    	  request.execute(function(response) {
+    	    var str = JSON.stringify(response.result);
+    	    var movie = $(response.result.items);
+    	    console.log(movie);
+    	    
+	    	var result = "<table>";
+    	    
+    	    movie.each(function(index){
+	    	    result += "<tr><td><img data-src='"+this.id.videoId+"' src='"+this.snippet.thumbnails.default.url+"'><br>"+this.snippet.title+"</td></tr>";
+    	    });
+    	    result += "</table>";
+    	    $('#search-container').html(result);
+    	  });
+    	  
+    	  $('#query').val("");
+    });
+    
+    
+    
+    // 유투브 수정!!
+    
+      $("#msearch").on("click",function(event){
+    	event.preventDefault();
+    	$("#searchDiv").show();
+    	
+    	  console.log('Search Started');
+    	  var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
+    	  var q = $('#mquery').val();
+    	console.log(q);
+
+    	  gapi.client.setApiKey(apiKey);
+    	  gapi.client.load('youtube', 'v3', function() {
+    	    isLoad = true;
+    	  });
+    	  console.log('Search Request');
+
+    	  request = gapi.client.youtube.search.list({
+    	    q: q,
+    	    part: 'id, snippet',
+    	    type: 'video',
+    	    maxResults:20
+    	  });
+
+
+    	  request.execute(function(response) {
+    	    var str = JSON.stringify(response.result);
+    	    var movie = $(response.result.items);
+    	    console.log(movie);
+    	    
+	    	var result = "<table>";
+    	    
+    	    movie.each(function(index){
+	    	    result += "<tr><td><img data-src='"+this.id.videoId+"' src='"+this.snippet.thumbnails.default.url+"'><br>"+this.snippet.title+"</td></tr>";
+    	    });
+    	    result += "</table>";
+    	    $('#search-container').html(result);
+    	  });
+    	  
+    	  $('#mquery').val("");
+    });
+    
+    $("#search-container").on('click','img',function(event){
+    	youtubeId = $(this).attr("data-src");
+    	var thumbnail = $(this).attr("src");
+    	
+    	console.log("가져온 유투브 아이디 : ",youtubeId);
+    	console.log("가져온 유투브 썸네일 주소 : ",thumbnail);
+    	youtubeId+="THUMBNAIL"+thumbnail;
+    	
+    	console.log("결과적인 youtubeId값 : ", youtubeId);
+    	
+    	var array = youtubeId.split("THUMBNAIL");
+    	console.log(array);
+    	$("#searchDiv").hide();
+    	
+
+        $("#youtubeList").html("<li><img src='"thumbnail"'><small>X</small></li>");
+    });
+</script>
 
 <script>
     var markers = [];
@@ -825,6 +933,8 @@
 /*     <!-- 이벤트 읽기 기능 --> */
     function viewEvent(eventno){
     	$(".uploadedList").html("");
+    	$("#myoutubeList").html("");
+    	
 	  var template2 = Handlebars.compile($("#template").html());
          
         $.getJSON("http://14.32.66.127:4000/event/view?eventno="+eventno,function(data){
@@ -838,6 +948,18 @@
             $("#moeventinfo").val(vo.attr("content"));
             $("#moorder").val(vo.attr("eorder"));
             $("#moeventno").val(eventno);
+            
+            var youtubeStr = vo.attr("youtube");
+            
+            if(youtubeStr){
+	            var arrayU = youtubeStr.split("THUMBNAIL");
+	            console.log(youtubeStr);
+	            console.log(arrayU);
+	            youtubeId = arrayU[0];
+	            
+	            $("#myoutubeList").html("<li><img src='"+arrayU[1]+"'><small>X</small></li>");
+            }
+            
             
             console.log("camera 유무:"+vo.attr("camera"));
             $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //카메라 없으면 
@@ -1368,54 +1490,7 @@
         return fileName.match(pattern);
 
     }
-    
-/*     <!-- 유투브 검색 --> */
-    $("#search-button").on("click",function(event){
-    	$("#searchDiv").show();
-    	event.preventDefault();
-    	
-    	  console.log('Search Started');
-    	  var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
-    	  var q = $('#query').val();
 
-    	  gapi.client.setApiKey(apiKey);
-    	  gapi.client.load('youtube', 'v3', function() {
-    	    isLoad = true;
-    	  });
-    	  console.log('Search Request');
-
-    	  request = gapi.client.youtube.search.list({
-    	    q: q,
-    	    part: 'id, snippet',
-    	    type: 'video',
-    	    order: 'viewcount',
-    	    maxResults:20
-    	  });
-
-
-    	  request.execute(function(response) {
-    	    var str = JSON.stringify(response.result);
-    	    var movie = $(response.result.items);
-    	    console.log(movie);
-    	    
-	    	var result = "<table>";
-    	    
-    	    movie.each(function(index){
-	    	    result += "<tr><td><img data-src='"+this.id.videoId+"' src='"+this.snippet.thumbnails.default.url+"'><br>"+this.snippet.title+"</td></tr>";
-    	    });
-    	    result += "</table>";
-    	    $('#search-container').html(result);
-    	  });
-    });
-    
-    $("#search-container").on('click','img',function(event){
-    	youtubeId = $(this).attr("data-src");
-    	
-    	console.log("가져온 유투브 아이디 : ",youtubeId);
-    	
-    	
-    	
-    });
 </script>
 <!-------- 파일첨부기능 끝 -------->
 
