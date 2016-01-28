@@ -56,6 +56,7 @@
 <div id="map"></div>
 
 <script>
+var routeno = ${routeno};
 var lat = ${lat};
 var lng = ${lng};
 
