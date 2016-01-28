@@ -157,6 +157,8 @@ emarker.setRange(100);
 emarker.setMap(map);
 markers.push(emarker);
 
+emarker.getPosition();
+console.log(emarker.getPosition());
 /* 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
@@ -167,7 +169,6 @@ daum.maps.event.addListener(emarker, 'click', function() {
 }); */
 };
 
-emarker.getPosition();
 function showEvent(select) {
        eventLi += "<div class='form-group'>"+
        "<label for='title'>"+select.title+"</label>"+
