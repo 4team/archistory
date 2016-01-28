@@ -174,7 +174,6 @@
     }
     
     #eventList li{
-    	white-space:nowrap;
 
     }
 
