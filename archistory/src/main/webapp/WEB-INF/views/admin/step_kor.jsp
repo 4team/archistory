@@ -523,7 +523,7 @@
                 eventno++;
             });
         });
-            callback;
+            callback();
 
     }
     
