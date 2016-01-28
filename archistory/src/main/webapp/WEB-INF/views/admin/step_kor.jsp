@@ -174,6 +174,7 @@
     }
     
     #eventList li{
+    	white-space:nowrap;
 
     }
 
@@ -541,7 +542,8 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(event){
-        eventLi+="<li><div id='eventTitle'>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></div></li>";
+        eventLi+="<li><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
+                "<span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
 
         $("#eventList").html(eventLi);
 
