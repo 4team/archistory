@@ -224,7 +224,7 @@
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
                         <label for="videoInput">동영상</label>
-                        	Youtube Search <input type="text" id="query"><button type="button" id="search"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
+                        	Youtube Search <input type="text" id="query"><button type="button" id="qsearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
                     	<ul id="youtubeList"></ul>
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
                         
@@ -393,7 +393,7 @@
 <script>
 
 /*     <!-- 유투브 검색 --> */
-    $("#search").on("click",function(event){
+    $("#qsearch").on("click",function(event){
     	event.preventDefault();
     	$("#searchDiv").show();
     	
