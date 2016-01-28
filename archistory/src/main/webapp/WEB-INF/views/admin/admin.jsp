@@ -869,7 +869,7 @@ $("#main").on("mouseover",function(){
 	            	var list = $(data);
 	            	console.log(list);
 	            	
-	            	if(typeof list == "undefined"){
+	            	if(list.length==0){
 	            		console.log("멤버 리스트 없음.");
 
 		                var msg = "<li> 멤버를 추가해 주세요.</li>"
@@ -877,12 +877,6 @@ $("#main").on("mouseover",function(){
 		                $("#memberlist").html(msg);
 
 	            	} 
-	            	if(!list){
-	            		console.log("멤버 없음!!!!1");
-	            	}
-	            	if(list==null){
-	            		console.log("배열 비어 있음");
-	            	}
  
 	                list.each(function(idx,value){
 		                var member = this;
