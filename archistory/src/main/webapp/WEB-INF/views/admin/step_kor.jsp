@@ -512,7 +512,7 @@
 		console.log("=====================");
 		console.log(markers);
 		
-    	if(typeof markers[index] !== 'undefined' && markers[index] !== null){
+    	if(markers !== undefined || markers.length != 0){
     		for(var i = 0 ; i < markers.lenght; i++){
     			console.log(markers[i]);
 				markers[0].setMap(null);
