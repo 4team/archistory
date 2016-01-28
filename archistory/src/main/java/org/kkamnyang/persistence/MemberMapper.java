@@ -1,5 +1,6 @@
 package org.kkamnyang.persistence;
 
+import org.kkamnyang.domain.InviteVO;
 import org.kkamnyang.domain.MemberVO;
 import org.kkamnyang.domain.ParticipateVO;
 
@@ -12,5 +13,13 @@ public interface MemberMapper extends CRUDMapper<MemberVO,Integer>{
 	public void participateU(ParticipateVO vo);
 	
 	public void finishParticipate(Integer participateNo);
+	
+	public void inviteCreate (InviteVO vo);
+	
+	public InviteVO inviteRead(Integer routeNo);
+	
+	public void inviteUpdate(InviteVO vo);
+	
+	public void inviteDelete(Integer inviteNo);
 	
 }

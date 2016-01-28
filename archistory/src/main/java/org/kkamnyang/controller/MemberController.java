@@ -3,7 +3,9 @@ package org.kkamnyang.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.kkamnyang.domain.InviteVO;
 import org.kkamnyang.domain.MemberVO;
 import org.kkamnyang.domain.ParticipateVO;
 import org.kkamnyang.service.MemberService;
@@ -25,21 +27,14 @@ public class MemberController {
 	MemberService service;
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public ResponseEntity<String> register(@RequestBody MemberVO vo) throws Exception{
-		ResponseEntity<String> entity = null;
-		System.out.println("========멤버 등록 POST======");
-		System.out.println("========멤버 등록 시도======");
-		System.out.println(vo);
-
-		try{
-			service.register(vo);
-			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
-			System.out.println("========멤버 등록 완료!!======");
-		}catch(Exception e){
-			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
-		}
+	public void register(@RequestBody MemberVO vo, HttpServletResponse response) throws Exception{
 		
-		return entity;
+		System.out.println("========멤버 등록 POST======");
+		System.out.println(vo);
+		Integer memberno =service.register(vo);
+		response.getWriter().print(memberno);
+		System.out.println("========멤버 등록 완료!!======");
+		
 	}
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
@@ -100,6 +95,36 @@ public class MemberController {
 	
 	public void finish(Integer memberNo)throws Exception{
 		service.finish(memberNo);
+	}
+	
+	
+	@RequestMapping(value="/inviregister",method=RequestMethod.POST)
+	public ResponseEntity<String> inviteRegister(InviteVO vo) {
+		System.out.println("==============invite 등록 POST 호출==========");
+		ResponseEntity<String> entity=null;
+		try{
+		service.inviteRegister(vo);
+		entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+		System.out.println("=============invite 등록 성공===============");
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+
+	public InviteVO inviteView(Integer routeNo) {
+	
+		InviteVO vo = service.inviteView(routeNo);
+		return vo;
+	}
+
+	public void inviteModify(InviteVO vo) {
+		service.inviteModify(vo);
+	}
+	
+	public void inviteRemove(Integer inviteNo) {
+		service.inviteRemove(inviteNo);
+		
 	}
 	
 }

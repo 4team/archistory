@@ -2,6 +2,7 @@ package org.kkamnyang.service;
 
 import java.util.List;
 
+import org.kkamnyang.domain.InviteVO;
 import org.kkamnyang.domain.MemberVO;
 import org.kkamnyang.domain.ParticipateVO;
 import org.kkamnyang.persistence.MemberMapper;
@@ -45,6 +46,27 @@ public class MemberService {
 
 	public void finish(Integer memberNo) {
 		mapper.finishParticipate(memberNo);
+		
+	}
+	
+
+	public void inviteRegister(InviteVO vo) {
+		mapper.inviteCreate(vo);
+		
+	}
+
+	public InviteVO inviteView(Integer routeNo) {
+	
+		InviteVO vo = mapper.inviteRead(routeNo);
+		return vo;
+	}
+
+	public void inviteModify(InviteVO vo) {
+		mapper.inviteUpdate(vo);		
+	}
+	
+	public void inviteRemove(Integer inviteNo) {
+		mapper.inviteDelete(inviteNo);
 		
 	}
 	

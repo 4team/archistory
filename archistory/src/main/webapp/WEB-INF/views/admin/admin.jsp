@@ -608,10 +608,12 @@ $("#main").on("mouseover",function(){
 	    	 
 	    });
 	    
+	    var routeno;
+	    
 	  //routelist 에서   route 이름 클릭하면 -> 루트 수정, 멤버 등록, 루트 삭제 모달 창 뜸.    
 	    $("#myRouteList").on("click","li",function(event){
 		       var select = $(this);
-		       var routeno = parseInt(select.attr("data-routeno"));
+		       routeno = parseInt(select.attr("data-routeno"));
 		       
 		       $("#editModal").modal('show');
 		       editRoute(select);
@@ -736,12 +738,61 @@ $("#main").on("mouseover",function(){
 
 		    });
 			 
+		    
+	        //<!-- member list 출력 -->
+
+	        var memberLi="";
+
+	        function memberList(data) {
+	        	console.log("멤버 있음.")
+	            memberLi +="<li>" + data.userName + "<div class='gly'>"+
+	            "<span class='glyphicon glyphicon-pencil' id='modi'></span>" +
+	            "<span class='glyphicon glyphicon-remove' id='del'></span></div></li>";
+
+	            $("#memberlist").html(memberLi);
+
+	        }
+
+	        function getMemberList(){
+	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
+	            	memberLi = "";
+	            	var list = $(data);
+	            	console.log(list);
+	            	
+	            	if(list.length==0){ //멤버 없으면             		
+		                var msg = "<li> 멤버를 추가해 주세요.</li>"
+		                            +"<li><span class='glyphicon glyphicon-plus' id='memPlus'></span></li>";
+		                $("#memberlist").html(msg);
+	            	} 
+
+	                list.each(function(idx,value){ //멤버 있으면 
+		                var member = this;
+		                memberList(member);
+	                });
+	            });
+	         
+	        }
+	        
+	        
+	  //SHOW - 멤버 추가 모달 창 
+	        
+	        $("#memberlist").on("click","#memPlus",function(){
+	        	$("#memberModal").modal('show');
+
+		    });
+	        
+	        $("#regiMemberBtn").on("click",function(){
+	        	$("#memberModal").modal('show');
+	        });
+
+	    
+
 		    var contents=" ";
 		    var i=1;
 		    var j=1;
 		    var memberJson;
 		    
-		    //멤버 추가 
+		//멤버 추가 모달 창 - 멤버 추가  
 		    $("#plus").on("click",function(){
 	    		    
 		    	++i;
@@ -753,6 +804,8 @@ $("#main").on("mouseover",function(){
 		            +"<td><input type='password' class='form-control' id='password"+i+"'  placeholder='password'></td></tr>"
 		          
 		            $("#memTable").append(contents);
+		            
+		    	console.log("i:"+i);
 
 		    });
 		    
@@ -792,7 +845,7 @@ $("#main").on("mouseover",function(){
 
 		    }
 		    
-		    function regiMember(memberJson,callback){
+		    function regiMember(memberJson,routeno,callback){
 				 
 				 console.log(memberJson);
 				 
@@ -805,12 +858,32 @@ $("#main").on("mouseover",function(){
 					  datatype:"json",
 					  data:memberJson,
 					  success: function(data){
-						  console.log(data);
-						  console.log("완전 등록");
+						  console.log("멤버등록완료")
+						  console.log("memberno :"+ data);
+						  regiInvite(routeno,data);
+						  
 					  }				   
 				   });
 					   callback();
 		   };
+		   
+		   function regiInvite(routeno,memberno){
+			   console.log("-----invite등록 시도--------")
+			   
+			   $.ajax({
+					  type:'post',
+					  url:"http://14.32.66.127:4000/member/inviregister",
+					  headers : {
+						"Content-Type" : "application/json"  
+					  },
+					  datatype:"json",
+					  data:({routeno:routeno,memberno:memberno}),
+					  success: function(data){
+						  console.log("invite 등록완료!!");
+					  }				   
+				   });
+			   
+		   }
 
 		    
 		    function emptyMember(){
@@ -823,9 +896,12 @@ $("#main").on("mouseover",function(){
 		    
 		    $("#registerBtn").on("click",function(){
 		    	
+		    	console.log(memberJson);
+		    	console.log("routeno :"+routeno);
+		    	
 	    		 for(var k=1;k<i+1;k++){
 	    			 repeat();
-	    			 regiMember(memberJson, function(){	    	
+	    			 regiMember(memberJson,routeno, function(){	    	
 				    	  console.log("멤버등록 시도");		    	   
 				      });
 	    			 j++;
@@ -847,60 +923,6 @@ $("#main").on("mouseover",function(){
 		    	
 		    });
 		    
-		    
-	        //<!-- member list 출력 -->
-
-	        var memberLi="";
-
-	        function memberList(data) {
-	        	console.log("멤버 있음.")
-	            memberLi +="<li>" + data.userName + "<div class='gly'>"+
-	            "<span class='glyphicon glyphicon-pencil' id='modi'></span>" +
-	            "<span class='glyphicon glyphicon-remove' id='del'></span></div></li>";
-
-	            $("#memberlist").html(memberLi);
-
-	        }
-
-	        function getMemberList(){
-	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
-	            	memberLi = "";
-	            	var list = $(data);
-	            	console.log(list);
-	            	
-	            	if(list.length==0){ //멤버 없으면             		
-		                var msg = "<li> 멤버를 추가해 주세요.</li>"
-		                            +"<li><span class='glyphicon glyphicon-plus' id='memPlus'></span></li>";
-		                $("#memberlist").html(msg);
-	            	} 
-
-	                list.each(function(idx,value){ //멤버 있으면 
-		                var member = this;
-		                memberList(member);
-	                });
-	            });
-	         
-	        }
-	        
-	        
-	        //SHOW - 멤버 추가 모달 창 
-	        
-	    /*     $("#memPlus").on("click",function(){
-	        	$("#memberModal").modal('show');
-	        }); */
-	        
-	        $("#memberlist").on("click","#memPlus",function(){
-	        	$("#memberModal").modal('show');
-
-		    });
-	        
-	        $("#regiMemberBtn").on("click",function(){
-	        	$("#memberModal").modal('show');
-	        });
-
-	    
-
-
 	    
 	
 	     

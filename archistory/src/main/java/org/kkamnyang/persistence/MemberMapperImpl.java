@@ -2,6 +2,7 @@ package org.kkamnyang.persistence;
 
 import java.util.List;
 
+import org.kkamnyang.domain.InviteVO;
 import org.kkamnyang.domain.MemberVO;
 import org.kkamnyang.domain.ParticipateVO;
 import org.springframework.security.core.userdetails.User;
@@ -56,6 +57,29 @@ public class MemberMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> impl
 	@Override
 	public void finishParticipate(Integer participateNo){
 		session.update(namespace+".finishRoute", participateNo);
+	}
+
+	@Override
+	public void inviteCreate(InviteVO vo) {
+		session.insert(namespace+".inviteCreate",vo);
+		
+	}
+
+	@Override
+	public InviteVO inviteRead(Integer routeNo) {
+	
+		return session.selectOne(namespace+".inviteRead",routeNo);
+	}
+
+	@Override
+	public void inviteUpdate(InviteVO vo) {
+		 session.update(namespace+".inviteUpdate",vo);
+		
+	}
+	@Override
+	public void inviteDelete(Integer inviteNo) {
+		session.delete(namespace+".inviteDelete",inviteNo);
+		
 	}
 
 }

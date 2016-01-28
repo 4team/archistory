@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="org.kkamnyang.persistence.MemberMapper">
-	<insert id="create">
+	<insert id="create" useGeneratedKeys="true" keyProperty="memberno">
 		insert into tbl_member(userNo,userName,email,mPassword)
         values(#{userNo},#{userName},#{email},#{mPassword})
 	</insert>
@@ -42,5 +42,22 @@
 	<update id="finishRoute">
 		update tbl_participate set finish = true, lastDate = now()
 	</update>
+	
+	<insert id="inviteCreate">
+		insert into tbl_invite(routeNo,memberNo)
+		values(#{routeno},#{memberno});
+	</insert>
+	
+	<select id="inviteRead" resultType="org.kkamnyang.domain.InviteVO">
+		select * from tbl_invite where routeno=#{routeno};
+	</select>
+	
+	<update id="inviteUpdate">
+		update tbl_invite set memberno = #{memberno} where routeno=#{routeno};
+	</update>
+	
+	<delete id="inviteDelete">
+		delete from tbl_invite where inviteno=#{inviteno};
+	</delete>
 	
 </mapper>
