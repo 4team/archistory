@@ -159,7 +159,7 @@ emarker.setMap(map);
 markers.push(emarker);
 
 emPosition = emarker.getPosition();
-console.log(emPositions);
+console.log(emPosition);
 
 /* 
 //마커에 클릭이벤트를 등록합니다
@@ -179,6 +179,8 @@ function showEvent(select) {
        $("#tAnde").html(eventLi);
    }   
 
+console.log("emP: "+emPosition);
+console.log("mp: "+mPosition);
 //------------------------------- Geolocation -----------------------------------
 
 var lt;
@@ -239,8 +241,6 @@ function displayMarker(locPosition, message) {
 //-----------------------------------END Geolocation-----------------------------------------
 
 
-console.log("emP: "+emPosition);
-console.log("mp: "+mPosition);
 </script>
 
 </body>
