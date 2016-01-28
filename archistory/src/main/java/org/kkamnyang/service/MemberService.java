@@ -54,10 +54,10 @@ public class MemberService {
 		
 	}
 
-	public InviteVO inviteView(Integer routeno) {
+	public List<InviteVO> inviteView(Integer routeno) {
 	
-		InviteVO vo = mapper.inviteRead(routeno);
-		return vo;
+		List<InviteVO> list = mapper.inviteRead(routeno);
+		return list;
 	}
 
 	public void inviteModify(InviteVO vo) {

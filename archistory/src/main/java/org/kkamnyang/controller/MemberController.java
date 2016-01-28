@@ -40,7 +40,7 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping(value="/list", method=RequestMethod.GET)
+	@RequestMapping(value="/memlist", method=RequestMethod.GET)
 	public @ResponseBody List<MemberVO> list(HttpServletRequest request)throws Exception{
 		System.out.println("==========멤버 LIST GET 호출=========");
 		List<MemberVO> list =service.list();
@@ -119,12 +119,16 @@ public class MemberController {
 		return entity;
 	}
 
-	public InviteVO inviteView(Integer routeno) {
+
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public @ResponseBody List<InviteVO> inviteView(@RequestBody Integer routeno) {
 	
-		InviteVO vo = service.inviteView(routeno);
-		return vo;
+		List<InviteVO> list2 = service.inviteView(routeno);
+		System.out.println(list2);
+		return list2;
 	}
 
+	
 	public void inviteModify(InviteVO vo) {
 		service.inviteModify(vo);
 	}
