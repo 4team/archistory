@@ -227,6 +227,10 @@
        		text-decoration:none;
         	color:#aef;
         }
+        
+       #memberlist{
+        text-align : center;
+        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -312,6 +316,33 @@
             </div>
             <div class="modal-footer">
                 <button type="button" id="removeRouteBtn" class="btn btn-create">삭제하기</button>
+                <button type="button" id="cancleBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- member list modal-->
+
+<div class="modal fade" id="memberListModal" tabindex="-1" role="dialog" aria-labelledby="memberListModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">루트 멤버 리스트</h4>
+            </div>
+            <div class="modal-body">
+               
+               	 <h6 class="modal-title" id="memberlist">
+                    <ul>
+                    </ul>
+                </h6>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="regiMemberBtn" class="btn btn-create">추가</button>
                 <button type="button" id="cancleBtn" class="btn btn-default" data-dismiss="modal">취소</button>
             </div>
         </div>
@@ -546,7 +577,8 @@ $("#main").on("mouseover",function(){
 
 	//route list 보이기 
 	
-	var routeLi = "";
+		var routeLi = "";
+	
 	    function addList(route) {
 	        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "<small data-routeno='"+route.routeno+"'>X</small></li>";
 	        $("#myRouteList").html(routeLi);
@@ -564,7 +596,7 @@ $("#main").on("mouseover",function(){
 		    });
 	    }
 	    
-	    getAllRouteList();
+	    getAllRouteList(); //루트 리스트 보이게 
 	    
 	    function getMetaContentByName(name,content){
 	    	var content = (content == null)?'content':content;
@@ -689,9 +721,8 @@ $("#main").on("mouseover",function(){
 		    }
 		    
 		    
-		    //멤버 입력
-				
-	
+		    
+ //루트 클릭 시, 멤버 버튼 누름 -> 멤버 리스트 모달 창 
 		    
 		    $("#routelist").on("click","#member",function(){
 		         var icon= $(this);
@@ -699,7 +730,8 @@ $("#main").on("mouseover",function(){
 		         $("#memTable").html(contents);
 		         
 		         console.log(icon.attr("value"));
-		        $("#memberModal").modal('show');		        
+		        $("#memberListModal").modal('show');	
+		        getMemberList();
 		        $("#editModal").modal('hide');
 
 		    });
@@ -709,6 +741,7 @@ $("#main").on("mouseover",function(){
 		    var j=1;
 		    var memberJson;
 		    
+		    //멤버 추가 
 		    $("#plus").on("click",function(){
 	    		    
 		    	++i;
@@ -814,8 +847,48 @@ $("#main").on("mouseover",function(){
 		    	
 		    });
 		    
-		
-		         
+		    
+	        //<!-- member list 출력 -->
+
+	        var memberLi;
+
+	        function memberList(data) {
+	            memberLi +="<li>" + select.attr("data-routename")+ "<div class='gly'>"+
+	            "<span class='glyphicon glyphicon-pencil' id='modi' value='"+select.attr("data-routeno")+"'></span>" +
+	            "<span class='glyphicon glyphicon-remove' id='del' value='"+select.attr("data-routeno")+"'></span></div></li>";
+
+	            $("#memberlist").html(memberLi);
+
+	            console.log("data:"+data);
+	            if(typeof data=="undefined" ){ //멤버데이터 없으면
+
+	                var msg = "<li> 멤버를 추가해 주세요.</li>"
+	                            +"<li><span class='glyphicon glyphicon-plus' id='memPlus'></span></li>";
+	                $("#memberlist").html(msg);
+
+	            }
+
+
+	        }
+
+	        function getMemberList(){
+	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
+	                var list = $(data);
+
+	                memberLi = "";
+
+	                list.each(function(idx,value){
+	                var member = this;
+	                memberList(member);
+	                });
+	            });
+	        }
+
+	    
+
+
+	    
+	
 	     
 	</script>
 
