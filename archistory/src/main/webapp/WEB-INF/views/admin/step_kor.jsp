@@ -179,7 +179,7 @@
 
     #eventTitle{
     	width:130px;
-    	height:20px;
+    	height:22px;
 		overflow:hidden;
     	white-space:nowrap;
     	float:left;
