@@ -152,7 +152,7 @@ function getEventList(){
 			        	console.log("addmarker들어옴");
 			        	
 			        	emarker.setMap(map);
-			        	emarkers.push(emarker);
+			        	emarkers[i].push(emarker);
 			        	var emT = emarkers[i].getTitle();
 			        	showEvent(emT);
 			        	
