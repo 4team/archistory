@@ -774,15 +774,17 @@ $("#main").on("mouseover",function(){
 	        }
 	        
 	        
-	  //SHOW - 멤버 추가 모달 창 
+	  //멤버 추가 모달창 
 	        
 	        $("#memberlist").on("click","#memPlus",function(){
 	        	$("#memberModal").modal('show');
+	        	console.log("routeno :" + routeno);
 
 		    });
 	        
 	        $("#regiMemberBtn").on("click",function(){
 	        	$("#memberModal").modal('show');
+	        	console.log("routeno :" + routeno);
 	        });
 
 	    
@@ -792,7 +794,7 @@ $("#main").on("mouseover",function(){
 		    var j=1;
 		    var memberJson;
 		    
-		//멤버 추가 모달 창 - 멤버 추가  
+		//멤버 추가 모달 창 - 멤버 테이블  추가 
 		    $("#plus").on("click",function(){
 	    		    
 		    	++i;
