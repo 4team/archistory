@@ -870,6 +870,8 @@ $("#main").on("mouseover",function(){
 	            	var list = $(list);
 	            	console.log("이엘 list:"+$(list));
 	            	console.log("data:"+data);
+	            	console.log(list);
+	            	
 	            	
 	            	if(typeof $(list) == "undefined"){
 	            		console.log("멤버 리스트 없음.");
