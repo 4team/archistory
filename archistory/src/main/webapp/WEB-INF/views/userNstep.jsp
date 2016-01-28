@@ -160,6 +160,7 @@ markers.push(emarker);
 
 emPosition = emarker.getPosition();
 console.log(emPosition.zb);
+console.log(emPosition);
 console.log(mPosition.get());
 
 /* 
