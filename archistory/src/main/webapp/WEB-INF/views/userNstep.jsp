@@ -155,7 +155,7 @@ var emarker;
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
-    title: event,
+    title: event.eventno,
     position: new daum.maps.LatLng(event.lat,event.lng),
     clickable: true,
     
