@@ -121,7 +121,7 @@ public class MemberController {
 
 
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public @ResponseBody List<MemberVO> inviteView(@RequestParam("routeno") Integer routeno) throws Exception {
+	public @ResponseBody List<MemberVO> inviteView(@RequestParam("routeno") Integer routeno, HttpServletRequest request) throws Exception {
 	
 		List<MemberVO> memList = null;
 		List<InviteVO> list = service.inviteView(routeno);
