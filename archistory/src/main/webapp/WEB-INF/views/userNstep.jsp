@@ -238,7 +238,8 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-if(emPosition-mPosition<emarker.getRange()){
+if(mPosition.zb-emPosition.zb<10	){
+	console.log("emPosition.zb:" + emPosition.zb);
 	$("#eBox").modal('show');
 }
 </script>
