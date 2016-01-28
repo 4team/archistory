@@ -182,6 +182,7 @@
     	height:20px;
 		overflow:hidden;
     	text-overflow:ellipsis;
+    	white-space:nowrap;
     }
     
 </style>
