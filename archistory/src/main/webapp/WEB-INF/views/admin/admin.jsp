@@ -864,13 +864,14 @@ $("#main").on("mouseover",function(){
 	        }
 
 	        function getMemberList(){
-	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
+	            $.getJSON("http://14.32.66.127:4000/member/list",function(list){
 	            	console.log("멤버 GETJSON!");
 	            	memberLi = "";
-	            	var list = $(data);
+	            	var list = $(list);
+	            	console.log("이엘 list:"+$(list));
 	            	console.log("list:"+list);
 	            	
-	            	if(typeof list == "undefined"){
+	            	if(typeof $(list) == "undefined"){
 	            		console.log("멤버 리스트 없음.");
 
 		                var msg = "<li> 멤버를 추가해 주세요.</li>"
