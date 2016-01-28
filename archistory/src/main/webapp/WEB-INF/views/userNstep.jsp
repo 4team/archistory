@@ -155,7 +155,7 @@ var emarker;
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
-    title: event.eventno,
+    title: event.title + '[' + event.eventno + ']',
     position: new daum.maps.LatLng(event.lat,event.lng),
     clickable: true,
     
@@ -163,7 +163,7 @@ function addMarker(event){
 console.log("addmarker들어옴");
 emarker.setMap(map);
 markers.push(emarker);
-console.log(emarker.title);
+console.log("emarker.getTitle:" + emarker.getTtitle);
 
 
 //마커에 클릭이벤트를 등록합니다
