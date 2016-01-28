@@ -394,10 +394,10 @@ input.gn-search:focus {
 }
 
 .gn-icon-menu::before {
-		margin-left: -5px;
+		margin-left: -15px;
 		vertical-align: -2px;
-		width: 40px;
-		height: 40px;
+		width: 24px;
+		height: 30px;
 		/* background: #eb5d1e;
 		box-shadow: 0 3px white, 0 -6px #eb5d1e, 0 -9px white, 0 -12px #eb5d1e;
 		content: ''; */

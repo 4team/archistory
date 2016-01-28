@@ -194,7 +194,7 @@ var routeLi = "";
             console.log("루트 넘버:"+routeno+"읽어오기");
 
             var vo = $(data);
-            console.log(vo);
+            console.log("vovovovo:" + vo);
 
             if(vo.attr("step")==true){
                 var $form = $('<form></form>');
