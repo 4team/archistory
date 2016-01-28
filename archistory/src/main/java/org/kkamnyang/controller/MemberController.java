@@ -155,9 +155,9 @@ public class MemberController {
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
 			System.out.println("=============Invite 삭제 완료");
 		}catch(Exception e ){
-			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+			e.printStackTrace();
+			entity = new ResponseEntity<String>("result",HttpStatus.BAD_REQUEST);
 		}
-		
 		return entity;
 	}
 	
