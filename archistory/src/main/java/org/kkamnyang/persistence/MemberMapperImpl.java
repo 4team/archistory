@@ -66,9 +66,9 @@ public class MemberMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> impl
 	}
 
 	@Override
-	public InviteVO inviteRead(Integer routeNo) {
+	public InviteVO inviteRead(Integer routeno) {
 	
-		return session.selectOne(namespace+".inviteRead",routeNo);
+		return session.selectOne(namespace+".inviteRead",routeno);
 	}
 
 	@Override

@@ -54,9 +54,9 @@ public class MemberService {
 		
 	}
 
-	public InviteVO inviteView(Integer routeNo) {
+	public InviteVO inviteView(Integer routeno) {
 	
-		InviteVO vo = mapper.inviteRead(routeNo);
+		InviteVO vo = mapper.inviteRead(routeno);
 		return vo;
 	}
 
@@ -64,8 +64,8 @@ public class MemberService {
 		mapper.inviteUpdate(vo);		
 	}
 	
-	public void inviteRemove(Integer inviteNo) {
-		mapper.inviteDelete(inviteNo);
+	public void inviteRemove(Integer inviteno) {
+		mapper.inviteDelete(inviteno);
 		
 	}
 	

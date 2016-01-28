@@ -16,10 +16,10 @@ public interface MemberMapper extends CRUDMapper<MemberVO,Integer>{
 	
 	public void inviteCreate (InviteVO vo);
 	
-	public InviteVO inviteRead(Integer routeNo);
+	public InviteVO inviteRead(Integer routeno);
 	
 	public void inviteUpdate(InviteVO vo);
 	
-	public void inviteDelete(Integer inviteNo);
+	public void inviteDelete(Integer inviteno);
 	
 }

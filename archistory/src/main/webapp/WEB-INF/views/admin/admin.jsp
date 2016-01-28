@@ -874,7 +874,7 @@ $("#main").on("mouseover",function(){
 			   console.log("routeno/memberno:",routeno,memberno);
 			   
 			   $.ajax({
-					  type:'post',
+					  type:"post",
 					  url:"http://14.32.66.127:4000/member/inviregister",
 					  headers : {
 						"Content-Type" : "application/json"  
@@ -882,12 +882,14 @@ $("#main").on("mouseover",function(){
 					  datatype:"json",
 					  data:JSON.stringify({routeno:routeno,memberno:memberno}),
 					  success: function(data){
+						  console.log("invite 등록 처리 :"+data);
 						  console.log("==invite 등록완료!!==");
 					  }				   
 				   });
 			   
 		   }
 
+		  
 		    
 		    function emptyMember(){
 				   $("#number1").val("");
