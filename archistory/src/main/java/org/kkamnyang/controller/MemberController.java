@@ -31,7 +31,8 @@ public class MemberController {
 		
 		System.out.println("========멤버 등록 POST======");
 		System.out.println(vo);
-		Integer memberno =service.register(vo);
+		service.register(vo);
+		Integer memberno =vo.getMemberNo();
 		response.getWriter().print(memberno);
 		System.out.println("========멤버 등록 완료!!======");
 		

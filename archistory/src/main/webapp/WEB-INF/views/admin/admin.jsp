@@ -881,7 +881,7 @@ $("#main").on("mouseover",function(){
 					  datatype:"json",
 					  data:({routeno:routeno,memberno:memberno}),
 					  success: function(data){
-						  console.log("invite 등록완료!!");
+						  console.log("==invite 등록완료!!==");
 					  }				   
 				   });
 			   
