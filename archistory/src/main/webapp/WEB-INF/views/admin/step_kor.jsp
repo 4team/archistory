@@ -443,7 +443,6 @@
     function addMarker(event){
     	
     	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
-    	console.log("현재 라인패스 : ",linePath);
         var marker = new daum.maps.Marker({
             title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
             position: new daum.maps.LatLng(event.lat,event.lng)
@@ -513,7 +512,7 @@
 		console.log("=====================");
 		console.log(markers);
 		
-    	if(markers){
+    	if(markers!=null){
     		for(var i = 0 ; i < markers.lenght; i++){
     			console.log(markers[i]);
 				markers[0].setMap(null);
