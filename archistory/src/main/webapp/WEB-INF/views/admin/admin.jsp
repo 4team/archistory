@@ -867,8 +867,8 @@ $("#main").on("mouseover",function(){
 	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
 	            	console.log("멤버 GETJSON!");
 	            	memberLi = "";
-	            	//var list = $(list);
-	            	console.log("이엘 list:"+$(list););
+	            	var list = $(list);
+	            	console.log("이엘 list:"+$(list));
 	            	console.log("data:"+data);
 	            	
 	            	if(typeof $(list) == "undefined"){
