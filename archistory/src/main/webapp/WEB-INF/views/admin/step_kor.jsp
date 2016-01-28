@@ -525,7 +525,8 @@
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
             eventLi="";
-
+			markers = [];
+			
             list.each(function(idx,value){
                 var event= this;
                 addList(event);
