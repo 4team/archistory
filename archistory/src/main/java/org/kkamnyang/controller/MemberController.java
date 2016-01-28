@@ -33,8 +33,7 @@ public class MemberController {
 		System.out.println(vo);
 		
 		service.register(vo);
-		System.out.println("멤버넘버왜 못가지고 오니?!");
-		Integer memberno =vo.getMemberNo();
+		Integer memberno = vo.getMemberNo();
 		response.getWriter().print(memberno);		
 		System.out.println("memberno:"+ memberno);
 		System.out.println("========멤버 등록 완료!!======");
