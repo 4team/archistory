@@ -150,8 +150,6 @@ function getEventList(){
 				        	});
 			        		
 			        	console.log("addmarker들어옴");
-			        	console.log(emarkers[i].getTitle());
-			        	console.log(emarkers[i]);
 			        	
 			        	emarker.setMap(map);
 			        	emarkers.push(emarker);
@@ -162,6 +160,8 @@ function getEventList(){
 			        	//console.log(emPosition.zb);
 			       		};
 			 console.log("for문은 나옴");
+			        	console.log(emarkers[i].getTitle());
+			        	console.log(emarkers[i]);
 			 };
     });
     });
