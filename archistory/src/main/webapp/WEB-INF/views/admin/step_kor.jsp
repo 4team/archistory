@@ -180,7 +180,7 @@
 
     #eventTitle{
     	width:120px;
-    	height:20px;
+    	height:30px;
 		overflow:hidden;
     	text-overflow:ellipsis;
     	white-space:nowrap;
