@@ -1557,6 +1557,7 @@
        	
 
            $("#youtubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
+           $("#myoutubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
            
        });
        
