@@ -173,8 +173,13 @@
     }
     
     #eventList li{
-    overflow:hidden;
-    text-overflow:ellipsis;
+
+    }
+    #eventTitle{
+    	width:70px;
+    	height:20px;
+    	overflow:hidden;
+    	text-overflow:ellipsis;
     }
     
 </style>
@@ -533,7 +538,7 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(event){
-        eventLi+="<li>" +event.title+ "<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
+        eventLi+="<li><div id='eventTitle'>" +event.title+ "<div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span>" +
                 "<span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
 
         $("#eventList").html(eventLi);
