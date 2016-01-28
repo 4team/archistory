@@ -127,6 +127,7 @@
     }
     .gly{
         float:right;
+        white-space:nowrap;
     }
     
  	 .blink_me{
