@@ -167,6 +167,7 @@ daum.maps.event.addListener(emarker, 'click', function() {
 }); */
 };
 
+console.log(emarker.getPosition());
 function showEvent(select) {
        eventLi += "<div class='form-group'>"+
        "<label for='title'>"+select.title+"</label>"+
@@ -232,7 +233,6 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-console.log(emarker.getPosition());
 </script>
 
 </body>
