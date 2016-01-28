@@ -175,10 +175,11 @@
     #eventList li{
 
     }
+
     #eventTitle{
-    	width:120px;
+    	width:130px;
     	height:20px;
-    	overflow:hidden;
+		overflow-x:hidden;
     	text-overflow:ellipsis;
     }
     
