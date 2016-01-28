@@ -793,9 +793,7 @@ $("#main").on("mouseover",function(){
 	        	var memberno = select.attr("value");
 	        	console.log(memberno+"멤버삭제 ");
 	        	
-	        	inviRemove(routeno,memberno,function(){
-	        		
-	        	});
+	        	inviRemove(routeno,memberno);
 	        	memberRemove(memberno);
 	        	
 	        	getMemberList();

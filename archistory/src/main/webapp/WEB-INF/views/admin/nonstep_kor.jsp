@@ -876,7 +876,7 @@ pageEncoding="UTF-8"%>
             datatype: "json",
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
-                polyline.setMap(null);
+                /* polyline.setMap(null); */
                 getEventList();
                 console.log("이벤트 삭제 처리 결과:"+data);
             }
