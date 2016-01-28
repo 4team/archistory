@@ -885,9 +885,14 @@ $("#main").on("mouseover",function(){
 	        
 	        //SHOW - 멤버 추가 모달 창 
 	        
-	        $("#memPlus").on("click",function(){
+	    /*     $("#memPlus").on("click",function(){
 	        	$("#memberModal").modal('show');
-	        });
+	        }); */
+	        
+	        $("#memberlist").on("click","#memPlus",function(){
+	        	$("#memberModal").modal('show');
+
+		    });
 	        
 	        $("#regiMemberBtn").on("click",function(){
 	        	$("#memberModal").modal('show');
