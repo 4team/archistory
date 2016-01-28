@@ -438,6 +438,7 @@
     // 유투브 수정!!
     
       $("#msearch").on("click",function(event){
+    	  console.log("왜 안눌려.");
     	event.preventDefault();
     	$("#searchDiv").show();
     	
