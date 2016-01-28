@@ -147,7 +147,7 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value="/inviremove", method=RequestMethod.POST)
+	@RequestMapping(value="/inviteremove", method=RequestMethod.POST)
 	public ResponseEntity<String> inviteRemove(@RequestBody InviteVO vo) throws Exception {
 		System.out.println("==============Invite DELETE POST 호출");
 		ResponseEntity<String> entity = null;

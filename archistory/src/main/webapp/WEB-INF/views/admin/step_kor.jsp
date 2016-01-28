@@ -848,9 +848,7 @@
             
             if(youtubeStr){
 	            var arrayU = youtubeStr.split("THUMBNAIL");
-	            console.log(youtubeStr);
-	            console.log(arrayU);
-	            youtubeId = arrayU[0];
+	            youtubeId = youtubeStr;
 	            
 	            $("#myoutubeList").html("<li><img src='"+arrayU[1]+"'><small>X</small></li>");
             }
