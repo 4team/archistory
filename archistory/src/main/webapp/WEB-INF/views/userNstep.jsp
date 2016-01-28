@@ -174,10 +174,10 @@ daum.maps.event.addListener(emarker, 'click', function() {
 };
 
 
-function showEvent(event) {
+function showEvent(eventno) {
        eventLi += "<div class='form-group'>"+
-       "<label for='title'>"+event.title+"</label>"+
-       "<p class='form-control' id='content'>"+event.content+"</p>"+
+       "<label for='title'>"+eventno.title+"</label>"+
+       "<p class='form-control' id='content'>"+eventno.content+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
    }   
