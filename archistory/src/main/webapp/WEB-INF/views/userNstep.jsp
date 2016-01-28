@@ -44,12 +44,17 @@
     #eBox{
     display:none;
     position:absolute;
-    text-align:center;
     overflow-y:scroll;
     }
     .modal-dialog{
     position:absolute;
     z-index:999;
+    }
+    #totheMap{
+    float:left;
+    }
+    h2{
+    text-align:center;
     }
 </style>
 
@@ -75,7 +80,7 @@
     <div class="modal-dialog">
         <div class="modal-content" >
             <div class="modal-header">            
-					<h2>Get in touch</h2>
+					<h2>EVENT</h2>
             </div>
             
             <div class="modal-body">            
@@ -83,7 +88,7 @@
             </div>
             
             <div class="modal-footer">            
-                <a class="btn btn-skin">to the MAP</a>
+                <a class="btn btn-skin" id="totheMap">to the MAP</a>
                         <a class="btn btn-skin">NEXT</a>                            
             </div>
             
