@@ -172,6 +172,11 @@
 		overflow-y: scroll; 
     }
     
+    #eventList li{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    }
+    
 </style>
 
 <script type="text/javascript" src="/js/upload.js"></script>
