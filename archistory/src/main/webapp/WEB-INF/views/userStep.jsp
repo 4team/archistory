@@ -1,4 +1,4 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -22,115 +22,7 @@
         width: 100%;
         height: 100%;
     }
-    .modal-title{
-        text-align : center;
-    }
-    .modal-dialog{
-        max-width:500px;
 
-    }
-    #questionDiv{
-        display: none;
-    }
-    #selectBox{
-        display: none;
-    }
-
-    #moquestionDiv{
-        display: none;
-    }
-    #moselectBox{
-        display: none;
-    }
-    #listModal1{
-        margin-top:50px;
-        margin-left:20px;
-    }
-    #list{
-        position : absolute;
-        padding : 10px;
-        z-index: 400;
-        boarder: 1px solid black;
-        boarder-radius : 10px;
-        background-color:  #FFF;
-        top: 80px;
-        left : 15px;
-        width : 200px;
-        height:400px;
-        overflow-y:scroll;
-
-    }
-
-    #listBottom{
-        margin-bottom: 5px;
-        float: right;
-    }
-    #order{
-        width:33px;
-        height:33px;
-        float:left;
-    }
-    #moorder{
-        width:33px;
-        height:33px;
-        float:left;
-    }
-    #eventName{
-        width:420px;
-    }
-    .fileDrop {
-        width: 60%;
-        height: 60px;
-        border: 2px dotted black;
-        border-radius: 10px;
-        background-color: powderblue;
-        margin-top:10px;
-        margin-bottom:10px;
-    }
-    li{
-        list-style: none;
-        margin-bottom: 15px;
-    }
-
-    small{
-        float:right;
-        font-size:smaller;
-    }
-	.img{
-	 margin-bottom:10px;
-	float:left;
-	}
-	.x{
-	text-align:right;
-	}
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-    }
-
-    .glyphicon{
-        display: inline;
-        margin : 3px;
-    }
-    .gly{
-        float:right;
-    }
-    
- 	 .blink_me{
-        position:absolute;
-        top:10px;
-        left:100px;
-        z-index:600;
-    }
 </style>
 
 <script type="text/javascript" src="/js/upload.js"></script>
@@ -154,7 +46,6 @@
 
 
 <script>
-
 var lat = ${lat};
 var lng = ${lng};
 
@@ -167,14 +58,14 @@ mapOption = {
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-// 마커 하나를 지도위에 표시합니다 
-addMarker(new daum.maps.LatLng(lat, lng));
+
 
 // 마커를 생성하고 지도위에 표시하는 함수입니다
-function addMarker(position) {
+function addMarker(event) {
     
     // 마커를 생성합니다
     var marker = new daum.maps.Marker({
+    	title:event.title,
         position: position
     });
 
@@ -182,7 +73,32 @@ function addMarker(position) {
     marker.setMap(map);
 }
 
+
+
+// 나의 위치를 읽어온다.
+
+var myLat = 0;
+var myLng = 0;
+
+window.addEventListener('deviceorientation',getLocation);
+
+function getLocation(){
+
+    navigator.geolocation.getCurrentPosition(function(position){
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        console.log('My latitude: ', lat);
+        console.log('My longitude: ', lng);
+
+        myLat = lat;
+        myLng = lng;
+    });
+    return;
+};
+
+
 </script>
 
 </body>
-</html> --%>
+</html>

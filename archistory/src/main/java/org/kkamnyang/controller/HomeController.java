@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.service.RouteService;
+import org.kkamnyang.service.UserLoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class HomeController {
 	@Autowired
 	RouteService route;
 	
+	@Autowired
+	UserLoginService service;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -40,7 +44,7 @@ public class HomeController {
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String user(Locale locale, Model model) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+	
 		return "user";
 	}
 	
