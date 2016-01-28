@@ -392,7 +392,10 @@
 
 <script>
 
-/*     <!-- 유투브 검색 --> */
+/*유투브 검색 */
+
+$(document).ready(function(){
+	
     $("#qsearch").on("click",function(event){
     	event.preventDefault();
     	$("#searchDiv").show();
@@ -496,6 +499,9 @@
         $("#youtubeList").html("<li><img src='"thumbnail"'><small>X</small></li>");
         
     });
+    
+    
+});
 </script>
 
 <script>
