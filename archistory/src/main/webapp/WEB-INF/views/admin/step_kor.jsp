@@ -404,7 +404,7 @@
 <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 
 <script>
-    var markers = [];
+    var markers = null;
     
     var maplat = ${lat};
     var maplng = ${lng};
@@ -513,7 +513,7 @@
 		console.log(markers);
 		
     	if(markers !== undefined || markers.length != 0){
-    		console.log("IF문에 걸렸다! 즉 원래 존재하는 마커가 있는 상태였다.",markers.lenght());
+    		console.log("IF문에 걸렸다! 즉 원래 존재하는 마커가 있는 상태였다.",markers.lenght);
     		for(var i = 0 ; i < markers.lenght; i++){
     			console.log(markers[i]);
 				markers[0].setMap(null);
