@@ -238,7 +238,10 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-	console.log(emPosition.getLat());
+if(mPosition.getLat()>emPosition.getLat()){
+	console.log(아아ㅓㄹ미아너ㅣㅁ런이마ㅓ리마ㅓ임);
+}
+
 </script>
 
 </body>
