@@ -56,6 +56,10 @@
     h2{
     text-align:center;
     }
+    #content{
+    overflow:auto;
+    height:30%;
+    }
 </style>
 
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=66fca768fabb8a1e238c3ac76f9c9499"></script>
@@ -173,7 +177,7 @@ daum.maps.event.addListener(emarker, 'click', function() {
 function showEvent(event) {
        eventLi += "<div class='form-group'>"+
        "<label for='title'>"+event.title+"</label>"+
-       "<p class='form-control' id='title'>"+event.content+"</p>"+
+       "<p class='form-control' id='content'>"+event.content+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
    }   
