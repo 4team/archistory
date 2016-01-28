@@ -409,8 +409,6 @@
     // 1월 27일 9시11시에 은혜가 추가한 변수
     
     var youtubeId = "";
-/*     var camera = $("#camera").val(false);
-    var mocamera = $("#mocamera").val(false); */
     var events = [];
     
    	
@@ -637,54 +635,7 @@
         //console.log(qJson)
 
     }
-
-    var modiJson;
-
-    function modiQuestion(){
-        var qfilter = new Array();
-        qfilter[0]="questionno";
-        qfilter[1]="question";
-        qfilter[2]="answer";
-        qfilter[3]="point";
-        qfilter[4]="qtype";
-        qfilter[5]="choice1";
-        qfilter[6]="choice2";
-        qfilter[7]="choice3";
-        qfilter[8]="choice4";
-
-        var qObject = new Object();
-
-        qObject.questionno = $("#qno").val();
-        qObject.question = $("#moquestionTitle").val();
-        qObject.point = 500;
-        qObject.qtype = $("#moqType").val();
-        qObject.choice1 = $("#mos1").val();
-        qObject.choice2 = $("#mos2").val();
-        qObject.choice3 = $("#mos3").val();
-        qObject.choice4 = $("#mos4").val();
-
-        for(var i=1;i<5;i++) {
-
-            var id = "#momultipleAnswer";
-            var multi = id+i;
-            var oxid ="#mooxAnswer";
-            var ox =oxid+i;
-
-            if ($(multi).is(":checked")) {
-                qObject.answer = $(multi).val();
-            }
-
-            if($(ox).is(":checked")){
-                qObject.answer = $(ox).val();
-            }
-        }
-
-        modiJson = JSON.stringify(qObject,qfilter,"\t");
-
-        //console.log(qJson)
-
-    }
-
+    
     function createQuestion(qJson){
 
         console.log("문제 생성 :"+qJson);
@@ -705,6 +656,55 @@
 
     }
 
+    /*     <!-- 이벤트 생성 기능 --> */
+    function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,callback){
+    	
+        console.log(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId);
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/event/attachCreate",
+            headers: {
+                "Content-Type":"application/json"},
+            datatype: "json",
+            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtube:youtubeId}),
+            success: function(data){
+        		polyline.setMap(null);
+                getEventList(function(){
+                	console.log("이벤트 생성한 뒤 getEventList의 콜백에 들어옴.");
+                	
+                	// 지도에 표시할 선을 생성합니다
+                	polyline = new daum.maps.Polyline({
+                	    path: linePath, // 선을 구성하는 좌표배열 입니다
+                	    strokeWeight: 5, // 선의 두께 입니다
+                	    strokeColor: '#FFAE00', // 선의 색깔입니다
+                	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                	    strokeStyle: 'solid' // 선의 스타일입니다
+                	});
+                	
+                	polyline.setMap(map);
+                	console.log(linePath);
+                	
+                });
+                console.log("<이벤트 생성!> eventno 가져옴:"+data);
+                makeQuestion(data);
+
+                var json = JSON.parse(qJson);
+                console.log("question : "+json.question);
+
+                if(!json.question){
+                    console.log("이벤트 생성중 - 문제없음.");
+                }
+                else{
+                    console.log("이벤트 생성중 - 문제있음.")
+                    createQuestion(qJson);
+                }
+            }
+        });
+        callback();
+    };
+
+ 
 
 
 /*     <!-- 이벤트 생성 기능 --> */
@@ -882,6 +882,7 @@
 
             if(typeof qno == "undefined"){
                 console.log("이벤트 VIEW - 문제 없음.");
+                $("#qno").val("no_Question");
                 $("#moqCheck").attr("checked",false);
                 $("#moquestionDiv").hide();
             }
@@ -974,6 +975,54 @@
     }
 
     
+    var modiJson;
+
+    function modiQuestion(eventno){
+        var qfilter = new Array();
+        qfilter[0]="eventno";
+        qfilter[1]="question";
+        qfilter[2]="answer";
+        qfilter[3]="point";
+        qfilter[4]="qtype";
+        qfilter[5]="choice1";
+        qfilter[6]="choice2";
+        qfilter[7]="choice3";
+        qfilter[8]="choice4";
+
+        var qObject = new Object();
+
+        qObject.eventno = eventno;
+        qObject.question = $("#moquestionTitle").val();
+        qObject.point = 500;
+        qObject.qtype = $("#moqType").val();
+        qObject.choice1 = $("#mos1").val();
+        qObject.choice2 = $("#mos2").val();
+        qObject.choice3 = $("#mos3").val();
+        qObject.choice4 = $("#mos4").val();
+
+        for(var i=1;i<5;i++) {
+
+            var id = "#momultipleAnswer";
+            var multi = id+i;
+            var oxid ="#mooxAnswer";
+            var ox =oxid+i;
+
+            if ($(multi).is(":checked")) {
+                qObject.answer = $(multi).val();
+            }
+
+            if($(ox).is(":checked")){
+                qObject.answer = $(ox).val();
+            }
+        }
+
+        modiJson = JSON.stringify(qObject,qfilter,"\t");
+
+        //console.log(qJson)
+
+    }
+   
+    
     /*     <!-- 이벤트 수정 버튼 클릭--> */
 
     $("#modifyEventBtn").on("click",function(){
@@ -985,10 +1034,29 @@
         attach2 = attach.join();
         
         console.log(attach2);
-        
+
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
+        }
+
+        console.log("eventno:"+eventno);
+
+        modiQuestion(eventno);
+
+        var json = JSON.parse(modiJson);
+        console.log("question : "+json.question);
+
+        if(!json.question){
+            console.log("<이벤트 수정중> - 문제 NO/NO");
+        }
+        else if($("#qno").val()== "no_Question"){
+            console.log("<이벤트 수정중> - 문제NO/YES");
+            createQuestion(modiJson);
+        }
+        else{
+            console.log("<이벤트 수정중> - 문제YES/YES");
+            modifyQuestion(modiJson);
         }
 
         modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,function(){
@@ -996,12 +1064,9 @@
              //attach = [];
         });
         
-        modiQuestion();
-        modifyQuestion(modiJson);
-
         $("#modiModal").modal('hide');
         clearMoEventdiv();
-        
+
 
     });
 
@@ -1166,8 +1231,9 @@
         console.log(modiRoutename, routename,routeno);
 
         if( modiRoutename != routename){
-            modifyName(routeno,modiRoutename);
-            routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
+        	 console.log("루트 이름 수정 완료!"+modiRoutename);
+             modifyName(routeno,modiRoutename);
+             routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
         }
 
         $("#routeFinish").html(routemsg);

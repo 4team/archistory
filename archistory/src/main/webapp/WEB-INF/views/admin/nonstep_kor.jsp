@@ -396,7 +396,9 @@ pageEncoding="UTF-8"%>
     var eventLi="";
     var routename = ${routename};
     var events = [];
+    // 1월 27일 9시11시에 은혜가 추가한 변수
 
+    var youtubeId = "";
 
     // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
     //var linePath = [];
@@ -492,17 +494,17 @@ pageEncoding="UTF-8"%>
     getEventList(function(){
         console.log("getEventList의 콜백에 들어옴.");
 
-/*         // 지도에 표시할 선을 생성합니다
-        var polyline = new daum.maps.Polyline({
-            path: linePath, // 선을 구성하는 좌표배열 입니다
-            strokeWeight: 5, // 선의 두께 입니다
-            strokeColor: '#FFAE00', // 선의 색깔입니다
-            strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-            strokeStyle: 'solid' // 선의 스타일입니다
-        });
+        /*         // 지도에 표시할 선을 생성합니다
+         var polyline = new daum.maps.Polyline({
+         path: linePath, // 선을 구성하는 좌표배열 입니다
+         strokeWeight: 5, // 선의 두께 입니다
+         strokeColor: '#FFAE00', // 선의 색깔입니다
+         strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+         strokeStyle: 'solid' // 선의 스타일입니다
+         });
 
-        polyline.setMap(map);
-        console.log(linePath); */
+         polyline.setMap(map);
+         console.log(linePath); */
 
     });
 
@@ -560,7 +562,7 @@ pageEncoding="UTF-8"%>
             return;
         }
 
-        createEvent(routeno, title, content, attach2, lat, lng, camera, function () {
+        createEvent(routeno, title, content, attach2, lat, lng, camera,youtubeId, function () {
             console.log("attach2:" + attach2);
             clearEventDiv();
             attach = [];
@@ -639,10 +641,10 @@ pageEncoding="UTF-8"%>
     }
 
     //이벤트 생성 기능
-    function createEvent(routeno,title,content,attach2,lat,lng,camera,callback){
+    function createEvent(routeno,title,content,attach2,lat,lng,camera,youtubeId,callback){
 
 
-        console.log("이벤트 생성:",routeno,title,content,attach2,lat,lng,camera);
+        console.log("이벤트 생성:",routeno,title,content,attach2,lat,lng,camera,youtubeId);
 
         $.ajax({
             type:'post',
@@ -650,23 +652,23 @@ pageEncoding="UTF-8"%>
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera}),
+            data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtubeId:youtubeId}),
             success: function(data){
-              //  polyline.setMap(null);
+                //  polyline.setMap(null);
                 getEventList(function(){
                     console.log("<논스텝>이벤트 생성 getEventList의 콜백에 들어옴.");
 
-                   /*  // 지도에 표시할 선을 생성합니다
-                    polyline = new daum.maps.Polyline({
-                        path: linePath, // 선을 구성하는 좌표배열 입니다
-                        strokeWeight: 5, // 선의 두께 입니다
-                        strokeColor: '#FFAE00', // 선의 색깔입니다
-                        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-                        strokeStyle: 'solid' // 선의 스타일입니다
-                    });
+                    /*  // 지도에 표시할 선을 생성합니다
+                     polyline = new daum.maps.Polyline({
+                     path: linePath, // 선을 구성하는 좌표배열 입니다
+                     strokeWeight: 5, // 선의 두께 입니다
+                     strokeColor: '#FFAE00', // 선의 색깔입니다
+                     strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                     strokeStyle: 'solid' // 선의 스타일입니다
+                     });
 
-                    polyline.setMap(map);
-                    console.log(linePath); */
+                     polyline.setMap(map);
+                     console.log(linePath); */
                 });
                 console.log("<이벤트 생성!> eventno 가져옴:"+data);
                 makeQuestion(data);
@@ -874,6 +876,7 @@ pageEncoding="UTF-8"%>
             datatype: "json",
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
+                polyline.setMap(null);
                 getEventList();
                 console.log("이벤트 삭제 처리 결과:"+data);
             }
@@ -983,7 +986,7 @@ pageEncoding="UTF-8"%>
             modifyQuestion(modiJson);
         }
 
-        modifyEvent(eventno,title,content,attach2,camera,function(){
+        modifyEvent(eventno,title,content,attach2,camera,youtubeId,function(){
             clearEventDiv();
             attach = [];
         });
@@ -996,7 +999,7 @@ pageEncoding="UTF-8"%>
 
 
     //이벤트 수정 기능
-    function modifyEvent(eventno,title,content,attach2,camera,callback){
+    function modifyEvent(eventno,title,content,attach2,camera,youtubeId,callback){
 
         console.log("이벤트 수정"+eventno);
 
@@ -1006,7 +1009,7 @@ pageEncoding="UTF-8"%>
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,title:title,content:content,efiles:attach2,camera:camera}),
+            data: JSON.stringify({eventno:eventno,title:title,content:content,efiles:attach2,camera:camera,youtubeId:youtubeId}),
             success: function(data){
                 getEventList();
                 console.log("이벤트 수정 결과 :"+data);
@@ -1159,7 +1162,7 @@ pageEncoding="UTF-8"%>
         console.log(modiRoutename, routename,routeno);
 
         if( modiRoutename != routename){
-        	console.log("루트 이름 수정 완료!"+modiRoutename);
+            console.log("루트 이름 수정 완료!"+modiRoutename);
             modifyName(routeno,modiRoutename);
             routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
         }
@@ -1402,8 +1405,17 @@ pageEncoding="UTF-8"%>
         });
     });
 
+    $("#search-container").on('click','img',function(event){
+        youtubeId = $(this).attr("data-src");
+
+        console.log("가져온 유투브 아이디 : ",youtubeId);
+
+
+
+    });
 </script>
 <!-------- 파일첨부기능 끝 -------->
+
 
 
 </body>
