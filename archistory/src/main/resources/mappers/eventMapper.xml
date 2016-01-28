@@ -24,7 +24,7 @@
  	</select>
  	
  	<update id="update">
- 		update tbl_event set title=#{title},content=#{content},camera=#{camera},eorder=#{eorder} 
+ 		update tbl_event set title=#{title},content=#{content},camera=#{camera},eorder=#{eorder}, youtube = #{youtube}
  		where eventNo = #{eventno}
  	</update>
  	
