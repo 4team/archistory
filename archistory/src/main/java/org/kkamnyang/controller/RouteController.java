@@ -46,6 +46,7 @@ public class RouteController{
 		service.regist(vo);
 		Integer nowSequnece = vo.getRouteno();
 		response.getWriter().print(nowSequnece);
+		System.out.println("routeno:"+nowSequnece);
 		
 	}
 	
