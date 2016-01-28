@@ -871,6 +871,7 @@ $("#main").on("mouseover",function(){
 		   
 		   function regiInvite(routeno,memberno){
 			   console.log("-----invite등록 시도--------")
+			   console.log("routeno/memberno:",routeno,memberno);
 			   
 			   $.ajax({
 					  type:'post',

@@ -46,19 +46,19 @@
 	
 	<insert id="inviteCreate">
 		insert into tbl_invite(routeNo,memberno)
-		values(#{routeno},#{memberno});
+		values(#{routeno},#{memberno})
 	</insert>
 	
 	<select id="inviteRead" resultType="org.kkamnyang.domain.InviteVO">
-		select * from tbl_invite where routeno=#{routeno};
+		select * from tbl_invite where routeno=#{routeno}
 	</select>
 	
 	<update id="inviteUpdate">
-		update tbl_invite set memberno = #{memberno} where routeno=#{routeno};
+		update tbl_invite set memberno = #{memberno} where routeno=#{routeno}
 	</update>
 	
 	<delete id="inviteDelete">
-		delete from tbl_invite where inviteno=#{inviteno};
+		delete from tbl_invite where inviteno=#{inviteno}
 	</delete>
 	
 </mapper>
