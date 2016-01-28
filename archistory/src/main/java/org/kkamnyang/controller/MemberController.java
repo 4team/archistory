@@ -77,6 +77,7 @@ public class MemberController {
 		try{
 			service.remove(vo.getMemberno());
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("============멤버 REMOVE 성공 ===========");
 			
 		}catch(Exception e){
 			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);

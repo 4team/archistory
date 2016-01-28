@@ -802,7 +802,7 @@ $("#main").on("mouseover",function(){
 
 		    });
 	        
-	        function inviRemove(routeno,memberno,callback){
+	        function inviRemove(routeno,memberno){
 	        	
 	        	  console.log("invite 삭제",routeno,memberno);
 
@@ -818,8 +818,7 @@ $("#main").on("mouseover",function(){
 			            	//memberRemove(memberno);
 			            }
 			    	});
-			        
-			        callback();
+	
 			    }
 	    
 	        function memberRemove(memberno){
@@ -832,6 +831,7 @@ $("#main").on("mouseover",function(){
 		            dataType: "json",
 		            data : JSON.stringify({memberno:memberno}),
 		            success: function(data){
+		            	console.log(data);
 		            	console.log("member 삭제 완료 ");
 		            }
 		    	});
