@@ -26,9 +26,9 @@
 	    position:absolute;
     	width:300px;
     	height:100px;
-    	z-index:100;
-    	top:100;
-    	left:100;
+    	z-index:500;
+    	top:100px;
+    	left:100px;
     }
 
 </style>
@@ -50,9 +50,10 @@
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 <body>
 
+<div id="myLocation"></div>
+
 <div id="map"></div>
 
-<div id="myLocation"></div>
 <script>
 var lat = ${lat};
 var lng = ${lng};
