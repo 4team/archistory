@@ -510,7 +510,6 @@
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
 		eventno=1;
-		markers = [];
 		console.log("=====================");
 		console.log(markers);
 		
@@ -520,6 +519,7 @@
 				markers[0].setMap(null);
     		}
     	}
+		markers = [];
 		
 		linePath = [];	
 		
