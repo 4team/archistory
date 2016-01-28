@@ -445,7 +445,7 @@
     	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
 		console.log(event.eorder);
     	if(event.eorder=='1'){
-			markerImage = new daum.maps.MarkerImage("/img/start-marker.png",new daum.maps.Size(64, 64));
+			markerImage = new daum.maps.MarkerImage("/img/start-marker.png",new daum.maps.Size(48, 48));
 		}else if(event.eorder==(eventno-1)){
 			markerImage = new daum.maps.MarkerImage("/img/finish-marker.png",new daum.maps.Size(36, 36));
 		}else{
