@@ -203,8 +203,8 @@ if (navigator.geolocation) {
         displayMarker(locPosition, message);
             console.log("내위도경도:" + lt + "," + ln);
             
-
-            if(mPosition.zb-emPosition.zb>0.00003){
+		//내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
+            if(mPosition.zb-emPosition.zb>1){
             	 $("#eBox").modal('show');
             }
 
