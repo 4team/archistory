@@ -438,14 +438,22 @@
         var imageSize = new daum.maps.Size(24, 35);
 
         var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
-
+        
 	//{font-family:'Nanum Gothic', sans-serif;}
     function addMarker(event){
     	
     	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
-        var marker = new daum.maps.Marker({
+
+    	if(event.eorder==1){
+			markerImage = "/img/start-marker.png";
+		}else if(event.eorder==eventno){
+			markerImage = "/img/finish-marker.png";
+		}
+        
+			var marker = new daum.maps.Marker({
             title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
-            position: new daum.maps.LatLng(event.lat,event.lng)
+            position: new daum.maps.LatLng(event.lat,event.lng),
+            image:markerImage
         });
 
         marker.setMap(map);
@@ -527,12 +535,14 @@
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
             eventLi="";
-			
-            list.each(function(idx,value){
+			list.each(function(){
+                eventno++;
+			});
+
+			list.each(function(idx,value){
                 var event= this;
                 addList(event);
                 addMarker(event);
-                eventno++;
             });
             
         	// 지도에 표시할 선을 생성합니다
