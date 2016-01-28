@@ -855,9 +855,9 @@ $("#main").on("mouseover",function(){
 	        function memberList(data) {
 	        	
 	        	console.log("멤버 리스트 가져옴.");
-	            memberLi +="<li>" + select.attr("data-routename")+ "<div class='gly'>"+
-	            "<span class='glyphicon glyphicon-pencil' id='modi' value='"+select.attr("data-routeno")+"'></span>" +
-	            "<span class='glyphicon glyphicon-remove' id='del' value='"+select.attr("data-routeno")+"'></span></div></li>";
+	            memberLi +="<li>" + data.attr("usename")+ "<div class='gly'>"+
+	            "<span class='glyphicon glyphicon-pencil' id='modi'></span>" +
+	            "<span class='glyphicon glyphicon-remove' id='del'></span></div></li>";
 
 	            $("#memberlist").html(memberLi);
 
@@ -868,6 +868,7 @@ $("#main").on("mouseover",function(){
 	            	console.log("멤버 GETJSON!");
 	            	memberLi = "";
 	            	var list = $(data);
+	            	console.log($(data));
 	            	console.log("list:"+list);
 	            	
 	            	
