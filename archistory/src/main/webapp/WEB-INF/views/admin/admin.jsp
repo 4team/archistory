@@ -850,9 +850,11 @@ $("#main").on("mouseover",function(){
 		    
 	        //<!-- member list 출력 -->
 
-	        var memberLi;
+	        var memberLi="";
 
 	        function memberList(data) {
+	        	
+	        	console.log("멤버 리스트 가져옴.");
 	            memberLi +="<li>" + select.attr("data-routename")+ "<div class='gly'>"+
 	            "<span class='glyphicon glyphicon-pencil' id='modi' value='"+select.attr("data-routeno")+"'></span>" +
 	            "<span class='glyphicon glyphicon-remove' id='del' value='"+select.attr("data-routeno")+"'></span></div></li>";
@@ -860,7 +862,9 @@ $("#main").on("mouseover",function(){
 	            $("#memberlist").html(memberLi);
 
 	            console.log("data:"+data);
-	            if(typeof data=="undefined" ){ //멤버데이터 없으면
+
+				if(typeof data=="undefined" ){ //멤버데이터 없으면
+					console.log("멤버 리스트 없음.");
 
 	                var msg = "<li> 멤버를 추가해 주세요.</li>"
 	                            +"<li><span class='glyphicon glyphicon-plus' id='memPlus'></span></li>";
@@ -882,6 +886,8 @@ $("#main").on("mouseover",function(){
 	                memberList(member);
 	                });
 	            });
+	            
+	            console.log("멤버 GETJSON!");
 	        }
 
 	    
