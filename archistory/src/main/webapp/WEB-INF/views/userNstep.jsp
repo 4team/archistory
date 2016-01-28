@@ -139,6 +139,7 @@ function getEventList(){
 			        //addMarker(event);		
 			        console.log(event);
 					console.log("list.each들어옴");
+					console.log(list.length);
 					
 		        for(var i=0; i<list.length; i++){     	        	
 			        	function addMarker(event){
