@@ -502,6 +502,14 @@
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
 		eventno=1;
+		var polyline = new daum.maps.Polyline({
+    	    path: linePath, // 선을 구성하는 좌표배열 입니다
+    	    strokeWeight: 5, // 선의 두께 입니다
+    	    strokeColor: '#FFAE00', // 선의 색깔입니다
+    	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+    	    strokeStyle: 'solid' // 선의 스타일입니다
+    	});
+    
 		linePath = [];	
 		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
@@ -519,14 +527,7 @@
 
     }
     
-    	var polyline = new daum.maps.Polyline({
-    	    path: linePath, // 선을 구성하는 좌표배열 입니다
-    	    strokeWeight: 5, // 선의 두께 입니다
-    	    strokeColor: '#FFAE00', // 선의 색깔입니다
-    	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-    	    strokeStyle: 'solid' // 선의 스타일입니다
-    	});
-    
+    	
     getEventList(function(){
     	console.log("getEventList의 콜백에 들어옴.");
     	
