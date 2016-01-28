@@ -131,43 +131,50 @@ function getEventList(){
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
         var list = $(data);
         eventLi="";
-        console.log(data);        
+        console.log(list);        
         
         for(var i=0; i<list.length; i++){     	        	
-        	function addMarker(event){
-        		emarkers[i] = new daum.maps.Marker({
-	        	    title: event.eventno,
-	        	    position: new daum.maps.LatLng(event.lat,event.lng),
-	        	    clickable: true,    
-	        	});
-        	console.log("addmarker들어옴");
-        	emarker.setRange(100);
-        	emarker.setMap(map);
-        	markers.push(emarker);
-
-        	emPosition = emarker.getPosition();
-        	console.log(emPosition.zb);
-       	};       	
-        	
-        list.each(function(idx,value){
-            var event= this;
-            addMarker(event);
-			showEvent(event);            
-        });        
+			 list.each(function(idx,value){
+			        var event= this;
+			        //addMarker(event);					   
+					
+			        	function addMarker(event){
+			        		emarkers[i] = new daum.maps.Marker({
+				        	    title: event.eventno,
+				        	    position: new daum.maps.LatLng(event.lat,event.lng),
+				        	    clickable: true,    
+				        	});
+			        		
+			        	console.log("addmarker들어옴");
+			        	console.log(emarkers[i].getTitle());
+			        	console.log(emarkers[i]);
+			        	
+			        	emarkers[i].setMap(map);
+			        	var emT = emarkers[i].getTitle();
+			        	showEvent(emT);
+			        	
+			        	//emPosition = emarker[i].getPosition();
+			        	//console.log(emPosition.zb);
+			       		};
+			 });
     };
     });
     };
 getEventList();
 
-
-
-function showEvent(event) {
+function showEvent(emT) {	
+	$.getJSON("http://14.32.66.127:4000/event/view?eventno="+emT,function(data){
+        var list = $(data);
+        eventLi="";
+        console.log(data);      
+        
        eventLi += "<div class='form-group'>"+
-       "<label for='title'>"+event.title+"</label>"+
-       "<p class='form-control' id='content'>"+event.content+"</p>"+
+       "<label for='title'>"+list.attr(title)+"</label>"+
+       "<p class='form-control' id='content'>"+list.attr(content)+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
-   }   
+   });
+};
 
 //------------------------------- Geolocation -----------------------------------
 
@@ -191,12 +198,12 @@ if (navigator.geolocation) {
             console.log("내위도경도:" + lt + "," + ln);
             
 		//내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
-		var distance = Math.sqrt(Math.pow((mPosition.Ab-emPosition.Ab),2)+Math.pow((mPosition.zb-emPosition.zb),2));
+		/* var distance = Math.sqrt(Math.pow((mPosition.Ab-emPosition.Ab),2)+Math.pow((mPosition.zb-emPosition.zb),2));
 		console.log(distance);
 		console.log(emarker.getRange());
             if(mPosition.zb-emPosition.zb>0.0013){
             	 $("#eBox").modal('show');
-            }
+            } */
 
       });
     
