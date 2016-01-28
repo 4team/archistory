@@ -203,6 +203,8 @@ if (navigator.geolocation) {
             console.log("내위도경도:" + lt + "," + ln);
             
 		//내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
+		var distance = Math.sqrt(Math.pow((mPosition.Ab-emPosition.Ab),2)+Math.pow((mPosition.zb-emPosition.zb),2));
+		console.log(distance);
             if(mPosition.zb-emPosition.zb>0.0013){
             	 $("#eBox").modal('show');
             }
