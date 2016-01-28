@@ -880,7 +880,7 @@ $("#main").on("mouseover",function(){
 						"Content-Type" : "application/json"  
 					  },
 					  datatype:"json",
-					  data:({routeno:routeno,memberno:memberno}),
+					  data:JSON.stringify({routeno:routeno,memberno:memberno}),
 					  success: function(data){
 						  console.log("==invite 등록완료!!==");
 					  }				   
