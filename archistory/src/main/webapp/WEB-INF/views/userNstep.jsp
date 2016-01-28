@@ -138,6 +138,8 @@ function getEventList(){
 			        var event= this;
 			        //addMarker(event);		
 			        console.log(event);
+			        console.log(idx);
+			        console.log(value);
 					console.log("list.each들어옴");
 					console.log(list.length);
 					
