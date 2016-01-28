@@ -119,9 +119,9 @@ public class MemberController {
 		return entity;
 	}
 
-	public InviteVO inviteView(Integer routeNo) {
+	public InviteVO inviteView(Integer routeno) {
 	
-		InviteVO vo = service.inviteView(routeNo);
+		InviteVO vo = service.inviteView(routeno);
 		return vo;
 	}
 
