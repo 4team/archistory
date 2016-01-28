@@ -745,7 +745,7 @@ $("#main").on("mouseover",function(){
 
 	        function memberList(data) {
 	        	console.log("멤버 있음.")
-	            memberLi +="<li>" + data.userName + "<div class='gly'>"+
+	            memberLi +="<li>" +data.userNo+data.userName+data.email+ "<div class='gly'>"+
 	            "<span class='glyphicon glyphicon-pencil' id='modi'></span>" +
 	            "<span class='glyphicon glyphicon-remove' id='del'></span></div></li>";
 
