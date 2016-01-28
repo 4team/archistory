@@ -178,7 +178,7 @@
     }
 
     #eventTitle{
-    	width:135px;
+    	width:130px;
     	height:20px;
 		overflow:hidden;
     	text-overflow:ellipsis;
