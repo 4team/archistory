@@ -2,32 +2,33 @@ package org.kkamnyang.domain;
 
 public class InviteVO {
 
-	private Integer inviteNo;
-	private Integer routeNo;
-	private Integer memberNo;
+	private Integer inviteno;
+	private Integer routeno;
+	private Integer memberno;
 	
-	public Integer getInviteNo() {
-		return inviteNo;
+	public Integer getInviteno() {
+		return inviteno;
 	}
-	public void setInviteNo(Integer inviteNo) {
-		this.inviteNo = inviteNo;
+	public void setInviteno(Integer inviteno) {
+		this.inviteno = inviteno;
 	}
-	public Integer getRouteNo() {
-		return routeNo;
+	public Integer getRouteno() {
+		return routeno;
 	}
-	public void setRouteNo(Integer routeNo) {
-		this.routeNo = routeNo;
+	public void setRouteno(Integer routeno) {
+		this.routeno = routeno;
 	}
-	public Integer getMemberNo() {
-		return memberNo;
+	public Integer getMemberno() {
+		return memberno;
 	}
-	public void setMemberNo(Integer memberNo) {
-		this.memberNo = memberNo;
+	public void setMemberno(Integer memberno) {
+		this.memberno = memberno;
 	}
 	@Override
 	public String toString() {
-		return "InviteVO [inviteNo=" + inviteNo + ", routeNo=" + routeNo + ", memberNo=" + memberNo + "]";
+		return "InviteVO [inviteno=" + inviteno + ", routeno=" + routeno + ", memberno=" + memberno + "]";
 	}
+	
 	
 	
 }

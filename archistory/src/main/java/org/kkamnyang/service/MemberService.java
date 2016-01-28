@@ -49,7 +49,6 @@ public class MemberService {
 		
 	}
 	
-
 	public void inviteRegister(InviteVO vo) {
 		mapper.inviteCreate(vo);
 		

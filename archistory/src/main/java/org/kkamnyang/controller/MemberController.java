@@ -105,12 +105,16 @@ public class MemberController {
 	public ResponseEntity<String> inviteRegister(InviteVO vo) {
 		System.out.println("==============invite 등록 POST 호출==========");
 		ResponseEntity<String> entity=null;
+		System.out.println(vo);
+		
 		try{
-		service.inviteRegister(vo);
-		entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
-		System.out.println("=============invite 등록 성공===============");
+			service.inviteRegister(vo);
+			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("=============invite 등록 성공===============");
 		}catch(Exception e){
+			e.printStackTrace();
 			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+			
 		}
 		return entity;
 	}

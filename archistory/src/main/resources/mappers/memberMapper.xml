@@ -32,7 +32,7 @@
 	</select>
 	
 	<insert id="firstParticipate">
-		insert into tbl_participate(routeNo,memberno) 
+		insert into tbl_participate(routeno,memberno) 
 		values(#{routeno},#{memberno})
 	</insert>
 	
@@ -45,7 +45,7 @@
 	</update>
 	
 	<insert id="inviteCreate">
-		insert into tbl_invite(routeNo,memberno)
+		insert into tbl_invite(routeno,memberno)
 		values(#{routeno},#{memberno})
 	</insert>
 	
