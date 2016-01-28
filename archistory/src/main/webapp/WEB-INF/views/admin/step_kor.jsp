@@ -828,6 +828,7 @@
     function viewEvent(eventno){
     	$(".uploadedList").html("");
     	$("#myoutubeList").html("");
+    	$("#youtubeList").html("");
     	
 	  var template2 = Handlebars.compile($("#template").html());
          
@@ -1133,6 +1134,7 @@
         clearEventDiv();
         clearMoEventdiv();
         clearQuestionDiv();
+        $("#youtubeList").html("");
         
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
