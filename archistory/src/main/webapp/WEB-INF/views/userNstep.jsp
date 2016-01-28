@@ -108,6 +108,9 @@ mapOption = {
     level: 2 // 지도의 확대 레벨
 };
 
+
+map.setCenter(new daum.maps.LatLng(lat,lng));
+
 console.log(lat,lng);
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -130,22 +133,18 @@ function getEventList(){
         list.each(function(idx,value){
             var event= this;
             addMarker(event);
-			showEvent(event);
-            
+			showEvent(event);            
         });
     });
 }
 getEventList();
-
 
 var emarker;
 
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
-    title: event.title,
-    content: event.content,
-    eventno: event.eventno,
+    title: event.eventno,
     position: new daum.maps.LatLng(event.lat,event.lng),
     clickable: true,
     
@@ -155,14 +154,11 @@ emarker.setMap(map);
 markers.push(emarker);
 
 //마커에 클릭이벤트를 등록합니다
-daum.maps.event.addListener(emarker, 'click', function(event) {
-	 console.log("마커 눌렀는뎅????");
-	 console.log("this:" + this);
-	 console.log(event);
+daum.maps.event.addListener(emarker, 'click', function() {
+	 console.log("emarker.title:" + emarker.title);
 	 $("#eBox").modal('show');   
 });
 };
-
 
 function showEvent(event) {
        eventLi += "<div class='form-group'>"+
@@ -170,10 +166,7 @@ function showEvent(event) {
        "<p class='form-control' id='title'>"+event.content+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
-   }
-   
-
-
+   }   
 
 //------------------------------- Geolocation -----------------------------------
 
