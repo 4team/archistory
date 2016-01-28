@@ -101,17 +101,15 @@ var routename = ${routename};
 var eventno = 1;
 var events = [];
 
-var mapContainer = document.getElementById('map'),// 지도를 표시할 div  
+var mapContainer = document.getElementById('map'),
+		mapOption = { 
+		    center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
+		    level: 2 // 지도의 확대 레벨
+		};
 
-mapOption = { 
-    center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
-    level: 2 // 지도의 확대 레벨
-};
+		console.log(lat,lng);
 
 
-map.setCenter(new daum.maps.LatLng(lat,lng));
-
-console.log(lat,lng);
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -120,6 +118,8 @@ var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerSt
 var imageSize = new daum.maps.Size(24, 35);
 
 var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
+
+
 
 
 function getEventList(){
@@ -139,6 +139,8 @@ function getEventList(){
 }
 getEventList();
 
+
+
 var emarker;
 
 function addMarker(event){
@@ -152,6 +154,8 @@ function addMarker(event){
 console.log("addmarker들어옴");
 emarker.setMap(map);
 markers.push(emarker);
+console.log(emarker.title);
+
 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
@@ -159,6 +163,7 @@ daum.maps.event.addListener(emarker, 'click', function() {
 	 $("#eBox").modal('show');   
 });
 };
+
 
 function showEvent(event) {
        eventLi += "<div class='form-group'>"+
