@@ -123,24 +123,27 @@ var imageSize = new daum.maps.Size(24, 35);
 var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 
-var emarkers = [];
 //이벤트 가져오기
 function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
 	
+var emarkers = [];
+var emarker;
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
         var list = $(data);
         eventLi="";
         console.log(list);        
         
-        for(var i=0; i<list.length; i++){     	        	
-        	console.log("for문들어왔다");
-			 list.each(function(idx,value){
+		list.each(function(idx,value){
 			        var event= this;
-			        //addMarker(event);					   
+			        //addMarker(event);		
+			        console.log(event);
 					console.log("list.each들어옴");
+					console.log(list.length);
+					
+		        for(var i=0; i<list.length; i++){     	        	
 			        	function addMarker(event){
-			        		emarkers[i] = new daum.maps.Marker({
+			        		emarker = new daum.maps.Marker({
 				        	    title: event.eventno,
 				        	    position: new daum.maps.LatLng(event.lat,event.lng),
 				        	    clickable: true,    
@@ -150,16 +153,17 @@ function getEventList(){
 			        	console.log(emarkers[i].getTitle());
 			        	console.log(emarkers[i]);
 			        	
-			        	emarkers[i].setMap(map);
+			        	emarker.setMap(map);
+			        	emarkers.push(emarker);
 			        	var emT = emarkers[i].getTitle();
 			        	showEvent(emT);
 			        	
 			        	//emPosition = emarker[i].getPosition();
 			        	//console.log(emPosition.zb);
 			       		};
-			 });
-			 console.log("list.each는 나옴");
-    };
+			 console.log("for문은 나옴");
+			 };
+    });
     });
     };
 getEventList();
