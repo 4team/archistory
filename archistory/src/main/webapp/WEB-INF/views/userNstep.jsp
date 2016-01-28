@@ -160,8 +160,11 @@ markers.push(emarker);
 
 emPosition = emarker.getPosition();
 console.log(emPosition.zb);
-console.log(emPosition);
 console.log(mPosition.get());
+
+if(mPosition.zb-emPosition.zb>0.00003){
+	 $("#eBox").modal('show');
+}
 
 /* 
 //마커에 클릭이벤트를 등록합니다
