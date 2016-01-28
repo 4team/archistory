@@ -854,7 +854,6 @@ $("#main").on("mouseover",function(){
 
 	        function memberList(data) {
 	        	
-	        	console.log("멤버 리스트 가져옴.");
 	            memberLi +="<li>" + data.userName + "<div class='gly'>"+
 	            "<span class='glyphicon glyphicon-pencil' id='modi'></span>" +
 	            "<span class='glyphicon glyphicon-remove' id='del'></span></div></li>";
@@ -865,22 +864,21 @@ $("#main").on("mouseover",function(){
 
 	        function getMemberList(){
 	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
-	            	console.log("멤버 GETJSON!");
-	            	//memberLi = "";
+	
+	            	memberLi = "";
 	            	var list = $(data);
 	            	console.log($(data));
 	            	console.log(list);
 	            	
-	/*             	
-	            	if(typeof $(list) == "undefined"){
+/* 	            	if(typeof  == "undefined"){
 	            		console.log("멤버 리스트 없음.");
 
 		                var msg = "<li> 멤버를 추가해 주세요.</li>"
 		                            +"<li><span class='glyphicon glyphicon-plus' id='memPlus'></span></li>";
 		                $("#memberlist").html(msg);
 
-	            	} */
-
+	            	} 
+ */
 	                list.each(function(idx,value){
 		                var member = this;
 		                memberList(member);
