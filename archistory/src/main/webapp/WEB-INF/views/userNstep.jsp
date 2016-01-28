@@ -161,9 +161,6 @@ markers.push(emarker);
 emPosition = emarker.getPosition();
 console.log(emPosition.zb);
 
-if(mPosition.zb-emPosition.zb>0.00003){
-	 $("#eBox").modal('show');
-}
 
 /* 
 //마커에 클릭이벤트를 등록합니다
@@ -244,6 +241,10 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
+
+if(mPosition.zb-emPosition.zb>0.00003){
+	 $("#eBox").modal('show');
+}
 
 </script>
 
