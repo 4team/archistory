@@ -29,6 +29,7 @@
     	z-index:500;
     	top:100px;
     	left:100px;
+    	background-color: #FFF;
     }
 
 </style>
@@ -69,18 +70,45 @@ var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니�
 
 
 
-// 마커를 생성하고 지도위에 표시하는 함수입니다
+// 마커를 생성하고 지도위에 표시하는 함수입니다.
 function addMarker(event) {
     
     // 마커를 생성합니다
-    var marker = new daum.maps.Marker({
-    	title:event.title,
-        position: position
-    });
+		var marker = new daum.maps.Marker({
+           title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
+           position: new daum.maps.LatLng(event.lat,event.lng)
+        });
+
+        marker.setMap(map);
+        markers.push(marker);
+
+        daum.maps.event.addListener(marker, 'mouseover', function () {
+            // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+            showInfo(marker);
+        });
 
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
 }
+
+
+// 인포윈도우와 관련된 함수.
+   		// InfoWindow와 관련된 부분
+   function showInfo(marker){
+        // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
+        var iwContent = '<div style="padding:5px;">'+ marker.wd +'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new daum.maps.InfoWindow({
+            content: iwContent
+        });
+
+        infowindow.open(map, marker);
+
+        daum.maps.event.addListener(marker, 'mouseout', function() {
+            infowindow.close();
+        });
+    }
 
 
 
@@ -107,6 +135,79 @@ function getLocation(){
     });
     return;
 };
+
+
+
+var eventEA = 0;
+var markers = null;
+
+
+// 해당 루트에 있는 이벤트를 불러온다.
+
+    function getEventList(callback){
+    	console.log("getEventList가 호출되어 시작됨.");
+		eventEA = 1;
+		console.log("=====================");
+		console.log(markers);
+		
+    	if(markers != null){
+    		console.log("IF문에 걸렸다! 즉 원래 존재하는 마커가 있는 상태였다.",markers.length);
+    		for(var i = 0 ; i < markers.length; i++){
+    			console.log(markers[i]);
+				markers[i].setMap(null);
+    		}
+    	}
+    	
+		markers = [];
+
+		
+        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
+            var list = $(data);
+            
+			list.each(function(){
+                eventEA++;
+			});
+
+			list.each(function(idx,value){
+                var event= this;
+                addMarker(event);
+            });
+/*             
+        	// 지도에 표시할 선을 생성합니다
+        	polyline = new daum.maps.Polyline({
+        	    path: linePath, // 선을 구성하는 좌표배열 입니다
+        	    strokeWeight: 5, // 선의 두께 입니다
+        	    strokeColor: '#FFAE00', // 선의 색깔입니다
+        	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        	    strokeStyle: 'solid' // 선의 스타일입니다
+        	});
+        	
+        	polyline.setMap(map);
+        	console.log(linePath); */
+        	
+        });
+            callback();
+
+    }
+
+
+
+    getEventList(function(){
+    	console.log("getEventList의 콜백에 들어옴.");
+    	
+/*     	// 지도에 표시할 선을 생성합니다
+    polyline = new daum.maps.Polyline({
+   	    path: linePath, // 선을 구성하는 좌표배열 입니다
+   	    strokeWeight: 5, // 선의 두께 입니다
+   	    strokeColor: '#FFAE00', // 선의 색깔입니다
+   	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+   	    strokeStyle: 'solid' // 선의 스타일입니다
+   	});
+
+    	polyline.setMap(map);
+    	console.log(linePath); */
+    	
+    });
 
 
 </script>
