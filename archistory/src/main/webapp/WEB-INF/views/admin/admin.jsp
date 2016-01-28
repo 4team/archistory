@@ -853,7 +853,7 @@ $("#main").on("mouseover",function(){
 	        var memberLi="";
 
 	        function memberList(data) {
-	        	
+	        	console.log("멤버 있음.")
 	            memberLi +="<li>" + data.userName + "<div class='gly'>"+
 	            "<span class='glyphicon glyphicon-pencil' id='modi'></span>" +
 	            "<span class='glyphicon glyphicon-remove' id='del'></span></div></li>";
@@ -880,7 +880,7 @@ $("#main").on("mouseover",function(){
 	            	if(!list){
 	            		console.log("멤버 없음!!!!1");
 	            	}
-	            	if(list==[]){
+	            	if(list==null){
 	            		console.log("배열 비어 있음");
 	            	}
  
