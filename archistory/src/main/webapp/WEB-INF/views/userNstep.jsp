@@ -238,8 +238,8 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-if(mPosition.latLng.zb-emPosition.latLng.zb<10	){
-	console.log("emPosition.latLng.zb:" + emPosition.latLng.zb);
+if(mPosition-emPosition<10	){
+	console.log("mPosition-emPosition: " + mPosition-emPosition);
 	$("#eBox").modal('show');
 }
 </script>
