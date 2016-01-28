@@ -102,7 +102,7 @@ public class MemberController {
 	
 	
 	@RequestMapping(value="/inviregister",method=RequestMethod.POST)
-	public ResponseEntity<String> inviteRegister(InviteVO vo) {
+	public ResponseEntity<String> inviteRegister(@RequestBody InviteVO vo) {
 		System.out.println("==============invite 등록 POST 호출==========");
 		ResponseEntity<String> entity=null;
 		System.out.println(vo);
