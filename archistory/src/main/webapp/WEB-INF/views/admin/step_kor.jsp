@@ -514,8 +514,8 @@
                 addMarker(event);
                 eventno++;
             });
-        });
             callback;
+        });
 
     }
     
