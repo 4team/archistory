@@ -796,6 +796,8 @@ $("#main").on("mouseover",function(){
 	        	inviRemove(routeno,memberno,function(){
 	        		console.log("멤버  invite, member 모두 삭제");
 	        	});
+	        	
+	        	getMemberList();
 
 		    });
 	        
@@ -970,6 +972,7 @@ $("#main").on("mouseover",function(){
 		    	console.log("멤버등록 취소");
 		    	console.log("i:"+i);
 		    	 emptyMember();
+		    	 getMemberList();
 		    	
 		    });
 		    
