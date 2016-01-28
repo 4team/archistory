@@ -158,6 +158,7 @@ function getEventList(){
 			        	//console.log(emPosition.zb);
 			       		};
 			 });
+			 console.log("list.each는 나옴");
     };
     });
     };
