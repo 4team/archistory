@@ -136,7 +136,7 @@ function getEventList(){
         list.each(function(idx,value){
             var event= this;
             addMarker(event);
-			//showEvent(event);            
+			showEvent(event);            
         });
     });
 }
@@ -171,16 +171,14 @@ daum.maps.event.addListener(emarker, 'click', function() {
 }); */
 };
 
-function showEvent(select) {
+function showEvent(event) {
        eventLi += "<div class='form-group'>"+
-       "<label for='title'>"+select.title+"</label>"+
-       "<p class='form-control' id='content'>"+select.content+"</p>"+
+       "<label for='title'>"+event.title+"</label>"+
+       "<p class='form-control' id='content'>"+event.content+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
    }   
 
-console.log("emP: "+emPosition);
-console.log("mp: "+mPosition);
 //------------------------------- Geolocation -----------------------------------
 
 var lt;
@@ -240,7 +238,9 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-
+if(emPosition-mPosition<emarker.getRange()){
+	$("#eBox").modal('show');
+}
 </script>
 
 </body>
