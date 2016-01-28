@@ -159,7 +159,7 @@ emarker.setMap(map);
 markers.push(emarker);
 
 emPosition = emarker.getPosition();
-console.log(emarker.getPosition());
+console.log(emPositions);
 
 /* 
 //마커에 클릭이벤트를 등록합니다
