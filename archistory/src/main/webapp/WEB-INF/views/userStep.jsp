@@ -22,6 +22,14 @@
         width: 100%;
         height: 100%;
     }
+    #myLocation{
+	    position:absolute;
+    	width:300px;
+    	height:100px;
+    	z-index:500;
+    	top:100px;
+    	left:100px;
+    }
 
 </style>
 
@@ -42,8 +50,9 @@
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 <body>
 
-<div id="map"></div>
+<div id="myLocation"></div>
 
+<div id="map"></div>
 
 <script>
 var lat = ${lat};
@@ -91,6 +100,8 @@ function getLocation(){
         console.log('My latitude: ', lat);
         console.log('My longitude: ', lng);
 
+        
+        $("#myLocation").html("<h3>"+lat+"</h3><br><h3>"+lng+"</h3>");
         myLat = lat;
         myLng = lng;
     });
