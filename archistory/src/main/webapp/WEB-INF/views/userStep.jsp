@@ -22,6 +22,14 @@
         width: 100%;
         height: 100%;
     }
+    #myLocation{
+	    position:absolute;
+    	width:300px;
+    	height:100px;
+    	z-index:100;
+    	top:100;
+    	left:100;
+    }
 
 </style>
 
