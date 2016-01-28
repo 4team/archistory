@@ -808,10 +808,8 @@ $("#main").on("mouseover",function(){
 			            dataType: "json",
 			            data : JSON.stringify({routeno:routeno,memberno:memberno}),
 			            success: function(data){
-			            	
 			            	console.log("invite 삭제 완료" );
 			            	memberRemove(memberno);
-			            	
 			            }
 			    	});
 			        
@@ -828,7 +826,6 @@ $("#main").on("mouseover",function(){
 		            data : JSON.stringify({memberno:memberno}),
 		            success: function(data){
 		            	console.log("member 삭제 완료 ");
-		            	
 		            }
 		    	});
 	        	
