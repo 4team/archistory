@@ -1,5 +1,6 @@
 package org.kkamnyang.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -123,10 +124,11 @@ public class MemberController {
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public @ResponseBody List<MemberVO> inviteView(@RequestParam("routeno") Integer routeno, HttpServletRequest request) throws Exception {
 	
-		List<MemberVO> memList = null;
+		List<MemberVO> memList = new ArrayList<MemberVO>();
 		List<InviteVO> list = service.inviteView(routeno);
 		
 		for(int i=0; i<list.size();i++){
+			
 			InviteVO vo = list.get(i);
 			Integer memberno = vo.getMemberno();
 			
