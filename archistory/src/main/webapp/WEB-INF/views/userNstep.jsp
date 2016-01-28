@@ -138,12 +138,8 @@ function getEventList(){
 			        var event= this;
 			        //addMarker(event);		
 			        console.log(event);
-			        console.log(idx);
-			        console.log(value);
 					console.log("list.each들어옴");
-					console.log(list.length);
 					
-		        for(var i=0; i<list.length; i++){     	        	
 			        	function addMarker(event){
 			        		emarker = new daum.maps.Marker({
 				        	    title: event.eventno,
@@ -154,8 +150,8 @@ function getEventList(){
 			        	console.log("addmarker들어옴");
 			        	
 			        	emarker.setMap(map);
-			        	emarkers[i].push(emarker);
-			        	var emT = emarkers[i].getTitle();
+			        	emarkers[idx].push(emarker);
+			        	var emT = emarkers[idx].getTitle();
 			        	showEvent(emT);
 			        	
 			        	//emPosition = emarker[i].getPosition();
@@ -163,8 +159,7 @@ function getEventList(){
 			       		};
 			 console.log("for문은 나옴");
 			        //	console.log(emarkers[i].getTitle());
-			        	console.log(emarkers[i]);
-			 };
+			        	console.log(emarkers[idx]);
     });
     });
     };
