@@ -812,6 +812,7 @@ $("#main").on("mouseover",function(){
 			            dataType: "json",
 			            data : JSON.stringify({routeno:routeno,memberno:memberno}),
 			            success: function(data){
+			            	console.log(data);
 			            	console.log("invite 삭제 완료" );
 			            	memberRemove(memberno);
 			            }
