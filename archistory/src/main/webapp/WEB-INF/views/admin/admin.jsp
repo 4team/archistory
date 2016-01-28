@@ -746,7 +746,7 @@ $("#main").on("mouseover",function(){
 	        function memberList(data) {
 	        	console.log("멤버 있음.");
 	        	
-	            memberLi +="<li memberno='"+data.memberno+"'>" +data.userName+ "<div class='gly'>"+
+	            memberLi +="<li value='"+data.memberno+"'>" +data.userName+ "<div class='gly'>"+
 	            "<span class='glyphicon glyphicon-pencil' id='modi'></span>" +
 	            "<span class='glyphicon glyphicon-remove' id='del'></span></div></li>";
 
@@ -790,7 +790,8 @@ $("#main").on("mouseover",function(){
 	        
 	        $("#memberlist").on("click","#del",function(){
 	        	var select = $(this);
-	        	console.log(select.attr("memberno")+"멤버삭제 ");
+	        	console.log(select);
+	        	console.log(select.val()+"멤버삭제 ");
 
 		    });
 	        
