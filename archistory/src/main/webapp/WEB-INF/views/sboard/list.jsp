@@ -28,6 +28,7 @@ top:50px;
 	<div class="row">
 		<!-- left column -->
 		<div class="col-md-12">
+		
 			<!-- general form elements -->
 
 			<div class="box">
@@ -93,18 +94,6 @@ top:50px;
 </tr>
 </c:forEach>
 
-<%-- 
-<c:forEach items="${list}" var="list">
-
-	<tr>
-		<td>${list.boardNo}</td>
-		<td><a href='/board/read?boardNo=${list.boardNo}&page=${cri.page}&perPageNum=${cri.perPageNum}'>${list.title}</a></td>
-		<td>${list.writer}</td>
-		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${list.regdate}" /></td>
-		<td><span class="badge bg-red">${list.vcount}</span></td>
-	</tr>
-</c:forEach> --%>
-
 </table>
 
     
@@ -123,27 +112,6 @@ top:50px;
 						</c:if>
 						</ul>
 						
-						<%-- <ul class="pagination">
-
-							<c:if test="${pageMaker.prev}">
-								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</c:if>
-
-							<c:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
-								</li>
-							</c:forEach>
-
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
-							</c:if>
-
-						</ul> --%>
 					</div>
 			
 <div class="box-footer" style="float: right">
@@ -211,7 +179,7 @@ $("#searchBtn").on("click",function(event){
 				</div>
 				<!-- /.box-body -->
 			</div>
-		</div>
+			</div>
 		<!--/.col (left) -->
 
 	</div>

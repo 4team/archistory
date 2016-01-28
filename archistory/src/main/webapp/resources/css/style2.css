@@ -216,6 +216,7 @@ hr {
 		width: 60px;
 		border-top: 1px solid #c6d0da;
 		background: black;
+		opacity:0.8;
 		-webkit-transform: translateX(-60px);
 		-moz-transform: translateX(-60px);
 		transform: translateX(-60px);
