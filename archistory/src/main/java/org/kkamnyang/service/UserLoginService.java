@@ -29,7 +29,7 @@ public class UserLoginService implements UserDetailsService {
 		try{
 			MemberVO vo = mapper.findByEmail(email);
 			System.out.println("호출된 MemberVO : "+vo);
-			user = new OurUserDetails(vo.getMemberNo(),vo.getUserName(),vo.getEmail(),encoder.encode(vo.getmPassword()),vo.getImg(),vo.getUserNo());
+			user = new OurUserDetails(vo.getMemberno(),vo.getUserName(),vo.getEmail(),encoder.encode(vo.getmPassword()),vo.getImg(),vo.getUserNo());
 		}catch(Exception e){
 			System.out.println("계정이 없는 Member의 로그인 시도였다.");
 			return null;

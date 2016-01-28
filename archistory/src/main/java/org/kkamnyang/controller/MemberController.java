@@ -33,7 +33,7 @@ public class MemberController {
 		System.out.println(vo);
 		
 		service.register(vo);
-		Integer memberno = vo.getMemberNo();
+		Integer memberno=vo.getMemberno();
 		response.getWriter().print(memberno);		
 		System.out.println("memberno:"+ memberno);
 		System.out.println("========멤버 등록 완료!!======");
@@ -74,7 +74,7 @@ public class MemberController {
 		System.out.println("============멤버 REMOVE POST 호출 ===========");
 		ResponseEntity<String> entity = null;
 		try{
-			service.remove(vo.getMemberNo());
+			service.remove(vo.getMemberno());
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
 			
 		}catch(Exception e){

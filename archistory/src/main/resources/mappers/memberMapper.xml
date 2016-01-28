@@ -15,16 +15,16 @@
 	</select>
 	
 	<select id="read" resultType="org.kkamnyang.domain.MemberVO">
-		select * from tbl_member where memberNo = #{memberNo}
+		select * from tbl_member where memberno = #{memberno}
 	</select>
 
 	<update id="update">
 		update tbl_member set userNo=#{userNo},userName=#{userName},email=#{email},mPassword=#{mPassword},img=#{img}
-		where memberNo=#{memberNo}
+		where memberno=#{memberno}
 	</update>
 	
 	<delete id="delete">
-		delete from tbl_member where memberNo=#{memberNo}
+		delete from tbl_member where memberno=#{memberno}
 	</delete>
 	
 	<select id="getUser" resultType="org.kkamnyang.domain.MemberVO">
@@ -32,7 +32,7 @@
 	</select>
 	
 	<insert id="firstParticipate">
-		insert into tbl_participate(routeNo,memberNo) 
+		insert into tbl_participate(routeNo,memberno) 
 		values(#{routeno},#{memberno})
 	</insert>
 	
@@ -45,7 +45,7 @@
 	</update>
 	
 	<insert id="inviteCreate">
-		insert into tbl_invite(routeNo,memberNo)
+		insert into tbl_invite(routeNo,memberno)
 		values(#{routeno},#{memberno});
 	</insert>
 	

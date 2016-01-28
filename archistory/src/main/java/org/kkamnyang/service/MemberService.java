@@ -19,8 +19,8 @@ public class MemberService {
 		return mapper.create(vo);
 	}
 	
-	public MemberVO view(Integer MemberNo) throws Exception{
-		return mapper.read(MemberNo);
+	public MemberVO view(Integer Memberno) throws Exception{
+		return mapper.read(Memberno);
 	}
 	
 	public List<MemberVO> list() throws Exception{
@@ -32,8 +32,8 @@ public class MemberService {
 		mapper.update(vo);
 	}
 	
-	public void remove(Integer MemberNo) throws Exception{
-		mapper.delete(MemberNo);
+	public void remove(Integer Memberno) throws Exception{
+		mapper.delete(Memberno);
 	}
 
 	public void participateF(ParticipateVO vo) {
@@ -44,8 +44,8 @@ public class MemberService {
 		mapper.participateU(vo);
 	}
 
-	public void finish(Integer memberNo) {
-		mapper.finishParticipate(memberNo);
+	public void finish(Integer memberno) {
+		mapper.finishParticipate(memberno);
 		
 	}
 	

@@ -4,20 +4,18 @@ import java.util.Date;
 
 public class MemberVO {
 	
-	private Integer memberNo;
+	private Integer memberno;
 	private Integer userNo;
 	private String userName;
 	private String email;
 	private String mPassword;
 	private String img;
 	private Date regdate;
-	
-	
-	public Integer getMemberNo() {
-		return memberNo;
+	public Integer getMemberno() {
+		return memberno;
 	}
-	public void setMemberNo(Integer memberNo) {
-		this.memberNo = memberNo;
+	public void setMemberno(Integer memberno) {
+		this.memberno = memberno;
 	}
 	public Integer getUserNo() {
 		return userNo;
@@ -55,11 +53,13 @@ public class MemberVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
 	@Override
 	public String toString() {
-		return "MemberVO [memberNo=" + memberNo + ", userNo=" + userNo + ", userName=" + userName + ", email=" + email
-				+ ", mPassword=" + mPassword + ", img=" + img + ", regdate=" + regdate + "]\n";
+		return "MemberVO [memberno=" + memberno + ", userNo=" + userNo + ", userName=" + userName + ", email=" + email
+				+ ", mPassword=" + mPassword + ", img=" + img + ", regdate=" + regdate + "]";
 	}
+	
+	
+
 	
 }

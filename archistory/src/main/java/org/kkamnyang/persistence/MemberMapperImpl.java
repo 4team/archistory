@@ -17,8 +17,8 @@ public class MemberMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> impl
 	}*/
 
 	@Override
-	public MemberVO read(Integer memberNo) throws Exception {
-		return session.selectOne(namespace+".read",memberNo);
+	public MemberVO read(Integer memberno) throws Exception {
+		return session.selectOne(namespace+".read",memberno);
 	}
 
 	@Override
@@ -28,8 +28,8 @@ public class MemberMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> impl
 	}
 
 	@Override
-	public void delete(Integer memberNo) throws Exception {
-		session.delete(namespace+".delete",memberNo);
+	public void delete(Integer memberno) throws Exception {
+		session.delete(namespace+".delete",memberno);
 
 	}
 
