@@ -238,7 +238,7 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-	console.log(emPosition.na);
+	console.log(emPosition.getLat());
 </script>
 
 </body>
