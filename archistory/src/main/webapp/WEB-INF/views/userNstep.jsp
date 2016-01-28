@@ -113,24 +113,18 @@ var events = [];
 var mapContainer = document.getElementById('map'),
 		mapOption = { 
 		    center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
-		    level: 2 // 지도의 확대 레벨
-		};
-
-		console.log(lat,lng);
-
-
-
+		    level: 2
+		    };
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 //마커 이미지 생성
 var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 var imageSize = new daum.maps.Size(24, 35);
-
 var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 
 
-
+//이벤트 가져오기
 function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
 	
@@ -149,30 +143,29 @@ function getEventList(){
 getEventList();
 
 
-
+//마커찍어주기
 var emarker;
-
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
     title: event.eventno,
     position: new daum.maps.LatLng(event.lat,event.lng),
-    clickable: true,
-    
+    clickable: true,    
 });
 console.log("addmarker들어옴");
+emarker.setRange(100);
 emarker.setMap(map);
 markers.push(emarker);
 
+/* 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
 	var select = $(mouseEvent.getTitle());
 	console.log(select);
 	showEvent(select);
 	 $("#eBox").modal('show');   
-});
+}); */
 };
-
 
 function showEvent(select) {
        eventLi += "<div class='form-group'>"+
@@ -214,13 +207,15 @@ if (navigator.geolocation) {
 }
 
 // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+var marker;
 function displayMarker(locPosition, message) {
 
     // 마커를 생성합니다
-    var marker = new daum.maps.Marker({  
+    marker = new daum.maps.Marker({  
         map: map, 
         position: locPosition
     }); 
+    marker.setRange(100);
     
     var iwContent = message, // 인포윈도우에 표시할 내용
         iwRemoveable = true;
@@ -234,10 +229,7 @@ function displayMarker(locPosition, message) {
     // 인포윈도우를 마커위에 표시합니다 
     infowindow.open(map, marker);
     console.log("lt:" + lt);
-    console.log("emarker.getPosition:" + emarker.getPosition);
-    console.log("emarker.getAltitude():" + emarker.getAltitude());
-}    
-
+}
 //-----------------------------------END Geolocation-----------------------------------------
 
 
