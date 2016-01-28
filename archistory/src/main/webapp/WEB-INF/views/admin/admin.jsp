@@ -868,7 +868,7 @@ $("#main").on("mouseover",function(){
 	            	console.log("멤버 GETJSON!");
 	            	memberLi = "";
 	            	//var list = $(list);
-	            	console.log("이엘 list:"+$(list));
+	            	console.log("이엘 list:"+$(list););
 	            	console.log("data:"+data);
 	            	
 	            	if(typeof $(list) == "undefined"){
