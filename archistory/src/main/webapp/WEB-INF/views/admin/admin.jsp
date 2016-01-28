@@ -754,7 +754,7 @@ $("#main").on("mouseover",function(){
 	        }
 
 	        function getMemberList(){
-	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
+	            $.getJSON("http://14.32.66.127:4000/member/list?routeno="+routeno,function(data){
 	            	memberLi = "";
 	            	var list = $(data);
 	            	console.log(list);

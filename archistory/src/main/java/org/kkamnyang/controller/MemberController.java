@@ -121,7 +121,7 @@ public class MemberController {
 
 
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public @ResponseBody List<InviteVO> inviteView(@RequestBody Integer routeno) {
+	public @ResponseBody List<InviteVO> inviteView(@RequestParam("routeno") Integer routeno) {
 	
 		List<InviteVO> list2 = service.inviteView(routeno);
 		System.out.println(list2);
