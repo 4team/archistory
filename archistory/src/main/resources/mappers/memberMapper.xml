@@ -50,7 +50,7 @@
 	</insert>
 	
 	<select id="inviteRead" resultType="org.kkamnyang.domain.InviteVO">
-		select * from tbl_invite where routeno=#{routeno}
+		select * from tbl_invite where routeno=#{routeno} orderby 
 	</select>
 	
 	<update id="inviteUpdate">
