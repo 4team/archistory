@@ -931,6 +931,7 @@ $("#main").on("mouseover",function(){
 					  success: function(data){
 						  console.log("invite 등록 처리 :"+data);
 						  console.log("==invite 등록완료!!==");
+						  getMemberList();
 					  }				   
 				   });
 			   
