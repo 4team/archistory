@@ -868,8 +868,9 @@ $("#main").on("mouseover",function(){
 	            	console.log("멤버 GETJSON!");
 	            	memberLi = "";
 	            	var list = $(data);
+	            	console.log("list:"+list);
 	            	
-	            	if(!list){
+	            	if(typeof list == "undefined"){
 	            		console.log("멤버 리스트 없음.");
 
 		                var msg = "<li> 멤버를 추가해 주세요.</li>"
