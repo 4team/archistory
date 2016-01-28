@@ -806,7 +806,7 @@ $("#main").on("mouseover",function(){
 
 			        $.ajax({
 			            type:"post",
-			            url: "http://14.32.66.127:4000/member/inviremove",
+			            url: "http://14.32.66.127:4000/member/inviteremove",
 			            headers :{ "Content-Type" : "application/json"}, 
 			            dataType: "json",
 			            data : JSON.stringify({routeno:routeno,memberno:memberno}),
