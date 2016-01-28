@@ -124,6 +124,7 @@ var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 
 var emarkers = [];
+var emarker;
 //이벤트 가져오기
 function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
@@ -139,8 +140,9 @@ function getEventList(){
 			        var event= this;
 			        //addMarker(event);					   
 					console.log("list.each들어옴");
+					
 			        	function addMarker(event){
-			        		emarkers[i] = new daum.maps.Marker({
+			        		emarker = new daum.maps.Marker({
 				        	    title: event.eventno,
 				        	    position: new daum.maps.LatLng(event.lat,event.lng),
 				        	    clickable: true,    
@@ -150,7 +152,8 @@ function getEventList(){
 			        	console.log(emarkers[i].getTitle());
 			        	console.log(emarkers[i]);
 			        	
-			        	emarkers[i].setMap(map);
+			        	emarker.setMap(map);
+			        	emarkers.push(emarker);
 			        	var emT = emarkers[i].getTitle();
 			        	showEvent(emT);
 			        	
