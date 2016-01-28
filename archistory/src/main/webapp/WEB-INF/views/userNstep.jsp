@@ -238,7 +238,7 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-if(mPosition-emPosition<10	){
+if(mPosition-emPosition>10	){
 	console.log("mPosition-emPosition: " + mPosition-emPosition);
 	$("#eBox").modal('show');
 }
