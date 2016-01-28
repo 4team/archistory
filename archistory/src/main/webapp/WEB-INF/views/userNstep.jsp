@@ -232,7 +232,7 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-
+console.log(emarker.getPosition());
 </script>
 
 </body>
