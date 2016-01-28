@@ -142,7 +142,7 @@ function getEventList(){
         list.each(function(idx,value){
             var event= this;
             addMarker(event);
-			showEvent(event);            
+			//showEvent(event);            
         });
     });
 }
@@ -155,7 +155,7 @@ var emarker;
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
-    title: event.title + '[' + event.eventno + ']',
+    title: event.eventno,
     position: new daum.maps.LatLng(event.lat,event.lng),
     clickable: true,
     
@@ -163,11 +163,12 @@ function addMarker(event){
 console.log("addmarker들어옴");
 emarker.setMap(map);
 markers.push(emarker);
-console.log(emarker.getTitle());
 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
-	 
+	console.log("마커클릭!번호는?-->" + emarker.getTitle());
+	var eventno = emarker.getTitle();
+	showEvent(eventno);
 	 $("#eBox").modal('show');   
 });
 };
