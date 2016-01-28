@@ -166,8 +166,8 @@ markers.push(emarker);
 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
-	console.log("emarker.getTitle()-->" + emarker.getTitle());
-	var select = $(this.getTitle());
+	console.log(emarker.getTitle());
+	var select = $(emarker.getTitle());
 	showEvent(select);
 	 $("#eBox").modal('show');   
 });
