@@ -145,7 +145,7 @@ public class MemberController {
 		service.inviteModify(vo);
 	}
 	
-	@RequestMapping(value="/remove", method=RequestMethod.POST)
+
 	public void inviteRemove(Integer inviteno) throws Exception {
 		service.inviteRemove(inviteno);
 		
