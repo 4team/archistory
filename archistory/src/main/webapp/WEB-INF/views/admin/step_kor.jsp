@@ -447,7 +447,7 @@
     	if(event.eorder=='1'){
 			markerImage = new daum.maps.MarkerImage("/img/start-marker.png",new daum.maps.Size(64, 64));
 		}else if(event.eorder==(eventno-1)){
-			markerImage = new daum.maps.MarkerImage("/img/finish-marker.png",new daum.maps.Size(32, 32));
+			markerImage = new daum.maps.MarkerImage("/img/finish-marker.png",new daum.maps.Size(36, 36));
 		}else{
 			markerImage = new daum.maps.MarkerImage("/img/basic.png", new daum.maps.Size(32, 32));
 		}
