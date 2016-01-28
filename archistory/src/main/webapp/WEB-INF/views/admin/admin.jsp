@@ -864,27 +864,34 @@ $("#main").on("mouseover",function(){
 
 	        function getMemberList(){
 	            $.getJSON("http://14.32.66.127:4000/member/list",function(data){
-	
 	            	memberLi = "";
 	            	var list = $(data);
 	            	console.log(list);
 	            	
-	            	if(list.length==0){
-	            		console.log("멤버 리스트 없음.");
-
+	            	if(list.length==0){ //멤버 없으면             		
 		                var msg = "<li> 멤버를 추가해 주세요.</li>"
 		                            +"<li><span class='glyphicon glyphicon-plus' id='memPlus'></span></li>";
 		                $("#memberlist").html(msg);
-
 	            	} 
- 
-	                list.each(function(idx,value){
+
+	                list.each(function(idx,value){ //멤버 있으면 
 		                var member = this;
 		                memberList(member);
 	                });
 	            });
 	         
 	        }
+	        
+	        
+	        //SHOW - 멤버 추가 모달 창 
+	        
+	        $("#memPlus").on("click",function(){
+	        	$("#memberModal").modal('show');
+	        });
+	        
+	        $("#regiMemberBtn").on("click",function(){
+	        	$("#memberModal").modal('show');
+	        });
 
 	    
 
