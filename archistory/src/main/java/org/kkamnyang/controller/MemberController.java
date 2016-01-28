@@ -102,7 +102,7 @@ public class MemberController {
 	
 	
 	@RequestMapping(value="/inviregister",method=RequestMethod.POST)
-	public ResponseEntity<String> inviteRegister(@RequestBody InviteVO vo) {
+	public ResponseEntity<String> inviteRegister(@RequestBody InviteVO vo)throws Exception {
 		System.out.println("==============invite 등록 POST 호출==========");
 		ResponseEntity<String> entity=null;
 		System.out.println(vo);
@@ -121,19 +121,29 @@ public class MemberController {
 
 
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public @ResponseBody List<InviteVO> inviteView(@RequestParam("routeno") Integer routeno) {
+	public @ResponseBody List<MemberVO> inviteView(@RequestParam("routeno") Integer routeno) throws Exception {
 	
-		List<InviteVO> list2 = service.inviteView(routeno);
-		System.out.println(list2);
-		return list2;
+		List<MemberVO> memList = null;
+		List<InviteVO> list = service.inviteView(routeno);
+		
+		for(int i=0; i<list.size();i++){
+			InviteVO vo = list.get(i);
+			Integer memberno = vo.getMemberno();
+			
+			MemberVO member = service.view(memberno);
+			memList.add(member); 
+			System.out.println(member);
+		}
+		System.out.println(memList);
+		return memList;
 	}
 
 	
-	public void inviteModify(InviteVO vo) {
+	public void inviteModify(InviteVO vo) throws Exception{
 		service.inviteModify(vo);
 	}
 	
-	public void inviteRemove(Integer inviteNo) {
+	public void inviteRemove(Integer inviteNo) throws Exception {
 		service.inviteRemove(inviteNo);
 		
 	}
