@@ -44,7 +44,7 @@
 
 <div id="map"></div>
 
-
+<div id="myLocation"></div>
 <script>
 var lat = ${lat};
 var lng = ${lng};
@@ -91,6 +91,8 @@ function getLocation(){
         console.log('My latitude: ', lat);
         console.log('My longitude: ', lng);
 
+        
+        $("#myLocation").html("<h3>"+lat+"</h3><br><h3>"+lng+"</h3>");
         myLat = lat;
         myLng = lng;
     });
