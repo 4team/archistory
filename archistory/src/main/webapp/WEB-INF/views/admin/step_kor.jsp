@@ -448,6 +448,8 @@
 			markerImage = new daum.maps.MarkerImage("/img/start-marker.png",imageSize);
 		}else if(event.eorder==eventno){
 			markerImage = new daum.maps.MarkerImage("/img/finish-marker.png",imageSize);
+		}else{
+			markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 		}
         
 			var marker = new daum.maps.Marker({
