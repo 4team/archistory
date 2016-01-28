@@ -163,12 +163,11 @@ function addMarker(event){
 console.log("addmarker들어옴");
 emarker.setMap(map);
 markers.push(emarker);
-console.log("emarker.getTitle:" + emarker.getTtitle);
-
+console.log(emarker.getTitle());
 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
-	 console.log("emarker.title:" + emarker.title);
+	 
 	 $("#eBox").modal('show');   
 });
 };
