@@ -145,6 +145,7 @@ getEventList();
 
 //마커찍어주기
 var emarker;
+var emPosition;
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
@@ -157,8 +158,9 @@ emarker.setRange(100);
 emarker.setMap(map);
 markers.push(emarker);
 
-//emarker.getPosition();
+emPosition = emarker.getPosition();
 console.log(emarker.getPosition());
+
 /* 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
@@ -210,6 +212,7 @@ if (navigator.geolocation) {
 
 // 지도에 마커와 인포윈도우를 표시하는 함수입니다
 var marker;
+var mPosition;
 function displayMarker(locPosition, message) {
 
     // 마커를 생성합니다
@@ -218,6 +221,7 @@ function displayMarker(locPosition, message) {
         position: locPosition
     }); 
     marker.setRange(100);
+    mPosition = marker.getPosition();
     
     var iwContent = message, // 인포윈도우에 표시할 내용
         iwRemoveable = true;
@@ -235,7 +239,8 @@ function displayMarker(locPosition, message) {
 //-----------------------------------END Geolocation-----------------------------------------
 
 
-console.log
+console.log("emP: "+emPosition);
+console.log("mp: "+mPosition);
 </script>
 
 </body>
