@@ -179,7 +179,7 @@
     #eventTitle{
     	width:130px;
     	height:20px;
-		overflow-x:hidden;
+		overflow:hidden;
     	text-overflow:ellipsis;
     }
     
