@@ -961,7 +961,7 @@ $("#main").on("mouseover",function(){
 	    		   alert("멤버등록이 완료되었습니다.")
 	    		   emptyMember();
 	    		   i=1;
-	    		   
+	    		   getMemberList();
 			    });
 		    
 		    
