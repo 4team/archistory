@@ -134,10 +134,10 @@ function getEventList(){
         eventLi="";
         console.log(list);        
         
-        	console.log("for문들어왔다");
 		list.each(function(idx,value){
 			        var event= this;
-			        //addMarker(event);					   
+			        //addMarker(event);		
+			        console.log(event);
 					console.log("list.each들어옴");
 					
 		        for(var i=0; i<list.length; i++){     	        	
