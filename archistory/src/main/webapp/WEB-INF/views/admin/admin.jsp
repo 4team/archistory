@@ -790,7 +790,8 @@ $("#main").on("mouseover",function(){
 	        
 	        $("#memberlist").on("click","#del",function(){
 	        	var select = $(this);
-	        	console.log(select.val()+"멤버삭제 ");
+	        	console.log(select.attr("value")+"멤버삭제 ");
+	        	
 
 		    });
 	        
