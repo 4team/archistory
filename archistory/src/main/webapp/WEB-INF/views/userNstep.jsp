@@ -155,7 +155,7 @@ var emarker;
 function addMarker(event){
 
  emarker = new daum.maps.Marker({
-    title: event.eventno,
+    title: event,
     position: new daum.maps.LatLng(event.lat,event.lng),
     clickable: true,
     
@@ -166,18 +166,18 @@ markers.push(emarker);
 
 //마커에 클릭이벤트를 등록합니다
 daum.maps.event.addListener(emarker, 'click', function() {
-	console.log("마커클릭!번호는?-->" + emarker.getTitle());
-	var eventno = emarker.getTitle();
-	showEvent(eventno);
+	console.log("emarker.getTitle()-->" + emarker.getTitle());
+	var select = $(this.getTitle());
+	showEvent(select);
 	 $("#eBox").modal('show');   
 });
 };
 
 
-function showEvent(eventno) {
+function showEvent(select) {
        eventLi += "<div class='form-group'>"+
-       "<label for='title'>"+eventno.title+"</label>"+
-       "<p class='form-control' id='content'>"+eventno.content+"</p>"+
+       "<label for='title'>"+select.title+"</label>"+
+       "<p class='form-control' id='content'>"+select.content+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
    }   
