@@ -160,7 +160,7 @@ function getEventList(){
 			        	//console.log(emPosition.zb);
 			       		};
 			 console.log("for문은 나옴");
-			        	console.log(emarkers[i].getTitle());
+			        //	console.log(emarkers[i].getTitle());
 			        	console.log(emarkers[i]);
 			 };
     });
