@@ -519,6 +519,7 @@
 				markers[0].setMap(null);
     		}
     	}
+    	
 		markers = [];
 		
 		linePath = [];	
