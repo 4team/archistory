@@ -134,10 +134,11 @@ function getEventList(){
         console.log(list);        
         
         for(var i=0; i<list.length; i++){     	        	
+        	console.log("for문들어왔다");
 			 list.each(function(idx,value){
 			        var event= this;
 			        //addMarker(event);					   
-					
+					console.log("list.each들어옴");
 			        	function addMarker(event){
 			        		emarkers[i] = new daum.maps.Marker({
 				        	    title: event.eventno,
