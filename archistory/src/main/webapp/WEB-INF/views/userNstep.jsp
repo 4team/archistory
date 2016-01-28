@@ -134,13 +134,13 @@ function getEventList(){
         eventLi="";
         console.log(list);        
         
-        for(var i=0; i<list.length; i++){     	        	
         	console.log("for문들어왔다");
-			 list.each(function(idx,value){
+		list.each(function(idx,value){
 			        var event= this;
 			        //addMarker(event);					   
 					console.log("list.each들어옴");
 					
+		        for(var i=0; i<list.length; i++){     	        	
 			        	function addMarker(event){
 			        		emarker = new daum.maps.Marker({
 				        	    title: event.eventno,
@@ -160,9 +160,9 @@ function getEventList(){
 			        	//emPosition = emarker[i].getPosition();
 			        	//console.log(emPosition.zb);
 			       		};
-			 });
-			 console.log("list.each는 나옴");
-    };
+			 console.log("for문은 나옴");
+			 };
+    });
     });
     };
 getEventList();
