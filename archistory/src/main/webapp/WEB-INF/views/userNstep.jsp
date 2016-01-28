@@ -123,7 +123,7 @@ var imageSize = new daum.maps.Size(24, 35);
 var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 
-
+var emarkers = [];
 //이벤트 가져오기
 function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
@@ -131,47 +131,35 @@ function getEventList(){
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
         var list = $(data);
         eventLi="";
-        console.log(data);
+        console.log(data);        
         
+        for(var i=0; i<list.length; i++){     	        	
+        	function addMarker(event){
+        		emarkers[i] = new daum.maps.Marker({
+	        	    title: event.eventno,
+	        	    position: new daum.maps.LatLng(event.lat,event.lng),
+	        	    clickable: true,    
+	        	});
+        	console.log("addmarker들어옴");
+        	emarker.setRange(100);
+        	emarker.setMap(map);
+        	markers.push(emarker);
+
+        	emPosition = emarker.getPosition();
+        	console.log(emPosition.zb);
+       	};       	
+        	
         list.each(function(idx,value){
             var event= this;
             addMarker(event);
 			showEvent(event);            
-        });
+        });        
+    };
     });
-}
+    };
 getEventList();
 
 
-//마커찍어주기
-var emarker;
-var emPosition;
-function addMarker(event){
-
- emarker = new daum.maps.Marker({
-    title: event.eventno,
-    position: new daum.maps.LatLng(event.lat,event.lng),
-    clickable: true,    
-});
-console.log("addmarker들어옴");
-emarker.setRange(100);
-emarker.setMap(map);
-markers.push(emarker);
-
-emPosition = emarker.getPosition();
-console.log(emPosition.zb);
-
-/* 
-//마커에 클릭이벤트를 등록합니다
-daum.maps.event.addListener(emarker, 'click', function() {
-	var select = $(mouseEvent.getTitle());
-	console.log(select);
-	showEvent(select);
-	 $("#eBox").modal('show');   
-}); */
-
-
-};
 
 function showEvent(event) {
        eventLi += "<div class='form-group'>"+
