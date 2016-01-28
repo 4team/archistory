@@ -882,8 +882,9 @@ $("#main").on("mouseover",function(){
 	                memberLi = "";
 
 	                list.each(function(idx,value){
-	                var member = this;
-	                memberList(member);
+		                var member = this;
+		                memberList(member);
+		                console.log("멤버 :"+member);
 	                });
 	            });
 	            
