@@ -76,7 +76,7 @@ function addMarker(event) {
     
     // 마커를 생성합니다
 		var marker = new daum.maps.Marker({
-           title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
+           title: '<div class="title">' + event.title+'</div><br>'+event.content + '<br>',
            position: new daum.maps.LatLng(event.lat,event.lng)
         });
 
@@ -173,41 +173,15 @@ var markers = null;
                 var event= this;
                 addMarker(event);
             });
-/*             
-        	// 지도에 표시할 선을 생성합니다
-        	polyline = new daum.maps.Polyline({
-        	    path: linePath, // 선을 구성하는 좌표배열 입니다
-        	    strokeWeight: 5, // 선의 두께 입니다
-        	    strokeColor: '#FFAE00', // 선의 색깔입니다
-        	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-        	    strokeStyle: 'solid' // 선의 스타일입니다
-        	});
-        	
-        	polyline.setMap(map);
-        	console.log(linePath); */
-        	
         });
-            callback();
-
+            
+        callback();
     }
 
 
 
     getEventList(function(){
     	console.log("getEventList의 콜백에 들어옴.");
-    	
-/*     	// 지도에 표시할 선을 생성합니다
-    polyline = new daum.maps.Polyline({
-   	    path: linePath, // 선을 구성하는 좌표배열 입니다
-   	    strokeWeight: 5, // 선의 두께 입니다
-   	    strokeColor: '#FFAE00', // 선의 색깔입니다
-   	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-   	    strokeStyle: 'solid' // 선의 스타일입니다
-   	});
-
-    	polyline.setMap(map);
-    	console.log(linePath); */
-    	
     });
 
 
