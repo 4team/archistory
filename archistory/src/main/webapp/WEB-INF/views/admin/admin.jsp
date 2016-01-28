@@ -793,11 +793,13 @@ $("#main").on("mouseover",function(){
 	        	var memberno = select.attr("value");
 	        	console.log(memberno+"멤버삭제 ");
 	        	
-	        	inviRemove(routeno,memberno);
+	        	inviRemove(routeno,memberno,function(){
+	        		console.log("멤버  invite, member 모두 삭제");
+	        	});
 
 		    });
 	        
-	        function inviRemove(routeno,memberno){
+	        function inviRemove(routeno,memberno,callback){
 	        	
 	        	  console.log("invite 삭제",routeno,memberno);
 
@@ -813,6 +815,7 @@ $("#main").on("mouseover",function(){
 			            }
 			    	});
 			        
+			        callback();
 			    }
 	    
 	        function memberRemove(memberno){
