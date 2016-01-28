@@ -22,6 +22,6 @@ public interface MemberMapper extends CRUDMapper<MemberVO,Integer>{
 	
 	public void inviteUpdate(InviteVO vo);
 	
-	public void inviteDelete(Integer inviteno);
+	public void inviteDelete(InviteVO vo);
 	
 }

@@ -58,7 +58,7 @@
 	</update>
 	
 	<delete id="inviteDelete">
-		delete from tbl_invite where inviteno=#{inviteno}
+		delete from tbl_invite where memberno=#{memberno} and routeno=#{routeno} ;
 	</delete>
 	
 </mapper>

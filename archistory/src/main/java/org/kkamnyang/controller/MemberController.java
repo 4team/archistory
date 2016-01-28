@@ -145,10 +145,20 @@ public class MemberController {
 		service.inviteModify(vo);
 	}
 	
-
-	public void inviteRemove(Integer inviteno) throws Exception {
-		service.inviteRemove(inviteno);
+	
+	@RequestMapping(value="/inviremove", method=RequestMethod.POST)
+	public ResponseEntity<String> inviteRemove(@RequestBody InviteVO vo) throws Exception {
+		System.out.println("==============Invite DELETE POST 호출");
+		ResponseEntity<String> entity = null;
+		try{
+			service.inviteRemove(vo);
+			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("=============Invite 삭제 완료");
+		}catch(Exception e ){
+			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+		}
 		
+		return entity;
 	}
 	
 }

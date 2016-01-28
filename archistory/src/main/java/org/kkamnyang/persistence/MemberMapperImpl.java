@@ -77,8 +77,8 @@ public class MemberMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> impl
 		
 	}
 	@Override
-	public void inviteDelete(Integer inviteNo) {
-		session.delete(namespace+".inviteDelete",inviteNo);
+	public void inviteDelete(InviteVO vo) {
+		session.delete(namespace+".inviteDelete",vo);
 		
 	}
 

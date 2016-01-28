@@ -64,8 +64,8 @@ public class MemberService {
 		mapper.inviteUpdate(vo);		
 	}
 	
-	public void inviteRemove(Integer inviteno) {
-		mapper.inviteDelete(inviteno);
+	public void inviteRemove(InviteVO vo) {
+		mapper.inviteDelete(vo);
 		
 	}
 	

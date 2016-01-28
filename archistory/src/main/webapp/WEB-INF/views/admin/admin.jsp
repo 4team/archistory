@@ -790,13 +790,49 @@ $("#main").on("mouseover",function(){
 	        
 	        $("#memberlist").on("click","#del",function(){
 	        	var select = $(this);
-	        	console.log(select.attr("value")+"멤버삭제 ");
+	        	var memberno = select.attr("value");
+	        	console.log(memberno+"멤버삭제 ");
 	        	
+	        	inviRemove(routeno,memberno);
 
 		    });
 	        
-	  
+	        function inviRemove(routeno,memberno){
+	        	
+	        	  console.log("invite 삭제",routeno,memberno);
+
+			        $.ajax({
+			            type:"post",
+			            url: "http://14.32.66.127:4000/member/inviremove",
+			            headers :{ "Content-Type" : "application/json"}, 
+			            dataType: "json",
+			            data : JSON.stringify({routeno:routeno,memberno:memberno}),
+			            success: function(data){
+			            	
+			            	console.log("invite 삭제 완료" );
+			            	memberRemove(memberno);
+			            	
+			            }
+			    	});
+			        
+			    }
 	    
+	        function memberRemove(memberno){
+	        	console.log("member 삭제", memberno);
+	        	
+	            $.ajax({
+		            type:"post",
+		            url: "http://14.32.66.127:4000/member/remove",
+		            headers :{ "Content-Type" : "application/json"}, 
+		            dataType: "json",
+		            data : JSON.stringify({memberno:memberno}),
+		            success: function(data){
+		            	console.log("member 삭제 완료 ");
+		            	
+		            }
+		    	});
+	        	
+	        }
 
 		    var contents=" ";
 		    var i=1;
