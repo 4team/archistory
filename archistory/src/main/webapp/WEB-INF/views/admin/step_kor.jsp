@@ -510,8 +510,12 @@
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
 		eventno=1;
+		console.log("=====================");
+		console.log(markers);
+		
     	if(markers){
     		for(var i = 0 ; i < markers.lenght; i++){
+    			console.log(markers[i]);
 				markers[0].setMap(null);
     		}
     	}
