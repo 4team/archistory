@@ -160,6 +160,7 @@ markers.push(emarker);
 
 emPosition = emarker.getPosition();
 console.log(emPosition);
+console.log(mPosition.getLat());
 
 /* 
 //마커에 클릭이벤트를 등록합니다
@@ -169,6 +170,8 @@ daum.maps.event.addListener(emarker, 'click', function() {
 	showEvent(select);
 	 $("#eBox").modal('show');   
 }); */
+
+
 };
 
 function showEvent(event) {
@@ -238,9 +241,6 @@ function displayMarker(locPosition, message) {
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
-if(mPosition.getLat()>emPosition.getLat()){
-	console.log(아아ㅓㄹ미아너ㅣㅁ런이마ㅓ리마ㅓ임);
-}
 
 </script>
 
