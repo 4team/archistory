@@ -206,7 +206,7 @@ if (navigator.geolocation) {
             if(mPosition.zb-emPosition.zb>0.0013){
             	 $("#eBox").modal('show');
             }
-            console.log((emPosition.zb-mPosition.zb).getLength());
+            console.log(Math.round((emPosition-mPosition).getLength()));
 
       });
     
