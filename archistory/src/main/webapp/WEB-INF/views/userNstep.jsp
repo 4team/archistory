@@ -38,6 +38,9 @@
         width: 100%;
         height: 100%;
     }
+    #myLocation{
+    position:absolute;
+    }
     ul li{
         list-style: none;
     }
@@ -79,6 +82,7 @@
 <body>
 
 <div id="map"></div>
+<div id="myLocation"></div>
 
 <div class="modal fade" id="eBox" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -200,6 +204,8 @@ function getLocation(){
         var lt = position.coords.latitude; // 위도
         var ln = position.coords.longitude; // 경도
         
+        $("#myLocation").html("<h3>"+lat+"</h3><br><h3>"+lng+"</h3>");
+        
         myLat = lt;
         myLng = ln;
         var locPosition = new daum.maps.LatLng(myLat, myLng); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
@@ -213,9 +219,8 @@ function getLocation(){
             map.setCenter(routeLoc);   
             
             
-          //내위치와 마커위치 계산해서 m로 나옴
-            function calDistance(eLat,eLng,myLat,myLng){  
-              
+          //내위치와 마커위치 미터단위로 계산하는 식
+            function calDistance(eLat,eLng,myLat,myLng){
             	var ret=0;
             	var latA=111;
             	var lngB=88.8;
@@ -226,12 +231,10 @@ function getLocation(){
             			)*1000;
             console.log(ret.toFixed(2));
             	
-
             if(ret.toFixed(2)<3){
             	 $("#eBox").modal('show');
             }
             }
-
       });
 };
 
