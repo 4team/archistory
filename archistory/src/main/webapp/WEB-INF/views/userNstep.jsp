@@ -206,11 +206,10 @@ if (navigator.geolocation) {
          lt = position.coords.latitude; // 위도
          ln = position.coords.longitude; // 경도
         
-        var locPosition = new daum.maps.LatLng(lt, ln), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-            message = '<div style="padding:5px;">나 여기있징</div>'; // 인포윈도우에 표시될 내용입니다
-        
+        var locPosition = new daum.maps.LatLng(lt, ln) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+           
         // 마커와 인포윈도우를 표시합니다
-        displayMarker(locPosition, message);
+        displayMarker(locPosition);
             console.log("내위도경도:" + lt + "," + ln);
             
             var routeLoc = new daum.maps.LatLng(lat, lng)
@@ -250,7 +249,7 @@ function displayMarker(locPosition, message) {
     }); 
     mPosition = marker.getPosition();
     
-    var iwContent =  '<div style="padding:3px; width:100px;">My Location</div>', // 인포윈도우에 표시할 내용
+    var iwContent =  '<div style="padding:3px;">My Location</div>', // 인포윈도우에 표시할 내용
         iwRemoveable = true;
 
     // 인포윈도우를 생성합니다
