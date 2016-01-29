@@ -113,7 +113,7 @@ var events = [];
 var mapContainer = document.getElementById('map'),
 		mapOption = { 
 		    center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
-		    level: 2
+		    level: 4
 		    };
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
