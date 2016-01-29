@@ -614,7 +614,7 @@
 	    });
 
     //이벤트 리스트 삭제버튼
-    $(".ui-state-default").on("click","#del",function(event){
+    $("#sortable").on("click","#del",function(event){
         var select = $(this);
         removeQuestion(select.attr("value"));
         removeEvent(select.attr("value"),function(){
@@ -625,7 +625,7 @@
     });
 
     //이벤트 리스트 수정 버튼
-    $(".ui-state-default").on("click","#modi",function(event){
+    $("#sortable").on("click","#modi",function(event){
         var select = $(this);
 
         viewEvent(select.attr("value"));
