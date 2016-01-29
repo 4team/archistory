@@ -133,7 +133,11 @@ function getEventList(){
         eventLi="";
         console.log(list);        
 	
-        
+      /*   for(var i=0; i<list.length; i++){
+        	var event = list[i];
+        	
+        	
+        } */
 		list.each(function(idx,value){
 			        var event= this;
 			        addMarker(event);		
@@ -152,8 +156,8 @@ function getEventList(){
 			        	console.log("addmarker들어옴");
 			        	
 			        	emarker.setMap(map);
-			        	emarkers[idx].push(emarker);
-			        	var emT = emarkers[idx].getTitle();
+			        	emarkers.push(emarker);
+			        	var emT = emarkers.getTitle();
 			        	showEvent(emT);
 			        	
 			        	//emPosition = emarker[i].getPosition();
@@ -161,7 +165,8 @@ function getEventList(){
 			       		};
 			 console.log("for문은 나옴");
 			        //	console.log(emarkers[i].getTitle());
-			        	console.log(emarkers[idx]);
+			        	console.log(emarkers[0]);
+			        	console.log(emarkers[1]);
     });
     };
 getEventList();
