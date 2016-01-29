@@ -189,30 +189,51 @@ function showEvent(emT) {
 
 //------------------------------- Geolocation -----------------------------------
 
-var lt;
-var ln;
+var myLat=0;
+var myLng=0;
+window.addEventListener('deviceorientation',getLocation);
 
+function getLocation(){
     // GeoLocation을 이용해서 접속 위치를 얻어옵니다
     navigator.geolocation.getCurrentPosition(function(position) {
         
-         lt = position.coords.latitude; // 위도
-         ln = position.coords.longitude; // 경도
+        var lt = position.coords.latitude; // 위도
+        var ln = position.coords.longitude; // 경도
         
-        var locPosition = new daum.maps.LatLng(lt, ln) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+        myLat = lt;
+        myLng = ln;
+        var locPosition = new daum.maps.LatLng(myLat, myLng); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
            
         // 마커와 인포윈도우를 표시합니다
         displayMarker(locPosition);
-            console.log("내위도경도:" + lt + "," + ln);
+            console.log("내위도경도:" + myLat + "," + myLng);
             
             var routeLoc = new daum.maps.LatLng(lat, lng)
             // 지도 중심좌표를 루트로 변경
             map.setCenter(routeLoc);   
             
             
-        	calDistance(eLat,eLng,lt,ln);
+          //내위치와 마커위치 계산해서 m로 나옴
+            function calDistance(eLat,eLng,myLat,myLng){  
+              
+            	var ret=0;
+            	var latA=111;
+            	var lngB=88.8;
+            	ret = Math.sqrt(
+            			Math.pow((Math.abs(eLat-myLat)*latA),2)
+            			+
+            			Math.pow((Math.abs(eLng-myLng)*lngB),2)
+            			)*1000;
+            console.log(ret.toFixed(2));
+            	
+
+            if(ret.toFixed(2)<3){
+            	 $("#eBox").modal('show');
+            }
+            }
 
       });
- 
+};
 
 // 지도에 마커와 인포윈도우를 표시하는 함수입니다
 var marker;
@@ -243,24 +264,7 @@ function displayMarker(locPosition, message) {
 
 //-----------------------------------END Geolocation-----------------------------------------
 
-//내위치와 마커위치 계산해서 m로 나옴
-function calDistance(eLat,eLng,lt,ln){  
-  
-	var ret=0;
-	var latA=111;
-	var lngB=88.8;
-	ret = Math.sqrt(
-			Math.pow((Math.abs(eLat-lt)*latA),2)
-			+
-			Math.pow((Math.abs(eLng-ln)*lngB),2)
-			)*1000;
-console.log(ret.toFixed(2));
-	
 
-if(ret.toFixed(2)<3){
-	 $("#eBox").modal('show');
-}
-}
 
 </script>
 
