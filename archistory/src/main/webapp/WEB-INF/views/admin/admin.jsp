@@ -1027,6 +1027,7 @@ $("#main").on("mouseover",function(){
 	        	var memberno = select.attr("value");
 	        	console.log("멤버수정 "+memberno);
 	        	
+	        	$("#modiMemberModal").modal('show');
 	        	viewMember(memberno);
 		    });
 	     
@@ -1038,7 +1039,6 @@ $("#main").on("mouseover",function(){
 	    		 
 	    		 console.log(member);
 	    		 console.log(member.userNo);
-	    		 
 	    		 
 	    		 $("#modinumber").val(member.userNo);
 	    		 $("#modiname").val(member.userName);
