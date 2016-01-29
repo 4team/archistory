@@ -697,6 +697,7 @@
             clearEventDiv();
         	attach = [];
         	eventno++;
+        	youtubeId ="";
 
         });
 
