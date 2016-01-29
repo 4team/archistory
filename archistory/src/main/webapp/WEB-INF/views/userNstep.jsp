@@ -171,7 +171,7 @@ function addMarker(event){
  */ 
  console.log(emPosition.zb);
  console.log(emPosition.Ab);
- var mezb = mPosition.zb;
+ var mezb = emPosition.zb;
  console.log(mezb);
  
 			    		//내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
