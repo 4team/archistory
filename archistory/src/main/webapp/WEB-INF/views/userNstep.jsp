@@ -143,6 +143,7 @@ function getEventList(){
     };
 getEventList();
 
+var emT;
 function addMarker(event){
 	emarker = new daum.maps.Marker({
 				      title: event.eventno,
@@ -152,21 +153,25 @@ function addMarker(event){
 			        	console.log("addmarker들어옴");
 			        	
 			        	emarker.setMap(map);
-			        	emarkers.push(emarker);			        	
-			        	};
-			        	console.log(emarkers[0]);
-			        	console.log(emarkers[1]);
-			        	console.log(emarkers[i].getTitle());
+			        	emarkers.push(emarker);		
 			        	
-			        	var emT = emarkers[i].getTitle();
-			        	showEvent(emT);
+			        	emT = emarker.getTitle();
+			    		showEvent(emT);
+};
+			        
+console.log(emarkers);
+console.log(emarkers[0]);
+console.log(emarkers[1]);
+console.log(emarkers[i].getTitle());
+
+ 
 			        	
 			        	
 function showEvent(emT) {	
 	$.getJSON("http://14.32.66.127:4000/event/view?eventno="+emT,function(data){
         var list = $(data);
         eventLi="";
-        console.log(data);      
+        console.log(list);      
         
        eventLi += "<div class='form-group'>"+
        "<label for='title'>"+list.attr(title)+"</label>"+
