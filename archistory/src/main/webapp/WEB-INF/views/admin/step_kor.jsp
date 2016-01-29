@@ -1263,7 +1263,6 @@
 
     });
 
-
     $("#moqCheck").on("click",function(){
         if(this.checked==true){
             $("#moquestionDiv").show();
