@@ -214,7 +214,7 @@ if (navigator.geolocation) {
     		var distance = Math.sqrt(Math.pow((meAb),2)+Math.pow((mezb),2));
     		console.log(distance);
     		
-                if(distance>0.0013){
+                if(distance<0.0013){
                 	 $("#eBox").modal('show');
                 }
 
