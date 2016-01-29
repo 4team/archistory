@@ -178,11 +178,11 @@ function showEvent(emT) {
         var list = $(data);
         eventLi="";
         console.log(list);      
-        console.log(list.attr(title));
+        console.log(list.attr("title"));
         
        eventLi += "<div class='form-group'>"+
-       "<label for='title'>"+list.title+"</label>"+
-       "<p class='form-control' id='content'>"+list.content+"</p>"+
+       "<label for='title'>"+list.attr("title")+"</label>"+
+       "<p class='form-control' id='content'>"+list.attr("content")+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
    });
