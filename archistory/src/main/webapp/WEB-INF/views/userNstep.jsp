@@ -171,9 +171,11 @@ function addMarker(event){
  */ 
  console.log(emPosition.zb);
  console.log(emPosition.Ab);
+ var mezb = mPosition.zb;
+ console.log(mezb);
  
 			    		//내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
-			    		var meAb = (mPosition.Ab)-(emPosition.Ab);
+/* 			    		var meAb = (mPosition.Ab)-(emPosition.Ab);
 			    		var mezb = (mPosition.zb)-(emPosition.zb);
 			    		var distance = Math.sqrt(Math.pow((meAb),2)+Math.pow((mezb),2));
 			    		console.log(distance);
@@ -181,7 +183,7 @@ function addMarker(event){
 			                if(distance>0.0013){
 			                	 $("#eBox").modal('show');
 			                }
- };
+ */ };
 			        				        	
 function showEvent(emT) {
 	console.log("showEvent 들어옴");
