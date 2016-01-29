@@ -185,6 +185,10 @@
     	float:left;
     }
     
+     #yClose{
+    	background-color: white;
+    }
+    
 </style>
 
 <script type="text/javascript" src="/js/upload.js"></script>
@@ -210,6 +214,7 @@
 <div id="map"></div>
 
 <div id="searchDiv">
+	<button type="button" id="yClose" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 	<div id="search-container"></div>
 </div>
 
@@ -1556,6 +1561,10 @@
            $("#youtubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
            $("#myoutubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
            
+       });
+       
+       $("#yClose").on("click",function(){
+       	$("#searchDiv").hide();
        });
        
 </script>
