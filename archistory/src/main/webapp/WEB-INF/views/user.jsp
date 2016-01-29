@@ -54,6 +54,7 @@ position:fixed;
 #yesModal{
 display:none;
 z-index:9999;
+margin-top:30%;
 }
 </style>
 
