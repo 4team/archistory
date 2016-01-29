@@ -1030,12 +1030,9 @@ $("#main").on("mouseover",function(){
 	        	viewMember(memberno);
 		    });
 	     
-	     
-	
-	     
+
 	     function viewMember(memberno){
-	    	 
-	    	 $.getJson("http://14.32.66.127:4000/member/view?memberno="+memberno,function(data){
+	    	 $.getJSON("http://14.32.66.127:4000/member/view?memberno="+memberno,function(data){
 	    		 
 	    		 var member = $(data);
 	    		 
