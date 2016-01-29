@@ -242,13 +242,12 @@ function displayMarker(locPosition, message) {
     marker.setRange(100);
     mPosition = marker.getPosition();
     
-    var iwContent = message, // 인포윈도우에 표시할 내용
+    var iwContent =  '<div style="padding:5px;">나의 현재 위치</div>', // 인포윈도우에 표시할 내용
         iwRemoveable = true;
 
     // 인포윈도우를 생성합니다
     var infowindow = new daum.maps.InfoWindow({
-        content : iwContent,
-        removable : iwRemoveable
+        content : iwContent
     });
     
     // 인포윈도우를 마커위에 표시합니다 
