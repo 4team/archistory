@@ -749,11 +749,10 @@
                     console.log("이벤트 생성중 - 문제있음.")
                     createQuestion(qJson);
                 }
-                
-		        callback();
-		        
+
             }
         });
+        callback();
     };
 
  
