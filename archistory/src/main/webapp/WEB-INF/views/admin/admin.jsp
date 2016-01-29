@@ -1061,6 +1061,8 @@ $("#main").on("mouseover",function(){
         	 
         	 modifyMember(memNumber,userNo,userName,email,mPassword);
         	 
+        	 $("#modiMemberModal").modal('hide');
+        	 
          });
          
          function modifyMember(memNumber,userNo,userName,email,mPassword){
