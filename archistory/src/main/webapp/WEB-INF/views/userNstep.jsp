@@ -169,13 +169,7 @@ function addMarker(event){
 			    		showEvent(emT);
 
 			    		var title2 = emarker.getTitle();
-			    		
-/*  daum.maps.event.addListener(emarker, 'click', function(title2) {
-    $("#eBox").modal('show');
-    
-});       
- */
- };
+};
 
 function showEvent(emT) {
 	console.log("showEvent 들어옴");
@@ -197,9 +191,7 @@ function showEvent(emT) {
 
 var lt;
 var ln;
-//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-if (navigator.geolocation) {
-    
+
     // GeoLocation을 이용해서 접속 위치를 얻어옵니다
     navigator.geolocation.getCurrentPosition(function(position) {
         
@@ -218,26 +210,9 @@ if (navigator.geolocation) {
             
             
         	calDistance(eLat,eLng,lt,ln);
-          //내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
-    		/* var meAb = (mPosition.Ab)-(emPosition.Ab);
-    		var mezb = (mPosition.zb)-(emPosition.zb);
-    		var distance = Math.sqrt(Math.pow((meAb),2)+Math.pow((mezb),2));
-    		console.log(distance);
-    		
-                if(distance<0.0013){
-                	 $("#eBox").modal('show');
-                } */
 
       });
-    
-} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-    
-    var locPosition = new daum.maps.LatLng(33.450701, 126.570667),    
-        message = 'geolocation을 사용할수 없어요..'
-        
-    displayMarker(locPosition, message);
-    console.log("geolocation 사용불가");
-}
+ 
 
 // 지도에 마커와 인포윈도우를 표시하는 함수입니다
 var marker;
@@ -268,7 +243,7 @@ function displayMarker(locPosition, message) {
 
 //-----------------------------------END Geolocation-----------------------------------------
 
-
+//내위치와 마커위치 계산해서 m로 나옴
 function calDistance(eLat,eLng,lt,ln){  
   
 	var ret=0;
