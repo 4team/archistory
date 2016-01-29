@@ -136,7 +136,7 @@ function getEventList(){
     for(var i=0; i<list.length; i++){
    	 console.log("for문 들어옴");
         	var event = list[i];
-        	
+        	console.log(event);
 			        	(function addMarker(event){
 			        		emarker = new daum.maps.Marker({
 				        	    title: event.eventno,
