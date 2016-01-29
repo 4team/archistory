@@ -390,6 +390,43 @@
     </div>
 </div>
 
+<!-- member view modal-->
+
+<div class="modal fade" id="modiMemberModal" tabindex="-1" role="dialog" aria-labelledby="modiMemberModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">멤버 수정  </h4>
+            </div>
+            <div class="modal-body">
+               
+               	 <table>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>이메일</th>
+                        <th>비밀번호</th>
+                    </tr>
+                    <tr>
+	                    <td><input type='text' class='form-control' id="modinumber"></td>
+			            <td><input type='text' class='form-control' id="modiname"></td>
+			            <td><input type='email' class='form-control' id="modiemail"></td>
+			            <td><input type='password' class='form-control' id="modipassword"></td>
+		            </tr>
+                </table>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="modiMemberBtn" class="btn btn-create">수정 </button>
+                <button type="button" id="modiCancleBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <button type="button" id="routeCreate" class="btn btn-default">루트생성하기</button>
 
 <meta name="_csrf" content="${_csrf.token }"/>
@@ -747,7 +784,7 @@ $("#main").on("mouseover",function(){
 	        	console.log("멤버 있음.");
 	        	
 	            memberLi +="<li>"+data.userName+ "<div class='gly'>"+
-	            "<span class='glyphicon glyphicon-pencil' id='modi'></span>" +
+	            "<span class='glyphicon glyphicon-pencil' id='modi'value='"+data.memberno+"'></span>" +
 	            "<span class='glyphicon glyphicon-remove' id='del' value='"+data.memberno+"'></span></div></li>";
 
 	            $("#memberlist").html(memberLi);
@@ -788,55 +825,7 @@ $("#main").on("mouseover",function(){
 	        	console.log("routeno :" + routeno);
 	        });
 	        
-	        $("#memberlist").on("click","#del",function(){
-	        	var select = $(this);
-	        	var memberno = select.attr("value");
-	        	console.log(memberno+"멤버삭제 ");
-	        	
-	        	inviRemove(routeno,memberno);
-	        	//memberRemove(memberno);
-	        	
-	        	//getMemberList();
-
-		    });
 	        
-	        function inviRemove(routeno,memberno){
-	        	
-	        	  console.log("invite 삭제",routeno,memberno);
-
-			        $.ajax({
-			            type:"post",
-			            url: "http://14.32.66.127:4000/member/inviteremove",
-			            headers :{ "Content-Type" : "application/json"}, 
-			            dataType: "json",
-			            data : JSON.stringify({routeno:routeno,memberno:memberno}),
-			            complete: function(data){
-			            	console.log(data);
-			            	console.log("invite 삭제 완료" );
-			            	memberRemove(memberno);
-			            }
-			    	});
-	
-			    }
-	    
-	        function memberRemove(memberno){
-	        	console.log("member 삭제", memberno);
-	        	
-	            $.ajax({
-		            type:"post",
-		            url: "http://14.32.66.127:4000/member/remove",
-		            headers :{ "Content-Type" : "application/json"}, 
-		            dataType: "json",
-		            data : JSON.stringify({memberno:memberno}),
-		            complete: function(data){
-		            	console.log(data);
-		            	console.log("member 삭제 완료 ");
-		            	getMemberList();
-		            }
-		    	});
-	        	
-	        }
-
 		    var contents=" ";
 		    var i=1;
 		    var j=1;
@@ -980,7 +969,90 @@ $("#main").on("mouseover",function(){
 		    
 	    
 	
+		    //멤버 삭제 
+		    
+		    $("#memberlist").on("click","#del",function(){
+	        	var select = $(this);
+	        	var memberno = select.attr("value");
+	        	console.log("멤버삭제 "+memberno);
+	        	
+	        	inviRemove(routeno,memberno);
+	        	//memberRemove(memberno);
+	        	
+	        	//getMemberList();
+
+		    });
+	        
+	        function inviRemove(routeno,memberno){
+	        	
+	        	  console.log("invite 삭제",routeno,memberno);
+
+			        $.ajax({
+			            type:"post",
+			            url: "http://14.32.66.127:4000/member/inviteremove",
+			            headers :{ "Content-Type" : "application/json"}, 
+			            dataType: "json",
+			            data : JSON.stringify({routeno:routeno,memberno:memberno}),
+			            complete: function(data){
+			            	console.log(data);
+			            	console.log("invite 삭제 완료" );
+			            	memberRemove(memberno);
+			            }
+			    	});
+	
+			    }
+	    
+	        function memberRemove(memberno){
+	        	console.log("member 삭제", memberno);
+	        	
+	            $.ajax({
+		            type:"post",
+		            url: "http://14.32.66.127:4000/member/remove",
+		            headers :{ "Content-Type" : "application/json"}, 
+		            dataType: "json",
+		            data : JSON.stringify({memberno:memberno}),
+		            complete: function(data){
+		            	console.log(data);
+		            	console.log("member 삭제 완료 ");
+		            	getMemberList();
+		            }
+		    	});
+	        	
+	        }
+
+	        
+	     //멤버 수정 
+	        $("#memberlist").on("click","#modi",function(){
+	        	var select = $(this);
+	        	var memberno = select.attr("value");
+	        	console.log("멤버수정 "+memberno);
+	        	
+	        	viewMember(memberno);
+		    });
 	     
+	     
+	
+	     
+	     function viewMember(memberno){
+	    	 
+	    	 $.getJson("http://14.32.66.127:4000/member/view?memberno="+memberno,function(data){
+	    		 
+	    		 var member = $(data);
+	    		 
+	    		 console.log(member);
+	    		 console.log(member.userNo);
+	    		 
+	    		 
+	    		 $("#modinumber").val(member.userNo);
+	    		 $("#modiname").val(member.userName);
+	    		 $("#modiemail").val(member.email);
+	    		 $("#modipassword").val(member.mPassword);
+	    		 
+	    	 });
+	    	 
+	     }
+	        
+	        
 	</script>
 
 </body>

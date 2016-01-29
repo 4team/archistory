@@ -50,9 +50,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
-	public MemberVO view(@RequestParam("memberno") Integer memberNo, HttpServletRequest request )throws Exception{
+	public MemberVO view(@RequestParam("memberno") Integer memberno, HttpServletRequest request )throws Exception{
 		System.out.println("===========멤버 VIEW GET 호출==============");
-		MemberVO vo = service.view(memberNo);
+		MemberVO vo = service.view(memberno);
 		System.out.println(vo);
 		return vo;
 	}
@@ -98,8 +98,8 @@ public class MemberController {
 		service.participateU(vo);
 	}
 	
-	public void finish(Integer memberNo)throws Exception{
-		service.finish(memberNo);
+	public void finish(Integer memberno)throws Exception{
+		service.finish(memberno);
 	}
 	
 	
