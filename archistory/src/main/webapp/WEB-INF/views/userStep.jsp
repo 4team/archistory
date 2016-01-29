@@ -135,9 +135,33 @@
 </div>
 
 
+
+<!-- Youtube 영상이 있을 시 뜨는 모달 -->
 <div class="modal fade" id="videoModal" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div id="movieShow"></div>
+    </div>
+</div>
+
+
+<!-- 퀴즈의 정보를 보여주는 모달 -->
+<div class="modal fade" id="questionModal" aria-labelledby="editModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+
+        <div id="questionDiv" class="panel panel-primary">
+            <div class="panel-heading">
+                QUIZ
+            </div>
+            <div class="panel-body">
+
+                <div id="qustionImg"></div>
+                <div id="qustionContent"></div>
+                <div id="selectContainer"></div>
+
+                <button id="submitBtn">Submit</button>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -152,10 +176,17 @@
     var routeno = ${routeno};
     var lat = ${lat};
     var lng = ${lng};
+    
+    var memberno = 0;
+    
+    memberno = 68;
 
     var eventEA = 0;
+    var nowEventNo = null;
     var nowOrder = 1;
 
+    
+    
     var eventGroup = null;
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -263,9 +294,10 @@
     function getEventByOrder(eventOrder,callback){
         console.log("=====현재 이벤트순서로 이벤트 불러오기 호출=====");
         $.getJSON("http://14.32.66.127:4000/event/getByOrder?routeno="+routeno+"&order="+eventOrder,function(data){
-
+			
            console.log("현재 이벤트 순서에 해당하는 EventVO는?");
            var eventVO = $(data);
+           nowEventNo = eventVO.eventno;
            console.log(eventVO);
            callback(eventVO[0]);
 
@@ -322,9 +354,23 @@
 
 
     $("#nextBtn").on("click",function(event){
+    	event.preventDefault();
         console.log("NEXT - 문제 출력");
-
+        
+        $.getJSON("http://14.32.66.127:4000/event/view?eventno="+nowOrder,function(data){
+        	
+        	if(data){
+        		console.log("Question이 있어서 불러왔다.",data);
+				$("#questionModal").modal("show");
+        	}else{
+        		console.log("Question이 없다.");
+        	}
+        	
+        });
+		
     });
+    
+    
 
 
 </script>
