@@ -124,35 +124,32 @@ var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 
 var emarkers = [];
-var emarker;
+var num=-1;
 //이벤트 가져오기
 function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
-        var list = $(data);
-        var enoList =[];
-
-        	for(var i=0; i<list.length; i++){
-        		enoList.push(list[i].eventno);
-        	}
-        	
-        console.log(list);
-        console.log(enoList);
-        
-        var minEno = Math.min.apply(null, enoList);
-        console.log(Math.min.apply(null, enoList));
-        
-        addMarker(minEno);
+    	num++;
+    	
+    	var list = $(data);
+    	
+   		var event = list[num];
+		addMarker(event);
+		
+		console.log(list);
+    	console.log(num);
+    	console.log(event);
+	}        
     });
     };
 getEventList();
 
 
 var emT;
-var emPosition;
-function addMarker(minEno){
-	emarker = new daum.maps.Marker({
-				      title: minEno,
+var emPosition;	
+function addMarker(event){
+	var emarker = new daum.maps.Marker({
+				      title: event.eventno,
 				      position: new daum.maps.LatLng(event.lat,event.lng),
 				      clickable: true
 					});			        		
@@ -171,11 +168,10 @@ function addMarker(minEno){
     console.log(title2);
     $("#eBox").modal('show');
     
-});
- 
- 			    		
+});        		 			    		
 };
-			        				        	
+
+		        				        	
 function showEvent(emT) {
 	console.log("showEvent 들어옴");
 	$.getJSON("http://14.32.66.127:4000/event/view?eventno="+emT,function(data){
@@ -214,14 +210,14 @@ if (navigator.geolocation) {
             console.log("내위도경도:" + lt + "," + ln);
             
           //내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
-    		/* var meAb = (mPosition.Ab)-(emPosition.Ab);
+    		var meAb = (mPosition.Ab)-(emPosition.Ab);
     		var mezb = (mPosition.zb)-(emPosition.zb);
     		var distance = Math.sqrt(Math.pow((meAb),2)+Math.pow((mezb),2));
     		console.log(distance);
     		
                 if(distance<0.0013){
                 	 $("#eBox").modal('show');
-                } */
+                }
 
       });
     
