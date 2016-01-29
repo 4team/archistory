@@ -174,9 +174,6 @@
 		overflow-y: scroll; 
     }
     
-    #eventList li{
-
-    }
 
     #eventTitle{
     	width:130px;
@@ -205,11 +202,7 @@
 	     height: 30px; 
      }
      
-     #sortable li span { 
-	     position: absolute; 
-	     margin-left: -1.3em; 
-	     float:right;
-     }
+ 
     
 </style>
 
