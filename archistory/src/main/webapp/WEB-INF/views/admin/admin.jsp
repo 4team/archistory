@@ -899,8 +899,7 @@ $("#main").on("mouseover",function(){
 					  success: function(data){
 						  console.log("멤버등록완료")
 						  console.log("memberno :"+ data);
-						  regiInvite(routeno,data);
-						  
+						  regiInvite(routeno,data);  
 					  }				   
 				   });
 					   callback();
@@ -941,6 +940,12 @@ $("#main").on("mouseover",function(){
 		    	
 		    	console.log(memberJson);
 		    	console.log("routeno :"+routeno);
+		    	
+		    	var mem = JSON.parse(memberJson);
+		    	
+		    	if(!mem){
+		    		alret("멤버 정보를 입력하세요.");
+		    	}
 		    	
 	    		 for(var k=1;k<i+1;k++){
 	    			 repeat();
