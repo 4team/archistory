@@ -169,7 +169,8 @@ function addMarker(event){
     
 });
  */ 
- console.log(emPosition);
+ console.log(emPosition.zb);
+ console.log(emPosition.Ab);
 			    		//내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
 			    		var distance = Math.sqrt(Math.pow((mPosition.Ab-emPosition.Ab),2)+Math.pow((mPosition.zb-emPosition.zb),2));
 			    		console.log(distance);
