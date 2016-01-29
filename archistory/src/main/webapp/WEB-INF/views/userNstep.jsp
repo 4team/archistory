@@ -130,18 +130,19 @@ function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
         var list = $(data);
- list.shift();
- 
+        var enoList =[];
+
+        	for(var i=0; i<list.length; i++){
+        		enoList.push(list[i].eventno);
+        	}
+        	
         console.log(list);
         console.log(enoList);
         
+        var minEno = Math.min.apply(null, enoList);
+        console.log(Math.min.apply(null, enoList));
         
-        list.each(function(idx,value){
-	        var event= this;
-	        console.log("list.each들어옴");
-	        addMarker(event);		
-			
-	    });
+        addMarker(minEno);
     });
     };
 getEventList();
@@ -149,9 +150,9 @@ getEventList();
 
 var emT;
 var emPosition;
-function addMarker(event){
+function addMarker(minEno){
 	emarker = new daum.maps.Marker({
-				      title: event.eventno,
+				      title: minEno,
 				      position: new daum.maps.LatLng(event.lat,event.lng),
 				      clickable: true
 					});			        		
