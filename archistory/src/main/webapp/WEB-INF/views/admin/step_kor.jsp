@@ -190,8 +190,8 @@
     	color: white;
     }
     
-        #sortable { list-style-type: none; margin: 0; padding: 0; width: 70%; }
-        #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1em; height: 20px; }
+        #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+        #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1em; height: 30px; }
         #sortable li span { position: absolute; margin-left: -1.3em; }
     
 </style>
