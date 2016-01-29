@@ -162,15 +162,13 @@ function addMarker(event){
 			    		showEvent(emT);
 
 			    		var title2 = emarker.getTitle();
-    console.log(title2);
 			    		
- daum.maps.event.addListener(emarker, 'click', function(title2) {
+/*  daum.maps.event.addListener(emarker, 'click', function(title2) {
     $("#eBox").modal('show');
     
 });       
- 
-
-};
+ */
+ };
 
 function showEvent(emT) {
 	console.log("showEvent 들어옴");
@@ -192,7 +190,8 @@ function showEvent(emT) {
 
 var lt;
 var ln;
-
+var eLat = event.lat;
+var eLng = event.lng;
 //HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 if (navigator.geolocation) {
     
@@ -212,8 +211,7 @@ if (navigator.geolocation) {
             // 지도 중심좌표를 루트로 변경
             map.setCenter(routeLoc);   
             
-            var eLat = event.lat;
-            var eLng = event.lng;
+            
         	calDistance(eLat,eLng,lt,ln);
         	console.log(ret.toFixed(2));
           //내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
