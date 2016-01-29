@@ -1049,7 +1049,7 @@ $("#main").on("mouseover",function(){
 	     }
 	     
 	     
-         $("modiMemberBtn").on("click",function(){
+         $("#modiMemberBtn").on("click",function(){
         	 
         	 console.log("멤버수정 시도!")
         	 
