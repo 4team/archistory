@@ -207,7 +207,8 @@
      
      #sortable li span { 
 	     position: absolute; 
-	     
+	     margin-left: -1.3em; 
+	     float:right;
      }
     
 </style>
