@@ -180,8 +180,8 @@ function showEvent(emT) {
         console.log(list);      
         
        eventLi += "<div class='form-group'>"+
-       "<label for='title'>"+list.title+"</label>"+
-       "<p class='form-control' id='content'>"+list.content+"</p>"+
+       "<label for='title'>"+list.getTitle()+"</label>"+
+       "<p class='form-control' id='content'>"+list.getContent()+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
    });
