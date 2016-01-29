@@ -50,7 +50,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
-	public MemberVO view(@RequestParam("memberno") Integer memberno, HttpServletRequest request )throws Exception{
+	public @ResponseBody MemberVO view(@RequestParam("memberno") Integer memberno, HttpServletRequest request )throws Exception{
 		System.out.println("===========멤버 VIEW GET 호출==============");
 		MemberVO vo = service.view(memberno);
 		System.out.println(vo);
