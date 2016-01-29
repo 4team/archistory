@@ -136,6 +136,7 @@ public class EventController {
 	  
 	  @RequestMapping(value="/getByOrder")
 	  public EventVO getByOrder(@RequestParam("routeno")Integer routeno,@RequestParam("order")Integer eorder){
+		  
 		  System.out.println("[GET BY ORDER 호출] "+routeno+"번 루트의 "+eorder+"번째 이벤트 ");
 		  EventVO vo = new EventVO();
 		  vo.setRouteno(routeno);
