@@ -133,37 +133,35 @@ function getEventList(){
         eventLi="";
         console.log(list);        
 	
-    for(var i=0; i<list.length; i++){
-   	 console.log("for문 들어옴");
-        	var event = list[i];
-        	console.log(event);
-        	addMarker(event);
-			        	(function addMarker(event){
-			        		emarker = new daum.maps.Marker({
-				        	    title: event.eventno,
-				        	    position: new daum.maps.LatLng(event.lat,event.lng),
-				        	    clickable: true
-				        	});
-			        		
+        list.each(function(idx,value){
+	        var event= this;
+	        addMarker(event);		
+	        console.log("list.each들어옴");
+			
+	    });
+    });
+    };
+getEventList();
+
+function addMarker(event){
+	emarker = new daum.maps.Marker({
+				      title: event.eventno,
+				      position: new daum.maps.LatLng(event.lat,event.lng),
+				      clickable: true
+					});			        		
 			        	console.log("addmarker들어옴");
 			        	
 			        	emarker.setMap(map);
-			        	emarkers[i].push(emarker);
-			        	
+			        	emarkers.push(emarker);			        	
+			        	};
 			        	console.log(emarkers[0]);
 			        	console.log(emarkers[1]);
 			        	console.log(emarkers[i].getTitle());
 			        	
 			        	var emT = emarkers[i].getTitle();
 			        	showEvent(emT);
-			        	});
-        	
-        }	
-		
-    });
-    };
-getEventList();
-
+			        	
+			        	
 function showEvent(emT) {	
 	$.getJSON("http://14.32.66.127:4000/event/view?eventno="+emT,function(data){
         var list = $(data);
