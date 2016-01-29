@@ -168,6 +168,16 @@ function addMarker(event){
     $("#eBox").modal('show');
     
 });        		 			    		
+ 
+ var iwContent =  '<div style="padding:3px; align:center;">Move to Here</div>', // 인포윈도우에 표시할 내용
+
+// 인포윈도우를 생성합니다
+var infowindow = new daum.maps.InfoWindow({
+ content : iwContent
+});
+
+// 인포윈도우를 마커위에 표시합니다 
+infowindow.open(map, emarker);
 };
 
 		        				        	
@@ -208,15 +218,19 @@ if (navigator.geolocation) {
         displayMarker(locPosition, message);
             console.log("내위도경도:" + lt + "," + ln);
             
+            var routeLoc = new daum.maps.LatLng(lat, lng)
+            // 지도 중심좌표를 루트로 변경
+            map.setCenter(routeLoc);   
+            
           //내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
-    		var meAb = (mPosition.Ab)-(emPosition.Ab);
+    		/* var meAb = (mPosition.Ab)-(emPosition.Ab);
     		var mezb = (mPosition.zb)-(emPosition.zb);
     		var distance = Math.sqrt(Math.pow((meAb),2)+Math.pow((mezb),2));
     		console.log(distance);
     		
                 if(distance<0.0013){
                 	 $("#eBox").modal('show');
-                }
+                } */
 
       });
     
@@ -229,35 +243,7 @@ if (navigator.geolocation) {
     console.log("geolocation 사용불가");
 }
 
-// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-var marker;
-var mPosition;
-function displayMarker(locPosition, message) {
 
-    // 마커를 생성합니다
-    marker = new daum.maps.Marker({  
-        map: map, 
-        position: locPosition
-    }); 
-    mPosition = marker.getPosition();
-    
-    var iwContent =  '<div style="padding:3px; text-align:center; text-weight:bold;">나의 현재 위치</div>', // 인포윈도우에 표시할 내용
-        iwRemoveable = true;
-
-    // 인포윈도우를 생성합니다
-    var infowindow = new daum.maps.InfoWindow({
-        content : iwContent
-    });
-    
-    // 인포윈도우를 마커위에 표시합니다 
-    infowindow.open(map, marker);
-    console.log("lt:" + lt);
-    
-    
-var routeLoc = new daum.maps.LatLng(lat, lng)
-    // 지도 중심좌표를 루트로 변경
-    map.setCenter(routeLoc);   
-}
 //-----------------------------------END Geolocation-----------------------------------------
 
 </script>
