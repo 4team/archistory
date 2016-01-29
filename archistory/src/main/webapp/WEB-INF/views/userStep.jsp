@@ -149,9 +149,9 @@
 </script>
 <script>
     var template = Handlebars.compile($("#template").html());
-    var routeno = 406;
-    var lat = 37.3582327;
-    var lng = 126.5113589;
+    var routeno = {routeno};
+    var lat = {lat};
+    var lng = {lng};
 
     var eventEA = 0;
     var nowOrder = 1;
