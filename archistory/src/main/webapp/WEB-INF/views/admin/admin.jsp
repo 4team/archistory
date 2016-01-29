@@ -794,9 +794,9 @@ $("#main").on("mouseover",function(){
 	        	console.log(memberno+"멤버삭제 ");
 	        	
 	        	inviRemove(routeno,memberno);
-	        	memberRemove(memberno);
+	        	//memberRemove(memberno);
 	        	
-	        	getMemberList();
+	        	//getMemberList();
 
 		    });
 	        
@@ -810,10 +810,10 @@ $("#main").on("mouseover",function(){
 			            headers :{ "Content-Type" : "application/json"}, 
 			            dataType: "json",
 			            data : JSON.stringify({routeno:routeno,memberno:memberno}),
-			            success: function(data){
+			            complete: function(data){
 			            	console.log(data);
 			            	console.log("invite 삭제 완료" );
-			            	//memberRemove(memberno);
+			            	memberRemove(memberno);
 			            }
 			    	});
 	
@@ -828,9 +828,10 @@ $("#main").on("mouseover",function(){
 		            headers :{ "Content-Type" : "application/json"}, 
 		            dataType: "json",
 		            data : JSON.stringify({memberno:memberno}),
-		            success: function(data){
+		            complete: function(data){
 		            	console.log(data);
 		            	console.log("member 삭제 완료 ");
+		            	getMemberList();
 		            }
 		    	});
 	        	
