@@ -615,7 +615,6 @@
     });
 
 
-
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
         eventLi+="<li class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
@@ -631,16 +630,16 @@
 	        $( "#sortable" ).sortable({
 	        	placeholder: "ui-state-highlight",
 	            helper: 'clone',
-	            sort: function(e, ui) {
-	                $(ui.placeholder).html(Number($("#sortable_nav > li:visible").index(ui.placeholder)) + 0);
-	            },
+	           /*  sort: function(e, ui) {
+	                $(ui.placeholder).html(Number($("#sortable > li:visible").index(ui.placeholder)) + 1);
+	            }, */
 	            update: function(event, ui) {
 	                var $lis = $(this).children('li');
 	                $lis.each(function() {
 	                    var $li = $(this);
 	                    var newVal = $(this).index() + 1;
 	                    $(this).children('.sortable-number').html(newVal);
-	                    $(this).children('#item_display_order').val(newVal);
+	                   // $(this).children('#item_display_order').val(newVal);
 	                });
 	            }
 
