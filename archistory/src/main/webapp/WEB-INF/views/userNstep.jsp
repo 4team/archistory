@@ -163,12 +163,12 @@ function addMarker(event){
 
 			    		var title2 = emarker.getTitle();
 			    		
-/* daum.maps.event.addListener(emarker, 'click', function(title2) {
+ daum.maps.event.addListener(emarker, 'click', function(title2) {
     console.log(title2);
     $("#eBox").modal('show');
     
 });
- */ 
+ 
  			    		
 };
 			        				        	
@@ -210,14 +210,14 @@ if (navigator.geolocation) {
             console.log("내위도경도:" + lt + "," + ln);
             
           //내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
-    		var meAb = (mPosition.Ab)-(emPosition.Ab);
+    		/* var meAb = (mPosition.Ab)-(emPosition.Ab);
     		var mezb = (mPosition.zb)-(emPosition.zb);
     		var distance = Math.sqrt(Math.pow((meAb),2)+Math.pow((mezb),2));
     		console.log(distance);
     		
                 if(distance<0.0013){
                 	 $("#eBox").modal('show');
-                }
+                } */
 
       });
     
