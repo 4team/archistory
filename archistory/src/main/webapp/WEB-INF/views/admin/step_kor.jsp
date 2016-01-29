@@ -600,7 +600,7 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(event){
-        eventLi+="<li>"+event.title+"<span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></li>";
+        eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span>"+event.title+"<span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></li>";
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
         $("#sortable").html(eventLi);
@@ -614,7 +614,7 @@
 	    });
 
     //이벤트 리스트 삭제버튼
-    $("#eventList").on("click","#del",function(event){
+    $(".ui-state-default").on("click","#del",function(event){
         var select = $(this);
         removeQuestion(select.attr("value"));
         removeEvent(select.attr("value"),function(){
@@ -625,7 +625,7 @@
     });
 
     //이벤트 리스트 수정 버튼
-    $("#eventList").on("click","#modi",function(event){
+    $(".ui-state-default").on("click","#modi",function(event){
         var select = $(this);
 
         viewEvent(select.attr("value"));
