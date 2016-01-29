@@ -134,5 +134,22 @@ public class EventController {
 		return service.getAttach(eventno);  
 	  }
 	  
+	  @RequestMapping(value="/getByOrder")
+	  public EventVO getByOrder(@RequestParam("routeno")Integer routeno,@RequestParam("order")Integer eorder){
+		  
+		  EventVO vo = new EventVO();
+		  vo.setRouteno(routeno);
+		  vo.setEorder(eorder);
+		  
+		  EventVO result = null;
+		  
+		  
+		  
+		  
+		  
+		  return result;
+		  
+	  }
+	  
 	  
 }

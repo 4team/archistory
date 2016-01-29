@@ -52,4 +52,8 @@ public class EventService {
 		System.out.println("첨부파일업뎃 서비스 호출.....");
 		mapper.attachModify(vo);
 	}
+	
+	public EventVO getByOrder(EventVO vo) throws Exception{
+		return mapper.getByOrder(vo);
+	}
 }
