@@ -945,7 +945,7 @@ $("#main").on("mouseover",function(){
 	    			 
 	    			 var mem = JSON.parse(memberJson);
 				    	console.log(mem.userNo);
-				    	if(!mem.userNo){
+				    	if(!mem.userNo||!mem.userName||!mem.email||!mem.mPassword){
 				    		
 				    		alert("멤버 번호를 입력하세요!");
 				    		return;
