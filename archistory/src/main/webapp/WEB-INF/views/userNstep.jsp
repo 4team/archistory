@@ -140,7 +140,7 @@ function getEventList(){
 			        console.log(event);
 					console.log("list.each들어옴");
 					
-			        	function addMarker(event){
+			        	(function addMarker(event){
 			        		emarker = new daum.maps.Marker({
 				        	    title: event.eventno,
 				        	    position: new daum.maps.LatLng(event.lat,event.lng),
@@ -156,7 +156,7 @@ function getEventList(){
 			        	
 			        	//emPosition = emarker[i].getPosition();
 			        	//console.log(emPosition.zb);
-			       		};
+			       		});
 			 console.log("for문은 나옴");
 			        //	console.log(emarkers[i].getTitle());
 			        	console.log(emarkers[idx]);
