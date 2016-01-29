@@ -117,74 +117,60 @@ var mapContainer = document.getElementById('map'),
 		    };
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+//마커 이미지 생성
+var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+var imageSize = new daum.maps.Size(24, 35);
+var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
+
+
 var emarkers = [];
 var emarker;
-var eventlist;
 //이벤트 가져오기
 function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
-        eventlist = $(data);
+        var list = $(data);
         eventLi="";
-        console.log(eventlist);        
+        console.log(list);        
 	
-        for (var i = 0; i < list.length; i ++) {
-
+        list.each(function(idx,value){
 	        var event= this;
 	        console.log("list.each들어옴");
-	        addMarker(event);			
-
-	    	function addMarker(event){
-	    		emarker = new daum.maps.Marker({
-	    				      title: positions[i].content,
-	    				      position: positions[i].latlng,
-	    				      clickable: true
-	    					});			        		
-	    			        	console.log("addmarker들어옴");
-	    			        	
-	    			        	emarker.setMap(map);
-	    			        	emarkers.push(emarker);		
-	    			        	emPosition = emarker.getPosition();
-	    			        	
-	    			        	emT = emarker.getTitle();
-	    			    		showEvent(emT);
-
-	    			    		var title2 = emarker.getTitle();	        
-	    }; 			    		
-	    };       
-	     daum.maps.event.addListener(emarker, 'click', function(emarker) {
-	        console.log(emarker.getTitle());
-	        $("#eBox").modal('show');
-	     });
-	     });
+	        addMarker(event);		
+			
+	    });
+    });
     };
 getEventList();
 
 
-//마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-var positions = [
-    {
-        content: eventlist[0].title, 
-        latlng: new daum.maps.LatLng(eventlist[0].lat, eventlist[0].lng)
-    },
-    {
-        content: eventlist[1].title, 
-        latlng: new daum.maps.LatLng(eventlist[1].lat, eventlist[1].lng)
-    },
-    {
-        content: eventlist[2].title, 
-        latlng: new daum.maps.LatLng(eventlist[2].lat, eventlist[2].lng)
-    },
-    {
-        content: eventlist[3].title,
-        latlng: new daum.maps.LatLng(eventlist[3].lat, eventlist[3].lng)
-    }
-];
-
-
 var emT;
 var emPosition;
+function addMarker(event){
+	emarker = new daum.maps.Marker({
+				      title: event.eventno,
+				      position: new daum.maps.LatLng(event.lat,event.lng),
+				      clickable: true
+					});			        		
+			        	console.log("addmarker들어옴");
+			        	
+			        	emarker.setMap(map);
+			        	emarkers.push(emarker);		
+			        	emPosition = emarker.getPosition();
+			        	
+			        	emT = emarker.getTitle();
+			    		showEvent(emT);
 
+			    		var title2 = emarker.getTitle();
+			    		
+ daum.maps.event.addListener(emarker, 'click', function(title2) {
+    console.log(title2);
+    $("#eBox").modal('show');
+    
+});
+ 
+ 			    		
+};
 			        				        	
 function showEvent(emT) {
 	console.log("showEvent 들어옴");
