@@ -805,6 +805,7 @@ $("#main").on("mouseover",function(){
 
 	                list.each(function(idx,value){ //멤버 있으면 
 		                var member = this;
+	                	memberList(member);
 	                });
 	            });
 	         
