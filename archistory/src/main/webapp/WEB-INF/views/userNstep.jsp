@@ -172,10 +172,6 @@ function addMarker(event){
 
 };
 
- 
-
-
-		        				        	
 function showEvent(emT) {
 	console.log("showEvent 들어옴");
 	$.getJSON("http://14.32.66.127:4000/event/view?eventno="+emT,function(data){
@@ -264,6 +260,10 @@ function displayMarker(locPosition, message) {
     
 
 }
+
+location.reload(true);
+location.href = location.href;
+history.go(0);
 //-----------------------------------END Geolocation-----------------------------------------
 
 </script>
