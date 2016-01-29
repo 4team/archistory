@@ -144,18 +144,6 @@ function getEventList(){
 getEventList();
 
 
-
-var iwContent = '<div style="padding:3px;">Move to Here!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-
-//인포윈도우를 생성합니다
-var infowindow = new daum.maps.InfoWindow({
-content : iwContent 
-});
-
-//마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-infowindow.open(map, emarker);
-
-
 var emT;
 var emPosition;	
 function addMarker(event){
