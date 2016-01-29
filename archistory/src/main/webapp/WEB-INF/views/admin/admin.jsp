@@ -1038,7 +1038,7 @@ $("#main").on("mouseover",function(){
 	    		 var member = $(data);
 	    		 
 	    		 console.log(member);
-	    		 console.log(member.userNo);
+	    		 console.log(member.attr("userNo"));
 	    		 
 	    		 $("#modinumber").val(member.userNo);
 	    		 $("#modiname").val(member.userName);
