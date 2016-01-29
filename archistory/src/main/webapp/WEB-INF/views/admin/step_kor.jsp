@@ -401,10 +401,8 @@
 <div id="list">
    	루트 이름 : <input type="text" id="Rname" placeholder="">
     <hr>
-    <div id="eventList">
         <ul id="sortable">
         </ul>
-    </div>
     <div id="listBottom">
         <button type="button" id="commitList" class= "btn btn-default" >완료</button>
     </div>
@@ -617,7 +615,7 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(event){
-        eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span>"+event.title+"<span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></li>";
+        eventLi+="<li class='ui-state-default'>"+event.title+"<span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></li>";
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
         $("#sortable").html(eventLi);
