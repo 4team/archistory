@@ -263,7 +263,7 @@ function displayMarker(locPosition, message) {
 
 location.reload(true);
 location.href = location.href;
-history.go(5);
+history.go(0);
 //-----------------------------------END Geolocation-----------------------------------------
 
 </script>
