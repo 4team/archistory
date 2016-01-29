@@ -162,9 +162,9 @@ function addMarker(event){
 			    		showEvent(emT);
 
 			    		var title2 = emarker.getTitle();
+    console.log(title2);
 			    		
  daum.maps.event.addListener(emarker, 'click', function(title2) {
-    console.log(title2);
     $("#eBox").modal('show');
     
 });       
