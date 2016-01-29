@@ -60,6 +60,7 @@ public class MemberController {
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public ResponseEntity<String> modify(MemberVO vo) throws Exception{
 		System.out.println("===============멤버 MODIFY POST 호출================");
+		System.out.println(vo);
 		ResponseEntity<String> entity = null;
 		try{
 			service.modify(vo);
