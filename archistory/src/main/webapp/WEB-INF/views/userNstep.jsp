@@ -159,7 +159,8 @@ function addMarker(event){
 			    		showEvent(emT);
 };
 			        				        	
-function showEvent(emT) {	
+function showEvent(emT) {
+	console.log("showEvent 들어옴")
 	$.getJSON("http://14.32.66.127:4000/event/view?eventno="+emT,function(data){
         var list = $(data);
         eventLi="";
