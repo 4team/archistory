@@ -452,13 +452,13 @@ pageEncoding="UTF-8"%>
         daum.maps.event.addListener(marker, 'click', function(event) {
             // 마커 위에 인포윈도우를 표시합니다
             var position = marker.getPosition();
-            var roadviewClient = new daum.maps.RoadviewClient();
+           /*  var roadviewClient = new daum.maps.RoadviewClient();
 
-            var panoId = roadviewClient.getNearestPanoId(position, 50, function(panoId) {
+           	var panoId = roadviewClient.getNearestPanoId(position, 50, function(panoId) {
                 roadview.setPanoId(panoId, position);
             });
 
-            roadview.setPanoId(panoId, position);
+            roadview.setPanoId(panoId, position); */
         });
 
     }
