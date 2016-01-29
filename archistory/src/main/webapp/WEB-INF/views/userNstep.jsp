@@ -40,6 +40,11 @@
     }
     #myLocation{
     position:absolute;
+    z-index:99999;
+    width:100px;
+    height:100px;
+    top:50px;
+    left:50px;
     }
     ul li{
         list-style: none;
@@ -204,7 +209,7 @@ function getLocation(){
         var lt = position.coords.latitude; // 위도
         var ln = position.coords.longitude; // 경도
         
-        $("#myLocation").html("<h3>"+lat+"</h3><br><h3>"+lng+"</h3>");
+        $("#myLocation").html("<h3>"+lt+"</h3><br><h3>"+ln+"</h3>");
         
         myLat = lt;
         myLng = ln;
