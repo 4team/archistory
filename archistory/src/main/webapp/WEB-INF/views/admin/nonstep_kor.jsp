@@ -208,6 +208,9 @@ pageEncoding="UTF-8"%>
 <div id="map"></div>
 
 <div id="searchDiv">
+	<button type="button" class="close" data-dismiss="modal">
+  		 <span aria-hidden="true">×</span>
+    	<span class="sr-only">Close</span></button>
     <div id="search-container"></div>
 </div>
 
