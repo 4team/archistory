@@ -887,15 +887,7 @@ $("#main").on("mouseover",function(){
 		    function regiMember(memberJson,routeno,callback){
 				 
 				 console.log(memberJson);
-				 
-					var mem = JSON.parse(memberJson);
-			    	
-			    	console.log(mem.userNo);
-			    	if(!mem.userNo){
-			    		
-			    		alert("멤버 번호를 입력하세요!");
-			    	}
-				 
+			 
 				   $.ajax({
 					  type:'post',
 					  url:"http://14.32.66.127:4000/member/register",
@@ -946,11 +938,19 @@ $("#main").on("mouseover",function(){
 		    
 		    $("#registerBtn").on("click",function(){
 		    	
-		    	console.log(memberJson);
 		    	console.log("routeno :"+routeno);
 		    	
 	    		 for(var k=1;k<i+1;k++){
 	    			 repeat();
+	    			 
+	    			 var mem = JSON.parse(memberJson);
+				    	console.log(mem.userNo);
+				    	if(!mem.userNo){
+				    		
+				    		alert("멤버 번호를 입력하세요!");
+				    		return;
+				    	}
+				    	
 	    			 regiMember(memberJson,routeno, function(){	    	
 				    	  console.log("멤버등록 시도");		    	   
 				      });
