@@ -696,6 +696,7 @@
             clearEventDiv();
         	attach = [];
         	eventno++;
+        	
         	//은혜추가.
         	youtubeId ="";
 
