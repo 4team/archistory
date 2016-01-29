@@ -167,17 +167,19 @@ function addMarker(event){
     console.log(title2);
     $("#eBox").modal('show');
     
-});        		 			    		
+});       
  
- var iwContent =  '<div style="padding:3px; align:center;">Move to Here</div>', // 인포윈도우에 표시할 내용
+ var iwContent = '<div style="padding:3px;">Move to Here!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 
-// 인포윈도우를 생성합니다
+
+//인포윈도우를 생성합니다
 var infowindow = new daum.maps.InfoWindow({
- content : iwContent
+ content : iwContent 
 });
 
-// 인포윈도우를 마커위에 표시합니다 
+//마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
 infowindow.open(map, emarker);
+
 };
 
 		        				        	
@@ -243,7 +245,33 @@ if (navigator.geolocation) {
     console.log("geolocation 사용불가");
 }
 
+// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+var marker;
+var mPosition;
+function displayMarker(locPosition, message) {
 
+    // 마커를 생성합니다
+    marker = new daum.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+    mPosition = marker.getPosition();
+    
+    var iwContent =  '<div style="padding:3px; align:center;">My Location</div>', // 인포윈도우에 표시할 내용
+        iwRemoveable = true;
+
+    // 인포윈도우를 생성합니다
+    var infowindow = new daum.maps.InfoWindow({
+        content : iwContent
+    });
+    
+    // 인포윈도우를 마커위에 표시합니다 
+    infowindow.open(map, marker);
+    console.log("lt:" + lt);
+    
+    
+
+}
 //-----------------------------------END Geolocation-----------------------------------------
 
 </script>
