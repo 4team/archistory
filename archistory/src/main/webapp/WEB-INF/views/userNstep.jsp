@@ -158,15 +158,7 @@ function addMarker(event){
 			        	emT = emarker.getTitle();
 			    		showEvent(emT);
 };
-			        
-console.log(emarkers);
-console.log(emarkers[0]);
-console.log(emarkers[1]);
-console.log(emarkers[i].getTitle());
-
- 
-			        	
-			        	
+			        				        	
 function showEvent(emT) {	
 	$.getJSON("http://14.32.66.127:4000/event/view?eventno="+emT,function(data){
         var list = $(data);
@@ -174,8 +166,8 @@ function showEvent(emT) {
         console.log(list);      
         
        eventLi += "<div class='form-group'>"+
-       "<label for='title'>"+list.attr(title)+"</label>"+
-       "<p class='form-control' id='content'>"+list.attr(content)+"</p>"+
+       "<label for='title'>"+list.title+"</label>"+
+       "<p class='form-control' id='content'>"+list.content+"</p>"+
                 "</div>"
        $("#tAnde").html(eventLi);
    });
@@ -248,7 +240,10 @@ function displayMarker(locPosition, message) {
     console.log("lt:" + lt);
 }
 //-----------------------------------END Geolocation-----------------------------------------
-
+console.log(emarkers);
+console.log(emarkers[0]);
+console.log(emarkers[1]);
+console.log(emarker.getTitle());
 
 </script>
 
