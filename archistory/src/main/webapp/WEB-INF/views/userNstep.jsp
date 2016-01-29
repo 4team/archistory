@@ -134,9 +134,10 @@ function getEventList(){
         console.log(list);        
 	
     for(var i=0; i<list.length; i++){
+   	 console.log("for문 들어옴");
         	var event = list[i];
         	
-			        	function addMarker(event){
+			        	(function addMarker(event){
 			        		emarker = new daum.maps.Marker({
 				        	    title: event.eventno,
 				        	    position: new daum.maps.LatLng(event.lat,event.lng),
@@ -154,10 +155,10 @@ function getEventList(){
 			        	
 			        	var emT = emarkers[i].getTitle();
 			        	showEvent(emT);
-			        	};
+			        	});
         	
         }	
-			 console.log("for문은 나옴");
+		
     });
     };
 getEventList();
