@@ -139,6 +139,8 @@ function getEventList(){
 			        //addMarker(event);		
 			        console.log(event);
 					console.log("list.each들어옴");
+					addMarker(event);
+			    });
 					
 			        	(function addMarker(event){
 			        		emarker = new daum.maps.Marker({
@@ -160,7 +162,6 @@ function getEventList(){
 			 console.log("for문은 나옴");
 			        //	console.log(emarkers[i].getTitle());
 			        	console.log(emarkers[idx]);
-    });
     });
     };
 getEventList();
