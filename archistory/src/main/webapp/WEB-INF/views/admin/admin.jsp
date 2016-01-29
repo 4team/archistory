@@ -1054,6 +1054,7 @@ $("#main").on("mouseover",function(){
         	 console.log("멤버수정 시도!")
         	 
         	var userNo = $("#modinumber").val();
+        	var userName = $("#modiname").val(); 
     		var email = $("#modiemail").val();
     		var mPassword = $("#modipassword").val();
         	 
