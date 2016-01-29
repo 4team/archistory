@@ -888,6 +888,14 @@ $("#main").on("mouseover",function(){
 				 
 				 console.log(memberJson);
 				 
+					var mem = JSON.parse(memberJson);
+			    	
+			    	console.log(mem.userNo);
+			    	if(!mem.userNo){
+			    		
+			    		alret("멤버 번호를 입력하세요!");
+			    	}
+				 
 				   $.ajax({
 					  type:'post',
 					  url:"http://14.32.66.127:4000/member/register",
@@ -940,23 +948,6 @@ $("#main").on("mouseover",function(){
 		    	
 		    	console.log(memberJson);
 		    	console.log("routeno :"+routeno);
-		    	
-		    	var mem = JSON.parse(memberJson);
-		    	
-		    	console.log(mem.userNo);
-		    	if(!mem.userNo){
-		    		
-		    		alret("멤버 번호를 입력하세요!");
-		    	}
-		    	if(!mem.userName){
-		    		alret("멤버 이름을 입력하세요!");
-		    	}
-		    	if(!mem.email){
-		    		alret("멤버 이메일 정보를 입력하세요!");
-		    	}
-		    	if(!mem.mPassword){
-		    		alret("멤버 비밀번호를 입력하세요!");
-		    	}
 		    	
 	    		 for(var k=1;k<i+1;k++){
 	    			 repeat();
