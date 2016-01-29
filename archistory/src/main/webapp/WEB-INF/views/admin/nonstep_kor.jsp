@@ -91,16 +91,6 @@ pageEncoding="UTF-8"%>
         margin-bottom:10px;
     }
 
-    .qfileDrop {
-        width: 90%;
-        height: 100px;
-        border: 2px dotted black;
-        border-radius: 10px;
-        background-color: powderblue;
-        margin-top:10px;
-        margin-bottom:10px;
-    }
-
     li{
         list-style: none;
         margin-bottom: 15px;
@@ -287,8 +277,8 @@ pageEncoding="UTF-8"%>
                         </div>
                     </div>
                     <label for="qImg">이미지</label>
-                    <div class="qfileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
-                    <ul class="mailbox-attachments clearfix quploadedList" style="display:inline"></ul>
+                    <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+                    <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                 </div>
 
                 <div class="modal-footer">
@@ -362,8 +352,8 @@ pageEncoding="UTF-8"%>
                     </div>
                 </div>
                 <label for="moqImg">이미지</label>
-                <div class="qfileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
-                <ul class="mailbox-attachments clearfix quploadedList" style="display:inline"></ul>
+                <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+                <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
             </div>
 
             <div class="modal-footer">
@@ -598,7 +588,6 @@ pageEncoding="UTF-8"%>
     // 이벤트 생성 버튼 클릭
     var attach = new Array();
     var attach2;
-    var qattach; //문제 이미지
     var qJson;
 
     $("#createEventBtn").on("click",function(){
@@ -617,7 +606,6 @@ pageEncoding="UTF-8"%>
             console.log("attach2:" + attach2);
             clearEventDiv();
             attach = [];
-            qattach="";
 
         });
 
@@ -638,7 +626,6 @@ pageEncoding="UTF-8"%>
         qfilter[6]="choice2";
         qfilter[7]="choice3";
         qfilter[8]="choice4";
-        qfilter[9]="qfiles";
 
         var qObject = new Object();
 
@@ -650,7 +637,6 @@ pageEncoding="UTF-8"%>
         qObject.choice2 = $("#s2").val();
         qObject.choice3 = $("#s3").val();
         qObject.choice4 = $("#s4").val();
-        qObject.qfiles=qattach;
 
         for(var i=1;i<5;i++) {
 
@@ -681,14 +667,14 @@ pageEncoding="UTF-8"%>
 
         $.ajax({
             type:"post",
-            url:"http://14.32.66.127:4000/question/attachCreate",
+            url:"http://14.32.66.127:4000/question/register",
             headers:{
                 "Content-Type":"application/json"
             },
             datatype : "json",
             data: qJson,
             success:function(data){
-                console.log("문제 생성&문제 이미지 등록 결과:"+data);
+                console.log("문제 생성 결과:"+data);
             }
         });
 
@@ -770,7 +756,6 @@ pageEncoding="UTF-8"%>
                 $(ox).attr("checked",false);
             }
         }
-        qattach="";
     }
 
 
@@ -796,8 +781,6 @@ pageEncoding="UTF-8"%>
         $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         $("#moquestionDiv").hide();
 
-        qattach="";
-
     }
 
 
@@ -807,8 +790,6 @@ pageEncoding="UTF-8"%>
         $(".uploadedList").html("");
         $("#myoutubeList").html("");
         $("#youtubeList").html("");
-
-        var qno;
 
         var template2 = Handlebars.compile($("#template").html());
 
@@ -868,7 +849,7 @@ pageEncoding="UTF-8"%>
 
             var vo = $(data);
 
-             qno = vo.attr("questionno");
+            var qno = vo.attr("questionno");
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
@@ -925,28 +906,6 @@ pageEncoding="UTF-8"%>
             }//end else
 
         });// end question  view
-
-
-
-        $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
-            console.log("뷰에서 겟제이슨 들어왔다");
-            console.log(list);
-            var array = list[0].split(',');
-            console.log(array);
-
-            var length = array.length;
-
-            for(var i = 0; i < length; i++){
-
-                var name = array[i];
-                attach.push(name);
-                var fileInfo = getFileInfo(name);
-                var html = template2(fileInfo);
-
-                $(".quploadedList").append(html);
-            }
-
-        }); //end getAttach
     }
 
     //이벤트 삭제 기능
@@ -1337,7 +1296,7 @@ pageEncoding="UTF-8"%>
         }
 
 
-        function uploadImg(formData,url){ //드래그 했을 시, 사진 보여주는 기능
+        function uploadImg(formData,url){
             $.ajax({
                 url: url,
                 data: formData,
@@ -1407,7 +1366,7 @@ pageEncoding="UTF-8"%>
     });
 
 
-    $("#registerForm").submit(function(event){   //등록하면서, 삭제 된 내용 보내줌 -> 파일 삭제
+    $("#registerForm").submit(function(event){
         event.preventDefault();
 
         var that = $(this);
@@ -1423,7 +1382,7 @@ pageEncoding="UTF-8"%>
     });
 
 
-    function getOriginalName(fileName){ //이미지 외에 다른 파일 일때
+    function getOriginalName(fileName){
 
         if(checkImageType(fileName)){
             return;
@@ -1434,7 +1393,7 @@ pageEncoding="UTF-8"%>
     }
 
 
-    function getImageLink(fileName){  //앞뒤로 파일 이름 잘라주기
+    function getImageLink(fileName){
 
         if(!checkImageType(fileName)){
             return;
@@ -1446,7 +1405,7 @@ pageEncoding="UTF-8"%>
 
     }
 
-    function checkImageType(fileName){ //이미지 타입 체크
+    function checkImageType(fileName){
         var pattern = /jpg|gif|png|jpeg/i;
         return fileName.match(pattern);
 
@@ -1568,169 +1527,6 @@ pageEncoding="UTF-8"%>
 </script>
 <!-------- 파일첨부기능 끝 -------->
 
-
-<!-- ----- 문제 이미지 첨부기능-------  -->
-<script>
-    var template = Handlebars.compile($("#template").html());
-
-    $(".qfileDrop").on("dragenter dragover", function(event){
-        event.preventDefault();
-    });
-
-    $(".qfileDrop").on("drop", function(event){
-        event.preventDefault();
-
-        var files = event.originalEvent.dataTransfer.files;
-        console.log(files);
-        var num = files.length;
-
-
-        for(var i = 0 ; i < num; i++){
-            var file = files[i];
-            var filename = file.name;
-
-            var filetypeArr = filename.split('.');
-            var arrNum = filetypeArr.length;
-            console.log(arrNum);
-            console.log(filetypeArr[arrNum-1]);
-
-            var formData = new FormData();
-
-            formData.append("file", file);
-            formData.append("routeno",routeno);
-
-            if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
-
-                uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');
-
-            }else if(filetypeArr[arrNum-1] == "avi" || filetypeArr[arrNum-1] == "mpeg" || filetypeArr[arrNum-1] == "wmv" || filetypeArr[arrNum-1] == "mp4"){
-
-                uploadImg(formData,'http://14.32.66.127:4000/evenMovieUpload');
-
-            }
-
-        }
-
-
-        function uploadImg(formData,url){ //드래그 했을 시, 사진 보여주는 기능
-            $.ajax({
-                url: url,
-                data: formData,
-                dataType:'text',
-                processData: false,
-                contentType: false,
-                type: 'POST',
-                success: function(data){
-
-                    var fileInfo = getFileInfo(data);
-                    var html = template(fileInfo);
-
-                    var str ="";
-
-                    console.log(data);
-                    //console.log(checkImageType(data));
-                    //console.log("ddddd",$(".uploadedList"));
-
-                    //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
-                    qattach.push(data);
-                    console.log("qattach:" +qattach);
-
-                    if(checkImageType(data)){
-                        str ="<div class='img'>"
-                                +"<img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/>"
-                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
-                                +"</div>";
-
-                    }else{
-                        str = "<div class='img'>"
-                                +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
-                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
-                                +"</div>";
-                    }
-                    $(".quploadedList").append(str);
-
-                }
-            });
-        }
-
-
-
-    });
-
-    /*$(".quploadedList").on("click", "small", function(event){
-
-        var that = $(this);
-        console.log("delete click");
-
-        var index = $.inArray($(this).attr("data-src"), qattach);
-        qattach.splice(index, 1);
-        console.log("삭제 한 뒤의 어테치 : "+qattach);
-
-
-        $.ajax({
-            url:"http://14.32.66.127:4000/sboard/deleteFile",
-            type:"post",
-            data: {fileName:$(this).attr("data-src")},
-            dataType:"text",
-            success:function(result){
-                if(result == 'deleted'){
-                    that.parent("div").remove();
-                }
-            }
-        });
-
-    });*/
-
-
-    $("#registerForm").submit(function(event){   //등록하면서, 삭제 된 내용 보내줌 -> 파일 삭제
-        event.preventDefault();
-
-        var that = $(this);
-
-        var str ="";
-        $(".uploadedList .delbtn").each(function(index){
-            str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
-        });
-
-        that.append(str);
-        console.log("str값은?????:" + str);
-        //that.get(0).submit();
-    });
-
-
-    function getOriginalName(fileName){ //이미지 외에 다른 파일 일때
-
-        if(checkImageType(fileName)){
-            return;
-        }
-        var idx = fileName.indexOf("_") + 1 ;
-        return fileName.substr(idx);
-
-    }
-
-
-    function getImageLink(fileName){  //앞뒤로 파일 이름 잘라주기
-
-        if(!checkImageType(fileName)){
-            return;
-        }
-        var front = fileName.substr(0,12);
-        var end = fileName.substr(14);
-
-        return front + end;
-
-    }
-
-    function checkImageType(fileName){ //이미지 타입 체크
-        var pattern = /jpg|gif|png|jpeg/i;
-        return fileName.match(pattern);
-
-    }
-
-
-
-</script>
-<!-------- 문제 이미지 _ 첨부기능 끝 -------->
 
 
 </body>
