@@ -1063,6 +1063,7 @@ $("#main").on("mouseover",function(){
         	 
         	 $("#modiMemberModal").modal('hide');
         	 
+        	 
          });
          
          function modifyMember(memNumber,userNo,userName,email,mPassword){
@@ -1080,6 +1081,7 @@ $("#main").on("mouseover",function(){
 				  success: function(data){
 					  console.log("멤버 수정 완료");
 					  console.log(data);
+					  getMemberList();
 
 				  }				   
 			   });
