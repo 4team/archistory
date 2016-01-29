@@ -197,11 +197,21 @@
      #sortable li { 
 	     margin: 0 3px 3px 3px; 
 	     padding: 0.4em; 
-	    
 	     font-size: 1em; 
 	     height: 30px; 
      }
      
+     .ui-state-highlight { 
+     height: 1.5em; 
+     line-height: 1.2em; }
+     
+     
+		.sortable-number { 
+		width: 10px;
+		float: left;
+		line-height: 1em;
+		text-align: center;
+		font-weight: bold; }
  
     
 </style>
@@ -565,7 +575,7 @@
 
 			list.each(function(idx,value){
                 var event= this;
-                addList(event);
+                addList(idx,event);
                 addMarker(event);
             });
             
@@ -607,8 +617,9 @@
 
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
-    function addList(event){
-        eventLi+="<li class='ui-state-default'>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
+    function addList(idx,event){
+        eventLi+="<li class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
+        
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
         $("#sortable").html(eventLi);
@@ -617,7 +628,24 @@
 
 
 	    $(function() {
-	        $( "#sortable" ).sortable(); //드래그 드롭으로 위치 변경
+	        $( "#sortable" ).sortable({
+	        	placeholder: "ui-state-highlight",
+	            helper: 'clone',
+	            sort: function(e, ui) {
+	                $(ui.placeholder).html(Number($("#sortable_nav > li:visible").index(ui.placeholder)) + 1);
+	            },
+	            update: function(event, ui) {
+	                var $lis = $(this).children('li');
+	                $lis.each(function() {
+	                    var $li = $(this);
+	                    var newVal = $(this).index() + 1;
+	                    $(this).children('.sortable-number').html(newVal);
+	                    $(this).children('#item_display_order').val(newVal);
+	                });
+	            }
+
+	        	
+	        }); //드래그 드롭으로 위치 변경
 	       $( "#sortable" ).disableSelection();
 	    });
 
