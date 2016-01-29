@@ -12,7 +12,14 @@ public class QuestionVO {
 	private String choice2;
 	private String choice3;
 	private String choice4;
+	private String qfiles;
 	
+	public String getQfiles() {
+		return qfiles;
+	}
+	public void setQfiles(String qfiles) {
+		this.qfiles = qfiles;
+	}
 	public Integer getQuestionno() {
 		return questionno;
 	}
@@ -77,10 +84,9 @@ public class QuestionVO {
 	public String toString() {
 		return "QuestionVO [questionno=" + questionno + ", eventno=" + eventno + ", question=" + question + ", answer="
 				+ answer + ", point=" + point + ", qtype=" + qtype + ", choice1=" + choice1 + ", choice2=" + choice2
-				+ ", choice3=" + choice3 + ", choice4=" + choice4 + "]";
+				+ ", choice3=" + choice3 + ", choice4=" + choice4 + ", qfiles=" + qfiles + "]";
 	}
 
-	
 	
 	
 

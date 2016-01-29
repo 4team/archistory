@@ -1,7 +1,10 @@
 package org.kkamnyang.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.kkamnyang.domain.EventVO;
 import org.kkamnyang.domain.QuestionVO;
@@ -10,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -84,6 +88,29 @@ public class QuestionController {
 		
 		return entity;
 	}
+	
+	@RequestMapping(value="/attachCreate", method=RequestMethod.POST)
+	public void attachCreate(@RequestBody QuestionVO vo, HttpServletResponse response) throws Exception{
+		System.out.println("::문제:: 첨부파일생성 호출됨.=====");
+		System.out.println(vo);
+		
+		service.register(vo);
+
+		Integer nowSequence = vo.getQuestionno();
+		response.getWriter().print(nowSequence);
+		vo.setQuestionno(nowSequence);
+		service.attachCreate(vo);
+		System.out.println("이벤트 넘버:"+nowSequence);
+		
+	}
+	
+	 @RequestMapping(value="/getAttach/{questionno}")
+	  @ResponseBody
+	  public List<String> getEattach(@PathVariable("questionno")Integer questionno)throws Exception{
+		System.out.println("::문제::첨부파일이 로드됨...");
+		System.out.println(service.getAttach(questionno));
+		return service.getAttach(questionno);  
+	  }
 	
 	
 }

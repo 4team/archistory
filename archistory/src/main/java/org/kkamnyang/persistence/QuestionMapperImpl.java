@@ -1,5 +1,7 @@
 package org.kkamnyang.persistence;
 
+import java.util.List;
+
 import org.kkamnyang.domain.QuestionVO;
 import org.springframework.stereotype.Repository;
 
@@ -26,6 +28,31 @@ public class QuestionMapperImpl extends AbstractCRUDMapper<QuestionVO,Integer> i
 	@Override
 	public void update(QuestionVO vo) throws Exception {
 		session.update(namespace+".update",vo);
+	}
+
+	@Override
+	public void attachCreate(QuestionVO vo) throws Exception {
+		try{
+			
+			String qfiles = vo.getQfiles();
+
+				if (qfiles.equals("")) {
+					
+				}else{
+					System.out.println(qfiles);
+					session.insert(namespace + ".addAttach",vo);
+				}
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		
+	}
+
+	@Override
+	public List<String> getAttach(Integer questionno) throws Exception {
+		return session.selectList(namespace + ".getAttach", questionno);
+		
 	}
 
 }

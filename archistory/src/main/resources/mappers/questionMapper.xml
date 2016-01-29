@@ -23,5 +23,15 @@
 		delete from tbl_question where eventno=#{eventno}
 	</delete>
 	
+	<insert id="addAttach">
+		insert into tbl_qattach(qfullName,questionno)
+		values(#{qfiles},#{questionno})
+	</insert>
+
+	<select id="getAttach" resultType="string">
+		select qfullName from tbl_qattach where questionno=#{questionno} order by regdate
+	</select>
+	
+	
 	
 </mapper>
