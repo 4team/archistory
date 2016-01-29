@@ -893,7 +893,7 @@ $("#main").on("mouseover",function(){
 			    	console.log(mem.userNo);
 			    	if(!mem.userNo){
 			    		
-			    		alret("멤버 번호를 입력하세요!");
+			    		alert("멤버 번호를 입력하세요!");
 			    	}
 				 
 				   $.ajax({
