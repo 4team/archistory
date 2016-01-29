@@ -145,6 +145,7 @@ getEventList();
 
 
 var emT;
+var emPosition;
 function addMarker(event){
 	emarker = new daum.maps.Marker({
 				      title: event.eventno,
@@ -155,17 +156,27 @@ function addMarker(event){
 			        	
 			        	emarker.setMap(map);
 			        	emarkers.push(emarker);		
+			        	emPosition = emarker.getPosition();
 			        	
 			        	emT = emarker.getTitle();
 			    		showEvent(emT);
 
 			    		var title2 = emarker.getTitle();
-daum.maps.event.addListener(emarker, 'click', function(title2) {
+			    		
+/* daum.maps.event.addListener(emarker, 'click', function(title2) {
     console.log(title2);
     $("#eBox").modal('show');
     
 });
-};
+ */ 
+			    		//내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
+			    		var distance = Math.sqrt(Math.pow((mPosition.Ab-emPosition.Ab),2)+Math.pow((mPosition.zb-emPosition.zb),2));
+			    		console.log(distance);
+			    		
+			                if(distance>0.0013){
+			                	 $("#eBox").modal('show');
+			                }
+ };
 			        				        	
 function showEvent(emT) {
 	console.log("showEvent 들어옴");
@@ -203,13 +214,7 @@ if (navigator.geolocation) {
         displayMarker(locPosition, message);
             console.log("내위도경도:" + lt + "," + ln);
             
-		//내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
-		/*  var distance = Math.sqrt(Math.pow((mPosition.Ab-emPosition.Ab),2)+Math.pow((mPosition.zb-emPosition.zb),2));
-		console.log(distance);
-		console.log(emarker.getRange());
-            if(mPosition.zb-emPosition.zb>0.0013){
-            	 $("#eBox").modal('show');
-            } */
+		
 
       });
     
