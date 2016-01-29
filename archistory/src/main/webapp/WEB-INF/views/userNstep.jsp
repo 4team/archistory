@@ -139,8 +139,7 @@ function getEventList(){
 		console.log(list);
     	console.log(num);
     	console.log(event);
-	});     
-    });
+	});
     };
 getEventList();
 
