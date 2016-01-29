@@ -125,6 +125,10 @@ var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
 var emarkers = [];
 var num=-1;
+
+var eLat;
+var eLng;
+
 //이벤트 가져오기
 function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
@@ -132,10 +136,13 @@ function getEventList(){
     	num++;
     	
     	var list = $(data);
-    	
+
    		var event = list[num];
 		addMarker(event);
 		
+    	eLat = event.lat;
+    	eLng = event.lng;
+    	
 		console.log(list);
     	console.log(num);
     	console.log(event);
@@ -190,8 +197,6 @@ function showEvent(emT) {
 
 var lt;
 var ln;
-var eLat = event.lat;
-var eLng = event.lng;
 //HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 if (navigator.geolocation) {
     
@@ -213,7 +218,7 @@ if (navigator.geolocation) {
             
             
         	calDistance(eLat,eLng,lt,ln);
-        	console.log(ret.toFixed(2));
+        	
           //내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
     		/* var meAb = (mPosition.Ab)-(emPosition.Ab);
     		var mezb = (mPosition.zb)-(emPosition.zb);
@@ -275,10 +280,10 @@ function calDistance(eLat,eLng,lt,ln){
 			+
 			Math.pow((Math.abs(eLng-ln)*lngB),2)
 			)*1000;
+console.log(ret.toFixed(2));
 	
     return ret.toFixed(2);  
 }
-
 
 </script>
 
