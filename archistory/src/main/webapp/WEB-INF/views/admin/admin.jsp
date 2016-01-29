@@ -1038,12 +1038,11 @@ $("#main").on("mouseover",function(){
 	    		 var member = $(data);
 	    		 
 	    		 console.log(member);
-	    		 console.log(member.attr("userNo"));
-	    		 
-	    		 $("#modinumber").val(member.userNo);
-	    		 $("#modiname").val(member.userName);
-	    		 $("#modiemail").val(member.email);
-	    		 $("#modipassword").val(member.mPassword);
+
+	    		 $("#modinumber").val(member.attr("userNo"));
+	    		 $("#modiname").val(member.attr("userName"));
+	    		 $("#modiemail").val(member.attr("email"));
+	    		 $("#modipassword").val(member.attr("mPassword"));
 	    		 
 	    	 });
 	    	 
