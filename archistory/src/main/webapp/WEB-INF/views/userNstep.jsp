@@ -218,7 +218,6 @@ if (navigator.geolocation) {
             
             
         	calDistance(eLat,eLng,lt,ln);
-        	
           //내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
     		/* var meAb = (mPosition.Ab)-(emPosition.Ab);
     		var mezb = (mPosition.zb)-(emPosition.zb);
@@ -282,7 +281,10 @@ function calDistance(eLat,eLng,lt,ln){
 			)*1000;
 console.log(ret.toFixed(2));
 	
-    return ret.toFixed(2);  
+
+if(ret.toFixed(2)<3){
+	 $("#eBox").modal('show');
+}
 }
 
 </script>
