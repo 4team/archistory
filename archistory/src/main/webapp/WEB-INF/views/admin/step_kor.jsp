@@ -244,7 +244,7 @@
                         <label for="videoInput">동영상</label>
                         	Youtube Search <input type="text" id="query"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
                     	<ul id="youtubeList"></ul>
-                        <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
+                        <!-- <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div> -->
                         
                         <label for="camera">카메라</label>
                         <input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
