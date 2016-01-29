@@ -953,15 +953,18 @@ $("#main").on("mouseover",function(){
 			       $("#memberModal").modal('hide');	
 	    		   alert("멤버등록이 완료되었습니다.")
 	    		   emptyMember();
-	    		   i=1;
 	    		   getMemberList();
+	    		   i=1;
+	    		   j=1;
+	    		   console.log("i:"+i+"j:"+j);
 			    });
 		    
 		    
 		    $("#regiCancleBtn").on("click",function(){
 		    	i=1;
+		    	j=1;
 		    	console.log("멤버등록 취소");
-		    	console.log("i:"+i);
+		    	console.log("i:"+i+"j:"+j);
 		    	 emptyMember();
 		    	 getMemberList();
 		    	
