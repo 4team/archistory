@@ -135,8 +135,8 @@ function getEventList(){
 	
         list.each(function(idx,value){
 	        var event= this;
-	        addMarker(event);		
 	        console.log("list.each들어옴");
+	        addMarker(event);		
 			
 	    });
     });
@@ -243,7 +243,6 @@ function displayMarker(locPosition, message) {
 console.log(emarkers);
 console.log(emarkers[0]);
 console.log(emarkers[1]);
-console.log(emarker.getTitle());
 
 </script>
 
