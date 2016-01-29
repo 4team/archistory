@@ -379,8 +379,8 @@
 <div id="list">
    	루트 이름 : <input type="text" id="Rname" placeholder="">
     <hr>
-    <div id="eList">
-        <ul id="eventList">
+    <div id="eventList">
+        <ul id="sortable">
         </ul>
     </div>
     <div id="listBottom">
