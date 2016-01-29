@@ -132,13 +132,10 @@ function getEventList(){
         var list = $(data);
         eventLi="";
         console.log(list);        
-		console.log(list[0]);
-        
-        for(var i=0; i<list.length; i++){
-        	
-        	
-        	
-        }
+	console.log(list[0]);
+        list.each(function(idx,value){
+	        var event= this;
+	        console.log("list.each들어옴");
 	        addMarker(event);		
 			
 	    });
