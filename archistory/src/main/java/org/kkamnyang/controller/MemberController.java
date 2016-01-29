@@ -64,6 +64,7 @@ public class MemberController {
 		try{
 			service.modify(vo);
 			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("===============멤버 수정 완료 ================");
 		}catch(Exception e){
 			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
 		}

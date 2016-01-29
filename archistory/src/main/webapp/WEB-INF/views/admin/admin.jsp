@@ -805,7 +805,6 @@ $("#main").on("mouseover",function(){
 
 	                list.each(function(idx,value){ //멤버 있으면 
 		                var member = this;
-		                memberList(member);
 	                });
 	            });
 	         
@@ -1020,20 +1019,20 @@ $("#main").on("mouseover",function(){
 	        	
 	        }
 
-	        
+	 var memNumber;       
 	     //멤버 수정 
 	        $("#memberlist").on("click","#modi",function(){
 	        	var select = $(this);
-	        	var memberno = select.attr("value");
-	        	console.log("멤버수정 "+memberno);
+	        	memNumber = select.attr("value");
+	        	console.log("멤버수정 "+memNumber);
 	        	
 	        	$("#modiMemberModal").modal('show');
-	        	viewMember(memberno);
+	        	viewMember(memNumber);
 		    });
 	     
 
 	     function viewMember(memberno){
-	    	 $.getJSON("http://14.32.66.127:4000/member/view?memberno="+memberno,function(data){
+	    	 $.getJSON("http://14.32.66.127:4000/member/view?memberno="+memNumber,function(data){
 	    		 
 	    		 var member = $(data);
 	    		 
@@ -1047,7 +1046,45 @@ $("#main").on("mouseover",function(){
 	    	 });
 	    	 
 	     }
-	        
+	     
+	     
+         $("modiMemberBtn").on("click",function(){
+        	 
+        	 console.log("멤버수정 시도!")
+        	 
+        	var uesrNo = $("#modinumber").val();
+    		var userName= $("#modiname").val();
+    		var email = $("#modiemail").val();
+    		var mPassword =  $("#modipassword").val();
+        	 
+        	 
+        	 modifyMember(memNumber,userNo,userName,email,mPassword);
+        	 
+         });
+         
+         function modifyMember(memNumber,userNo,userName,email,mPassword){
+        	 
+			 console.log(memNumber,userNo,userName,email,mPassword);
+			 
+			   $.ajax({
+				  type:'post',
+				  url:"http://14.32.66.127:4000/member/modify",
+				  headers : {
+					"Content-Type" : "application/json"  
+				  },
+				  datatype:"json",
+				  data:JSON.stringify({memberno:memNumber,userNo:userNo,userName:userName,email:email,mPassword:mPassword}),
+				  success: function(data){
+					  console.log("멤버 수정 완료");
+					  console.log(data);
+
+				  }				   
+			   });
+				
+	   };
+ 
+         
+
 	        
 	</script>
 
