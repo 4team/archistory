@@ -35,6 +35,7 @@
         height:500px;
 
         z-index:300;
+        overflow-y:scroll;
     }
 
     #title{
@@ -60,6 +61,37 @@
         z-index:3000;
         background-color: #000000;
     }
+    /* 1월 29일 12:04분 이후 추가 시작 */
+    #imageUl{
+        text-align: center;
+        text-decoration: none;
+        list-style: none;
+        margin:0px;
+        padding:0px;
+    }
+
+    #imageUl img{
+     margin: 10px;
+     width:450px;
+     height:300px;
+
+    }
+
+
+    ::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 1px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+
 </style>
 
 <script type="text/javascript" src="js/upload.js"></script>
@@ -92,7 +124,7 @@
             <div class="panel-body">
 
                 <div id="buttonContainer"></div>
-                <div><ul id="imageUl"></ul></div>
+                <div id="imageUl"></div>
                 <div id="content"></div>
 
                 <button id="nextBtn">Next</button>
@@ -111,7 +143,12 @@
 
 <div id="map"></div>
 
+
+<script id="template" type="text/x-handlebars-template">
+       <img src="{{fileName}}"/>
+</script>
 <script>
+    var template = Handlebars.compile($("#template").html());
     var routeno = 406;
     var lat = 37.3582327;
     var lng = 126.5113589;
@@ -265,7 +302,8 @@
             var length = array.length;
             for(var i = 0; i < length; i++){
                 var name = array[i];
-                var html = "<li><img src='http://14.32.66.127:4000/displayFile?fileName="+name+"'></li>"
+                var fileinfo = getFileInfo(name);
+                var html = template(fileinfo);
                 $("#imageUl").append(html);
             }
         });
@@ -278,11 +316,15 @@
     });
 
 
+    function videoClick(){
+        $("#videoModal").modal("show");
+    };
 
-function videoClick(){
-    $("#videoModal").modal("show");
-};
 
+    $("#nextBtn").on("click",function(event){
+        console.log("NEXT - 문제 출력");
+
+    });
 
 
 </script>
