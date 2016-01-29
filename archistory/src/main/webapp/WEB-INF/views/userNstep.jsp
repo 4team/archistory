@@ -113,7 +113,7 @@ var events = [];
 var mapContainer = document.getElementById('map'),
 		mapOption = { 
 		    center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
-		    level: 4
+		    level: 3
 		    };
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -239,10 +239,9 @@ function displayMarker(locPosition, message) {
         map: map, 
         position: locPosition
     }); 
-    marker.setRange(100);
     mPosition = marker.getPosition();
     
-    var iwContent =  '<div style="padding:5px;">나의 현재 위치</div>', // 인포윈도우에 표시할 내용
+    var iwContent =  '<div style="padding:3px; text-align:center; text-weight:bold;">나의 현재 위치</div>', // 인포윈도우에 표시할 내용
         iwRemoveable = true;
 
     // 인포윈도우를 생성합니다
