@@ -130,11 +130,12 @@ function getEventList(){
 	console.log("getEventList가 호출되어 시작됨.");
     $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
         var list = $(data);
+        var eventnolist = $(data.eventno);
         eventLi="";
         console.log(list);
         
-        Math.min.apply(null, list);
-        console.log(Math.min.apply(null, list));
+        Math.min.apply(null, eventnolist);
+        console.log(Math.min.apply(null, eventnolist));
         
         list.each(function(idx,value){
 	        var event= this;
