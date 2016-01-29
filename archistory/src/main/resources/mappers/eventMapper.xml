@@ -54,7 +54,7 @@
 		insert into tbl_eattach(efiles,eventno) values (#{efiles},#{eventno})
 	</insert> -->
 	
-	<select id="getByOrder">
+	<select id="getByOrder" resultType="org.kkamnyang.domain.EventVO">
 		select * from tbl_event where routeno = #{routeno} and eorder = #{eorder}
 	</select>
  </mapper>
