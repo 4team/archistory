@@ -250,7 +250,7 @@ function displayMarker(locPosition, message) {
     }); 
     mPosition = marker.getPosition();
     
-    var iwContent =  '<div style="padding:3px; align:center;">My Location</div>', // 인포윈도우에 표시할 내용
+    var iwContent =  '<div style="padding:3px; width:100px;">My Location</div>', // 인포윈도우에 표시할 내용
         iwRemoveable = true;
 
     // 인포윈도우를 생성합니다
