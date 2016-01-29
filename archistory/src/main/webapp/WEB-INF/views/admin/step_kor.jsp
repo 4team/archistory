@@ -10,6 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <title>= Archistory(ADMIN) = StepMode - Create </title>
 </head>
 <style>
@@ -190,7 +191,7 @@
     }
     
         #sortable { list-style-type: none; margin: 0; padding: 0; width: 15%; }
-        #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1em; height: 18px; }
+        #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1em; height: 20px; }
         #sortable li span { position: absolute; margin-left: -1.3em; }
     
 </style>
@@ -211,6 +212,11 @@
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 
+<!-- 메뉴 드래그드롭 하기 위함  -->
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
 
 <body>
 
