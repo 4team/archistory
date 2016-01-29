@@ -1053,10 +1053,9 @@ $("#main").on("mouseover",function(){
         	 
         	 console.log("멤버수정 시도!")
         	 
-        	var uesrNo = $("#modinumber").val();
-    		var userName= $("#modiname").val();
+        	var userNo = $("#modinumber").val();
     		var email = $("#modiemail").val();
-    		var mPassword =  $("#modipassword").val();
+    		var mPassword = $("#modipassword").val();
         	 
         	 
         	 modifyMember(memNumber,userNo,userName,email,mPassword);
