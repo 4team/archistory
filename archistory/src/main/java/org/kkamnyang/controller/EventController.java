@@ -135,16 +135,23 @@ public class EventController {
 	  }
 	  
 	  @RequestMapping(value="/getByOrder")
-	  public EventVO getByOrder(@RequestParam("routeno")Integer routeno,@RequestParam("order")Integer eorder) throws Exception{
+	  public ResponseEntity<EventVO> getByOrder(@RequestParam("routeno")Integer routeno,@RequestParam("order")Integer eorder){
 		  
 		  System.out.println("[GET BY ORDER 호출] "+routeno+"번 루트의 "+eorder+"번째 이벤트 ");
 		  EventVO vo = new EventVO();
 		  vo.setRouteno(routeno);
 		  vo.setEorder(eorder);
 		  
-		  EventVO result = service.getByOrder(vo);
-
-		  return result;
+		  ResponseEntity<EventVO> entity = null;
+		  
+		  try{
+			  entity = new ResponseEntity<EventVO>(service.getByOrder(vo),HttpStatus.OK);
+		  }catch(Exception e){
+			  System.out.println("[GET BY ORDER ERROR!");
+			  entity = new ResponseEntity<EventVO>(new EventVO(),HttpStatus.BAD_REQUEST);
+		  }
+		  
+		  return entity;
 		  
 	  }
 	  
