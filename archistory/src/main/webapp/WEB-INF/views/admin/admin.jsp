@@ -943,8 +943,20 @@ $("#main").on("mouseover",function(){
 		    	
 		    	var mem = JSON.parse(memberJson);
 		    	
-		    	if(!mem){
-		    		alret("멤버 정보를 입력하세요.");
+		    	console.log(mem);
+		    	console.log(mem.userNo);
+		    	if(!mem.userNo){
+		    		
+		    		alret("멤버 번호를 입력하세요!");
+		    	}
+		    	if(!mem.userName){
+		    		alret("멤버 이름을 입력하세요!");
+		    	}
+		    	if(!mem.email){
+		    		alret("멤버 이메일 정보를 입력하세요!");
+		    	}
+		    	if(!mem.mPassword){
+		    		alret("멤버 비밀번호를 입력하세요!");
 		    	}
 		    	
 	    		 for(var k=1;k<i+1;k++){
