@@ -143,9 +143,15 @@ public class EventController {
 		  
 		  EventVO result = null;
 		  
-		  
-		  
-		  
+			ResponseEntity<String> entity = null;
+			
+			try{
+				result = service.getByOrder(vo);
+				entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
+			}catch(Exception e){
+				e.printStackTrace();
+				entity = new ResponseEntity<String>("FAIL",HttpStatus.BAD_REQUEST);
+			}
 		  
 		  return result;
 		  
