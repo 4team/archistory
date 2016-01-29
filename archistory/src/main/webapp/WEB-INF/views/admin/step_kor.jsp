@@ -632,7 +632,7 @@
 	        	placeholder: "ui-state-highlight",
 	            helper: 'clone',
 	            sort: function(e, ui) {
-	                $(ui.placeholder).html(Number($("#sortable_nav > li:visible").index(ui.placeholder)) + 0);
+	                $(ui.placeholder).html(Number($("#sortable > li:visible").index(ui.placeholder)) + 1);
 	            },
 	            update: function(event, ui) {
 	                var $lis = $(this).children('li');
