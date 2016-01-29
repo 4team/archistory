@@ -58,7 +58,7 @@
 
     #movieShow{
         text-align: center;
-        z-index:3000;
+        z-index:600;
         background-color: #000000;
     }
     /* 1월 29일 12:04분 이후 추가 시작 */
@@ -92,6 +92,18 @@
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     }
 
+    #selectContainer{
+        padding : 10px;
+    }
+
+    button{
+        float:right;
+    }
+
+    #resultShow{
+        text-align: center;
+        z-index:700;
+    }
 </style>
 
 <script type="text/javascript" src="js/upload.js"></script>
@@ -127,7 +139,7 @@
                 <div id="imageUl"></div>
                 <div id="content"></div>
 
-                <button id="nextBtn">Next</button>
+                <button id="nextBtn" class="btn btn-primary">Next</button>
             </div>
         </div>
 
@@ -135,13 +147,13 @@
 </div>
 
 
-
-<!-- Youtube 영상이 있을 시 뜨는 모달 -->
 <div class="modal fade" id="videoModal" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div id="movieShow"></div>
     </div>
 </div>
+
+
 
 
 <!-- 퀴즈의 정보를 보여주는 모달 -->
@@ -158,10 +170,41 @@
                 <div id="qustionContent"></div>
                 <div id="selectContainer"></div>
 
-                <button id="submitBtn">Submit</button>
+                <button id="submitBtn" class="btn btn-primary" data-toggle="popover" data-trigger="focus" data-placement="left" data-content="정답을 선택해주세요.">Submit</button>
             </div>
         </div>
 
+    </div>
+</div>
+
+<!-- 퀴즈 푼 뒤의 결과를 보여주는 창 -->
+<div class="modal fade" id="resultModal" aria-labelledby="editModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+
+
+
+        <div id="resultDiv" class="panel panel-primary">
+            <div class="panel-heading">
+                RESULT
+            </div>
+            <div class="panel-body">
+                <div id="resultShow"></div>
+                <button type="button" id="allClose" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="moveNext" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div>Move Next!</div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -173,22 +216,26 @@
 </script>
 <script>
     var template = Handlebars.compile($("#template").html());
+    //이 화면을 실행할 때 넘어오는 파라미터 초기화.
     var routeno = ${routeno};
     var lat = ${lat};
     var lng = ${lng};
-    
-    var memberno = 0;
-    
-    memberno = 68;
 
+    //이벤트와 관련된 변수들
     var eventEA = 0;
     var nowEventNo = null;
     var nowOrder = 1;
 
-    
-    
-    var eventGroup = null;
+    var eventGroup = [];
+    var eventVO = null;
+    var questionVO = null;
 
+    //모달들 변수
+    var eventModal = $("#eventModal");
+    var questionModal = $("#questionModal");
+    var resultModal = $("#resultModal");
+
+    //맵과 관련된 부분. 초기화.
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
@@ -209,7 +256,6 @@
         markers.push(marker);
 
         daum.maps.event.addListener(marker, 'mouseover', function () {
-            // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
             showInfo(marker);
         });
 
@@ -218,7 +264,7 @@
     }
 
 
-
+    //커스텀 오버레이 생성... 여기로 이동하세요를 띄울 예정.
     function showCustomOverlay(event){
 
         var content = "<div class='panel panel-primary'><div class='panel-heading'>"+event.title+"</div><div class='panel-body'>" + event.content+"</div></div>";
@@ -237,43 +283,95 @@
     }
 
 
-    // 나의 위치를 읽어온다.
 
-    var myLat = 0;
-    var myLng = 0;
+    function getEvent() {
+        function getEventByOrder(eventOrder, callback) {
+            console.log("=====현재 이벤트순서로 이벤트 불러오기 호출=====");
+            $.getJSON("http://14.32.66.127:4000/event/getByOrder?routeno=" + routeno + "&order=" + eventOrder, function (data) {
 
-    window.addEventListener('deviceorientation',getLocation);
+                eventVO = $(data)[0];
 
-    function getLocation(){
+                nowEventNo = eventVO.eventno;
+                callback(eventVO);
 
-        navigator.geolocation.getCurrentPosition(function(position){
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
+            });
+        }
 
-            console.log('My latitude: ', lat);
-            console.log('My longitude: ', lng);
+        getEventByOrder(nowOrder, function (eventVO) {
+            if(eventVO == null){
+                alert("모든 이벤트의 끝");
+                return;
+            }
+            console.log("==== getEventByOrder의 콜백에 들어옴 ====");
+            $("#title").html(eventVO.title);
+
+            var youtubeStr = eventVO.youtube.split("THUMBNAIL");
+            console.log("============유투브 가져오기=============");
+            console.log(eventVO.camera);
+            console.log(eventVO.youtube);
+            console.log(eventVO.youtube=="");
+
+            //카메라 있고 영상없는 경우
+            if (eventVO.camera == true && eventVO.youtube == "") {
+                $("#buttonContainer").html("<button id='camera'><span class='glyphicon glyphicon-camera' aria-hidden='true' ></span></button>");
+
+                //카메라 있고 영상 있는 경우
+            } else if (eventVO.camera == true && eventVO.youtube != "") {
+                $("#buttonContainer").html("<button onclick='videoClick()'><span class='glyphicon glyphicon-facetime-video' aria-hidden='true'></span></button><button id='camera'><span class='glyphicon glyphicon-camera' aria-hidden='true'></span></button>");
+                $("#movieShow").html("<embed  src='http://www.youtube.com/v/" + youtubeStr[0] + "' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true'></embed>");
+
+                //카메라 없고 영상 있는 경우
+            } else if (eventVO.camera == false && eventVO.youtube != "") {
+                $("#buttonContainer").html("<button onclick='videoClick()'><span class='glyphicon glyphicon-facetime-video' aria-hidden='true'></span></button>");
+                $("#movieShow").html("<embed  src='http://www.youtube.com/v/" + youtubeStr[0] + "' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true'></embed>");
+
+                //둘 다 없는 경우
+            } else {
+                $("#buttonContainer").html("");
+            }
+
+            $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventVO.eventno, function (data) {
+                $("#imageUl").html("");
+                console.log("==== 첨부한 사진을 불러온다 ====");
+                console.log(data);
+                if(data!="") {
+                    var array = data[0].split(',');
+                    var length = array.length;
+                    for (var i = 0; i < length; i++) {
+                        var name = array[i];
+                        var fileinfo = getFileInfo(name);
+                        var html = template(fileinfo);
+                        $("#imageUl").append(html);
+                    }
+                }
+            });
 
 
-            $("#myLocation").html("<h3>"+lat+"</h3><br><h3>"+lng+"</h3>");
-            myLat = lat;
-            myLng = lng;
+            $("#content").html(eventVO.content);
+
+// 이부분에 내 위치값과 이벤트의 위치값 비교하는 IF문을 넣어줍시다.
+
+            eventModal.modal("show");
         });
-        return;
+
     };
+
+    getEvent();
 
 
 
     // 해당 루트에 있는 이벤트를 불러온다.
 
     function getEventList(callback){
-        console.log("getEventList가 호출되어 시작됨.");
+        console.log("getEventList [호출]");
         eventEA = 0;
 
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
-            console.log(list);
+
             list.each(function(){
-                $(this).push(eventGroup);
+                eventGroup.push($(this));
+                console.log(eventGroup);
                 eventEA++;
             });
             callback();
@@ -281,71 +379,46 @@
     }
 
 
+
+
     // 해당 루트에 해당하는 모든 이벤트를 가져온다.
     getEventList(function(){
-        console.log("getEventList의 콜백에 들어옴.");
-        console.log("이 루트의 이벤트 총 갯수는 : ",eventEA);
-        console.log("==============EventGroup==============");
-        console.log(eventGroup);
+        console.log("getEventList [콜백]");
     });
 
 
 
-    function getEventByOrder(eventOrder,callback){
-        console.log("=====현재 이벤트순서로 이벤트 불러오기 호출=====");
-        $.getJSON("http://14.32.66.127:4000/event/getByOrder?routeno="+routeno+"&order="+eventOrder,function(data){
-			
-           console.log("현재 이벤트 순서에 해당하는 EventVO는?");
-           var eventVO = $(data);
-           nowEventNo = eventVO.eventno;
-           console.log(eventVO);
-           callback(eventVO[0]);
 
-        });
-    }
 
-    getEventByOrder(nowOrder,function(eventVO){
-        console.log("==== getEventByOrder의 콜백에 들어옴 ====");
-        $("#title").html(eventVO.title);
+    // 나의 위치를 읽어온다.
+    console.log("getLocation 호출");
+    window.addEventListener('deviceorientation',getLocation);
 
-        var youtubeStr = eventVO.youtube.split("THUMBNAIL");
 
-        //카메라 있고 영상없는 경우
-        if(eventVO.camera==true && eventVO.youtube==""){
-            $("#buttonContainer").html("<button id='camera'><span class='glyphicon glyphicon-camera' aria-hidden='true' ></span></button>");
+    var myLat = 0;
+    var myLng = 0;
 
-        //카메라 있고 영상 있는 경우
-        }else if(eventVO.camera==true && eventVO.youtube!=""){
-            $("#buttonContainer").html("<button onclick='videoClick()'><span class='glyphicon glyphicon-facetime-video' aria-hidden='true'></span></button><button id='camera'><span class='glyphicon glyphicon-camera' aria-hidden='true'></span></button>");
-            $("#movieShow").html("<embed  src='http://www.youtube.com/v/"+ youtubeStr[0] +"' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true'></embed>");
-        //카메라 없고 영상 있는 경우
-        }else if(eventVO.camera==false && eventVO.youtube!=""){
-            $("#buttonContainer").html("<button onclick='videoClick()'><span class='glyphicon glyphicon-facetime-video' aria-hidden='true'></span></button>");
+    function getLocation(){
+        console.log("[ 지오로케이션 실행 ]");
+        navigator.geolocation.getCurrentPosition(function(position){
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
 
-        //둘 다 없는 경우
-        }else{
-            $("#buttonContainer").html("");
-        }
+            console.log('My latitude: ', lat);
+            console.log('My longitude: ', lng);
 
-        $.getJSON("http://14.32.66.127:4000/event/getAttach/"+eventVO.eventno,function(data){
-            console.log("==== 첨부한 사진을 불러온다 ====");
-            console.log(data);
-            var array = data[0].split(',');
-            var length = array.length;
-            for(var i = 0; i < length; i++){
-                var name = array[i];
-                var fileinfo = getFileInfo(name);
-                var html = template(fileinfo);
-                $("#imageUl").append(html);
-            }
+            myLat = lat;
+            myLng = lng;
         });
 
+        //여기에 내 현재 위치를 받아서 현재 order에 해당하는 lat, lng를 비교해서 어떤 값 범위 이하이면 eventModal을 보여주면 될 것 같다.
+        console.log("===== 현재 ORDER에 해당하는 EventVO의 위도, 경도 =====");
+        console.log(eventVO.lat,eventVO.lng);
 
-        $("#content").html(eventVO.content);
+        return;
+    };
 
 
-        $("#eventModal").modal("show");
-    });
 
 
     function videoClick(){
@@ -354,25 +427,84 @@
 
 
     $("#nextBtn").on("click",function(event){
-    	event.preventDefault();
+        event.preventDefault();
         console.log("NEXT - 문제 출력");
-        
-        $.getJSON("http://14.32.66.127:4000/event/view?eventno="+nowOrder,function(data){
-        	
-        	if(data){
-        		console.log("Question이 있어서 불러왔다.",data);
-				$("#questionModal").modal("show");
-        	}else{
-        		console.log("Question이 없다.");
-        	}
-        	
+
+        $.getJSON("http://14.32.66.127:4000/question/view?eventno="+nowEventNo,function(data){
+
+            if(data){
+                console.log("Question이 있어서 불러왔다.",data);
+                questionVO = $(data)[0];
+                $("#qustionContent").html(data.question);
+
+                var selector = "";
+                if(data.qtype == "ox"){
+                    selector +="<div class='radio'><label><input type='radio' value='o' name='answer'> O </label></div><div class='radio'><label><input type='radio' value='x' name='answer'> X </label></div>";
+                }else{
+                    selector += "<div class='checkbox'><label><input type='checkbox' value='1' name='answer'>"+data.choice1+"</label></div>";
+                    selector += "<div class='checkbox'><label><input type='checkbox' value='2' name='answer'>"+data.choice2+"</label></div>";
+                    selector += "<div class='checkbox'><label><input type='checkbox' value='3' name='answer'>"+data.choice3+"</label></div>";
+                    selector += "<div class='checkbox'><label><input type='checkbox' value='4' name='answer'>"+data.choice4+"</label></div>";
+                }
+
+                $("#selectContainer").html(selector);
+
+                questionModal.modal("show");
+            }else{
+                console.log("Question이 없다.");
+                eventModal.modal("hide");
+                $("#allClose").modal("hide");
+                nowOrder++;
+                getEvent();
+            }
+
         });
-		
+
     });
-    
-    
 
 
+    $("#submitBtn").on("click",function(event){
+
+        event.preventDefault();
+        var answer;
+        if(questionVO.qtype=='ox'){
+            answer = $(":radio[name='answer']:checked").val();
+        }else{
+            answer = $(":checkbox[name='answer']:checked").val();
+        }
+
+        console.log(answer);
+
+        if(answer == null || answer == undefined){
+            $('#submitBtn').popover('show');
+            return;
+        }
+
+        if(questionVO.answer == answer){
+            console.log("정답입니다.");
+            $("#resultShow").html("<h3>정답입니다.</h3>");
+        }else{
+            console.log("틀렸습니다.");
+            $("#resultShow").html("<h3>틀렸습니다.</h3>");
+        }
+
+
+        questionModal.modal("hide");
+        resultModal.modal("show");
+
+    });
+
+    $("#allClose").on("click",function(event){
+        event.preventDefault();
+        eventModal.modal("hide");
+        $("#moveNext").modal("show");
+        nowOrder++;
+        getEvent();
+    });
+
+    function clearAll(){
+        $("#movieShow").html("");
+    }
 </script>
 
 </body>
