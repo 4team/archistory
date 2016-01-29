@@ -603,11 +603,6 @@ pageEncoding="UTF-8"%>
             clearEventDiv();
             attach = [];
 
-
-            getEventList(function(){
-                console.log("getEventList의 콜백에 들어옴.");
-
-            });
         });
 
         $("#eventModal").modal('hide');
@@ -698,6 +693,9 @@ pageEncoding="UTF-8"%>
             success: function(data){
 
                 console.log("<이벤트 생성!> eventno 가져옴:"+data);
+                getEventList(function(){
+                    console.log("이벤트 완료 _이벤트 리스트 가져옴");
+                });
                 makeQuestion(data);
 
                 var json = JSON.parse(qJson);
