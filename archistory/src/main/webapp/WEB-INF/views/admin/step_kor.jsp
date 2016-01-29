@@ -189,6 +189,10 @@
     	color: white;
     }
     
+        #sortable { list-style-type: none; margin: 0; padding: 0; width: 15%; }
+        #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1em; height: 18px; }
+        #sortable li span { position: absolute; margin-left: -1.3em; }
+    
 </style>
 
 <script type="text/javascript" src="/js/upload.js"></script>
@@ -375,8 +379,8 @@
 <div id="list">
    	루트 이름 : <input type="text" id="Rname" placeholder="">
     <hr>
-    <div id="eventList">
-        <ul>
+    <div id="eList">
+        <ul id="eventList">
         </ul>
     </div>
     <div id="listBottom">
@@ -591,12 +595,17 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(event){
-        eventLi+="<li><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
+        eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
 
         $("#eventList").html(eventLi);
 
     }
 
+
+	    $(function() {
+	        $( "#sortable" ).sortable(); //드래그 드롭으로 위치 변경
+	       $( "#sortable" ).disableSelection();
+	    });
 
     //이벤트 리스트 삭제버튼
     $("#eventList").on("click","#del",function(event){
