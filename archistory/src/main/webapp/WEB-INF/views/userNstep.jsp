@@ -133,6 +133,7 @@ function getEventList(){
         var eventnolist = $(data.eventno);
         eventLi="";
         console.log(list);
+        console.log(eventnolist);
         
         Math.min.apply(null, eventnolist);
         console.log(Math.min.apply(null, eventnolist));
