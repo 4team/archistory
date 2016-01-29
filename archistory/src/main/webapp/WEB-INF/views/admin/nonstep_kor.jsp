@@ -145,29 +145,42 @@ pageEncoding="UTF-8"%>
         width:120px;
     }
 
-    #search-container td:hover{
-        border-color:#aef;
+    #search-container table tr td img:hover{
+        border : 1px solid;
+        border-color:#007ECD;
         box-shadow:0 0 8px #fff;
     }
-
     #search-container table{
         margin-left: 10px;
     }
 
-    #searchDiv{
-        display:none;
-        border: 1px solid black;
+    #searchDiv {
+        display: none;
+        border: 1px solid white;
         border-radius: 10px;
-        padding:10px;
-        text-align:center;
-        background-color:#fff;
-        z-index:1200;
-        position:absolute;
-        right:150px;
-        top:100px;
-        width:180px;
-        height:400px;
+        padding: 10px;
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+        z-index: 1200;
+        position: absolute;
+        right: 150px;
+        top: 100px;
+        width: 180px;
+        height: 400px;
         overflow-y: scroll;
+    }
+
+    #eventList li{
+
+    }
+
+    #eventTitle{
+        width:130px;
+        height:22px;
+        overflow:hidden;
+        white-space:nowrap;
+        float:left;
     }
 
 
@@ -220,7 +233,8 @@ pageEncoding="UTF-8"%>
                         <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
                         <label for="videoInput">동영상</label>
-                        <input type="text" id="query"><button id="search-button">Youtube Search</button>
+                        Youtube Search <input type="text" id="query"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
+                        <ul id="youtubeList"></ul>
                         <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
 
                         <label for="camera">카메라</label><input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
@@ -288,11 +302,13 @@ pageEncoding="UTF-8"%>
                     <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
                     <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
-                    <label for="imgInput">이미지</label>
-                    <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+                    <input type="file" id="moimgInput"><br>
+                    <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
-                    <!--<label for="videoInput">동영상</label><input type="file" id="movideoInput"><br>-->
+                    <label for="videoInput">동영상</label><br>
+                    Youtube Search <input type="text" id="mquery"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
+                    <ul id="myoutubeList"></ul>
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
@@ -380,7 +396,7 @@ pageEncoding="UTF-8"%>
 <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 
 <script>
-    var markers = [];
+    var markers = null;
 
     var maplat = ${lat};
     var maplng = ${lng};
@@ -415,13 +431,17 @@ pageEncoding="UTF-8"%>
     function addMarker(event){
 
         //linePath.push(new daum.maps.LatLng(event.lat,event.lng));
+        markerImage = new daum.maps.MarkerImage(imageSrc, new daum.maps.Size(24, 35));
+
         var marker = new daum.maps.Marker({
             title: '<div class="title">' + event.title+'<font class="text"> [' + event.eventno +']</div> <br>'+event.content + '</font><br><br>',
-            position: new daum.maps.LatLng(event.lat,event.lng)
+            position: new daum.maps.LatLng(event.lat,event.lng),
+            image:markerImage
         });
 
         marker.setMap(map);
         markers.push(marker);
+
 
         daum.maps.event.addListener(marker, 'mouseover', function () {
             // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
@@ -473,6 +493,18 @@ pageEncoding="UTF-8"%>
     function getEventList(callback){
         console.log("getEventList가 호출되어 시작됨.");
         //linePath = [];
+        console.log("=====================");
+        console.log(markers);
+
+        if(markers != null){
+            console.log("IF문에 걸렸다! 즉 원래 존재하는 마커가 있는 상태였다.",markers.length);
+            for(var i = 0 ; i < markers.length; i++){
+                console.log(markers[i]);
+                markers[i].setMap(null);
+            }
+        }
+
+        markers = [];
 
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
@@ -554,7 +586,6 @@ pageEncoding="UTF-8"%>
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
         var camera = $("#camera").val();
-
         attach2 = attach.join();
 
         if(title=="" || content==""){
@@ -566,6 +597,12 @@ pageEncoding="UTF-8"%>
             console.log("attach2:" + attach2);
             clearEventDiv();
             attach = [];
+
+
+            getEventList(function(){
+                console.log("getEventList의 콜백에 들어옴.");
+
+            });
         });
 
         $("#eventModal").modal('hide');
@@ -654,22 +691,7 @@ pageEncoding="UTF-8"%>
             datatype: "json",
             data:JSON.stringify({routeno:routeno,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtubeId:youtubeId}),
             success: function(data){
-                //  polyline.setMap(null);
-                getEventList(function(){
-                    console.log("<논스텝>이벤트 생성 getEventList의 콜백에 들어옴.");
 
-                    /*  // 지도에 표시할 선을 생성합니다
-                     polyline = new daum.maps.Polyline({
-                     path: linePath, // 선을 구성하는 좌표배열 입니다
-                     strokeWeight: 5, // 선의 두께 입니다
-                     strokeColor: '#FFAE00', // 선의 색깔입니다
-                     strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-                     strokeStyle: 'solid' // 선의 스타일입니다
-                     });
-
-                     polyline.setMap(map);
-                     console.log(linePath); */
-                });
                 console.log("<이벤트 생성!> eventno 가져옴:"+data);
                 makeQuestion(data);
 
@@ -683,6 +705,7 @@ pageEncoding="UTF-8"%>
                     console.log("이벤트 생성중 - 문제있음.")
                     createQuestion(qJson);
                 }
+
             }
         });
         callback();
@@ -758,6 +781,9 @@ pageEncoding="UTF-8"%>
     //이벤트 읽기 기능
     function viewEvent(eventno){
         $(".uploadedList").html("");
+        $("#myoutubeList").html("");
+        $("#youtubeList").html("");
+
         var template2 = Handlebars.compile($("#template").html());
 
         $.getJSON("http://14.32.66.127:4000/event/view?eventno="+eventno,function(data){
@@ -770,6 +796,17 @@ pageEncoding="UTF-8"%>
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moeventno").val(eventno);
+
+
+            var youtubeStr = vo.attr("youtube");
+
+            if(youtubeStr){
+                var arrayU = youtubeStr.split("THUMBNAIL");
+                youtubeId = youtubeStr;
+
+                $("#myoutubeList").html("<li><img src='"+arrayU[1]+"'><small>X</small></li>");
+            }
+
 
             console.log("camera 유무:"+vo.attr("camera"));
             $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //카메라 없으면
@@ -957,7 +994,6 @@ pageEncoding="UTF-8"%>
         var content = $("#moeventinfo").val();
         var eventno = $("#moeventno").val();
         var camera = $("#mocamera").val();
-
         attach2 = attach.join();
 
         console.log(attach2);
@@ -1044,8 +1080,11 @@ pageEncoding="UTF-8"%>
         clearEventDiv();
         clearMoEventdiv();
         clearQuestionDiv();
+        $("#youtubeList").html("");
+
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
+        //$("#order").val(eventno); 이거 뭐지?
 
         console.log("내가 선택한 위도와 경도 : ",lat,lng);
 
@@ -1366,14 +1405,16 @@ pageEncoding="UTF-8"%>
 
     }
 
-    /*     <!-- 유투브 검색 --> */
-    $("#search-button").on("click",function(event){
-        $("#searchDiv").show();
+
+    /*유투브 검색 */
+    $("#youtubeSearch").on("click",function(event){
         event.preventDefault();
+        $("#searchDiv").show();
 
         console.log('Search Started');
         var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
         var q = $('#query').val();
+        console.log(q);
 
         gapi.client.setApiKey(apiKey);
         gapi.client.load('youtube', 'v3', function() {
@@ -1385,7 +1426,6 @@ pageEncoding="UTF-8"%>
             q: q,
             part: 'id, snippet',
             type: 'video',
-            order: 'viewcount',
             maxResults:20
         });
 
@@ -1403,16 +1443,76 @@ pageEncoding="UTF-8"%>
             result += "</table>";
             $('#search-container').html(result);
         });
+
+        $('#query').val("");
+    });
+
+
+
+    // 유투브 수정!!
+
+    $("#msearch").on("click",function(event){
+
+        console.log("왜 안눌려.");
+        event.preventDefault();
+        $("#searchDiv").show();
+
+        console.log('Search Started');
+        var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
+        var q = $('#mquery').val();
+        console.log(q);
+
+        gapi.client.setApiKey(apiKey);
+        gapi.client.load('youtube', 'v3', function() {
+            isLoad = true;
+        });
+        console.log('Search Request');
+
+        request = gapi.client.youtube.search.list({
+            q: q,
+            part: 'id, snippet',
+            type: 'video',
+            maxResults:20
+        });
+
+
+        request.execute(function(response) {
+            var str = JSON.stringify(response.result);
+            var movie = $(response.result.items);
+            console.log(movie);
+
+            var result = "<table>";
+
+            movie.each(function(index){
+                result += "<tr><td><img data-src='"+this.id.videoId+"' src='"+this.snippet.thumbnails.default.url+"'><br>"+this.snippet.title+"</td></tr>";
+            });
+            result += "</table>";
+            $('#search-container').html(result);
+        });
+
+        $('#mquery').val("");
     });
 
     $("#search-container").on('click','img',function(event){
         youtubeId = $(this).attr("data-src");
+        var thumbnail = $(this).attr("src");
 
         console.log("가져온 유투브 아이디 : ",youtubeId);
+        console.log("가져온 유투브 썸네일 주소 : ",thumbnail);
+        youtubeId+="THUMBNAIL"+thumbnail;
+
+        console.log("결과적인 youtubeId값 : ", youtubeId);
+
+        var array = youtubeId.split("THUMBNAIL");
+        console.log(array);
+        $("#searchDiv").hide();
 
 
+        $("#youtubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
+        $("#myoutubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
 
     });
+
 </script>
 <!-------- 파일첨부기능 끝 -------->
 
