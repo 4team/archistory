@@ -983,45 +983,59 @@ $("#main").on("mouseover",function(){
 
 		    });
 	        
+		     
 	        function inviRemove(routeno,memberno){
 	        	
 	        	  console.log("invite 삭제",routeno,memberno);
 
-			        $.ajax({
-			            type:"post",
-			            url: "http://14.32.66.127:4000/member/inviteremove",
-			            headers :{ "Content-Type" : "application/json"}, 
-			            dataType: "json",
-			            data : JSON.stringify({routeno:routeno,memberno:memberno}),
-			            complete: function(data){
-			            	console.log(data);
+	        	  $.ajax({
+					  type:'post',
+					  url:"http://14.32.66.127:4000/member/inviteremove",
+					  headers : {
+						"Content-Type" : "application/json"  
+					  },
+					  datatype:"json",
+					  data:JSON.stringify({routeno:routeno,memberno:memberno}),
+					  success: function(data){
+						  console.log(data);
 			            	console.log("invite 삭제 완료" );
 			            	memberRemove(memberno);
-			            }
-			    	});
+					  }				   
+				   });
+		    
 	
 			    }
 	    
+	     
 	        function memberRemove(memberno){
 	        	console.log("member 삭제", memberno);
 	        	
-	            $.ajax({
-		            type:"post",
-		            url: "http://14.32.66.127:4000/member/remove",
-		            headers :{ "Content-Type" : "application/json"}, 
-		            dataType: "json",
-		            data : JSON.stringify({memberno:memberno}),
-		            complete: function(data){
-		            	console.log(data);
-		            	console.log("member 삭제 완료 ");
-		            	getMemberList();
-		            }
-		    	});
+	        	 $.ajax({
+					  type:'post',
+					  url:"http://14.32.66.127:4000/member/remove",
+					  headers : {
+						"Content-Type" : "application/json"  
+					  },
+					  datatype:"json",
+					  data:JSON.stringify({memberno:memberno}),
+					  success: function(data){
+						  console.log(data);
+			            	console.log("member 삭제 완료 ");
+			            	getMemberList();
+
+					  }				   
+				   });
+		        
 	        	
 	        }
 
+	        
+	        
+ // <!-- 멤버 수정 -->
+	        
+	        
 	 var memNumber;       
-	     //멤버 수정 
+	     
 	        $("#memberlist").on("click","#modi",function(){
 	        	var select = $(this);
 	        	memNumber = select.attr("value");
