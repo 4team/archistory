@@ -178,7 +178,7 @@ function showEvent(emT) {
         var list = $(data);
         eventLi="";
         console.log(list);      
-        console.log(list.title);
+        console.log(list.attr(title));
         
        eventLi += "<div class='form-group'>"+
        "<label for='title'>"+list.title+"</label>"+
