@@ -943,7 +943,6 @@ $("#main").on("mouseover",function(){
 		    	
 		    	var mem = JSON.parse(memberJson);
 		    	
-		    	console.log(mem);
 		    	console.log(mem.userNo);
 		    	if(!mem.userNo){
 		    		
