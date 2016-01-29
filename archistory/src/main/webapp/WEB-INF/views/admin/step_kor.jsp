@@ -190,7 +190,7 @@
     	color: white;
     }
     
-        #sortable { list-style-type: none; margin: 0; padding: 0; width: 15%; }
+        #sortable { list-style-type: none; margin: 0; padding: 0; width: 30%; }
         #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1em; height: 20px; }
         #sortable li span { position: absolute; margin-left: -1.3em; }
     
@@ -601,10 +601,10 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(event){
-        eventLi="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
+        eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>";
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
-        $("#sortable").append(eventLi);
+        $("#sortable").html(eventLi);
 
     }
 
