@@ -646,13 +646,7 @@
             clearEventDiv();
         	attach = [];
         	eventno++;
-        	
-            getEventList(function(){
-            	console.log("getEventList의 콜백에 들어옴.");
-            	
-            });
 
-            
         });
 
         $("#eventModal").modal('hide');
@@ -740,8 +734,12 @@
             data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtube:youtubeId}),
             success: function(data){
         		polyline.setMap(null);
-
                 console.log("<이벤트 생성!> eventno 가져옴:"+data);
+          		
+                getEventList(function(){
+                    console.log("이벤트 완료 _이벤트 리스트 가져옴");
+                });
+                
                 makeQuestion(data);
 
                 var json = JSON.parse(qJson);

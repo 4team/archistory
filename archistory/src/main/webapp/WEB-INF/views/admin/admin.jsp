@@ -997,7 +997,7 @@ $("#main").on("mouseover",function(){
 					  datatype:"json",
 					  data:JSON.stringify({routeno:routeno,memberno:memberno}),
 					  success: function(data){
-			            	console.log(memberno+"invite 삭제 완료" +data);
+			            	console.log("memberno:"+memberno+"invite 삭제 완료" +data);
 			            	memberRemove(memberno);
 					  }				   
 				   });
@@ -1016,7 +1016,7 @@ $("#main").on("mouseover",function(){
 					  datatype:"json",
 					  data:JSON.stringify({memberno:memberno}),
 					  success: function(data){
-			            	console.log(memberno+"member 삭제 완료 "+data);
+			            	console.log("memberno:"+memberno+"member 삭제 완료 "+data);
 			            	getMemberList();
 
 					  }				   
