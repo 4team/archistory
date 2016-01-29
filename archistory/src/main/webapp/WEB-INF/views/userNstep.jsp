@@ -254,6 +254,11 @@ function displayMarker(locPosition, message) {
     // 인포윈도우를 마커위에 표시합니다 
     infowindow.open(map, marker);
     console.log("lt:" + lt);
+    
+    
+var routeLoc = new daum.maps.LatLng(lat, lng)
+    // 지도 중심좌표를 루트로 변경
+    map.setCenter(routeLoc);   
 }
 //-----------------------------------END Geolocation-----------------------------------------
 
