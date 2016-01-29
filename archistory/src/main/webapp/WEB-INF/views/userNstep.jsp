@@ -155,7 +155,7 @@ function addMarker(event){
 			        	console.log("addmarker들어옴");
 			        	
 			        	emarker.setMap(map);
-			        	emarkers.push(emarker);		
+			        	emarkers.push(emarker);	
 			        	emPosition = emarker.getPosition();
 			        	
 			        	emT = emarker.getTitle();
@@ -212,6 +212,10 @@ if (navigator.geolocation) {
             // 지도 중심좌표를 루트로 변경
             map.setCenter(routeLoc);   
             
+            var eLat = event.lat;
+            var eLng = event.lng;
+        	calDistance(eLat,eLng,lt,ln);
+        	console.log(ret.toFixed(2));
           //내 위치와 마커위치 일정거리 이하되면 이벤트문제창뜨게
     		/* var meAb = (mPosition.Ab)-(emPosition.Ab);
     		var mezb = (mPosition.zb)-(emPosition.zb);
@@ -256,15 +260,27 @@ function displayMarker(locPosition, message) {
     // 인포윈도우를 마커위에 표시합니다 
     infowindow.open(map, marker);
     console.log("lt:" + lt);
-    
-    
 
 }
 
-location.reload(true);
-location.href = location.href;
-history.go(5);
+
 //-----------------------------------END Geolocation-----------------------------------------
+
+
+function calDistance(eLat,eLng,lt,ln){  
+  
+	var ret=0;
+	var latA=111;
+	var lngB=88.8;
+	ret = Math.sqrt(
+			Math.pow((Math.abs(eLat-lt)*latA),2)
+			+
+			Math.pow((Math.abs(eLng-ln)*lngB),2)
+			)*1000;
+	
+    return ret.toFixed(2);  
+}
+
 
 </script>
 
