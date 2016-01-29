@@ -140,12 +140,6 @@ function getEventList(){
 			
 	    });
     });
-var title2 = emarker.getTitle();
-daum.maps.event.addListener(emarker, 'click', function(title2) {
-    console.log(title2);
-    $("#eBox").modal('show');
-    
-});
     };
 getEventList();
 
@@ -164,6 +158,13 @@ function addMarker(event){
 			        	
 			        	emT = emarker.getTitle();
 			    		showEvent(emT);
+
+			    		var title2 = emarker.getTitle();
+daum.maps.event.addListener(emarker, 'click', function(title2) {
+    console.log(title2);
+    $("#eBox").modal('show');
+    
+});
 };
 			        				        	
 function showEvent(emT) {
