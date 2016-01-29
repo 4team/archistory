@@ -186,7 +186,7 @@
     }
     
      #yClose{
-    	background-color: white;
+    	color: white;
     }
     
 </style>
