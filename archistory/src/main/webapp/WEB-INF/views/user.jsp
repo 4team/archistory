@@ -60,7 +60,7 @@ z-index:9999;
 
             overflow-y:scroll;
         }
-.gn-menu.li:hover{
+.eachMenu:hover{
 border : 1px solid;
         	border-color:#aef;
         	box-shadow:0 0 8px #fff;
@@ -88,14 +88,14 @@ border : 1px solid;
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><a href="#about" class="gn-icon gn-icon-download" id="mRouteList">Tour Route</a></li>
+								<li class="eachMenu"><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-download" id="mRouteList">Tour Route</a></li>
 								
 									<ul  id="mMyRouteList"></ul>
 									
-								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
-								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
-								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+								<li class="eachMenu"><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li class="eachMenu"><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li class="eachMenu"><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
