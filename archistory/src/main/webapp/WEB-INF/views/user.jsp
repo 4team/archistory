@@ -65,10 +65,6 @@ border : 1px solid;
 border-color:#aef;
 box-shadow:0 0 8px #aef;
 }
-#closeList{
-float :right;
-z-index:150;
-}
 </style>
 
 
@@ -127,7 +123,7 @@ z-index:150;
 						
 			</div>
 			</div>
-					<a href="#" id="closeList" title="Close"><i class="fa fa-times"></i></a>
+					<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
 			</div>
 			<!-- END 루트리스트 뜨는 어두운전체창 -->
 
