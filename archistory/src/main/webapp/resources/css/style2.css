@@ -363,7 +363,12 @@ input.gn-search:focus {
 .gn-icon-photoshop::before {
 		content: "\e001"
 }
-
+.gn-icon-article::before {
+		content: "\e003"
+}
+.gn-icon-earth::before {
+		content: "\e004"
+}
 .gn-icon-illustrator::before {
 		content: "\e002"
 }

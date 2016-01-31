@@ -75,8 +75,6 @@ z-index:999999;
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>	
 
-
-
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
@@ -92,13 +90,13 @@ z-index:999999;
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li class="eachMenu"><a href="/user" class="gn-icon gn-icon-cog">Home</a></li>
+								<li class="eachMenu"><a href="/user" class="gn-icon gn-icon-earth">Home</a></li>
 								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-download" id="mRouteList">Tour Route</a></li>
 								
 									<ul  id="mMyRouteList"></ul>
 									
 								<li class="eachMenu"><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
-								<li class="eachMenu"><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li class="eachMenu"><a href="/sboard/list" class="gn-icon gn-icon-article">Reviews</a></li>
 								<li class="eachMenu"><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
