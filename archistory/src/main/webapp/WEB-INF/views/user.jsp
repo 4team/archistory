@@ -91,7 +91,7 @@ z-index:999999;
 						<div class="gn-scroller">
 							<ul class="gn-menu">
 								<li class="eachMenu"><a href="/user" class="gn-icon gn-icon-earth">Home</a></li>
-								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-illustrator" id="mRouteList">Tour Route</a></li>
+								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-archives" id="mRouteList">Tour Route</a></li>
 								
 									<ul  id="mMyRouteList"></ul>
 									
