@@ -199,6 +199,15 @@ top:10%;
 			font-size: 10px;
 		}
 </style>
+
+ <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    
     <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min2.js"></script>
@@ -335,11 +344,6 @@ top:10%;
         </div>
     </div>
 </div>
-
-
-<div id="myLocation"><span class="glyphicon glyphicon-map-marker"></span></div>
-
-
 
 	<!-- Section: intro -->
     <section id="intro" class="intro">
