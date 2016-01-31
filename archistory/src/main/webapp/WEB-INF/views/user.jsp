@@ -55,6 +55,10 @@ position:fixed;
 display:none;
 z-index:9999;
 }
+.modal-dialog{
+top:100px;
+}
+
 </style>
 
     <!-- Core JavaScript Files -->
