@@ -165,7 +165,7 @@ $("#list").on("click",function(){
 });
 
 $("#closeList").on("click",function(){
-	 $("#routeList").hide();	 	
+	 $("#routeList").modal('hide');	 	
 });
 
 var routeLi = "";
