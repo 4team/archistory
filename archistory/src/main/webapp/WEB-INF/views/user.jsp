@@ -68,6 +68,11 @@ border : 1px solid;
 .eachMenu{
 width:200px;
 }
+@media screen and (max-width: 422px) { 
+.eachMenu{
+width:100%;
+}
+
 </style>
 
 
