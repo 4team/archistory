@@ -26,7 +26,6 @@
     <!-- Squad theme CSS -->
     <link href="css/style2.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
-	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
 </head>
 
