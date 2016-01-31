@@ -65,6 +65,10 @@ border : 1px solid;
 border-color:#aef;
 box-shadow:0 0 8px #aef;
 }
+#closeList{
+float :right;
+z-index:150;
+}
 </style>
 
 
