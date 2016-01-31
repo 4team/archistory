@@ -70,7 +70,7 @@ width:200px;
 }
 @media screen and (max-width: 422px) { 
 .eachMenu{
-width:100%;
+width:60%;
 }
 
 </style>
