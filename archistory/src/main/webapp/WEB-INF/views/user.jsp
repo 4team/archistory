@@ -127,7 +127,7 @@ z-index:150;
 						
 			</div>
 			</div>
-					<i class="fa fa-times"><a href="#" id="closeList" title="Close"></a></i>
+					<a href="#" id="closeList" title="Close"><i class="fa fa-times"></i></a>
 			</div>
 			<!-- END 루트리스트 뜨는 어두운전체창 -->
 
