@@ -227,7 +227,7 @@ hr {
 
 .gn-scroller {
 		position: absolute;
-		overflow-y: scroll;
+		/* overflow-y: scroll; */
 		width: 370px;
 		height: 100%;
 }
@@ -424,7 +424,7 @@ input.gn-search:focus {
 }
 
 .gn-menu-wrapper.gn-open-all {
-		width: 370px
+		width: 340px
 }
 
 .gn-menu-wrapper.gn-open-all .gn-submenu li {
