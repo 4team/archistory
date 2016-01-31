@@ -15,10 +15,6 @@
 
     <title>Ninestars bootstrap 3 one page template</title>
 
-
-       <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
 
@@ -64,6 +60,11 @@ z-index:9999;
 
             overflow-y:scroll;
         }
+.gn-menu.li:hover{
+border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+}
 </style>
 
 
