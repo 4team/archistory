@@ -49,11 +49,10 @@ list-style:none;
 }
 #closeList{
 position:fixed;
-z-index:150;
 }
 #yesModal{
 display:none;
-z-index:200;
+z-index:9999;
 }
 #mMyRouteList{
          display:none;
@@ -71,7 +70,6 @@ box-shadow:0 0 8px #aef;
 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>	
-<script src="js/nivo-lightbox.min.js"></script>
 
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -265,6 +263,7 @@ var routeLi = "";
 	<script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
 	<script src="js/stellar.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
