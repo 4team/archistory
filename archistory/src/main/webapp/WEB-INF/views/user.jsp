@@ -88,7 +88,7 @@ z-index:999999;
 <div class="container">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span class="fa fa-bars fa-5">Menu</span></a>
+					<a class="gn-icon gn-icon-menu"><span class="fa fa-bars fa-6"></span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
