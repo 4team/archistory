@@ -123,7 +123,7 @@ box-shadow:0 0 8px #aef;
 						
 			</div>
 			</div>
-					<a href="#" class="nivo-lightbox-close" id="closeList" title="Close"></a>
+					<i class="fa fa-times"><a href="#" id="closeList" title="Close"></a></i>
 			</div>
 			<!-- END 루트리스트 뜨는 어두운전체창 -->
 
