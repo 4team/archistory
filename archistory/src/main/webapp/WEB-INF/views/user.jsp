@@ -65,7 +65,7 @@ z-index:9999;
 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>	
-
+    <script src="js/bootstrap.min2.js"></script>
 
 
        <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -258,10 +258,7 @@ var routeLi = "";
 
     
     <!-- Core JavaScript Files -->
-    
-    <script src="js/bootstrap.min2.js"></script>
-    
-	<script src="js/classie.js"></script>
+    <script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
 	<script src="js/nivo-lightbox.min.js"></script>
