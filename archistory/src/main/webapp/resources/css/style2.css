@@ -369,6 +369,9 @@ input.gn-search:focus {
 .gn-icon-earth::before {
 		content: "\e004"
 }
+.fa-bars::before {
+		content: "\f0c9"
+}
 .gn-icon-illustrator::before {
 		content: "\e002"
 }
