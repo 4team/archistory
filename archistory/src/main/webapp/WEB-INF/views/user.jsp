@@ -68,6 +68,8 @@ box-shadow:0 0 8px #aef;
 .fa{
 position:absolute;
 z-index:999999;
+width:60px;
+height:60px;
 }
 </style>
 
