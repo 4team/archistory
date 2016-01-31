@@ -26,6 +26,8 @@
     <!-- Squad theme CSS -->
     <link href="css/style2.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
 </head>
 
@@ -88,7 +90,7 @@ z-index:999999;
 <div class="container">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span class="fa fa-bars fa-6"></span></a>
+					<a class="gn-icon gn-icon-menu"><li class="w3-large"><i class="fa fa-bars fa-6"></i></li></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
