@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false"%>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
     <title>Ninestars bootstrap 3 one page template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -200,17 +201,16 @@ top:10%;
 		}
 </style>
 
-  <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    
-        <!-- Core JavaScript Files -->
+     <!-- Core JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min2.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
 	<script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
 
 
