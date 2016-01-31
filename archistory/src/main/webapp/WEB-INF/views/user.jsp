@@ -62,8 +62,8 @@ z-index:9999;
         }
 .eachMenu:hover{
 border : 1px solid;
-        	border-color:#aef;
-        	box-shadow:0 0 8px #fff;
+border-color:#aef;
+box-shadow:0 0 8px #aef;
 }
 </style>
 
