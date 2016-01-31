@@ -70,7 +70,8 @@ z-index:9999;
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
-
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>	
 
 <body data-spy="scroll">
 
@@ -97,6 +98,12 @@ z-index:9999;
 </ul>
 	</div>
 	
+
+<div id="upper-login">
+	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
+	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
+</div>
+
 
 	<!-- Section: intro -->
     <section id="intro" class="intro">
@@ -255,9 +262,9 @@ var routeLi = "";
 
     
     <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
+    
     <script src="js/bootstrap.min2.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
+    
 	<script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
