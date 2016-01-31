@@ -84,7 +84,7 @@ box-shadow:0 0 8px #aef;
 <div class="container">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu fa fa-bars fa-2"><span>Menu</span></a>
+					<a class="gn-icon gn-icon-menu"><i class=" fa fa-bars fa-2"><span>Menu</span></i></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
