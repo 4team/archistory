@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false"%>
 
 <!DOCTYPE html>
@@ -16,14 +15,6 @@
 
     <title>Ninestars bootstrap 3 one page template</title>
 
-  <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    
-    
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
 
@@ -64,47 +55,23 @@ position:fixed;
 display:none;
 z-index:9999;
 }
-
-         #mMyRouteList{
-         display:none;
-            position:absolute;
-
-            overflow-y:scroll;
-        }
 </style>
 
     <!-- Core JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min2.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
 	<script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
 
 
 <body data-spy="scroll">
 
-
-<div class="menu" id="mDrop">
-			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu" id="dropdown-menu">
-								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><a href="#about" class="gn-icon gn-icon-download" id="mRouteList">Tour Route</a></li>
-								
-									<ul  id="mMyRouteList"></ul>
-									
-								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
-								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
-								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
-							</ul>
-						</div><!-- /gn-scroller -->
-					</nav>
-				</li>
-</ul>
-	</div>
-	
 
 	<!-- Section: intro -->
     <section id="intro" class="intro">
@@ -159,11 +126,6 @@ z-index:9999;
 
 <script>
 //route list 보이기
-
-$("#mDrop").on("mouseover",function(){
-    $(".dropdown-menu").show();
-});
-
 
 $("#list").on("click",function(){
 	 $("#routeList").show();	 	
