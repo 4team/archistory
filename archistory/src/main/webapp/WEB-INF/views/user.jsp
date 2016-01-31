@@ -90,8 +90,8 @@ z-index:999999;
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li class="eachMenu"><a href="/user" class="gn-icon gn-icon-cog">Home</a></li>
-								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-photoshop" id="mRouteList">Tour Route</a></li>
+								<li class="eachMenu"><a href="/user" class="gn-icon gn-icon-earth">Home</a></li>
+								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-archive" id="mRouteList">Tour Route</a></li>
 								
 									<ul  id="mMyRouteList"></ul>
 									
