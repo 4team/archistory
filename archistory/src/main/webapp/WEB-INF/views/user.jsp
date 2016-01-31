@@ -65,6 +65,10 @@ border : 1px solid;
 border-color:#aef;
 box-shadow:0 0 8px #aef;
 }
+.fa{
+position:absolute;
+z-index:999999;
+}
 </style>
 
 
@@ -84,7 +88,8 @@ box-shadow:0 0 8px #aef;
 <div class="container">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu fa-bars fa-2"><span>Menu</span></a>
+<i class="fa fa-bars fa-5"></i>
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
