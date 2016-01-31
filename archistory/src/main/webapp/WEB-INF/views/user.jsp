@@ -56,6 +56,13 @@ position:fixed;
 display:none;
 z-index:9999;
 }
+
+         #mMyRouteList{
+         display:none;
+            position:absolute;
+
+            overflow-y:scroll;
+        }
 </style>
 
     <!-- Core JavaScript Files -->
@@ -73,6 +80,29 @@ z-index:9999;
 
 <body data-spy="scroll">
 
+
+<div class="menu" id="mDrop">
+			<ul id="gn-menu" class="gn-menu-main">
+<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu" id="dropdown-menu">
+								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><a href="#about" class="gn-icon gn-icon-download" id="mRouteList">Tour Route</a></li>
+								
+									<ul  id="mMyRouteList"></ul>
+									
+								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+</ul>
+	</div>
+	
 
 	<!-- Section: intro -->
     <section id="intro" class="intro">
@@ -127,6 +157,11 @@ z-index:9999;
 
 <script>
 //route list 보이기
+
+$("#mDrop").on("mouseover",function(){
+    $(".dropdown-menu").show();
+});
+
 
 $("#list").on("click",function(){
 	 $("#routeList").show();	 	
