@@ -390,7 +390,7 @@ input.gn-search:focus {
 		width: 0;
 		height: 0;
 		display: block;
-		overflow: hidden;
+		overflow: visible;
 }
 
 .gn-icon-menu::before {
