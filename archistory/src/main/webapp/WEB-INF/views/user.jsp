@@ -84,11 +84,11 @@ box-shadow:0 0 8px #aef;
 <div class="container">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<a class="gn-icon gn-icon-menu fa fa-bars fa-2"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li class="eachMenu"><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li class="eachMenu"><a href="/user" class="gn-icon gn-icon-cog">Home</a></li>
 								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-download" id="mRouteList">Tour Route</a></li>
 								
 									<ul  id="mMyRouteList"></ul>
