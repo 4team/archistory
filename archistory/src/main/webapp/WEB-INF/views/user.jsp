@@ -17,7 +17,7 @@
     <title>Ninestars bootstrap 3 one page template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
