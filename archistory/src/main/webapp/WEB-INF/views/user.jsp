@@ -49,10 +49,11 @@ list-style:none;
 }
 #closeList{
 position:fixed;
+z-index:150;
 }
 #yesModal{
 display:none;
-z-index:9999;
+z-index:200;
 }
 #mMyRouteList{
          display:none;
@@ -64,10 +65,6 @@ z-index:9999;
 border : 1px solid;
 border-color:#aef;
 box-shadow:0 0 8px #aef;
-}
-.fa{
-position:absolute;
-z-index:999999;
 }
 </style>
 
