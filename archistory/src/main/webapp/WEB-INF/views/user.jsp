@@ -89,7 +89,7 @@ width:60%;
 <body data-spy="scroll">
 
 
-<div class="menu">
+<div class="container">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
