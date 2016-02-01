@@ -25,6 +25,8 @@ public class ParticipateController {
 		try{
 			System.out.println("[ 유저의 참여시작 ]");
 			mapper.create(vo);
+			Integer thisNo = vo.getParticipateno();
+			System.out.println(thisNo);
 			entity = new ResponseEntity<String>("Welcome!",HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<String>("Sorry...",HttpStatus.BAD_REQUEST);
@@ -40,8 +42,6 @@ public class ParticipateController {
 		try{
 			System.out.println("[ 유저의 다음스테이지 ]");
 			mapper.update(vo);
-			Integer thisNo = vo.getParticipateno();
-			System.out.println(thisNo);
 			entity = new ResponseEntity<String>("Next!",HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<String>("Fail...",HttpStatus.BAD_REQUEST);
