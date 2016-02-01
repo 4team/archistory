@@ -55,16 +55,7 @@ position:fixed;
 display:none;
 z-index:9999;
 }
-#mMyRouteList{
-display:none;
-position:absolute;
-overflow-y:scroll;
-}
-.eachMenu:hover{
-border : 1px solid;
-border-color:#aef;
-box-shadow:0 0 8px #aef;
-}
+
 </style>
 
     <!-- Core JavaScript Files -->
