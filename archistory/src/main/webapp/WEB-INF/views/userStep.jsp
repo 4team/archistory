@@ -294,6 +294,13 @@ var customOverlay;
     window.addEventListener('deviceorientation',getLocation);
 
 
+    
+    
+    
+    
+    
+    
+    
     function getEvent() {
         function getEventByOrder(eventOrder, callback) {
             console.log("=====현재 이벤트순서로 이벤트 불러오기 호출=====");
