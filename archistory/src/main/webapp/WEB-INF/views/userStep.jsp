@@ -517,7 +517,7 @@ var myMarker = null;
                 url:"http://14.32.66.127:4000/question/solve",
                 headers:{ "Content-Type":"application/json"},
                 datatype:"json",
-                data:{memberno:memberno,questionno:questionVO.questionno,result:true},
+                data:JSON.stringify({memberno:memberno,questionno:questionVO.questionno,result:true}),
                 success:function(data){
                     console.log("문제를 풀고 받은 결과",data);
                 }
@@ -532,7 +532,7 @@ var myMarker = null;
                 url:"http://14.32.66.127:4000/question/solve",
                 headers:{ "Content-Type":"application/json"},
                 datatype:"json",
-                data:{memberno:memberno,questionno:questionVO.questionno,result:false},
+                data:JSON.stringify({memberno:memberno,questionno:questionVO.questionno,result:false}),
                 success:function(data){
                     console.log("문제를 풀고 받은 결과",data);
                 }
