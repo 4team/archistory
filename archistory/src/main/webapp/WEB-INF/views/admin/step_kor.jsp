@@ -622,7 +622,7 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
-        eventLi+="<li class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
+        eventLi+="<li data-eventname='"+event.title+" class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
         
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
@@ -650,6 +650,10 @@
 	                    var newVal = $(this).index();
 	                    $(this).children('.sortable-number').html(newVal);
 	                   // $(this).children('#item_display_order').val(newVal);
+	                   
+	                   var eventname = $(this).attr("data-eventname");
+	                   
+	                   console.log("이벤트 이름:"+eventname+"현재 넘버:"+newVal);
 	                });
 	            }   	
 	        }); //드래그 드롭으로 위치 변경
