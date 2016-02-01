@@ -320,14 +320,14 @@ input.gn-search:focus {
 		color: white
 }
 
-.gn-menu-main a.gn-icon-search {
+.gn-menu-main a.glyphicon-search {
 		position: absolute;
 		top: 0;
 		left: 0;
 		height: 60px;
 }
 
-.gn-icon::before {
+.glyphicon::before {
 		display: inline-block;
 		width: 60px;
 		text-align: center;
@@ -341,68 +341,68 @@ input.gn-search:focus {
 		-webkit-font-smoothing: antialiased;
 }
 
-.gn-icon-help::before {
+.glyphicon-help::before {
 		content: "\f015"
 }
 
-.gn-icon-earth::before {
+.glyphicon-earth::before {
 		content: "\e004"
 }
 
-.gn-icon-cog::before {
+.glyphicon-cog::before {
 		content: "\f015"
 }
 
-.gn-icon-search::before {
+.glyphicon-search::before {
 		content: "\e005"
 }
 
-.gn-icon-download::before {
+.glyphicon-download::before {
 		content: "\f015"
 }
 
-.gn-icon-photoshop::before {
+.glyphicon-photoshop::before {
 		content: "\e001"
 }
-.gn-icon-article::before {
+.glyphicon-article::before {
 		content: "\f015"
 }
-.gn-icon-earth::before {
+.glyphicon-earth::before {
 		content: "\f015"
 }
 .fa-bars::before {
 		content: "\f0c9"
 }
-.gn-icon-illustrator::before {
+.glyphicon-illustrator::before {
 		content: "\f015"
 }
 
-.gn-icon-archive::before {
+.glyphicon-archive::before {
 		content: "\f015"
 }
 
-.gn-icon-article::before {
+.glyphicon-article::before {
 		content: "\f015"
 }
 
-.gn-icon-pictures::before {
+.glyphicon-pictures::before {
 		content: "\f015"
 }
 
-.gn-icon-videos::before {
+.glyphicon-videos::before {
 		content: "\e009"
 }
 
 /* if an icon anchor has a span, hide the span */
 
-.gn-icon span {
+.glyphicon span {
 		width: 0;
 		height: 0;
 		display: block;
 		overflow: hidden;
 }
 
-.gn-icon-menu::before {
+.glyphicon-menu-hamburger::before {
 		margin-left: -15px;
 		vertical-align: -2px;
 		width: 30px;
@@ -412,13 +412,13 @@ input.gn-search:focus {
 		content: ''; */
 }
 /* 
-.no-touch .gn-icon-menu:hover::before,
-.no-touch .gn-icon-menu.gn-selected:hover::before {
+.no-touch .glyphicon-menu-hamburger:hover::before,
+.no-touch .glyphicon-menu-hamburger.gn-selected:hover::before {
 		background: white;
 		box-shadow: 0 3px #eb5d1e, 0 -6px white, 0 -9px #eb5d1e, 0 -12px white;
 }
  */
-.gn-icon-menu.gn-selected::before {
+.glyphicon-menu-hamburger.gn-selected::before {
 		background: #eb5d1e;
 		box-shadow: 0 3px white, 0 -6px #eb5d1e, 0 -9px white, 0 -12px #eb5d1e;
 }
