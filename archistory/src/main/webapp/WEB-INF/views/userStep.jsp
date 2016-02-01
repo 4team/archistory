@@ -291,7 +291,6 @@ var customOverlay;
 
 
     // 나의 위치를 읽어온다.
-    console.log("getLocation 호출");
     window.addEventListener('deviceorientation',getLocation);
 
 
@@ -403,6 +402,7 @@ var myMarker = null;
 
     function getLocation(){
         console.log("[ 지오로케이션 실행 ]");
+        console.log("Member NO : "+memberno);
         navigator.geolocation.getCurrentPosition(function(position){
 
             var lat = position.coords.latitude;
