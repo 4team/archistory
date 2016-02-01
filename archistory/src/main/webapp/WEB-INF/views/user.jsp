@@ -134,7 +134,7 @@ $("#closeList").on("click",function(){
 });
 var routeLi = "";
     function addList(route) {
-        routeLi += "<li class='rName'  style='border:2px outset white; border-spacing:10px;' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
+        routeLi += "<li class='rName'  style='border:2px outset white; padding:10px 10px 10px 10px;' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
         $("#myRouteList").html(routeLi);
     }
     function getAllRouteList(){
