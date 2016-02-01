@@ -200,7 +200,11 @@
 			font-size: 10px;
 		}
 		#upper-login{
-		z-index:999;}
+		z-index:999;
+		}
+		.fa-home{
+		z-index:100;
+		}
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -225,7 +229,7 @@
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li><a href="/" class="gn-icon fa fa-home">Home</a></li>
+								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
 								<li><a href="#about" class="gn-icon gn-icon-download" id="routeList">Tour Route</a></li>
 								
 									<ul  id="myRouteList"></ul>
