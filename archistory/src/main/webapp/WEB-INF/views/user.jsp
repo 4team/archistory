@@ -133,8 +133,7 @@ text-align:center;
                 </h3>
                 
             </div>
-            <div class="modal-footer">
-		            <ul id="yesNoFooter"></ul>
+            <div class="modal-footer" id="yesNoFooter">
             </div>
         </div>
     </div>
@@ -183,15 +182,12 @@ var routeLi = "";
 	    });
   
     function questionModal(select){
-        var questionModal1 = "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li>"
-        var questionModal2 = "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        var questionModal =   "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li>"+
+        "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
         "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
- 
-        $("#yesNo").html(questionModal1);
-        $("#yesNoFooter").html(questionModal2);
+        
+        $("#yesNo").html(questionModal);
     }
-    
-    
     $("#yesNo").on("click","#yes",function(){
         var icon= $(this);
         console.log(icon.attr("value"));
