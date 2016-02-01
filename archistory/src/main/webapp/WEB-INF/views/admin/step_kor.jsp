@@ -1732,8 +1732,8 @@
                     //console.log("ddddd",$(".uploadedList"));
 
                     //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
-                    qattach.push(data);
-                    console.log("qattach:" + qattach);
+                    attach.push(data);
+                    console.log("attach:" + attach);
 
                     if(checkImageType(data)){
                         str ="<div class='img'>"
@@ -1760,9 +1760,9 @@
         var that = $(this);
         console.log("delete click");
 
-        var index = $.inArray($(this).attr("data-src"), qattach);
+        var index = $.inArray($(this).attr("data-src"), attach);
         qattach.splice(index, 1);
-        console.log("삭제 한 뒤의 어테치 : "+qattach);
+        console.log("삭제 한 뒤의 어테치 : "+attach);
 
 
         $.ajax({
