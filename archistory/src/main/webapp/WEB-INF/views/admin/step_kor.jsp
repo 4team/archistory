@@ -583,8 +583,6 @@
    
             });
              
-
-            
         	// 지도에 표시할 선을 생성합니다
         	polyline = new daum.maps.Polyline({
         	    strokeWeight: 5, // 선의 두께 입니다
@@ -606,16 +604,16 @@
     	console.log("getEventList의 콜백에 들어옴.");
     	
     	// 지도에 표시할 선을 생성합니다
-    polyline = new daum.maps.Polyline({
-   	    path: linePath, // 선을 구성하는 좌표배열 입니다
-   	    strokeWeight: 5, // 선의 두께 입니다
-   	    strokeColor: '#FFAE00', // 선의 색깔입니다
-   	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-   	    strokeStyle: 'solid' // 선의 스타일입니다
-   	});
-
-    	polyline.setMap(map);
-    	console.log(linePath);
+	    polyline = new daum.maps.Polyline({
+	   	    path: linePath, // 선을 구성하는 좌표배열 입니다
+	   	    strokeWeight: 5, // 선의 두께 입니다
+	   	    strokeColor: '#FFAE00', // 선의 색깔입니다
+	   	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+	   	    strokeStyle: 'solid' // 선의 스타일입니다
+	   	});
+	
+	    	polyline.setMap(map);
+	    	console.log(linePath);
     	
     });
 
@@ -631,7 +629,6 @@
  
     }
     
-
 
 	    $(function() {
 	        $( "#sortable" ).sortable({
@@ -654,13 +651,13 @@
 	                   console.log("이벤트 넘버:"+eventno+"이벤트 이름:"+eventname+"현재 순서:"+newVal);
 	                   
 	              	  modiOrder(eventno,newVal);
-	                   
-	                   
+	              	
+       
 	                });
 	            }   	
 	        }); //드래그 드롭으로 위치 변경
 	       $( "#sortable" ).disableSelection();
-	        console.log()
+	       getEventList();
 	    });
 	    
 	    function modiOrder(eventno,newVal){
@@ -676,7 +673,7 @@
 	             data: JSON.stringify({eventno:eventno,eorder:neworder}),
 	             success: function(data){
 	            	 console.log("이벤트 순서 수정 결과 :"+data);
-	                 getEventList();
+	                // getEventList();
 	            
 	             }
 	         });
