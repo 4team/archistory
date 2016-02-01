@@ -95,6 +95,44 @@ text-align:center;
     #loginH{
         max-height:180px;
     }
+           #upper-login{
+        	padding:5px;
+       		position:absolute;
+        	z-index:100;
+        	right: 10px;
+        	top:5px;
+        }
+        
+        #joinBtn{
+        	margin-left: 5px;
+        }
+        
+         .modal-body{
+            height:400px;
+            overflow-y: auto;
+        }
+
+        .modal-title{
+            text-align: center;
+        }
+        
+        #loginBody{
+	        top:150px;
+	        width:350px;
+	        z-index:10000;
+	    }
+	
+	    #loginH{
+	        max-height:180px;
+	    }
+	    
+	     #joinBody{
+	        top:50px;
+	        width:400px;
+	        z-index:10000;
+	    }
+    
+        
 
 </style>
 
@@ -152,7 +190,10 @@ text-align:center;
 </div>
 		<!-- END 이 루트 들어갈건지 묻는 창 -->
 
-
+<div id="upper-login">
+	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
+	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
+</div>
 
 <!-- ★로그인 모달 -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
