@@ -233,20 +233,6 @@
         .gn-menu-main{
         z-index:1;
         }
-        #myRouteList{
-         	display:none;
-            position:absolute;
-            padding: 10px;
-            z-index:400;
-            border : 1px solid black;
-            border-radius : 10px;
-            background-color : #FFF;
-            top:46px;
-            left:157px;
-            width:200px;
-            height:400px;
-            overflow-y:scroll;
-        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -521,41 +507,6 @@ $.getJSON("http://192.168.0.36:8080/route/listAll",function(data){
 
 <!-- 클릭 메뉴들과 관련된 스크립트 -->
 <script>
-//route list 보이기 
-
-var routeLi = "";
-
-function addList(route) {
-    routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
-    $("#myRouteList").html(routeLi);
-}
-
-function getAllRouteList(){
-    $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
-        var list = $(data);
-
-		routeLi = "";
-        list.each(function(idx,value){
-            var route = this;
-            addList(route);
-        });
-    });
-}
-
-getAllRouteList(); //루트 리스트 보이게 
-
-function getMetaContentByName(name,content){
-	var content = (content == null)?'content':content;
-	return document.querySelector("meta[name='"+name+"']").getAttribute(content);
-}
-
-//메뉴에서 내 루트리스트 보이기
- $("#routeShow").on("click",function(){
-	    	 $("#myRouteList").show();
-});
-//////////////////////////////////////////////////////////////
- 
-
 $("#mDrop").on("mouseover",function(){
     $(".dropdown-menu").show();
 });
