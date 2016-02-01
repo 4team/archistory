@@ -248,11 +248,11 @@
 	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
 <body>
 
-
+<i class="fa fa-bars fa-5"></i>
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<i class="fa fa-bars fa-5"></i><a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
