@@ -55,6 +55,11 @@ position:fixed;
 display:none;
 z-index:9999;
 }
+.rName{
+border-radius:6px;
+border-color: white;
+border-width: medium;
+}
 </style>
 
     <!-- Core JavaScript Files -->
@@ -122,28 +127,7 @@ z-index:9999;
     </div>
 </div>
 		<!-- END 이 루트 들어갈건지 묻는 창 -->
-<div class="container">
-			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>MENU</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu">
-								<li class="eachMenu"><a href="/user" class="gn-icon gn-icon-earth">Home</a></li>
-								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-archive" id="mRouteList">Tour Route</a></li>
-								
-									<ul  id="mMyRouteList"></ul>
-									
-								<li class="eachMenu"><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
-								<li class="eachMenu"><a href="/sboard/list" class="gn-icon gn-icon-article">Reviews</a></li>
-								<li class="eachMenu"><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
-							</ul>
-						</div><!-- /gn-scroller -->
-					</nav>
-				</li>
-</ul>
-	</div>
-	
+
 
 <script>
 //route list 보이기
@@ -155,7 +139,7 @@ $("#closeList").on("click",function(){
 });
 var routeLi = "";
     function addList(route) {
-        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
+        routeLi += "<div class='rName'><li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li></div>";
         $("#myRouteList").html(routeLi);
     }
     function getAllRouteList(){
