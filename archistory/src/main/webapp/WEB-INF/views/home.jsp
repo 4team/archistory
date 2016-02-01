@@ -39,9 +39,9 @@
 		#menu{
 			z-index:100;
 			position: absolute;
-			 top:5px;
-			left:8px;
-			 background-color:#303336; 
+			/* top:5px;
+			left:8px; */
+			/* background-color:#303336; */
 		}
         
         #menu:hover{
@@ -53,7 +53,7 @@
         #upper-login{
         	padding:5px;
        		position:absolute;
-        	z-index:3000;
+        	z-index:100;
         	right: 10px;
         	top:5px;
         }
@@ -199,6 +199,8 @@
 			height:30px;
 			font-size: 10px;
 		}
+		#upper-login{
+		z-index:999;}
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -216,26 +218,27 @@
 <body>
 
 
-<div id="menu">
-
-<div class="dropdown">
-  <a id="mDrop" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-    	<span class="glyphicon glyphicon-menu-hamburger"></span>
-  </a>
-
-<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/login_success">Home</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" id="routeShow">My Route List</a></li>
-    	<ul id="myRouteList">
-    	</ul>  
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
-  </ul>
-</div>
-</div>
+<div class="menu">
+			<ul id="gn-menu" class="gn-menu-main">
+<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><a href="#about" class="gn-icon gn-icon-download" id="routeList">Tour Route</a></li>
+								
+									<ul  id="myRouteList"></ul>
+									
+								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+</ul>
+	</div>
 	
 	
 <div id="upper-login">
