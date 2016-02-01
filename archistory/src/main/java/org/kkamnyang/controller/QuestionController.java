@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.kkamnyang.domain.EventVO;
 import org.kkamnyang.domain.QuestionVO;
+import org.kkamnyang.domain.SolveVO;
+import org.kkamnyang.persistence.SolveMapper;
 import org.kkamnyang.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -112,5 +114,24 @@ public class QuestionController {
 		return service.getAttach(questionno);  
 	  }
 	
+	 @Autowired
+	 private SolveMapper solve;
+	 
+	 @RequestMapping(value="/solve")
+	 public ResponseEntity<String> solve(@RequestBody SolveVO vo) throws Exception{
+		
+		 ResponseEntity<String> entity = null;
+		 
+		 try{
+			 System.out.println("[유저가 문제를 풀었다.] - 등록시작");
+			 entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
+			 solve.create(vo);
+		 }catch(Exception e){
+			 System.out.println(" => 등록실패");
+			 entity = new ResponseEntity<String>("FAIL",HttpStatus.BAD_REQUEST);
+		 }
+		 
+		 return entity;
+	 }
 	
 }
