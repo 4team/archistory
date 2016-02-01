@@ -630,7 +630,7 @@
             map.value[key] = title;
           };
           
-          console.log(map);
+          console.log("map:"+map);
     }
     
 
