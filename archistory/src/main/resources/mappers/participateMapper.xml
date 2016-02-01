@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="org.kkamnyang.persistence.ParticipateMapper">
+  
+  <insert id="create">
+  	insert into tbl_participate(routeno,memberno,score,stage) 
+  	values(#{routeno},#{memberno},#{score},#{stage})
+  </insert>
+  
+  <select id="list">
+  	select * from tbl_participate where memberno = #{memberno} and routeno=#{routeno}
+  </select>
+  
+  <update id="update">
+  	update tbl_participate set score = #{score} stage = #{stage} lastDate = now()
+  </update>
+  
+  <delete id="delete">
+  	delete from tbl_participate where participateno = #{participateno}
+  </delete>
+  
+  </mapper>

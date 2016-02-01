@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
+import org.kkamnyang.domain.ParticipateVO;
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,4 +91,7 @@ public class RouteController{
 		
 		return entity;
 	}
+	
+	
+	
 }
