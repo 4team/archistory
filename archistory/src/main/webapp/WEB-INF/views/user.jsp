@@ -186,7 +186,7 @@ var routeLi = "";
         "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
         
         $("#yesNo").html(questionModal);
-        $("#yesNoFooter")html(questionFooter);
+        $("#yesNoFooter").html(questionFooter);
     }
     $("#yesNo").on("click","#yes",function(){
         var icon= $(this);
