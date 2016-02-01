@@ -218,24 +218,24 @@
 
 <div class="menu">
 			<div class="dropdown">
--  <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
--    	<span class="glyphicon glyphicon-menu-hamburger"></span>
--  </a>
--
--        <ul class="dropdown-menu" role="menu">
--            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
--            <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
--
--				<ul  id="myRouteList">
--				</ul>
--
--            <li role="presentation" class="divider"></li>
--            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
--            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
--            <li role="presentation" class="divider"></li>
--            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
--        </ul>
--    </div>
+  <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+    	<span class="glyphicon glyphicon-menu-hamburger"></span>
+  </a>
+
+        <ul class="dropdown-menu" role="menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
+
+				<ul  id="myRouteList">
+				</ul>
+
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
+        </ul>
+  </div>
 	</div>
 	
 	
