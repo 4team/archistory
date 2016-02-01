@@ -205,27 +205,27 @@
 		.fa-home{
 		position: absolute;
 		top:20px;
-		left:20px;
+		left:22px;
 		}
 		.fa-map-marker{
 		position: absolute;
 		top:92px;
-		left:20px;
+		left:25px;
 		}
 				.fa-question{
 		position: absolute;
-		top:164px;
-		left:20px;
+		top:167px;
+		left:25px;
 		}
 				.fa-book{
 		position: absolute;
-		top:236px;
-		left:20px;
+		top:241px;
+		left:22px;
 		}
 				.fa-download{
 		position: absolute;
-		top:308px;
-		left:20px;
+		top:315px;
+		left:22px;
 		}
     </style>
     

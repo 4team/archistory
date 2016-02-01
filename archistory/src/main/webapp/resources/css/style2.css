@@ -357,35 +357,35 @@ input.gn-search:focus {
 }
 
 .gn-icon-download::before {
-		content: "\e007"
+		content: "\f015"
 }
 
 .gn-icon-photoshop::before {
 		content: "\e001"
 }
 .gn-icon-article::before {
-		content: "\e003"
+		content: "\f015"
 }
 .gn-icon-earth::before {
-		content: "\e004"
+		content: "\f015"
 }
 .fa-bars::before {
 		content: "\f0c9"
 }
 .gn-icon-illustrator::before {
-		content: "\e002"
+		content: "\f015"
 }
 
 .gn-icon-archive::before {
-		content: "\e00d"
+		content: "\f015"
 }
 
 .gn-icon-article::before {
-		content: "\e003"
+		content: "\f015"
 }
 
 .gn-icon-pictures::before {
-		content: "\e008"
+		content: "\f015"
 }
 
 .gn-icon-videos::before {
