@@ -209,7 +209,7 @@
 		}
 		.fa-map-marker{
 		position: absolute;
-		top:100px;
+		top:90px;
 		left:20px;
 		}
     </style>
