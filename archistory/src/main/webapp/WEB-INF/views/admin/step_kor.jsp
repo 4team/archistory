@@ -306,7 +306,7 @@
                                 <label><input type="radio" name="optionsRadios" id="oxAnswer2" value="x" checked> X </label>
                             </div>
                             
-                              <label for="qImg">이미지</label>
+                              <label for="qImg">문제 이미지</label>
 			                  <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
 			                    <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 			              	  </div>      
@@ -386,7 +386,7 @@
                         <label><input type="radio" name="optionsRadios" id="mooxAnswer2" value="x" checked> X </label>
                     </div>
                     
-                     <label for="qImg">이미지</label>
+                     <label for="qImg"> 문제 이미지</label>
 			         <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
 			         <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                 </div>
@@ -412,7 +412,7 @@
         </ul>
     </div>
     <div style="background-color : aqua;">
-        <button type="button" id="commitList" class= "btn btn-default" style="margin-bottom: 5px; float: right; " >완료</button>
+        <button type="button" id="commitList" class= "btn btn-default" style="margin-top:5px; margin-bottom: 5px; float: right; " >완료</button>
 	</div>
 </div>
 
