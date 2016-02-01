@@ -6,7 +6,7 @@
  <mapper namespace="org.kkamnyang.persistence.SolveMapper">
  
  <insert id="create">
- insert into tbl_solve(memberno,questionno,result) values(#{memberno),#{questionno},#{result})
+ insert into tbl_solve(memberno,questionno,result) values(#{memberno},#{questionno},#{result})
  </insert>
  
  <select id="list">
