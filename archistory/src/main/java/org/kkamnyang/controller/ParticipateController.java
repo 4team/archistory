@@ -27,7 +27,8 @@ public class ParticipateController {
 			mapper.create(vo);
 			Integer thisNo = vo.getParticipateno();
 			System.out.println(thisNo);
-			entity = new ResponseEntity<String>("Welcome!",HttpStatus.OK);
+			
+			entity = new ResponseEntity<String>(thisNo.toString(),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<String>("Sorry...",HttpStatus.BAD_REQUEST);
 		}
