@@ -209,7 +209,22 @@
 		}
 		.fa-map-marker{
 		position: absolute;
-		top:90px;
+		top:92px;
+		left:20px;
+		}
+				.fa-question{
+		position: absolute;
+		top:164px;
+		left:20px;
+		}
+				.fa-book{
+		position: absolute;
+		top:236px;
+		left:20px;
+		}
+				.fa-download{
+		position: absolute;
+		top:308px;
 		left:20px;
 		}
     </style>
