@@ -649,6 +649,7 @@
 	                   
 	              	  modiOrder(eventno,newVal);
 	                });
+	                console.log("순서수정");
 	            }   
 	        
 	        }); //드래그 드롭으로 위치 변경
