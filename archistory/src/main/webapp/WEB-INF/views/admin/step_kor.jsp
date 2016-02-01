@@ -614,6 +614,7 @@
     	
     });
 
+    var numname ={};
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
@@ -624,15 +625,15 @@
         $("#sortable").html(eventLi);
         
         
-        var map;
+       
         var title = event.title;
         var key = idx;
         console.log(key,title);
         
         
-        map.put = function(key, title) {
-            var key = map.getKey(key);
-            map.value[key] = title;
+        numname.put = function(key, title) {
+            var key = numname.getKey(key);
+            numname.value[key] = title;
           };
           
           console.log("map:"+map);
