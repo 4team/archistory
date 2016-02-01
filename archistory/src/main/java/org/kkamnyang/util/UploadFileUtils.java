@@ -208,7 +208,7 @@ public class UploadFileUtils {
 	  String category = "event";
 	  String filetype = "movie";
 	  
-	  System.out.println(uplodPath);
+	  System.out.println(uploadPath);
 	  System.out.println(category);
 	  System.out.println("루트 No : "+routeno);
 	  System.out.println("FileTyep : "+ filetype);
