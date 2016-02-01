@@ -253,7 +253,7 @@
 
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger">
+<li class="gn-trigger" style="z-index:99999;">
 <i class=" fa fa-bars fa-6"></i>
 					<a class="gn-icon gn-icon-menu" style="z-index:99999;"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
