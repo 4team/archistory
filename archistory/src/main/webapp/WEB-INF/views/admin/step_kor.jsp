@@ -590,7 +590,7 @@
                     numname.value[key] = title;
                   };
                   
-                  console.log("map:"+map);
+                  console.log("map:"+numname);
                 
             });
             
