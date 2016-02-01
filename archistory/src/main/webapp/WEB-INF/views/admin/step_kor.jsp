@@ -191,7 +191,7 @@
 	     list-style-type: none; 
 	     margin: 0; 
 	     padding: 0; 
-	     width: 100%; 
+	     width: 200px; 
      }
      
      #sortable li { 
@@ -401,7 +401,7 @@
 <!-- END 수정모달  -->
 
 
-<div id="list" style="width:100px">
+<div id="list" style="width:400px">
    	루트 이름 : <input type="text" id="Rname" placeholder="">
     <hr>
         <ul id="sortable">
