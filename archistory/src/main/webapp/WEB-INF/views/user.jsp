@@ -153,7 +153,7 @@ text-align:center;
 	<!-- /Section: intro -->
 	
 	<div id="upper-login">
-		<button type="button" id="myInfo" data-src="${adminno}"
+		<button type="button" id="myInfo" data-src="${memberno}"
 			class="btn btn-primary btn-xs">
 			<font face="verdana" size="2">${name}님</font>
 		</button>
