@@ -239,6 +239,9 @@ text-align:center;
 
 
 <script>
+
+var memberno = ${memberno};
+
 //route list 보이기
 $("#list").on("click",function(){
 	 $("#routeList").show();	 	
@@ -310,8 +313,9 @@ var routeLi = "";
                 var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
                 var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
                 var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
+                var a4 = $('<input type="hidden" value="'+ memberno +'" name="memberno">');
                 
-                $form.append(a1).append(a2).append(a3);
+                $form.append(a1).append(a2).append(a3).append(a4);
                 $form.submit();
             	
              }else{
@@ -324,8 +328,9 @@ var routeLi = "";
                  var a1 = $('<input type="hidden" value="'+ routeno +'" name="routeno">');
                  var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
                  var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
+                 var a4 = $('<input type="hidden" value="'+ memberno +'" name="memberno">');
                  
-                 $form.append(a1).append(a2).append(a3);
+                 $form.append(a1).append(a2).append(a3).append(a4);
                  $form.submit();
              }
         });
