@@ -726,7 +726,7 @@
 	var attach2;
 	var qJson;
 	
-	var qattach = new Array();
+	var qattach;
 	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
@@ -1731,7 +1731,7 @@
 
             if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
 
-                uploadImg(formData,'http://14.32.66.127:4000/quploadAjax');
+                uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');
             }
 
 
@@ -1758,7 +1758,7 @@
                     //console.log("ddddd",$(".uploadedList"));
 
                     //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
-                    qattach.push(data);
+                    qattach.val(data);
                     console.log("qattach:" + qattach);
 
                     if(checkImageType(data)){
