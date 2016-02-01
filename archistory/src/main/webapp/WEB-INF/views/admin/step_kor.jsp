@@ -401,7 +401,7 @@
 <!-- END 수정모달  -->
 
 
-<div id="list">
+<div id="list" style="width:100px">
    	루트 이름 : <input type="text" id="Rname" placeholder="">
     <hr>
         <ul id="sortable">
