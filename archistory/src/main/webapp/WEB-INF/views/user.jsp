@@ -45,9 +45,6 @@ color: white;
 font-weight: bold;
 text-align: center;
 }
-ul li{
-list-style:none;
-}
 #closeList{
 position:fixed;
 }
@@ -59,6 +56,7 @@ z-index:9999;
 border-radius:6px;
 border-color: white;
 border-width: medium;
+list-style:none;
 }
 </style>
 
@@ -94,8 +92,8 @@ border-width: medium;
 			<div class="nivo-lightbox-wrap">
 			<div class="nivo-lightbox-content">
 
-						<div class='rName'><p id="myRouteList">
-						</p></div>
+						<p id="myRouteList">
+						</p>
 						
 			</div>
 			</div>
@@ -139,7 +137,7 @@ $("#closeList").on("click",function(){
 });
 var routeLi = "";
     function addList(route) {
-        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
+        routeLi += "<li class='rName' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
         $("#myRouteList").html(routeLi);
     }
     function getAllRouteList(){
