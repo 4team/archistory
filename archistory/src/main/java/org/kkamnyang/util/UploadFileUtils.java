@@ -54,33 +54,7 @@ public class UploadFileUtils {
     
   }
   
-  public static String quploadFile(String uploadPath, 
-          String originalName, 
-          byte[] fileData,String questionno)throws Exception{
-
-		UUID uid = UUID.randomUUID();
-		
-		String savedName = uid.toString() +"_"+originalName;
-		
-		String savedPath = qcalcPath(uploadPath,questionno);
-		
-		File target = new File(uploadPath +savedPath,savedName);
-		
-		FileCopyUtils.copy(fileData, target);
-		
-		String formatName = originalName.substring(originalName.lastIndexOf(".")+1);
-		
-		String uploadedFileName = null;
-		
-		if(MediaUtils.getMediaType(formatName) != null){
-		uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
-		}else{
-		uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
-		}
-		
-		return uploadedFileName;
-		
-		}
+ 
   
   public static String uploadMovie(String uploadPath, 
           String originalName, 
@@ -184,24 +158,7 @@ public class UploadFileUtils {
     
   }
   
-  
- private static String qcalcPath(String uploadpath,String questionno){
-	  
 
-	  String category = "question";
-	  String questionNo = questionno;
-	  String filetype = "picture";
-	  
-	  System.out.println(uploadpath);
-	  System.out.println(category);
-	  System.out.println("문제 No : "+questionNo);
-	  System.out.println("FileTyep : "+ filetype);
-	  makeDir(uploadpath,File.separator+category,File.separator+category+File.separator+questionNo,File.separator+category+File.separator+questionNo+File.separator+filetype);
-
-	  return File.separator+category+File.separator+questionNo+File.separator+filetype;
-    
-  }
-  
   
   private static String calcMoviePath(String uploadPath,String routeno){
 	
