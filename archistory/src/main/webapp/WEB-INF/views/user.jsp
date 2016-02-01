@@ -57,7 +57,8 @@ list-style:none;
 overflow: hidden; 
 text-overflow: ellipsis;
 white-space: nowrap; 
-font-size:23px;
+font-size:17px;
+border-radius:2em;
 }
 
 .rr{
