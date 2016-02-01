@@ -54,10 +54,8 @@ z-index:9999;
 }
 .rName{
 list-style:none;
-}
-p {
-  animation-duration: 3s;
-  animation-name: slidein;
+animation-duration: 3s;
+animation-name: slidein;
 }
 
 @keyframes slidein {
