@@ -735,6 +735,7 @@
         });
 
         $("#eventModal").modal('hide');
+        $("#searchDiv").hide();
         clearEventDiv();
         clearMoEventdiv();
        
