@@ -230,7 +230,7 @@
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><i class="fa fa-home fa-5"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
 								<li><a href="#about" class="gn-icon gn-icon-download" id="routeList">Tour Route</a></li>
 								
 									<ul  id="myRouteList"></ul>
