@@ -15,6 +15,7 @@
 
     <title>Ninestars bootstrap 3 one page template</title>
 
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -28,6 +29,19 @@
 	<link href="color/default.css" rel="stylesheet">
 
      
+    <!-- Core JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min2.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
+	<script src="js/classie.js"></script>
+	<script src="js/gnmenu.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
+    
+    
 </head>
 
 <style>
@@ -69,7 +83,7 @@ word-wrap:normal
 }
 .rNameModal{
 list-style:none;
-font-size:25px;
+font-size:20px;
 text-align:center;
 }
 
@@ -112,17 +126,6 @@ text-align:center;
         }
 </style>
 
-    <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min2.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
 
 
 <body data-spy="scroll">
@@ -181,8 +184,8 @@ text-align:center;
                 </h3>
                 
             </div>
-            <div class="modal-footer" id="yesNoFooter">
-            </div>
+            <!-- <div class="modal-footer" id="yesNoFooter">
+            </div> -->
         </div>
     </div>
 </div>
@@ -230,8 +233,8 @@ var routeLi = "";
 	    });
   
     function questionModal(select){
-        var questionModal =   "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li>"+
-        "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        var questionModal =   "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li><br>"+
+        "<a style='float:right;' class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a><br>"+
         "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
         
         $("#yesNo").html(questionModal);
@@ -282,6 +285,7 @@ var routeLi = "";
         });
 }
 </script>
+
 
 </body>
 </html>
