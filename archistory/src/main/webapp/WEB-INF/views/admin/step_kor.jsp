@@ -637,7 +637,7 @@
 	                var $lis = $(this).children('li');
 	                $lis.each(function() {
 	                    var $li = $(this);
-	                    var newVal = $(this).index() + 1;
+	                    var newVal = $(this).index();
 	                    $(this).children('.sortable-number').html(newVal);
 	                   // $(this).children('#item_display_order').val(newVal);
 	                });
