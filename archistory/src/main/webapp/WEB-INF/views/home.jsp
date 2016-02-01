@@ -39,9 +39,9 @@
 		#menu{
 			z-index:100;
 			position: absolute;
-			/* top:5px;
-			left:8px; */
-			/* background-color:#303336; */
+			 top:5px;
+			left:8px;
+			 background-color:#303336; 
 		}
         
         #menu:hover{
