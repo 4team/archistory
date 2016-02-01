@@ -88,7 +88,7 @@ text-align:center;
 }
 
 
-           #upper-login{
+         #upper-login{
         	padding:5px;
        		position:absolute;
         	z-index:3000;
@@ -152,7 +152,7 @@ text-align:center;
     </section>
 	<!-- /Section: intro -->
 	
-		<div id="upper-login">
+	<div id="upper-login">
 		<button type="button" id="myInfo" data-src="${adminno}"
 			class="btn btn-primary btn-xs">
 			<font face="verdana" size="2">${name}님</font>
@@ -202,10 +202,6 @@ text-align:center;
 </div>
 		<!-- END 이 루트 들어갈건지 묻는 창 -->
 
-<div id="upper-login">
-	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
-	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
-</div>
 
 <!-- ★로그인 모달 -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
