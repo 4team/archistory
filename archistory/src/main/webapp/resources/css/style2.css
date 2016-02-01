@@ -162,8 +162,8 @@ hr {
 }
 
 .no-touch .gn-menu-main a:hover,
-.no-touch .gn-menu li.gn-search-item:hover,
-.no-touch .gn-menu li.gn-search-item:hover a {
+.no-touch .gn-search-item:hover,
+.no-touch .gn-search-item:hover a {
 		background: #eb5d1e;
 		color: orange;
 }
@@ -290,7 +290,7 @@ input.gn-search {
 /* hide placeholder when active in Chrome */
 
 .gn-search:focus::-webkit-input-placeholder,
-.no-touch .gn-menu li.gn-search-item:hover .gn-search:focus::-webkit-input-placeholder {
+.no-touch .gn-search-item:hover .gn-search:focus::-webkit-input-placeholder {
 		color: transparent
 }
 
@@ -298,25 +298,25 @@ input.gn-search:focus {
 		cursor: text
 }
 
-.no-touch .gn-menu li.gn-search-item:hover input.gn-search {
+.no-touch .gn-search-item:hover input.gn-search {
 		color: white
 }
 
 /* placeholder */
 
-.no-touch .gn-menu li.gn-search-item:hover .gn-search::-webkit-input-placeholder {
+.no-touch .gn-search-item:hover .gn-search::-webkit-input-placeholder {
 		color: white
 }
 
-.no-touch .gn-menu li.gn-search-item:hover .gn-search:-moz-placeholder {
+.no-touch .gn-search-item:hover .gn-search:-moz-placeholder {
 		color: white
 }
 
-.no-touch .gn-menu li.gn-search-item:hover .gn-search::-moz-placeholder {
+.no-touch .gn-search-item:hover .gn-search::-moz-placeholder {
 		color: white
 }
 
-.no-touch .gn-menu li.gn-search-item:hover .gn-search:-ms-input-placeholder {
+.no-touch .gn-search-item:hover .gn-search:-ms-input-placeholder {
 		color: white
 }
 
