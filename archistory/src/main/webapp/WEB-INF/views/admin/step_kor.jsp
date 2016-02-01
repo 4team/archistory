@@ -566,6 +566,8 @@
 		
 		linePath = [];	
 		
+	    var numname = new Map();
+		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
             eventLi="";
@@ -577,6 +579,19 @@
                 var event= this;
                 addList(idx,event);
                 addMarker(event);
+                
+                var title = event.title;
+                var key = idx;
+                console.log("key:"+key+"title:"+title);
+                
+                
+                numname.put = function(key, title) {
+                    var key = numname.getKey(key);
+                    numname.value[key] = title;
+                  };
+                  
+                  console.log("map:"+map);
+                
             });
             
         	// 지도에 표시할 선을 생성합니다
@@ -614,7 +629,6 @@
     	
     });
 
-    var numname ={};
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
@@ -625,10 +639,10 @@
         $("#sortable").html(eventLi);
         
         
-       
+       /* 
         var title = event.title;
         var key = idx;
-        console.log(key,title);
+        console.log("key:"+key+"title:"+title);
         
         
         numname.put = function(key, title) {
@@ -636,7 +650,7 @@
             numname.value[key] = title;
           };
           
-          console.log("map:"+map);
+          console.log("map:"+map); */
     }
     
 
