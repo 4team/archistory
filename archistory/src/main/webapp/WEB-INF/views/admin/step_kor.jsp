@@ -1758,7 +1758,7 @@
                     //console.log("ddddd",$(".uploadedList"));
 
                     //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
-                    qattach.val(data);
+                    qattach = data;
                     console.log("qattach:" + qattach);
 
                     if(checkImageType(data)){
