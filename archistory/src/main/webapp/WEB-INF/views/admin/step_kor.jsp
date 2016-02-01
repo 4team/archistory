@@ -781,7 +781,7 @@
         qObject.choice2 = $("#s2").val();
         qObject.choice3 = $("#s3").val();
         qObject.choice4 = $("#s4").val();
-        qObject.efiles = qattach;
+        qObject.qfiles = qattach;
 
         for(var i=1;i<5;i++) {
 
