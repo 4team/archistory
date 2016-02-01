@@ -274,10 +274,16 @@
 <div id="upper-login">
 	<button type="button" id="myInfo" data-src="${adminno}" class="btn btn-primary btn-xs"><font face="verdana" size="2" >${name}님</font></button>
 	<ul id="adminInfo">
-  	 	<li><a id="myInfo">My Info</a></li>
+  	 	<li><a id="myProfile">My Info</a></li>
     	<li><a href="/admin/logout">Logout</a></li>
     </ul>
 </div>
+
+
+<!--  myProfile modal -->
+
+
+
 
 
 <!-- route modal -->
