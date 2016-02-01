@@ -67,15 +67,7 @@ box-shadow:0 0 8px #aef;
 }
 </style>
 
-    <!-- Core JavaScript Files -->    
-    <script src="js/bootstrap.min2.js"></script>
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
+
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>	
 
@@ -121,7 +113,6 @@ box-shadow:0 0 8px #aef;
 	<!-- /Section: intro -->
 			
 			
-			 
 			<!-- 루트리스트 뜨는 어두운전체창 -->
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 			<div class="nivo-lightbox-wrap">
@@ -267,6 +258,15 @@ var routeLi = "";
 </script>
 
     
+    <!-- Core JavaScript Files -->    
+    <script src="js/bootstrap.min2.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/gnmenu.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
 
 </body>
 </html>
