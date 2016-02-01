@@ -57,7 +57,8 @@ list-style:none;
 overflow: hidden; 
 text-overflow: ellipsis;
 white-space: nowrap; 
-text-size:7px;
+font-size:7px;
+
 }
 /* .rr{
 animation-duration: 3s;
