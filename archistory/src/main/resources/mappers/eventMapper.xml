@@ -16,7 +16,7 @@
  	</select>
  	
  	<select id="elist" resultType="org.kkamnyang.domain.EventVO">
- 		select * from tbl_event where routeno=#{routeno}
+ 		select * from tbl_event where routeno=#{routeno} order by eorder asc
  	</select>
  	
  	<select id="read" resultType="org.kkamnyang.domain.EventVO">
