@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ninestars bootstrap 3 one page template</title>
+    <title> Archistory for USER </title>
 
 
     <!-- Bootstrap Core CSS -->
