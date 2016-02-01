@@ -212,21 +212,26 @@
 		top:94px;
 		left:25px;
 		}
-				.fa-question{
+		.fa-question{
 		position: absolute;
 		top:170px;
 		left:25px;
 		}
-				.fa-book{
+		.fa-book{
 		position: absolute;
 		top:246px;
 		left:22px;
 		}
-				.fa-download{
+		.fa-download{
 		position: absolute;
 		top:320px;
 		left:22px;
 		}
+		li.gn-menu:hover{
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
