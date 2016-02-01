@@ -206,7 +206,7 @@
 		z-index:100;
 		position: absolute;
 		top:20px;
-		left:23px;
+		left:20px;
 		}
     </style>
     
