@@ -46,7 +46,7 @@ a {
     transition: all .2s ease-in-out;
 }
 
-/* a:hover, */
+a:hover,
 a:focus {
     text-decoration: none;
     color: #176e61;
@@ -298,16 +298,16 @@ input.gn-search:focus {
 		cursor: text
 }
 
-/* .no-touch .gn-menu li.gn-search-item:hover input.gn-search {
+.no-touch .gn-menu li.gn-search-item:hover input.gn-search {
 		color: white
-} */
+}
 
 /* placeholder */
-/* 
+
 .no-touch .gn-menu li.gn-search-item:hover .gn-search::-webkit-input-placeholder {
 		color: white
 }
- *//* 
+
 .no-touch .gn-menu li.gn-search-item:hover .gn-search:-moz-placeholder {
 		color: white
 }
@@ -319,7 +319,7 @@ input.gn-search:focus {
 .no-touch .gn-menu li.gn-search-item:hover .gn-search:-ms-input-placeholder {
 		color: white
 }
- */
+
 .gn-menu-main a.gn-icon-search {
 		position: absolute;
 		top: 0;
@@ -714,11 +714,11 @@ footer p {
 footer a {
 	color: #fefefe;
 }
-/* 
+
 footer a:hover {
 	color: #fff;
 }
- */
+
 /* ===========================
 --- Elements
 ============================ */

@@ -231,7 +231,7 @@
         	box-shadow:0 0 8px #fff;
         }
         .gn-menu-main{
-        z-index:99;
+        z-index:1;
         }
     </style>
     
