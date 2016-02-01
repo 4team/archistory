@@ -570,7 +570,7 @@
 		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
-            var numname = new Array(); 
+
             eventLi="";
 			list.each(function(){
                 eventno++;
@@ -580,17 +580,10 @@
                 var event= this;
                 addList(idx,event);
                 addMarker(event);
-                
-                var title = event.title;
-                var key = idx;
-                numname.add({key:title});
-                
-                console.log("key:"+key+"title:"+title);
-               
-                  console.log(numname);    
+   
             });
              
-			console.log(numname);
+
             
         	// 지도에 표시할 선을 생성합니다
         	polyline = new daum.maps.Polyline({
@@ -635,19 +628,10 @@
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
         $("#sortable").html(eventLi);
         
-        
-       /* 
         var title = event.title;
         var key = idx;
+
         console.log("key:"+key+"title:"+title);
-        
-        
-        numname.put = function(key, title) {
-            var key = numname.getKey(key);
-            numname.value[key] = title;
-          };
-          
-          console.log("map:"+map); */
     }
     
 
