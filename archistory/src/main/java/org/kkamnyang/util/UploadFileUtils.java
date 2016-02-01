@@ -25,7 +25,6 @@ public class UploadFileUtils {
 //    return null;
 //  }
 //  
-
   
   public static String uploadFile(String uploadPath, 
                               String originalName, 
@@ -59,27 +58,27 @@ public class UploadFileUtils {
           String originalName, 
           byte[] fileData,String routeno)throws Exception{
 
-UUID uid = UUID.randomUUID();
-
-String savedName = uid.toString() +"_"+originalName;
-
-String savedPath = calcMoviePath(uploadPath,routeno);
-
-File target = new File(uploadPath +savedPath,savedName);
-
-FileCopyUtils.copy(fileData, target);
-
-String formatName = originalName.substring(originalName.lastIndexOf(".")+1);
-
-String uploadedFileName = null;
-
-if(MediaUtils.getMediaType(formatName) != null){
-uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
-}else{
-uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
-}
-
-return uploadedFileName;
+		UUID uid = UUID.randomUUID();
+		
+		String savedName = uid.toString() +"_"+originalName;
+		
+		String savedPath = calcMoviePath(uploadPath,routeno);
+		
+		File target = new File(uploadPath +savedPath,savedName);
+		
+		FileCopyUtils.copy(fileData, target);
+		
+		String formatName = originalName.substring(originalName.lastIndexOf(".")+1);
+		
+		String uploadedFileName = null;
+		
+		if(MediaUtils.getMediaType(formatName) != null){
+		uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
+		}else{
+		uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
+		}
+		
+		return uploadedFileName;
 
 }
   

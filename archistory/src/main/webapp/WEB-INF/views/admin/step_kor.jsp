@@ -1671,5 +1671,166 @@
 <!-------- 파일첨부기능 끝 -------->
 
 
+
+<!-- 문제 파일첨부 기능 -->
+<script>
+
+    var template = Handlebars.compile($("#template").html());
+
+    $(".qfileDrop").on("dragenter dragover", function(event){
+        event.preventDefault();
+    });
+
+    $(".qfileDrop").on("drop", function(event){
+        event.preventDefault();
+
+        var files = event.originalEvent.dataTransfer.files; //전달된 파일 데이터 가져오는 부분
+        console.log(files);
+        var num = files.length;
+
+
+        for(var i = 0 ; i < num; i++){
+            var file = files[i];
+            var filename = file.name;
+
+            var filetypeArr = filename.split('.');
+            var arrNum = filetypeArr.length;
+            console.log(arrNum);
+            console.log(filetypeArr[arrNum-1]);
+
+            var formData = new FormData();
+
+            formData.append("file", file);
+            formData.append("routeno",routeno);
+
+            if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
+
+                uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');
+            }
+
+
+        }
+
+
+        function uploadImg(formData,url){
+            $.ajax({
+                url: url,
+                data: formData,
+                dataType:'text',
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function(data){
+
+                    var fileInfo = getFileInfo(data);
+                    var html = template(fileInfo);
+
+                    var str ="";
+
+                    console.log(data);
+                    //console.log(checkImageType(data));
+                    //console.log("ddddd",$(".uploadedList"));
+
+                    //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
+                    qattach.push(data);
+                    console.log("qattach:" + qattach);
+
+                    if(checkImageType(data)){
+                        str ="<div class='img'>"
+                                +"<img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/>"
+                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+                                +"</div>";
+
+                    }else{
+                        str = "<div class='img'>"
+                                +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
+                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+                                +"</div>";
+                    }
+                    $(".quploadedList").append(str);
+
+                }
+            });
+        }
+
+    });
+
+    $(".quploadedList").on("click", "small", function(event){
+
+        var that = $(this);
+        console.log("delete click");
+
+        var index = $.inArray($(this).attr("data-src"), qattach);
+        qattach.splice(index, 1);
+        console.log("삭제 한 뒤의 어테치 : "+qattach);
+
+
+        $.ajax({
+            url:"http://14.32.66.127:4000/sboard/deleteFile",
+            type:"post",
+            data: {fileName:$(this).attr("data-src")},
+            dataType:"text",
+            success:function(result){
+                if(result == 'deleted'){
+                    that.parent("div").remove();
+                }
+            }
+        });
+
+    });
+
+
+    $("#registerForm").submit(function(event){
+        event.preventDefault();
+
+        var that = $(this);
+
+        var str ="";
+        $(".uploadedList .delbtn").each(function(index){
+            str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+        });
+
+        that.append(str);
+        console.log("str값은?????:" + str);
+        //that.get(0).submit();
+    });
+
+
+    function getOriginalName(fileName){
+
+        if(checkImageType(fileName)){
+            return;
+        }
+        var idx = fileName.indexOf("_") + 1 ;
+        return fileName.substr(idx);
+
+    }
+
+
+    function getImageLink(fileName){
+
+        if(!checkImageType(fileName)){
+            return;
+        }
+        var front = fileName.substr(0,12);
+        var end = fileName.substr(14);
+
+        return front + end;
+
+    }
+
+    function checkImageType(fileName){
+        var pattern = /jpg|gif|png|jpeg/i;
+        return fileName.match(pattern);
+
+    }
+
+
+
+</script>
+
+<!-- END 문제 파일첨부 기능 -->
+
+
 </body>
 </html>
