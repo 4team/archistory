@@ -34,7 +34,8 @@ public class UserLoginService implements UserDetailsService {
 			user = new OurUserDetails(vo.getMemberno(),vo.getUserName(),vo.getEmail(),encoder.encode(vo.getmPassword()),vo.getImg(),vo.getUserNo());
 		}catch(Exception e){
 			System.out.println("계정이 없는 Member의 로그인 시도였다.");
-			return null;
+			user = new OurUserDetails(0,"GUEST","guest@archistory.org","guest","",0);
+			return user;
 		}
 		System.out.println("로그인 Member : " + user.toString());
 		return user;

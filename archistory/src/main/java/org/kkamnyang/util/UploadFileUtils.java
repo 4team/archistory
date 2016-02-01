@@ -54,6 +54,8 @@ public class UploadFileUtils {
     
   }
   
+ 
+  
   public static String uploadMovie(String uploadPath, 
           String originalName, 
           byte[] fileData,String routeno)throws Exception{
@@ -155,6 +157,8 @@ public class UploadFileUtils {
 	  return File.separator+category+File.separator+route+File.separator+filetype;
     
   }
+  
+
   
   private static String calcMoviePath(String uploadPath,String routeno){
 	

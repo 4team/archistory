@@ -50,10 +50,16 @@ public class HomeController {
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public ModelAndView user(Model model) throws Exception {
 		ModelAndView view = new ModelAndView();
+		try{
 	    view.setViewName("user");
 	    view.addObject("memberno", getUser().getMemberno());
 	    view.addObject("name", getUser().getUsername());
-
+		}catch(Exception e){
+			view.setViewName("user");
+			view.addObject("memberno",0);
+			view.addObject("name","guest");
+			System.out.println("-------[ GUEST입장 ]------");
+		}
 		return view;
 	}
 	

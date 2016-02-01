@@ -726,7 +726,7 @@
 	var attach2;
 	var qJson;
 	
-	var qattach = new Array();
+	var qattach;
 	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
@@ -909,6 +909,7 @@
         $("#s2").val("");
         $("#s3").val("");
         $("#s4").val("");
+        qattach=[];
 
         for(var i=1;i<5;i++) {
 
@@ -1757,7 +1758,7 @@
                     //console.log("ddddd",$(".uploadedList"));
 
                     //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
-                    qattach.push(data);
+                    qattach = data;
                     console.log("qattach:" + qattach);
 
                     if(checkImageType(data)){
