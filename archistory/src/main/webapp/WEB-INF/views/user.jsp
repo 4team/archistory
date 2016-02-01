@@ -54,6 +54,7 @@ z-index:9999;
 }
 .rName{
 list-style:none;
+ text-overflow:ellipsis; 
 }
 /* .rr{
 animation-duration: 3s;
@@ -151,7 +152,7 @@ $("#closeList").on("click",function(){
 });
 var routeLi = "";
     function addList(route) {
-        routeLi += "<li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px; text-overflow:ellipsis; text-size:10px;' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'><div class='rr'>" + route.routename + "</div></li>";
+        routeLi += "<li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px;text-size:7px;' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'><div class='rr'>" + route.routename + "</div></li>";
         $("#myRouteList").html(routeLi);
     }
     function getAllRouteList(){
