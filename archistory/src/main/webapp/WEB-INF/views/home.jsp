@@ -249,17 +249,16 @@
 	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
 <body>
 
-<div class="glyphicon glyphicon-menu-hamburger" style="position:absolute;left:10px;top:5px;"></div>
 
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger" style="z-index:99999;">
+<li class="gn-trigger">
 <i class=" fa fa-bars fa-6"></i>
-					<a class="gn-icon gn-icon-menu" style="z-index:99999;"><span>Menu</span></a>
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
 								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
 								
 									<ul  id="myRouteList"></ul>
