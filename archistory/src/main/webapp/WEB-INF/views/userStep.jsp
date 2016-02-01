@@ -511,9 +511,32 @@ var myMarker = null;
         if(questionVO.answer == answer){
             console.log("정답입니다.");
             $("#resultShow").html("<h3>정답입니다.</h3>");
+
+            $.ajax({
+                type:"post",
+                url:"http://14.32.66.127:4000/question/solve",
+                headers:{ "Content-Type":"application/json"},
+                datatype:"json",
+                data:{memberno:memberno,questionno:questionVO.questionno,result:true},
+                success:function(data){
+                    console.log("문제를 풀고 받은 결과",data);
+                }
+            });
+
         }else{
             console.log("틀렸습니다.");
             $("#resultShow").html("<h3>틀렸습니다.</h3>");
+
+            $.ajax({
+                type:"post",
+                url:"http://14.32.66.127:4000/question/solve",
+                headers:{ "Content-Type":"application/json"},
+                datatype:"json",
+                data:{memberno:memberno,questionno:questionVO.questionno,result:false},
+                success:function(data){
+                    console.log("문제를 풀고 받은 결과",data);
+                }
+            });
         }
 
 
