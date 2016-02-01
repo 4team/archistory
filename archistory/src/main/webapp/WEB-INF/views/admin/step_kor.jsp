@@ -614,6 +614,7 @@
     	
     });
 
+    var numname ={};
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
@@ -622,8 +623,22 @@
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
         $("#sortable").html(eventLi);
-
+        
+        
+       
+        var title = event.title;
+        var key = idx;
+        console.log(key,title);
+        
+        
+        numname.put = function(key, title) {
+            var key = numname.getKey(key);
+            numname.value[key] = title;
+          };
+          
+          console.log("map:"+map);
     }
+    
 
 
 	    $(function() {
@@ -641,11 +656,10 @@
 	                    $(this).children('.sortable-number').html(newVal);
 	                   // $(this).children('#item_display_order').val(newVal);
 	                });
-	            }
-
-	        	
+	            }   	
 	        }); //드래그 드롭으로 위치 변경
 	       $( "#sortable" ).disableSelection();
+	        console.log()
 	    });
 
     //이벤트 리스트 삭제버튼
