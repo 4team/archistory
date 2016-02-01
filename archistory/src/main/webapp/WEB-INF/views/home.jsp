@@ -202,10 +202,14 @@
 		#upper-login{
 		z-index:999;
 		}
-		.fa{
-		z-index:100;
+		.fa-home{
 		position: absolute;
 		top:20px;
+		left:20px;
+		}
+		.fa-map-marker{
+		position: absolute;
+		top:80px;
 		left:20px;
 		}
     </style>
