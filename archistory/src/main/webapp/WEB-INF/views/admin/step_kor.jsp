@@ -622,16 +622,13 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
-        eventLi+="<li data-eventname='"+event.title+" class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
+        eventLi+="<li data-eventno='"+event.eventno+"' data-eventname='"+event.title+" class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
         
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
         $("#sortable").html(eventLi);
         
-        var title = event.title;
-        var key = idx;
-
-        console.log("key:"+key+"title:"+title);
+ 
     }
     
 
@@ -652,8 +649,10 @@
 	                   // $(this).children('#item_display_order').val(newVal);
 	                   
 	                   var eventname = $(this).attr("data-eventname");
+	                   var eventno = $(this).attr("data-eventno");
 	                   
-	                   console.log("이벤트 이름:"+eventname+"현재 넘버:"+newVal);
+	                   console.log("이벤트 넘버:"+eventno+"이벤트 이름:"+eventname+"현재 순서:"+newVal);
+	                   
 	                });
 	            }   	
 	        }); //드래그 드롭으로 위치 변경
