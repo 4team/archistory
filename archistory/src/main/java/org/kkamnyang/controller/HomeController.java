@@ -50,7 +50,7 @@ public class HomeController {
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public ModelAndView user(Model model) throws Exception {
 		ModelAndView view = new ModelAndView();
-	    view.setViewName("admin/admin");
+	    view.setViewName("user");
 	    view.addObject("memberno", getUser().getMemberno());
 	    view.addObject("name", getUser().getUsername());
 

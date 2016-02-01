@@ -62,9 +62,9 @@ public class AdminController {
 	
 	@RequestMapping(value = "/login_success",method=RequestMethod.GET)
 	public ModelAndView adminSuccess(Model model) {
-		System.out.println("로그인에 성공하여 /user.jsp를 보낸다.");
+		System.out.println("로그인에 성공하여 /login_success.jsp를 보낸다.");
 		ModelAndView view = new ModelAndView();
-	    view.setViewName("user");
+	    view.setViewName("admin/admin");
 	    view.addObject("adminno", getUser().getAdminno());
 	    view.addObject("name", getUser().getUsername());
 
