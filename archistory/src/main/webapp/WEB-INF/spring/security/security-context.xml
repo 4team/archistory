@@ -7,7 +7,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<http security="none" pattern="/sboard/*">
 	</http>
 
-	<http auto-config="true" use-expressions="true" authentication-manager-ref="userLoginManager">
+	<http pattern="/user/**" auto-config="true" use-expressions="true" authentication-manager-ref="userLoginManager">
 		<intercept-url pattern="/user/login" access="permitAll"/>
 		<intercept-url pattern="/user/logout" access="permitAll"/>
 		
