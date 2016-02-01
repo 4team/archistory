@@ -583,14 +583,9 @@
                 var title = event.title;
                 var key = idx;
                 console.log("key:"+key+"title:"+title);
-                
-                
-                numname.put = function(key, title) {
-                    var key = numname.getKey(key);
-                    numname.value[key] = title;
-                  };
+                numname.put(key,title);
                   
-                  console.log("map:"+numname);
+                  console.log(numname.keys(),numnames.values());
                 
             });
             
