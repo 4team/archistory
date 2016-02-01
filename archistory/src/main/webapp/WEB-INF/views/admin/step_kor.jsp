@@ -614,7 +614,7 @@
     	
     });
 
-
+    var map ={};
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
         eventLi+="<li class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
@@ -624,9 +624,12 @@
         $("#sortable").html(eventLi);
         
         var title = event.title;
-        var map ={};
-        map.put = function(idx, title) {
-            var key = map.getKey(idx);
+        var key = idx;
+        console.log(title,key);
+        
+        
+        map.put = function(key, title) {
+            var key = map.getKey(key);
             map.value[key] = title;
           };
           
