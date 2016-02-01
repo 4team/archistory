@@ -182,7 +182,7 @@ var routeLi = "";
 	    });
   
     function questionModal(select){
-        var questionModal =   "<li class='rNameModal'>Route Name : " + select.attr("data-routename")+"</li>"
+        var questionModal =   "<li class='rNameModal'>Route Name : <br>" + select.attr("data-routename")+"</li>"
         var questionFooter = "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
         "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
         
