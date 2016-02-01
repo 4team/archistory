@@ -133,7 +133,8 @@ text-align:center;
                 </h3>
                 
             </div>
-            <div class="modal-footer" id="yesNoFooter">
+            <div class="modal-footer">
+		            <ul id="yesNoFooter"></ul>
             </div>
         </div>
     </div>
@@ -182,11 +183,12 @@ var routeLi = "";
 	    });
   
     function questionModal(select){
-        var questionModal =   "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li>"+
-        "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        var questionModal1 = "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li>"
+        var questionModal2 = "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
         "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
-        
-        $("#yesNo").html(questionModal);
+ 
+        $("#yesNo").html(questionModal1);
+        $("#yesNoFooter").html(questionModal2);
     }
     
     
