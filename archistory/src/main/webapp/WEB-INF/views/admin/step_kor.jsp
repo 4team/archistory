@@ -726,7 +726,7 @@
 	var attach2;
 	var qJson;
 	
-	var qattach;
+	var qattach = new Array();
 	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
