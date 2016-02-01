@@ -100,14 +100,15 @@ public class EventController {
 	
 	@RequestMapping(value="/modifyOrder", method = RequestMethod.POST)
 	public ResponseEntity<String> modifyOrder(@RequestBody EventVO vo) throws Exception{
-		System.out.println("Event 수정 POST 호출됨.");
+		System.out.println("EVENT ORDER 수정 POST 호출됨.");
 		ResponseEntity<String> entity = null;
 		
 		try{
 			service.modifyOrder(vo);
-			entity = new ResponseEntity<String>("result",HttpStatus.OK);
+			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("EVENT ORDER 수정 완료!!!");
 		}catch(Exception e){
-			entity = new ResponseEntity<String>("result", HttpStatus.BAD_REQUEST);		
+			entity = new ResponseEntity<String>("result_BAD", HttpStatus.BAD_REQUEST);		
 		}
 		return entity;
 	}
