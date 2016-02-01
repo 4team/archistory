@@ -205,8 +205,8 @@
 		.fa-home{
 		z-index:100;
 		position: absolute;
-		top:14px;
-		left:27px;
+		top:20px;
+		left:23px;
 		}
     </style>
     
