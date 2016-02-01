@@ -177,23 +177,17 @@ var routeLi = "";
 	       var select = $(this);
 	       var routeno = parseInt(select.attr("data-routeno"));
 	      
-	       questionModal1(select);
-	       questionModal2(select);
+	       questionModal(select);
 	       $("#yesModal").modal('show');
 	    });
   
-    function questionModal1(select){
-        var questionModal =   "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li>"
+    function questionModal(select){
+        var questionModal =   "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li>"+
+        "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
         
         $("#yesNo").html(questionModal);
     }
-    function questionModal2(select){
-        var questionFooter = "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
-        "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
-        
-        $("#yesNoFooter").html(questionFooter);
-    }
-    
     
     
     $("#yesNo").on("click","#yes",function(){
