@@ -651,13 +651,11 @@
 	                   console.log("이벤트 넘버:"+eventno+"이벤트 이름:"+eventname+"현재 순서:"+newVal);
 	                   
 	              	  modiOrder(eventno,newVal);
-	              	
-       
 	                });
 	            }   	
 	        }); //드래그 드롭으로 위치 변경
 	       $( "#sortable" ).disableSelection();
-	       getEventList();
+	      // getEventList();
 	    });
 	    
 	    function modiOrder(eventno,newVal){
