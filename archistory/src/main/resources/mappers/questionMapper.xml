@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="org.kkamnyang.persistence.QuestionMapper">
-	<insert id="create">
+	<insert id="create" useGeneratedKeys="true" keyProperty="questionno">
 		insert into tbl_question(eventno,question,answer,point,qtype,choice1,choice2,choice3,choice4)
 		values(#{eventno},#{question},#{answer},#{point},#{qtype},#{choice1},#{choice2},#{choice3},#{choice4})
 	</insert>
