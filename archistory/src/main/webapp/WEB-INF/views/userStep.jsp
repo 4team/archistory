@@ -230,6 +230,7 @@
     var template = Handlebars.compile($("#template").html());
     //이 화면을 실행할 때 넘어오는 파라미터 초기화.
     var routeno = ${routeno};
+    var memberno = ${memberno};
     var lat = ${lat};
     var lng = ${lng};
 
