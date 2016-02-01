@@ -217,25 +217,25 @@
 
 
 <div class="menu">
-			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu">
-								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><a href="#about" class="gn-icon gn-icon-download" id="routeList">Tour Route</a></li>
-								
-									<ul  id="myRouteList"></ul>
-									
-								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
-								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
-								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
-							</ul>
-						</div><!-- /gn-scroller -->
-					</nav>
-				</li>
-</ul>
+			<div class="dropdown">
+-  <a id="mDrop" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+-    	<span class="glyphicon glyphicon-menu-hamburger"></span>
+-  </a>
+-
+-        <ul class="dropdown-menu" role="menu">
+-            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">Home</a></li>
+-            <li role="presentation"><a role="menuitem" tabindex="-1" id="routeList">Tour Route</a></li>
+-
+-				<ul  id="myRouteList">
+-				</ul>
+-
+-            <li role="presentation" class="divider"></li>
+-            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
+-            <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
+-            <li role="presentation" class="divider"></li>
+-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
+-        </ul>
+-    </div>
 	</div>
 	
 	
