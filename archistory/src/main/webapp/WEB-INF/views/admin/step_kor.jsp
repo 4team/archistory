@@ -623,6 +623,8 @@
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
         $("#sortable").html(eventLi);
         
+        
+        var map ={};
         var title = event.title;
         var key = idx;
         console.log(title,key);
