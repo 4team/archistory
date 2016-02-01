@@ -58,7 +58,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/userStep")
-	public ModelAndView stepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng, Model model) throws Exception{
+	public ModelAndView stepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("memberno") Integer memberno, Model model) throws Exception{
 
 		System.out.println("사용자가 스텝 루트선택하여 루트여행하러감. ROUTE NUMBER : " + routeno);
 		ModelAndView view = new ModelAndView();
@@ -77,6 +77,7 @@ public class HomeController {
 		
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
+		view.addObject("memberno", memberno);
 		
 		view.setViewName("userStep");
 		
@@ -85,7 +86,7 @@ public class HomeController {
 	
 
 	@RequestMapping(value="/userNstep")
-	public ModelAndView nonstepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng, Model model) throws Exception{
+	public ModelAndView nonstepKorea(@RequestParam("routeno") Integer routeno, @RequestParam("lat") double lat, @RequestParam("lng") double lng,@RequestParam("memberno") Integer memberno, Model model) throws Exception{
 		
 		System.out.println("사용자가 논스텝 루트선택하여 루트여행하러감. ROUTE NUMBER : " + routeno);
 		ModelAndView view = new ModelAndView();
@@ -104,6 +105,7 @@ public class HomeController {
 		
 		view.addObject("lat", lat);
 		view.addObject("lng", lng);
+		view.addObject("memberno", memberno);
 		
 		view.setViewName("userNstep");
 		
