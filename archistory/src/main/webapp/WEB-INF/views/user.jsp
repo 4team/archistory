@@ -69,7 +69,7 @@ word-wrap:normal
 }
 .rNameModal{
 list-style:none;
-font-size:17px;
+font-size:25px;
 text-align:center;
 }
 </style>
@@ -183,8 +183,8 @@ var routeLi = "";
   
     function questionModal(select){
         var questionModal =   "<li class='rNameModal'>" + select.attr("data-routename")+"</li>"
-        var questionFooter = "<div style='margin:0 auto;'><a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
-        "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a></div>";
+        var questionFooter = "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
         
         $("#yesNo").html(questionModal);
         $("#yesNoFooter").html(questionFooter);
