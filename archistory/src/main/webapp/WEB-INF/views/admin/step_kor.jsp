@@ -400,7 +400,7 @@
 <div id="list" style="width:280px">
    	루트 이름 : <input type="text" id="Rname" placeholder="">
     <hr>
-    <div style="overflow-y:scroll">
+    <div>
         <ul id="sortable">
         </ul>
     </div>
