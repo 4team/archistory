@@ -624,10 +624,10 @@
         $("#sortable").html(eventLi);
         
         
-        var map ={};
+        var map;
         var title = event.title;
         var key = idx;
-        console.log(title,key);
+        console.log(key,title);
         
         
         map.put = function(key, title) {
