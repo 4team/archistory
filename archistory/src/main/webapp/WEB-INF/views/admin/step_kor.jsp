@@ -649,6 +649,7 @@
 	                   
 	              	  modiOrder(eventno,newVal);
 	                });
+	                polyline.setMap(null);
 	                getEventList();
 	            }   
 	        
@@ -671,7 +672,7 @@
 	             data: JSON.stringify({eventno:eventno,eorder:neworder}),
 	             success: function(data){
 	            	 console.log("이벤트 순서 수정 결과 :"+data);
-	            	 polyline.setMap(null);
+	         
 	            
 	             }
 	         });
