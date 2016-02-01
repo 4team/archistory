@@ -13,6 +13,9 @@
  select * from tbl_solve where memberno=#{memberno}
  </select>
  
+ <update id="update">
+ 	update tbl_solve set result = #{result} where solveno = #{solveno}
+ </update>
  
  <delete id="delete">
  		delete from tbl_route where solveno = #{solveno}
