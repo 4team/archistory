@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value="/participate/*")
@@ -16,7 +17,7 @@ public class ParticipateController {
 	@Autowired
 	private ParticipateMapper mapper;
 	
-	@RequestMapping(value="/join")
+	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public ResponseEntity<String> participate(@RequestBody ParticipateVO vo) throws Exception{
 		
 		ResponseEntity<String> entity = null;
@@ -32,7 +33,7 @@ public class ParticipateController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/next")
+	@RequestMapping(value="/next",method=RequestMethod.POST)
 	public ResponseEntity<String> nextStage(@RequestBody ParticipateVO vo)throws Exception{
 		ResponseEntity<String> entity = null;
 		
