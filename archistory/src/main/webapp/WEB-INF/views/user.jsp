@@ -94,8 +94,8 @@ border-width: medium;
 			<div class="nivo-lightbox-wrap">
 			<div class="nivo-lightbox-content">
 
-						<p id="myRouteList">
-						</p>
+						<div class='rName'><p id="myRouteList">
+						</p></div>
 						
 			</div>
 			</div>
@@ -139,7 +139,7 @@ $("#closeList").on("click",function(){
 });
 var routeLi = "";
     function addList(route) {
-        routeLi += "<div class='rName'><li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li></div>";
+        routeLi += "<li data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
         $("#myRouteList").html(routeLi);
     }
     function getAllRouteList(){
