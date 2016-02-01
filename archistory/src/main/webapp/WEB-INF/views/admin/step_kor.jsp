@@ -651,7 +651,7 @@
 	                    $(this).children('.sortable-number').html(newVal);
 	                   // $(this).children('#item_display_order').val(newVal);
 	                   
-	                   var eventname = $(this).children.attr("data-eventname");
+	                   var eventname = $(this).attr("data-eventname");
 	                   
 	                   console.log("이벤트 이름:"+eventname+"현재 넘버:"+newVal);
 	                });
