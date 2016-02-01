@@ -825,26 +825,6 @@
 
     }
     
-/*     function createQuestion(qJson){
-
-        console.log("문제 생성 :"+qJson);
-
-        $.ajax({
-            type:"post",
-            url:"http://14.32.66.127:4000/question/register",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            datatype : "json",
-            data: qJson,
-            success:function(data){
-                console.log("data:"+data);
-            }
-        });
-
-
-    } */
-
 
     /*     <!-- 이벤트 생성 기능 --> */
     function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,callback){
@@ -1787,7 +1767,7 @@
         console.log("delete click");
 
         var index = $.inArray($(this).attr("data-src"), attach);
-        qattach.splice(index, 1);
+        attach.splice(index, 1);
         console.log("삭제 한 뒤의 어테치 : "+attach);
 
 
