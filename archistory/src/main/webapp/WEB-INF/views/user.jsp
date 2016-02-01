@@ -60,7 +60,6 @@ white-space: nowrap;
 font-size:17px;
 border-radius:1em;
 }
-
 .rr{
 animation-duration: 3s;
 animation-name: slidein;
@@ -68,19 +67,10 @@ text-overflow:ellipsis;
 white-space:nowrap;
 word-wrap:normal
 }
-
-/*
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-} */
+.rNameModal{
+list-style:none;
+font-size:17px;
+}
 </style>
 
     <!-- Core JavaScript Files -->
@@ -133,7 +123,7 @@ word-wrap:normal
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
                     <span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Do you wanna travel this route?</h4>
+                <h4 class="modal-title">Travel this route?</h4>
             </div>
             <div class="modal-body">
            
@@ -142,7 +132,7 @@ word-wrap:normal
                 </h3>
                 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="yesNoFooter">
             </div>
         </div>
     </div>
@@ -191,10 +181,12 @@ var routeLi = "";
 	    });
   
     function questionModal(select){
-        var questionModal =   "<li>" + select.attr("data-routename")+
-        "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
+        var questionModal =   "<li class='rNameModal'>" + select.attr("data-routename")+"</li>"
+        var questionFooter = "<a class='btn btn-skin' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
         "<a class='btn btn-skin' id='no' value='"+select.attr("data-routeno")+"'>NO</a>";
+        
         $("#yesNo").html(questionModal);
+        $("#yesNoFooter")html(questionFooter);
     }
     $("#yesNo").on("click","#yes",function(){
         var icon= $(this);
