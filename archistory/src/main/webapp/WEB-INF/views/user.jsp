@@ -57,7 +57,7 @@ list-style:none;
 overflow: hidden; 
 text-overflow: ellipsis;
 white-space: nowrap; 
-font-size:7px;
+font-size:13px;
 
 }
 /* .rr{
