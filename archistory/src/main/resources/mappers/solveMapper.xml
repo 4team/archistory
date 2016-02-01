@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="org.kkamnyang.persistence.SolveMapper">
+ 
+ <insert id="create">
+ insert into tbl_solve(memberno,questionno,result) values(#{memberno),#{questionno},#{result})
+ </insert>
+ 
+ <select id="list">
+ select * from tbl_solve where memberno=#{memberno}
+ </select>
+ 
+ 
+ <delete id="delete">
+ 		delete from tbl_route where solveno = #{solveno}
+ </delete>
+ 
+ </mapper>
