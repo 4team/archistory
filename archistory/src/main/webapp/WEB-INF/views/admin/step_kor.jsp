@@ -203,7 +203,7 @@
      
      
 		.sortable-number { 
-		width: 10px;
+		width: 15px;
 		float: left;
 		line-height: 1em;
 		text-align: center;
@@ -305,6 +305,11 @@
                                 <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o" checked> O </label>
                                 <label><input type="radio" name="optionsRadios" id="oxAnswer2" value="x" checked> X </label>
                             </div>
+                            
+                              <label for="qImg">이미지</label>
+			                  <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+			                    <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
+			              	  </div>      
 
                             </div>
                             </div>
@@ -381,6 +386,11 @@
                         <label><input type="radio" name="optionsRadios" id="mooxAnswer1" value="o" checked> O </label>
                         <label><input type="radio" name="optionsRadios" id="mooxAnswer2" value="x" checked> X </label>
                     </div>
+                    
+                     <label for="qImg">이미지</label>
+			                  <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+			                    <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
+			              	  </div>  
 
                 </div>
             </div>
