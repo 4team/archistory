@@ -55,6 +55,22 @@ z-index:9999;
 .rName{
 list-style:none;
 }
+p {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 </style>
 
     <!-- Core JavaScript Files -->
