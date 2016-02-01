@@ -160,13 +160,13 @@ hr {
 		text-decoration: none;
 		cursor: pointer;
 }
-/* 
+
 .no-touch .gn-menu-main a:hover,
 .no-touch .gn-menu li.gn-search-item:hover,
 .no-touch .gn-menu li.gn-search-item:hover a {
 		background: #eb5d1e;
 		color: orange;
-} */
+}
 
 .gn-menu-main > li {
 		display: block;
