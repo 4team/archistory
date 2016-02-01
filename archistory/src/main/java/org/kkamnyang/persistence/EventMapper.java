@@ -16,4 +16,6 @@ public interface EventMapper extends CRUDMapper<EventVO,Integer> {
 
 	public EventVO getByOrder(EventVO vo);
 	
+	public void modifyOrder(EventVO vo);
+	
 }

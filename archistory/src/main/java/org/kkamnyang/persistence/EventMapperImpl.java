@@ -67,4 +67,10 @@ public class EventMapperImpl extends AbstractCRUDMapper<EventVO,Integer> impleme
 	public EventVO getByOrder(EventVO vo) {
 		return session.selectOne(namespace+".getByOrder",vo);
 	}
+
+	@Override
+	public void modifyOrder(EventVO vo) {
+		session.update(namespace+".updateOrder",vo);
+		
+	}
 }

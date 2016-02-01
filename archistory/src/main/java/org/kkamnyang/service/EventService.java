@@ -56,4 +56,10 @@ public class EventService {
 	public EventVO getByOrder(EventVO vo) throws Exception{
 		return mapper.getByOrder(vo);
 	}
+	
+	
+	public void modifyOrder(EventVO vo) {
+		mapper.modifyOrder(vo);
+		
+	}
 }

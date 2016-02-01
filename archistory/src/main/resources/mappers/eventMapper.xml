@@ -28,6 +28,11 @@
  		where eventNo = #{eventno}
  	</update>
  	
+ 	<update id="updateOrder">
+ 		update tbl_event set eorder=#{eorder}
+ 		where eventNo = #{eventno}
+ 	</update>
+ 	
  	<delete id="delete">
  		delete from tbl_event where eventNo = #{eventno}
  	</delete>

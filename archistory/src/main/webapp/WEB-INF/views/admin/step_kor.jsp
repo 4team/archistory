@@ -622,7 +622,7 @@
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
-        eventLi+="<li data-eventno='"+event.eventno+"' data-eventname='"+event.title+" class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
+        eventLi+="<li data-eventno='"+event.eventno+"' data-eventname='"+event.title+"' class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
         
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
@@ -653,12 +653,36 @@
 	                   
 	                   console.log("이벤트 넘버:"+eventno+"이벤트 이름:"+eventname+"현재 순서:"+newVal);
 	                   
+	              	  modiOrder(eventno,newVal);
+	                   
+	                   
 	                });
 	            }   	
 	        }); //드래그 드롭으로 위치 변경
 	       $( "#sortable" ).disableSelection();
 	        console.log()
 	    });
+	    
+	    function modiOrder(eventno,newVal){
+	    	
+	    	var neworder = newVal +1;
+	    	
+	    	 $.ajax({
+	             type:'post',
+	             url:"http://14.32.66.127:4000/event/modifyOrder",
+	             headers:{
+	                 "Content-Type" :"application/json"	},
+	             datatype : "json",
+	             data: JSON.stringify({eventno:eventno,eorder:neworder}),
+	             success: function(data){
+	            	 console.log("이벤트 순서 수정 결과 :"+data);
+	                 getEventList();
+	            
+	             }
+	         });
+	    	
+	    	
+	    };
 
     //이벤트 리스트 삭제버튼
     $("#sortable").on("click","#del",function(event){
