@@ -133,11 +133,61 @@ text-align:center;
         	color:#aef;
         }
     
-        
+        .fa{
+		position:absolute;
+		}
+		.fa-home{
+		top:20px;
+		left:22px;
+		}
+		.fa-map-marker{
+		top:94px;
+		left:25px;
+		}
+		.fa-question{
+		top:170px;
+		left:25px;
+		}
+		.fa-book{
+		top:246px;
+		left:22px;
+		}
+		.fa-download{
+		top:320px;
+		left:22px;
+		}
+		.gn-menu li:hover{
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+        }
+        .gn-menu-main{
+        z-index:1;
+        }
 
 </style>
 
-
+<div class="menu">
+			<ul id="gn-menu" class="gn-menu-main">
+<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li><i class="fa fa-home"></i><a href="/user" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								
+									<ul  id="myRouteList"></ul>
+									
+								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><i class="fa fa-download"></i><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+</ul>
+	</div>
 
 <body data-spy="scroll">
 
