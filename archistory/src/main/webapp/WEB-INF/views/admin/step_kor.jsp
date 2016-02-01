@@ -1757,8 +1757,8 @@
                     //console.log("ddddd",$(".uploadedList"));
 
                     //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
-                    attach.push(data);
-                    console.log("attach:" + attach);
+                    qattach.push(data);
+                    console.log("qattach:" + qattach);
 
                     if(checkImageType(data)){
                         str ="<div class='img'>"

@@ -100,7 +100,7 @@ public class QuestionController {
 		response.getWriter().print(nowSequence);
 		vo.setQuestionno(nowSequence);
 		service.attachCreate(vo);
-		System.out.println("이벤트 넘버:"+nowSequence);
+		System.out.println("문제 넘버:"+nowSequence);
 		
 	}
 	
