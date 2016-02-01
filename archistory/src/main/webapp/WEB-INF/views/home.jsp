@@ -249,13 +249,13 @@
 	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
 <body>
 
-<!-- <div class="glyphicon glyphicon-menu-hamburger" style="position:absolute;left:10px;top:5px;"></div> -->
+<div class="glyphicon glyphicon-menu-hamburger" style="position:absolute;left:10px;top:5px;"></div>
 
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
 <i class=" fa fa-bars fa-6"></i>
-					<a class="glyphicon glyphicon-menu-hamburger" style="z-index:90;"><span>Menu</span></a>
+					<a class="gn-icon gn-icon-menu" style="z-index:99999;"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
