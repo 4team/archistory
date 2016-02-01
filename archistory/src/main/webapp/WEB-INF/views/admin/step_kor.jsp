@@ -88,6 +88,16 @@
         margin-top:10px;
         margin-bottom:10px;
     }
+    
+    .qfileDrop {
+        width: 90%;
+        height: 100px;
+        border: 2px dotted black;
+        border-radius: 10px;
+        background-color: powderblue;
+        margin-top:10px;
+        margin-bottom:10px;
+    }
     li{
         list-style: none;
         margin-bottom: 15px;
@@ -307,8 +317,8 @@
                             </div>
                             
                               <label for="qImg">문제 이미지</label>
-			                  <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
-			                    <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
+			                  <div class="qfileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+			                    <ul class="mailbox-attachments clearfix quploadedList" style="display:inline"></ul>
 			              	  </div>      
 
                             </div>
@@ -387,8 +397,8 @@
                     </div>
                     
                      <label for="qImg"> 문제 이미지</label>
-			         <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
-			         <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
+			         <div class="qfileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+			         <ul class="mailbox-attachments clearfix quploadedList" style="display:inline"></ul>
                 </div>
             </div>
 
@@ -856,6 +866,7 @@
         $("#eventName").val("");
         $("#eventinfo").val("");
         $(".uploadedList").html("");
+        $(".quploadedList").html("");
         $("#qCheck").attr('checked', false) ;
         $("#questionDiv").hide();
         $("#camera").val(false);
@@ -920,6 +931,7 @@
 /*     <!-- 이벤트 읽기 기능 --> */
     function viewEvent(eventno){
     	$(".uploadedList").html("");
+    	$(".quploadedList").html("");
     	$("#myoutubeList").html("");
     	$("#youtubeList").html("");
     	
@@ -1395,7 +1407,7 @@
     $(".fileDrop").on("drop", function(event){
         event.preventDefault();
 
-        var files = event.originalEvent.dataTransfer.files;
+        var files = event.originalEvent.dataTransfer.files; //전달된 파일 데이터 가져오는 부분
         console.log(files);
         var num = files.length;
 
