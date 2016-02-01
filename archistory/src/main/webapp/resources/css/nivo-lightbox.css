@@ -16,7 +16,7 @@
 	height: 100%;
 	overflow: hidden;
 	visibility: hidden;
-	opacity: 1;
+	opacity: 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
