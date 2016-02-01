@@ -404,11 +404,11 @@
 <div id="list" style="width:280px">
    	루트 이름 : <input type="text" id="Rname" placeholder="">
     <hr>
-    <div>
+    <div style="overflow-y:scroll">
         <ul id="sortable">
         </ul>
     </div>
-    <div id="listBottom" style="position:fixed">
+    <div id="listBottom">
         <button type="button" id="commitList" class= "btn btn-default" >완료</button>
     </div>
 </div>
