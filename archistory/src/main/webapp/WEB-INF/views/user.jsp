@@ -72,6 +72,44 @@ list-style:none;
 font-size:25px;
 text-align:center;
 }
+
+   		 
+	   	#userInfo{
+	   		position:absolute;
+	   		border-radius : 10px;
+	   		padding:2px;
+	   		text-align:center;
+	   		border:1px solid;
+	   		display:none;
+	   		top:35px;
+	   		right:6px;
+	   		text-align:left;
+	   		z-index:400;
+	   		width:100px;
+	   		height:70px;
+	   		background-color: #303336;
+	   	}
+	   	
+	   	#userInfo:hover{
+	   		margin-top:1px;
+	   		margin-right:1px;
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+        }
+        
+        #userInfo li{
+        	text-align:center;
+        }
+        
+        #userInfo a{
+        	color:#2169C1;
+        }
+        
+       #userInfo a:hover{
+       		text-decoration:none;
+        	color:#aef;
+        }
 </style>
 
     <!-- Core JavaScript Files -->
@@ -99,9 +137,19 @@ text-align:center;
 		</div>	
     </section>
 	<!-- /Section: intro -->
-			
-			
-			<!-- 루트리스트 뜨는 어두운전체창 -->
+
+	<div id="upper-login">
+		<button type="button" id="myInfo" data-src="${adminno}"
+			class="btn btn-primary btn-xs">
+			<font face="verdana" size="2">${name}님</font>
+		</button>
+		<ul id="userInfo">
+			<li><a id="myInfo">My Info</a></li>
+			<li><a href="/user/logout">Logout</a></li>
+		</ul>
+	</div>
+
+	<!-- 루트리스트 뜨는 어두운전체창 -->
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 			<div class="nivo-lightbox-wrap">
 			<div class="nivo-lightbox-content">

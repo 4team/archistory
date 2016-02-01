@@ -104,6 +104,16 @@
         text-align: center;
         z-index:700;
     }
+
+    #myLocation{
+        position:absolute;
+        width:200px;
+        height:60px;
+        top:50px;
+        left:50px;
+        background-color: #FFF;
+        z-index:1000;
+    }
 </style>
 
 <script type="text/javascript" src="js/upload.js"></script>
@@ -123,6 +133,7 @@
 <!-- on/off toggle 이용하기 위함 -->
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+
 <body>
 
 <!-- 이벤트의 정보를 보여주는 모달 -->
@@ -207,7 +218,7 @@
         </div>
     </div>
 </div>
-
+<div id="myLocation"></div>
 <div id="map"></div>
 
 
@@ -215,11 +226,15 @@
        <img src="{{fileName}}"/>
 </script>
 <script>
+
     var template = Handlebars.compile($("#template").html());
     //이 화면을 실행할 때 넘어오는 파라미터 초기화.
     var routeno = ${routeno};
     var lat = ${lat};
     var lng = ${lng};
+
+    var myLat = 0;
+    var myLng = 0;
 
     //이벤트와 관련된 변수들
     var eventEA = 0;
@@ -243,53 +258,47 @@
             };
     var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+
+
+
+
+var customOverlay;
     // 마커를 생성하고 지도위에 표시하는 함수입니다.
     function addMarker(event) {
+        // 커스텀 오버레이 추가 (여기로 이동하세요 띄우기)
+        var content = '<div id="introduction" data-toggle="tooltip" data-placement="top" title="Move to Here!"></div>';
 
-        // 마커를 생성합니다
-        var marker = new daum.maps.Marker({
-            title: "<div class='panel panel-primary'><div class='panel-heading'>"+event.title+"</div><div class='panel-body'>" + event.content+"</div></div>",
-            position: new daum.maps.LatLng(event.lat,event.lng)
-        });
+        // 커스텀 오버레이가 표시될 위치입니다
+        var position = new daum.maps.LatLng(event.lat, event.lng);
 
-        marker.setMap(map);
-        markers.push(marker);
-
-        daum.maps.event.addListener(marker, 'mouseover', function () {
-            showInfo(marker);
-        });
-
-        // 마커가 지도 위에 표시되도록 설정합니다
-        marker.setMap(map);
-    }
-
-
-    //커스텀 오버레이 생성... 여기로 이동하세요를 띄울 예정.
-    function showCustomOverlay(event){
-
-        var content = "<div class='panel panel-primary'><div class='panel-heading'>"+event.title+"</div><div class='panel-body'>" + event.content+"</div></div>";
-
-        var position =  new daum.maps.LatLng(event.lat, event.lng);
-
-        var customOverlay = new daum.maps.CustomOverlay({
+        // 커스텀 오버레이를 생성합니다
+        customOverlay = new daum.maps.CustomOverlay({
             position: position,
             content: content,
             xAnchor: 0.3,
             yAnchor: 0.91
         });
 
+        // 커스텀 오버레이를 지도에 표시합니다
         customOverlay.setMap(map);
+        $('#introduction').tooltip('show');
+
 
     }
 
+
+
+
+    // 나의 위치를 읽어온다.
+    console.log("getLocation 호출");
+    window.addEventListener('deviceorientation',getLocation);
 
 
     function getEvent() {
         function getEventByOrder(eventOrder, callback) {
             console.log("=====현재 이벤트순서로 이벤트 불러오기 호출=====");
             $.getJSON("http://14.32.66.127:4000/event/getByOrder?routeno=" + routeno + "&order=" + eventOrder, function (data) {
-
-                eventVO = $(data)[0];
+                eventVO = data;
 
                 nowEventNo = eventVO.eventno;
                 callback(eventVO);
@@ -304,6 +313,8 @@
             }
             console.log("==== getEventByOrder의 콜백에 들어옴 ====");
             $("#title").html(eventVO.title);
+
+            addMarker(eventVO);
 
             var youtubeStr = eventVO.youtube.split("THUMBNAIL");
             console.log("============유투브 가져오기=============");
@@ -351,10 +362,11 @@
 
 // 이부분에 내 위치값과 이벤트의 위치값 비교하는 IF문을 넣어줍시다.
 
-            eventModal.modal("show");
+           eventModal.modal("show");
         });
 
     };
+
 
     getEvent();
 
@@ -386,21 +398,12 @@
         console.log("getEventList [콜백]");
     });
 
-
-
-
-
-    // 나의 위치를 읽어온다.
-    console.log("getLocation 호출");
-    window.addEventListener('deviceorientation',getLocation);
-
-
-    var myLat = 0;
-    var myLng = 0;
+var myMarker = null;
 
     function getLocation(){
         console.log("[ 지오로케이션 실행 ]");
         navigator.geolocation.getCurrentPosition(function(position){
+
             var lat = position.coords.latitude;
             var lng = position.coords.longitude;
 
@@ -409,11 +412,32 @@
 
             myLat = lat;
             myLng = lng;
+
+
+
+
+            //사라지는 조건식 쓰기 myLat, myLng  EventVO
+            var ret = Math.sqrt(Math.pow((Math.abs(eventVO.lat-myLat)*111),2)+Math.pow((Math.abs(eventVO.lng-myLng)*88.8),2))*1000;
+
+            $("#myLocation").html("<h3>"+lat+"</h3><h3>"+lng+"</h3><h3>"+ret.toFixed(2)+"</h3>");
+//            if(ret.toFixed(2) < 100){
+//                customOverlay.setMap(null);
+//                eventModal.modal("show");
+//            }
+
+
+            // 마커를 생성합니다
+            myMarker = new daum.maps.Marker({
+                position:new daum.maps.LatLng(lat,lng),
+                map:map
+            });
+
+
         });
 
         //여기에 내 현재 위치를 받아서 현재 order에 해당하는 lat, lng를 비교해서 어떤 값 범위 이하이면 eventModal을 보여주면 될 것 같다.
         console.log("===== 현재 ORDER에 해당하는 EventVO의 위도, 경도 =====");
-        console.log(eventVO.lat,eventVO.lng);
+        console.log(eventVO);
 
         return;
     };
@@ -453,7 +477,10 @@
             }else{
                 console.log("Question이 없다.");
                 eventModal.modal("hide");
-                $("#allClose").modal("hide");
+                $("#moveNext").modal("show");
+                event.preventDefault();
+                eventModal.modal("hide");
+                $("#moveNext").modal("show");
                 nowOrder++;
                 getEvent();
             }
