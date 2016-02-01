@@ -27,7 +27,9 @@ public class UserLoginService implements UserDetailsService {
 		StandardPasswordEncoder encoder = new StandardPasswordEncoder();
 		
 		try{
+			System.out.println("========1=========");
 			MemberVO vo = mapper.findByEmail(email);
+			System.out.println("========2=========");
 			System.out.println("호출된 MemberVO : "+vo);
 			user = new OurUserDetails(vo.getMemberno(),vo.getUserName(),vo.getEmail(),encoder.encode(vo.getmPassword()),vo.getImg(),vo.getUserNo());
 		}catch(Exception e){

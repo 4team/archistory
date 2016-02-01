@@ -5,7 +5,6 @@ import java.util.List;
 import org.kkamnyang.domain.InviteVO;
 import org.kkamnyang.domain.MemberVO;
 import org.kkamnyang.domain.ParticipateVO;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
