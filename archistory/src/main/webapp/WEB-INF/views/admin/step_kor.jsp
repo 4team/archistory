@@ -622,12 +622,8 @@
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(idx,event){
         eventLi+="<li data-eventno='"+event.eventno+"' data-eventname='"+event.title+"' class='ui-state-default'><div class='ui-state-default sortable-number'>"+idx+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
-        
-        
-        /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
-        $("#sortable").html(eventLi);
-        
  
+        $("#sortable").html(eventLi);
     }
     
 
@@ -657,7 +653,10 @@
 	        
 	        }); //드래그 드롭으로 위치 변경
 	      
-	       $( "#sortable" ).disableSelection();
+	       $( "#sortable" ).disableSelection(
+	    	   console.log("이벤트 순서 수정2")
+	       );
+	       console.log("이벤트수정-1!");
 	    
 	    });
 	    
