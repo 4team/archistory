@@ -57,15 +57,18 @@ list-style:none;
 overflow: hidden; 
 text-overflow: ellipsis;
 white-space: nowrap; 
-font-size:16px;
-
+font-size:15px;
 }
-/* .rr{
+
+.rr{
 animation-duration: 3s;
 animation-name: slidein;
-
+text-overflow:ellipsis;
+white-space:nowrap;
+word-wrap:normal
 }
 
+/*
 @keyframes slidein {
   from {
     margin-left: 100%;
@@ -156,7 +159,7 @@ $("#closeList").on("click",function(){
 });
 var routeLi = "";
     function addList(route) {
-        routeLi += "<marquee><li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px;' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'><div class='rr'>" + route.routename + "</div></li></marquee>";
+        routeLi += "<li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px;' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'><div class='rr'>" + route.routename + "</div></li>";
         $("#myRouteList").html(routeLi);
     }
     function getAllRouteList(){
