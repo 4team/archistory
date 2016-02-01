@@ -622,8 +622,17 @@
         
         /* eventLi+="<li class='ui-state-default'><span class='ui-icon ui-icon-arrowthick-2-n-s'></span><div id='eventTitle'>" +event.title+ "</div><div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></span></div></li>"; */
         $("#sortable").html(eventLi);
-
+        
+        var title = event.title;
+        var map ={};
+        map.put = function(idx, title) {
+            var key = map.getKey(idx);
+            map.value[key] = title;
+          };
+          
+          console.log(map);
     }
+    
 
 
 	    $(function() {
@@ -641,11 +650,10 @@
 	                    $(this).children('.sortable-number').html(newVal);
 	                   // $(this).children('#item_display_order').val(newVal);
 	                });
-	            }
-
-	        	
+	            }   	
 	        }); //드래그 드롭으로 위치 변경
 	       $( "#sortable" ).disableSelection();
+	        console.log()
 	    });
 
     //이벤트 리스트 삭제버튼
