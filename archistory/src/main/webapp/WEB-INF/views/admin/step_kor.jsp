@@ -726,6 +726,8 @@
 	var attach2;
 	var qJson;
 	
+	var qattach;
+	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
         var title = $("#eventName").val();
@@ -767,6 +769,7 @@
         qfilter[6]="choice2";
         qfilter[7]="choice3";
         qfilter[8]="choice4";
+        qfilter[9]="qfiles"
 
         var qObject = new Object();
 
@@ -778,6 +781,7 @@
         qObject.choice2 = $("#s2").val();
         qObject.choice3 = $("#s3").val();
         qObject.choice4 = $("#s4").val();
+        qObject.efiles = qattach;
 
         for(var i=1;i<5;i++) {
 
@@ -807,7 +811,7 @@
 
         $.ajax({
             type:"post",
-            url:"http://14.32.66.127:4000/question/register",
+            url:"http://14.32.66.127:4000/question/attachCreate",
             headers:{
                 "Content-Type":"application/json"
             },
@@ -820,6 +824,27 @@
 
 
     }
+    
+/*     function createQuestion(qJson){
+
+        console.log("문제 생성 :"+qJson);
+
+        $.ajax({
+            type:"post",
+            url:"http://14.32.66.127:4000/question/register",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            datatype : "json",
+            data: qJson,
+            success:function(data){
+                console.log("data:"+data);
+            }
+        });
+
+
+    } */
+
 
     /*     <!-- 이벤트 생성 기능 --> */
     function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,callback){
