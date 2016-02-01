@@ -15,7 +15,7 @@
   </select>
   
   <update id="update">
-  	update tbl_participate set score = #{score} stage = #{stage} lastDate = now()
+  	update tbl_participate set score = #{score} stage = #{stage} lastDate = now() where participateno = #{participateno}
   </update>
   
   <delete id="delete">
