@@ -74,7 +74,7 @@ z-index:9999;
 <body data-spy="scroll">
 
 
-<div class="container">
+<div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
 					<a class="gn-icon gn-icon-menu"><span>MENU</span></a>
