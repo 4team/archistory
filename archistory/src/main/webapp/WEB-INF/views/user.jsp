@@ -53,9 +53,6 @@ display:none;
 z-index:9999;
 }
 .rName{
-border-radius:6px;
-border-color: white;
-border-width: medium;
 list-style:none;
 }
 </style>
@@ -137,7 +134,7 @@ $("#closeList").on("click",function(){
 });
 var routeLi = "";
     function addList(route) {
-        routeLi += "<li class='rName' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
+        routeLi += "<li class='rName'  style='border:2px outset white;' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>" + route.routename + "</li>";
         $("#myRouteList").html(routeLi);
     }
     function getAllRouteList(){
