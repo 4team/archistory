@@ -227,7 +227,7 @@
 		top:320px;
 		left:22px;
 		}
-		.gn-menu a:hover{
+		.gn-menu li:hover{
         	border : 1px solid;
         	border-color:#aef;
         	box-shadow:0 0 8px #fff;
