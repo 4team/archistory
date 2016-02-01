@@ -202,28 +202,26 @@
 		#upper-login{
 		z-index:999;
 		}
+		.fa{
+		position:absolute;
+		}
 		.fa-home{
-		position: absolute;
 		top:20px;
 		left:22px;
 		}
 		.fa-map-marker{
-		position: absolute;
 		top:94px;
 		left:25px;
 		}
 		.fa-question{
-		position: absolute;
 		top:170px;
 		left:25px;
 		}
 		.fa-book{
-		position: absolute;
 		top:246px;
 		left:22px;
 		}
 		.fa-download{
-		position: absolute;
 		top:320px;
 		left:22px;
 		}
@@ -250,7 +248,8 @@
 
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger fa fa-bars fa-5">
+<li class="gn-trigger">
+<i class=" fa fa-bars fa-6"></i>
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
