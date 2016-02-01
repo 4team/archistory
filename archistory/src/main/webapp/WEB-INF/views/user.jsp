@@ -98,7 +98,7 @@ text-align:center;
            #upper-login{
         	padding:5px;
        		position:absolute;
-        	z-index:5000;
+        	z-index:3000;
         	right: 10px;
         	top:5px;
         }
