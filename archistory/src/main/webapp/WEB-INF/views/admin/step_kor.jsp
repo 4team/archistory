@@ -607,7 +607,6 @@
     	
     	// 지도에 표시할 선을 생성합니다
     polyline = new daum.maps.Polyline({
-    	
    	    path: linePath, // 선을 구성하는 좌표배열 입니다
    	    strokeWeight: 5, // 선의 두께 입니다
    	    strokeColor: '#FFAE00', // 선의 색깔입니다
