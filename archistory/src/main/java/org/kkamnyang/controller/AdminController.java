@@ -64,7 +64,7 @@ public class AdminController {
 	public ModelAndView adminSuccess(Model model) {
 		System.out.println("로그인에 성공하여 /login_success.jsp를 보낸다.");
 		ModelAndView view = new ModelAndView();
-	    view.setViewName("admin/admin");
+	    view.setViewName("user");
 	    view.addObject("adminno", getUser().getAdminno());
 	    view.addObject("name", getUser().getUsername());
 
