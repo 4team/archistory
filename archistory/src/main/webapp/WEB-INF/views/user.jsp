@@ -55,24 +55,49 @@ position:fixed;
 display:none;
 z-index:9999;
 }
+#mMyRouteList{
+display:none;
+position:absolute;
+overflow-y:scroll;
+}
+.eachMenu:hover{
+border : 1px solid;
+border-color:#aef;
+box-shadow:0 0 8px #aef;
+}
 </style>
 
-    <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min2.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
-
-
+ <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    
 <body data-spy="scroll">
 
-
+<div class="container">
+			<ul id="gn-menu" class="gn-menu-main">
+<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>MENU</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li class="eachMenu"><a href="/user" class="gn-icon gn-icon-earth">Home</a></li>
+								<li class="eachMenu"><a href="#about" class="gn-icon gn-icon-archive" id="mRouteList">Tour Route</a></li>
+								
+									<ul  id="mMyRouteList"></ul>
+									
+								<li class="eachMenu"><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li class="eachMenu"><a href="/sboard/list" class="gn-icon gn-icon-article">Reviews</a></li>
+								<li class="eachMenu"><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+</ul>
+	</div>
+	
+	
 	<!-- Section: intro -->
     <section id="intro" class="intro">
 		<div class="slogan">
@@ -217,5 +242,14 @@ var routeLi = "";
 }
 </script>
 
+   <!-- Core JavaScript Files -->    
+    <script src="js/bootstrap.min2.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/gnmenu.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
 </body>
 </html>
