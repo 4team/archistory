@@ -58,7 +58,7 @@ overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap; 
 font-size:17px;
-border-radius:2em;
+border-radius:1em;
 }
 
 .rr{
