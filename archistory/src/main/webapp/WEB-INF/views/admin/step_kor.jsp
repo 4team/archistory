@@ -462,7 +462,6 @@
             };
     var map = new daum.maps.Map(mapContainer, mapOption);
 
- 
     var routeno = ${routeno};
     var eventLi="";
     var routename = ${routename};
@@ -1055,9 +1054,93 @@
 
 
             }//end else
+            	
+            $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
+   	   		 console.log("문제 첨부파일 가져오기");
+   	   		 console.log(list);
+   	   		 var array = list[0].split(',');
+   	   		 console.log(array);
+   	   		 
+   	   		var length = array.length;
+   	   		
+   	   		 for(var i = 0; i < length; i++){
+   	   			 
+   	   			var name = array[i];
+   	   			attach.push(name);
+   	   			  var fileInfo = getFileInfo(name);
+   	                 var html = template2(fileInfo);
+   	   			  
+   	   			  $(".quploadedList").append(html);
+   	   		 }
+
+      		 });//end getAttach
 
         }); //end question view 
         
+        
+        
+       /*  $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventno,function(data){
+
+            var vo = $(data);
+
+            var qno = vo.attr("questionno");
+            console.log("문제 넘버:"+qno+"읽어오기");
+            console.log(vo);
+            $("#qno").val(qno);
+
+
+            if(typeof qno == "undefined"){
+                console.log("이벤트 VIEW - 문제 없음.");
+                $("#qno").val("no_Question");
+                $("#moqCheck").attr("checked",false);
+                $("#moquestionDiv").hide();
+            }
+
+            else{
+                $("#moqCheck").attr("checked",true);
+                $("#moquestionDiv").show();
+                $("#moquestionTitle").val(vo.attr("question"));
+                $("#moqType").val(vo.attr("qtype"));
+
+                if(vo.attr("qtype")=="multiple"){
+
+                    $("#mooxAnswerbox").hide();
+                    $("#moselectBox").show();
+
+
+                    for (var i=1; i<5; i++){
+                        var id="#mos";
+                        var multi = id+i;
+                        var choice="choice";
+                        var multi2 = choice+i;
+                        $(multi).val(vo.attr(multi2));
+
+                        console.log("answer:"+vo.attr("answer"));
+
+                        if(i==vo.attr("answer")){
+                            var answerId = "#momultipleAnswer"+i;
+                            $(answerId).attr("checked",true);
+                        }
+                    }
+                } //multiple 일때
+
+                if('o'==vo.attr("answer")){
+                    $("#mooxAnswer1").attr("checked",true);
+                    $("#moselectBox").hide();
+                    $("#mooxAnswerbox").show();
+                } //ox중 o일때
+
+                if('x'==vo.attr("answer")){
+                    $("#mooxAnswer2").attr("checked",true);
+                    $("#moselectBox").hide();
+                    $("#mooxAnswerbox").show();
+                }
+
+
+            }//end else
+
+        }); //end question view 
+         */
         
     }
 
