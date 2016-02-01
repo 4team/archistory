@@ -909,6 +909,7 @@
         $("#s2").val("");
         $("#s3").val("");
         $("#s4").val("");
+        qattach=[];
 
         for(var i=1;i<5;i++) {
 
@@ -1730,7 +1731,7 @@
 
             if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
 
-                uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');
+                uploadImg(formData,'http://14.32.66.127:4000/quploadAjax');
             }
 
 

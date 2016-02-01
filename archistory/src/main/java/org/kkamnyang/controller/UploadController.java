@@ -230,7 +230,45 @@ public class UploadController {
 	      return entity;    
 	  }
 
+
 	  
+	  
+		private String quploadFile(String originalName, byte[] fileData) throws Exception {
+			 UUID uid = UUID.randomUUID();
+			 String savedName = uid.toString() + "_"+ originalName;
+			 
+			  File target = new File(uploadPath,savedName);
+			 
+			  FileCopyUtils.copy(fileData, target);
+			 return savedName;
+		}
+		
+		@RequestMapping(value = "/quploadAjax", method = RequestMethod.GET)
+		public void quploadAjax(){
+		
+		
+		}
+		
+		@ResponseBody
+		  @RequestMapping(value ="/quploadAjax", method=RequestMethod.POST, 
+		                  produces = "text/plain;charset=UTF-8")
+		  public ResponseEntity<String> quploadAjax(@RequestParam("questionno") String questionno, MultipartFile file)throws Exception{
+		    
+		    logger.info("originalName: " + file.getOriginalFilename());
+		    
+		    System.out.println("업로드포스트 호출됨");
+		   
+		    return 
+		      new ResponseEntity<>(
+		          UploadFileUtils.uploadFile(uploadPath, 
+		                file.getOriginalFilename(), 
+		                file.getBytes(),questionno), 
+		          HttpStatus.CREATED);
+		  }
+		
+	
+		  
+	
 	  
 	  
 }

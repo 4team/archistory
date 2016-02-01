@@ -98,11 +98,11 @@ public class QuestionController {
 		
 		service.register(vo);
 
-		Integer nowSequence = vo.getQuestionno();
-		response.getWriter().print(nowSequence);
-		vo.setQuestionno(nowSequence);
+		Integer questionno = vo.getQuestionno();
+		response.getWriter().print(questionno);
+		vo.setQuestionno(questionno);
 		service.attachCreate(vo);
-		System.out.println("문제 넘버:"+nowSequence);
+		System.out.println("문제 넘버:"+questionno);
 		
 	}
 	
