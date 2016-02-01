@@ -404,9 +404,9 @@
         <ul id="sortable">
         </ul>
     </div>
-    
-        <button type="button" id="commitList" class= "btn btn-default" style="margin-bottom: 5px; float: right;  position:fixed;" >완료</button>
-  
+    <div style="background-color : aqua;">
+        <button type="button" id="commitList" class= "btn btn-default" style="margin-bottom: 5px; float: right; " >완료</button>
+	</div>
 </div>
 
 <!-- 모달(루트 등록 완료)-->
