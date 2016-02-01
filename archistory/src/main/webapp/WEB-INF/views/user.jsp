@@ -322,6 +322,19 @@ var routeLi = "";
              }
         });
 }
+    
+    
+
+    $("#loginBtn").on("click",function(){
+        $("#loginModal").modal('show');
+    });
+
+    	
+   	$("#joinBtn").on("click",function(){
+   		$("#joinModal").modal('show');
+   	});
+   	
+   	
 </script>
 
 
