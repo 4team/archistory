@@ -3,11 +3,15 @@ package org.kkamnyang.controller;
 import java.util.Locale;
 
 import org.kkamnyang.domain.RouteVO;
+import org.kkamnyang.persistence.AdminDetails;
+import org.kkamnyang.persistence.OurUserDetails;
 import org.kkamnyang.service.RouteService;
 import org.kkamnyang.service.UserLoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +35,11 @@ public class HomeController {
 	@Autowired
 	RouteService route;
 	
+	public OurUserDetails getUser()
+    {
+        return (OurUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    }
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -39,10 +48,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public String user(Locale locale, Model model) throws Exception {
-		logger.info("Welcome home! The client locale is {}.", locale);
-	
-		return "user";
+	public ModelAndView user(Model model) throws Exception {
+		ModelAndView view = new ModelAndView();
+	    view.setViewName("user");
+	    view.addObject("memberno", getUser().getMemberno());
+	    view.addObject("name", getUser().getUsername());
+
+		return view;
 	}
 	
 	@RequestMapping(value = "/userStep")
