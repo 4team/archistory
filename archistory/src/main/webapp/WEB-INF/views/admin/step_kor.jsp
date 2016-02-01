@@ -653,7 +653,8 @@
 	                   
 	              	  modiOrder(eventno,newVal);
 	                });
-	            }   	
+	            }   
+	        getEventList();
 	        }); //드래그 드롭으로 위치 변경
 	       $( "#sortable" ).disableSelection();
 	    
