@@ -649,16 +649,13 @@
 	                   
 	              	  modiOrder(eventno,newVal);
 	                });
-	                console.log("순서수정");
+	                getEventList();
 	            }   
 	        
 	        }); //드래그 드롭으로 위치 변경
 	      
-	       $( "#sortable" ).disableSelection(
-	    	   console.log("이벤트 순서 수정2")
-	       );
-	       console.log("이벤트수정-1!");
-	    
+	       $( "#sortable" ).disableSelection();
+	       
 	    });
 	    
 	    function modiOrder(eventno,newVal){
