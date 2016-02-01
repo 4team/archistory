@@ -341,7 +341,7 @@ input.gn-search:focus {
 }
 
 .gn-icon-help::before {
-		content: "\e000"
+		content: "\f015"
 }
 
 .gn-icon-earth::before {
