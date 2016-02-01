@@ -566,7 +566,7 @@
 		
 		linePath = [];	
 		
-	    var orderlist = new ArrayList();
+	   
 		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
@@ -582,20 +582,17 @@
                 
                 var title = event.title;
                 var key = idx;
-                var numname = new Map();
+                var numname = new Array(); 
                 
                 console.log("key:"+key+"title:"+title);
-                numname.put(key,title);
-                orderlist.add(numname);
-                  
-                  console.log(orderlist);    
+               
+                  console.log(numname.toString());    
             });
             
-            console.log(orderlist);    
+            console.log(numname.toString());    
             
         	// 지도에 표시할 선을 생성합니다
         	polyline = new daum.maps.Polyline({
-        	    path: linePath, // 선을 구성하는 좌표배열 입니다
         	    strokeWeight: 5, // 선의 두께 입니다
         	    strokeColor: '#FFAE00', // 선의 색깔입니다
         	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
