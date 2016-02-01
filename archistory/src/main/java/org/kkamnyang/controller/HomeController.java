@@ -58,6 +58,7 @@ public class HomeController {
 			view.setViewName("user");
 			view.addObject("memberno",0);
 			view.addObject("name","guest");
+			System.out.println("-------[ GUEST입장 ]------");
 		}
 		return view;
 	}
