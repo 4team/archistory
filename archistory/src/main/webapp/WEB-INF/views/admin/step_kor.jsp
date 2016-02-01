@@ -570,6 +570,7 @@
 		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
+            var numname = new Array(); 
             eventLi="";
 			list.each(function(){
                 eventno++;
@@ -582,14 +583,14 @@
                 
                 var title = event.title;
                 var key = idx;
-                var numname = new Array(); 
+                numname.add({key:title});
                 
                 console.log("key:"+key+"title:"+title);
                
-                  console.log(numname.toString());    
+                  console.log(numname);    
             });
-            
-            console.log(numname.toString());    
+             
+			console.log(numname);
             
         	// 지도에 표시할 선을 생성합니다
         	polyline = new daum.maps.Polyline({
