@@ -316,36 +316,7 @@ $("#closeList").on("click",function(){
 	    });
     }
     
-	// 나의 위치를 읽어온다.
-    window.addEventListener('deviceorientation',getLocation);
-
-	   var num=0;
-   	var distance;
-   	// 내 위치 잡기
-   	   function getLocation(route){
-        console.log("[ 지오로케이션 실행 ]");
-	   if(num==0){
-			 getAllRouteList();
-        navigator.geolocation.getCurrentPosition(function(position){
-
-            var lt = position.coords.latitude;
-            var ln = position.coords.longitude;
-
-            myLat = lt;
-            myLng = ln;
-   	
-       var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
-	   distance = ret.toFixed(2);
-        
-        if(distance>10){
-    		addList(route);
-    		console.log(route);
-    		}
-       });
-				num=1;
-	   };
-        };
-        
+	
         
 var routeLi = "";
     function addList(route) {
@@ -438,7 +409,37 @@ var routeLi = "";
    	
 
    
+ // 나의 위치를 읽어온다.
+    window.addEventListener('deviceorientation',getLocation);
 
+	   var num=0;
+   	var distance;
+   	// 내 위치 잡기
+   	   function getLocation(route){
+        console.log("[ 지오로케이션 실행 ]");
+	   if(num==0){
+			 getAllRouteList();
+        navigator.geolocation.getCurrentPosition(function(position){
+
+            var lt = position.coords.latitude;
+            var ln = position.coords.longitude;
+
+            myLat = lt;
+            myLng = ln;
+   	
+       var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
+	   distance = ret.toFixed(2);
+        
+        if(distance>10){
+    		addList(route);
+    		console.log(route);
+    		}
+       });
+				num=1;
+	   };
+        };
+        
+        
 </script>
 	 <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
