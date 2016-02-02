@@ -120,6 +120,12 @@ text-align:center;
        		text-decoration:none;
         	color:#aef;
         }
+        
+                
+        a{
+        text-decoration : none;
+        }
+        
     
         .fa{
 		position:absolute;
@@ -304,6 +310,10 @@ $("#closeList").on("click",function(){
 	 $("#routeList").hide();	 	
 });
     
+//admin myinfo page
+$("#myInfo").on("click",function(){
+	$("#userInfo").toggle();
+});
         
 var routeLi = "";
     function addList(route) {

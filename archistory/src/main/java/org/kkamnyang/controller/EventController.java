@@ -33,6 +33,8 @@ public class EventController {
 		return result;
 	}
 	
+
+	
 	@RequestMapping(value="/elist", method=RequestMethod.GET)
 	public @ResponseBody List<EventVO> elist(@RequestParam("routeno")Integer routeno, HttpServletRequest request) throws Exception{
 		
@@ -41,6 +43,7 @@ public class EventController {
 		System.out.println(service.elist(routeno));
 		return result;
 	}
+	
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<String> createEvent(@RequestBody EventVO vo) throws Exception{

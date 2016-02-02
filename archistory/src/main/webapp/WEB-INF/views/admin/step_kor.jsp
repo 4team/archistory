@@ -486,13 +486,14 @@
         var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
         
 	//{font-family:'Nanum Gothic', sans-serif;}
-    function addMarker(event){
+    function addMarker(order,event){
     	
     	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
-		console.log(event.eorder);
-    	if(event.eorder=='1'){
+		console.log(order);
+		
+    	if(order=='1'){
 			markerImage = new daum.maps.MarkerImage("/img/start-marker.png",new daum.maps.Size(48, 48));
-		}else if(event.eorder==(eventno-1)){
+		}else if(order==(eventno-1)){
 			markerImage = new daum.maps.MarkerImage("/img/finish-marker.png",new daum.maps.Size(40, 40));
 		}else{
 			markerImage = new daum.maps.MarkerImage(imageSrc, new daum.maps.Size(24, 35));
@@ -577,11 +578,9 @@
     	}
     	
 		markers = [];
-		
 		linePath = [];	
 		
-	   
-		
+	
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
 
@@ -599,16 +598,15 @@
                 if(order!=eorder){
                 	console.log("이벤트 순서 달라요");
                 	modiOrder(event.eventno,order);
-                }
+                }               	
 
                 addList(order,event);
-                
-                
-                addMarker(event);
+               addMarker(order,event);
    
-            });
-             
-        	// 지도에 표시할 선을 생성합니다
+            }); //end list each
+           	
+            
+			// 지도에 표시할 선을 생성합니다
         	polyline = new daum.maps.Polyline({
         		path:linePath,
         	    strokeWeight: 5, // 선의 두께 입니다
@@ -619,17 +617,19 @@
         	
         	polyline.setMap(map);
         	console.log(linePath);
-        	
-        });
+        }); 
+ 
+    
             callback();
 
+   		
     }
-    
+  
     	
     getEventList(function(){
     	console.log("getEventList의 콜백에 들어옴.");
     	
-    	// 지도에 표시할 선을 생성합니다
+    /* 	// 지도에 표시할 선을 생성합니다
 	    polyline = new daum.maps.Polyline({
 	   	    path: linePath, // 선을 구성하는 좌표배열 입니다
 	   	    strokeWeight: 5, // 선의 두께 입니다
@@ -640,7 +640,7 @@
 	
 	    	polyline.setMap(map);
 	    	console.log(linePath);
-    	
+    	 */
     });
 
 
@@ -1025,7 +1025,7 @@
                 $("#qno").val("no_Question");
                 $("#moqCheck").attr("checked",false);
                 $("#moquestionDiv").hide();
-            }
+            } // END if 
 
             else{
                 $("#moqCheck").attr("checked",true);
@@ -1067,28 +1067,28 @@
                     $("#mooxAnswerbox").show();
                 }
 
+                
+                $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
+          	   		 console.log("문제 첨부파일 가져오기");
+          	   		 console.log(list);
+          	   		 var array = list[0].split(',');
+          	   		 console.log(array);
+          	   		 
+          	   		var length = array.length;
+          	   		
+          	   		 for(var i = 0; i < length; i++){
+          	   			 
+          	   			var name = array[i];
+          	   			attach.push(name);
+          	   			  var fileInfo = getFileInfo(name);
+          	                 var html = template2(fileInfo);
+          	   			  
+          	   			  $(".quploadedList").append(html);
+          	   		 }
+
+             		 });//end getAttach
 
             }//end else
-            	
-            $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
-   	   		 console.log("문제 첨부파일 가져오기");
-   	   		 console.log(list);
-   	   		 var array = list[0].split(',');
-   	   		 console.log(array);
-   	   		 
-   	   		var length = array.length;
-   	   		
-   	   		 for(var i = 0; i < length; i++){
-   	   			 
-   	   			var name = array[i];
-   	   			attach.push(name);
-   	   			  var fileInfo = getFileInfo(name);
-   	                 var html = template2(fileInfo);
-   	   			  
-   	   			  $(".quploadedList").append(html);
-   	   		 }
-
-      		 });//end getAttach
 
         }); //end question view 
         

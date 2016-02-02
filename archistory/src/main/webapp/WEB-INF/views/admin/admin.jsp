@@ -771,11 +771,6 @@ $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
 });  
 	
-
-	
-	$("#myInfo").on("click",function(){
-	});
-	
 	
 	//admin myinfo page
 	$("#myInfo").on("click",function(){
