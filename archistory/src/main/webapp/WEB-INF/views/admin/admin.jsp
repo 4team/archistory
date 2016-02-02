@@ -624,8 +624,6 @@ function addMarker(route){
 }
 
 
-
-
 $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
     var list = $(data);
     list.each(function(idx,value){
@@ -633,6 +631,36 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
         addMarker(route);
     });
 });
+
+
+
+
+//admin profile 클릭 
+
+$("#myProfile").on("click",function(){
+	
+		viewProfile()
+	
+	   $("#myProfileModal").modal('show');
+});
+
+
+
+function viewProfile(){
+	$.getJSON("http://14.32.66.127:4000/admin/view?adminno="+adminno,function(data){
+	    var admin = $(data);
+	    
+	    console.log(admin);
+	  
+	    $("#proName").val(admin.attr("username"));
+		$("#proPhone").val(admin.attr("phone"));
+		$("#proCountry").val(admin.attr("nation"));
+		$("#proEmail").val(admin.attr("email"));
+		$("#proPassword").val(admin.attr("password"));
+		$("#proPassword1").val(admin.attr("password"));
+	});
+
+}
 
 </script>
 
@@ -1096,7 +1124,7 @@ $("#main").on("mouseover",function(){
 		    });
 	     
 
-	     function viewMember(memberno){
+	     function viewMember(memNumber){
 	    	 $.getJSON("http://14.32.66.127:4000/member/view?memberno="+memNumber,function(data){
 	    		 
 	    		 var member = $(data);
@@ -1152,12 +1180,6 @@ $("#main").on("mouseover",function(){
 				
 	   };
  
-         
-	   
-	   $("#myProfile").on("click",function(){
-		   $("#myProfileModal").modal('show');
-	   });
-
 	        
 	</script>
 

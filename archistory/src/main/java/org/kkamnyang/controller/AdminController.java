@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -172,5 +173,15 @@ public class AdminController {
 		
 		return view;
 	}
+	
+	
+	@RequestMapping(value="/view", method=RequestMethod.GET)
+	public @ResponseBody AdminVO view(@RequestParam("adminno") Integer adminno) throws Exception{
+		System.out.println("admin 계정 정보 조회 GET 호출됨");
+		AdminVO vo =service.view(adminno);
+		System.out.println(vo);
+		return vo;
+	}
+	
 	
 }
