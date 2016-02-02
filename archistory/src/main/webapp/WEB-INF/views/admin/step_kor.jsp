@@ -642,7 +642,7 @@
            	
         }); 
          */
-        
+   /*      
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,{async: false, success: function(data){
             var list = $(data);
 
@@ -666,7 +666,7 @@
         	polyline.setMap(map);
         	console.log(linePath);
         	
-        }}); 
+        }});  */
             callback();
 
    		
