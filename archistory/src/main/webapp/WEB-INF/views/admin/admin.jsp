@@ -233,7 +233,7 @@
         }
        
        #profile{
-       	boarder-spacing: 5px 1px;
+       	border-spacing: 5px 1px;
        }
        
         #profile td{
