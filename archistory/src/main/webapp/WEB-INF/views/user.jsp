@@ -411,7 +411,6 @@ var routeLi = "";
  // 나의 위치를 읽어온다.
     window.addEventListener('deviceorientation',getLocation);
 
-	//   var num=0;
    	var distance;
    	// 내 위치 잡기
    	   function getLocation(route){
