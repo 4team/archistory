@@ -160,8 +160,6 @@ text-align:center;
 </style>
 
 	 <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
 	<script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
@@ -215,11 +213,6 @@ text-align:center;
 			<li><a href="/user/logout">Logout</a></li>
 		</ul>
 	</div>
-
-
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
     
     
 	<!-- 루트리스트 뜨는 어두운전체창 -->
@@ -413,13 +406,6 @@ var routeLi = "";
     <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
     
 
 </body>
