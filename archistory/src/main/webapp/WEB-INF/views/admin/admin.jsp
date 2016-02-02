@@ -243,7 +243,7 @@
         }
         
         #delAdminModal{
-        	height:150px;
+        	height:100px;
         }
     </style>
     
@@ -699,6 +699,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 
 	$("#delAccount").on("click",function(){
+		$("#myProfileModal").modal('hide');
 		$("#delAdminModal").modal('show');
 		
 		var msg = "<li>"+username+"님 탈퇴하시겠습니까?</li>";
@@ -723,6 +724,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 			  success: function(data){
 				  console.log("admin 삭제 처리 결과 :"+ data);
 				  $("#delAdminModal").modal('hide');
+				 // <a href="/admin/logout">
 			  }				   
 		   });
 		
