@@ -314,12 +314,11 @@ var routeLi = "";
         $("#myRouteList").html(routeLi);
     }
     
-    var list;
     function getAllRouteList(){
 	    $.getJSON("http://14.32.66.127:4000/route/listAll", function(data){
-	        list = $(data);
+	         var list = $(data);
 			routeLi = "";
-	        
+	        console.log(list);
 			list.each(function(idx,value){
 	            var route = this;
 	            getLocation(route);
@@ -417,7 +416,7 @@ var routeLi = "";
    	// 내 위치 잡기
    	   function getLocation(route){
         console.log("[ 지오로케이션 실행 ]");
-	   if(num<=list.length){
+	   if(num<=50){
 			 getAllRouteList();
 		   console.log("지오로케이션 if 들어옴!!");
         navigator.geolocation.getCurrentPosition(function(position){
