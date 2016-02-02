@@ -260,7 +260,8 @@
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-					<span class="glyphicon glyphicon-menu-hamburger"></span>
+<span class="glyphicon glyphicon-menu-hamburger"></span>
+					<a class="gn-icon gn-icon-menu">MENU</a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
