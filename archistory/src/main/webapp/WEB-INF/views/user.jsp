@@ -341,17 +341,25 @@ var routeLi = "";
     	        datatype: "json",
     	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
     	        success: function(data){
-    	        	var list = $(data);
-    				routeLi = "";
-    		        console.log(list);
-    		        
-    		        list.each(function(idx,value){
-    		            var route = this;
-    		            getLocation(route);
-    		            });
+    	        myLocation = parseDouble(data);
+    	        console.log(myLocation);
     	        }
-    	    });
-    };getAllRouteList();
+    	        })
+    
+    	    	  $.getJSON("http://14.32.66.127:4000/route/closelist?lat="+ myLocation.myLat +"?lng=" + myLocation.myLng , function(data){
+    	 	         var list = $(data);
+    	 			routeLi = "";
+    	 	        console.log(list);
+    	 	        
+    	 	        list.each(function(idx,value){
+    	 	            var route = this;
+    	 	            getLocation(route);
+    	 			}); 
+    	 			
+    	 	    });
+    	     
+    };
+    getAllRouteList();
 
 /*     	  $.getJSON("http://14.32.66.127:4000/route/closelist?"+ myLocation, function(data){
 	         var list = $(data);
