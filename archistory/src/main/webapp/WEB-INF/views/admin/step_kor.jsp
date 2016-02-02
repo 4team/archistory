@@ -581,7 +581,42 @@
 		linePath = [];	
 		
 		
-        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,{async: false, success:function(data){
+		$.ajax({
+			  type:'get',
+	             url:"http://14.32.66.127:4000/event/elist",
+	             headers:{
+	                 "Content-Type" :"application/json"	},
+	             datatype : "json",
+	             data: JSON.stringify({routeno:routeno}),
+	             async:false,
+	             success: function(data){
+	            	
+	            	 var list = data;
+
+	                 eventLi="";
+	     			list.each(function(){
+	                     eventno++;
+	     			});
+
+	     			list.each(function(idx,value){
+	                     var event= this;
+	                    
+	                     var order = idx+1;
+	             		var eorder = event.eorder;
+	                     
+	                     if(order!=eorder){
+	                     	console.log("이벤트 순서 달라요");
+	                     	modiOrder(event.eventno,order);
+	                     }               	
+
+	                     addList(order,event);
+	     			});
+	             }
+
+		});
+		
+		/* 
+        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
 
             eventLi="";
@@ -605,8 +640,8 @@
    
             }); //end list each
            	
-        }}); 
-        
+        }); 
+         */
         
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,{async: false, success: function(data){
             var list = $(data);
