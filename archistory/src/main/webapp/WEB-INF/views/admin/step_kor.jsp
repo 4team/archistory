@@ -640,8 +640,6 @@
         $("#sortable").html(eventLi);
     }
     
- function sort(){
-
 	$(function() {
 	        $( "#sortable" ).sortable({
 	        	placeholder: "ui-state-highlight",
@@ -673,7 +671,7 @@
 	       $( "#sortable" ).disableSelection();
 	       
 	    });
-    }    
+   
 	    function modiOrder(eventno,newVal){
 	    	
 	    	var neworder = newVal +1;
@@ -1093,7 +1091,6 @@
             data:JSON.stringify({eventno:eventno}),
             success:function(data){
         		polyline.setMap(null);
-        		sort();
                 getEventList();
                 console.log("이벤트 삭제 처리 결과 :"+data);
             }
