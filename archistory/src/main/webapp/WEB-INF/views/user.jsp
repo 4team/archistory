@@ -417,7 +417,7 @@ var routeLi = "";
    	// 내 위치 잡기
    	   function getLocation(route){
         console.log("[ 지오로케이션 실행 ]");
-	   if(num<5){
+	   if(num<100){
 			 getAllRouteList();
 		   console.log("지오로케이션 if 들어옴!!");
         navigator.geolocation.getCurrentPosition(function(position){
@@ -431,7 +431,7 @@ var routeLi = "";
        var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
 	   distance = ret.toFixed(2);
         console.log(distance);
-        if(distance>10){
+        if(distance<1000){
     		addList(route);
     		console.log(route);
     		}
