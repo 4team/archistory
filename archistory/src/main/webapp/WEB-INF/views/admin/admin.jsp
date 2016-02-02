@@ -231,7 +231,12 @@
        #memberlist{
         text-align : center;
         }
-        
+       
+       #profile{
+       	border-spacing: 1px 10px;
+       	border-collapse: separate;
+       }
+       
         #profile td{
         text-align : right;
         margin-right : 10px;
@@ -240,6 +245,11 @@
         
         a{
         text-decoration : none;
+        }
+        
+        #imgDiv img{
+        width:200px;
+        height:200px;
         }
         
        
@@ -304,8 +314,8 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-            	<div style="margin-left:180px; width:200px; height:200px;">
-				      <img src ="/img/profile.png">
+            	<div id="imgDiv" style="margin-left:210px;">
+				      <img id="modiImg" src ="/img/profile.png">
 			    </div>   
                 
                    <table id="profile" align="center">
