@@ -137,11 +137,11 @@ text-align:center;
 		left:24px;
 		}
 		.fa-book{
-		top:206px;
+		top:204px;
 		left:22px;
 		}
 		.fa-download{
-		top:262px;
+		top:264px;
 		left:22px;
 		}
 		.gn-menu li:hover{
