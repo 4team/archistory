@@ -64,7 +64,7 @@
         
         span.glyphicon-menu-hamburger {
 	   		font-size: 1.8em;
-	   		margin:2px;
+	   		margin:0px;
 	   		margin-top:3px;
 	   		color:#FFFFFF;
 		}
