@@ -339,6 +339,7 @@ $("#closeList").on("click",function(){
         
         if(distance>10){
     		addList(route);
+    		console.log(route);
     		}
        });
 				num=1;
