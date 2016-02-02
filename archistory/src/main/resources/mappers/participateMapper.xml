@@ -5,7 +5,7 @@
   
   <mapper namespace="org.kkamnyang.persistence.ParticipateMapper">
   
-  <insert id="create">
+  <insert id="create" useGeneratedKeys="true" keyProperty="participateno">
   	insert into tbl_participate(routeno,memberno,score,stage) 
   	values(#{routeno},#{memberno},#{score},#{stage})
   </insert>
