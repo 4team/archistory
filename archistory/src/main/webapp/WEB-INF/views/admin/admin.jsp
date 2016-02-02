@@ -241,6 +241,10 @@
         a{
         text-decoration : none;
         }
+        
+        #delAdminModal{
+        	height:150px;
+        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -327,7 +331,28 @@
     </div>
 </div>
 
+<!--  myProfile DELETE modal -->
 
+<div class="modal fade" id="delAdminModal" tabindex="-1" role="dialog" aria-labelledby="delAdminModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">ADMIN DELETE</h4>
+            </div>
+            <div class="modal-body">
+               <ul id="adminName">
+               </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="delAdminBtn" class="btn btn-create">OK</button>
+                <button type="button" id="delCancleBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- route modal -->
@@ -642,11 +667,14 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 
 	//admin profile 
 	
+	var username;
+	
 	$("#myProfile").on("click",function(){
 		
 			viewProfile();
 		
 		   $("#myProfileModal").modal('show');
+		  
 	});
 	
 
@@ -663,13 +691,40 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 			$("#proEmail").val(admin.attr("email"));
 			$("#proPassword").val(admin.attr("password"));
 			$("#proPassword1").val(admin.attr("password"));
+			
+			username = $("#proName").val();
 		});
 	
 	}
-
+	
 
 	$("#delAccount").on("click",function(){
-		alert("탈퇴하시겠습니까?");
+		$("#delAdminModal").modal('show');
+		
+		var msg = "<li>"+username+"님 탈퇴하시겠습니까?</li>";
+		
+		$("#adminName").html(msg);
+		
+	});
+	
+	
+	$("delAdminBtn").on("click",function(){
+		
+		console.log("admin no:"+adminno);
+		 
+		   $.ajax({
+			  type:'post',
+			  url:"http://14.32.66.127:4000/admin/remove",
+			  headers : {
+				"Content-Type" : "application/json"  
+			  },
+			  datatype:"json",
+			  data:JSON.stringify({adminno:adminno}),
+			  success: function(data){
+				  console.log("admin 삭제 처리 결과 :"+ data);
+				  $("#delAdminModal").modal('hide');
+			  }				   
+		   });
 		
 	});
 

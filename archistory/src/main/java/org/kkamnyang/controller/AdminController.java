@@ -9,6 +9,8 @@ import org.kkamnyang.persistence.AdminDetails;
 import org.kkamnyang.service.AdminService;
 import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -181,6 +183,21 @@ public class AdminController {
 		AdminVO vo =service.view(adminno);
 		System.out.println(vo);
 		return vo;
+	}
+	
+	@RequestMapping(value="/remove", method=RequestMethod.POST)
+	public ResponseEntity<String> remove(@RequestBody AdminVO vo) throws Exception{
+		System.out.println("admin 계정 삭제 POST 호출됨");
+		ResponseEntity<String> entity = null;
+		try{
+			service.remove(vo.getAdminno());
+			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("==========ADMIN 계정 삭제 완료 =============");
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+			
+		}
+		return entity; 
 	}
 	
 	
