@@ -317,7 +317,7 @@ $("#closeList").on("click",function(){
     }
     
 	// 나의 위치를 읽어온다.
-//    window.addEventListener('deviceorientation',getLocation(route));
+    window.addEventListener('deviceorientation',getLocation(route));
 
 	   var num=0;
    	var distance;
