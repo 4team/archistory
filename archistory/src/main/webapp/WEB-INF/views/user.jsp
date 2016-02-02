@@ -38,7 +38,7 @@ position: absolute;
 }
 #routeList{
 display:none;
-overflow-y:scroll;
+overflow:auto;
 z-index: 100;
 }
 #myRouteList{
