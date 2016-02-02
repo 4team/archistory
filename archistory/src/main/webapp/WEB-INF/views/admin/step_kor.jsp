@@ -648,7 +648,6 @@
         	modiOrder(event.eventno,order);
         }
 
-        console.log("AFTER이벤트 넘버_"+event.eventno+"/이벤트 이름_"+event.title+"/현재 순서_"+order);
     }
     
 	$(function() {
@@ -683,9 +682,10 @@
 	       
 	    });
    
-	    function modiOrder(eventno,newVal){
+	    function modiOrder(eventno,order){
 	    	
-	    	var neworder = newVal +1;
+	    	
+	    	console.log(eventno,order);
 	    	
 	    	 $.ajax({
 	             type:'post',
@@ -693,7 +693,7 @@
 	             headers:{
 	                 "Content-Type" :"application/json"	},
 	             datatype : "json",
-	             data: JSON.stringify({eventno:eventno,eorder:neworder}),
+	             data: JSON.stringify({eventno:eventno,eorder:order}),
 	             success: function(data){
 	            	 console.log("이벤트 순서 수정 결과 :"+data);
 	         
