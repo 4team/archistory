@@ -374,8 +374,9 @@ var routeLi = "";
                 var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
                 var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
                 var a4 = $('<input type="hidden" value="'+ memberno +'" name="memberno">');
+                var a5 = $('<input type="hidden" value="'+ vo.attr("routeName") +'" name="routeName">');
                 
-                $form.append(a1).append(a2).append(a3).append(a4);
+                $form.append(a1).append(a2).append(a3).append(a4).append(a5);
                 $form.submit();
             	
              }else{
@@ -389,8 +390,9 @@ var routeLi = "";
                  var a2 = $('<input type="hidden" value="'+ vo.attr("lat") +'" name="lat">');
                  var a3 = $('<input type="hidden" value="'+ vo.attr("lng") +'" name="lng">');
                  var a4 = $('<input type="hidden" value="'+ memberno +'" name="memberno">');
+                 var a5 = $('<input type="hidden" value="'+ vo.attr("routeName") +'" name="routeName">');
                  
-                 $form.append(a1).append(a2).append(a3).append(a4);
+                 $form.append(a1).append(a2).append(a3).append(a4).append(a5);
                  $form.submit();
              }
         });
