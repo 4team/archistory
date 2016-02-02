@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+   "src/main/java/org/kkamnyang/controller/RouteController.java" pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
@@ -159,18 +159,10 @@ text-align:center;
         }
 </style>
 
-  
-	 <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
+
 <body>
 
 <div class="menu">
@@ -195,6 +187,16 @@ text-align:center;
 </ul>
 	</div>
 	
+	 <!-- Core JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
+	<script src="js/classie.js"></script>
+	<script src="js/gnmenu.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
     
 	<!-- Section: intro -->
     <section id="intro" class="intro">
@@ -339,7 +341,7 @@ var routeLi = "";
 	       var routeno = parseInt(select.attr("data-routeno"));
 	      
 	       questionModal(select);
-	       $("#yesModal").show();
+	       $("#yesModal").modal('show');
 	    });
   
     function questionModal(select){
@@ -438,7 +440,9 @@ var routeLi = "";
         };
 
 </script>
-	 <!-- Core JavaScript Files -->
+
+
+    <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>	
 	<script src="js/classie.js"></script>

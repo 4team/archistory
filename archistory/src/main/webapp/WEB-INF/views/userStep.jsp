@@ -229,10 +229,11 @@
 
     var template = Handlebars.compile($("#template").html());
     //이 화면을 실행할 때 넘어오는 파라미터 초기화.
-    var routeno = ${routeno};
-    var memberno = ${memberno};
-    var lat = ${lat};
-    var lng = ${lng};
+    var routeno = 423;
+    var memberno = 47;
+    var lat = 37.494679626;
+    var lng = 127.02801879;
+    var score = 0;
 
     var myLat = 0;
     var myLng = 0;
@@ -245,6 +246,8 @@
     var eventGroup = [];
     var eventVO = null;
     var questionVO = null;
+
+    var participateno = 0;
 
     //모달들 변수
     var eventModal = $("#eventModal");
@@ -289,24 +292,53 @@ var customOverlay;
 
 
 
+    $.ajax({
+        type:'post',
+        url:"http://14.32.66.127:4000/participate/join",
+        headers: {
+            "Content-Type":"application/json"},
+        datatype: "json",
+        data:JSON.stringify({routeno:routeno, memberno:memberno,score:score,stage:1}),
+        success: function(data){
+            console.log("=========Participate Join========");
+            participateno = parseInt(data);
+        }
+    });
+
+
 
     // 나의 위치를 읽어온다.
+    console.log("getLocation 호출");
     window.addEventListener('deviceorientation',getLocation);
 
 
-    
-    
-    
-    
-    
-    
-    
     function getEvent() {
         function getEventByOrder(eventOrder, callback) {
             console.log("=====현재 이벤트순서로 이벤트 불러오기 호출=====");
             $.getJSON("http://14.32.66.127:4000/event/getByOrder?routeno=" + routeno + "&order=" + eventOrder, function (data) {
                 eventVO = data;
+                if(eventVO == null){
+                    console.log("=================[모든 이벤트를 완료]==================");
 
+                    $.ajax({
+                        type:'post',
+                        url:"http://14.32.66.127:4000/participate/finish",
+                        headers: {"Content-Type":"application/json"},
+                        datatype: "json",
+                        data:JSON.stringify({participateno:participateno,score:score}),
+                        success: function(data){
+                            console.log("=========Participate Finish========");
+                            console.log(data);
+                        },
+                        error:function(data){
+                            console.log("=========Participate Finish========");
+                            console.log(data);
+                        }
+
+                    });
+
+                    return;
+                }
                 nowEventNo = eventVO.eventno;
                 callback(eventVO);
 
@@ -409,7 +441,6 @@ var myMarker = null;
 
     function getLocation(){
         console.log("[ 지오로케이션 실행 ]");
-        console.log("Member NO : "+memberno);
         navigator.geolocation.getCurrentPosition(function(position){
 
             var lat = position.coords.latitude;
@@ -490,6 +521,25 @@ var myMarker = null;
                 eventModal.modal("hide");
                 $("#moveNext").modal("show");
                 nowOrder++;
+
+
+                $.ajax({
+                    type:'post',
+                    url:"http://14.32.66.127:4000/participate/next",
+                    headers: {"Content-Type":"application/json"},
+                    datatype: "json",
+                    data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:nowOrder}),
+                    success: function(data){
+                        console.log("=========Participate Next========");
+                        console.log(data);
+                    },
+                    error:function(data){
+                        console.log("=========Participate Next========");
+                        console.log(data);
+                    }
+
+                });
+
                 getEvent();
             }
 
@@ -539,7 +589,7 @@ var myMarker = null;
                 url:"http://14.32.66.127:4000/question/solve",
                 headers:{ "Content-Type":"application/json"},
                 datatype:"json",
-                data:JSON.stringify({memberno:memberno,questionno:questionVO.questionno,result:false}),
+                data:{memberno:memberno,questionno:questionVO.questionno,result:false},
                 success:function(data){
                     console.log("문제를 풀고 받은 결과",data);
                 }
@@ -557,6 +607,24 @@ var myMarker = null;
         eventModal.modal("hide");
         $("#moveNext").modal("show");
         nowOrder++;
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/participate/next",
+            headers: {"Content-Type":"application/json"},
+            datatype: "json",
+            data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:nowOrder}),
+            success: function(data){
+                console.log("=========Participate Next========");
+                console.log(data);
+            },
+            error:function(data){
+                console.log("=========Participate Next========");
+                console.log(data);
+            }
+
+        });
+
         getEvent();
     });
 

@@ -15,11 +15,15 @@
   </select>
   
   <update id="update">
-  	update tbl_participate set score = #{score} stage = #{stage} lastDate = now() where participateno = #{participateno}
+  	update tbl_participate set score = #{score}, stage = #{stage}, lastDate = now() where participateno = #{participateno}
   </update>
   
   <delete id="delete">
   	delete from tbl_participate where participateno = #{participateno}
   </delete>
+  
+  <update id="finish">
+  	update tbl_participate set score = #{score}, lastDate = now(), finish = true where participateno = #{participateno}
+  </update>
   
   </mapper>
