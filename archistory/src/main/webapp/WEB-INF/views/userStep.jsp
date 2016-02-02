@@ -121,6 +121,8 @@
     	width:100%;
     	height:100%;
     	display:none;
+    	text-align: center;
+        font-size : 20px;
     }
     
     #questionImg img{
@@ -578,6 +580,7 @@ var myMarker = null;
                 });
 
                 getEvent();
+                return;
             }
 
         });
@@ -641,7 +644,7 @@ var myMarker = null;
 
     $("#allClose").on("click",function(event){
         event.preventDefault();
-        eventModal.modal("hide");
+//        eventModal.modal("hide");
         $("#moveNext").modal("show");
         nowOrder++;
 
