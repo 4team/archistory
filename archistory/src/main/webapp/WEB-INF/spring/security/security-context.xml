@@ -16,7 +16,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		default-target-url="/user" authentication-failure-url="/"
 		always-use-default-target='true'/>
 				
-			<logout logout-url="/user/logout" logout-success-url="/" delete-cookies="true"/>
+			<logout logout-url="/user/logout" logout-success-url="/user" delete-cookies="true"/>
 			  <csrf disabled="true"/>
 	</http>
 	
