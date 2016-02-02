@@ -320,6 +320,7 @@ var routeLi = "";
 			list.each(function(idx,value){
 	            var route = this;
 	            getLocation(route);
+	            console.log(distance);
 	                 if(distance>1000){
 	            		addList(route);
 	            		}
