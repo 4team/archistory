@@ -231,7 +231,7 @@
     </div>
 </div>
 
-<div id="finishDiv"></div>
+<div id="finishDiv"><img src="http://14.32.66.127:4000/img/Contentulations.jpg"></div>
 
 <div id="myLocation"></div>
 <div id="map"></div>
