@@ -351,8 +351,7 @@
                 <h4 class="modal-title">Modify Image</h4>
             </div>
             <div class="modal-body" style="height:80px;">
-               <ul id="selectImg">
-               </ul>
+           			<input type='file'>
             </div>
             <div class="modal-footer">
                 <button type="button" id="regiImgBtn" class="btn btn-create">REGISTER</button>
@@ -730,15 +729,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 	
 	$("#modiImg").on("click"),function(){
-		
-	/* var select = "<input type='file'><input type='submit'>";
-		
-		$("#selectImg").html(select); */
-		
-		$("#imgModal").modal('show');
-		
-		 
-		
+		$("#imgModal").modal('show');	
 		
 	};
 	
