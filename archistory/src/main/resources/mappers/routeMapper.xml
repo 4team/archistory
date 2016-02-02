@@ -16,7 +16,7 @@
  	<!-- 아니면 이거 사용->java.util.HashMap -->
 	<select id="closelist" resultType="org.kkamnyang.domain.RouteVO">
  		select routeNo,adminNo,routeName,secret,step,password,lat,lng,regdate,updatedate,
-		sqrt(pow((abs(lat-#{lat})*111),2)+pow((abs(lng-#{lng})*88.8),2))*1000 AS distance
+		sqrt(pow((abs(lat-#{myLat})*111),2)+pow((abs(lng-#{myLng})*88.8),2))*1000 AS distance
 		from tbl_route order by distance limit 10
  	</select>
  		
