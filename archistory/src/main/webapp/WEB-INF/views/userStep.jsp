@@ -114,6 +114,12 @@
         background-color: #FFF;
         z-index:1000;
     }
+    #finishDiv{
+    	background-color: #000;
+    	width:100%;
+    	height:100%;
+    	display:none;
+    }
 </style>
 
 <script type="text/javascript" src="js/upload.js"></script>
@@ -218,6 +224,9 @@
         </div>
     </div>
 </div>
+
+<div id="finishDiv"></div>
+
 <div id="myLocation"></div>
 <div id="map"></div>
 
