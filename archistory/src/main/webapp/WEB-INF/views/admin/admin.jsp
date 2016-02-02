@@ -312,7 +312,7 @@
 	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
 			            <tr><td>PHONE &nbsp :&nbsp </td><td><input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
 			            <tr><td>COUNTRY &nbsp:&nbsp </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
-			            <tr><td>E-MAIL &nbsp:&nbsp </td><td><input type='email' class='form-control' id="proEmail" placeholder='Email'></td></tr>
+			            <tr><td>E-MAIL &nbsp:&nbsp </td><td><input type='email' class='form-control' id="proEmail" placeholder='Email' readonly></td></tr>
 			            <tr><td>PASSWORD&nbsp:&nbsp </td><td><input type='password' class='form-control' id="proPassword" placeholder='Password'></td></tr>
 			            <tr><td>PASSWORD&nbsp:&nbsp<br>&nbsp(AGAIN)&nbsp</td><td><input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
  
@@ -695,6 +695,38 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 	}
 	
+	
+	$("#proModifyBtn").on("click",function(){
+		
+		    var username= $("#proName").val();
+		    var phone=$("#proPhone").val();
+		    var nation=$("#proCountry").val();
+		    var password=$("#proPassword").val();
+		    var password1=$("#proPassword1").val();
+		    
+		    if( password != password1){
+		    	alret("패스워드가 동일하지 않습니다.");
+		    	return;
+		    }
+		    
+		    
+		    $.ajax({
+				  type:'post',
+				  url:"http://14.32.66.127:4000/admin/modify",
+				  headers : {
+					"Content-Type" : "application/json"  
+				  },
+				  datatype:"json",
+				  data:JSON.stringify({adminno:adminno,username:username,phone:phone,nation:nation,password:password}),
+				  success: function(data){
+					  console.log("admin 수정 처리 결과 :"+ data);
+					  viewProfile();
+				  }				   
+			   });
+		    
+		    
+		
+	});	
 
 	$("#delAccount").on("click",function(){
 		$("#myProfileModal").modal('hide');

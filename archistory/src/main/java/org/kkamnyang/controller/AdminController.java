@@ -201,4 +201,20 @@ public class AdminController {
 	}
 	
 	
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public ResponseEntity<String> modify(@RequestBody AdminVO vo) throws Exception{
+		System.out.println("admin 계정 수정POST 호출됨");
+		ResponseEntity<String> entity = null;
+		try{
+			service.modify(vo);
+			entity = new ResponseEntity<String>("result_OK",HttpStatus.OK);
+			System.out.println("==========ADMIN 계정 수정 완료 =============");
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("result_BAD",HttpStatus.BAD_REQUEST);
+			
+		}
+		return entity; 
+	}
+	
+	
 }
