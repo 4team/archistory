@@ -232,8 +232,13 @@
         text-align : center;
         }
         
+        #profile{
+        align : center;
+        }
+        
         #profile td{
         text-align : right;
+        margin-right : 10px;
         }
     </style>
     
