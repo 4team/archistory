@@ -166,6 +166,8 @@ text-align:center;
 </style>
 
   
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	 <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>	
@@ -330,7 +332,28 @@ var routeLi = "";
     
     var myLocation=0;
     function getAllRouteList(){
-	    $.getJSON("http://14.32.66.127:4000/route/closelist?"+ myLocation, function(data){
+	  
+    	  $.ajax({
+    	        type:'post',
+    	        url:"http://14.32.66.127:4000/route/closelist",
+    	        headers: {
+    	            "Content-Type":"application/json"},
+    	        datatype: "json",
+    	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
+    	        success: function(data){
+    	        	var list = $(data);
+    				routeLi = "";
+    		        console.log(list);
+    		        
+    		        list.each(function(idx,value){
+    		            var route = this;
+    		            getLocation(route);
+    		            });
+    	        }
+    	    });
+    };getAllRouteList();
+
+/*     	  $.getJSON("http://14.32.66.127:4000/route/closelist?"+ myLocation, function(data){
 	         var list = $(data);
 			routeLi = "";
 	        console.log(list);
@@ -338,10 +361,10 @@ var routeLi = "";
 	        list.each(function(idx,value){
 	            var route = this;
 	            getLocation(route);
-			});
+			}); 
 			
 	    });
-    }getAllRouteList();
+    }*/
     
     function getMetaContentByName(name,content){
     	var content = (content == null)?'content':content;
@@ -426,19 +449,7 @@ var routeLi = "";
    	});
    	
 
-    $.ajax({
-        type:'post',
-        url:"http://14.32.66.127:4000/route/closelist",
-        headers: {
-            "Content-Type":"application/json"},
-        datatype: "json",
-        data:JSON.stringify({myLat:myLat,myLng:myLng}),
-        success: function(data){
-            console.log("내위치 stringify로 변환하러 들어옴");
-            myLocation = parseDouble(data);
-        }
-    });
-
+  
     
  // 나의 위치를 읽어온다.
     window.addEventListener('deviceorientation',getLocation);
