@@ -1145,7 +1145,7 @@ $("#main").on("mouseover",function(){
  
          
 	   
-	   $("#myInfo").on("click",function(){
+	   $("#myProfile").on("click",function(){
 		   $("#myProfileModal").modal('show');
 	   });
 
