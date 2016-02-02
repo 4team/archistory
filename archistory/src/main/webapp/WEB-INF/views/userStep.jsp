@@ -125,6 +125,11 @@
         font-size : 20px;
     }
     
+   #finishDiv img{
+        width:100%;
+
+    }
+    
     #questionImg img{
         width:550px;
     }
