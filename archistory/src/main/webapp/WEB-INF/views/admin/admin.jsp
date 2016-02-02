@@ -348,7 +348,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
                     <span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Modify Img</h4>
+                <h4 class="modal-title">Modify Image</h4>
             </div>
             <div class="modal-body" style="height:80px;">
                <ul id="selectImg">
@@ -729,7 +729,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	}
 	
 	
-	$("#modiImg").on("click"),function(){
+	$("#imgDiv").on("click"),function(){
 		
 		var select = "<input type='file'><input type='submit'>";
 		
