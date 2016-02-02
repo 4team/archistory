@@ -720,7 +720,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 				  data:JSON.stringify({adminno:adminno,username:username,phone:phone,nation:nation,password:password}),
 				  success: function(data){
 					  console.log("admin 수정 처리 결과 :"+ data);
-					  viewProfile();
+					  $("#myProfileModal").modal('hide');
 				  }				   
 			   });
 		    
