@@ -316,7 +316,7 @@
             <div class="modal-body">
             	<div id="imgDiv" style="margin-left:210px;">
 				      <img src ="/img/profile.png">
-				      <span class='glyphicon glyphicon-pencil' id="editProfile" style="margin-top:100px;"></span>
+				      <span class='glyphicon glyphicon-pencil' id="editProfile" style="margin-top:200px;"></span>
 			    </div>   
                 
                    <table id="profile" align="center">
