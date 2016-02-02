@@ -120,6 +120,12 @@ text-align:center;
        		text-decoration:none;
         	color:#aef;
         }
+        
+                
+        a{
+        text-decoration : none;
+        }
+        
     
         .fa{
 		position:absolute;
