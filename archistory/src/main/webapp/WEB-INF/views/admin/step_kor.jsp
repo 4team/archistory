@@ -486,13 +486,14 @@
         var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
         
 	//{font-family:'Nanum Gothic', sans-serif;}
-    function addMarker(event){
+    function addMarker(order,event){
     	
     	linePath.push(new daum.maps.LatLng(event.lat,event.lng));
-		console.log(event.eorder);
-    	if(event.eorder=='1'){
+		console.log(order);
+		
+    	if(order=='1'){
 			markerImage = new daum.maps.MarkerImage("/img/start-marker.png",new daum.maps.Size(48, 48));
-		}else if(event.eorder==(eventno-1)){
+		}else if(order==(eventno-1)){
 			markerImage = new daum.maps.MarkerImage("/img/finish-marker.png",new daum.maps.Size(40, 40));
 		}else{
 			markerImage = new daum.maps.MarkerImage(imageSrc, new daum.maps.Size(24, 35));
@@ -600,7 +601,7 @@
                 }               	
 
                 addList(order,event);
-               addMarker(event);
+               addMarker(order,event);
    
             }); //end list each
            	
