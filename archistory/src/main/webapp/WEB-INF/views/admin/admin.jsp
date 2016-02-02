@@ -233,7 +233,7 @@
         }
        
        #profile{
-       	border-spacing: 5px 1px;
+       	border-spacing: 1px 10px;
        	border-collapse: separate;
        }
        
