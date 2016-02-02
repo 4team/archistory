@@ -62,6 +62,7 @@ public class ParticipateController {
 			mapper.finish(vo);
 			entity = new ResponseEntity<String>("Well Done!",HttpStatus.OK);
 		}catch(Exception e){
+			e.printStackTrace();
 			entity = new ResponseEntity<String>("ERROR!",HttpStatus.BAD_REQUEST);
 		}
 		
