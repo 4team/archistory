@@ -315,8 +315,7 @@
             </div>
             <div class="modal-body">
             	<div id="imgDiv" style="margin-left:210px;">
-				      <img id="modifoto" src ="/img/profile.png" onclick="alert('Hello world!')">
-				      <span class="glyphicon glyphicon-pencil" style=""></span>
+				      <img id="modifoto" src ="/img/profile.png">
 			    </div>   
                 
                    <table id="profile" align="center">
@@ -729,7 +728,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	}
 	
 	
-	$("#modifoto").on("click"),function(){
+	$("#modifoto").on("click",function(){
 		console.log("이미지 클림됨.");
 		$("#imgModal").modal('show');	
 		
