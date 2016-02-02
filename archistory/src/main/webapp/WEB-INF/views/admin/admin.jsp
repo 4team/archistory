@@ -298,9 +298,10 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-            
+            	<div style="margin-left:100px">
 				      <img src ="/img/profile.png">
-			            
+			    </div>   
+                
                    <table id="profile" align="center">
 	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
 			            <tr><td>PHONE &nbsp :&nbsp </td><td><input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
