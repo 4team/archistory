@@ -513,15 +513,21 @@ var myMarker = null;
         $.getJSON("http://14.32.66.127:4000/question/view?eventno="+nowEventNo,function(data){
 
             if(data){
+            	var questionStr = "";
                 console.log("Question이 있어서 불러왔다.",data);
                 questionVO = $(data)[0];
-                $("#qustionContent").html(data.question);
                 
                 $.getJSON("http://14.32.66.127:4000/question/getAttach/"+questionVO.questionno,function(data){
                 	console.log("문제에 있는 이미지를 불러온다.");
                 	console.log(data);
+                	if(data){
+	                	questionStr += "<img src='http://14.32.66.127:4000/displayFile?filename='"+data+">";
+                	}
                 });
-
+				questionStr += "<pre>"+data.question+"</pre>";
+				
+                $("#qustionContent").html(questionStr);
+                
                 var selector = "";
                 if(data.qtype == "ox"){
                     selector +="<div class='radio'><label><input type='radio' value='o' name='answer'> O </label></div><div class='radio'><label><input type='radio' value='x' name='answer'> X </label></div>";
