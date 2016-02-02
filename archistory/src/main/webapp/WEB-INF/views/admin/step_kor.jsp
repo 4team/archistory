@@ -577,45 +577,9 @@
     	}
     	
 		markers = [];
-		
 		linePath = [];	
 		
-		
-		$.ajax({
-			  type:'get',
-	             url:"http://14.32.66.127:4000/event/elist",
-	             headers:{
-	                 "Content-Type" :"application/json"	},
-	             datatype : "json",
-	             data: JSON.stringify({routeno:routeno}),
-	             async:false,
-	             success: function(data){
-	            	
-	            	 var list = data;
-
-	                 eventLi="";
-	     			list.each(function(){
-	                     eventno++;
-	     			});
-
-	     			list.each(function(idx,value){
-	                     var event= this;
-	                    
-	                     var order = idx+1;
-	             		var eorder = event.eorder;
-	                     
-	                     if(order!=eorder){
-	                     	console.log("이벤트 순서 달라요");
-	                     	modiOrder(event.eventno,order);
-	                     }               	
-
-	                     addList(order,event);
-	     			});
-	             }
-
-		});
-		
-		/* 
+	
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
 
@@ -636,25 +600,12 @@
                 }               	
 
                 addList(order,event);
-               // addMarker(event);
+               addMarker(event);
    
             }); //end list each
            	
-        }); 
-         */
-   /*      
-        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,{async: false, success: function(data){
-            var list = $(data);
-
-  
-			list.each(function(idx,value){
-                var event= this;
-                addMarker(event);
-   
-            }); //end list each
             
- 
-        	// 지도에 표시할 선을 생성합니다
+			// 지도에 표시할 선을 생성합니다
         	polyline = new daum.maps.Polyline({
         		path:linePath,
         	    strokeWeight: 5, // 선의 두께 입니다
@@ -665,8 +616,9 @@
         	
         	polyline.setMap(map);
         	console.log(linePath);
-        	
-        }});  */
+        }); 
+ 
+    
             callback();
 
    		
