@@ -320,7 +320,6 @@ var routeLi = "";
 			list.each(function(idx,value){
 	            var route = this;
 	            getLocation(route);
-	            console.log(distance);
 	                 if(distance>1000){
 	            		addList(route);
 	            		}
@@ -422,16 +421,12 @@ var routeLi = "";
             var lt = position.coords.latitude;
             var ln = position.coords.longitude;
 
-            console.log('My latitude: ', lt);
-            console.log('My longitude: ', ln);
             myLat = lt;
             myLng = ln;
 
    	
        var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
 	   distance = ret.toFixed(2);
-			console.log(ret);
-			console.log(distance);
 	   
 			 getAllRouteList();
        
