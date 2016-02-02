@@ -517,7 +517,7 @@ var myMarker = null;
                 questionVO = $(data)[0];
                 $("#qustionContent").html(data.question);
                 
-                $.getJSON("http://14.32.66.127:4000/getAttach/"+questionVO.questionno,function(data){
+                $.getJSON("http://14.32.66.127:4000/question/getAttach/"+questionVO.questionno,function(data){
                 	console.log("문제에 있는 이미지를 불러온다.");
                 	console.log(data);
                 });
