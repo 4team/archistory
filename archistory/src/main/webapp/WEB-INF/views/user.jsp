@@ -324,7 +324,7 @@ var routeLi = "";
 	            getLocation(route);
 			});
 	    });
-    }
+    }getAllRouteList();
     
     function getMetaContentByName(name,content){
     	var content = (content == null)?'content':content;
@@ -411,14 +411,13 @@ var routeLi = "";
  // 나의 위치를 읽어온다.
     window.addEventListener('deviceorientation',getLocation);
 
-	   var num=0;
+	//   var num=0;
    	var distance;
    	// 내 위치 잡기
    	   function getLocation(route){
         console.log("[ 지오로케이션 실행 ]");
-	   if(num<=50){
-			 getAllRouteList();
 		   console.log("지오로케이션 if 들어옴!!");
+		   
         navigator.geolocation.getCurrentPosition(function(position){
 
             var lt = position.coords.latitude;
@@ -430,13 +429,12 @@ var routeLi = "";
        var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
 	   distance = ret.toFixed(2);
         console.log(distance);
+        
         if(distance<1000){
     		addList(route);
     		console.log(route);
-    		}
-       });
-				num++;
-	   };
+    		}   
+	   });
         };
         
         
