@@ -300,7 +300,7 @@
             <div class="modal-body">
                    <table id="profile" align="center">
                    		
-                   		<tr><td><img src ="/img/profile.png"></td></tr>
+                   		<tr><td align="center"><img src ="/img/profile.png"></td></tr>
 	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
 			            <tr><td>PHONE &nbsp :&nbsp </td><td><input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
 			            <tr><td>COUNTRY &nbsp:&nbsp </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
