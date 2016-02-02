@@ -707,7 +707,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	});
 	
 	
-	$("delAdminBtn").on("click",function(){
+	$("#delAdminBtn").on("click",function(){
 		
 		console.log("admin no:"+adminno);
 		 
