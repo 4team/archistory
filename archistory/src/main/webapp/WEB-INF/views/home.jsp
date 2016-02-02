@@ -236,7 +236,7 @@
         
        #hamb{
 	   		font-size: 2em;
-	   		margin-left:5px;
+	   		margin-left:0px;
 	   		margin:2px;
 	   		margin-top:3px;
 	   		color:#FFFFFF;
