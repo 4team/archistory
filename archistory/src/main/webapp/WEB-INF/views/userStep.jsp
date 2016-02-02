@@ -559,7 +559,7 @@ var myMarker = null;
                         console.log("======이미지가 존재한다======");
                         var fileinfo = getFileInfo(data[0]);
                         var html = template(fileinfo);
-                        $("#questionImg").append(html+"<br><br>");
+                        $("#questionImg").html(html+"<br><br>");
                     }
                 });
 
