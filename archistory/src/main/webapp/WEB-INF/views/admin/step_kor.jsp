@@ -600,10 +600,7 @@
                 	console.log("이벤트 순서 달라요");
                 	modiOrder(event.eventno,order);
                 }
-
                 addList(order,event);
-                
-                
                 addMarker(event);
    
             });
@@ -1025,7 +1022,7 @@
                 $("#qno").val("no_Question");
                 $("#moqCheck").attr("checked",false);
                 $("#moquestionDiv").hide();
-            }
+            } // END if 
 
             else{
                 $("#moqCheck").attr("checked",true);
@@ -1067,28 +1064,28 @@
                     $("#mooxAnswerbox").show();
                 }
 
+                
+                $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
+          	   		 console.log("문제 첨부파일 가져오기");
+          	   		 console.log(list);
+          	   		 var array = list[0].split(',');
+          	   		 console.log(array);
+          	   		 
+          	   		var length = array.length;
+          	   		
+          	   		 for(var i = 0; i < length; i++){
+          	   			 
+          	   			var name = array[i];
+          	   			attach.push(name);
+          	   			  var fileInfo = getFileInfo(name);
+          	                 var html = template2(fileInfo);
+          	   			  
+          	   			  $(".quploadedList").append(html);
+          	   		 }
+
+             		 });//end getAttach
 
             }//end else
-            	
-            $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
-   	   		 console.log("문제 첨부파일 가져오기");
-   	   		 console.log(list);
-   	   		 var array = list[0].split(',');
-   	   		 console.log(array);
-   	   		 
-   	   		var length = array.length;
-   	   		
-   	   		 for(var i = 0; i < length; i++){
-   	   			 
-   	   			var name = array[i];
-   	   			attach.push(name);
-   	   			  var fileInfo = getFileInfo(name);
-   	                 var html = template2(fileInfo);
-   	   			  
-   	   			  $(".quploadedList").append(html);
-   	   		 }
-
-      		 });//end getAttach
 
         }); //end question view 
         
