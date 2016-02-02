@@ -320,9 +320,7 @@ var routeLi = "";
 			list.each(function(idx,value){
 	            var route = this;
 	            getLocation(route);
-	                 if(distance>1000){
-	            		addList(route);
-	            		}
+	               
 	        });
 	    });
     }    
@@ -432,6 +430,9 @@ var routeLi = "";
 	   distance = ret.toFixed(2);
         
        });
+        if(distance>1000){
+    		addList(route);
+    		}
 				num=1;
 	   };
         };
