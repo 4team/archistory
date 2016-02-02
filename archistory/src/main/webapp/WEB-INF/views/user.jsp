@@ -430,7 +430,7 @@ var routeLi = "";
 	   distance = ret.toFixed(2);
         console.log(distance);
         
-        if(distance<1000){
+        if(distance<2000){
     		addList(route);
     		console.log(route);
     		}   
