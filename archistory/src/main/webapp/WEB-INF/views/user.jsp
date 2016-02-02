@@ -354,7 +354,7 @@ var routeLi = "";
     });
     
     $("#yesNo").on("click","#no",function(){
-        $("#yesModal").modal('hide');
+        $("#yesModal").hide();
     });
     
   
