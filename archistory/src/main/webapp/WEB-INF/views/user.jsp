@@ -164,14 +164,40 @@ text-align:center;
         .gn-menu-main{
         z-index:1;
         }
-
+#menuRouteList{
+         display:none;
+            position:absolute;
+            overflow-y:scroll;
+        }
 </style>
 
 
 
 <body data-spy="scroll">
 
-
+<div class="menu">
+			<ul id="gn-menu" class="gn-menu-main">
+<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								
+									<ul  id="menuRouteList"></ul>
+									
+								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><i class="fa fa-download"></i><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+</ul>
+	</div>
+	
+	
 	<!-- Section: intro -->
     <section id="intro" class="intro">
 		<div class="slogan">
