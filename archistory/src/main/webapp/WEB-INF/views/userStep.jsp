@@ -696,6 +696,17 @@ var myMarker = null;
     function clearAll(){
         $("#movieShow").html("");
     }
+    
+
+    $("#finishClose").on("click",function(event){
+        if(memberno!=0) {
+            console.log("GUEST가 아닙니다. 랭킹을 띄워준다.");
+        }else{
+            console.log("GUEST이다. 첫 페이지로 넘어간다.");
+            self.location = "/user";
+        }
+    });
+
 </script>
 
 </body>
