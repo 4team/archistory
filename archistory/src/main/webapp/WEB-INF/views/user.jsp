@@ -79,7 +79,7 @@ text-align:center;
          #upper-login{
         	padding:5px;
        		position:absolute;
-        	z-index:3000;
+        	z-index:99;
         	right: 10px;
         	top:5px;
         }
