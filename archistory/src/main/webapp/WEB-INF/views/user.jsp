@@ -133,7 +133,7 @@ text-align:center;
 		left:24px;
 		}
 		.fa-question{
-		top:145px;
+		top:143px;
 		left:24px;
 		}
 		.fa-book{
