@@ -62,13 +62,6 @@
         	margin-left: 5px;
         }
         
-        span.glyphicon-menu-hamburger {
-	   		font-size: 1.8em;
-	   		margin:0px;
-	   		margin-top:3px;
-	   		color:#FFFFFF;
-		}
-		
 		#joinDiv{
 		
 		}
@@ -235,7 +228,7 @@
         }
         
        #hamb{
-       		margin-left:15px;
+       		margin-left:-15px;
 	   		font-size: 2em;
 	   		margin-left:0px;
 	   		margin:2px;
