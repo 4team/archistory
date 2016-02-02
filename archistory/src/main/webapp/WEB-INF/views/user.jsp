@@ -165,9 +165,6 @@ text-align:center;
         }
 </style>
 
-  
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	 <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>	
@@ -330,7 +327,60 @@ var routeLi = "";
         $("#myRouteList").html(routeLi);
     }
     
-  
+    
+    // 나의 위치를 읽어온다.
+       window.addEventListener('deviceorientation',getLocation);
+
+   	var myLat;
+   	var myLng;
+      	var distance;
+      	// 내 위치 잡기
+      	   function getLocation(){
+           console.log("[ 지오로케이션 실행 ]");
+   		   
+           navigator.geolocation.getCurrentPosition(function(position){
+               var lt = position.coords.latitude;
+               var ln = position.coords.longitude;
+
+               myLat = lt;
+               myLng = ln;
+               console.log(myLat);
+   	   });
+           getRouteList();
+           };
+           getLocation();
+           console.log(myLat);
+           
+   		function getRouteList(){
+           $.ajax({
+   	        type:'get',
+   	        url:"http://14.32.66.127:4000/route/closelist",
+   	        headers: {
+   	            "Content-Type":"application/json"},
+   	        datatype: "json",
+   	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
+   	        success: function(data){
+   	        var list = $(data);
+   			routeLi = "";
+   	        console.log(list);
+   	        
+   	        list.each(function(idx,value){
+   	            var route = this;
+   	            calcDistance(route);
+   	        });
+   	        }
+   	  });
+   		}
+           
+   		function calcDistance(route){
+           var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
+    	   distance = ret.toFixed(2);
+            console.log(distance);
+             	 
+            if(distance<2000){
+        		addList(route);
+        		}   
+   		};       
 
 /*     	  $.getJSON("http://14.32.66.127:4000/route/closelist?"+ myLocation, function(data){
 	         var list = $(data);
@@ -340,8 +390,7 @@ var routeLi = "";
 	        list.each(function(idx,value){
 	            var route = this;
 	            getLocation(route);
-			}); 
-			
+			}); 			
 	    });
     }*/
     
@@ -429,57 +478,7 @@ var routeLi = "";
    	
 
   
-    
- // 나의 위치를 읽어온다.
-    window.addEventListener('deviceorientation',getLocation);
-
-	var myLat;
-	var myLng;
-   	var distance;
-   	// 내 위치 잡기
-   	   function getLocation(){
-        console.log("[ 지오로케이션 실행 ]");
-		   
-        navigator.geolocation.getCurrentPosition(function(position){
-			console.log()
-            var lt = position.coords.latitude;
-            var ln = position.coords.longitude;
-
-            myLat = lt;
-            myLng = ln;
-	   });
-        };
-
-		function getRouteList(){
-        $.ajax({
-	        type:'get',
-	        url:"http://14.32.66.127:4000/route/closelist",
-	        headers: {
-	            "Content-Type":"application/json"},
-	        datatype: "json",
-	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
-	        success: function(data){
-	        var list = $(data);
-			routeLi = "";
-	        console.log(list);
-	        
-	        list.each(function(idx,value){
-	            var route = this;
-	            getLocation(route);
-	        });
-	        }
-	  });
-		}
-        
-		function calDistance(route){
-        var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
- 	   distance = ret.toFixed(2);
-         console.log(distance);
-          	 
-         if(distance<2000){
-     		addList(route);
-     		}   
-		};       
+   
         
 </script>
 	 <!-- Core JavaScript Files -->
