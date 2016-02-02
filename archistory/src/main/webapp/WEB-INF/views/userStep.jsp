@@ -330,6 +330,8 @@ var customOverlay;
                 eventVO = data;
                 if(eventVO == null){
                     console.log("=================[모든 이벤트를 완료]==================");
+                    
+                    $("#finishDiv").show();
 
                     $.ajax({
                         type:'post',
