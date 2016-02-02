@@ -581,7 +581,7 @@
 		linePath = [];	
 		
 		
-        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno, {async: false, success: function(data){
+        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno, function(data){
             var list = $(data);
 
             eventLi="";
@@ -618,10 +618,10 @@
         	polyline.setMap(map);
         	console.log(linePath);
         	
-        }}); 
+        }); 
         
         
-        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
+        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,{async: false, success: function(data){
             var list = $(data);
 
   
@@ -644,7 +644,7 @@
         	polyline.setMap(map);
         	console.log(linePath);
         	
-        }); 
+        }}); 
             callback();
 
    		
