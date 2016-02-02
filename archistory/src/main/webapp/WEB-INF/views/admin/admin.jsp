@@ -232,13 +232,10 @@
         text-align : center;
         }
         
-        #profile{
-        align : center;
-        }
-        
         #profile td{
         text-align : right;
         margin-right : 10px;
+        border-spacing: 50px;
         }
     </style>
     
@@ -301,7 +298,7 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-                   <table id="profile">
+                   <table id="profile" align="center">
 	                    <tr><td>NAME: </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
 			            <tr><td>PHONE: </td><td><input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
 			            <tr><td>COUNTRY: </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
