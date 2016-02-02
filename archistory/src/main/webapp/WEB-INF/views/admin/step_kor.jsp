@@ -601,7 +601,7 @@
                 }               	
 
                 addList(order,event);
-               addMarker(order,event);
+               	addMarker(order,event);
    
             }); //end list each
            	

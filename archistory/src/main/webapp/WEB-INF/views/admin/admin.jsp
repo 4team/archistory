@@ -304,7 +304,7 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-            	<div style="margin-left:180px">
+            	<div style="margin-left:180px; width:200px; height:200px;">
 				      <img src ="/img/profile.png">
 			    </div>   
                 
