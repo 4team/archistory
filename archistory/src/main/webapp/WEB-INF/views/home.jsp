@@ -234,7 +234,7 @@
         z-index:1;
         }
         
-        span.glyphicon-menu-hamburger {
+        span .glyphicon-menu-hamburger {
 	   		font-size: 1.8em;
 	   		margin:2px;
 	   		margin-top:3px;
@@ -259,8 +259,8 @@
 
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
-<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+<li class="gn-trigger"><span class="glyphicon glyphicon-menu-hamburger"></span>
+					<a class="gn-icon gn-icon-menu"></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
