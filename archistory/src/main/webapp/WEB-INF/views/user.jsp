@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+   "src/main/java/org/kkamnyang/controller/RouteController.java" pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
@@ -29,18 +29,6 @@
 	<link href="color/default.css" rel="stylesheet">
 
      
-    <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min2.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
-    
     
 </head>
 
@@ -141,19 +129,19 @@ text-align:center;
 		left:22px;
 		}
 		.fa-map-marker{
-		top:94px;
-		left:25px;
+		top:82px;
+		left:24px;
 		}
 		.fa-question{
-		top:170px;
-		left:25px;
+		top:143px;
+		left:24px;
 		}
 		.fa-book{
-		top:246px;
+		top:204px;
 		left:22px;
 		}
 		.fa-download{
-		top:320px;
+		top:264px;
 		left:22px;
 		}
 		.gn-menu li:hover{
@@ -164,14 +152,52 @@ text-align:center;
         .gn-menu-main{
         z-index:1;
         }
-
+#menuRouteList{
+         display:none;
+            position:absolute;
+            overflow-y:scroll;
+        }
 </style>
 
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
 
+<body>
 
-<body data-spy="scroll">
-
-
+<div class="menu">
+			<ul id="gn-menu" class="gn-menu-main">
+<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								
+									<ul  id="menuRouteList"></ul>
+									
+								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><i class="fa fa-download"></i><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+</ul>
+	</div>
+	
+	 <!-- Core JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
+	<script src="js/classie.js"></script>
+	<script src="js/gnmenu.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
+    
 	<!-- Section: intro -->
     <section id="intro" class="intro">
 		<div class="slogan">
@@ -181,7 +207,7 @@ text-align:center;
 		</div>	
     </section>
 	<!-- /Section: intro -->
-	
+	<!--   fasdfsafdasda -->
 	<div id="upper-login">
 		<button type="button" id="myInfo" data-src="${memberno}"
 			class="btn btn-primary btn-xs">
@@ -380,6 +406,18 @@ var routeLi = "";
    	
 </script>
 
+
+    <!-- Core JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
+	<script src="js/classie.js"></script>
+	<script src="js/gnmenu.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
+    
 
 </body>
 </html>
