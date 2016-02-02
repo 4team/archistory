@@ -193,7 +193,6 @@ text-align:center;
 	<script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
 	<script src="js/stellar.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
@@ -219,6 +218,11 @@ text-align:center;
 		</ul>
 	</div>
 
+
+
+	<script src="js/nivo-lightbox.min.js"></script>
+	
+	
 	<!-- 루트리스트 뜨는 어두운전체창 -->
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 			<div class="nivo-lightbox-wrap">
