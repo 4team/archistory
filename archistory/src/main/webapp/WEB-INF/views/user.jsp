@@ -133,15 +133,15 @@ text-align:center;
 		left:24px;
 		}
 		.fa-question{
-		top:150px;
+		top:145px;
 		left:24px;
 		}
 		.fa-book{
-		top:216px;
+		top:206px;
 		left:22px;
 		}
 		.fa-download{
-		top:260px;
+		top:262px;
 		left:22px;
 		}
 		.gn-menu li:hover{
