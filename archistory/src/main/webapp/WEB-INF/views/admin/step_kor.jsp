@@ -580,35 +580,18 @@
 		
 		linePath = [];	
 		
-	   
+		 makeOrder();
 		
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
 
-            eventLi="";
-			list.each(function(){
-                eventno++;
-			});
-
 			list.each(function(idx,value){
                 var event= this;
-               
-                var order = idx+1;
-        		var eorder = event.eorder;
-                
-                if(order!=eorder){
-                	console.log("이벤트 순서 달라요");
-                	modiOrder(event.eventno,order);
-                }
-                addList(order,event);
                 addMarker(event);
    
-            }); //end getJSON
+            }); //end list each
             
-           
-            /* makeMarker(); //마커 만들기(new getJSON_새로 DB에 등록된 eorder 가져오기 위해) */
-            
-             
+ 
         	// 지도에 표시할 선을 생성합니다
         	polyline = new daum.maps.Polyline({
         		path:linePath,
@@ -626,20 +609,34 @@
 
     }
     
-    /* function makeMarker(){
+     function makeOrder(){
 
-        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
+          $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
-            
+
+            eventLi="";
+			list.each(function(){
+                eventno++;
+			});
+
 			list.each(function(idx,value){
-				 var event= this;
-                addMarker(event);
+                var event= this;
+               
+                var order = idx+1;
+        		var eorder = event.eorder;
+                
+                if(order!=eorder){
+                	console.log("이벤트 순서 달라요");
+                	modiOrder(event.eventno,order);
+                }
+                addList(order,event);   
    
-            });
-			
+            }); //end list each
+            
         });
+	
     }
-     */
+     
     	
     getEventList(function(){
     	console.log("getEventList의 콜백에 들어옴.");
