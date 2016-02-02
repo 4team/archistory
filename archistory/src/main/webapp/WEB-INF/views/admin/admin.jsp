@@ -315,7 +315,7 @@
             </div>
             <div class="modal-body">
             	<div id="imgDiv" style="margin-left:210px;">
-				      <img id="modiImg" src ="/img/profile.png">
+				      <img id="modiImg" src ="/img/profile.png" class="img-rounded">
 			    </div>   
                 
                    <table id="profile" align="center">
@@ -334,6 +334,29 @@
             	<div style="float:left"><a style="color:blue;" id="delAccount">Delete your account</a></div>
                 <button type="button" id="proModifyBtn" class="btn btn-create">SAVE</button>
                 <button type="button" id="proCancleBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  myProfile img modal -->
+
+<div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="height:200px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Modify Img</h4>
+            </div>
+            <div class="modal-body" style="height:80px;">
+               <ul id="selectImg">
+               </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="regiImgBtn" class="btn btn-create">REGISTER</button>
+                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
             </div>
         </div>
     </div>
@@ -704,6 +727,19 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		});
 	
 	}
+	
+	
+	$("#modiImg").on("click"),function(){
+		
+		var select = "<input type='file'><input type='submit'>";
+		
+		$("#selectImg").html(select);
+		
+		$("#imgModal").modal('show');
+		
+		
+		
+	};
 	
 	
 	$("#proModifyBtn").on("click",function(){
