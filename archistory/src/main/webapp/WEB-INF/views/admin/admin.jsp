@@ -729,14 +729,15 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	}
 	
 	
-	$("#imgDiv").on("click"),function(){
+	$("#modiImg").on("click"),function(){
 		
-		var select = "<input type='file'><input type='submit'>";
+	/* var select = "<input type='file'><input type='submit'>";
 		
-		$("#selectImg").html(select);
+		$("#selectImg").html(select); */
 		
 		$("#imgModal").modal('show');
 		
+		 
 		
 		
 	};
