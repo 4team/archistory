@@ -327,7 +327,7 @@ var routeLi = "";
 	        });
 	    });
     }    
-    getAllRouteList();
+   
     
     function getMetaContentByName(name,content){
     	var content = (content == null)?'content':content;
@@ -433,6 +433,7 @@ var routeLi = "";
 			console.log(ret);
 			console.log(distance);
 	   
+			 getAllRouteList();
        
 //       if(ret.toFixed(2) < 100){
 //           customOverlay.setMap(null);
