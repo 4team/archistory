@@ -314,8 +314,9 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-            	<div id="imgDiv" style="margin-left:200px;">
+            	<div id="imgDiv" style="margin-left:220px;">
 				      <img src ="/img/profile.png">
+				      <span class='glyphicon glyphicon-pencil' id="editProfile"></span>
 			    </div>   
                 
                    <table id="profile" align="center">
