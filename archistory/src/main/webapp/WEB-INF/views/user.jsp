@@ -216,6 +216,12 @@ text-align:center;
 		</ul>
 	</div>
 
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
+    
+    
 	<!-- 루트리스트 뜨는 어두운전체창 -->
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 			<div class="nivo-lightbox-wrap">
