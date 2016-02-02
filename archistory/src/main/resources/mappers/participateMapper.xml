@@ -22,4 +22,8 @@
   	delete from tbl_participate where participateno = #{participateno}
   </delete>
   
+  <update id="finish">
+  	update tbl_participate set score = #{score}, lastDate = now(), finish = true where participateno = #{participateno}
+  </update>
+  
   </mapper>

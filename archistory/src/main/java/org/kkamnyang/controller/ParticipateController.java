@@ -50,4 +50,21 @@ public class ParticipateController {
 		
 		return entity;
 	}
+	
+	@RequestMapping(value="/finish", method=RequestMethod.POST)
+	public ResponseEntity<String> finishRoute(@RequestBody ParticipateVO vo) throws Exception{
+		
+		ResponseEntity<String> entity = null;
+		
+		try{
+			System.out.println("[ 유저의 루트클리어 ]");
+			mapper.finish(vo);
+			entity = new ResponseEntity<String>("Well Done!",HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("ERROR!",HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+		
+	}
 }
