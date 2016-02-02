@@ -39,6 +39,7 @@ public class RouteController{
 			
 		System.out.println("closelist Controller 진입");
 		List<RouteVO> result = service.closelist(vo);
+		System.out.println(vo);
 		return result;
 	}
 	
@@ -63,7 +64,6 @@ public class RouteController{
 	public @ResponseBody RouteVO view(@RequestParam("routeno") Integer routeno, HttpServletRequest request) throws Exception{
 		System.out.println("route view GET 호출됨");
 		RouteVO vo = service.view(routeno);
-		System.out.println(vo);
 		return vo;
 	}
 	

@@ -321,7 +321,7 @@ $("#myInfo").on("click",function(){
 		console.log("로그인하는 창 띄우기");
 	}
 });
-        
+  
 var routeLi = "";
     function addList(route) {
         routeLi += "<li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px;'" +
@@ -330,29 +330,7 @@ var routeLi = "";
         $("#myRouteList").html(routeLi);
     }
     
-    var myLocation=0;
-    function getAllRouteList(){
-	  
-    	  $.ajax({
-    	        type:'get',
-    	        url:"http://14.32.66.127:4000/route/closelist",
-    	        headers: {
-    	            "Content-Type":"application/json"},
-    	        datatype: "json",
-    	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
-    	        success: function(data){
-    	        var list = $(data);
-    			routeLi = "";
-    	        console.log(list);
-    	        
-    	        list.each(function(idx,value){
-    	            var route = this;
-    	            getLocation(route);
-    	        })
-    	        }
-    	  })
-    }
-    getAllRouteList();
+  
 
 /*     	  $.getJSON("http://14.32.66.127:4000/route/closelist?"+ myLocation, function(data){
 	         var list = $(data);
@@ -455,11 +433,11 @@ var routeLi = "";
  // 나의 위치를 읽어온다.
     window.addEventListener('deviceorientation',getLocation);
 
-	var myLat=0;
-	var myLng=0;
-   	var distance=0;
+	var myLat;
+	var myLng;
+   	var distance;
    	// 내 위치 잡기
-   	   function getLocation(route){
+   	   function getLocation(){
         console.log("[ 지오로케이션 실행 ]");
 		   
         navigator.geolocation.getCurrentPosition(function(position){
@@ -469,17 +447,39 @@ var routeLi = "";
 
             myLat = lt;
             myLng = ln;
-   	
-       var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
-	   distance = ret.toFixed(2);
-        console.log(distance);
-        
-        if(distance<2000){
-    		addList(route);
-    		}   
 	   });
         };
+
+		function getRouteList(){
+        $.ajax({
+	        type:'get',
+	        url:"http://14.32.66.127:4000/route/closelist",
+	        headers: {
+	            "Content-Type":"application/json"},
+	        datatype: "json",
+	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
+	        success: function(data){
+	        var list = $(data);
+			routeLi = "";
+	        console.log(list);
+	        
+	        list.each(function(idx,value){
+	            var route = this;
+	            getLocation(route);
+	        });
+	        }
+	  });
+		}
         
+		function calDistance(route){
+        var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
+ 	   distance = ret.toFixed(2);
+         console.log(distance);
+          	 
+         if(distance<2000){
+     		addList(route);
+     		}   
+		};       
         
 </script>
 	 <!-- Core JavaScript Files -->
