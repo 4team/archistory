@@ -319,28 +319,30 @@ $("#myInfo").on("click",function(){
 	}
 });
 
-    // 나의 위치를 읽어온다.
-       window.addEventListener('deviceorientation',getLocation);
+// 나의 위치를 읽어온다.
+window.addEventListener('deviceorientation',getLocation);
 
-   	var myLat;
-   	var myLng;
-      	var distance;
-      	// 내 위치 잡기
-      	   function getLocation(){
-           console.log("[ 지오로케이션 실행 ]");
-   		   
-           navigator.geolocation.getCurrentPosition(function(position){
-               var lt = position.coords.latitude;
-               var ln = position.coords.longitude;
+var myLat;
+var myLng;
+	var distance;
+	// 내 위치 잡기
+	   function getLocation(){
+    console.log("[ 지오로케이션 실행 ]");
+	   
+    navigator.geolocation.getCurrentPosition(function(position){
+        var lt = position.coords.latitude;
+        var ln = position.coords.longitude;
 
-               myLat = lt;
-               myLng = ln;
-               console.log(myLat);
-   	   });
-           getRouteList();
-           }
-           getLocation();
-           console.log(myLat);
+        myLat = lt;
+        myLng = ln;
+        console.log(myLat);
+    getRouteList();
+   });
+    }
+    getLocation();
+    console.log(myLat);
+
+
            
    		function getRouteList(){
            $.ajax({
@@ -475,9 +477,8 @@ $("#myInfo").on("click",function(){
    		$("#joinModal").modal('show');
    	});
    	
+   	
 
-  
-   
         
 </script>
 	 <!-- Core JavaScript Files -->
