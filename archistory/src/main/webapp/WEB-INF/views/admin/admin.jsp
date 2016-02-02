@@ -231,7 +231,11 @@
        #memberlist{
         text-align : center;
         }
-        
+       
+       #profile{
+       	boarder-spacing: 5px 1px;
+       }
+       
         #profile td{
         text-align : right;
         margin-right : 10px;
@@ -240,6 +244,11 @@
         
         a{
         text-decoration : none;
+        }
+        
+        #imgDiv img{
+        width:200px;
+        height:200px;
         }
         
        
@@ -304,7 +313,7 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-            	<div style="margin-left:180px; width:200px; height:200px;">
+            	<div id="imgDiv" style="margin-left:200px;">
 				      <img src ="/img/profile.png">
 			    </div>   
                 

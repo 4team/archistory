@@ -329,7 +329,7 @@ var routeLi = "";
     }
     
     function getAllRouteList(){
-	    $.getJSON("http://14.32.66.127:4000/route/closelist?lat="+myLat+"?lng="+myLng, function(data){
+	    $.getJSON("http://14.32.66.127:4000/route/closelist?lat="+37.492383+"?lng="+127.029276, function(data){
 	         var list = $(data);
 			routeLi = "";
 	        console.log(list);
