@@ -1,5 +1,6 @@
 package org.kkamnyang.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.kkamnyang.domain.RouteVO;
@@ -15,6 +16,10 @@ public class RouteService {
 	
 	public List<RouteVO> listAll() throws Exception{
 		return mapper.list();
+	}
+	
+	public List<RouteVO> closelist(HashMap<String, Double> param) throws Exception {
+		return mapper.closelist(param);
 	}
 	
 	public List<RouteVO> list(int adminno) throws Exception{

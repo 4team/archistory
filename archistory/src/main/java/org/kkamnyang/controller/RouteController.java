@@ -1,12 +1,12 @@
 package org.kkamnyang.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
-import org.kkamnyang.domain.ParticipateVO;
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +33,18 @@ public class RouteController{
 		return result;
 	}
 	
+	@RequestMapping(value="/closelist", method=RequestMethod.GET)
+	public @ResponseBody List<RouteVO> closelist(@Param(value="lat") double lat,@Param(value="lng") double lng, HttpServletRequest request) throws Exception{
+		
+		HashMap<String, Double> param = new HashMap<String, Double>();
+		param.put("lat", lat);
+		param.put("lng", lng);
+		
+		System.out.println("lat,lng:"+lat+","+lng);
+		
+		List<RouteVO> result = service.closelist(param);
+		return result;
+	}
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public @ResponseBody List<RouteVO> list(@Param(value="adminno") int adminno, HttpServletRequest request) throws Exception{

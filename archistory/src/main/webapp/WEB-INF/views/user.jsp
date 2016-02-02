@@ -314,7 +314,7 @@ var routeLi = "";
     }
     
     function getAllRouteList(){
-	    $.getJSON("http://14.32.66.127:4000/route/listAll", function(data){
+	    $.getJSON("http://14.32.66.127:4000/route/closelist?lat="+lat+"?lng="+lng, function(data){
 	         var list = $(data);
 			routeLi = "";
 	        console.log(list);
@@ -414,6 +414,8 @@ var routeLi = "";
  // 나의 위치를 읽어온다.
     window.addEventListener('deviceorientation',getLocation);
 
+	var myLat;
+	var myLng;
    	var distance;
    	// 내 위치 잡기
    	   function getLocation(route){

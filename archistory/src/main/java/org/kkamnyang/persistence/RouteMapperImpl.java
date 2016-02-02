@@ -1,7 +1,7 @@
 package org.kkamnyang.persistence;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.kkamnyang.domain.RouteVO;
 import org.springframework.stereotype.Repository;
@@ -11,8 +11,11 @@ public class RouteMapperImpl extends AbstractCRUDMapper<RouteVO,Integer> impleme
 
 	@Override
 	public List<RouteVO> list(int adminno) throws Exception {
-		return session.selectList(namespace+".listadmin",adminno);
-	
+		return session.selectList(namespace+".listadmin",adminno);	
 	}
 
+	@Override
+	public List<RouteVO> closelist(HashMap<String, Double> param) throws Exception {
+		return session.selectList(namespace+".closelist",param);
+	}
 }
