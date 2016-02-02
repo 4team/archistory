@@ -229,10 +229,10 @@
 
     var template = Handlebars.compile($("#template").html());
     //이 화면을 실행할 때 넘어오는 파라미터 초기화.
-    var routeno = 423;
-    var memberno = 47;
-    var lat = 37.494679626;
-    var lng = 127.02801879;
+    var routeno = ${routeno};
+    var memberno = ${memberno};
+    var lat = ${lat};
+    var lng = ${lng};
     var score = 0;
 
     var myLat = 0;
