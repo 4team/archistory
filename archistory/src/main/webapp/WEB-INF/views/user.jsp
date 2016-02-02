@@ -304,7 +304,6 @@ $("#closeList").on("click",function(){
 	 $("#routeList").hide();	 	
 });
     
-	
         
 var routeLi = "";
     function addList(route) {
@@ -319,10 +318,12 @@ var routeLi = "";
 	         var list = $(data);
 			routeLi = "";
 	        console.log(list);
-			list.each(function(idx,value){
-	            var route = this;
+	        
+	        for(var i=0; i<10; i++){
+				var route = list[i];
 	            getLocation(route);
-			});
+			};
+			
 	    });
     }getAllRouteList();
     
@@ -415,7 +416,6 @@ var routeLi = "";
    	// 내 위치 잡기
    	   function getLocation(route){
         console.log("[ 지오로케이션 실행 ]");
-		   console.log("지오로케이션 if 들어옴!!");
 		   
         navigator.geolocation.getCurrentPosition(function(position){
 
@@ -431,7 +431,6 @@ var routeLi = "";
         
         if(distance<2000){
     		addList(route);
-    		console.log(route);
     		}   
 	   });
         };
