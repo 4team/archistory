@@ -299,11 +299,7 @@
             </div>
             <div class="modal-body">
             
-               <table width="100%" height="100%" align="center" valign="center">
-				   <tr><td>
 				      <img src ="/img/profile.png">
-				   </td></tr>
-			   </table>
 			            
                    <table id="profile" align="center">
 	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
