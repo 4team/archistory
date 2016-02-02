@@ -122,6 +122,10 @@
     	height:100%;
     	display:none;
     }
+    
+    #questionImg img{
+        width:550px;
+    }
 </style>
 
 <script type="text/javascript" src="js/upload.js"></script>
@@ -512,22 +516,26 @@ var myMarker = null;
 
         $.getJSON("http://14.32.66.127:4000/question/view?eventno="+nowEventNo,function(data){
 
-            if(data){
-            	var questionStr = "";
-                console.log("Question이 있어서 불러왔다.",data);
+            if(data) {
+                var questionStr = "";
+                console.log("Question이 있어서 불러왔다.", data);
                 questionVO = $(data)[0];
-                
-                $.getJSON("http://14.32.66.127:4000/question/getAttach/"+questionVO.questionno,function(data){
-                	console.log("문제에 있는 이미지를 불러온다.");
-                	console.log(data);
-                	if(data){
-	                	questionStr += "<img src='http://14.32.66.127:4000/displayFile?filename='"+data+">";
-                	}
+
+                $.getJSON("http://14.32.66.127:4000/question/getAttach/" + questionVO.questionno, function (data) {
+                    console.log("문제에 있는 이미지를 불러온다.");
+                    console.log(data[0]);
+                    if (data[0]) {
+                        console.log("======이미지가 존재한다======");
+                        var fileinfo = getFileInfo(data[0]);
+                        var html = template(fileinfo);
+                        $("#questionImg").append(html+"<br><br>");
+                    }
                 });
-				questionStr += "<pre>"+data.question+"</pre>";
-				
+
+                questionStr += "<pre>"+data.question+"</pre>";
+
                 $("#qustionContent").html(questionStr);
-                
+
                 var selector = "";
                 if(data.qtype == "ox"){
                     selector +="<div class='radio'><label><input type='radio' value='o' name='answer'> O </label></div><div class='radio'><label><input type='radio' value='x' name='answer'> X </label></div>";
