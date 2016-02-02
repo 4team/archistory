@@ -318,16 +318,7 @@ $("#myInfo").on("click",function(){
 		console.log("로그인하는 창 띄우기");
 	}
 });
-  
-var routeLi = "";
-    function addList(route) {
-        routeLi += "<li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px;'" +
-        "data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>"+
-        "<div class='rr'>" + route.routename + "</div></li>";
-        $("#myRouteList").html(routeLi);
-    }
-    
-    
+
     // 나의 위치를 읽어온다.
        window.addEventListener('deviceorientation',getLocation);
 
@@ -347,7 +338,7 @@ var routeLi = "";
                console.log(myLat);
    	   });
            getRouteList();
-           };
+           }
            getLocation();
            console.log(myLat);
            
@@ -380,7 +371,15 @@ var routeLi = "";
             if(distance<2000){
         		addList(route);
         		}   
-   		};       
+   		};   		
+
+   		var routeLi = "";
+   		    function addList(route) {
+   		        routeLi += "<li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px;'" +
+   		        "data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>"+
+   		        "<div class='rr'>" + route.routename + "</div></li>";
+   		        $("#myRouteList").html(routeLi);
+   		    }   		    
 
 /*     	  $.getJSON("http://14.32.66.127:4000/route/closelist?"+ myLocation, function(data){
 	         var list = $(data);
