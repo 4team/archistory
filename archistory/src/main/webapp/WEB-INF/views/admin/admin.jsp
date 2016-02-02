@@ -235,7 +235,7 @@
         #profile td{
         text-align : right;
         margin-right : 10px;
-        border-spacing: 50px;
+       
         }
     </style>
     
@@ -304,7 +304,7 @@
 			            <tr><td>COUNTRY: </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
 			            <tr><td>E-MAIL: </td><td><input type='email' class='form-control' id="proEmail" placeholder='Email'></td></tr>
 			            <tr><td>PASSWORD: </td><td><input type='password' class='form-control' id="proPassword" placeholder='Password'></td></tr>
-			            <tr><td>PASSWORD(AGAIN): </td><td><input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
+			            <tr><td>PASSWORD<br>(AGAIN): </td><td><input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
 		            
                 </table>
                	 
