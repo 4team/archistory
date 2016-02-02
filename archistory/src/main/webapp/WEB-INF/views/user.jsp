@@ -332,7 +332,7 @@ var routeLi = "";
 	       var routeno = parseInt(select.attr("data-routeno"));
 	      
 	       questionModal(select);
-	       $("#yesModal").modal('show');
+	       $("#yesModal").show();
 	    });
   
     function questionModal(select){
