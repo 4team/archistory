@@ -282,6 +282,36 @@
 
 <!--  myProfile modal -->
 
+<div class="modal fade" id="myProfileModal" tabindex="-1" role="dialog" aria-labelledby="myProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">My Profile</h4>
+            </div>
+            <div class="modal-body">
+                   <table>
+                   
+	                    <tr><td>NAME: </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
+			            <tr><td>PHONE: </td><td><input type='number' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
+			            <tr><td>COUNTRY: </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
+			            <tr><td>E-MAIL: </td><td><input type='email' class='form-control' id="proEmail" placeholder='Email'></td></tr>
+			            <tr><td>PASSWORD: </td><td><input type='password' class='form-control' id="proPassword" placeholder='Password'></td></tr>
+			            <tr><td>PASSWORD(AGAIN)): </td><td><input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
+		            
+                </table>
+               	 
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="proModifyBtn" class="btn btn-create">SAVE</button>
+                <button type="button" id="proCancleBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
