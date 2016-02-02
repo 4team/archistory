@@ -601,9 +601,12 @@
                 	modiOrder(event.eventno,order);
                 }
                 addList(order,event);
-                addMarker(event);
    
-            });
+            }); //end getJSON
+            
+           
+            makeMarker(); //마커 만들기(new getJSON_새로 DB에 등록된 eorder 가져오기 위해)
+            
              
         	// 지도에 표시할 선을 생성합니다
         	polyline = new daum.maps.Polyline({
@@ -620,6 +623,20 @@
         });
             callback();
 
+    }
+    
+    function makeMarker(){
+
+        $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
+            var list = $(data);
+            
+			list.each(function(idx,value){
+				 var event= this;
+                addMarker(event);
+   
+            });
+			
+        });
     }
     
     	
