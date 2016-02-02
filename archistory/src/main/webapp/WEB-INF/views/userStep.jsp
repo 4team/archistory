@@ -151,7 +151,7 @@
 
 
     #questionImg img{
-        width:550px;
+        width:570px;
     }
 </style>
 
