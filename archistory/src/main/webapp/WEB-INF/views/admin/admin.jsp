@@ -237,6 +237,10 @@
         margin-right : 10px;
        
         }
+        
+        a{
+        text-decoration : none;
+        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -315,6 +319,7 @@
                
             </div>
             <div class="modal-footer">
+            	<div style="float:left"><a style="color:blue;" id="delAccount">Delete your account</a></div>
                 <button type="button" id="proModifyBtn" class="btn btn-create">SAVE</button>
                 <button type="button" id="proCancleBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
             </div>
@@ -635,32 +640,38 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 
 
 
-//admin profile 클릭 
-
-$("#myProfile").on("click",function(){
+	//admin profile 
 	
-		viewProfile()
-	
-	   $("#myProfileModal").modal('show');
-});
-
-
-
-function viewProfile(){
-	$.getJSON("http://14.32.66.127:4000/admin/view?adminno="+adminno,function(data){
-	    var admin = $(data);
-	    
-	    console.log(admin);
-	  
-	    $("#proName").val(admin.attr("username"));
-		$("#proPhone").val(admin.attr("phone"));
-		$("#proCountry").val(admin.attr("nation"));
-		$("#proEmail").val(admin.attr("email"));
-		$("#proPassword").val(admin.attr("password"));
-		$("#proPassword1").val(admin.attr("password"));
+	$("#myProfile").on("click",function(){
+		
+			viewProfile();
+		
+		   $("#myProfileModal").modal('show');
 	});
+	
 
-}
+	
+	function viewProfile(){
+		$.getJSON("http://14.32.66.127:4000/admin/view?adminno="+adminno,function(data){
+		    var admin = $(data);
+		    
+		    console.log(admin);
+		  
+		    $("#proName").val(admin.attr("username"));
+			$("#proPhone").val(admin.attr("phone"));
+			$("#proCountry").val(admin.attr("nation"));
+			$("#proEmail").val(admin.attr("email"));
+			$("#proPassword").val(admin.attr("password"));
+			$("#proPassword1").val(admin.attr("password"));
+		});
+	
+	}
+
+
+	$("#delAccount").on("click",function(){
+		alert("탈퇴하시겠습니까?");
+		
+	});
 
 </script>
 
