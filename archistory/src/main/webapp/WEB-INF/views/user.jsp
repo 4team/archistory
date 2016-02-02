@@ -158,14 +158,18 @@ text-align:center;
             overflow-y:scroll;
         }
 </style>
- <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    
 
+   <!-- Core JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
+	<script src="js/classie.js"></script>
+	<script src="js/gnmenu.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
+	<script src="js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
+    
 <body>
 
 <div class="menu">
@@ -190,15 +194,7 @@ text-align:center;
 </ul>
 	</div>
 	
-	 <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/classie.js"></script>
-	<script src="js/gnmenu.js"></script>
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.js"></script>
+	
     
 	<!-- Section: intro -->
     <section id="intro" class="intro">
@@ -221,11 +217,6 @@ text-align:center;
 		</ul>
 	</div>
 
-
-
-	<script src="js/nivo-lightbox.min.js"></script>
-	
-	
 	<!-- 루트리스트 뜨는 어두운전체창 -->
 			<div class="nivo-lightbox-overlay nivo-lightbox-theme-default nivo-lightbox-effect-fadeScale nivo-lightbox-open" id="routeList">
 			<div class="nivo-lightbox-wrap">
