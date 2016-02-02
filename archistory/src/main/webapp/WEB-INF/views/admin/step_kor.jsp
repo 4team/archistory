@@ -592,7 +592,18 @@
 
 			list.each(function(idx,value){
                 var event= this;
-                addList(idx,event);
+               
+                var order = idx+1;
+        		var eorder = event.eorder;
+                
+                if(order!=eorder){
+                	console.log("이벤트 순서 달라요");
+                	modiOrder(event.eventno,order);
+                }
+
+                addList(order,event);
+                
+                
                 addMarker(event);
    
             });
@@ -634,19 +645,13 @@
 
 
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
-    function addList(idx,event){
+    function addList(order,event){
 	
-		var order = idx+1;
         eventLi+="<li data-eventno='"+event.eventno+"' data-eventname='"+event.title+"' class='ui-state-default'><div class='ui-state-default sortable-number'>"+order+"</div>"+event.title+"<div class='gly'><span class='glyphicon glyphicon-pencil' id='modi' value='"+event.eventno+"'></span><span class='glyphicon glyphicon-remove' id='del'  value='"+event.eventno+"'></div></span></li>";
         $("#sortable").html(eventLi);
         
-        console.log("BEFORE이벤트 넘버_"+event.eventno+"/이벤트 이름_"+event.title+"/현재 순서_"+order);
-        
-        
-        if(order!=event.eorder){
-        	console.log("이벤트 순서 달라요");
-        	modiOrder(event.eventno,order);
-        }
+        console.log("이벤트 넘버_"+event.eventno+"/이벤트 이름_"+event.title+"/현재 순서_"+order);
+
 
     }
     
