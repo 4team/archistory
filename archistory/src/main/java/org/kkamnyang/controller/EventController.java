@@ -101,6 +101,7 @@ public class EventController {
 	@RequestMapping(value="/modifyOrder", method = RequestMethod.POST)
 	public ResponseEntity<String> modifyOrder(@RequestBody EventVO vo) throws Exception{
 		System.out.println("EVENT ORDER 수정 POST 호출됨.");
+		System.out.println(vo);
 		ResponseEntity<String> entity = null;
 		
 		try{
