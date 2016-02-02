@@ -117,7 +117,7 @@
     #finishDiv{
     	position:absolute;
     	z-index:5000;
-    	background-color: #000;
+    	background-color: #fff;
     	width:100%;
     	height:100%;
     	display:none;
