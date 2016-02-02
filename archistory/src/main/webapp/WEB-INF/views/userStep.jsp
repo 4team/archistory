@@ -359,8 +359,11 @@ var customOverlay;
         }
 
         getEventByOrder(nowOrder, function (eventVO) {
-        	customOverlay.setMap(null);
-            if(eventVO == null){
+        	if(customOverlay != null){
+	        	customOverlay.setMap(null);
+        	}
+            
+        	if(eventVO == null){
                 alert("모든 이벤트의 끝");
                 return;
             }
