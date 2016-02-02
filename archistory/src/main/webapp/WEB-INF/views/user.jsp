@@ -319,10 +319,10 @@ var routeLi = "";
 			routeLi = "";
 	        console.log(list);
 	        
-	        for(var i=0; i<10; i++){
-				var route = list[i];
+	        list.each(function(idx,value){
+	            var route = this;
 	            getLocation(route);
-			};
+			});
 			
 	    });
     }getAllRouteList();
