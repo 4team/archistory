@@ -189,7 +189,7 @@
             </div>
             <div class="panel-body">
 
-                <div id="qustionImg"></div>
+                <div id="questionImg"></div>
                 <div id="qustionContent"></div>
                 <div id="selectContainer"></div>
 
