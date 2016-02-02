@@ -242,9 +242,7 @@
         text-decoration : none;
         }
         
-        #delAdminModal{
-        	height:100px;
-        }
+       
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -335,7 +333,7 @@
 
 <div class="modal fade" id="delAdminModal" tabindex="-1" role="dialog" aria-labelledby="delAdminModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" >
+        <div class="modal-content" style="height:150px;">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
