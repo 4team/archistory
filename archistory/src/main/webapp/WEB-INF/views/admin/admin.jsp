@@ -299,12 +299,13 @@
             </div>
             <div class="modal-body">
                    <table id="profile" align="center">
-	                    <tr><td>NAME &nbsp :&nbsp </td><td>&nbsp<input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
-			            <tr><td>PHONE &nbsp :&nbsp </td><td>&nbsp<input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
-			            <tr><td>COUNTRY &nbsp:&nbsp </td><td>&nbsp<input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
-			            <tr><td>E-MAIL &nbsp:&nbsp </td><td>&nbsp<input type='email' class='form-control' id="proEmail" placeholder='Email'></td></tr>
-			            <tr><td>PASSWORD&nbsp:&nbsp </td><td>&nbsp<input type='password' class='form-control' id="proPassword" placeholder='Password'></td></tr>
-			            <tr><td>PASSWORD&nbsp:&nbsp<br>&nbsp(AGAIN)&nbsp</td><td>&nbsp<input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
+                   		<tr><img src ="/img/profile.png">
+	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
+			            <tr><td>PHONE &nbsp :&nbsp </td><td><input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
+			            <tr><td>COUNTRY &nbsp:&nbsp </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
+			            <tr><td>E-MAIL &nbsp:&nbsp </td><td><input type='email' class='form-control' id="proEmail" placeholder='Email'></td></tr>
+			            <tr><td>PASSWORD&nbsp:&nbsp </td><td><input type='password' class='form-control' id="proPassword" placeholder='Password'></td></tr>
+			            <tr><td>PASSWORD&nbsp:&nbsp<br>&nbsp(AGAIN)&nbsp</td><td><input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
 		            
                 </table>
                	 
