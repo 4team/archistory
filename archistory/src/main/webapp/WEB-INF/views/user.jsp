@@ -312,7 +312,12 @@ $("#closeList").on("click",function(){
     
 //admin myinfo page
 $("#myInfo").on("click",function(){
-	$("#userInfo").toggle();
+	var memberno = $("#myInfo").attr("data-src");
+	if(memberno !=0){
+		$("#userInfo").toggle();
+	}else{
+		console.log("로그인하는 창 띄우기");
+	}
 });
         
 var routeLi = "";
