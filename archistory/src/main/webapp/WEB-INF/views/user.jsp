@@ -418,7 +418,7 @@ var routeLi = "";
         console.log("[ 지오로케이션 실행 ]");
 		   
         navigator.geolocation.getCurrentPosition(function(position){
-
+			console.log()
             var lt = position.coords.latitude;
             var ln = position.coords.longitude;
 
