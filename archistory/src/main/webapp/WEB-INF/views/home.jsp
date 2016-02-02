@@ -234,7 +234,7 @@
         z-index:1;
         }
         
-        span .glyphicon-menu-hamburger {
+        span a .glyphicon-menu-hamburger {
 	   		font-size: 1.8em;
 	   		margin:2px;
 	   		margin-top:3px;
