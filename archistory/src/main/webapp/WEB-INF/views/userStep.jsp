@@ -115,6 +115,8 @@
         z-index:1000;
     }
     #finishDiv{
+    	position:absolute;
+    	z-index:5000;
     	background-color: #000;
     	width:100%;
     	height:100%;
