@@ -418,6 +418,7 @@ var routeLi = "";
    	   function getLocation(route){
         console.log("[ 지오로케이션 실행 ]");
 	   if(num==0){
+		   console.log("지오로케이션 if 들어옴!!")
 			 getAllRouteList();
         navigator.geolocation.getCurrentPosition(function(position){
 
