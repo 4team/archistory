@@ -129,19 +129,19 @@ text-align:center;
 		left:22px;
 		}
 		.fa-map-marker{
-		top:84px;
+		top:82px;
 		left:24px;
 		}
 		.fa-question{
-		top:160px;
+		top:150px;
 		left:24px;
 		}
 		.fa-book{
-		top:236px;
+		top:216px;
 		left:22px;
 		}
 		.fa-download{
-		top:310px;
+		top:260px;
 		left:22px;
 		}
 		.gn-menu li:hover{
