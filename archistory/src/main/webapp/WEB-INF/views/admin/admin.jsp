@@ -231,7 +231,11 @@
        #memberlist{
         text-align : center;
         }
-        
+       
+       #profile{
+       	boarder-spacing: 5px 1px;
+       }
+       
         #profile td{
         text-align : right;
         margin-right : 10px;
@@ -313,7 +317,7 @@
 				      <img src ="/img/profile.png">
 			    </div>   
                 
-                   <table id="profile" align="center" border-spacing="5px">
+                   <table id="profile" align="center">
 	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
 			            <tr><td>PHONE &nbsp :&nbsp </td><td><input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
 			            <tr><td>COUNTRY &nbsp:&nbsp </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
