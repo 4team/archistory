@@ -705,7 +705,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		    var password1=$("#proPassword1").val();
 		    
 		    if( password != password1){
-		    	alret("패스워드가 동일하지 않습니다.");
+		    	alert("패스워드가 동일하지 않습니다.");
 		    	return;
 		    }
 		    
