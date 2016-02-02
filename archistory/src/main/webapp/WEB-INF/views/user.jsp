@@ -165,6 +165,7 @@ text-align:center;
 	<script src="js/classie.js"></script>
 	<script src="js/gnmenu.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/nivo-lightbox.min.js"></script>
 	<script src="js/stellar.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
@@ -194,8 +195,6 @@ text-align:center;
 	</div>
 	
     
-	<script src="js/nivo-lightbox.min.js"></script>
-	
 	<!-- Section: intro -->
     <section id="intro" class="intro">
 		<div class="slogan">
