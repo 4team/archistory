@@ -180,7 +180,7 @@ text-align:center;
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li><i class="fa fa-home fa-6"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
 								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
 								
 									<ul  id="menuRouteList"></ul>
@@ -303,22 +303,29 @@ $("#list").on("click",function(){
 $("#closeList").on("click",function(){
 	 $("#routeList").hide();	 	
 });
+
 var routeLi = "";
     function addList(route) {
-        routeLi += "<li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px;' data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'><div class='rr'>" + route.routename + "</div></li>";
+        routeLi += "<li class='rName'  style='border:2px outset white; margin:10px 10px 10px 10px;'" +
+        "data-lat='"+route.lat+"' data-lng='"+route.lng+"' data-routename='"+route.routename+"' data-routeno='"+route.routeno+"'>"+
+        "<div class='rr'>" + route.routename + "</div></li>";
         $("#myRouteList").html(routeLi);
     }
+    
     function getAllRouteList(){
 	    $.getJSON("http://14.32.66.127:4000/route/listAll", function(data){
 	        var list = $(data);
 			routeLi = "";
-	        list.each(function(idx,value){
+	        
+			list.each(function(idx,value){
 	            var route = this;
-	            addList(route);
+	            getLocation(route);
+	                 if(distance>1000){
+	            		addList(route);
+	            		}
 	        });
 	    });
-    }
-    
+    }    
     getAllRouteList();
     
     function getMetaContentByName(name,content){
@@ -401,7 +408,35 @@ var routeLi = "";
    		$("#joinModal").modal('show');
    	});
    	
+
+   	// 나의 위치를 읽어온다.
+    window.addEventListener('deviceorientation',getLocation);
+
+   	var distance;
+   	// 내 위치 잡기
+   	   function getLocation(route){
+        console.log("[ 지오로케이션 실행 ]");
+        navigator.geolocation.getCurrentPosition(function(position){
+
+            var lt = position.coords.latitude;
+            var ln = position.coords.longitude;
+
+            console.log('My latitude: ', lt);
+            console.log('My longitude: ', ln);
+
+            myLat = lt;
+            myLng = ln;
+
    	
+       var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
+	   distance = ret.toFixed(2);
+       
+//       if(ret.toFixed(2) < 100){
+//           customOverlay.setMap(null);
+//           eventModal.modal("show");
+       });
+        };
+
 </script>
 	 <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
