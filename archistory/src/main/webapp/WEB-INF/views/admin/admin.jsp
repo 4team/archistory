@@ -234,6 +234,7 @@
        
        #profile{
        	border-spacing: 5px 1px;
+       	border-collapse: separate;
        }
        
         #profile td{
