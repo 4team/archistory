@@ -553,9 +553,6 @@ var myMarker = null;
                 console.log("Question이 없다.");
                 eventModal.modal("hide");
                 $("#moveNext").modal("show");
-                event.preventDefault();
-                eventModal.modal("hide");
-                $("#moveNext").modal("show");
                 nowOrder++;
 
 
