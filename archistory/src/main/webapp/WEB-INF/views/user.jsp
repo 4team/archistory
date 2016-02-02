@@ -431,6 +431,7 @@ var routeLi = "";
        var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
 	   distance = ret.toFixed(2);
 			console.log(ret);
+			console.log(distance);
 	   
        
 //       if(ret.toFixed(2) < 100){
