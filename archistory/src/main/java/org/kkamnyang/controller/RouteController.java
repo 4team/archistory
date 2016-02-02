@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
+import org.kkamnyang.domain.LocationVO;
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,15 +35,10 @@ public class RouteController{
 	}
 	
 	@RequestMapping(value="/closelist", method=RequestMethod.GET)
-	public @ResponseBody List<RouteVO> closelist(@Param(value="lat") double lat,@Param(value="lng") double lng, HttpServletRequest request) throws Exception{
-		
-		HashMap<String, Double> param = new HashMap<String, Double>();
-		param.put("lat", lat);
-		param.put("lng", lng);
-		
-		System.out.println("lat,lng:"+lat+","+lng);
-		
-		List<RouteVO> result = service.closelist(param);
+	public @ResponseBody List<RouteVO> closelist(@RequestBody LocationVO vo, HttpServletRequest request) throws Exception{
+			
+		System.out.println("closelist Controller 진입");
+		List<RouteVO> result = service.closelist(vo);
 		return result;
 	}
 	

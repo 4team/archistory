@@ -323,8 +323,9 @@ var routeLi = "";
         $("#myRouteList").html(routeLi);
     }
     
+    var myLocation=0;
     function getAllRouteList(){
-	    $.getJSON("http://14.32.66.127:4000/route/closelist?lat="+37.492383+"?lng="+127.029276, function(data){
+	    $.getJSON("http://14.32.66.127:4000/route/closelist?"+ myLocation, function(data){
 	         var list = $(data);
 			routeLi = "";
 	        console.log(list);
@@ -420,13 +421,26 @@ var routeLi = "";
    	});
    	
 
-   
+    $.ajax({
+        type:'post',
+        url:"http://14.32.66.127:4000/route/closelist",
+        headers: {
+            "Content-Type":"application/json"},
+        datatype: "json",
+        data:JSON.stringify({myLat:myLat,myLng:myLng}),
+        success: function(data){
+            console.log("내위치 stringify로 변환하러 들어옴");
+            myLocation = parseDouble(data);
+        }
+    });
+
+    
  // 나의 위치를 읽어온다.
     window.addEventListener('deviceorientation',getLocation);
 
-	var myLat;
-	var myLng;
-   	var distance;
+	var myLat=0;
+	var myLng=0;
+   	var distance=0;
    	// 내 위치 잡기
    	   function getLocation(route){
         console.log("[ 지오로케이션 실행 ]");

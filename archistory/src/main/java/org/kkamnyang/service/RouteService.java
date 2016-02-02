@@ -1,8 +1,8 @@
 package org.kkamnyang.service;
 
-import java.util.HashMap;
 import java.util.List;
 
+import org.kkamnyang.domain.LocationVO;
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.persistence.RouteMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ public class RouteService {
 		return mapper.list();
 	}
 	
-	public List<RouteVO> closelist(HashMap<String, Double> param) throws Exception {
-		return mapper.closelist(param);
+	public List<RouteVO> closelist(LocationVO vo) throws Exception {
+		return mapper.closelist(vo);
 	}
 	
 	public List<RouteVO> list(int adminno) throws Exception{
