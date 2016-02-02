@@ -231,6 +231,10 @@
        #memberlist{
         text-align : center;
         }
+        
+        #profile td{
+        text-align : right;
+        }
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -266,7 +270,7 @@
     <li role="presentation" class="divider"></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
   </ul>
-</div>
+</div> 
 </div>
 
 
@@ -292,14 +296,13 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-                   <table>
-                   
+                   <table id="profile">
 	                    <tr><td>NAME: </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
-			            <tr><td>PHONE: </td><td><input type='number' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
+			            <tr><td>PHONE: </td><td><input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
 			            <tr><td>COUNTRY: </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
 			            <tr><td>E-MAIL: </td><td><input type='email' class='form-control' id="proEmail" placeholder='Email'></td></tr>
 			            <tr><td>PASSWORD: </td><td><input type='password' class='form-control' id="proPassword" placeholder='Password'></td></tr>
-			            <tr><td>PASSWORD(AGAIN)): </td><td><input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
+			            <tr><td>PASSWORD(AGAIN): </td><td><input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
 		            
                 </table>
                	 
