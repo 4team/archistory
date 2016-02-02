@@ -114,22 +114,42 @@
         background-color: #FFF;
         z-index:1000;
     }
+    
+
     #finishDiv{
-    	position:absolute;
-    	z-index:5000;
-    	background-color: #fff;
-    	width:100%;
-    	height:100%;
-    	display:none;
-    	text-align: center;
+        position:absolute;
+        z-index:5000;
+        background-color: #fff;
+        width:100%;
+        height:100%;
+        display:none;
+        text-align: center;
         font-size : 20px;
     }
-    
-   #finishDiv img{
-        width:100%;
 
+    #finishDiv img{
+        width:60%;
     }
-    
+
+    #finishContent{
+        position:absolute;
+        text-align: center;
+        top:70%;
+        left:50%;
+        margin-left:-100px;
+        z-index: 6000;
+    }
+
+    #finishClose{
+        position:absolute;
+        left:50%;
+        right:0;
+        margin-left:-20px;
+        top:80%;
+    }
+
+
+
     #questionImg img{
         width:550px;
     }
@@ -239,9 +259,9 @@
 </div>
 
 <div id="finishDiv">
-<img src="http://14.32.66.127:4000/img/Contentulations.jpg">
-${routename} Finish!
-<input type="button" class="btn btn-default" value="CLOSE">
+    <img src="http://14.32.66.127:4000/img/Contentulations.jpg">
+   <div id="finishContent">'${routename}' Finish!</div>
+    <button type="button" id="finishClose" class="btn btn-default">OK</button>
 </div>
 
 <div id="myLocation"></div>
