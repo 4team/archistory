@@ -1144,6 +1144,10 @@ $("#main").on("mouseover",function(){
 	   };
  
          
+	   
+	   $("#myInfo").on("click",function(){
+		   $("#myProfileModal").modal('show');
+	   });
 
 	        
 	</script>
