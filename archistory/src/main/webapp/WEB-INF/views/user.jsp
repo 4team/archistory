@@ -336,7 +336,28 @@ var myLng;
         myLat = lt;
         myLng = ln;
         console.log(myLat);
-    getRouteList();
+
+
+        (function getRouteList(){
+            $.ajax({
+    	        type:'get',
+    	        url:"http://14.32.66.127:4000/route/closelist",
+    	        headers: {
+    	            "Content-Type":"application/json"},
+    	        datatype: "json",
+    	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
+    	        success: function(data){
+    	        var list = $(data);
+    			routeLi = "";
+    	        console.log(list);
+    	        
+    	        list.each(function(idx,value){
+    	            var route = this;
+    	            calcDistance(route);
+    	        });
+    	        }
+    	  });
+    		})();
    });
     }
     getLocation();
@@ -344,26 +365,7 @@ var myLng;
 
 
            
-   		function getRouteList(){
-           $.ajax({
-   	        type:'get',
-   	        url:"http://14.32.66.127:4000/route/closelist",
-   	        headers: {
-   	            "Content-Type":"application/json"},
-   	        datatype: "json",
-   	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
-   	        success: function(data){
-   	        var list = $(data);
-   			routeLi = "";
-   	        console.log(list);
-   	        
-   	        list.each(function(idx,value){
-   	            var route = this;
-   	            calcDistance(route);
-   	        });
-   	        }
-   	  });
-   		}
+   		
            
    		function calcDistance(route){
            var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
