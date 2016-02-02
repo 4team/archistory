@@ -315,7 +315,7 @@
             </div>
             <div class="modal-body">
             	<div id="imgDiv" style="margin-left:210px;">
-				      <img id="modiImg" src ="/img/profile.png" class="img-rounded">
+				      <img id="modiImg" src ="/img/profile.png">
 			    </div>   
                 
                    <table id="profile" align="center">
