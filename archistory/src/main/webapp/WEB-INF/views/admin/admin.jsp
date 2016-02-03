@@ -252,6 +252,11 @@
         height:200px;
         }
         
+        iframe{
+        width:0px;
+        height:0px;
+        border:0px;
+        }
        
     </style>
     
@@ -356,6 +361,7 @@
            			<input type='file' name='file'>
            			<input type='submit'>
            		</form>
+           		<iframe name="zeroFrame"></iframe>
             </div>
             <div class="modal-footer">
 
@@ -710,9 +716,12 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 			viewProfile();
 		
 		   $("#myProfileModal").modal('show');
-		  
 	});
 	
+	function addFilePath(msg){
+		alert(msg);
+		document.getElementByID("form1").reset();
+	}
 
 	
 	function viewProfile(){
