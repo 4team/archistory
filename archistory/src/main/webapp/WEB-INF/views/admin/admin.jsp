@@ -724,10 +724,11 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 		regiAdminImg(adminno,dbImg);
 		
-		//이미지 가져와야 함.
-
+		var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbImg
+		
+		
 		//이미지 교체 되어야 함.
-		//$("#modifoto").attr("src",imgName); 
+		$("#modifoto").attr("src",imgAddr); 
 		
 		
 		$("#imgModal").modal('hide');
@@ -750,9 +751,24 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 				  console.log("admin 이미지 등록처리 결과 :"+ data);
 			  }				   
 		   });
-	    
-
 	}
+	
+	function getImg(dbImg){
+		
+		 $.ajax({
+			  type:'post',
+			  url:"http://14.32.66.127:4000/admin/displayFile",
+			  headers : {
+				"Content-Type" : "application/json"  
+			  },
+			  datatype:"json",
+			  data:JSON.stringify({adminno:adminno,img:dbImg}),
+			  success: function(data){
+				  console.log("admin 이미지 등록처리 결과 :"+ data);
+			  }				   
+		   });
+		
+	};
 
 	
 	function viewProfile(){
