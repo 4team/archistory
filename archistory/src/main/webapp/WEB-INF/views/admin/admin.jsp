@@ -249,7 +249,7 @@
         
         #imgDiv img{
         width:200px;
-        height:auto;
+        height:200px;
         display:block;
         }
         
