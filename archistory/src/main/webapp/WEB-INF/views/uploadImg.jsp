@@ -5,7 +5,7 @@
 <script>
 
 
-	var imgName= $('savedName');
+	var imgName= '${savedName}';
 	parent.closeRegiImg(imgName);
 
 

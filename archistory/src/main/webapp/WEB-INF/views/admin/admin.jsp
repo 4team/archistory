@@ -730,6 +730,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 		
 		$("#imgModal").modal('hide');
+		document.getElementById("form1").reset();
 		
 		//이미지 교체 되어야 함.
 	}
