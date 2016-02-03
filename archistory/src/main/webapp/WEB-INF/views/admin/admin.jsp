@@ -341,7 +341,7 @@
 
 <!--  myProfile img modal -->
 
-<form id='imgForm' action='/admin/uploadForm' method='post' enctype='multipart/form-data'>
+
 <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="height:200px;">
@@ -352,7 +352,9 @@
                 <h4 class="modal-title">Modify Image</h4>
             </div>
             <div class="modal-body" style="height:80px;">
-           			<input type='file'>
+            <form id='imgForm' action='/admin/uploadForm' method='post' enctype='multipart/form-data'>
+           			<input type='file'><input type='submit'>
+           	</form>
             </div>
             <div class="modal-footer">
                 <button type="button" id="regiImgBtn" class="btn btn-create">REGISTER</button>
@@ -361,7 +363,7 @@
         </div>
     </div>
 </div>
-</form>
+
 
 
 <!--  myProfile DELETE modal -->
