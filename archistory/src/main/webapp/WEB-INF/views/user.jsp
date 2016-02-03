@@ -230,6 +230,7 @@ text-align:center;
 		</button>
 		<ul id="userInfo">
 			<li><a id="showInfo">My Info</a></li>
+			<li><a id="myPage">My Page</a></li>
 			<li><a href="/user/logout">Logout</a></li>
 		</ul>
 	</div>
@@ -388,6 +389,10 @@ $("#myInfo").on("click",function(){
 		}
 	});
 
+	
+	$("#myPage").on("click",function(){
+		
+	});
 
 
 // 나의 위치를 읽어온다.
