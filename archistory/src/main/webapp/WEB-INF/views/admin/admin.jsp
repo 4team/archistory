@@ -341,7 +341,7 @@
 
 <!--  myProfile img modal -->
 
-
+ <form id='form1' action='admin/imgUpload' method='post' enctype='multipart/form-data'>
 <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="height:200px;">
@@ -352,18 +352,17 @@
                 <h4 class="modal-title">Modify Image</h4>
             </div>
             <div class="modal-body" style="height:80px;">
-            <form id='imgForm' action='/admin/uploadForm' method='post' enctype='multipart/form-data'>
-           			<input type='file'><input type='submit'>
-           	</form>
+           			<input type='file'>
+           			<input type='submit'>
             </div>
             <div class="modal-footer">
-                <button type="button" id="regiImgBtn" class="btn btn-create">REGISTER</button>
+
                 <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
             </div>
         </div>
     </div>
 </div>
-
+</form>
 
 
 <!--  myProfile DELETE modal -->
@@ -736,6 +735,11 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	$("#modifoto").on("click",function(){
 		console.log("이미지 클림됨.");
 		$("#imgModal").modal('show');	
+		
+	});
+	
+	$("#imgForm").submit(function(){
+		console.log("이미지등록 시도!");
 		
 	});
 	

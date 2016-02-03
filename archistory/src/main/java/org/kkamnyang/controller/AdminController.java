@@ -218,8 +218,9 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping(value="/uploadForm",method=RequestMethod.POST)
+	@RequestMapping(value="/imgUpload",method=RequestMethod.POST)
 	public void uploadForm(MultipartFile file, Model model) throws Exception{
+		System.out.println("admin 이미지 등록 POST 호출됨.");
 		System.out.println("originalName: "+ file.getOriginalFilename());
 		System.out.println("size: "+file.getSize());
 		System.out.println("contentType:"+file.getContentType());
