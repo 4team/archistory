@@ -384,6 +384,8 @@ text-align:center;
 
 var memberno = ${memberno};
 
+jQuery.noConflict(); 
+
 //route list 보이기
 $("#list").on("click",function(){
 	 $("#routeList").show();	 	
@@ -398,7 +400,7 @@ $("#myInfo").on("click",function(){
 	if(memberno !=0){
 		$("#userInfo").toggle();
 	}else{
-		$("#loginModal").show();
+		$("#loginModal").modal('show');
 	}
 });
 
@@ -550,18 +552,8 @@ var myLng;
              }
         });
 }
-    jQuery.noConflict(); 
+
     
-
-    $("#loginBtn").on("click",function(){
-        $("#loginModal").show();
-    });
-
-    	
-   	$("#joinBtn").on("click",function(){
-   		$("#joinModal").show();
-   	});
-   	
    	$("#myInfo").on("click",function(){
    		if(memberno != 0){
 	   		$("#myProfileModal").modal('show');
