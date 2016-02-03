@@ -493,7 +493,11 @@
                         showModal = true;
                     	return;
                     });
-
+                    
+                    if(showModal == true){
+                        return;
+                    }
+                    
                 });
             }
 
