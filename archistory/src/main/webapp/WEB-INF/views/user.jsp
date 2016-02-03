@@ -340,7 +340,7 @@ var myLng;
 
         (function getRouteList(){
             $.ajax({
-    	        type:'get',
+    	        type:'post',
     	        url:"http://14.32.66.127:4000/route/closelist",
     	        headers: {
     	            "Content-Type":"application/json"},
