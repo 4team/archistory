@@ -401,7 +401,7 @@
             // 마커와 인포윈도우를 표시합니다
             displayMarker(locPosition);
             console.log("내위도경도:" + myLat + "," + myLng);
-
+console.log(showModal);
             var routeLoc = new daum.maps.LatLng(lat, lng)
             // 지도 중심좌표를 루트로 변경
             map.setCenter(routeLoc);
