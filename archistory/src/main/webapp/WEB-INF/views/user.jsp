@@ -384,8 +384,6 @@ text-align:center;
 
 var memberno = ${memberno};
 
-jQuery.noConflict(); 
-
 //route list 보이기
 $("#list").on("click",function(){
 	 $("#routeList").show();	 	
