@@ -293,10 +293,10 @@ text-align:center;
 			    </div>   
                 
                    <table id="profile" align="center">
-	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text'  id="proName" placeholder='Name' ></td></tr>
-			            <tr><td>E-MAIL &nbsp:&nbsp </td><td><input type='email'  id="proEmail" placeholder='Email' readonly></td></tr>
-			            <tr><td>PASSWORD&nbsp:&nbsp </td><td><input type='password'  id="proPassword" placeholder='Password'></td></tr>
-			            <tr><td>PASSWORD&nbsp:&nbsp<br>&nbsp(AGAIN)&nbsp</td><td><input type='password'  id="proPassword1" placeholder='Password(Again)'></td></tr>
+	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text'  id="proName" class="form-control" placeholder='Name' ></td></tr>
+			            <tr><td>E-MAIL &nbsp:&nbsp </td><td><input type='email'  id="proEmail" class="form-control" placeholder='Email' readonly></td></tr>
+			            <tr><td>PASSWORD&nbsp:&nbsp </td><td><input type='password'  id="proPassword" class="form-control" placeholder='Password'></td></tr>
+			            <tr><td>PASSWORD&nbsp:&nbsp<br>&nbsp(AGAIN)&nbsp</td><td><input type='password' class="form-control"  id="proPassword1" placeholder='Password(Again)'></td></tr>
                 </table>
                	 
                
