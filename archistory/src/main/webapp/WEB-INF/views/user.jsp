@@ -213,7 +213,7 @@ text-align:center;
 	<!--   fasdfsafdasda -->
 	<div id="upper-login">
 		<button type="button" id="myInfo" data-src="${memberno}"
-			class="btn btn-primary btn-xs">
+			class="btn btn-primary">
 			<font face="verdana" size="2">${name}님</font>
 		</button>
 		<ul id="userInfo">

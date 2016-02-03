@@ -11,17 +11,6 @@
 <head>
     <meta charset="UTF-8">
     <title>= Archistory(USER) = StepMode </title>
-    
-     <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets/css/ct-paper.css" rel="stylesheet"/>
-    <link href="assets/css/demo.css" rel="stylesheet" /> 
-        
-    <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-    
-    
 </head>
 <style>
     html, body {
@@ -83,10 +72,13 @@
 
     #imageUl img{
      margin: 10px;
-     width:450px;
-     height:300px;
-
-    }
+     width:380px;
+     height:auto;
+	 box-shadow: 5px 5px 5px 0px lightgray;
+	 margin:auto;
+	 border-radius: 7px;
+	 margin:0px 0px 10px 0px;
+	}
 
 
     ::-webkit-scrollbar {
@@ -167,6 +159,9 @@
     .modal-content{
     z-index:7000;
     }
+    .modal-footer{
+    float:bottom;
+    }
 </style>
 
 <script type="text/javascript" src="js/upload.js"></script>
@@ -199,9 +194,9 @@
             </div>
             <div class="modal-body">
 
-                <div id="buttonContainer"></div>
-                <div id="imageUl"></div>
-                <h4 id="content" style="align:center";></h4>
+                <div id="buttonContainer"></div><br><br>
+                <div id="imageUl"></div><br>
+                <h5 id="content" style="text-align:center; font-weight:bold;"></h5>
 </div>
 <div class="modal-footer">
                 <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
@@ -264,7 +259,7 @@
 
 
 <div class="modal fade" id="moveNext" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="top:100px;">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div>Move Next!</div>
@@ -728,18 +723,5 @@ var myMarker = null;
 
 </script>
 
-
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
-
-	<script src="bootstrap3/js/bootstrap.js" type="text/javascript"></script>
-	
-	<!--  Plugins -->
-	<script src="assets/js/ct-paper-checkbox.js"></script>
-	<script src="assets/js/ct-paper-radio.js"></script>
-	<script src="assets/js/bootstrap-select.js"></script>
-	<script src="assets/js/bootstrap-datepicker.js"></script>
-	
-	<script src="assets/js/ct-paper.js"></script>
 </body>
 </html>
