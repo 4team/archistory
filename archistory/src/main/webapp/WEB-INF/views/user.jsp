@@ -381,10 +381,7 @@ $("#myInfo").on("click",function(){
 	$("#showInfo").on("click",function(){
 		if(memberno != 0){
 			$.getJSON("http://14.32.66.127:4000/member/view?memberno="+memberno,function(data){
-				console.log("얻어온 멤버");
-				console.log(data);
 				var memberVO = $(data)[0];
-				console.log(memberVO);
 				
 				$("#proEmail").val(memberVO.email);
 				$("#proName").val(memberVO.userName);
