@@ -71,9 +71,9 @@
     }
 
     #imageUl img{
-     margin: 10px;
-     width:450px;
-     height:300px;
+        margin: 10px;
+        width:450px;
+        height:300px;
 
     }
 
@@ -114,7 +114,7 @@
         background-color: #FFF;
         z-index:1000;
     }
-    
+
 
     #finishDiv{
         position:absolute;
@@ -252,7 +252,7 @@
 
 <div id="finishDiv">
     <img src="http://14.32.66.127:4000/img/Contentulations.jpg">
-   <div id="finishContent">'${routename}' Finish!</div>
+    <div id="finishContent">'${routename}' Finish!</div>
     <button type="button" id="finishClose" class="btn btn-default">OK</button>
 </div>
 
@@ -262,19 +262,20 @@
 
 
 <script id="template" type="text/x-handlebars-template">
-       <img src="{{fileName}}"/>
+    <img src="{{fileName}}"/>
 </script>
 <script>
     var template = Handlebars.compile($("#template").html());
     var markers = [];
-    var lat = 37.4946413;
-    var lng = 127.0280075;
-    var memberno = 47;
-    var routeno = 430;
+    var lat = ${lat};
+    var lng = ${lng};
+    var memberno = ${memberno};
+    var routeno = ${routeno};
     var eventLi="";
     var eventno = 1;
     var events = [];
     var score = 0;
+    var showModal = false;
 
     //모달들 변수
     var eventModal = $("#eventModal");
@@ -285,7 +286,7 @@
     var mapContainer = document.getElementById('map'),
             mapOption = {
                 center: new daum.maps.LatLng(lat, lng), // 지도의 중심좌표
-                level: 3
+                level: 1
             };
     var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -302,7 +303,7 @@
     var eLng;
 
     //이벤트 가져오기
-    function getEventList(){
+    function getEventList(callback){
         console.log("getEventList가 호출되어 시작됨.");
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             num++;
@@ -317,10 +318,14 @@
             });
 
         });
+        callback();
     };
 
 
-    getEventList();
+    getEventList(function(){
+        console.log("========== [ Events Array ] =========");
+        console.log(events);
+    });
 
 
     //------------------------------ 유저 루트 참여 시작 ----------------------------------//
@@ -377,6 +382,7 @@
 
     var myLat=0;
     var myLng=0;
+
     window.addEventListener('deviceorientation',getLocation);
 
     function getLocation(){
@@ -402,8 +408,8 @@
 
 
             //내위치와 마커위치 미터단위로 계산하는 식
-            function calDistance(eLat,eLng,myLat,myLng){
-                var ret=0;
+            function calDistance(eLat,eLng,myLat,myLng,callback){
+                var ret = 0;
                 var latA=111;
                 var lngB=88.8;
                 ret = Math.sqrt(
@@ -411,14 +417,215 @@
                                 +
                                 Math.pow((Math.abs(eLng-myLng)*lngB),2)
                         )*1000;
-                console.log(ret.toFixed(2));
 
-                if(ret.toFixed(2)<3){
-                    $("#eBox").modal('show');
+                console.log(ret);
+                $("#myLocation").html("<h3>"+lt+"</h3><br><h3>"+ln+"</h3><br><h3>"+ret+"</h3>");
+                if(ret.toFixed(2)<30){
+                    callback();
                 }
             }
+
+            // 이벤트 모달이 보여지고 있지 않을 시에만 거리를 검사해서 조건에 만족하는 이벤트 정보를 모달에 넣어 띄워준다.
+            if(showModal == false) {
+
+
+                $(events).each(function () {
+                    var event = $(this)[0];
+                    eventVO = event;
+
+                    console.log("이벤트 찍어보기");
+                    console.log(event);
+
+                    calDistance(event.lat, event.lng, myLat, myLng, function () {
+                        $("#title").html(eventVO.title);
+
+                        var youtubeStr = "";
+                        if (eventVO.youtube != null) {
+                            youtubeStr = eventVO.youtube.split("THUMBNAIL");
+                        }
+
+                        console.log("============유투브 가져오기=============");
+
+
+                        //카메라 있고 영상없는 경우
+                        if (eventVO.camera == true && eventVO.youtube == "") {
+                            $("#buttonContainer").html("<button id='camera'><span class='glyphicon glyphicon-camera' aria-hidden='true' ></span></button>");
+
+                            //카메라 있고 영상 있는 경우
+                        } else if (eventVO.camera == true && eventVO.youtube != "") {
+                            $("#buttonContainer").html("<button onclick='videoClick()'><span class='glyphicon glyphicon-facetime-video' aria-hidden='true'></span></button><button id='camera'><span class='glyphicon glyphicon-camera' aria-hidden='true'></span></button>");
+                            $("#movieShow").html("<embed  src='http://www.youtube.com/v/" + youtubeStr[0] + "' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true'></embed>");
+
+                            //카메라 없고 영상 있는 경우
+                        } else if (eventVO.camera == false && eventVO.youtube != "") {
+                            $("#buttonContainer").html("<button onclick='videoClick()'><span class='glyphicon glyphicon-facetime-video' aria-hidden='true'></span></button>");
+                            $("#movieShow").html("<embed  src='http://www.youtube.com/v/" + youtubeStr[0] + "' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true'></embed>");
+
+                            //둘 다 없는 경우
+                        } else {
+                            $("#buttonContainer").html("");
+                        }
+
+                        $.getJSON("http://14.32.66.127:4000/event/getAttach/" + eventVO.eventno, function (data) {
+                            $("#imageUl").html("");
+                            console.log("==== 첨부한 사진을 불러온다 ====");
+                            console.log(data);
+                            if (data != "") {
+                                var array = data[0].split(',');
+                                var length = array.length;
+                                for (var i = 0; i < length; i++) {
+                                    var name = array[i];
+                                    var fileinfo = getFileInfo(name);
+                                    var html = template(fileinfo);
+                                    $("#imageUl").append(html);
+                                }
+                            }
+                        });
+
+
+                        $("#content").html(eventVO.content);
+
+                        // 이부분에 내 위치값과 이벤트의 위치값 비교하는 IF문을 넣어줍시다.
+                        eventModal.modal('show');
+                        showModal = true;
+                    });
+
+                });
+            }
+
         });
     };
+
+
+
+    //----------------- Next Button 눌렀을 시 ----------------------------//
+    $("#nextBtn").on("click",function(event){
+        event.preventDefault();
+        console.log("NEXT - 문제 출력");
+
+        $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventVO.eventno,function(data){
+
+            if(data) {
+                var questionStr = "";
+                console.log("Question이 있어서 불러왔다.", data);
+                questionVO = $(data)[0];
+
+                $.getJSON("http://14.32.66.127:4000/question/getAttach/" + questionVO.questionno, function (data) {
+                    console.log("문제에 있는 이미지를 불러온다.");
+                    console.log(data[0]);
+                    if (data[0]) {
+                        console.log("======이미지가 존재한다======");
+                        var fileinfo = getFileInfo(data[0]);
+                        var html = template(fileinfo);
+                        $("#questionImg").append(html+"<br><br>");
+                    }
+                });
+
+                questionStr += "<pre>"+data.question+"</pre>";
+
+                $("#qustionContent").html(questionStr);
+
+                var selector = "";
+                if(data.qtype == "ox"){
+                    selector +="<div class='radio'><label><input type='radio' value='o' name='answer'> O </label></div><div class='radio'><label><input type='radio' value='x' name='answer'> X </label></div>";
+                }else{
+                    selector += "<div class='checkbox'><label><input type='checkbox' value='1' name='answer'>"+data.choice1+"</label></div>";
+                    selector += "<div class='checkbox'><label><input type='checkbox' value='2' name='answer'>"+data.choice2+"</label></div>";
+                    selector += "<div class='checkbox'><label><input type='checkbox' value='3' name='answer'>"+data.choice3+"</label></div>";
+                    selector += "<div class='checkbox'><label><input type='checkbox' value='4' name='answer'>"+data.choice4+"</label></div>";
+                }
+
+                $("#selectContainer").html(selector);
+
+                questionModal.modal("show");
+            }else{
+                console.log("Question이 없다.");
+                eventModal.modal("hide");
+                showModal = false;
+
+                $.ajax({
+                    type:'post',
+                    url:"http://14.32.66.127:4000/participate/next",
+                    headers: {"Content-Type":"application/json"},
+                    datatype: "json",
+                    data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:1}),
+                    success: function(data){
+                        console.log("=========Participate Next========");
+                        console.log(data);
+                    },
+                    error:function(data){
+                        console.log("=========Participate Next========");
+                        console.log(data);
+                    }
+
+                });
+                return;
+            }
+
+        });
+
+    });
+
+
+
+
+
+    //----------------------------------문제를 풀어 버튼을 눌렀을 시 -----------------------------------------------//
+    
+    $("#submitBtn").on("click",function(event){
+
+        event.preventDefault();
+        var answer;
+        if(questionVO.qtype=='ox'){
+            answer = $(":radio[name='answer']:checked").val();
+        }else{
+            answer = $(":checkbox[name='answer']:checked").val();
+        }
+
+        console.log(answer);
+
+        if(answer == null || answer == undefined){
+            $('#submitBtn').popover('show');
+            return;
+        }
+
+        if(questionVO.answer == answer){
+            console.log("정답입니다.");
+            $("#resultShow").html("<h3>정답입니다.</h3>");
+
+            $.ajax({
+                type:"post",
+                url:"http://14.32.66.127:4000/question/solve",
+                headers:{ "Content-Type":"application/json"},
+                datatype:"json",
+                data:JSON.stringify({memberno:memberno,questionno:questionVO.questionno,result:true}),
+                success:function(data){
+                    console.log("문제를 풀고 받은 결과",data);
+                }
+            });
+
+        }else{
+            console.log("틀렸습니다.");
+            $("#resultShow").html("<h3>틀렸습니다.</h3>");
+
+            $.ajax({
+                type:"post",
+                url:"http://14.32.66.127:4000/question/solve",
+                headers:{ "Content-Type":"application/json"},
+                datatype:"json",
+                data:JSON.stringify({memberno:memberno,questionno:questionVO.questionno,result:false}),
+                success:function(data){
+                    console.log("문제를 풀고 받은 결과",data);
+                }
+            });
+        }
+
+
+        questionModal.modal("hide");
+        resultModal.modal("show");
+
+    });
+
 
     // 지도에 마커와 인포윈도우를 표시하는 함수입니다
     var marker;
