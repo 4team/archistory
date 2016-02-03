@@ -434,10 +434,11 @@
                     var event = $(this)[0];
                     eventVO = event;
 
-                    console.log("이벤트 찍어보기");
+                    console.log("루트를 돌면서 이벤트 찍어보기");
                     console.log(event);
 
                     calDistance(event.lat, event.lng, myLat, myLng, function () {
+                        console.log("---콜백에 들어온 이벤트가 생김---");
                         $("#title").html(eventVO.title);
 
                         var youtubeStr = "";
