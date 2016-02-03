@@ -260,7 +260,7 @@
 
 <div class="modal fade" id="moveNext" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="top:100px;" >
-        <div class="panel panel-info">
+        <div class="panel panel-info" style="width:100px; text-align:center;">
             <div class="panel-heading">
                 <div>Move Next!</div>
             </div>
