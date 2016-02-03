@@ -176,9 +176,6 @@ text-align:center;
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
     
-    <!-- 모달창 띄우기 위해 은혜가 추가 -->
-    <script src="/Cesium/js/jquery.js"></script>
-    
     
 <body>
 
@@ -401,7 +398,7 @@ $("#myInfo").on("click",function(){
 	if(memberno !=0){
 		$("#userInfo").toggle();
 	}else{
-		$("#loginModal").modal('show');
+		$("#loginModal").modal("show");
 	}
 });
 
