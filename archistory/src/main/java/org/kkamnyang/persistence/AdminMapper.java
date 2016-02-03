@@ -9,4 +9,5 @@ public interface AdminMapper extends CRUDMapper<AdminVO, Integer> {
 	public String getName(String email) throws Exception;
 	public int getNo(String email) throws Exception;
 	public boolean isEnable(String email) throws Exception;
+	public void modifyImg(AdminVO vo) throws Exception;
 }

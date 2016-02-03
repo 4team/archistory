@@ -40,4 +40,8 @@ public class AdminService{
 	public int getNo(String useremail) throws Exception{
 		return mapper.getNo(useremail);
 	}
+	
+	public void modifyImg(AdminVO vo) throws Exception{
+		 mapper.modifyImg(vo);
+	}
 }

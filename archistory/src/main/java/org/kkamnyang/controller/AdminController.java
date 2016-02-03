@@ -257,6 +257,24 @@ public class AdminController {
 		return savedName;
 	}
 	
+	
+	@RequestMapping(value="/modiImg",method=RequestMethod.POST)
+	public ResponseEntity<String> registerImg(@RequestBody AdminVO vo) throws Exception{
+		System.out.println("admin 이미지  DB 등록 POST 호출됨.");
+	
+		ResponseEntity<String> entity = null;
+		
+		try{
+			service.modifyImg(vo);
+			entity = new ResponseEntity<String>("regiIMG_OK",HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("regiIMG_fail",HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	
+	
 
 	
 

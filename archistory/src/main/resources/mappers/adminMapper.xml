@@ -22,6 +22,11 @@
  		where adminno = #{adminno}
  	</update>
  	
+ 	<update id="updateImg">
+ 		update tbl_admin set img=#{img} 
+ 		where adminno = #{adminno}
+ 	</update>
+ 	
  	<delete id="delete">
  		delete from tbl_admin where adminno = #{adminno}
  	</delete>

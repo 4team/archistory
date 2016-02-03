@@ -32,5 +32,11 @@ public class AdminMapperImpl extends AbstractCRUDMapper<AdminVO, Integer> implem
 		return session.selectOne(namespace+".isEnable",email);
 	}
 
+	@Override
+	public void modifyImg(AdminVO vo) throws Exception {
+		 session.update(namespace+".updateImg",vo);
+		
+	}
+
 
 }
