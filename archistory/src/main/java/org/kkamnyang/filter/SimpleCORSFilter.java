@@ -21,8 +21,7 @@ public class SimpleCORSFilter implements Filter {
                 // CORS "pre-flight" request
                 response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
                 response.addHeader("Access-Control-Allow-Headers", "Authorization");
-                response.addHeader("Access-Control-Max-Age", "1728000");
-                response.setHeader("X-Frame-Options", "ALLOW-FROM http://14.32.66.127:4000/admin/imgUpload");
+                response.addHeader("Access-Control-Max-Age", "1728000");           
             }
             filterChain.doFilter(request, response);
         }
