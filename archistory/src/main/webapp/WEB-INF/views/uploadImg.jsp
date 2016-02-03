@@ -4,8 +4,8 @@
 
 <script>
 	
-	var result = $(savedName);
-	console.log("result:"+result);
+	var result = '$(savedName)';
+
 	parent.closeRegiImg(result);
 
 
