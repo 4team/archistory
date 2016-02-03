@@ -26,6 +26,11 @@
 	</beans:bean>
 
 	<context:component-scan base-package="org.kkamnyang.controller" />
+	
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:\\zzz\\adminImg">
+		</beans:constructor-arg>
+	</beans:bean>
 
 
 </beans:beans>

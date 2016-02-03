@@ -1,5 +1,9 @@
 package org.kkamnyang.controller;
 
+import java.io.File;
+import java.util.UUID;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.kkamnyang.domain.AdminDTO;
@@ -8,12 +12,15 @@ import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.persistence.AdminDetails;
 import org.kkamnyang.service.AdminService;
 import org.kkamnyang.service.RouteService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,11 +33,19 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value="/admin/*")
 public class AdminController {
 
+		
 	@Autowired
 	AdminService service;
 	
 	@Autowired
 	RouteService route;
+	
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
+	
 	
 	public AdminDetails getUser()
     {
@@ -218,12 +233,28 @@ public class AdminController {
 	}
 	
 	
+	
 	@RequestMapping(value="/imgUpload",method=RequestMethod.POST)
 	public void uploadForm(MultipartFile file, Model model) throws Exception{
 		System.out.println("admin 이미지 등록 POST 호출됨.");
-		System.out.println("originalName: "+ file.getOriginalFilename());
-		System.out.println("size: "+file.getSize());
-		System.out.println("contentType:"+file.getContentType());
+		logger.info("originalName: "+ file.getOriginalFilename());
+		logger.info("size: "+file.getSize());
+		logger.info("contentType:"+file.getContentType());
+		
+		String savedName = uploadFile(file.getOriginalFilename(),file.getBytes());
+		
+		model.addAttribute("savedName",savedName);
+		
+		//response.sendRedirect("/");
 	}
 	
+	private String uploadFile(String originalName, byte[] fileData) throws Exception{
+		UUID uid = UUID.randomUUID();
+		String savedName = uid.toString()+"_"+originalName;
+		File target = new File(uploadPath,savedName);
+		FileCopyUtils.copy(fileData, target);
+		return savedName;
+	}
+	
+
 }
