@@ -420,7 +420,7 @@
 
                 console.log(ret);
                 $("#myLocation").html("<h3>"+lt+"</h3><br><h3>"+ln+"</h3><br><h3>"+ret+"</h3>");
-                if(ret.toFixed(2) < 15){
+                if(ret.toFixed(2) < 10){
                     callback();
                 }
             }
