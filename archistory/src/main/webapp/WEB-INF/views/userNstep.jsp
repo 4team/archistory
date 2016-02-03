@@ -497,7 +497,7 @@ console.log(showModal);
                     
                     if(showModal == true){
                     	console.log("모달창이 띄워져 For each문 나가기.");
-                        return;
+                        return false;
                     }
                     
                 });
