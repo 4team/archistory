@@ -397,14 +397,14 @@ $("#myInfo").on("click",function(){
 	if(memberno !=0){
 		$("#userInfo").toggle();
 	}else{
-		$("#loginModal").modal('show');
+		$("#loginModal").show();
 	}
 });
 
 
 	$("#showInfo").on("click",function(){
 		if(memberno != 0){
-   		$("#myProfileModal").modal('show');
+   		$("#myProfileModal").show();
 		}
 	});
 
