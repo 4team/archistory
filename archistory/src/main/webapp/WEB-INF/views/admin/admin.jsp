@@ -717,10 +717,41 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 		   $("#myProfileModal").modal('show');
 	});
+
+	function closeRegiImg(imgName){
+		console.log("이미지 등록 성공"+imgName);
+		
+		regiAdminImg(adminno,imgName);
+		
+		//이미지 가져와야 함.
+		
 	
-	function addFilePath(msg){
-		alert(msg);
+		//이미지 교체 되어야 함.
+		//$("#modifoto").attr("src",imgName); 
+		
+		
+		$("#imgModal").modal('hide');
+
 		document.getElementById("form1").reset();
+	
+	}
+	
+	function regiAdminImg(adminno,imgName){
+		
+		 $.ajax({
+			  type:'post',
+			  url:"http://14.32.66.127:4000/admin/modiImg",
+			  headers : {
+				"Content-Type" : "application/json"  
+			  },
+			  datatype:"json",
+			  data:JSON.stringify({adminno:adminno,img:imgName}),
+			  success: function(data){
+				  console.log("admin 이미지 등록처리 결과 :"+ data);
+			  }				   
+		   });
+	    
+
 	}
 
 	
