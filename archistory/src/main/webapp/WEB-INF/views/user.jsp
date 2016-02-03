@@ -398,7 +398,7 @@ $("#myInfo").on("click",function(){
 	if(memberno !=0){
 		$("#userInfo").toggle();
 	}else{
-		$("#loginModal").modal("show");
+		$("#loginModal").show();
 	}
 });
 
@@ -554,17 +554,17 @@ var myLng;
     
 
     $("#loginBtn").on("click",function(){
-        $("#loginModal").modal('show');
+        $("#loginModal").show();
     });
 
     	
    	$("#joinBtn").on("click",function(){
-   		$("#joinModal").modal('show');
+   		$("#joinModal").show();
    	});
    	
    	$("#myInfo").on("click",function(){
    		if(memberno != 0){
-	   		$("#myProfileModal").modal('show');
+	   		$("#myProfileModal").show();
    		}
    	});
 
