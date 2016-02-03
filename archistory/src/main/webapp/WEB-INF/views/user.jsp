@@ -353,7 +353,7 @@ text-align:center;
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="loginModalLabel">로그인</h4>
             </div>
-           <form name="loginForm"  id="loginForm" action="/user/login" method="post">
+           <form name="loginForm"  id="loginForm" action="/user/login_process" method="post">
             <div class="modal-body" id="loginH">
                 <div id="loginDiv">
 
