@@ -183,6 +183,47 @@
 		button{
 		margin:auto;
 		}
+		.fa{
+		position:absolute;
+		}
+		.fa-home{
+		top:20px;
+		left:22px;
+		}
+		.fa-map-marker{
+		top:94px;
+		left:25px;
+		}
+		.fa-question{
+		top:170px;
+		left:25px;
+		}
+		.fa-book{
+		top:246px;
+		left:22px;
+		}
+		.fa-download{
+		top:320px;
+		left:22px;
+		}
+		.gn-menu li:hover{
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+        }
+        .gn-menu-main{
+        z-index:1;
+        }
+        
+       #hamb{
+       padding-top:10px;
+       		padding-left:-15px;
+	   		font-size: 2em;
+	   		margin-left:0px;
+	   		margin:2px;
+	   		margin-top:3px;
+	   		color:#FFFFFF;
+		}
     </style>
     
     <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -201,26 +242,25 @@
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
-
-<!-- <div id="myLocation"><span class="glyphicon glyphicon-map-marker"></span></div> -->
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<a id="hamb" class="glyphicon glyphicon-menu-hamburger gn-icon-menu"></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
 							<ul class="gn-menu">
-								<li><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><a href="#about" class="gn-icon gn-icon-download" id="routeList">Tour Route</a></li>
+								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
 								
 									<ul  id="myRouteList"></ul>
 									
-								<li><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
-								<li><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
-								<li><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><i class="fa fa-download"></i><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
 </ul>
-	</div>	
+	</div>
+	
 	
 <div id="upper-login">
 	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
