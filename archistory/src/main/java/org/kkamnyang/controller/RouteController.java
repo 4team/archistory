@@ -34,7 +34,7 @@ public class RouteController{
 		return result;
 	}
 	
-	@RequestMapping(value="/closelist", method=RequestMethod.GET)
+	@RequestMapping(value="/closelist", method=RequestMethod.POST)
 	public @ResponseBody List<RouteVO> closelist(@RequestBody LocationVO vo, HttpServletRequest request) throws Exception{
 			
 		System.out.println("closelist Controller 진입");
