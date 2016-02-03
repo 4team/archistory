@@ -715,8 +715,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 		   $("#myProfileModal").modal('show');
 	});
-	
-	
+
 	function closeRegiImg(imgName){
 		console.log("이미지 등록 성공"+imgName);
 		
@@ -730,6 +729,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 		
 		$("#imgModal").modal('hide');
+
 		document.getElementById("form1").reset();
 	
 	}
@@ -749,6 +749,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 			  }				   
 		   });
 	    
+
 	}
 
 	
@@ -773,7 +774,6 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 	$("#modifoto").on("click",function(){
 		console.log("이미지 클림됨.");
-		
 		$("#imgModal").modal('show');	
 		
 	});
