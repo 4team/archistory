@@ -718,37 +718,9 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		   $("#myProfileModal").modal('show');
 	});
 	
-	
-	function closeRegiImg(imgName){
-		alert("이미지 등록 성공"+imgName);
-		
-		//이미지 DB에 저장하기
-		regiAdminImg(adminno,imgName);
-		
-		//$("#modifoto").attr("src",imgName); 
-		
-		
-		$("#imgModal").modal('hide');
+	function addFilePath(msg){
+		alert(msg);
 		document.getElementById("form1").reset();
-		
-		//이미지 교체 되어야 함.
-	}
-	
-	function regiAdminImg(adminno,imgName){
-		
-		 $.ajax({
-			  type:'post',
-			  url:"http://14.32.66.127:4000/admin/modiImg",
-			  headers : {
-				"Content-Type" : "application/json"  
-			  },
-			  datatype:"json",
-			  data:JSON.stringify({adminno:adminno,img:imgName}),
-			  success: function(data){
-				  console.log("admin 이미지 등록처리 결과 :"+ data);
-			  }				   
-		   });
-	    
 	}
 
 	
@@ -773,7 +745,6 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 	$("#modifoto").on("click",function(){
 		console.log("이미지 클림됨.");
-		
 		$("#imgModal").modal('show');	
 		
 	});
