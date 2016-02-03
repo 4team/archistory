@@ -719,7 +719,9 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	function closeRegiImg(imgName){
 		console.log("이미지 등록 성공"+imgName);
 		
-		regiAdminImg(adminno,imgName);
+		var dbImg="/"+imgName
+		
+		regiAdminImg(adminno,dbImg);
 		
 		//이미지 가져와야 함.
 
@@ -733,7 +735,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 	}
 	
-	function regiAdminImg(adminno,imgName){
+	function regiAdminImg(adminno,dbImg){
 		
 		 $.ajax({
 			  type:'post',
@@ -742,7 +744,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 				"Content-Type" : "application/json"  
 			  },
 			  datatype:"json",
-			  data:JSON.stringify({adminno:adminno,img:imgName}),
+			  data:JSON.stringify({adminno:adminno,img:dbImg}),
 			  success: function(data){
 				  console.log("admin 이미지 등록처리 결과 :"+ data);
 			  }				   
