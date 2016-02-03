@@ -163,10 +163,20 @@ text-align:center;
             position:absolute;
             overflow-y:scroll;
         }
-        
+        #loginDiv{
+        	text-align: center;
+        }
+       #loginBody{
+	        top:150px;
+	        width:350px;
+	        z-index:10000;
+	    }
+	
+	    #loginH{
+	        max-height:180px;
+	    }
         input{
         	width:200px;
-        	text-align: center;
         }
 </style>
 
