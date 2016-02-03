@@ -550,7 +550,7 @@ var myLng;
              }
         });
 }
-    
+    jQuery.noConflict(); 
     
 
     $("#loginBtn").on("click",function(){
