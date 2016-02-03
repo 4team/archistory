@@ -195,13 +195,13 @@
 
         <div id="eventInfo" class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="title"></h4>
+                <h3 class="modal-title" id="title"></h3>
             </div>
             <div class="modal-body">
 
                 <div id="buttonContainer"></div>
                 <div id="imageUl"></div>
-                <div id="content"></div>
+                <h4 id="content" style="align:center";></h4>
 </div>
 <div class="modal-footer">
                 <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
