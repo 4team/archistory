@@ -281,7 +281,7 @@ text-align:center;
 
 <!--  myProfile modal -->
 
-<div class="modal" id="myProfileModal" tabindex="-1" role="dialog" aria-labelledby="myProfileModalLabel" aria-hidden="true">
+<div class="modal" id="myProfileModal" tabindex="-1" role="dialog" aria-labelledby="myProfileModalLabel" aria-hidden="false">
     <div class="modal-dialog">
         <div class="modal-content" >
             <div class="modal-header">
@@ -320,7 +320,7 @@ text-align:center;
 
 
 <!-- ★로그인 모달 -->
-<div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
+<div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
     <div class="modal-dialog" id="loginBody">
 
 	
