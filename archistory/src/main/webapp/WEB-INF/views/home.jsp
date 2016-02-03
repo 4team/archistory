@@ -319,7 +319,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-                <button type="submit" id="loginSubmitBtn" class="btn btn-primary">로그인</button>
+                <input class="btn btn-default btn-login" id="loginSubmitBtn" type="button" value="Login" onclick="loginAjax()">
+                                   
             </div>
            </form>   
         </div>
