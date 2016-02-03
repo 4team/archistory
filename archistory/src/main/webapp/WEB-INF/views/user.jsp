@@ -163,6 +163,11 @@ text-align:center;
             position:absolute;
             overflow-y:scroll;
         }
+        
+        input{
+        	width:150px;
+        	text-align: center;
+        }
 </style>
 
 	 <!-- Core JavaScript Files -->
