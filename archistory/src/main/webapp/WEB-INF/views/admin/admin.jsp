@@ -249,7 +249,8 @@
         
         #imgDiv img{
         width:200px;
-        height:200px;
+        height:auto;
+        display:block;
         }
         
         iframe{
@@ -320,7 +321,7 @@
             </div>
             <div class="modal-body">
             	<div id="imgDiv" style="margin-left:210px;">
-				      <img id="modifoto" src ="/img/profile.png">
+				      <img class="img-circle" id="modifoto" src ="/img/profile.png">
 			    </div>   
                 
                    <table id="profile" align="center">
