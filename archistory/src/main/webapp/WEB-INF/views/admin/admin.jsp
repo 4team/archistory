@@ -720,6 +720,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		console.log("이미지 등록 성공"+imgName);
 		
 		var dbImg="/"+imgName
+		console.log(dbImg);
 		
 		regiAdminImg(adminno,dbImg);
 		
