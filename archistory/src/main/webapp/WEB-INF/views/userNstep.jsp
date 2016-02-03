@@ -638,7 +638,7 @@
             url:"http://14.32.66.127:4000/participate/next",
             headers: {"Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:nowOrder}),
+            data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:1}),
             success: function(data){
                 console.log("=========Participate Next========");
                 console.log(data);
