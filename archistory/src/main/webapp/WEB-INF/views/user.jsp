@@ -297,6 +297,48 @@ text-align:center;
 </div>
 
 
+
+
+<!--  myProfile modal -->
+
+<div class="modal fade" id="myProfileModal" tabindex="-1" role="dialog" aria-labelledby="myProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">My Profile</h4>
+            </div>
+            <div class="modal-body">
+            	<div id="imgDiv" style="margin-left:210px;">
+				      <img id="modifoto" src ="/img/profile.png">
+			    </div>   
+                
+                   <table id="profile" align="center">
+	                    <tr><td>NAME &nbsp :&nbsp </td><td><input type='text' class='form-control' id="proName" placeholder='Name' ></td></tr>
+			            <tr><td>PHONE &nbsp :&nbsp </td><td><input type='tel' class='form-control' id="proPhone" placeholder='Phone'></td></tr>
+			            <tr><td>COUNTRY &nbsp:&nbsp </td><td><input type='text' class='form-control' id="proCountry" placeholder='Country'></td></tr>
+			            <tr><td>E-MAIL &nbsp:&nbsp </td><td><input type='email' class='form-control' id="proEmail" placeholder='Email' readonly></td></tr>
+			            <tr><td>PASSWORD&nbsp:&nbsp </td><td><input type='password' class='form-control' id="proPassword" placeholder='Password'></td></tr>
+			            <tr><td>PASSWORD&nbsp:&nbsp<br>&nbsp(AGAIN)&nbsp</td><td><input type='password' class='form-control' id="proPassword1" placeholder='Password(Again)'></td></tr>
+ 
+                </table>
+               	 
+               
+            </div>
+            <div class="modal-footer">
+            	<div style="float:left"><a style="color:blue;" id="delAccount">Delete your account</a></div>
+                <button type="button" id="proModifyBtn" class="btn btn-create">SAVE</button>
+                <button type="button" id="proCancleBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  myProfile img modal -->
+
+
 <script>
 
 var memberno = ${memberno};
@@ -479,7 +521,11 @@ var myLng;
    		$("#joinModal").modal('show');
    	});
    	
-   	
+   	$("#myInfo").on("click",function(){
+   		if(memberno != 0){
+	   		$("#myProfileModal").modal('show');
+   		}
+   	});
 
         
 </script>
