@@ -179,11 +179,11 @@
 <div class="modal fade" id="eventModal" aria-labelledby="editModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog">
 
-        <div id="eventInfo" class="panel panel-primary">
-            <div class="panel-heading">
-                <div id="title"></div>
+        <div id="eventInfo" class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="title"></div>
             </div>
-            <div class="panel-body">
+            <div class="modal-body">
 
                 <div id="buttonContainer"></div>
                 <div id="imageUl"></div>
