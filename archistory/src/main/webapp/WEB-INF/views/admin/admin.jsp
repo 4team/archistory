@@ -357,7 +357,7 @@
                 <h4 class="modal-title">Modify Image</h4>
             </div>
             <div class="modal-body" style="height:80px;">
-           		<form id='form1' action='imgUpload' method='post' enctype='multipart/form-data'>
+           		<form id='form1' action='imgUpload' method='post' enctype='multipart/form-data' target="zeroFrame">
            			<input type='file' name='file'>
            			<input type='submit'>
            		</form>
