@@ -439,6 +439,7 @@ console.log(showModal);
 
                     calDistance(event.lat, event.lng, myLat, myLng, function () {
                         console.log("---콜백에 들어온 이벤트가 생김---");
+                        showModal = true;
                         console.log(eventVO);
                         $("#title").html(eventVO.title);
 
@@ -490,7 +491,7 @@ console.log(showModal);
 
                         // 이부분에 내 위치값과 이벤트의 위치값 비교하는 IF문을 넣어줍시다.
                         eventModal.modal('show');
-                        showModal = true;
+
                     	return;
                     });
                     
