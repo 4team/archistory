@@ -235,7 +235,7 @@ public class AdminController {
 	
 	
 	@RequestMapping(value="/imgUpload",method=RequestMethod.POST)
-	public void uploadForm(MultipartFile file, Model model) throws Exception{
+	public String uploadForm(MultipartFile file, Model model) throws Exception{
 		System.out.println("admin 이미지 등록 POST 호출됨.");
 		logger.info("originalName: "+ file.getOriginalFilename());
 		logger.info("size: "+file.getSize());
@@ -245,7 +245,7 @@ public class AdminController {
 		
 		model.addAttribute("savedName",savedName);
 		
-		//response.sendRedirect("/");
+		return "admin";
 	}
 	
 	private String uploadFile(String originalName, byte[] fileData) throws Exception{
