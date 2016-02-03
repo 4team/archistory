@@ -220,7 +220,7 @@ text-align:center;
 			<font face="verdana" size="2">${name}님</font>
 		</button>
 		<ul id="userInfo">
-			<li><a id="myInfo">My Info</a></li>
+			<li><a id="showInfo">My Info</a></li>
 			<li><a href="/user/logout">Logout</a></li>
 		</ul>
 	</div>
@@ -404,6 +404,15 @@ $("#myInfo").on("click",function(){
 	}
 });
 
+
+	$("#showInfo").on("click",function(){
+		if(memberno != 0){
+   		$("#myProfileModal").modal('show');
+		}
+	});
+
+
+
 // 나의 위치를 읽어온다.
 window.addEventListener('deviceorientation',getLocation);
 
@@ -553,12 +562,6 @@ var myLng;
         });
 }
 
-    
-   	$("#myInfo").on("click",function(){
-   		if(memberno != 0){
-	   		$("#myProfileModal").modal('show');
-   		}
-   	});
 
         
 </script>
