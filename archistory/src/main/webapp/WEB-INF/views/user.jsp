@@ -325,8 +325,8 @@ text-align:center;
                 <div id="loginDiv">
 
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-                    <input type="text" class="form-control" name ="email" id="email" placeholder="Email"><br>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br>
+                    <input type="text" name ="email" id="email" placeholder="Email"><br>
+                    <input type="password"  name="password" id="password" placeholder="Password"><br>
                 </div>
 
             </div>
