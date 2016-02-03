@@ -720,18 +720,20 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 	
 	function closeRegiImg(imgName){
-		alert("이미지 등록 성공"+imgName);
+		console.log("이미지 등록 성공"+imgName);
 		
-		//이미지 DB에 저장하기
 		regiAdminImg(adminno,imgName);
 		
+		//이미지 가져와야 함.
+		
+	
+		//이미지 교체 되어야 함.
 		//$("#modifoto").attr("src",imgName); 
 		
 		
 		$("#imgModal").modal('hide');
 		document.getElementById("form1").reset();
-		
-		//이미지 교체 되어야 함.
+	
 	}
 	
 	function regiAdminImg(adminno,imgName){

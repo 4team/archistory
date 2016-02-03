@@ -1,22 +1,27 @@
 package org.kkamnyang.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.kkamnyang.domain.AdminDTO;
 import org.kkamnyang.domain.AdminVO;
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.persistence.AdminDetails;
 import org.kkamnyang.service.AdminService;
 import org.kkamnyang.service.RouteService;
+import org.kkamnyang.util.MediaUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -274,6 +279,44 @@ public class AdminController {
 		return entity;
 	}
 	
+	
+	@ResponseBody
+	@RequestMapping("/displayFile")
+	public ResponseEntity<byte[]> displayFile(String fileName)throws Exception{
+		
+		InputStream in = null;
+		ResponseEntity<byte[]> entity = null;
+		
+		logger.info("FILE NAME: "+fileName);
+		
+		try{
+			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
+			MediaType mType = MediaUtils.getMediaType(formatName);
+			HttpHeaders headers = new HttpHeaders();
+			in = new FileInputStream(uploadPath+fileName);
+			
+			if(mType!=null){
+				headers.setContentType(mType);
+			}else{
+				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+				headers.add("Content-Disposition","attachment; filename=\""+
+				new String(fileName.getBytes("UTF-8"),"ISO-8859-1")+"\"");
+			}
+			
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),
+					headers,
+					HttpStatus.CREATED);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+			
+		}finally{
+			in.close();	
+		}
+		
+		return entity;
+	}
 	
 
 	
