@@ -181,15 +181,16 @@
 
         <div id="eventInfo" class="modal-content">
             <div class="modal-header">
-                <div class="modal-title" id="title"></div>
+                <h4 class="modal-title" id="title"></h4>
             </div>
             <div class="modal-body">
 
                 <div id="buttonContainer"></div>
                 <div id="imageUl"></div>
                 <div id="content"></div>
-
-                <button id="nextBtn" class="btn btn-primary">Next</button>
+</div>
+<div class="modal-footer">
+                <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
             </div>
         </div>
 
