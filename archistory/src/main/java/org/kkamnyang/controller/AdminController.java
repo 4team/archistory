@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequestMapping(value="/admin/*")
@@ -235,7 +236,7 @@ public class AdminController {
 	
 	
 	@RequestMapping(value="/imgUpload",method=RequestMethod.POST)
-	public String uploadForm(MultipartFile file, Model model) throws Exception{
+	public ModelAndView uploadForm(MultipartFile file, Model model) throws Exception{
 		System.out.println("admin 이미지 등록 POST 호출됨.");
 		logger.info("originalName: "+ file.getOriginalFilename());
 		logger.info("size: "+file.getSize());
@@ -245,7 +246,14 @@ public class AdminController {
 		
 		model.addAttribute("savedName",savedName);
 		
-		return "/admin/login_success";
+		ModelAndView mav = new ModelAndView();
+		
+		RedirectView rv = new RedirectView();
+		rv.setUrl("/admin/login_success");
+		rv.setExposeModelAttributes(false);
+		mav.setView(rv);
+		
+		return mav;
 	}
 	
 	private String uploadFile(String originalName, byte[] fileData) throws Exception{
