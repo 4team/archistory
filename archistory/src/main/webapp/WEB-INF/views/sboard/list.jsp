@@ -126,6 +126,9 @@ margin-right:200px;
 .col-md-12{
 top:50px;
 }
+box-body{
+width:60%;
+}
 </style>
 
 <div class="center-container">
