@@ -341,6 +341,7 @@
 
 <!--  myProfile img modal -->
 
+<form id='imgForm' action='/admin/uploadForm' method='post' enctype='multipart/form-data'>
 <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="height:200px;">
@@ -360,6 +361,8 @@
         </div>
     </div>
 </div>
+</form>
+
 
 <!--  myProfile DELETE modal -->
 

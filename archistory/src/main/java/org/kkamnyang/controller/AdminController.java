@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -216,5 +217,12 @@ public class AdminController {
 		return entity; 
 	}
 	
+	
+	@RequestMapping(value="/uploadForm",method=RequestMethod.POST)
+	public void uploadForm(MultipartFile file, Model model) throws Exception{
+		System.out.println("originalName: "+ file.getOriginalFilename());
+		System.out.println("size: "+file.getSize());
+		System.out.println("contentType:"+file.getContentType());
+	}
 	
 }
