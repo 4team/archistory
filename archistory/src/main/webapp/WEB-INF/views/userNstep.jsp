@@ -420,7 +420,7 @@
 
                 console.log(ret);
                 $("#myLocation").html("<h3>"+lt+"</h3><br><h3>"+ln+"</h3><br><h3>"+ret+"</h3>");
-                if(ret.toFixed(2)<30){
+                if(ret.toFixed(2)<20){
                     callback();
                 }
             }
@@ -623,6 +623,32 @@
 
         questionModal.modal("hide");
         resultModal.modal("show");
+
+    });
+    
+    
+    //================================= All Close 버튼을 누를 시 =========================================//
+    $("#allClose").on("click",function(event){
+        event.preventDefault();
+        eventModal.modal("hide");
+        showModal = false;
+
+        $.ajax({
+            type:'post',
+            url:"http://14.32.66.127:4000/participate/next",
+            headers: {"Content-Type":"application/json"},
+            datatype: "json",
+            data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:nowOrder}),
+            success: function(data){
+                console.log("=========Participate Next========");
+                console.log(data);
+            },
+            error:function(data){
+                console.log("=========Participate Next========");
+                console.log(data);
+            }
+
+        });
 
     });
 
