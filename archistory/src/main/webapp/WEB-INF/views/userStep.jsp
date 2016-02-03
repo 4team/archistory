@@ -179,18 +179,17 @@
 <div class="modal fade" id="eventModal" aria-labelledby="editModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog">
 
-        <div id="eventInfo" class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="title"></h4>
+        <div id="eventInfo" class="panel panel-primary">
+            <div class="panel-heading">
+                <div id="title"></div>
             </div>
-            <div class="modal-body">
+            <div class="panel-body">
 
                 <div id="buttonContainer"></div>
                 <div id="imageUl"></div>
                 <div id="content"></div>
-</div>
-<div class="modal-footer">
-                <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
+
+                <button id="nextBtn" class="btn btn-primary">Next</button>
             </div>
         </div>
 
