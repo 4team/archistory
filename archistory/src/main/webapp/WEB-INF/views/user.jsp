@@ -373,7 +373,7 @@ $("#myInfo").on("click",function(){
 	if(memberno !=0){
 		$("#userInfo").toggle();
 	}else{
-		$("#loginModal").show();
+		$("#loginModal").modal('show');
 	}
 });
 
@@ -387,7 +387,7 @@ $("#myInfo").on("click",function(){
 				$("#proName").val(memberVO.userName);
 				
 			})
-   			$("#myProfileModal").show();
+   			$("#myProfileModal").modal('show');
 		}
 	});
 
