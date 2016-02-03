@@ -718,9 +718,9 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		   $("#myProfileModal").modal('show');
 	});
 	
-	function addFilePath(msg){
-		alert(msg);
-		document.getElementById("form1").reset();
+	
+	function closeRegiImg(){
+		$("#imgModal").modal('show');
 	}
 
 	

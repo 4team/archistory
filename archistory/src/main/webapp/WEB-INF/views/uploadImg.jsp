@@ -4,9 +4,8 @@
 
 <script>
 	
-	var result = '$(savedName)';
-	console.log("result:"+result);
-	parent.addFilePath(result);
+
+	parent.closeRegiImg();
 
 
 </script>
