@@ -245,7 +245,7 @@ public class AdminController {
 		
 		model.addAttribute("savedName",savedName);
 		
-		return "admin/login_success";
+		return "redirect:" + "admin/login_success";
 	}
 	
 	private String uploadFile(String originalName, byte[] fileData) throws Exception{
