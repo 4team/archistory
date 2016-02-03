@@ -164,6 +164,9 @@
     #questionImg img{
         width:570px;
     }
+    .modal-content{
+    z-index:7000;
+    }
 </style>
 
 <script type="text/javascript" src="js/upload.js"></script>
