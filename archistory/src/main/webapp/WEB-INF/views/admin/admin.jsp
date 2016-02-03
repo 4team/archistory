@@ -341,7 +341,7 @@
 
 <!--  myProfile img modal -->
 
- <form id='form1' action='admin/imgUpload' method='post' enctype='multipart/form-data'>
+ <form id='form1' action='imgUpload' method='post' enctype='multipart/form-data'>
 <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="height:200px;">
