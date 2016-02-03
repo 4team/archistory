@@ -1,6 +1,7 @@
 package org.kkamnyang.controller;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -28,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequestMapping(value="/admin/*")
@@ -243,10 +243,9 @@ public class AdminController {
 		logger.info("contentType:"+file.getContentType());
 		
 		String savedName = uploadFile(file.getOriginalFilename(),file.getBytes());
-		
+
+		System.out.println(savedName);
 		model.addAttribute("savedName",savedName);
-		
-		
 		return "uploadImg";
 	}
 	
@@ -257,6 +256,8 @@ public class AdminController {
 		FileCopyUtils.copy(fileData, target);
 		return savedName;
 	}
+	
+
 	
 
 }

@@ -3,10 +3,10 @@
 <%@page session="false"%>
 
 <script>
-	
-	var result = '$(savedName)';
 
-	parent.closeRegiImg(result);
+
+	var imgName= $('savedName');
+	parent.closeRegiImg(imgName);
 
 
 </script>

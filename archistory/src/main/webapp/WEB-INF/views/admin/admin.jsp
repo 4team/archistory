@@ -719,9 +719,19 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	});
 	
 	
-	function closeRegiImg(result){
-		alert(result +"이미지 등록 성공");
+	function closeRegiImg(imgName){
+		alert("이미지 등록 성공"+imgName);
+		
+		//이미지 DB에 저장하기
+		
+		/* var imgName;
+		
+		$("#modifoto").attr("src",imgName); */
+		
+		
 		$("#imgModal").modal('hide');
+		
+		//이미지 교체 되어야 함.
 	}
 
 	
@@ -746,6 +756,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 	$("#modifoto").on("click",function(){
 		console.log("이미지 클림됨.");
+		
 		$("#imgModal").modal('show');	
 		
 	});
