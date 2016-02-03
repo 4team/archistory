@@ -564,7 +564,7 @@ var myLng;
    	
    	$("#myInfo").on("click",function(){
    		if(memberno != 0){
-	   		$("#myProfileModal").show();
+	   		$("#myProfileModal").modal('show');
    		}
    	});
 
