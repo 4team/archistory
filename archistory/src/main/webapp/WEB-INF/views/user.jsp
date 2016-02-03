@@ -177,6 +177,8 @@ text-align:center;
     <script src="js/custom.js"></script>
     
     
+    <script src="/Cesium/js/jquery.js"></script>
+    
 <body>
 
 <div class="menu">
