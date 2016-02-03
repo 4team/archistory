@@ -749,10 +749,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 	});
 	
-	$("#imgForm").submit(function(){
-		console.log("이미지등록 시도!");
-		
-	});
+
 	
 	
 	$("#proModifyBtn").on("click",function(){
