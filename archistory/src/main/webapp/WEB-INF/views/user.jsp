@@ -262,41 +262,6 @@ text-align:center;
 		<!-- END 이 루트 들어갈건지 묻는 창 -->
 
 
-<!-- ★로그인 모달 -->
-<div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="true" >
-    <div class="modal-dialog" id="loginBody">
-
-	
-
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="loginModalLabel">로그인</h4>
-            </div>
-           <form name="loginForm"  id="loginForm" action="/user/login" method="post">
-            <div class="modal-body" id="loginH">
-                <div id="loginDiv">
-                    <div class="radio">
-                    </div>
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-                    <input type="text" class="form-control" name ="email" id="email" placeholder="Email"><br>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-                <button type="submit" id="loginSubmitBtn" class="btn btn-primary">로그인</button>
-            </div>
-           </form>   
-        </div>
-
-            
-
-    </div>
-</div>
-
-
 
 
 <!--  myProfile modal -->
