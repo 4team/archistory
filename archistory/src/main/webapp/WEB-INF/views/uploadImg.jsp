@@ -4,8 +4,9 @@
 
 <script>
 	
-
-	parent.closeRegiImg();
+	var result = $(savedName);
+	console.log("result:"+result);
+	parent.closeRegiImg(result);
 
 
 </script>

@@ -719,8 +719,9 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	});
 	
 	
-	function closeRegiImg(){
-		$("#imgModal").modal('show');
+	function closeRegiImg(result){
+		alert(result +"이미지 등록 성공");
+		$("#imgModal").modal('hide');
 	}
 
 	
