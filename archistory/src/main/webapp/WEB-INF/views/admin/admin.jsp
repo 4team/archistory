@@ -720,7 +720,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	
 	function addFilePath(msg){
 		alert(msg);
-		document.getElementByID("#form1").reset();
+		document.getElementById("form1").reset();
 	}
 
 	
