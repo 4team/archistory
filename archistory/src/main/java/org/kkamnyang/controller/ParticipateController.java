@@ -86,7 +86,7 @@ public class ParticipateController {
 	@RequestMapping(value="/finishRoute")
 	public @ResponseBody FinishRouteVO finishList(@RequestParam("memberno")Integer memberno,@RequestParam("routeno")Integer routeno,@RequestParam("page")Integer page) throws Exception{
 		
-		System.out.println("[ 유저가 완주한 루트의 상세페이지 ]");
+		System.out.println("[ 유저가 완주한 루트의 상세페이지 ] Page : "+page);
 		PageVO vo = new PageVO();
 		vo.setMemberno(memberno);
 		vo.setRouteno(routeno);
