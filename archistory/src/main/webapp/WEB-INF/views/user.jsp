@@ -175,6 +175,9 @@ text-align:center;
         input{
         	width:200px;
         }
+        #finishedDiv p{
+        text-align: center;
+        }
 </style>
 
 	 <!-- Core JavaScript Files -->
