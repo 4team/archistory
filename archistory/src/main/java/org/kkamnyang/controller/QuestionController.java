@@ -93,12 +93,14 @@ public class QuestionController {
 	
 	@RequestMapping(value="/attachCreate", method=RequestMethod.POST)
 	public void attachCreate(@RequestBody QuestionVO vo, HttpServletResponse response) throws Exception{
+		
 		System.out.println("::문제:: 첨부파일생성 호출됨.=====");
 		System.out.println(vo);
 		
 		service.register(vo);
 
 		Integer questionno = vo.getQuestionno();
+		System.out.println(questionno);
 		response.getWriter().print(questionno);
 		vo.setQuestionno(questionno);
 		service.attachCreate(vo);

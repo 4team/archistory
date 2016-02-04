@@ -800,6 +800,7 @@ input[type=checkbox]:checked + label:before {
         qObject.choice3 = $("#s3").val();
         qObject.choice4 = $("#s4").val();
         qObject.qfiles = qattach;
+        
         for(var i=1;i<5;i++) {
             var id = "#multipleAnswer";
             var multi = id+i;
