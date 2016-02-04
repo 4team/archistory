@@ -216,17 +216,17 @@
 <div class="modal fade" id="eventModal" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog">
 
-        <div id="eventInfo" class="modal-content">
-            <div class="modal-header">
+        <div id="eventInfo" class="panel panel-primary">
+            <div class="panel-heading">
                 <h3 class="modal-title" id="title"></h3>
             </div>
-            <div class="modal-body">
+            <div class="panel-body">
 
                 <div id="buttonContainer"></div><br><br>
                 <div id="imageUl"></div><br>
                 <h5 id="content" style="text-align:center; font-weight:bold;"></h5>
-</div>
-<div class="modal-footer">
+			</div>
+			<div class="panel-footer">
                 <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
             </div>
         </div>
