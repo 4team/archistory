@@ -341,12 +341,12 @@ input[type=checkbox]:checked + label:before {
                             </select><br>
 
                             <label for="qTitle">문제</label>
-                            <textarea class="form-control" id="questionTitle" rows="3" placeholder="문제를 입력하세요."></textarea>
+                            <textarea class="form-control" id="questionTitle" rows="3" placeholder="문제를 입력하세요."></textarea><br>
                             <div id="selectBox">
-                                <label for="s1">1번 선택지</label><input type="text" class="form-control" id="s1" placeholder="1번 보기를 입력하세요."><br>
-                                <label for="s2">2번 선택지</label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요."><br>
-                                <label for="s3">3번 선택지</label><input type="text" class="form-control" id="s3" placeholder="3번 보기를 입력하세요."><br>
-                                <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
+                                <label for="s1">1번 선택지</label><input type="text" class="form-control" id="s1" placeholder="1번 보기를 입력하세요.">
+                                <label for="s2">2번 선택지</label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요.">
+                                <label for="s3">3번 선택지</label><input type="text" class="form-control" id="s3" placeholder="3번 보기를 입력하세요.">
+                                <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요.">
 
                                 <div id="multipleAnswerBox" class="checkbox">
                                     <input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1"><label for="multipleAnswer1" style="font-size:15px;">1</label>
@@ -421,12 +421,12 @@ input[type=checkbox]:checked + label:before {
 
                     <label for="qTitle">문제</label>
                     <input type="hidden" id="qno">
-                    <textarea class="form-control" id="moquestionTitle" rows="3" placeholder="문제를 입력하세요."></textarea>
+                    <textarea class="form-control" id="moquestionTitle" rows="3" placeholder="문제를 입력하세요."></textarea><br>
                     <div id="moselectBox">
-                        <label for="s1">1번 선택지</label><input type="text" class="form-control" id="mos1" placeholder="1번 보기를 입력하세요."><br>
-                        <label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요."><br>
-                        <label for="s3">3번 선택지</label><input type="text" class="form-control" id="mos3" placeholder="3번 보기를 입력하세요."><br>
-                        <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
+                        <label for="s1">1번 선택지</label><input type="text" class="form-control" id="mos1" placeholder="1번 보기를 입력하세요.">
+                        <label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요.">
+                        <label for="s3">3번 선택지</label><input type="text" class="form-control" id="mos3" placeholder="3번 보기를 입력하세요.">
+                        <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요.">
 
                         <div id="momultipleAnswer" class="checkbox">
                             <input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1"><label for="momultipleAnswer1" style="font-size:15px;">1</label>
