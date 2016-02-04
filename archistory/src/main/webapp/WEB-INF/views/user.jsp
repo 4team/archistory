@@ -434,7 +434,7 @@ $("#myInfo").on("click",function(){
 			
 			list.each(function(){
 				
-				var str ="<center><pre onclick='viewFinishRoute("+this.routeno+",1)'>"+this.routename+"</pre></center>";
+				var str ="<center><pre onclick='viewFinishRoute("+this.routeno+",0)'>"+this.routename+"</pre></center>";
 				$("#finishedDiv").append(str);
 				
 			});
