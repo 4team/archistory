@@ -237,7 +237,7 @@ pageEncoding="UTF-8"%>
                         <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
                         <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
-                        <label for="videoInput">동영상</label>
+                        <label for="videoInput">동영상</label><br>
                         Youtube Search <input type="text" id="query"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
                         <ul id="youtubeList"></ul>
                         <!-- <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div> -->
@@ -257,7 +257,7 @@ pageEncoding="UTF-8"%>
                         </select><br>
 
                         <label for="qTitle">문제</label>
-                        <textarea class="form-control" id="questionTitle" placeholder="문제를 입력하세요."></textarea><br>
+                        <textarea class="form-control" id="questionTitle" rows="3" placeholder="문제를 입력하세요."></textarea><br>
                         <div id="selectBox">
                             <label for="s1">1번 선택지</label><input type="text" class="form-control" id="s1" placeholder="1번 보기를 입력하세요."><br>
                             <label for="s2">2번 선택지</label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요."><br>
@@ -309,7 +309,7 @@ pageEncoding="UTF-8"%>
                     <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
                     <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
-                    <input type="file" id="moimgInput"><br>
+                    <label for="moimgInput">이미지</label><br>
                     <div class="fileDrop"><h5 align="center";>마우스로 파일을 끌어오세요.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
@@ -332,7 +332,7 @@ pageEncoding="UTF-8"%>
 
                     <label for="qTitle">문제</label>
                     <input type="hidden" id="qno">
-                    <textarea class="form-control" id="moquestionTitle" placeholder="문제를 입력하세요."></textarea><br>
+                    <textarea class="form-control" id="moquestionTitle" rows="3" placeholder="문제를 입력하세요."></textarea><br>
                     <div id="moselectBox">
                         <label for="s1">1번 선택지</label><input type="text" class="form-control" id="mos1" placeholder="1번 보기를 입력하세요."><br>
                         <label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요."><br>
