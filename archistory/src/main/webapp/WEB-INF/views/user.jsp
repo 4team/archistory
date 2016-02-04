@@ -418,11 +418,14 @@ $("#myInfo").on("click",function(){
 	
 	$("#myPage").on("click",function(){
 		$.getJSON("http://14.32.66.127:4000/participate/finishList?memberno="+memberno,function(data){
-			console.log(data);
-			var routeVO = $(data)[0];
+
+			var list = $(data);
 			
-			console.log(routeVO);
-			$("#finishedDiv").html(routeVO);
+			list.each(function(){
+				
+				$("#finishedDiv").html(this.routename);
+				
+			});
 			
 		})
 			$("#myPageModal").modal('show');
