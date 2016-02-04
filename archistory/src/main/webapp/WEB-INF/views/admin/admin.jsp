@@ -771,12 +771,15 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		   var dbimg = admin.attr("img");
 		   console.log(dbimg);
 			
-		   if(!dbimg){
-			   
+		   if(!dbimg){  
 			   var imgTag=" <img class='img-circle' id='modifoto' src ='/img/profile.png'>";
 				$("#imgDiv").html(imgTag); 
 		   }
-			username = $("#proName").val();
+		   
+		   var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbimg
+			$("#imgDiv").html(imgAddr); 
+			
+		   username = $("#proName").val();
 		});
 	
 	}

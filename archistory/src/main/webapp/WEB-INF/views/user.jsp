@@ -418,6 +418,7 @@ $("#myInfo").on("click",function(){
 	
 	$("#myPage").on("click",function(){
 		$.getJSON("http://14.32.66.127:4000/participate/finishList?memberno="+memberno,function(data){
+			console.log(data);
 			var routeVO = $(data)[0];
 			
 			console.log(routeVO);
