@@ -444,6 +444,7 @@ $("#myInfo").on("click",function(){
 	});
 
 	function viewFinishRoute(routeno,page){
+		var curpage = page;
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
 				var FinishRouteVO = $(data)[0];
 				var str ="<center><pre>Route Name</pre></center>";
@@ -455,7 +456,8 @@ $("#myInfo").on("click",function(){
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
-				
+				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>Prev</button>";
+				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>Next</button>";
 				$("#finishedDiv").html(str);
 			
 		});
