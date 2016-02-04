@@ -179,7 +179,7 @@ text-align:center;
         	text-align: center;
         }
         #finishedDiv pre{
-        	width:60%;
+        	width:50%;
         }
         #finishedDiv p{
         	text-align: center;
@@ -446,15 +446,15 @@ $("#myInfo").on("click",function(){
 	function viewFinishRoute(routeno,page){
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
 				var FinishRouteVO = $(data)[0];
-				var str ="<pre>Route Name</pre>";
+				var str ="<center><pre>Route Name</pre></center>";
 				str+="<p>"+FinishRouteVO.routename+"</p>";
-				str+="<pre>Route Creator</pre>";
+				str+="<center><pre>Route Creator</pre></center>";
 				str+="<p>"+FinishRouteVO.username+"</p>";
-				str+="<pre>Finished Date</pre>";
+				str+="<center><pre>Finished Date</pre></center>";
 				str+="<p>"+FinishRouteVO.lastDate+"</p>";
-				str+="<pre>My Score</pre>";
+				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
-				str+="<pre>My Ranking</pre>";
+				str+="<center><pre>My Ranking</pre></center>";
 				
 				$("#finishedDiv").html(str);
 			
