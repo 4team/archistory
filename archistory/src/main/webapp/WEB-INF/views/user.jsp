@@ -342,7 +342,7 @@ text-align:center;
 
             </div>
             <div class="modal-footer">
-                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">확인</button>
             </div>
         </div>
 
@@ -451,7 +451,7 @@ $("#myInfo").on("click",function(){
 				str+="<center><pre>Route Creator</pre></center>";
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
-				str+="<p>"+FinishRouteVO.lastDate+"</p>";
+				str+="<p>"+FinishRouteVO.lastdate+"</p>";
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
