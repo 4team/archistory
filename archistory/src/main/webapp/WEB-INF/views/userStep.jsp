@@ -27,21 +27,7 @@
         width: 100%;
         height: 100%;
     }
-    #eventInfo{
-        position:absolute;
 
-        margin-left:-250px;
-        left:50%;
-        width:500px;
-
-
-        margin-top:50%;
-        top:-250px;
-        height:500px;
-
-        z-index:300;
-        overflow-y:scroll;
-    }
 
     #title{
         text-align: center;
