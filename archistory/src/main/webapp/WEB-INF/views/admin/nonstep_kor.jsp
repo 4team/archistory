@@ -75,16 +75,12 @@ input[type=checkbox]:checked + label:before {
     .modal-dialog{
         max-width: 500px;
     }
-    .modal-content{
-    	overflow-y: scroll;
-    }
     #questionDiv{
         display: none;
     }
     #selectBox{
         display: none;
     }
-
     #moquestionDiv{
         display: none;
     }
@@ -107,9 +103,7 @@ input[type=checkbox]:checked + label:before {
         width : 200px;
         height:400px;
         overflow-y:scroll;
-
     }
-
     #listBottom{
         margin-bottom: 5px;
         float: right;

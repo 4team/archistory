@@ -9,10 +9,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    
+    <meta charset="UTF-8">    
     <title>= Archistory(ADMIN) = StepMode - Create </title>
 </head>
+
+<!-- 체크박스 스타일 -->
+<style>
+input[type=checkbox] {  
+    display: none;
+}
+
+input[type=checkbox] + label{
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px;  
+    font-size: 13px;
+}
+
+input[type=checkbox]+ label:before {     
+
+    content: "";  
+    display: inline-block;  
+  
+    width: 20px;  
+    height: 20px;  
+  
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;  
+    bottom: 1px;  
+    background-color: #ccc;  
+    border-radius: 2px; 
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);  
+}
+input[type=checkbox]:checked + label:before { 
+
+    content: "\2713";  /* 체크모양 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);  
+    font-size: 18px; 
+    font-weight:800; 
+    color: #fff;  
+    background:#2f87c1;
+    text-align: center;  
+    line-height: 18px;  
+
+} 
+</style>
+<!-- END 체크박스 스타일 -->
+
 <style>
     html, body {
         height: 100%;
@@ -28,7 +74,6 @@
     }
     .modal-dialog{
         max-width:500px;
-
     }
     #questionDiv{
         display: none;
@@ -36,7 +81,6 @@
     #selectBox{
         display: none;
     }
-
     #moquestionDiv{
         display: none;
     }
@@ -59,9 +103,7 @@
         width : 200px;
         height:400px;
         overflow-y:scroll;
-
     }
-
     #order{
     	padding:0px;
     	text-align:center;
@@ -268,23 +310,23 @@
                     <div id="createEventDiv" >
 
                        <label for="eventName">이름</label><br>
-                        <input type="text" class="form-control" id="order" placeholder="순서" readonly="readonly" style="align:center">
+                        <input type="text" class="form-control" id="order" placeholder="순서" readonly="readonly" style="align:center; margin-right:2px;">
                         <input type="text" class="form-control" id="eventName" placeholder="이벤트 이름을 입력하세요">
-                        <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
-                        <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
+                        <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 3px; margin-top: 5px;">검색</button><br>
+                        <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea><br>
                         <label for="imgInput">이미지</label>
-                        <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>                        
+                        <div class="fileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>                        
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
-                        <label for="videoInput">동영상</label>
-                        	Youtube Search <input type="text" id="query"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
+                        <label for="videoInput">동영상</label><br>
+                        	YouTube Search <input type="text" id="query" style="width:295px;"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
                     	<ul id="youtubeList"></ul>
                         <!-- <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div> -->
                         
                         <label for="camera">카메라</label>
                         <input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
-                        <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
+                        <input type="checkbox" id="qCheck" value="option1"><label for="qCheck" style="margin-right:270px; font-size:15px;">Question</label><br>
                      </div>
                         <div id="questionDiv">
                             <hr>
@@ -297,7 +339,7 @@
                             </select><br>
 
                             <label for="qTitle">문제</label>
-                            <textarea class="form-control" id="questionTitle" placeholder="문제를 입력하세요."></textarea><br>
+                            <textarea class="form-control" id="questionTitle" rows="3" placeholder="문제를 입력하세요."></textarea>
                             <div id="selectBox">
                                 <label for="s1">1번 선택지</label><input type="text" class="form-control" id="s1" placeholder="1번 보기를 입력하세요."><br>
                                 <label for="s2">2번 선택지</label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요."><br>
@@ -305,11 +347,11 @@
                                 <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
 
                                 <div id="multipleAnswerBox" class="checkbox">
-                                    <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
-                                    <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
-                                    <label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
-                                    <label><input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4">4</label>
-                                </div>
+                                    <input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1"><label for="multipleAnswer1" style="font-size:15px;">1</label>
+                              		<input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2"><label for="multipleAnswer2" style="font-size:15px;">2</label>
+                                	<input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3"><label for="multipleAnswer3" style="font-size:15px;">3</label>
+                                	<input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4"><label for="multipleAnswer4" style="font-size:15px;">4</label>
+                            </div>
                             </div>
                             <div id="oxAnswerbox" class="radio">
                                 <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o" checked> O </label>
@@ -317,7 +359,7 @@
                             </div>
                             
                               <label for="qImg">문제 이미지</label>
-			                  <div class="qfileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+			                  <div class="qfileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
 			                    <ul class="mailbox-attachments clearfix quploadedList" style="display:inline"></ul>
 			              	  </div>      
 
@@ -350,20 +392,20 @@
                 <div id="modiEventDiv">
                     <input type="hidden" id="moeventno" value="">
                     <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
-                    <input type="text" class="form-control" id="moorder" placeholder="순서" readonly="readonly" style="align:center"><br>
-                    <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
+                    <input type="text" class="form-control" id="moorder" placeholder="순서" readonly="readonly" style="align:center; margin-right:2px;"><br>
+                    <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 3px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
                     <input type="file" id="moimgInput"><br>
-                    <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>    
+                    <div class="fileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>    
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     
                     <label for="videoInput">동영상</label><br>
-                    	Youtube Search <input type="text" id="mquery"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
+                    	Youtube Search <input type="text" id="mquery"  style="width:295px;"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
                     <ul id="myoutubeList"></ul>
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
-                    <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
+                    <input type="checkbox" id="moqCheck" value="option1"><label for="moqCheck" style="margin-right:270px;">Question</label><br>
                 </div>
                 <div id="moquestionDiv">
                     <hr>
@@ -377,7 +419,7 @@
 
                     <label for="qTitle">문제</label>
                     <input type="hidden" id="qno">
-                    <textarea class="form-control" id="moquestionTitle" placeholder="문제를 입력하세요."></textarea><br>
+                    <textarea class="form-control" id="moquestionTitle" rows="3" placeholder="문제를 입력하세요."></textarea>
                     <div id="moselectBox">
                         <label for="s1">1번 선택지</label><input type="text" class="form-control" id="mos1" placeholder="1번 보기를 입력하세요."><br>
                         <label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요."><br>
@@ -385,10 +427,10 @@
                         <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
 
                         <div id="momultipleAnswer" class="checkbox">
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2">2</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3">3</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4">4</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1"><label for="momultipleAnswer1" style="font-size:15px;">1</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2"><label for="momultipleAnswer2" style="font-size:15px;">2</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3"><label for="momultipleAnswer3" style="font-size:15px;">3</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4"><label for="momultipleAnswer4" style="font-size:15px;">4</label>
                         </div>
                     </div>
                     <div id="mooxAnswerbox" class="radio">
@@ -397,7 +439,7 @@
                     </div>
                     
                      <label for="qImg"> 문제 이미지</label>
-			         <div class="qfileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+			         <div class="qfileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
 			         <ul class="mailbox-attachments clearfix quploadedList" style="display:inline"></ul>
                 </div>
             </div>
