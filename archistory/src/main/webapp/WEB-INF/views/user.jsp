@@ -425,7 +425,7 @@ $("#myInfo").on("click",function(){
 			
 			list.each(function(){
 				
-				var str ="<pre>"+this.routename+"</pre>";
+				var str ="<pre onclick='viewFinishRoute("+this.routeno+",1)'>"+this.routename+"</pre>";
 				$("#finishedDiv").append(str);
 				
 			});
@@ -434,6 +434,14 @@ $("#myInfo").on("click",function(){
 			$("#myPageModal").modal('show');
 	});
 
+	function viewFinishRoute(routeno,page){
+		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
+
+				var str ="<pre onclick=''>"+this.routename+"</pre>";
+				$("#finishedDiv").append(str);
+			
+		});
+	}
 
 // 나의 위치를 읽어온다.
 window.addEventListener('deviceorientation',getLocation);
