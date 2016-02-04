@@ -437,7 +437,7 @@ $("#myInfo").on("click",function(){
 	function viewFinishRoute(routeno,page){
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
 				var FinishRouteVO = $(this);
-				console.log(this);
+				console.log($(this));
 				var str ="<pre>"+FinishRouteVO.routename+"</pre>";
 				str+="<pre>"+FinishRouteVO.username+"</pre>"
 				$("#finishedDiv").html(str);
