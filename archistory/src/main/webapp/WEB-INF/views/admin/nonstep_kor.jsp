@@ -312,10 +312,10 @@ input[type=checkbox]:checked + label:before {
                             <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
 
                             <div id="multipleAnswerBox" class="checkbox">
-                               <input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1"> <label for="multipleAnswer1" style="font-size:15px;">1</label>
-                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
-                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
-                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4">4</label>
+                               <input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1"><label for="multipleAnswer1" style="font-size:15px;">1</label>
+                                <input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2"><label for="multipleAnswer2" style="font-size:15px;">2</label>
+                                <input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3"><label for="multipleAnswer3" style="font-size:15px;">3</label>
+                                <input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4"><label for="multipleAnswer4" style="font-size:15px;">4</label>
                             </div>
                         </div>
                         <div id="oxAnswerbox" class="radio">
@@ -387,10 +387,10 @@ input[type=checkbox]:checked + label:before {
                         <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
 
                         <div id="momultipleAnswer" class="checkbox">
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2">2</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3">3</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4">4</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1"><label for="momultipleAnswer1" style="font-size:15px;">1</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2"><label for="momultipleAnswer2" style="font-size:15px;">2</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3"><label for="momultipleAnswer3" style="font-size:15px;">3</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4"><label for="momultipleAnswer4" style="font-size:15px;">4</label>
                         </div>
                     </div>
                     <div id="mooxAnswerbox" class="radio">
