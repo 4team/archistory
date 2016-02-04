@@ -26,4 +26,17 @@
   	update tbl_participate set score = #{score}, lastDate = now(), finish = true where participateno = #{participateno}
   </update>
   
+  <select id="finishList" resultType="org.kkamnyang.domain.RouteVO">
+  	select R.* 
+from (select distinct routeno from tbl_participate where memberno = #{memberno} AND finish = true) rno, tbl_route AS R
+where rno.routeno = R.routeno
+  </select>
+  
+  <select id="finishRoute">
+	select P.participateno, R.routename ,A.username,P.routeno, P.memberno, P.score,P.participateDate, P.stage,P.finish,P.lastDate 
+	from tbl_participate AS P,tbl_route AS R , tbl_admin AS A
+	where P.routeno = R.routeno AND R.adminno = A.adminno AND P.memberno = #{memberno} AND P.routeno = #{routeno} AND P.finish = true 
+	order by lastDate desc
+	Limit #{page},1
+  </select>
   </mapper>
