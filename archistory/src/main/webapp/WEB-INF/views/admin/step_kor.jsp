@@ -122,23 +122,25 @@ input[type=checkbox]:checked + label:before {
         width:420px;
     }
     .fileDrop {
-        width: 90%;
+        width: 100%;
         height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
-        background-color: powderblue;
-        margin-top:10px;
-        margin-bottom:10px;
+        background-color: orange;
+        margin:0px;
+        display:table;
+        line-height:100px;
     }
     
     .qfileDrop {
-        width: 90%;
+        width: 100%;
         height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
-        background-color: powderblue;
-        margin-top:10px;
-        margin-bottom:10px;
+        background-color: orange;
+        margin:0px;
+        display:table;
+        line-height:100px;
     }
     li{
         list-style: none;
