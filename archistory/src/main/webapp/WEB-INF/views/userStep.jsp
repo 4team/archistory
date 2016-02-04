@@ -725,7 +725,7 @@ var myMarker = null;
             	
             	list.each(function(){
 					console.log(this);
-	            	$("#finishDiv").append("<p>"+this.username+"  "+this.score+"</p>");
+	            	$("#finishDiv").append("<p>"+this.userName+"  "+this.score+"</p>");
             	});
             	
             });
