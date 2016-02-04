@@ -348,7 +348,7 @@ input[type=checkbox]:checked + label:before {
                             <hr>
                             <h4 class="modal-title">QUESTION</h4>
                             
-                            <label for="qScore">문제 배점</label><input type="text" class="form-control" id="qScore" placeholder="점수" style="align:center; margin-right:2px;">
+                            <label for="qScore">문제 배점</label><input type="text" class="form-control" id="qScore" placeholder="순서" readonly="readonly" style="align:center; margin-right:2px;">
                         
                             <label for="type">문제 유형</label>
                             <select class="form-control" id="qType">
