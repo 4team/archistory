@@ -18,7 +18,6 @@
 input[type=checkbox] {  
     display: none;
 }
-
 input[type=checkbox] + label{
     display: inline-block;  
     cursor: pointer;  
@@ -27,9 +26,7 @@ input[type=checkbox] + label{
     margin-right: 15px;  
     font-size: 13px;
 }
-
 input[type=checkbox]+ label:before {     
-
     content: "";  
     display: inline-block;  
   
@@ -45,7 +42,6 @@ input[type=checkbox]+ label:before {
     box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);  
 }
 input[type=checkbox]:checked + label:before { 
-
     content: "\2713";  /* 체크모양 */
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);  
     font-size: 18px; 
@@ -54,7 +50,6 @@ input[type=checkbox]:checked + label:before {
     background:#2f87c1;
     text-align: center;  
     line-height: 18px;  
-
 } 
 </style>
 <!-- END 체크박스 스타일 -->
@@ -68,10 +63,6 @@ input[type=checkbox]:checked + label:before {
     #map{
         width: 100%;
         height: 100%;
-    }
-    .modal-body{
-    overflow-y:scroll;
-    overflow:auto;
     }
     .modal-title{
         text-align : center;
@@ -160,7 +151,6 @@ input[type=checkbox]:checked + label:before {
         list-style: none;
         margin-bottom: 15px;
     }
-
     small{
         float:right;
         font-size:smaller;
@@ -175,17 +165,14 @@ input[type=checkbox]:checked + label:before {
     ::-webkit-scrollbar {
         width: 1px;
     }
-
     ::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
         border-radius: 1px;
     }
-
     ::-webkit-scrollbar-thumb {
         border-radius: 1px;
         -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.5);
     }
-
     .glyphicon{
         display: inline;
         margin : 3px;
@@ -238,7 +225,6 @@ input[type=checkbox]:checked + label:before {
 		overflow-y: scroll; 
     }
     
-
     #eventTitle{
     	width:130px;
     	height:22px;
@@ -347,7 +333,10 @@ input[type=checkbox]:checked + label:before {
                         <div id="questionDiv">
                             <hr>
                             <h4 class="modal-title">QUESTION</h4>
-                           
+                        
+                            <label for="qScore">문제 배점</label>
+                            <input type="text" class="form-control" id="qScore" placeholder="점수" style="width:60px; align:center;"><br>
+
                             <label for="type">문제 유형</label>
                             <select class="form-control" id="qType">
                                 <option value="ox">O/X</option>
@@ -520,7 +509,6 @@ input[type=checkbox]:checked + label:before {
                 level: 2 // 지도의 확대 레벨
             };
     var map = new daum.maps.Map(mapContainer, mapOption);
-
     var routeno = ${routeno};
     var eventLi="";
     var routename = ${routename};
@@ -541,7 +529,6 @@ input[type=checkbox]:checked + label:before {
      // 마커 이미지 생성성
         var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
         var imageSize = new daum.maps.Size(24, 35);
-
         var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
         
 	//{font-family:'Nanum Gothic', sans-serif;}
@@ -563,25 +550,19 @@ input[type=checkbox]:checked + label:before {
             position: new daum.maps.LatLng(event.lat,event.lng),
             image:markerImage
         });
-
         marker.setMap(map);
         markers.push(marker);
-
         daum.maps.event.addListener(marker, 'mouseover', function () {
             // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
             showInfo(marker);
         });
-
-
         daum.maps.event.addListener(marker, 'click', function(event) {
             // 마커 위에 인포윈도우를 표시합니다
             var position = marker.getPosition();
            /*  var roadviewClient = new daum.maps.RoadviewClient();
-
             var panoId = roadviewClient.getNearestPanoId(position, 50, function(panoId) {
                 roadview.setPanoId(panoId, position);
             });
-
             roadview.setPanoId(panoId, position); */
         });
     	
@@ -591,28 +572,20 @@ input[type=checkbox]:checked + label:before {
         function showInfo(marker){
         // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
         var iwContent = '<div style="padding:5px;">'+ marker.wd +'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-
         // 인포윈도우를 생성합니다
         var infowindow = new daum.maps.InfoWindow({
             content: iwContent
         });
-
         infowindow.open(map, marker);
-
         daum.maps.event.addListener(marker, 'mouseout', function() {
             infowindow.close();
         });
     }
-
-
-
     $("#Rname").val(routename);	
     
     (function blink() {
         $('.blink_me').fadeOut(500).fadeIn(500, blink);
     })();
-
-
 /*     <!-- 이벤트 리스트 불러오기--> */
 	var polyline = new daum.maps.Polyline({
    	    path: linePath, // 선을 구성하는 좌표배열 입니다
@@ -621,7 +594,6 @@ input[type=checkbox]:checked + label:before {
    	    strokeOpacity: 0.5, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
    	    strokeStyle: 'solid' // 선의 스타일입니다
    	});
-
     function getEventList(callback){
     	console.log("getEventList가 호출되어 시작됨.");
 		eventno=1;
@@ -642,12 +614,10 @@ input[type=checkbox]:checked + label:before {
 	
         $.getJSON("http://14.32.66.127:4000/event/elist?routeno="+routeno,function(data){
             var list = $(data);
-
             eventLi="";
 			list.each(function(){
                 eventno++;
 			});
-
 			list.each(function(idx,value){
                 var event= this;
                
@@ -658,7 +628,6 @@ input[type=checkbox]:checked + label:before {
                 	console.log("이벤트 순서 달라요");
                 	modiOrder(event.eventno,order);
                 }               	
-
                 addList(order,event);
                	addMarker(order,event);
    
@@ -680,7 +649,6 @@ input[type=checkbox]:checked + label:before {
  
     
             callback();
-
    		
     }
   
@@ -701,8 +669,6 @@ input[type=checkbox]:checked + label:before {
 	    	console.log(linePath);
     	 */
     });
-
-
 /*     <!-- 이벤트 리스트 - 리스트 추가 --> */
     function addList(order,event){
 	
@@ -710,8 +676,6 @@ input[type=checkbox]:checked + label:before {
         $("#sortable").html(eventLi);
         
         console.log("이벤트 넘버_"+event.eventno+"/이벤트 이름_"+event.title+"/현재 순서_"+order);
-
-
     }
     
 	$(function() {
@@ -767,32 +731,23 @@ input[type=checkbox]:checked + label:before {
 	    	
 	    	
 	    };
-
     //이벤트 리스트 삭제버튼
     $("#sortable").on("click","#del",function(event){
         var select = $(this);
         removeQuestion(select.attr("value"));
         removeEvent(select.attr("value"),function(){
         });
-
-
         alert(select.attr("value")+"삭제되었습니다.");
     });
-
     //이벤트 리스트 수정 버튼
     $("#sortable").on("click","#modi",function(event){
         var select = $(this);
-
         viewEvent(select.attr("value"));
         clearEventDiv();
         clearMoEventdiv();
         clearQuestionDiv();
-
         $("#modiModal").modal('show');
-
     });
-
-
   /*   <!-- 이벤트 생성 버튼 클릭--> */
 	
     var attach = new Array();
@@ -807,12 +762,10 @@ input[type=checkbox]:checked + label:before {
         var content = $("#eventinfo").val();
         camera = $("#camera").val();
         attach2 = attach.join();
-
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
-
         createEvent(routeno, eorder, title, content, attach2, lat, lng, camera,youtubeId, function(){
             console.log("attach2:" + attach2);
             clearEventDiv();
@@ -821,16 +774,13 @@ input[type=checkbox]:checked + label:before {
         	
         	//은혜추가.
         	youtubeId ="";
-
         });
-
         $("#eventModal").modal('hide');
         $("#searchDiv").hide();
         clearEventDiv();
         clearMoEventdiv();
        
     });
-
     function makeQuestion(data){
         var qfilter = new Array();
         qfilter[0]="eventno";
@@ -843,9 +793,7 @@ input[type=checkbox]:checked + label:before {
         qfilter[7]="choice3";
         qfilter[8]="choice4";
         qfilter[9]="qfiles"
-
         var qObject = new Object();
-
         qObject.eventno = data;
         qObject.question = $("#questionTitle").val();
         qObject.point = 500;
@@ -855,33 +803,24 @@ input[type=checkbox]:checked + label:before {
         qObject.choice3 = $("#s3").val();
         qObject.choice4 = $("#s4").val();
         qObject.qfiles = qattach;
-
         for(var i=1;i<5;i++) {
-
             var id = "#multipleAnswer";
             var multi = id+i;
             var oxid ="#oxAnswer";
             var ox =oxid+i;
-
             if ($(multi).is(":checked")) {
                 qObject.answer = $(multi).val();
             }
-
             if($(ox).is(":checked")){
                 qObject.answer = $(ox).val();
             }
         }
-
         qJson = JSON.stringify(qObject,qfilter,"\t");
-
         //console.log(qJson)
-
     }
     
     function createQuestion(qJson){
-
         console.log("문제 생성 :"+qJson);
-
         $.ajax({
             type:"post",
             url:"http://14.32.66.127:4000/question/attachCreate",
@@ -894,16 +833,12 @@ input[type=checkbox]:checked + label:before {
                 console.log("data:"+data);
             }
         });
-
-
     }
     
-
     /*     <!-- 이벤트 생성 기능 --> */
     function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,callback){
     	
         console.log(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId);
-
         $.ajax({
             type:'post',
             url:"http://14.32.66.127:4000/event/attachCreate",
@@ -920,10 +855,8 @@ input[type=checkbox]:checked + label:before {
                 });
                 
                 makeQuestion(data);
-
                 var json = JSON.parse(qJson);
                 console.log("question : "+json.question);
-
                 if(!json.question){
                     console.log("이벤트 생성중 - 문제없음.");
                 }
@@ -931,14 +864,11 @@ input[type=checkbox]:checked + label:before {
                     console.log("이벤트 생성중 - 문제있음.")
                     createQuestion(qJson);
                 }
-
             }
         });
         callback();
     };
-
  
-
 /*     <!-- 이벤트 생성 창 비우기 기능--> */
     function clearEventDiv(){
         $("#eventName").val("");
@@ -954,7 +884,6 @@ input[type=checkbox]:checked + label:before {
     
     //이벤트 생성- 문제 창 비우기 기능
     function clearQuestionDiv(){
-
         $("#qCheck").attr("checked",false);
         $("#questionTitle").val("");
         $("#qType").val("");
@@ -963,28 +892,21 @@ input[type=checkbox]:checked + label:before {
         $("#s3").val("");
         $("#s4").val("");
         qattach=[];
-
         for(var i=1;i<5;i++) {
-
             var id = "#multipleAnswer";
             var multi = id+i;
             var oxid ="#oxAnswer";
             var ox =oxid+i;
-
             if ($(multi).is(":checked")) {
                 $(multi).attr("checked",false);
             }
-
             if($(ox).is(":checked")){
                 $(ox).attr("checked",false);
             }
         }
     }
-
-
   //수정 창 비우기 기능
     function clearMoEventdiv(){
-
         for(var i=1;i<5;i++){
             var id = "#mos";
             var idi= id + i;
@@ -1002,11 +924,8 @@ input[type=checkbox]:checked + label:before {
         $("#mocamera").val(false);
         $("#mocamera").parent().attr("class","toggle btn btn-xs btn-default off"); //기본값 설정 - 카메라 없음
         $("#moquestionDiv").hide();
-
     }
   
-
-
 /*     <!-- 이벤트 읽기 기능 --> */
     function viewEvent(eventno){
     	$(".uploadedList").html("");
@@ -1017,9 +936,7 @@ input[type=checkbox]:checked + label:before {
 	  var template2 = Handlebars.compile($("#template").html());
          
         $.getJSON("http://14.32.66.127:4000/event/view?eventno="+eventno,function(data){
-
             console.log("이벤트 넘버:"+eventno+"읽어오기");
-
             var vo = $(data);
             console.log(vo);
             
@@ -1066,66 +983,51 @@ input[type=checkbox]:checked + label:before {
 	   			  
 	   			  $(".uploadedList").append(html);
 	   		 }
-
    		 });//end getAttach
         
         $.getJSON("http://14.32.66.127:4000/question/view?eventno="+eventno,function(data){
-
             var vo = $(data);
-
             var qno = vo.attr("questionno");
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
-
-
             if(typeof qno == "undefined"){
                 console.log("이벤트 VIEW - 문제 없음.");
                 $("#qno").val("no_Question");
                 $("#moqCheck").attr("checked",false);
                 $("#moquestionDiv").hide();
             } // END if 
-
             else{
                 $("#moqCheck").attr("checked",true);
                 $("#moquestionDiv").show();
                 $("#moquestionTitle").val(vo.attr("question"));
                 $("#moqType").val(vo.attr("qtype"));
-
                 if(vo.attr("qtype")=="multiple"){
-
                     $("#mooxAnswerbox").hide();
                     $("#moselectBox").show();
-
-
                     for (var i=1; i<5; i++){
                         var id="#mos";
                         var multi = id+i;
                         var choice="choice";
                         var multi2 = choice+i;
                         $(multi).val(vo.attr(multi2));
-
                         console.log("answer:"+vo.attr("answer"));
-
                         if(i==vo.attr("answer")){
                             var answerId = "#momultipleAnswer"+i;
                             $(answerId).attr("checked",true);
                         }
                     }
                 } //multiple 일때
-
                 if('o'==vo.attr("answer")){
                     $("#mooxAnswer1").attr("checked",true);
                     $("#moselectBox").hide();
                     $("#mooxAnswerbox").show();
                 } //ox중 o일때
-
                 if('x'==vo.attr("answer")){
                     $("#mooxAnswer2").attr("checked",true);
                     $("#moselectBox").hide();
                     $("#mooxAnswerbox").show();
                 }
-
                 
                 $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
           	   		 console.log("문제 첨부파일 가져오기");
@@ -1144,19 +1046,14 @@ input[type=checkbox]:checked + label:before {
           	   			  
           	   			  $(".quploadedList").append(html);
           	   		 }
-
              		 });//end getAttach
-
             }//end else
-
         }); //end question view 
         
     }
-
     /* <!-- 이벤트 삭제 기능 --> */
     function removeEvent(eventno,callback){
         console.log("이벤트 삭제"+eventno);
-
         $.ajax({
             type:'post',
             url:"http://14.32.66.127:4000/event/remove",
@@ -1176,7 +1073,6 @@ input[type=checkbox]:checked + label:before {
     //이벤트 문제 삭제 기능
     function removeQuestion(eventno){
         console.log("문제 삭제"+eventno);
-
         $.ajax({
             type:'post',
             url:"http://14.32.66.127:4000/question/remove",
@@ -1188,13 +1084,10 @@ input[type=checkbox]:checked + label:before {
             success:function(data){
                 console.log("문제 처리 결과 :"+data);
             }
-
         });
     }
-
     
     var modiJson;
-
     function modiQuestion(eventno){
         var qfilter = new Array();
         qfilter[0]="eventno";
@@ -1206,9 +1099,7 @@ input[type=checkbox]:checked + label:before {
         qfilter[6]="choice2";
         qfilter[7]="choice3";
         qfilter[8]="choice4";
-
         var qObject = new Object();
-
         qObject.eventno = eventno;
         qObject.question = $("#moquestionTitle").val();
         qObject.point = 500;
@@ -1217,32 +1108,24 @@ input[type=checkbox]:checked + label:before {
         qObject.choice2 = $("#mos2").val();
         qObject.choice3 = $("#mos3").val();
         qObject.choice4 = $("#mos4").val();
-
         for(var i=1;i<5;i++) {
-
             var id = "#momultipleAnswer";
             var multi = id+i;
             var oxid ="#mooxAnswer";
             var ox =oxid+i;
-
             if ($(multi).is(":checked")) {
                 qObject.answer = $(multi).val();
             }
-
             if($(ox).is(":checked")){
                 qObject.answer = $(ox).val();
             }
         }
-
         modiJson = JSON.stringify(qObject,qfilter,"\t");
-
         //console.log(qJson)
-
     }
    
     
     /*     <!-- 이벤트 수정 버튼 클릭--> */
-
     $("#modifyEventBtn").on("click",function(){
         var title = $("#moeventName").val();
         var content = $("#moeventinfo").val();
@@ -1252,19 +1135,14 @@ input[type=checkbox]:checked + label:before {
         attach2 = attach.join();
         
         console.log(attach2);
-
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
-
         console.log("eventno:"+eventno);
-
         modiQuestion(eventno);
-
         var json = JSON.parse(modiJson);
         console.log("question : "+json.question);
-
         if(!json.question){
             console.log("<이벤트 수정중> - 문제 NO/NO");
         }
@@ -1276,7 +1154,6 @@ input[type=checkbox]:checked + label:before {
             console.log("<이벤트 수정중> - 문제YES/YES");
             modifyQuestion(modiJson);
         }
-
         modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,function(){
         	 //clearEventDiv();
              //attach = [];
@@ -1284,16 +1161,10 @@ input[type=checkbox]:checked + label:before {
         
         $("#modiModal").modal('hide');
         clearMoEventdiv();
-
-
     });
-
-
     /* <!-- 이벤트 수정 기능 --> */
     function modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,callback){
-
         console.log("이벤트 수정"+eventno);
-
         $.ajax({
             type:'post',
             url:"http://14.32.66.127:4000/event/attachModify",
@@ -1309,12 +1180,10 @@ input[type=checkbox]:checked + label:before {
         });
         callback();
     }
-
   //문제 수정 기능
     function modifyQuestion(modiJson){
         console.log("문제 수정 시도!")
         console.log(modiJson);
-
         $.ajax({
             type:'post',
             url:"http://14.32.66.127:4000/question/modify",
@@ -1326,10 +1195,8 @@ input[type=checkbox]:checked + label:before {
                 console.log("문제 수정 처리 결과 :"+data);
             }
         });
-
     }
     
-
  /*    <!--map 클릭하면--> */
     daum.maps.event.addListener(map,'click',function(mouseEvent){
         clearEventDiv();
@@ -1340,28 +1207,19 @@ input[type=checkbox]:checked + label:before {
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
         $("#order").val(eventno);
-
         console.log("내가 선택한 위도와 경도 : ",lat,lng);
-
         $("#eventModal").modal('show');
-
         $("#cancleEventBtn").on("click",function(){
             console.log("이벤트 생성 취소");
-
         });
         $("#mocancleEventBtn").on("click",function(){
             console.log("이벤트 수정 취소");
-
         });
-
     });
 /*     <!-- 이벤트 생성 모달(세부사항)--> */
-
     $("#search").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
     });
-
-
     $("#camera").change("toggle",function(){
     	if(this.checked==true){
             console.log("카메라 ON");
@@ -1371,8 +1229,6 @@ input[type=checkbox]:checked + label:before {
             $("#camera").val(false);
         }
     });
-
-
     $("#qCheck").on("click",function(){
         if(this.checked==true){
             $("#questionDiv").show();
@@ -1380,8 +1236,6 @@ input[type=checkbox]:checked + label:before {
             $("#questionDiv").hide();
         }
     });
-
-
     $("#qType").on("change",function(){
         if(this.value=="multiple"){
             $("#oxAnswerbox").hide();
@@ -1389,19 +1243,13 @@ input[type=checkbox]:checked + label:before {
         }else{
             $("#selectBox").hide();
             $("#oxAnswerbox").show();
-
         }
     });
-
 /*     <!-- END 이벤트 생성 모달-->
-
     <!-- 수정모달(세부사항) --> */
-
     $("#mosearch").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
     });
-
-
     $("#mocamera").change("toggle",function(){
         if(this.checked==true){
             $("#mocamera").val(true);
@@ -1410,9 +1258,7 @@ input[type=checkbox]:checked + label:before {
             $("#mocamera").val(false);
             console.log("카메라 OFF");
         }
-
     });
-
     $("#moqCheck").on("click",function(){
         if(this.checked==true){
             $("#moquestionDiv").show();
@@ -1420,49 +1266,35 @@ input[type=checkbox]:checked + label:before {
             $("#moquestionDiv").hide();
         }
     });
-
-
     $("#moqType").on("change",function(){
         if(this.value=="multiple"){
             $("#mooxAnswerbox").hide();
             $("#moselectBox").show();
             //$("#multipleAnswerBox").show();
-
         }else{
             $("#moselectBox").hide();
             //$("#multipleAnswerBox").hide();
             $("#mooxAnswerbox").show();
-
         }
     });
-
     /* <!-------------------------------------------- END 수정모달 세부사항 -------------------------------------------------- ->*/
    /*  <!-- 이벤트 리스트 완료 클릭--> */
    
     // 이벤트 리스트 완료 클릭
     $("#commitList").on("click",function(){
         $("#finishModal").modal('show');
-
         var modiRoutename = $("#Rname").val();
         var routemsg = routename + " 루트 등록이 완료되었습니다";
-
         console.log(modiRoutename, routename,routeno);
-
         if( modiRoutename != routename){
         	 console.log("루트 이름 수정 완료!"+modiRoutename);
              modifyName(routeno,modiRoutename);
              routemsg = modiRoutename+ " 루트 등록이 완료되었습니다";
         }
-
         $("#routeFinish").html(routemsg);
-
-
     });
-
     //루트 이름 수정
-
     function modifyName(routeno,modiRoutename){
-
         $.ajax({
             type:'post',
             url:"http://14.32.66.127:4000/route/modify",
@@ -1474,14 +1306,11 @@ input[type=checkbox]:checked + label:before {
                 console.log("data:"+data);
             }
         });
-
     }
-
     $("#okBtn").on("click",function(){
         $("#finishModal").modal('hide');
         self.location = "/admin/login_success";
     });
-
 </script>
 
 <script id="template" type="text/x-handlebars-template">
@@ -1497,18 +1326,15 @@ input[type=checkbox]:checked + label:before {
 <!-- -----파일첨부기능-------  -->
 <script>
     var template = Handlebars.compile($("#template").html());
-
     $(".fileDrop").on("dragenter dragover", function(event){
         event.preventDefault();
     });
     
     $(".fileDrop").on("drop", function(event){
         event.preventDefault();
-
         var files = event.originalEvent.dataTransfer.files; //전달된 파일 데이터 가져오는 부분
         console.log(files);
         var num = files.length;
-
 		
 		for(var i = 0 ; i < num; i++){
 	        var file = files[i];
@@ -1520,7 +1346,6 @@ input[type=checkbox]:checked + label:before {
 	        console.log(filetypeArr[arrNum-1]);
 	        
 	        var formData = new FormData();
-
 	        formData.append("file", file);
 	        formData.append("routeno",routeno);
 	        
@@ -1582,16 +1407,13 @@ input[type=checkbox]:checked + label:before {
         
 	
     });
-
     $(".uploadedList").on("click", "small", function(event){
-
         var that = $(this);
         console.log("delete click");
         
         var index = $.inArray($(this).attr("data-src"), attach);
         attach.splice(index, 1);
         console.log("삭제 한 뒤의 어테치 : "+attach);
-
         
         $.ajax({
             url:"http://14.32.66.127:4000/sboard/deleteFile",
@@ -1606,54 +1428,36 @@ input[type=checkbox]:checked + label:before {
         });
                 
     });
-
-
     $("#registerForm").submit(function(event){
         event.preventDefault();
-
         var that = $(this);
-
         var str ="";
         $(".uploadedList .delbtn").each(function(index){
             str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
         });
-
         that.append(str);
 		console.log("str값은?????:" + str); 
         //that.get(0).submit();
     });
-
-
     function getOriginalName(fileName){
-
         if(checkImageType(fileName)){
             return;
         }
         var idx = fileName.indexOf("_") + 1 ;
         return fileName.substr(idx);
-
     }
-
-
     function getImageLink(fileName){
-
         if(!checkImageType(fileName)){
             return;
         }
         var front = fileName.substr(0,12);
         var end = fileName.substr(14);
-
         return front + end;
-
     }
-
     function checkImageType(fileName){
         var pattern = /jpg|gif|png|jpeg/i;
         return fileName.match(pattern);
-
     }
-
-
     /*유투브 검색 */
        $("#youtubeSearch").on("click",function(event){
        	event.preventDefault();
@@ -1663,21 +1467,17 @@ input[type=checkbox]:checked + label:before {
        	  var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
        	  var q = $('#query').val();
        	console.log(q);
-
        	  gapi.client.setApiKey(apiKey);
        	  gapi.client.load('youtube', 'v3', function() {
        	    isLoad = true;
        	  });
        	  console.log('Search Request');
-
        	  request = gapi.client.youtube.search.list({
        	    q: q,
        	    part: 'id, snippet',
        	    type: 'video',
        	    maxResults:20
        	  });
-
-
        	  request.execute(function(response) {
        	    var str = JSON.stringify(response.result);
        	    var movie = $(response.result.items);
@@ -1709,21 +1509,17 @@ input[type=checkbox]:checked + label:before {
        	  var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
        	  var q = $('#mquery').val();
        	console.log(q);
-
        	  gapi.client.setApiKey(apiKey);
        	  gapi.client.load('youtube', 'v3', function() {
        	    isLoad = true;
        	  });
        	  console.log('Search Request');
-
        	  request = gapi.client.youtube.search.list({
        	    q: q,
        	    part: 'id, snippet',
        	    type: 'video',
        	    maxResults:20
        	  });
-
-
        	  request.execute(function(response) {
        	    var str = JSON.stringify(response.result);
        	    var movie = $(response.result.items);
@@ -1755,7 +1551,6 @@ input[type=checkbox]:checked + label:before {
        	console.log(array);
        	$("#searchDiv").hide();
        	
-
            $("#youtubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
            $("#myoutubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
            
@@ -1772,44 +1567,29 @@ input[type=checkbox]:checked + label:before {
 
 <!-- 문제 파일첨부 기능 -->
 <script>
-
     var template = Handlebars.compile($("#template").html());
-
     $(".qfileDrop").on("dragenter dragover", function(event){
         event.preventDefault();
     });
-
     $(".qfileDrop").on("drop", function(event){
         event.preventDefault();
-
         var files = event.originalEvent.dataTransfer.files; //전달된 파일 데이터 가져오는 부분
         console.log(files);
         var num = files.length;
-
-
         for(var i = 0 ; i < num; i++){
             var file = files[i];
             var filename = file.name;
-
             var filetypeArr = filename.split('.');
             var arrNum = filetypeArr.length;
             console.log(arrNum);
             console.log(filetypeArr[arrNum-1]);
-
             var formData = new FormData();
-
             formData.append("file", file);
             formData.append("routeno",routeno);
-
             if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
-
                 uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');
             }
-
-
         }
-
-
         function uploadImg(formData,url){
             $.ajax({
                 url: url,
@@ -1819,26 +1599,20 @@ input[type=checkbox]:checked + label:before {
                 contentType: false,
                 type: 'POST',
                 success: function(data){
-
                     var fileInfo = getFileInfo(data);
                     var html = template(fileInfo);
-
                     var str ="";
-
                     console.log(data);
                     //console.log(checkImageType(data));
                     //console.log("ddddd",$(".uploadedList"));
-
                     //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
                     qattach = data;
                     console.log("qattach:" + qattach);
-
                     if(checkImageType(data)){
                         str ="<div class='img'>"
                                 +"<img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/>"
                                 +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
                                 +"</div>";
-
                     }else{
                         str = "<div class='img'>"
                                 +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
@@ -1846,23 +1620,16 @@ input[type=checkbox]:checked + label:before {
                                 +"</div>";
                     }
                     $(".quploadedList").append(str);
-
                 }
             });
         }
-
     });
-
     $(".quploadedList").on("click", "small", function(event){
-
         var that = $(this);
         console.log("delete click");
-
         var index = $.inArray($(this).attr("data-src"), attach);
         attach.splice(index, 1);
         console.log("삭제 한 뒤의 어테치 : "+attach);
-
-
         $.ajax({
             url:"http://14.32.66.127:4000/sboard/deleteFile",
             type:"post",
@@ -1874,57 +1641,37 @@ input[type=checkbox]:checked + label:before {
                 }
             }
         });
-
     });
-
-
     $("#registerForm").submit(function(event){
         event.preventDefault();
-
         var that = $(this);
-
         var str ="";
         $(".uploadedList .delbtn").each(function(index){
             str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
         });
-
         that.append(str);
         console.log("str값은?????:" + str);
         //that.get(0).submit();
     });
-
-
     function getOriginalName(fileName){
-
         if(checkImageType(fileName)){
             return;
         }
         var idx = fileName.indexOf("_") + 1 ;
         return fileName.substr(idx);
-
     }
-
-
     function getImageLink(fileName){
-
         if(!checkImageType(fileName)){
             return;
         }
         var front = fileName.substr(0,12);
         var end = fileName.substr(14);
-
         return front + end;
-
     }
-
     function checkImageType(fileName){
         var pattern = /jpg|gif|png|jpeg/i;
         return fileName.match(pattern);
-
     }
-
-
-
 </script>
 
 <!-- END 문제 파일첨부 기능 -->
