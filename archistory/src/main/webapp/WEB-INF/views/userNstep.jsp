@@ -61,11 +61,14 @@
     }
 
     #imageUl img{
-        margin: 10px;
-        width:450px;
-        height:300px;
-
-    }
+	     margin: 10px;
+	     width:380px;
+	     height:auto;
+		 box-shadow: 5px 5px 5px 0px lightgray;
+		 margin:auto;
+		 border-radius: 7px;
+		 margin:0px 0px 10px 0px;
+	}
 
 
     ::-webkit-scrollbar {
