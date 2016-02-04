@@ -175,9 +175,11 @@ text-align:center;
         input{
         	width:200px;
         }
+        #finishedDiv{
+        	text-align: center;
+        }
         #finishedDiv pre{
         	width:60%;
-        	text-align: center;
         }
         #finishedDiv p{
         	text-align: center;
