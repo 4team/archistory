@@ -2,6 +2,7 @@ package org.kkamnyang.controller;
 
 import java.util.List;
 
+import org.kkamnyang.domain.FinishRouteVO;
 import org.kkamnyang.domain.PageVO;
 import org.kkamnyang.domain.ParticipateVO;
 import org.kkamnyang.domain.RouteVO;
@@ -83,7 +84,7 @@ public class ParticipateController {
 	}
 	
 	@RequestMapping(value="/finishRoute")
-	public @ResponseBody RouteVO finishList(@RequestParam("memberno")Integer memberno,@RequestParam("routeno")Integer routeno,@RequestParam("page")Integer page) throws Exception{
+	public @ResponseBody FinishRouteVO finishList(@RequestParam("memberno")Integer memberno,@RequestParam("routeno")Integer routeno,@RequestParam("page")Integer page) throws Exception{
 		
 		System.out.println("[ 유저가 완주한 루트의 상세페이지 ]");
 		PageVO vo = new PageVO();

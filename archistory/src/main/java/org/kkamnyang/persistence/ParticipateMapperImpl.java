@@ -2,6 +2,7 @@ package org.kkamnyang.persistence;
 
 import java.util.List;
 
+import org.kkamnyang.domain.FinishRouteVO;
 import org.kkamnyang.domain.PageVO;
 import org.kkamnyang.domain.ParticipateVO;
 import org.kkamnyang.domain.RouteVO;
@@ -21,7 +22,7 @@ public class ParticipateMapperImpl extends AbstractCRUDMapper<ParticipateVO, Int
 	}
 
 	@Override
-	public RouteVO finishRoute(PageVO vo) {
+	public FinishRouteVO finishRoute(PageVO vo) {
 		return session.selectOne(namespace+".finishRoute",vo);
 	}
 
