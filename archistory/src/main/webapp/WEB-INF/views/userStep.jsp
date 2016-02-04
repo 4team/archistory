@@ -724,8 +724,8 @@ var myMarker = null;
 	            	$("#finishDiv").append("<p>User Name   Score</p>");
             	
             	list.each(function(){
-            		var rankingVO = $(this);
-	            	$("#finishDiv").append("<p>"+rankingVO.username+"  "+rankingVO.score+"</p>");
+					console.log(this);
+	            	$("#finishDiv").append("<p>"+this.username+"  "+this.score+"</p>");
             	});
             	
             });
