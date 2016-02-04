@@ -87,6 +87,16 @@ input[type=checkbox]:checked + label:before {
     #moselectBox{
         display: none;
     }
+    #mooxAnswerbox{
+       display: none;
+    }
+    
+    #selectBox{
+        display: none;
+    }
+    #oxAnswerbox{
+       display: none;
+    }
     #listModal1{
         margin-top:50px;
         margin-left:20px;
@@ -414,7 +424,7 @@ input[type=checkbox]:checked + label:before {
                     <h4 class="modal-title">QUESTION</h4>
 
                     <label for="type">문제 유형</label>
-                    <select class="form-control" id="moqType">
+                    <select class="form-control" id="moqType" placeholder="문제유형을 선택해주세요.">
                         <option value="ox">O/X</option>
                         <option value="multiple">객관식</option>
                     </select><br>
