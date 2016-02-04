@@ -720,7 +720,13 @@ var myMarker = null;
             
             $.getJSON("http://14.32.66.127:4000/participate/ranking?routeno="+routeno,function(data){
             	
-            	console.log(data);
+            	var list = $(data);
+	            	$("#finishDiv").append("<p>User Name   Score</p>");
+            	
+            	list.each(function(){
+            		var rankingVO = $(this);
+	            	$("#finishDiv").append("<p>"+rankingVO.username+"  "+rankingVO.score+"</p>");
+            	});
             	
             });
             
