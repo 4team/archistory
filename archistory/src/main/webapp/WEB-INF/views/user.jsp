@@ -88,7 +88,7 @@ text-align:center;
 	   		text-align:center;
 	   		border:1px solid;
 	   		display:none;
-	   		top:35px;
+	   		top:40px;
 	   		right:6px;
 	   		text-align:left;
 	   		z-index:400;
