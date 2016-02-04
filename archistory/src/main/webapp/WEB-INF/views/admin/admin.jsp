@@ -320,7 +320,7 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-            	<div id="imgDiv" style="margin-left:210px;">
+            	<div id="imgDiv" style="margin-left:210px; background-color: aqua;">
 				     
 			    </div>   
                 
@@ -750,11 +750,13 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	}
 	
 	
-	$("#foto").on("click",function(){
+	$("#imgDiv").on("click",function(){
 		console.log("이미지 클림됨.");
 		$("#imgModal").modal('show');	
 		
 	});
+	
+
 	
 	function closeRegiImg(imgName){
 		console.log("이미지 등록 성공"+imgName);
