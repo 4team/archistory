@@ -50,6 +50,7 @@
     }
     #nextBtn{
         float:right;
+        padding:10px;
     }
 
     #buttonContainer button{
