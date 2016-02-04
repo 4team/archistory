@@ -213,7 +213,7 @@
 <body>
 
 <!-- 이벤트의 정보를 보여주는 모달 -->
-<div class="modal fade" id="eventModal" aria-labelledby="editModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+<div class="modal fade" id="eventModal" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog">
 
         <div id="eventInfo" class="modal-content">
