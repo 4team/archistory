@@ -175,8 +175,14 @@ text-align:center;
         input{
         	width:200px;
         }
+        #finishedDiv{
+        	text-align: center;
+        }
+        #finishedDiv pre{
+        	width:60%;
+        }
         #finishedDiv p{
-        text-align: center;
+        	text-align: center;
         }
 </style>
 
@@ -440,10 +446,16 @@ $("#myInfo").on("click",function(){
 	function viewFinishRoute(routeno,page){
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
 				var FinishRouteVO = $(data)[0];
-				var str ="<p>"+FinishRouteVO.routename+"</p>";
-				str+="<p>"+FinishRouteVO.username+"</p>"
-				str+="<p>"+FinishRouteVO.lastDate+"</p>"
-				str+="<p>"+FinishRouteVO.score+"</p>"
+				var str ="<pre>Route Name</pre>";
+				str+="<p>"+FinishRouteVO.routename+"</p>";
+				str+="<pre>Route Creator</pre>";
+				str+="<p>"+FinishRouteVO.username+"</p>";
+				str+="<pre>Finished Date</pre>";
+				str+="<p>"+FinishRouteVO.lastDate+"</p>";
+				str+="<pre>My Score</pre>";
+				str+="<p>"+FinishRouteVO.score+"</p>";
+				str+="<pre>My Ranking</pre>";
+				
 				$("#finishedDiv").html(str);
 			
 		});
