@@ -417,13 +417,16 @@ $("#myInfo").on("click",function(){
 
 	
 	$("#myPage").on("click",function(){
+		$("#finishedDiv").html("");
+		
 		$.getJSON("http://14.32.66.127:4000/participate/finishList?memberno="+memberno,function(data){
 
 			var list = $(data);
 			
 			list.each(function(){
 				
-				$("#finishedDiv").html(this.routename);
+				var str ="<pre>"+this.routename+"</pre>";
+				$("#finishedDiv").append(str);
 				
 			});
 			
