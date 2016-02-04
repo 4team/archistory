@@ -1322,7 +1322,7 @@
 	
 	                var str ="";
 	
-	                console.log(data);
+	                console.log("이벤트 이미지 data:"+data);
 	                //console.log(checkImageType(data));
 	                //console.log("ddddd",$(".uploadedList"));
 	
@@ -1546,7 +1546,7 @@
                     var fileInfo = getFileInfo(data);
                     var html = template(fileInfo);
                     var str ="";
-                    console.log(data);
+                    console.log("문제 이미지 data:"+data);
                     //console.log(checkImageType(data));
                     //console.log("ddddd",$(".uploadedList"));
                     //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
