@@ -697,7 +697,8 @@
 	var attach2;
 	var qJson;
 	
-	var qattach="";
+	var qattach2 = new Array();
+	var qattach;
 	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
@@ -725,6 +726,9 @@
        
     });
     function makeQuestion(data){
+    	
+    	qattach = qattach2.join();
+    	
         var qfilter = new Array();
         qfilter[0]="eventno";
         qfilter[1]="question";
@@ -736,6 +740,7 @@
         qfilter[7]="choice3";
         qfilter[8]="choice4";
         qfilter[9]="qfiles"
+        
         var qObject = new Object();
         qObject.eventno = data;
         qObject.question = $("#questionTitle").val();
@@ -1557,8 +1562,12 @@
                     //console.log(checkImageType(data));
                     //console.log("ddddd",$(".uploadedList"));
                     //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
-                    qattach = data;
-                    console.log("qattach:" + qattach);
+                   
+                    qattach2.push(data);
+	                console.log("문제 이미지 attach:" + qattach2);
+	                
+                    /* qattach = data;
+                    console.log("qattach:" + qattach); */
                     if(checkImageType(data)){
                         str ="<div class='img'>"
                                 +"<img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/>"
