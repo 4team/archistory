@@ -90,6 +90,7 @@ public class ParticipateController {
 		PageVO vo = new PageVO();
 		vo.setMemberno(memberno);
 		vo.setRouteno(routeno);
+		vo.setPage(page);
 		
 		return mapper.finishRoute(vo);
 	}
