@@ -307,7 +307,7 @@
 
 
 <script id="template" type="text/x-handlebars-template">
-       <img src="{{fileName}}"/>
+       <img class="img-responsive" src="{{fileName}}"/>
 </script>
 <script>
 
