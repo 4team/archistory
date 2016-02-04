@@ -735,15 +735,16 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		   var dbimg = admin.attr("img");
 		   console.log(dbimg);
 			
-		   if(!dbimg){  
-			   var imgTag=" <img class='img-circle' id='modifoto' src ='/img/profile.png'>";
+		   if(dbimg==null){  
+			   var imgTag=" <img class='img-circle' id='foto' src ='/img/profile.png'>";
 				$("#imgDiv").html(imgTag); 
+		   }else{
+		   
+			   var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbimg;
+			   var imgTag1="<img class='img-circle' id='foto' src ='"+imgAddr+"'>";
+				$("#imgDiv").html(imgTag1); 
 		   }
 		   
-		   var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbimg;
-		   var imgTag1="<img class='img-circle' id='foto' src ='"+imgAddr+"'>";
-			$("#imgDiv").html(imgTag1); 
-			
 		   username = $("#proName").val();
 		});
 	
