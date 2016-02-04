@@ -69,6 +69,10 @@ input[type=checkbox]:checked + label:before {
         width: 100%;
         height: 100%;
     }
+    .modal-body{
+    overflow-y:scroll;
+    overflow:auto;
+    }
     .modal-title{
         text-align : center;
     }
@@ -343,10 +347,7 @@ input[type=checkbox]:checked + label:before {
                         <div id="questionDiv">
                             <hr>
                             <h4 class="modal-title">QUESTION</h4>
-                        
-                            <label for="qScore">문제 배점</label>
-                            <input type="text" class="form-control" id="qScore" placeholder="점수" style="width:60px; align:center;"><br>
-
+                           
                             <label for="type">문제 유형</label>
                             <select class="form-control" id="qType">
                                 <option value="ox">O/X</option>
