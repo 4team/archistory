@@ -403,8 +403,9 @@ input[type=checkbox]:checked + label:before {
             <div class="modal-body">
                 <div id="modiEventDiv">
                     <input type="hidden" id="moeventno" value="">
+                    <label for="eventName">이름</label>
                     <input type="text" class="form-control" id="moorder" placeholder="순서" readonly="readonly" style="align:center; margin-right:2px;">
-                    <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
+                    <input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
                     <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 3px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
