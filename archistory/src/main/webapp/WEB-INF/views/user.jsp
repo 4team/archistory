@@ -468,21 +468,22 @@ window.addEventListener('deviceorientation',getLocation);
 
 var myLat;
 var myLng;
-	var distance;
+var distance;
+var num=0;
 	// 내 위치 잡기
-	   function getLocation(){
+function getLocation(){
     console.log("[ 지오로케이션 실행 ]");
 	   
-    navigator.geolocation.getCurrentPosition(function(position){
-        var lt = position.coords.latitude;
-        var ln = position.coords.longitude;
+    	navigator.geolocation.getCurrentPosition(function(position){
+		        var lt = position.coords.latitude;
+		        var ln = position.coords.longitude;
 
-        myLat = lt;
-        myLng = ln;
-        console.log(myLat);
-
+		        myLat = lt;
+		        myLng = ln;
+		        console.log(myLat);
 
         (function getRouteList(){
+        	if(num==0){
             $.ajax({
     	        type:'post',
     	        url:"http://14.32.66.127:4000/route/closelist",
@@ -501,15 +502,13 @@ var myLng;
     	        });
     	        }
     	  });
+            num++;
+        	}
+            
     		})();
    });
     }
-    getLocation();
-    console.log(myLat);
-
-
-           
-   		
+ 		
            
    		function calcDistance(route){
            var ret = Math.sqrt(Math.pow((Math.abs(route.lat-myLat)*111),2)+Math.pow((Math.abs(route.lng-myLng)*88.8),2))*1000;
