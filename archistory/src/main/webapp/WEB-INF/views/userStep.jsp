@@ -656,6 +656,7 @@ var myMarker = null;
                 data:JSON.stringify({memberno:memberno,questionno:questionVO.questionno,result:true}),
                 success:function(data){
                     console.log("문제를 풀고 받은 결과",data);
+                    score += questionVO.point;
                 }
             });
 
