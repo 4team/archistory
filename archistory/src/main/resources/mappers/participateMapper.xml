@@ -40,7 +40,7 @@ where rno.routeno = R.routeno
 	Limit #{page},1
   </select>
   
-  <select id="ranking">
+  <select id="ranking" resultType="org.kkamnyang.domain.rankingVO">
 	select * from tbl_participate where finish = true AND routeno = #{routeno} order by score desc,lastDate desc;
 	select M.username, P.score 
 	from tbl_member AS M, tbl_participate AS P
