@@ -697,7 +697,7 @@
 	var attach2;
 	var qJson;
 	
-	var qattach;
+	var qattach="";
 	
     $("#createEventBtn").on("click",function(){
         var eorder = $("#order").val();
@@ -1512,24 +1512,31 @@
 <!-- 문제 파일첨부 기능 -->
 <script>
     var template = Handlebars.compile($("#template").html());
+  
     $(".qfileDrop").on("dragenter dragover", function(event){
         event.preventDefault();
     });
+    
     $(".qfileDrop").on("drop", function(event){
         event.preventDefault();
+        
         var files = event.originalEvent.dataTransfer.files; //전달된 파일 데이터 가져오는 부분
         console.log(files);
+       
         var num = files.length;
         for(var i = 0 ; i < num; i++){
             var file = files[i];
             var filename = file.name;
             var filetypeArr = filename.split('.');
             var arrNum = filetypeArr.length;
+            
             console.log(arrNum);
             console.log(filetypeArr[arrNum-1]);
+           
             var formData = new FormData();
             formData.append("file", file);
             formData.append("routeno",routeno);
+           
             if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
                 uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');
             }
