@@ -333,12 +333,7 @@ input[type=checkbox]:checked + label:before {
                         <div id="questionDiv">
                             <hr>
                             <h4 class="modal-title">QUESTION</h4>
-<<<<<<< HEAD
                             
-                            <label for="qScore">문제 배점</label><input type="text" class="form-control" id="qScore" placeholder="순서" readonly="readonly" style="align:center; margin-right:2px;">
-=======
->>>>>>> branch 'master' of https://github.com/4team/archistory.git
-                        
                             <label for="type">문제 유형</label>
                             <select class="form-control" id="qType">
                                 <option value="ox">O/X</option>
