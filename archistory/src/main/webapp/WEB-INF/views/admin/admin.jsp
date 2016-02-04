@@ -321,7 +321,7 @@
             </div>
             <div class="modal-body">
             	<div id="imgDiv" style="margin-left:210px;">
-				      <img class="img-circle" id="modifoto" src ="/img/profile.png">
+				     
 			    </div>   
                 
                    <table id="profile" align="center">
@@ -717,6 +717,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		   $("#myProfileModal").modal('show');
 	});
 
+	
 	function closeRegiImg(imgName){
 		console.log("이미지 등록 성공"+imgName);
 		
@@ -727,11 +728,10 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 		var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbImg
 		
+		var imgTag=" <img class='img-circle' id='modifoto' src ='"+imdAddr+"'>";
 		
-		//이미지 교체 되어야 함.
-		$("#modifoto").attr("src",imgAddr); 
-		
-		
+		$("#imgDiv").html(imgTag); 
+	
 		$("#imgModal").modal('hide');
 
 		document.getElementById("form1").reset();
@@ -754,24 +754,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		   });
 	}
 	
-	function getImg(dbImg){
-		
-		 $.ajax({
-			  type:'post',
-			  url:"http://14.32.66.127:4000/admin/displayFile",
-			  headers : {
-				"Content-Type" : "application/json"  
-			  },
-			  datatype:"json",
-			  data:JSON.stringify({adminno:adminno,img:dbImg}),
-			  success: function(data){
-				  console.log("admin 이미지 등록처리 결과 :"+ data);
-			  }				   
-		   });
-		
-	};
 
-	
 	function viewProfile(){
 		$.getJSON("http://14.32.66.127:4000/admin/view?adminno="+adminno,function(data){
 		    var admin = $(data);
@@ -785,6 +768,14 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 			$("#proPassword").val(admin.attr("password"));
 			$("#proPassword1").val(admin.attr("password"));
 			
+		   var dbimg = admin.attr("img");
+		   console.log(dbimg);
+			
+		   if(!dbimg){
+			   
+			   var imgTag=" <img class='img-circle' id='modifoto' src ='/img/profile.png'>";
+				$("#imgDiv").html(imgTag); 
+		   }
 			username = $("#proName").val();
 		});
 	
