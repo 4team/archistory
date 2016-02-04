@@ -331,7 +331,7 @@ input[type=checkbox]:checked + label:before {
 						<ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 							
                         <label for="videoInput">동영상</label><br>
-                        	YouTube Search <input type="text" id="query" style="width:295px;"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
+                        	YouTube Search <input type="text" id="query" style="width:290px;"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
                     	<ul id="youtubeList"></ul>
                         <!-- <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div> -->
                         
@@ -414,7 +414,7 @@ input[type=checkbox]:checked + label:before {
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     
                     <label for="videoInput">동영상</label><br>
-                    	Youtube Search <input type="text" id="mquery"  style="width:295px;"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
+                    	Youtube Search <input type="text" id="mquery"  style="width:290px;"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
                     <ul id="myoutubeList"></ul>
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
