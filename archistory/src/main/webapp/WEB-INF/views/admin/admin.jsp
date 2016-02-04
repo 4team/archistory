@@ -718,42 +718,6 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	});
 
 	
-	function closeRegiImg(imgName){
-		console.log("이미지 등록 성공"+imgName);
-		
-		var dbImg="/"+imgName
-		console.log(dbImg);
-		
-		regiAdminImg(adminno,dbImg);
-		
-		var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbImg
-		
-		var imgTag=" <img class='img-circle' id='modifoto' src ='"+imdAddr+"'>";
-		
-		$("#imgDiv").html(imgTag); 
-	
-		$("#imgModal").modal('hide');
-
-		document.getElementById("form1").reset();
-	
-	}
-	
-	function regiAdminImg(adminno,dbImg){
-		
-		 $.ajax({
-			  type:'post',
-			  url:"http://14.32.66.127:4000/admin/modiImg",
-			  headers : {
-				"Content-Type" : "application/json"  
-			  },
-			  datatype:"json",
-			  data:JSON.stringify({adminno:adminno,img:dbImg}),
-			  success: function(data){
-				  console.log("admin 이미지 등록처리 결과 :"+ data);
-			  }				   
-		   });
-	}
-	
 
 	function viewProfile(){
 		$.getJSON("http://14.32.66.127:4000/admin/view?adminno="+adminno,function(data){
@@ -792,7 +756,45 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 	});
 	
+	function closeRegiImg(imgName){
+		console.log("이미지 등록 성공"+imgName);
+		
+		var dbImg="/"+imgName
+		console.log(dbImg);
+		
+		regiAdminImg(adminno,dbImg);
+		
+		/* var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbImg
+		
+		var imgTag=" <img class='img-circle' id='modifoto' src ='"+imdAddr+"'>";
+		
+		$("#imgDiv").html(imgTag); 
+	 */
+	 
+	    viewProfile();
+		
+	 $("#imgModal").modal('hide');
 
+		document.getElementById("form1").reset();
+	
+	}
+	
+	function regiAdminImg(adminno,dbImg){
+		
+		 $.ajax({
+			  type:'post',
+			  url:"http://14.32.66.127:4000/admin/modiImg",
+			  headers : {
+				"Content-Type" : "application/json"  
+			  },
+			  datatype:"json",
+			  data:JSON.stringify({adminno:adminno,img:dbImg}),
+			  success: function(data){
+				  console.log("admin 이미지 등록처리 결과 :"+ data);
+			  }				   
+		   });
+	}
+	
 	
 	
 	$("#proModifyBtn").on("click",function(){
