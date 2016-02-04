@@ -741,7 +741,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		   }
 		   
 		   var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbimg;
-		   var imgTag1=" <img class='img-circle' id='modifoto' src ='"+imgAddr+"'>";
+		   var imgTag1="<img class='img-circle' id='foto' src ='"+imgAddr+"'>";
 			$("#imgDiv").html(imgTag1); 
 			
 		   username = $("#proName").val();
@@ -750,7 +750,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	}
 	
 	
-	$("#modifoto").on("click",function(){
+	$("#foto").on("click",function(){
 		console.log("이미지 클림됨.");
 		$("#imgModal").modal('show');	
 		
