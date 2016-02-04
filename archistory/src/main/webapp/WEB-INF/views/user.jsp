@@ -314,6 +314,32 @@ text-align:center;
 <!--  myProfile img modal -->
 
 
+<!-- my Page Modal -->
+
+<div class="modal" id="myPageModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="loginModalLabel">Finished Route</h4>
+            </div>
+            <div class="modal-body">
+            
+                <div id="finishedDiv">
+                    <input type="text" class="form-control" name ="email" id="email" placeholder="Email"><br>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 
 
@@ -391,7 +417,14 @@ $("#myInfo").on("click",function(){
 
 	
 	$("#myPage").on("click",function(){
-		
+		$.getJSON("http://14.32.66.127:4000/participate/finishList?memberno="+memberno,function(data){
+			var routeVO = $(data)[0];
+			
+			console.log(routeVO);
+			$("#finishedDiv").html(routeVO);
+			
+		})
+			$("#myPageModal").modal('show');
 	});
 
 

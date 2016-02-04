@@ -1,6 +1,10 @@
 package org.kkamnyang.controller;
 
+import java.util.List;
+
+import org.kkamnyang.domain.PageVO;
 import org.kkamnyang.domain.ParticipateVO;
+import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.persistence.ParticipateMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/participate/*")
@@ -69,4 +75,22 @@ public class ParticipateController {
 		return entity;
 		
 	}
+	
+	@RequestMapping(value="/finishList")
+	public @ResponseBody List<RouteVO> finishList(@RequestParam("memberno")Integer memberno) throws Exception{
+		System.out.println("[ 유저가 완주한 루트의 리스트 출력 ]");
+		return mapper.finishList(memberno);
+	}
+	
+	@RequestMapping(value="/finishRoute")
+	public @ResponseBody RouteVO finishList(@RequestParam("memberno")Integer memberno,@RequestParam("routeno")Integer routeno,@RequestParam("page")Integer page) throws Exception{
+		
+		System.out.println("[ 유저가 완주한 루트의 상세페이지 ]");
+		PageVO vo = new PageVO();
+		vo.setMemberno(memberno);
+		vo.setRouteno(routeno);
+		
+		return mapper.finishRoute(vo);
+	}
+	
 }
