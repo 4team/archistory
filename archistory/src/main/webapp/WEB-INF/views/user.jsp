@@ -451,7 +451,7 @@ $("#myInfo").on("click",function(){
 				str+="<center><pre>Route Creator</pre></center>";
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
-				str+="<p><fmt:formatDate pattern='yyyy-MM-dd HH:mm' value="$(data)[0].lastdate"/></p>";
+				str+="<p>"+FinishRouteVO.lastdate+"</p>";
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
