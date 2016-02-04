@@ -5,6 +5,7 @@ import java.util.List;
 import org.kkamnyang.domain.FinishRouteVO;
 import org.kkamnyang.domain.PageVO;
 import org.kkamnyang.domain.ParticipateVO;
+import org.kkamnyang.domain.RankingVO;
 import org.kkamnyang.domain.RouteVO;
 import org.springframework.stereotype.Repository;
 
@@ -24,6 +25,11 @@ public class ParticipateMapperImpl extends AbstractCRUDMapper<ParticipateVO, Int
 	@Override
 	public FinishRouteVO finishRoute(PageVO vo) {
 		return session.selectOne(namespace+".finishRoute",vo);
+	}
+
+	@Override
+	public List<RankingVO> ranking(Integer routeno) {
+		return session.selectList(namespace+".ranking",routeno);
 	}
 
 }

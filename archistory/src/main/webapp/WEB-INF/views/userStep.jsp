@@ -718,6 +718,12 @@ var myMarker = null;
             console.log("GUEST가 아닙니다. 랭킹을 띄워준다.");
             $("#finishDiv").html("<h1>랭킹</h1>");
             
+            $.getJSON("http://14.32.66.127:4000/participate/ranking?routeno="+routeno,function(data){
+            	
+            	console.log(data);
+            	
+            });
+            
         }else{
             console.log("GUEST이다. 첫 페이지로 넘어간다.");
             self.location = "/user";

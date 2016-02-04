@@ -5,6 +5,7 @@ import java.util.List;
 import org.kkamnyang.domain.FinishRouteVO;
 import org.kkamnyang.domain.PageVO;
 import org.kkamnyang.domain.ParticipateVO;
+import org.kkamnyang.domain.RankingVO;
 import org.kkamnyang.domain.RouteVO;
 import org.kkamnyang.persistence.ParticipateMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,6 +94,11 @@ public class ParticipateController {
 		vo.setPage(page);
 		
 		return mapper.finishRoute(vo);
+	}
+	
+	@RequestMapping(value="/ranking")
+	public @ResponseBody List<RankingVO> ranking(@RequestParam("routeno") Integer routeno) throws Exception{
+		return mapper.ranking(routeno);
 	}
 	
 }
