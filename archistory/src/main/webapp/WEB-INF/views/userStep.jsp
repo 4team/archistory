@@ -212,10 +212,10 @@
                 <div id="buttonContainer"></div><br><br>
                 <div id="imageUl"></div><br>
                 <h5 id="content" style="text-align:center; font-weight:bold;"></h5>
-			</div>
 			<div>
                 <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
             </div>
+			</div>
         </div>
 
     </div>
