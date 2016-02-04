@@ -766,9 +766,9 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 		
 		regiAdminImg(adminno,dbImg);
 		
-		 var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbImg
+		var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbImg
 		
-		var imgTag=" <img class='img-circle' id='modifoto' src ='"+imdAddr+"'>";
+		var imgTag="<img class='img-circle' id='foto' src ='"+imgAddr+"'>";
 		
 		$("#imgDiv").html(imgTag); 
 	 
