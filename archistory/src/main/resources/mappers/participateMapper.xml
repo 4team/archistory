@@ -32,8 +32,8 @@ from (select distinct routeno from tbl_participate where memberno = #{memberno} 
 where rno.routeno = R.routeno
   </select>
   
-  <select id="finishRoute">
-	select P.participateno, R.routename ,A.username,P.routeno, P.memberno, P.score,P.participateDate, P.stage,P.finish,P.lastDate 
+  <select id="finishRoute" resultType="org.kkamnyang.domain.FinishRouteVO">
+	select P.participateno, R.routename ,A.username,P.routeno, P.memberno, P.score,P.participateDate,P.lastDate 
 	from tbl_participate AS P,tbl_route AS R , tbl_admin AS A
 	where P.routeno = R.routeno AND R.adminno = A.adminno AND P.memberno = #{memberno} AND P.routeno = #{routeno} AND P.finish = true 
 	order by lastDate desc
