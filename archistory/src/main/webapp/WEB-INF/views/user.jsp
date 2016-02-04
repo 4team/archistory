@@ -437,8 +437,10 @@ $("#myInfo").on("click",function(){
 	function viewFinishRoute(routeno,page){
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
 				var FinishRouteVO = $(data)[0];
-				var str ="<pre>"+FinishRouteVO.routename+"</pre>";
-				str+="<pre>"+FinishRouteVO.username+"</pre>"
+				var str ="<p>"+FinishRouteVO.routename+"</p>";
+				str+="<p>"+FinishRouteVO.username+"</p>"
+				str+="<p>"+FinishRouteVO.lastDate+"</p>"
+				str+="<p>"+FinishRouteVO.score+"</p>"
 				$("#finishedDiv").html(str);
 			
 		});
