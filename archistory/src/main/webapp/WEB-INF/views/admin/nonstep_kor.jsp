@@ -312,7 +312,7 @@ input[type=checkbox]:checked + label:before {
                             <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
 
                             <div id="multipleAnswerBox" class="checkbox">
-                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
+                                <label for="multipleAnswer1" style="font-size:15px;"><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
                                 <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
                                 <label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
                                 <label><input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4">4</label>
