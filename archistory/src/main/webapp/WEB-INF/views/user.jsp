@@ -229,9 +229,9 @@ text-align:center;
 			<font face="verdana" size="2">${name}님</font>
 		</button>
 		<ul id="userInfo">
-			<li><a id="showInfo">My Info</a></li>
-			<li><a id="myPage">My Page</a></li>
-			<li><a href="/user/logout">Logout</a></li>
+			<li><a id="showInfo"> My Info </a></li>
+			<li><a id="myPage"> My Page </a></li>
+			<li><a href="/user/logout"> Logout </a></li>
 		</ul>
 	</div>
 
