@@ -47,13 +47,13 @@
 			#closeList{
 			position:fixed;
 			}
-			#yesModalContent{
+/* 			#yesModalContent{
 				position:absolute;
 				display:none;
 				z-index:9900;
 	        	margin:auto;
 	        	top:30%;
-			}	
+			}	 */
 			.rName{
 			list-style:none;
 			overflow: hidden; 
@@ -158,8 +158,8 @@
         .gn-menu-main{
         z-index:1;
         }
-#menuRouteList{
-         display:none;
+		#menuRouteList{
+	        display:none;
             position:absolute;
             overflow-y:scroll;
         }
