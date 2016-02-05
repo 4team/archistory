@@ -170,7 +170,6 @@
         }
        #loginBody{
 	        top:150px;
-	        width:350px;
 	        z-index:2000;
 	    }
 	
