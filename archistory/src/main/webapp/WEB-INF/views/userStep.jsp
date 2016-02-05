@@ -19,11 +19,11 @@
 </head>
 <style>
     html, body {
-        height: 1400px;
+        height: 100%;
         margin: 0;
         padding: 0;
     }
-    #map{
+    #mmap{
         width: 100%;
         height: 100%;
     }
@@ -297,7 +297,7 @@
 </div>
 
 <div id="myLocation"></div>
-<div id="map"></div>
+<div id="mmap"></div>
 
 
 <script id="template" type="text/x-handlebars-template">
