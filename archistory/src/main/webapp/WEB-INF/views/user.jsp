@@ -510,7 +510,7 @@ $("#imgSubmit").on("click",function(event){
 						$("#imgDiv").html(imgTag); 
 				   }else{
 				   
-					   var imgAddr="http://14.32.66.127:4000/displayFile?fileName="+dbimg;
+					   var imgAddr="http://14.32.66.127:4000/displayFile?fileName=/member/"+dbimg;
 					   var imgTag1="<img class='img-circle' id='poto' src ='"+imgAddr+"'>";
 						$("#imgDiv").html(imgTag1); 
 				   }
