@@ -321,22 +321,25 @@ pageEncoding="UTF-8"%>
                             <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o"> O </label>
                             <label><input type="radio" name="optionsRadios" id="oxAnswer2" value="x"> X </label>
                         </div>
-                        <label for="qImg">문제 이미지</label>
-                        <div class="qfileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
-                        <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
-                    </div>
-                </div>
+                       <label for="qImg">문제 이미지</label>
+			                  <div class="qfileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+			                    <ul class="mailbox-attachments clearfix quploadedList" style="display:inline"></ul>
+			              	  </div>      
 
-                <div class="modal-footer">
-                    <button type="button" id="createEventBtn" class="btn btn-create">만들기</button>
-                    <button type="button" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal">취소</button>
-                </div>
+                            </div>
 
-            </div>
-        </div>
-    </div>
-</form>
-<!-- END 모달(event 및 문제 생성)  -->
+                            <div class="modal-footer">
+                                <button type="submit" id="createEventBtn" class="btn btn-create">만들기</button>
+                                <button type="submit" id="cancleEventBtn" class="btn btn-default" data-dismiss="modal">취소</button>
+                            </div>
+
+                            </div>
+                            </div>
+                            </div>
+                            </form>
+
+                        <!-- END 모달(event 및 문제 생성)  -->
+
 
 
 <!--  수정 모달  -->
