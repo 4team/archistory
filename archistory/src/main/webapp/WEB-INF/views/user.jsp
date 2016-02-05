@@ -392,6 +392,7 @@
     </div>
 </div>
 
+<center>
 <div class="modal fade" id="alertFirst" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="position:absolute; top:40%;">
         <div class="panel panel-danger">
@@ -401,6 +402,7 @@
         </div>
     </div>
 </div>
+</center>
 
 <script>
 
