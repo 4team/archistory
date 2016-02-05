@@ -14,6 +14,18 @@
     <meta name="author" content="">
 
     <title> Archistory for USER </title>
+
+
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="css/style2.css" rel="stylesheet">
+	<link href="color/default.css" rel="stylesheet">
+
+     
     
 </head>
 
@@ -187,15 +199,6 @@
 	        display:block;
         }
 </style>
-
-
-    <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Squad theme CSS -->
-    <link href="css/style2.css" rel="stylesheet">
-	<link href="color/default.css" rel="stylesheet">
-
 
 	 <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
