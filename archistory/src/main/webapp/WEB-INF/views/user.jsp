@@ -430,6 +430,7 @@
             <div class="modal-body" style="height:80px;">
            		<form id='form1' action='/memberImgUpload' method='post' enctype='multipart/form-data' target="zeroFrame">
            			<input type='file' name='file'>
+           			<input type="hiddin" name="memberno" id="${memberno}">
            			<input type='submit'>
            		</form>
            		<iframe name="zeroFrame" style="height:30px; border:0px;"></iframe>
