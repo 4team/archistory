@@ -431,13 +431,13 @@
             <div class="modal-body" style="height:80px;">
            		<form id='form1' action='/memberImgUpload' method='post' enctype='multipart/form-data' target="zeroFrame">
            			<input type='file' name='file' id="file">
-           			<button type='button' id="imgSubmit">등록</button>
-           		</form>
            		<iframe name="zeroFrame" style="height:30px; border:0px;"></iframe>
             </div>
             <div class="modal-footer">
 
-                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+                	<button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+           			<button type='button' id="imgSubmit" class="btn btn-primary">등록</button>
+           		</form>
             </div>
         </div>
     </div>
