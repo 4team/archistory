@@ -416,7 +416,7 @@
 </div>
 
 
-<!-- 사용자 정보 입력하는 곳 -->
+<!-- 사용자 이미지 입력하는 곳 -->
 <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="height:200px;">
@@ -431,7 +431,7 @@
            			<input type='file' name='file'>
            			<input type='submit'>
            		</form>
-           		<iframe name="zeroFrame"></iframe>
+           		<iframe name="zeroFrame" style="height:30px;"></iframe>
             </div>
             <div class="modal-footer">
 
