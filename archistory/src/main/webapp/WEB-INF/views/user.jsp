@@ -184,6 +184,10 @@ text-align:center;
         #finishedDiv p{
         	text-align: center;
         }
+        
+        #yesModal{
+        	margin:auto;
+        }
 </style>
 
 	 <!-- Core JavaScript Files -->
