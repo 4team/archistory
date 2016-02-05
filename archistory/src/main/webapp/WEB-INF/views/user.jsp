@@ -190,6 +190,7 @@
         }
         #imgDiv{
           	margin:auto;
+          	padding:0px;
       	}
         
       #imgDiv img{
