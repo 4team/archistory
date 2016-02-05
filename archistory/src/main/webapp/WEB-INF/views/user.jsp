@@ -50,7 +50,7 @@
 			#yesModal{
 				position:absolute;
 				display:none;
-				z-index:9999;
+				z-index:1000;
 	        	margin:auto;
 			}	
 			.rName{
