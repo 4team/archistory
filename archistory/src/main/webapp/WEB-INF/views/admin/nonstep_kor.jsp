@@ -239,7 +239,7 @@ pageEncoding="UTF-8"%>
                         <label for="videoInput">동영상</label><br>
                         Youtube Search <input type="text" id="query" style="width:295px;"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
                         <ul id="youtubeList"></ul>
-                        <!-- <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div> -->
+                        <!-- <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div>
 
                         <!-- <label for="camera">카메라</label><input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br> -->
 
@@ -1130,13 +1130,6 @@ pageEncoding="UTF-8"%>
     $("#search").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
 
-
-
-        /*  1) 키워드 통합검색 : 키워드가 "강원"인 관광정보를 검색하여 리스트로 조회 (한페이지에 10개씩, 첫페이지며, 리
-         스트를 제목순으로 조회)
-         -> 키워드 인코딩 예 : String keyword = URLEncoder.encode(“강원”, "UTF-8"));
-         - 요청 URL : http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=인증키
-         &keyword=%EA%B0%95%EC%9B%90&MobileOS=ETC&MobileApp=AppTesting */
     });
 
 
