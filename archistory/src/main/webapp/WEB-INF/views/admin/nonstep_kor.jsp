@@ -946,6 +946,8 @@ pageEncoding="UTF-8"%>
                     $("#moselectBox").hide();
                     $("#mooxAnswerbox").show();
                 }
+                
+                $(".quploadedList").html("");
 
                 $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
                     console.log("문제 첨부파일 가져오기");
