@@ -185,7 +185,11 @@
         #finishedDiv p{
         	text-align: center;
         }
-
+		#alertFirst{
+			position:absolute;
+			top:50%;
+			z-index:3100;
+		}
 </style>
 
 	 <!-- Core JavaScript Files -->
