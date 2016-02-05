@@ -87,6 +87,12 @@ pageEncoding="UTF-8"%>
     #moselectBox{
         display: none;
     }
+    #mooxAnswerbox{
+       display: none;
+    }
+    #oxAnswerbox{
+       display: none;
+    }
     #listModal1{
         margin-top:50px;
         margin-left:20px;
@@ -126,23 +132,25 @@ pageEncoding="UTF-8"%>
 
 
     .fileDrop {
-        width: 90%;
+        width: 100%;
         height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
-        background-color: powderblue;
-        margin-top:10px;
-        margin-bottom:10px;
+        background-color: orange;
+        margin:0px;
+        display:table;
+        line-height:100px;
     }
 
     .qfileDrop {
-        width: 90%;
+        width: 100%;
         height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
-        background-color: powderblue;
-        margin-top:10px;
-        margin-bottom:10px;
+        background-color: orange;
+        margin:0px;
+        display:table;
+        line-height:100px;
     }
     li{
         list-style: none;
@@ -290,7 +298,7 @@ pageEncoding="UTF-8"%>
 
                         <label for="camera">카메라</label><input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
-                        <input type="checkbox" id="qCheck" value="option1"><label for="qCheck" style="margin-right:270px;">Question</label><br>
+                        <input type="checkbox" id="qCheck" value="option1"><label for="qCheck" style="margin-right:270px; font-size:15px;">Question</label><br>
                     </div>
                     <div id="questionDiv">
                         <hr>
@@ -311,10 +319,10 @@ pageEncoding="UTF-8"%>
                             <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
 
                             <div id="multipleAnswerBox" class="checkbox">
-                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
-                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
-                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
-                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4">4</label>
+                               <input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1"><label for="multipleAnswer1" style="font-size:15px;">1</label>
+                              		<input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2"><label for="multipleAnswer2" style="font-size:15px;">2</label>
+                                	<input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3"><label for="multipleAnswer3" style="font-size:15px;">3</label>
+                                	<input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4"><label for="multipleAnswer4" style="font-size:15px;">4</label>
                             </div>
                         </div>
                         <div id="oxAnswerbox" class="radio">
