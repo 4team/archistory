@@ -547,7 +547,9 @@ $("#imgSubmit").on("click",function(event){
 			page = 0;
 		}
 			console.log(page);
+		
 		var curpage = page;
+		
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
 				var FinishRouteVO = $(data)[0];
 				var str ="<center><pre>Route Name</pre></center>";
