@@ -189,12 +189,14 @@
         #finishedDiv p{
         	text-align: center;
         }
+        #imgDiv{
+          	margin:auto;
+      	}
         
       #imgDiv img{
-      	margin:auto;
-        width:200px;
-        height:200px;
-        display:block;
+	        width:200px;
+	        height:200px;
+	        display:block;
         }
 </style>
 
