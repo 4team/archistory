@@ -154,6 +154,9 @@
     .modal-footer{
     float:bottom;
     }
+    
+    #eventInfo{
+    max-height:300px;}
 </style>
 
     <!-- Fonts -->
