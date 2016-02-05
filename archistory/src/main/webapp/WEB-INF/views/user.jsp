@@ -369,8 +369,6 @@
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
     <div class="modal-dialog" id="loginBody">
 
-	
-
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
@@ -392,8 +390,6 @@
             </div>
            </form>   
         </div>
-
-            
 
     </div>
 </div>
