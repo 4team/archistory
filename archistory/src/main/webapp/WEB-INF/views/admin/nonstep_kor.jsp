@@ -241,7 +241,7 @@ pageEncoding="UTF-8"%>
                         <ul id="youtubeList"></ul>
                         <!-- <div class="fileDrop"><h5 align="center">여기에 동영상을 끌어오세요</h5></div> -->
 
-                        <label for="camera">카메라</label><input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                        <!-- <label for="camera">카메라</label><input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br> -->
 
                           <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br></div>
                     <div id="questionDiv">
