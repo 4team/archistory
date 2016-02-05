@@ -48,7 +48,6 @@
 			position:fixed;
 			}
 			#yesModalContent{
-				position:absolute;
 				z-index:3000;
 	        	top:30%;
 			}
