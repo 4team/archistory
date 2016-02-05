@@ -460,9 +460,11 @@ $("#myInfo").on("click",function(){
 
 	function viewFinishRoute(routeno,page){
 		if(page == -1){
-			$("#alertFirst").alert();
+			$("#alertFirst").addClass("in");
 			page = 0;
 			console.log(page);
+		}else{
+			$("#alertFirst").removeClass("in");
 		}
 		var curpage = page;
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
