@@ -188,6 +188,7 @@
 		#alertFirst{
 			position:absolute;
 			top:50%;
+			width:70%;
 			margin:auto;
 			z-index:3100;
 		}
