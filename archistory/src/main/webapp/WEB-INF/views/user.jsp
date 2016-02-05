@@ -436,7 +436,7 @@
             <div class="modal-footer">
 
                 	<button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
-           			<button type='button' id="imgSubmit" class="btn btn-primary">등록</button>
+           			<button type='button' id="imgSubmit" class="btn btn-primary">SAVE</button>
            		</form>
             </div>
         </div>
