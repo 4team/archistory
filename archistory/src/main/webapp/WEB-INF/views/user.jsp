@@ -48,7 +48,7 @@
 			position:fixed;
 			}
 			#yesModal{
-				position:relative;
+				position:absolute;
 				display:none;
 				z-index:9999;
 	        	margin:auto;
