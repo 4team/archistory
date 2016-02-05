@@ -194,7 +194,6 @@
       	}
         
       #imgDiv img{
-      		margin:auto;
 	        width:200px;
 	        height:200px;
 	        display:block;
