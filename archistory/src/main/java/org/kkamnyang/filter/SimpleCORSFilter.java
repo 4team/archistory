@@ -37,7 +37,7 @@ public class SimpleCORSFilter implements Filter {
         res.setHeader("Access-Control-Allow-Headers", "X-CSRF-TOKEN,Access-Control-Allow-Origin,Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,X-HTTP-Method-Override");
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");
     	res.setHeader("Access-Control-Max-Age", "3600");
-    	res.setHeader("X-Frame-Options", "ALLOW-FROM http://14.32.66.127:4000/admin/imgUpload");
+    	res.setHeader("X-Frame-Options", "ALLOW-FROM http://14.32.66.127:4000/admin/imgUpload,ALLOW-FROM http://14.32.66.127:4000/memberImgUpload");
             chain.doFilter(request, response);
             
         }
