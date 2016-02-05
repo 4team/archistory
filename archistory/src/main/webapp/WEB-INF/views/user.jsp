@@ -30,47 +30,49 @@
 </head>
 
 <style>
-.img-responsive{
-position: absolute;
-}
-#routeList{
-display:none;
-overflow:auto;
-z-index: 100;
-}
-#myRouteList{
-font-size: 24px;
-color: white;
-font-weight: bold;
-text-align: center;
-}
-#closeList{
-position:fixed;
-}
-#yesModal{
-display:none;
-z-index:9999;
-}
-.rName{
-list-style:none;
-overflow: hidden; 
-text-overflow: ellipsis;
-white-space: nowrap; 
-font-size:17px;
-border-radius:1em;
-}
-.rr{
-animation-duration: 3s;
-animation-name: slidein;
-text-overflow:ellipsis;
-white-space:nowrap;
-word-wrap:normal
-}
-.rNameModal{
-list-style:none;
-font-size:20px;
-text-align:center;
-}
+			.img-responsive{
+			position: absolute;
+			}
+			#routeList{
+			display:none;
+			overflow:auto;
+			z-index: 100;
+			}
+			#myRouteList{
+			font-size: 24px;
+			color: white;
+			font-weight: bold;
+			text-align: center;
+			}
+			#closeList{
+			position:fixed;
+			}
+			#yesModal{
+				position:relative;
+				display:none;
+				z-index:9999;
+	        	margin:auto;
+			}	
+			.rName{
+			list-style:none;
+			overflow: hidden; 
+			text-overflow: ellipsis;
+			white-space: nowrap; 
+			font-size:17px;
+			border-radius:1em;
+			}
+			.rr{
+			animation-duration: 3s;
+			animation-name: slidein;
+			text-overflow:ellipsis;
+			white-space:nowrap;
+			word-wrap:normal
+			}
+			.rNameModal{
+			list-style:none;
+			font-size:20px;
+			text-align:center;
+			}
 
 
          #upper-login{
@@ -184,10 +186,7 @@ text-align:center;
         #finishedDiv p{
         	text-align: center;
         }
-        
-        #yesModal{
-        	margin:auto;
-        }
+
 </style>
 
 	 <!-- Core JavaScript Files -->
