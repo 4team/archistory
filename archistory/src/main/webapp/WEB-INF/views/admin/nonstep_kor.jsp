@@ -318,7 +318,7 @@ pageEncoding="UTF-8"%>
                     <label for="videoInput">동영상</label><br>
                     Youtube Search <input type="text" id="mquery"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
                     <ul id="myoutubeList"></ul>
-                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                    <!-- <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br> -->
 
                     <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                 </div>
