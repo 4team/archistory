@@ -366,7 +366,7 @@
 
 
 <!-- ★로그인 모달 -->
-<div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
     <div class="modal-dialog" id="loginBody">
 
 	
