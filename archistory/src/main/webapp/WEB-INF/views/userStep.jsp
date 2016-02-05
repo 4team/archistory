@@ -289,8 +289,8 @@
 
 
 <div class="modal fade" id="moveNext" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="top:40%;" >
-        <div class="panel panel-info">
+    <div class="modal-dialog">
+        <div class="panel panel-info" style="top:40%;">
             <div class="panel-heading">
                 <div>Move Next!</div>
             </div>
