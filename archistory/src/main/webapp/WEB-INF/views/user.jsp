@@ -273,7 +273,7 @@
 
 
 				<!-- 이 루트 들어갈건지 묻는 창 -->
-	<div class="modal" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+	<div class="modal fade" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" >
             <div class="modal-header">
@@ -301,7 +301,7 @@
 
 <!--  myProfile modal -->
 
-<div class="modal" id="myProfileModal" tabindex="-1" role="dialog" aria-labelledby="myProfileModalLabel" aria-hidden="false">
+<div class="modal fade" id="myProfileModal" tabindex="-1" role="dialog" aria-labelledby="myProfileModalLabel" aria-hidden="false">
     <div class="modal-dialog">
         <div class="modal-content" >
             <div class="modal-header">
@@ -338,7 +338,7 @@
 
 <!-- my Page Modal -->
 
-<div class="modal" id="myPageModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
+<div class="modal fade" id="myPageModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
     <div class="modal-dialog">
 
         <div class="modal-content">
