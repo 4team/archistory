@@ -47,7 +47,7 @@
 			#closeList{
 			position:fixed;
 			}
-			#yesModalContent{
+			#yesModal{
 				position:absolute;
 				top:30%;
 				z-index:3000;
