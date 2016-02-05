@@ -13,6 +13,48 @@
     
     <title>= Archistory(ADMIN) = StepMode - Create </title>
 </head>
+
+<!-- 체크박스 스타일 -->
+<style>
+input[type=checkbox] {  
+    display: none;
+}
+input[type=checkbox] + label{
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px;  
+    font-size: 13px;
+}
+input[type=checkbox]+ label:before {     
+    content: "";  
+    display: inline-block;  
+  
+    width: 20px;  
+    height: 20px;  
+  
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;  
+    bottom: 1px;  
+    background-color: #ccc;  
+    border-radius: 2px; 
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);  
+}
+input[type=checkbox]:checked + label:before { 
+    content: "\2713";  /* 체크모양 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);  
+    font-size: 18px; 
+    font-weight:800; 
+    color: #fff;  
+    background:#2f87c1;
+    text-align: center;  
+    line-height: 18px;  
+} 
+</style>
+<!-- END 체크박스 스타일 -->
+
 <style>
     html, body {
         height: 100%;
@@ -40,6 +82,12 @@
     }
     #moselectBox{
         display: none;
+    }
+    #mooxAnswerbox{
+       display: none;
+    }
+    #oxAnswerbox{
+       display: none;
     }
     #listModal1{
         margin-top:50px;
@@ -76,23 +124,25 @@
         width:420px;
     }
     .fileDrop {
-        width: 90%;
+        width: 100%;
         height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
-        background-color: powderblue;
-        margin-top:10px;
-        margin-bottom:10px;
+        background-color: orange;
+        margin:0px;
+        display:table;
+        line-height:100px;
     }
     
     .qfileDrop {
-        width: 90%;
+        width: 100%;
         height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
-        background-color: powderblue;
-        margin-top:10px;
-        margin-bottom:10px;
+        background-color: orange;
+        margin:0px;
+        display:table;
+        line-height:100px;
     }
     li{
         list-style: none;
@@ -275,7 +325,7 @@
                         <label for="camera">카메라</label>
                         <input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
-                        <input type="checkbox" id="qCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
+                       <input type="checkbox" id="qCheck" value="option1"><label for="qCheck" style="margin-right:270px; font-size:15px;">Question</label><br>
                      </div>
                         <div id="questionDiv">
                             <hr>
@@ -296,11 +346,11 @@
                                 <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
 
                                 <div id="multipleAnswerBox" class="checkbox">
-                                    <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
-                                    <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
-                                    <label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
-                                    <label><input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4">4</label>
-                                </div>
+                                     <input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1"><label for="multipleAnswer1" style="font-size:15px;">1</label>
+                              		<input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2"><label for="multipleAnswer2" style="font-size:15px;">2</label>
+                                	<input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3"><label for="multipleAnswer3" style="font-size:15px;">3</label>
+                                	<input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4"><label for="multipleAnswer4" style="font-size:15px;">4</label>
+                            </div>
                             </div>
                             <div id="oxAnswerbox" class="radio">
                                 <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o" checked> O </label>
@@ -354,8 +404,8 @@
                     <ul id="myoutubeList"></ul>
                     <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
-                    <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
-                </div>
+                    <input type="checkbox" id="moqCheck" value="option1"><label for="moqCheck" style="margin-right:270px; font-size:15px;">Question</label><br>
+                    </div>
                 <div id="moquestionDiv">
                     <hr>
                     <h4 class="modal-title">QUESTION</h4>
@@ -376,10 +426,10 @@
                         <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
 
                         <div id="momultipleAnswer" class="checkbox">
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2">2</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3">3</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4">4</label>
+                           <input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1"><label for="momultipleAnswer1" style="font-size:15px;">1</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2"><label for="momultipleAnswer2" style="font-size:15px;">2</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3"><label for="momultipleAnswer3" style="font-size:15px;">3</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4"><label for="momultipleAnswer4" style="font-size:15px;">4</label>
                         </div>
                     </div>
                     <div id="mooxAnswerbox" class="radio">
