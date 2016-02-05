@@ -566,7 +566,7 @@ function getLocation(){
     function questionModal(select){
         var questionModal =   "<li class='rNameModal'>'" + select.attr("data-routename")+"'</li><br>"+
         "<a style='float:right;' class='btn btn-primary' id='yes' value='"+select.attr("data-routeno")+"'>YES</a>"+
-        "<a style='float:left;' class='btn btn-default' id='no' value='"+select.attr("data-routeno")+"'>NO</a><br>";
+        "<a style='float:left;' class='btn btn-warning' id='no' value='"+select.attr("data-routeno")+"'>NO</a><br>";
         
         $("#yesNo").html(questionModal);
     }
