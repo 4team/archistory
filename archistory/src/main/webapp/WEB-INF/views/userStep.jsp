@@ -19,13 +19,13 @@
 </head>
 <style>
     html, body {
-        height: 100%;
+        height: 1400px;
         margin: 0;
         padding: 0;
     }
     #map{
         width: 100%;
-        height: 1000px;
+        height: 100%;
     }
 
 
