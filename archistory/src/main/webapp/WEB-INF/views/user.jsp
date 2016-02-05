@@ -52,6 +52,7 @@
 				display:none;
 				z-index:1000;
 	        	margin:auto;
+	        	top:40%;
 			}	
 			.rName{
 			list-style:none;
