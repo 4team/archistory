@@ -564,7 +564,7 @@ function getLocation(){
 	       var routeno = parseInt(select.attr("data-routeno"));
 	      
 	       questionModal(select);
-	       $("#yesModal").show();
+	       $("#yesModal").modal("show");
 	    });
   
     function questionModal(select){
@@ -581,7 +581,7 @@ function getLocation(){
     });
     
     $("#yesNo").on("click","#no",function(){
-        $("#yesModal").hide();
+        $("#yesModal").modal("hide");
     });
     
   
