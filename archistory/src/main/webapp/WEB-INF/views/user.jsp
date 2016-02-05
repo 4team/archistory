@@ -392,7 +392,7 @@
     </div>
 </div>
 
-
+<a href="#" class="alertFirst" data-dismiss="alert" aria-label="close">첫 페이지 입니다.</a>
 
 
 
@@ -452,7 +452,7 @@ $("#myInfo").on("click",function(){
 
 	function viewFinishRoute(routeno,page){
 		if(page == -1){
-			alert("첫페이지입니다.");
+			$(".alertFirst").alert();
 			page = 0;
 			console.log(page);
 		}
