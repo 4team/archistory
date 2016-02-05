@@ -759,13 +759,17 @@ var myMarker = null;
 					console.log(this);
 	            	$("#finishDiv").append("<p>"+this.userName+"  "+this.score+"</p>");
             	});
-            	$("#finishDiv").append("<button onClick='self.location=\'/user\';'>OK</button>");
+            	$("#finishDiv").append("<button id='endRoute'>OK</button>");
             });
             
         }else{
             console.log("GUEST이다. 첫 페이지로 넘어간다.");
             self.location = "/user";
         }
+    });
+    
+    $("#endRoute").on("click",function(){
+            self.location = "/user";
     });
 
 </script>
