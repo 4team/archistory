@@ -393,11 +393,11 @@
 </div>
 
 
-<div class="container">
-  <div class="alert alert-success" id="alertFirst">
+
+  <div class="alert alert-success fade" id="alertFirst">
     <strong>첫 페이지 입니다.</strong>
   </div>
-</div>
+
 
 
 <script>
