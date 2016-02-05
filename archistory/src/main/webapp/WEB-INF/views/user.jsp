@@ -487,6 +487,7 @@ $("#imgSubmit").on("click",function(event){
 		type:'post',
 		success:function(data){
 			console.log("멤버이미지 첨부 성공 DATA : "+data);
+			$("#imgDiv").html("<img src='http://14.32.66.127:4000/displayFile?filename="+data+"'>");
 		}
 	});
 	
