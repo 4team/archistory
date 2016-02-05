@@ -11,9 +11,9 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		<intercept-url pattern="/user" access="permitAll"/>
 		<intercept-url pattern="/user/logout" access="permitAll"/>
 		
-		<form-login login-page="/" username-parameter="email"
+		<form-login login-page="/user" username-parameter="email"
 		password-parameter="password" login-processing-url="/user/login_process"
-		default-target-url="/user" authentication-failure-url="/"
+		default-target-url="/user" authentication-failure-url="/user"
 		always-use-default-target='true'/>
 				
 			<logout logout-url="/user/logout" logout-success-url="/user" delete-cookies="true"/>
