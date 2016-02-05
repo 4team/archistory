@@ -273,7 +273,7 @@
 
 
 				<!-- 이 루트 들어갈건지 묻는 창 -->
-	<div class="modal fade" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+	<div class="modal fade" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="false">
     <div class="modal-dialog">
         <div class="modal-content" >
             <div class="modal-header">
