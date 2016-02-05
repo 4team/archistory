@@ -400,7 +400,7 @@
 
 
 
-  <div class="alert alert-success fade" id="alertFirst">
+  <div class="alert alert-success fade" id="alertFirst" data-keyboard="true">
     <strong>첫 페이지 입니다.</strong>
   </div>
 
