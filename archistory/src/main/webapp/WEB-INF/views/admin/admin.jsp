@@ -360,13 +360,12 @@
             <div class="modal-body" style="height:80px;">
            		<form id='form1' action='imgUpload' method='post' enctype='multipart/form-data' target="zeroFrame">
            			<input type='file' name='file'>
-           			<input type='submit'>
-           		</form>
            		<iframe name="zeroFrame"></iframe>
             </div>
             <div class="modal-footer">
-
-                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+	                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+           			<input type='submit' class="btn btn-primary">
+           		</form>
             </div>
         </div>
     </div>
