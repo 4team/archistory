@@ -156,13 +156,10 @@
     }
     
     #eventInfo{
-    margin:auto;
-    max-height:400px;
-    overflow-y: scroll;
-    }
-    
-    .modal{
    		top:auto;
+	    margin:auto;
+	    max-height:400px;
+	    overflow-y: scroll;
     }
 </style>
 
