@@ -13,6 +13,7 @@
     
     <title>= Archistory(ADMIN) = StepMode - Create </title>
 </head>
+
 <style>
     html, body {
         height: 100%;
@@ -412,8 +413,8 @@
         <ul id="sortable">
         </ul>
     </div>
-    <div style="background-color : aqua;">
-        <button type="button" id="commitList" class= "btn btn-default" style="margin-top:5px; margin-bottom: 5px; float: right; " >완료</button>
+    <div>
+        <button type="button" id="commitList" class= "btn btn-default" style="margin-top:5px; margin-bottom: 5px; float: right;" >완료</button>
 	</div>
 </div>
 
@@ -514,14 +515,14 @@
    		// InfoWindow와 관련된 부분
         function showInfo(marker){
         // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
-        var iwContent = '<div style="padding:5px;">'+ marker.wd +'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-        // 인포윈도우를 생성합니다
-        var infowindow = new daum.maps.InfoWindow({
-            content: iwContent
-        });
-        infowindow.open(map, marker);
-        daum.maps.event.addListener(marker, 'mouseout', function() {
-            infowindow.close();
+	        var iwContent = '<div style="padding:5px;">'+ marker.wd +'</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+	        // 인포윈도우를 생성합니다
+	        var infowindow = new daum.maps.InfoWindow({
+	            content: iwContent
+	        });
+	        infowindow.open(map, marker);
+	        daum.maps.event.addListener(marker, 'mouseout', function() {
+	            infowindow.close();
         });
     }
     $("#Rname").val(routename);	
@@ -725,6 +726,7 @@
         clearMoEventdiv();
        
     });
+    
     function makeQuestion(data){
     	
     	qattach = qattach2.join();
@@ -804,8 +806,10 @@
                 });
                 
                 makeQuestion(data);
+                
                 var json = JSON.parse(qJson);
                 console.log("question : "+json.question);
+                
                 if(!json.question){
                     console.log("이벤트 생성중 - 문제없음.");
                 }
@@ -940,6 +944,7 @@
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
+            
             if(typeof qno == "undefined"){
                 console.log("이벤트 VIEW - 문제 없음.");
                 $("#qno").val("no_Question");
@@ -951,16 +956,20 @@
                 $("#moquestionDiv").show();
                 $("#moquestionTitle").val(vo.attr("question"));
                 $("#moqType").val(vo.attr("qtype"));
+                
                 if(vo.attr("qtype")=="multiple"){
                     $("#mooxAnswerbox").hide();
                     $("#moselectBox").show();
+                    
                     for (var i=1; i<5; i++){
                         var id="#mos";
                         var multi = id+i;
                         var choice="choice";
                         var multi2 = choice+i;
                         $(multi).val(vo.attr(multi2));
+                        
                         console.log("answer:"+vo.attr("answer"));
+                        
                         if(i==vo.attr("answer")){
                             var answerId = "#momultipleAnswer"+i;
                             $(answerId).attr("checked",true);
@@ -1037,7 +1046,9 @@
     }
     
     var modiJson;
+    
     function modiQuestion(eventno){
+    	
         var qfilter = new Array();
         qfilter[0]="eventno";
         qfilter[1]="question";
@@ -1048,6 +1059,7 @@
         qfilter[6]="choice2";
         qfilter[7]="choice3";
         qfilter[8]="choice4";
+        
         var qObject = new Object();
         qObject.eventno = eventno;
         qObject.question = $("#moquestionTitle").val();
@@ -1057,6 +1069,7 @@
         qObject.choice2 = $("#mos2").val();
         qObject.choice3 = $("#mos3").val();
         qObject.choice4 = $("#mos4").val();
+        
         for(var i=1;i<5;i++) {
             var id = "#momultipleAnswer";
             var multi = id+i;
@@ -1090,8 +1103,10 @@
         }
         console.log("eventno:"+eventno);
         modiQuestion(eventno);
+        
         var json = JSON.parse(modiJson);
         console.log("question : "+json.question);
+        
         if(!json.question){
             console.log("<이벤트 수정중> - 문제 NO/NO");
         }
@@ -1156,15 +1171,18 @@
         lat= mouseEvent.latLng.Ab;
         lng = mouseEvent.latLng.zb;
         $("#order").val(eventno);
+        
         console.log("내가 선택한 위도와 경도 : ",lat,lng);
         $("#eventModal").modal('show');
         $("#cancleEventBtn").on("click",function(){
             console.log("이벤트 생성 취소");
         });
+        
         $("#mocancleEventBtn").on("click",function(){
             console.log("이벤트 수정 취소");
         });
     });
+ 
 /*     <!-- 이벤트 생성 모달(세부사항)--> */
     $("#search").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
@@ -1178,6 +1196,7 @@
             $("#camera").val(false);
         }
     });
+    
     $("#qCheck").on("click",function(){
         if(this.checked==true){
             $("#questionDiv").show();
@@ -1185,6 +1204,7 @@
             $("#questionDiv").hide();
         }
     });
+    
     $("#qType").on("change",function(){
         if(this.value=="multiple"){
             $("#oxAnswerbox").hide();
@@ -1194,11 +1214,13 @@
             $("#oxAnswerbox").show();
         }
     });
+    
 /*     <!-- END 이벤트 생성 모달-->
     <!-- 수정모달(세부사항) --> */
     $("#mosearch").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
     });
+    
     $("#mocamera").change("toggle",function(){
         if(this.checked==true){
             $("#mocamera").val(true);
@@ -1208,6 +1230,7 @@
             console.log("카메라 OFF");
         }
     });
+    
     $("#moqCheck").on("click",function(){
         if(this.checked==true){
             $("#moquestionDiv").show();
@@ -1215,6 +1238,7 @@
             $("#moquestionDiv").hide();
         }
     });
+    
     $("#moqType").on("change",function(){
         if(this.value=="multiple"){
             $("#mooxAnswerbox").hide();
@@ -1234,7 +1258,9 @@
         $("#finishModal").modal('show');
         var modiRoutename = $("#Rname").val();
         var routemsg = routename + " 루트 등록이 완료되었습니다";
+        
         console.log(modiRoutename, routename,routeno);
+        
         if( modiRoutename != routename){
         	 console.log("루트 이름 수정 완료!"+modiRoutename);
              modifyName(routeno,modiRoutename);
@@ -1242,6 +1268,7 @@
         }
         $("#routeFinish").html(routemsg);
     });
+   
     //루트 이름 수정
     function modifyName(routeno,modiRoutename){
         $.ajax({

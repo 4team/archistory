@@ -15,47 +15,47 @@ pageEncoding="UTF-8"%>
 
 <!-- 체크박스 스타일 -->
 <style>
-input[type=checkbox] {  
-    display: none;
-}
+    input[type=checkbox] {
+        display: none;
+    }
 
-input[type=checkbox] + label{
-    display: inline-block;  
-    cursor: pointer;  
-    position: relative;  
-    padding-left: 25px;  
-    margin-right: 15px;  
-    font-size: 13px;
-}
+    input[type=checkbox] + label{
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        padding-left: 25px;
+        margin-right: 15px;
+        font-size: 13px;
+    }
 
-input[type=checkbox]+ label:before {     
+    input[type=checkbox]+ label:before {
 
-    content: "";  
-    display: inline-block;  
-  
-    width: 20px;  
-    height: 20px;  
-  
-    margin-right: 10px;  
-    position: absolute;  
-    left: 0;  
-    bottom: 1px;  
-    background-color: #ccc;  
-    border-radius: 2px; 
-    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);  
-}
-input[type=checkbox]:checked + label:before { 
+        content: "";
+        display: inline-block;
 
-    content: "\2713";  /* 체크모양 */
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);  
-    font-size: 18px; 
-    font-weight:800; 
-    color: #fff;  
-    background:#2f87c1;
-    text-align: center;  
-    line-height: 18px;  
+        width: 20px;
+        height: 20px;
 
-} 
+        margin-right: 10px;
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        background-color: #ccc;
+        border-radius: 2px;
+        box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    }
+    input[type=checkbox]:checked + label:before {
+
+        content: "\2713";  /* 체크모양 */
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+        font-size: 18px;
+        font-weight:800;
+        color: #fff;
+        background:#2f87c1;
+        text-align: center;
+        line-height: 18px;
+
+    }
 </style>
 <!-- END 체크박스 스타일 -->
 
@@ -124,17 +124,29 @@ input[type=checkbox]:checked + label:before {
         float:left;
     }
 
+    #eventName{
+        width:420px;
+    }
+
     .fileDrop {
-        width: 100%;
+        width: 90%;
         height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
-        background-color: orange;
-        margin:0px;
-        display:table;
-        line-height:100px;
+        background-color: powderblue;
+        margin-top:10px;
+        margin-bottom:10px;
     }
 
+    .qfileDrop {
+        width: 90%;
+        height: 100px;
+        border: 2px dotted black;
+        border-radius: 10px;
+        background-color: powderblue;
+        margin-top:10px;
+        margin-bottom:10px;
+    }
     li{
         list-style: none;
         margin-bottom: 15px;
@@ -154,25 +166,23 @@ input[type=checkbox]:checked + label:before {
     }
 
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 1px;
     }
-
     ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+        border-radius: 1px;
     }
-
     ::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        border-radius: 1px;
+        -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.5);
     }
-
     .glyphicon{
         display: inline;
         margin : 3px;
     }
     .gly{
         float:right;
+        white-space:nowrap;
     }
     .blink_me{
         position:absolute;
@@ -213,10 +223,6 @@ input[type=checkbox]:checked + label:before {
         width: 180px;
         height: 400px;
         overflow-y: scroll;
-    }
-
-    #eventList li{
-
     }
 
     #eventTitle{
@@ -287,7 +293,7 @@ input[type=checkbox]:checked + label:before {
 
                         <label for="camera">카메라</label><input type="checkbox" id="camera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
-                        <input type="checkbox" id="qCheck" value="option1"><label for="qCheck" style="margin-right:270px; font-size:15px;">Question</label><br>
+                        <input type="checkbox" id="qCheck" value="option1"><label for="qCheck" style="margin-right:270px;">Question</label><br>
                     </div>
                     <div id="questionDiv">
                         <hr>
@@ -300,7 +306,7 @@ input[type=checkbox]:checked + label:before {
                         </select><br>
 
                         <label for="qTitle">문제</label>
-                        <textarea class="form-control" id="questionTitle" rows="3" placeholder="문제를 입력하세요."></textarea>
+                        <textarea class="form-control" id="questionTitle" placeholder="문제를 입력하세요."></textarea>
                         <div id="selectBox">
                             <label for="s1">1번 선택지</label><input type="text" class="form-control" id="s1" placeholder="1번 보기를 입력하세요."><br>
                             <label for="s2">2번 선택지</label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요."><br>
@@ -308,21 +314,21 @@ input[type=checkbox]:checked + label:before {
                             <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
 
                             <div id="multipleAnswerBox" class="checkbox">
-                               <input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1"><label for="multipleAnswer1" style="font-size:15px;">1</label>
-                                <input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2"><label for="multipleAnswer2" style="font-size:15px;">2</label>
-                                <input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3"><label for="multipleAnswer3" style="font-size:15px;">3</label>
-                                <input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4"><label for="multipleAnswer4" style="font-size:15px;">4</label>
+                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
+                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
+                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer3" value="3">3</label>
+                                <label><input type="checkbox" name="optionsRadios" id="multipleAnswer4" value="4">4</label>
                             </div>
                         </div>
                         <div id="oxAnswerbox" class="radio">
                             <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o"> O </label>
                             <label><input type="radio" name="optionsRadios" id="oxAnswer2" value="x"> X </label>
                         </div>
-                    <label for="qImg">이미지</label>
-                    <div class="fileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
-                    <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
-                </div>
+                        <label for="qImg">이미지</label>
+                        <div class="fileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
+                        <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     </div>
+                </div>
 
                 <div class="modal-footer">
                     <button type="button" id="createEventBtn" class="btn btn-create">만들기</button>
@@ -350,18 +356,19 @@ input[type=checkbox]:checked + label:before {
                 <div id="modiEventDiv">
                     <input type="hidden" id="moeventno" value="">
                     <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
-                    <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 3px; margin-top: 5px;">검색</button><br>
+                    <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
-                    <label for="moimgInput">이미지</label><br>
-                    <div class="fileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
+                    <label for="imgInput">이미지</label>
+                    <input type="file" id="moimgInput"><br>
+                    <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
                     <label for="videoInput">동영상</label><br>
-                    Youtube Search <input type="text" id="mquery" style="width:295px;"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
+                    Youtube Search <input type="text" id="mquery"><button type="button" id="msearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">Search</button>
                     <ul id="myoutubeList"></ul>
-                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
+                    <label for="camera">카메라</label><input type="checkbox" id="mocamera" checked data-toggle="toggle" data-size="mini" style="margin-right : 270px;"><br>
 
-                    <input type="checkbox" id="moqCheck" value="option1"><label for="moqCheck" style="margin-right:270px;">Question</label><br>
+                    <input type="checkbox" id="moqCheck" value="option1"><span style="margin-right:270px;">Question</span><br>
                 </div>
                 <div id="moquestionDiv">
                     <hr>
@@ -375,7 +382,7 @@ input[type=checkbox]:checked + label:before {
 
                     <label for="qTitle">문제</label>
                     <input type="hidden" id="qno">
-                    <textarea class="form-control" id="moquestionTitle" rows="3" placeholder="문제를 입력하세요."></textarea>
+                    <textarea class="form-control" id="moquestionTitle" placeholder="문제를 입력하세요."></textarea><br>
                     <div id="moselectBox">
                         <label for="s1">1번 선택지</label><input type="text" class="form-control" id="mos1" placeholder="1번 보기를 입력하세요."><br>
                         <label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요."><br>
@@ -383,21 +390,22 @@ input[type=checkbox]:checked + label:before {
                         <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
 
                         <div id="momultipleAnswer" class="checkbox">
-                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1"><label for="momultipleAnswer1" style="font-size:15px;">1</label>
-                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2"><label for="momultipleAnswer2" style="font-size:15px;">2</label>
-                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3"><label for="momultipleAnswer3" style="font-size:15px;">3</label>
-                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4"><label for="momultipleAnswer4" style="font-size:15px;">4</label>
+                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
+                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2">2</label>
+                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3">3</label>
+                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4">4</label>
                         </div>
                     </div>
                     <div id="mooxAnswerbox" class="radio">
                         <label><input type="radio" name="optionsRadios" id="mooxAnswer1" value="o"> O </label>
                         <label><input type="radio" name="optionsRadios" id="mooxAnswer2" value="x"> X </label>
                     </div>
-                <label for="moqImg">이미지</label>
-                <div class="fileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
-                <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
-            </div>
+                    <label for="qImg">문제 이미지</label>
+                    <div class="qfileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
+                    <ul class="mailbox-attachments clearfix quploadedList" style="display:inline"></ul>
                 </div>
+
+            </div>
 
             <div class="modal-footer">
                 <button type="button" id="modifyEventBtn" class="btn btn-create">수정하기</button>
@@ -419,7 +427,7 @@ input[type=checkbox]:checked + label:before {
         </ul>
     </div>
     <div id="listBottom">
-        <button type="button" id="commitList" class= "btn btn-default" >완료</button>
+        <button type="button" id="commitList" class= "btn btn-default" style="margin-top:5px; margin-bottom: 5px; float: right;" >완료</button>
     </div>
 </div>
 
@@ -476,7 +484,6 @@ input[type=checkbox]:checked + label:before {
     // 마커 이미지 생성성
     var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
     var imageSize = new daum.maps.Size(24, 35);
-
     var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
 
     //{font-family:'Nanum Gothic', sans-serif;}
@@ -609,8 +616,6 @@ input[type=checkbox]:checked + label:before {
         removeQuestion(select.attr("value"));
         removeEvent(select.attr("value"),function(){
         }); //문제가 있으면 삭제 되게
-
-
         alert(select.attr("value")+"삭제되었습니다.");
     });
 
@@ -632,6 +637,8 @@ input[type=checkbox]:checked + label:before {
     var attach = new Array();
     var attach2;
     var qJson;
+    var qattach2 = new Array();
+    var qattach;
 
     $("#createEventBtn").on("click",function(){
 
@@ -650,15 +657,21 @@ input[type=checkbox]:checked + label:before {
             clearEventDiv();
             attach = [];
 
+            //은혜추가.
+            youtubeId ="";
         });
 
         $("#eventModal").modal('hide');
+        $("#searchDiv").hide();
         clearEventDiv();
         clearMoEventdiv();
 
     });
 
     function makeQuestion(data){
+
+        qattach = qattach2.join();
+
         var qfilter = new Array();
         qfilter[0]="eventno";
         qfilter[1]="question";
@@ -669,9 +682,9 @@ input[type=checkbox]:checked + label:before {
         qfilter[6]="choice2";
         qfilter[7]="choice3";
         qfilter[8]="choice4";
+        qfilter[9]="qfiles"
 
         var qObject = new Object();
-
         qObject.eventno = data;
         qObject.question = $("#questionTitle").val();
         qObject.point = 500;
@@ -680,48 +693,38 @@ input[type=checkbox]:checked + label:before {
         qObject.choice2 = $("#s2").val();
         qObject.choice3 = $("#s3").val();
         qObject.choice4 = $("#s4").val();
+        qObject.qfiles = qattach;
 
         for(var i=1;i<5;i++) {
-
             var id = "#multipleAnswer";
             var multi = id+i;
             var oxid ="#oxAnswer";
             var ox =oxid+i;
-
             if ($(multi).is(":checked")) {
                 qObject.answer = $(multi).val();
             }
-
             if($(ox).is(":checked")){
                 qObject.answer = $(ox).val();
             }
         }
-
         qJson = JSON.stringify(qObject,qfilter,"\t");
-
         //console.log(qJson)
-
     }
 
-
     function createQuestion(qJson){
-
         console.log("문제 생성 :"+qJson);
-
         $.ajax({
             type:"post",
-            url:"http://14.32.66.127:4000/question/register",
+            url:"http://14.32.66.127:4000/question/attachCreate",
             headers:{
                 "Content-Type":"application/json"
             },
             datatype : "json",
             data: qJson,
             success:function(data){
-                console.log("문제 생성 결과:"+data);
+                console.log("data:"+data);
             }
         });
-
-
     }
 
     //이벤트 생성 기능
@@ -766,6 +769,7 @@ input[type=checkbox]:checked + label:before {
         $("#eventName").val("");
         $("#eventinfo").val("");
         $(".uploadedList").html("");
+        $(".quploadedList").html("");
         $("#qCheck").attr('checked', false) ;
         $("#questionDiv").hide();
         $("#camera").val(false);
@@ -783,6 +787,7 @@ input[type=checkbox]:checked + label:before {
         $("#s2").val("");
         $("#s3").val("");
         $("#s4").val("");
+        qattach=[];
 
         for(var i=1;i<5;i++) {
 
@@ -801,11 +806,8 @@ input[type=checkbox]:checked + label:before {
         }
     }
 
-
-
     //수정 창 비우기 기능
     function clearMoEventdiv(){
-
         for(var i=1;i<5;i++){
             var id = "#mos";
             var idi= id + i;
@@ -827,10 +829,10 @@ input[type=checkbox]:checked + label:before {
     }
 
 
-
     //이벤트 읽기 기능
     function viewEvent(eventno){
         $(".uploadedList").html("");
+        $(".quploadedList").html("");
         $("#myoutubeList").html("");
         $("#youtubeList").html("");
 
@@ -945,12 +947,29 @@ input[type=checkbox]:checked + label:before {
                     $("#mooxAnswerbox").show();
                 }
 
+                $.getJSON("http://14.32.66.127:4000/question/getAttach/" + qno, function(list) {
+                    console.log("문제 첨부파일 가져오기");
+                    console.log(list);
+                    var array = list[0].split(',');
+                    console.log(array);
 
+                    var length = array.length;
+
+                    for(var i = 0; i < length; i++){
+
+                        var name = array[i];
+                        attach.push(name);
+                        var fileInfo = getFileInfo(name);
+                        var html = template2(fileInfo);
+
+                        $(".quploadedList").append(html);
+                    }
+                });//end getAttach
             }//end else
+        }); //end question view
 
-        });// end question  view
     }
-
+    
     //이벤트 삭제 기능
     function removeEvent(eventno,callback){
         console.log("이벤트 삭제"+eventno);
@@ -1156,14 +1175,14 @@ input[type=checkbox]:checked + label:before {
 
     $("#search").on("click",function(){
         console.log("문화재 api를 이용해 검색하였습니다.");
-        
-        
-        
-       /*  1) 키워드 통합검색 : 키워드가 "강원"인 관광정보를 검색하여 리스트로 조회 (한페이지에 10개씩, 첫페이지며, 리
-        		스트를 제목순으로 조회) 
-        		-> 키워드 인코딩 예 : String keyword = URLEncoder.encode(“강원”, "UTF-8")); 
-        		- 요청 URL : http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=인증키
-        		&keyword=%EA%B0%95%EC%9B%90&MobileOS=ETC&MobileApp=AppTesting */
+
+
+
+        /*  1) 키워드 통합검색 : 키워드가 "강원"인 관광정보를 검색하여 리스트로 조회 (한페이지에 10개씩, 첫페이지며, 리
+         스트를 제목순으로 조회)
+         -> 키워드 인코딩 예 : String keyword = URLEncoder.encode(“강원”, "UTF-8"));
+         - 요청 URL : http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=인증키
+         &keyword=%EA%B0%95%EC%9B%90&MobileOS=ETC&MobileApp=AppTesting */
     });
 
 
@@ -1307,18 +1326,15 @@ input[type=checkbox]:checked + label:before {
 <!-- -----파일첨부기능-------  -->
 <script>
     var template = Handlebars.compile($("#template").html());
-
     $(".fileDrop").on("dragenter dragover", function(event){
         event.preventDefault();
     });
 
     $(".fileDrop").on("drop", function(event){
         event.preventDefault();
-
-        var files = event.originalEvent.dataTransfer.files;
+        var files = event.originalEvent.dataTransfer.files; //전달된 파일 데이터 가져오는 부분
         console.log(files);
         var num = files.length;
-
 
         for(var i = 0 ; i < num; i++){
             var file = files[i];
@@ -1330,7 +1346,6 @@ input[type=checkbox]:checked + label:before {
             console.log(filetypeArr[arrNum-1]);
 
             var formData = new FormData();
-
             formData.append("file", file);
             formData.append("routeno",routeno);
 
@@ -1344,6 +1359,7 @@ input[type=checkbox]:checked + label:before {
 
             }
 
+
         }
 
 
@@ -1351,7 +1367,7 @@ input[type=checkbox]:checked + label:before {
             $.ajax({
                 url: url,
                 data: formData,
-                dataType:'text',
+                datatype:'text',
                 processData: false,
                 contentType: false,
                 type: 'POST',
@@ -1362,7 +1378,7 @@ input[type=checkbox]:checked + label:before {
 
                     var str ="";
 
-                    console.log(data);
+                    console.log("이벤트 이미지 data:"+data);
                     //console.log(checkImageType(data));
                     //console.log("ddddd",$(".uploadedList"));
 
@@ -1391,9 +1407,7 @@ input[type=checkbox]:checked + label:before {
 
 
     });
-
     $(".uploadedList").on("click", "small", function(event){
-
         var that = $(this);
         console.log("delete click");
 
@@ -1401,12 +1415,11 @@ input[type=checkbox]:checked + label:before {
         attach.splice(index, 1);
         console.log("삭제 한 뒤의 어테치 : "+attach);
 
-
         $.ajax({
             url:"http://14.32.66.127:4000/sboard/deleteFile",
             type:"post",
             data: {fileName:$(this).attr("data-src")},
-            dataType:"text",
+            datatype:"text",
             success:function(result){
                 if(result == 'deleted'){
                     that.parent("div").remove();
@@ -1415,54 +1428,36 @@ input[type=checkbox]:checked + label:before {
         });
 
     });
-
-
     $("#registerForm").submit(function(event){
         event.preventDefault();
-
         var that = $(this);
-
         var str ="";
         $(".uploadedList .delbtn").each(function(index){
             str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
         });
-
         that.append(str);
         console.log("str값은?????:" + str);
         //that.get(0).submit();
     });
-
-
     function getOriginalName(fileName){
-
         if(checkImageType(fileName)){
             return;
         }
         var idx = fileName.indexOf("_") + 1 ;
         return fileName.substr(idx);
-
     }
-
-
     function getImageLink(fileName){
-
         if(!checkImageType(fileName)){
             return;
         }
         var front = fileName.substr(0,12);
         var end = fileName.substr(14);
-
         return front + end;
-
     }
-
     function checkImageType(fileName){
         var pattern = /jpg|gif|png|jpeg/i;
         return fileName.match(pattern);
-
     }
-
-
     /*유투브 검색 */
     $("#youtubeSearch").on("click",function(event){
         event.preventDefault();
@@ -1472,21 +1467,17 @@ input[type=checkbox]:checked + label:before {
         var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
         var q = $('#query').val();
         console.log(q);
-
         gapi.client.setApiKey(apiKey);
         gapi.client.load('youtube', 'v3', function() {
             isLoad = true;
         });
         console.log('Search Request');
-
         request = gapi.client.youtube.search.list({
             q: q,
             part: 'id, snippet',
             type: 'video',
             maxResults:20
         });
-
-
         request.execute(function(response) {
             var str = JSON.stringify(response.result);
             var movie = $(response.result.items);
@@ -1518,21 +1509,17 @@ input[type=checkbox]:checked + label:before {
         var apiKey = 'AIzaSyARCn5THIU3dV2UZFgO9c8UMIIiVfISFgE';
         var q = $('#mquery').val();
         console.log(q);
-
         gapi.client.setApiKey(apiKey);
         gapi.client.load('youtube', 'v3', function() {
             isLoad = true;
         });
         console.log('Search Request');
-
         request = gapi.client.youtube.search.list({
             q: q,
             part: 'id, snippet',
             type: 'video',
             maxResults:20
         });
-
-
         request.execute(function(response) {
             var str = JSON.stringify(response.result);
             var movie = $(response.result.items);
@@ -1564,12 +1551,10 @@ input[type=checkbox]:checked + label:before {
         console.log(array);
         $("#searchDiv").hide();
 
-
         $("#youtubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
         $("#myoutubeList").html("<li><img src='"+thumbnail+"'><small>X</small></li>");
 
     });
-
 
     $("#yClose").on("click",function(){
         $("#searchDiv").hide();
@@ -1578,6 +1563,129 @@ input[type=checkbox]:checked + label:before {
 </script>
 <!-------- 파일첨부기능 끝 -------->
 
+
+
+<!-- 문제 파일첨부 기능 -->
+<script>
+    var template = Handlebars.compile($("#template").html());
+
+    $(".qfileDrop").on("dragenter dragover", function(event){
+        event.preventDefault();
+    });
+
+    $(".qfileDrop").on("drop", function(event){
+        event.preventDefault();
+
+        var files = event.originalEvent.dataTransfer.files; //전달된 파일 데이터 가져오는 부분
+        console.log(files);
+
+        var num = files.length;
+        for(var i = 0 ; i < num; i++){
+            var file = files[i];
+            var filename = file.name;
+            var filetypeArr = filename.split('.');
+            var arrNum = filetypeArr.length;
+
+            console.log(arrNum);
+            console.log(filetypeArr[arrNum-1]);
+
+            var formData = new FormData();
+            formData.append("file", file);
+            formData.append("routeno",routeno);
+
+            if(filetypeArr[arrNum-1]=="jpg" || filetypeArr[arrNum-1]=="gif" || filetypeArr[arrNum-1]=="bmp" || filetypeArr[arrNum-1]=="png"){
+                uploadImg(formData,'http://14.32.66.127:4000/uploadAjax');
+            }
+        }
+        function uploadImg(formData,url){
+            $.ajax({
+                url: url,
+                data: formData,
+                datatype:'text',
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function(data){
+                    var fileInfo = getFileInfo(data);
+                    var html = template(fileInfo);
+                    var str ="";
+                    console.log("문제 이미지 data:"+data);
+                    //console.log(checkImageType(data));
+                    //console.log("ddddd",$(".uploadedList"));
+                    //attach.push(checkImageType(data).input.substring(checkImageType(data).input.length-15,checkImageType(data).input.length));
+
+                    qattach2.push(data);
+                    console.log("문제 이미지 attach:" + qattach2);
+
+                    /* qattach = data;
+                     console.log("qattach:" + qattach); */
+                    if(checkImageType(data)){
+                        str ="<div class='img'>"
+                                +"<img src='http://14.32.66.127:4000/displayFile?fileName="+data+"'/>"
+                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+                                +"</div>";
+                    }else{
+                        str = "<div class='img'>"
+                                +"<a href='http://14.32.66.127:4000/displayFile?fileName="+data+"'>"+ getOriginalName(data)+"</a>"
+                                +"<small data-src='"+data+"'><div class='x'>X</div></small><input type='hidden' name='files' value='"+data+"'>"
+                                +"</div>";
+                    }
+                    $(".quploadedList").append(str);
+                }
+            });
+        }
+    });
+    $(".quploadedList").on("click", "small", function(event){
+        var that = $(this);
+        console.log("delete click");
+        var index = $.inArray($(this).attr("data-src"), attach);
+        attach.splice(index, 1);
+        console.log("삭제 한 뒤의 어테치 : "+attach);
+        $.ajax({
+            url:"http://14.32.66.127:4000/sboard/deleteFile",
+            type:"post",
+            data: {fileName:$(this).attr("data-src")},
+            datatype:"text",
+            success:function(result){
+                if(result == 'deleted'){
+                    that.parent("div").remove();
+                }
+            }
+        });
+    });
+    $("#registerForm").submit(function(event){
+        event.preventDefault();
+        var that = $(this);
+        var str ="";
+        $(".uploadedList .delbtn").each(function(index){
+            str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+        });
+        that.append(str);
+        console.log("str값은?????:" + str);
+        //that.get(0).submit();
+    });
+    function getOriginalName(fileName){
+        if(checkImageType(fileName)){
+            return;
+        }
+        var idx = fileName.indexOf("_") + 1 ;
+        return fileName.substr(idx);
+    }
+    function getImageLink(fileName){
+        if(!checkImageType(fileName)){
+            return;
+        }
+        var front = fileName.substr(0,12);
+        var end = fileName.substr(14);
+        return front + end;
+    }
+    function checkImageType(fileName){
+        var pattern = /jpg|gif|png|jpeg/i;
+        return fileName.match(pattern);
+    }
+</script>
+
+<!-- END 문제 파일첨부 기능 -->
 
 
 </body>
