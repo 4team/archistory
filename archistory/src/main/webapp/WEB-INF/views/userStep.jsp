@@ -156,7 +156,8 @@
     }
     
     #eventInfo{
-    max-height:300px;
+    margin:auto;
+    max-height:400px;
     overflow-y: scroll;
     }
 </style>
