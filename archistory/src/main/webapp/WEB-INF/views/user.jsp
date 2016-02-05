@@ -48,6 +48,8 @@
 			position:fixed;
 			}
 			#yesModalContent{
+				position:absolute;
+				top:30%;
 				z-index:3000;
 			}
 			.rName{
@@ -270,8 +272,8 @@
 
 				<!-- 이 루트 들어갈건지 묻는 창 -->
 	<div class="modal fade" id="yesModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="false">
-    <div class="modal-dialog" id="yesModalContent">
-        <div class="modal-content">
+    <div class="modal-dialog">
+        <div class="modal-content"  id="yesModalContent">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
