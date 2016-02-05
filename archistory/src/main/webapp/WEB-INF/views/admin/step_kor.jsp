@@ -998,7 +998,7 @@
           	   		 for(var i = 0; i < length; i++){
           	   			 
           	   			var name = array[i];
-          	   			attach.push(name);
+          	   			qattach.push(name);
           	   			  var fileInfo = getFileInfo(name);
           	                 var html = template2(fileInfo);
           	   			  
