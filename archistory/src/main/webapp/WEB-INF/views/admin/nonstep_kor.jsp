@@ -124,9 +124,6 @@ pageEncoding="UTF-8"%>
         float:left;
     }
 
-    #eventName{
-        width:420px;
-    }
 
     .fileDrop {
         width: 90%;
@@ -324,8 +321,8 @@ pageEncoding="UTF-8"%>
                             <label><input type="radio" name="optionsRadios" id="oxAnswer1" value="o"> O </label>
                             <label><input type="radio" name="optionsRadios" id="oxAnswer2" value="x"> X </label>
                         </div>
-                        <label for="qImg">이미지</label>
-                        <div class="fileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
+                        <label for="qImg">문제 이미지</label>
+                        <div class="qfileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
                         <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     </div>
                 </div>
