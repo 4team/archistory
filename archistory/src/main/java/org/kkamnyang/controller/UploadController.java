@@ -246,8 +246,8 @@ public class UploadController {
 		  MemberVO vo = new MemberVO();
 		  vo.setMemberno(memberno);
 		  vo.setImg(img);
-		  mapper.updateImg(vo);
 		  try{
+			  mapper.updateImg(vo);
 			  String path = UploadFileUtils.memberImg(uploadPath, 
 	  	                file.getOriginalFilename(), 
 	  	                file.getBytes());
