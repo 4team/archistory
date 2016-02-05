@@ -185,13 +185,7 @@
         #finishedDiv p{
         	text-align: center;
         }
-		#alertFirst{
-			position:absolute;
-			top:50%;
-			width:70%;
-			margin:auto;
-			z-index:3100;
-		}
+
 </style>
 
 	 <!-- Core JavaScript Files -->
@@ -399,13 +393,6 @@
 </div>
 
 
-
-  <div class="alert alert-success fade" id="alertFirst" onClick="close">
-    <strong>첫 페이지 입니다.</strong>
-  </div>
-
-
-
 <script>
 
 var memberno = ${memberno};
@@ -462,12 +449,10 @@ $("#myInfo").on("click",function(){
 
 	function viewFinishRoute(routeno,page){
 		if(page == -1){
-			$("#alertFirst").addClass("in");
+			alert("첫 페이지 입니다.");
 			page = 0;
-			console.log(page);
-		}else{
-			$("#alertFirst").removeClass("in");
 		}
+			console.log(page);
 		var curpage = page;
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
 				var FinishRouteVO = $(data)[0];
