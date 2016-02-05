@@ -394,7 +394,7 @@
 
 
 <div class="modal fade" id="alertFirst" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="position:absolute; top:40%; text-align: center; font-weight: bold;">
+    <div class="modal-dialog" style="position:absolute; top:40%; width:100%; text-align: center; font-weight: bold;">
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <div>첫페이지 입니다.</div>
