@@ -628,7 +628,7 @@ var myMarker = null;
                 console.log("Question이 없다.");
                 eventModal.modal("hide");
                 $("#moveNext").modal("show");
-                $("#moveNext").CenterWindow();
+                
                 nowOrder++;
 
 
@@ -717,7 +717,7 @@ var myMarker = null;
         event.preventDefault();
 //        eventModal.modal("hide");
         $("#moveNext").modal("show");
-        $("#moveNext").CenterWindow();
+        
         nowOrder++;
 
         $.ajax({
