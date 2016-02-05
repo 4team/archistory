@@ -451,9 +451,9 @@ $("#myInfo").on("click",function(){
 	});
 
 	function viewFinishRoute(routeno,page){
-		if(page == 0){
+		if(page == -1){
 			alert("첫페이지입니다.");
-			page = 1;
+			page = 0;
 			console.log(page);
 		}
 		var curpage = page;
