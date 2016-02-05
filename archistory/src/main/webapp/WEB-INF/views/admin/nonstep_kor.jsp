@@ -398,11 +398,11 @@ pageEncoding="UTF-8"%>
                         <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
 
                         <div id="momultipleAnswer" class="checkbox">
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2">2</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3">3</label>
-                            <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4">4</label>
-                        </div>
+                             <input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1"><label for="momultipleAnswer1" style="font-size:15px;">1</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2"><label for="momultipleAnswer2" style="font-size:15px;">2</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer3" value="3"><label for="momultipleAnswer3" style="font-size:15px;">3</label>
+                            <input type="checkbox" name="optionsRadios" id="momultipleAnswer4" value="4"><label for="momultipleAnswer4" style="font-size:15px;">4</label>
+                       </div>
                     </div>
                     <div id="mooxAnswerbox" class="radio">
                         <label><input type="radio" name="optionsRadios" id="mooxAnswer1" value="o"> O </label>
