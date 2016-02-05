@@ -23,7 +23,7 @@
         margin: 0;
         padding: 0;
     }
-    #mmap{
+    #map{
         width: 100%;
         height: 100%;
     }
@@ -162,6 +162,9 @@
 	    overflow-y: scroll;
     }
 </style>
+	
+	<script type="text/javascript" src="js/upload.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
     <!-- Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -186,8 +189,6 @@
 	
 	
 	
-<script type="text/javascript" src="js/upload.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -297,7 +298,7 @@
 </div>
 
 <div id="myLocation"></div>
-<div id="mmap"></div>
+<div id="map"></div>
 
 
 <script id="template" type="text/x-handlebars-template">
