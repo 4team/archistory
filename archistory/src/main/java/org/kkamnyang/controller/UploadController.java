@@ -245,12 +245,13 @@ public class UploadController {
 		  System.out.println("[멤버 이미지 등록 시작]");
 		  MemberVO vo = new MemberVO();
 		  vo.setMemberno(memberno);
-		  vo.setImg(img);
 		  try{
-			  mapper.updateImg(vo);
 			  String path = UploadFileUtils.memberImg(uploadPath, 
 	  	                file.getOriginalFilename(), 
 	  	                file.getBytes());
+			  vo.setImg(path);
+			  mapper.updateImg(vo);
+			  System.out.println("[멤버 이미지 등록 완료]");
 			  return new ResponseEntity<>(path, HttpStatus.CREATED);
 		  }catch(Exception e){
 			  e.printStackTrace();
