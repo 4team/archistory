@@ -364,7 +364,7 @@
             </div>
             <div class="modal-footer">
 	                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
-           			<input type='submit' class="btn btn-primary">
+           			<input type='submit' class="btn btn-primary" value="SAVE">
            		</form>
             </div>
         </div>
