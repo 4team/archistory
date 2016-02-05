@@ -247,13 +247,15 @@ public class UploadController {
 		  vo.setMemberno(memberno);
 		  vo.setImg(img);
 		  mapper.updateImg(vo);
-		  
-		    return 
-		  	      new ResponseEntity<>(
-		  	          UploadFileUtils.memberImg(uploadPath, 
-		  	                file.getOriginalFilename(), 
-		  	                file.getBytes()), 
-		  	          HttpStatus.CREATED);
+		  try{
+			  UploadFileUtils.memberImg(uploadPath, 
+	  	                file.getOriginalFilename(), 
+	  	                file.getBytes());
+			  return new ResponseEntity<>(img, HttpStatus.CREATED);
+		  }catch(Exception e){
+			  e.printStackTrace();
+			  return new ResponseEntity<>("FAIL", HttpStatus.BAD_REQUEST);
+		  }
 	  }
 	  
 	  
