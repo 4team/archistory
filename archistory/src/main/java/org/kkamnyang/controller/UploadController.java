@@ -234,6 +234,8 @@ public class UploadController {
 	  @ResponseBody
 	  @RequestMapping(value="/memberImgUpload", method=RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	  public ResponseEntity<String> memberImg(MultipartFile file) throws Exception{
+		  
+		  System.out.println("[멤버 이미지 등록 시작]");
 		    return 
 		  	      new ResponseEntity<>(
 		  	          UploadFileUtils.memberImg(uploadPath, 
