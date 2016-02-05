@@ -50,7 +50,7 @@
 			#yesModalContent{
 				position:absolute;
 				display:none;
-				z-index:1000;
+				z-index:3000;
 	        	margin:auto;
 	        	top:30%;
 			}	
