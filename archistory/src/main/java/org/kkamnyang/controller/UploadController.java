@@ -8,10 +8,13 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
+import org.kkamnyang.domain.MemberVO;
+import org.kkamnyang.persistence.MemberMapper;
 import org.kkamnyang.util.MediaUtils;
 import org.kkamnyang.util.UploadFileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +36,9 @@ public class UploadController {
 
 	private static final String uploadPath = "C:\\archistory";
 
+	@Autowired
+	MemberMapper mapper;
+	
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() {
 	}
@@ -231,11 +238,13 @@ public class UploadController {
 	  }
 
 
-	  @ResponseBody
+	  
 	  @RequestMapping(value="/memberImgUpload", method=RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	  public ResponseEntity<String> memberImg(MultipartFile file) throws Exception{
+	  public ResponseEntity<String> memberImg(@RequestBody MemberVO vo, MultipartFile file) throws Exception{
 		  
 		  System.out.println("[멤버 이미지 등록 시작]");
+		  mapper.updateImg(vo);
+		  
 		    return 
 		  	      new ResponseEntity<>(
 		  	          UploadFileUtils.memberImg(uploadPath, 

@@ -81,4 +81,9 @@ public class MemberMapperImpl extends AbstractCRUDMapper<MemberVO, Integer> impl
 		
 	}
 
+	@Override
+	public void updateImg(MemberVO vo) {
+		session.update(namespace+".updateImg",vo);
+	}
+
 }

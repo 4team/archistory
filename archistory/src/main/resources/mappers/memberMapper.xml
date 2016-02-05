@@ -61,4 +61,7 @@
 		delete from tbl_invite where memberno=#{memberno} and routeno=#{routeno} ;
 	</delete>
 	
+	<update id="updateImg">
+		update tbl_member set img = #{img} where memberno = #{memberno}
+	</update>
 </mapper>
