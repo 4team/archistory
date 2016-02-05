@@ -431,7 +431,7 @@
            			<input type='file' name='file'>
            			<input type='submit'>
            		</form>
-           		<iframe name="zeroFrame" style="height:30px;"></iframe>
+           		<iframe name="zeroFrame" style="height:30px; border:0px;"></iframe>
             </div>
             <div class="modal-footer">
 
