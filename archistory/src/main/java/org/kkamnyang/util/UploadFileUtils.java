@@ -54,6 +54,15 @@ public class UploadFileUtils {
     
   }
   
+  public static String memberImg(String uploadPath,String originalName,byte[] fileData) throws Exception{
+	  UUID uid = UUID.randomUUID();
+	  String savedPath = uid.toString()+"_"+originalName;
+	  
+	  File target = new File(uploadPath+File.separator+"member"+File.separator+savedPath);
+	  FileCopyUtils.copy(fileData, target);
+	  
+	  return savedPath;
+  }
  
   
   public static String uploadMovie(String uploadPath, 
