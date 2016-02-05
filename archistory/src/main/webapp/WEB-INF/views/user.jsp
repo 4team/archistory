@@ -396,7 +396,7 @@
     <div class="modal-dialog">
         <div class="panel panel-danger">
             <div class="panel-heading" style="top:40%;">
-                <div>첫페이지 입니다.</div>
+                <div><center><strong>첫페이지 입니다.</strong></center></div>
             </div>
         </div>
     </div>
