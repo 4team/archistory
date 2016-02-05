@@ -189,7 +189,12 @@
         #finishedDiv p{
         	text-align: center;
         }
-
+        
+      #imgDiv img{
+        width:200px;
+        height:200px;
+        display:block;
+        }
 </style>
 
 	 <!-- Core JavaScript Files -->
@@ -313,8 +318,7 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-            	<div id="imgDiv" style="margin-left:210px;">
-				      <img id="modifoto" src ="/img/profile.png">
+				      <div id="imgDiv" style="margin-left:210px;">
 			    </div>   
                 
                    <table id="profile" align="center">
@@ -436,6 +440,19 @@ $("#myInfo").on("click",function(){
 				
 				$("#proEmail").val(memberVO.email);
 				$("#proName").val(memberVO.userName);
+				
+				var dbimg = memberVO.img;
+				
+				 if(dbimg==null){  
+					   var imgTag=" <img class='img-circle' id='poto' src ='/img/profile.png'>";
+						$("#imgDiv").html(imgTag); 
+				   }else{
+				   
+					   var imgAddr="http://14.32.66.127:4000/admin/displayFile?fileName="+dbimg;
+					   var imgTag1="<img class='img-circle' id='poto' src ='"+imgAddr+"'>";
+						$("#imgDiv").html(imgTag1); 
+				   }
+				   
 				
 			})
    			$("#myProfileModal").modal('show');
