@@ -162,7 +162,7 @@
     }
     
     .modal{
-    margin:auto;
+   		top:auto;
     }
 </style>
 
