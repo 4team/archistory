@@ -322,7 +322,7 @@
                 <h4 class="modal-title">My Profile</h4>
             </div>
             <div class="modal-body">
-				      <div id="imgDiv" style="margin-left:210px;">
+				      <div id="imgDiv">
 			    </div>   
                 
                    <table id="profile" align="center">
