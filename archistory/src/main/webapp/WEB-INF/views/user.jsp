@@ -169,7 +169,7 @@
        #loginBody{
 	        top:150px;
 	        width:350px;
-	        z-index:10000;
+	        z-index:2000;
 	    }
 	
 	    #loginH{

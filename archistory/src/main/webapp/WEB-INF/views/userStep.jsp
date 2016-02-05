@@ -160,6 +160,10 @@
     max-height:400px;
     overflow-y: scroll;
     }
+    
+    .modal{
+    margin:auto;
+    }
 </style>
 
     <!-- Fonts -->
