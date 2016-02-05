@@ -392,8 +392,12 @@
     </div>
 </div>
 
-<a href="#" class="alertFirst" data-dismiss="alert" aria-label="close">첫 페이지 입니다.</a>
 
+<div class="container">
+  <div class="alert alert-success" id="alertFirst">
+    <strong>첫 페이지 입니다.</strong>
+  </div>
+</div>
 
 
 <script>
@@ -452,7 +456,7 @@ $("#myInfo").on("click",function(){
 
 	function viewFinishRoute(routeno,page){
 		if(page == -1){
-			$(".alertFirst").alert();
+			$("#alertFirst").alert();
 			page = 0;
 			console.log(page);
 		}
