@@ -759,7 +759,7 @@ var myMarker = null;
 					console.log(this);
 	            	$("#finishDiv").append("<p>"+this.userName+"  "+this.score+"</p>");
             	});
-            	$("#finishDiv").append("<button onClick='self.location='/user';'>OK</button>");
+            	$("#finishDiv").append("<button onClick='self.location=\'/user\';'>OK</button>");
             });
             
         }else{
