@@ -174,7 +174,7 @@
 		console.log("위도 경도 값:"+lat,lng);
             $.ajax({
                 type: 'POST',
-                url: 'http://192.168.0.36:8080/route/create',
+                url: 'http://14.32.66.127:4000/route/create',
                 headers:{"Content-Type":"application/json"},
                 data: JSON.stringify({adminno:adminno,routename:name, password:password, secret:secret, step:step, lat:lat, lng:lng}),
                 dataType:'JSON',
