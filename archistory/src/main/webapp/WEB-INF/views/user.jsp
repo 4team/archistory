@@ -429,9 +429,8 @@
             </div>
             <div class="modal-body" style="height:80px;">
            		<form id='form1' action='/memberImgUpload' method='post' enctype='multipart/form-data' target="zeroFrame">
-           			<input type='file' name='file'>
-           			<input type="hidden" name="memberno" id="${memberno}">
-           			<input type='submit'>
+           			<input type='file' name='file' id="file">
+           			<button type='button' id="imgSubmit">등록</button>
            		</form>
            		<iframe name="zeroFrame" style="height:30px; border:0px;"></iframe>
             </div>
@@ -468,6 +467,16 @@ $("#myInfo").on("click",function(){
 
 $("#imgDiv").on("click",function(){
 	$("#imgModal").modal('show');	
+});
+
+
+$("#imgSubmit").on("click",function(event){
+	event.preventDefault();
+	var formData = new FormData();
+	console.log($("#file"));
+	formData.append("file",$("#file"));
+	formData.append("memberno",memberno);
+	formData.append("img",$("#file")[0]);
 });
 
 
