@@ -50,7 +50,6 @@
 			#yesModalContent{
 				position:absolute;
 				z-index:3000;
-	        	margin:auto;
 	        	top:30%;
 			}
 			.rName{
