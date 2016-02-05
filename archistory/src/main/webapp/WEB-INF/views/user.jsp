@@ -415,6 +415,33 @@
     </div>
 </div>
 
+
+<!-- 사용자 정보 입력하는 곳 -->
+<div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="height:200px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Modify Image</h4>
+            </div>
+            <div class="modal-body" style="height:80px;">
+           		<form id='form1' action='imgUpload' method='post' enctype='multipart/form-data' target="zeroFrame">
+           			<input type='file' name='file'>
+           			<input type='submit'>
+           		</form>
+           		<iframe name="zeroFrame"></iframe>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
 
 var memberno = ${memberno};
@@ -434,6 +461,11 @@ $("#myInfo").on("click",function(){
 	}else{
 		$("#loginModal").modal('show');
 	}
+});
+
+
+$("#imgDiv").on("click",function(){
+	$("#imgModal").modal('show');	
 });
 
 
