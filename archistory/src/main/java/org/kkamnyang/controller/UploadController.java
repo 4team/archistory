@@ -240,9 +240,12 @@ public class UploadController {
 
 	  
 	  @RequestMapping(value="/memberImgUpload", method=RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	  public ResponseEntity<String> memberImg(@RequestBody MemberVO vo, MultipartFile file) throws Exception{
+	  public ResponseEntity<String> memberImg(@RequestParam("memberno")Integer memberno,@RequestParam("img")String img, MultipartFile file) throws Exception{
 		  
 		  System.out.println("[멤버 이미지 등록 시작]");
+		  MemberVO vo = new MemberVO();
+		  vo.setMemberno(memberno);
+		  vo.setImg(img);
 		  mapper.updateImg(vo);
 		  
 		    return 
