@@ -474,9 +474,22 @@ $("#imgSubmit").on("click",function(event){
 	event.preventDefault();
 	var formData = new FormData();
 	console.log($("#file")[0].files[0]);
-	formData.append("file",$("#file"));
+	formData.append("file",$("#file")[0].files[0]);
 	formData.append("memberno",memberno);
 	formData.append("img",$("#file")[0].files[0].name);
+	
+	$.ajax({
+		url:"http://14.32.66.127:4000/memberImgUpload",
+		data:formData,
+		datatype:'text',
+		processData:false,
+		contentType:false,
+		type:'post',
+		success:function(data){
+			console.log("멤버이미지 첨부 성공 DATA : "+data);
+		}
+	});
+	
 });
 
 
