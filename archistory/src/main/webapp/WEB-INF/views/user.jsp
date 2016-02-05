@@ -473,7 +473,7 @@ $("#imgDiv").on("click",function(){
 $("#imgSubmit").on("click",function(event){
 	event.preventDefault();
 	var formData = new FormData();
-	console.log($("#file")[1]);
+	console.log($("#file").context);
 	formData.append("file",$("#file"));
 	formData.append("memberno",memberno);
 	formData.append("img",$("#file")[0]);
