@@ -447,7 +447,7 @@ $("#myInfo").on("click",function(){
 				var dbimg = memberVO.img;
 				
 				 if(dbimg==null){  
-					   var imgTag=" <img class='img-circle img-responsive' id='poto' src ='/img/profile.png'>";
+					   var imgTag=" <img class='img-circle' id='poto' src ='/img/profile.png'>";
 						$("#imgDiv").html(imgTag); 
 				   }else{
 				   
