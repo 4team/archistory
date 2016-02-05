@@ -48,10 +48,7 @@
 			position:fixed;
 			}
 			#yesModalContent{
-				position:absolute;
 				z-index:3000;
-	        	top:30%;
-	        	left:30%;
 			}
 			.rName{
 			list-style:none;
