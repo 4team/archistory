@@ -392,6 +392,15 @@
     </div>
 </div>
 
+<div class="modal fade" id="alertFirst" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="panel panel-info" style="top:40%;">
+            <div class="panel-heading">
+                <div>Move Next!</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
 
@@ -449,7 +458,7 @@ $("#myInfo").on("click",function(){
 
 	function viewFinishRoute(routeno,page){
 		if(page == -1){
-			alert("첫 페이지 입니다.");
+			$("#alertFirst").modal("show");
 			page = 0;
 		}
 			console.log(page);
