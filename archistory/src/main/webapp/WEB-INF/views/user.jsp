@@ -47,13 +47,12 @@
 			#closeList{
 			position:fixed;
 			}
-/* 			#yesModalContent{
+			#yesModalContent{
 				position:absolute;
-				display:none;
-				z-index:9900;
+				z-index:3000;
 	        	margin:auto;
 	        	top:30%;
-			}	 */
+			}
 			.rName{
 			list-style:none;
 			overflow: hidden; 
