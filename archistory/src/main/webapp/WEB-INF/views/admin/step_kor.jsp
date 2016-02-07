@@ -343,7 +343,6 @@
                     <input type="text" class="form-control" id="moorder" placeholder="순서" readonly="readonly" style="align:center"><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
-                    <input type="file" id="moimgInput"><br>
                     <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>    
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     

@@ -233,7 +233,7 @@ pageEncoding="UTF-8"%>
                         <label for="eventName">이름</label><input type="text" class="form-control" id="eventName" placeholder="이벤트 이름을 입력하세요">
                         <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea><br>
                         <label for="imgInput">이미지</label>
-                        <div class="fileDrop"><h5 style="text-align:center; display:table-cell;vertical-align:middle;">마우스로 파일을 끌어오세요.</h5></div>
+                        <div class="fileDrop" style="text-align:center; display:table-cell;vertical-align:middle;"><h5 >마우스로 파일을 끌어오세요.</h5></div>
                         <ul class="mailbox-attachments clearfix uploadedList" style="display:inline;"></ul>
                         <label for="videoInput">동영상</label><br>
                         Youtube Search <input type="text" id="query" style="width:295px;"><button type="button" id="youtubeSearch"  class="btn btn-info btn-xs" style="float : right; margin-right: 3px;">Search</button>
@@ -309,7 +309,6 @@ pageEncoding="UTF-8"%>
                     <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
-                    <input type="file" id="moimgInput"><br>
                     <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
 
