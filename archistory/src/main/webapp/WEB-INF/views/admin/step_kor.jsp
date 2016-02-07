@@ -261,7 +261,6 @@
                        <label for="eventName">이름</label><br>
                         <input type="text" class="form-control" id="order" placeholder="순서" readonly="readonly" style="align:center">
                         <input type="text" class="form-control" id="eventName" placeholder="이벤트 이름을 입력하세요">
-                        <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                         <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                         <label for="imgInput">이미지</label>
                         <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>                        
@@ -342,7 +341,6 @@
                     <input type="hidden" id="moeventno" value="">
                     <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
                     <input type="text" class="form-control" id="moorder" placeholder="순서" readonly="readonly" style="align:center"><br>
-                    <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
                     <input type="file" id="moimgInput"><br>
