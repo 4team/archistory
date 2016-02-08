@@ -41,6 +41,7 @@ p.lead {
 
 a {
     color: #28c3ab;
+            white-space:nowrap;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -231,7 +232,7 @@ hr {
 .gn-scroller {
 		position: absolute;
 		/* overflow-y: scroll; */
-		width: 270px;
+		width: 200px;
 		height: 100%;
 }
 
