@@ -330,7 +330,7 @@ input.gn-search:focus {
 
 .gn-icon::before {
 		display:inline;
-		float:left;
+        white-space:nowrap;
 		width: 24px;
 		text-align: center;
 		text-transform: none;
