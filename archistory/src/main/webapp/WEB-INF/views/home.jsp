@@ -211,7 +211,8 @@
         }
         
        #hamb{
-       padding-top:10px;
+       padding-top:-10px;
+       
        		padding-left:-15px;
 	   		font-size: 2em;
 	   		margin-left:0px;
