@@ -170,6 +170,10 @@ hr {
 		color: orange;
 }
 
+.gn-menu li a {
+	        white-space:nowrap;
+}
+
 .gn-menu-main > li {
 		display: inline;
 		float: left;
