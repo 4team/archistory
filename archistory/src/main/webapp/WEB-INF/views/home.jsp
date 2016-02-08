@@ -197,7 +197,7 @@
 		}
 		.fa{
 			position:relative;
-			font-size: 2em;
+			font-size: 1.5em;
 		}
 		.gn-menu li:hover{
         	border : 1px solid;
