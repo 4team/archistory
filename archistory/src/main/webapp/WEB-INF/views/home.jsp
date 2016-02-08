@@ -196,7 +196,7 @@
 		z-index:999;
 		}
 		.fa{
-		position:absolute;
+		position:relative;
 		}
 		.fa-home{
 		top:20px;
