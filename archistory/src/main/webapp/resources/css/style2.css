@@ -418,7 +418,7 @@ input.gn-search:focus {
 		margin-top: -12px;
 		margin-left: -25px;
 		width: 24px;
-		padding:2px;
+		padding:0px 1px 0px 1px;
         border:1px solid;
         border-color:#444444;
 		background-color:#303336;
