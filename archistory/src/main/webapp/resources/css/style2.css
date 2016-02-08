@@ -329,7 +329,8 @@ input.gn-search:focus {
 }
 
 .gn-icon::before {
-		display:inline-table;
+		display:inline;
+		float:left;
 		width: 24px;
 		text-align: center;
 		text-transform: none;
