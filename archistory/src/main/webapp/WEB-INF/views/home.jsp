@@ -217,8 +217,8 @@
 	   		margin:2px;
 	   		margin-top:3px;
  */				
-					margin-top: 7px;
-		margin-left: -23px;
+					margin-top: 4px;
+		margin-left: -27px;
 			text-decoration:none;
 	   		font-size: 2em;
 	   		color:#FFFFFF;
