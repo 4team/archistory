@@ -216,7 +216,10 @@
 	   		margin-left:0px;
 	   		margin:2px;
 	   		margin-top:3px;
- */			text-decoration:none;
+ */				
+ 			width: 26px;
+			height: 26px;
+			text-decoration:none;
 	   		font-size: 2em;
 	   		color:#FFFFFF;
 		}
