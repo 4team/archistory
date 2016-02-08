@@ -211,13 +211,13 @@
         }
         
        #hamb{
-       padding-top:-10px;
-			text-decoration:none;
+/*        padding-top:-10px;
        		padding-left:-15px;
-	   		font-size: 2em;
 	   		margin-left:0px;
 	   		margin:2px;
 	   		margin-top:3px;
+ */			text-decoration:none;
+	   		font-size: 2em;
 	   		color:#FFFFFF;
 		}
     </style>
