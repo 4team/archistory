@@ -329,7 +329,7 @@ input.gn-search:focus {
 }
 
 .gn-icon::before {
-		display:table;
+		display:inline-table;
 		width: 24px;
 		text-align: center;
 		text-transform: none;
