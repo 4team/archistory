@@ -415,9 +415,9 @@ input.gn-search:focus {
 }
 
 .gn-icon-menu::before {
-		margin-top: -5px;
+		margin-top: 0px;
 		margin-left: -23px;
- 			width: 26px;
+ 			width: 30px;
 			height: 26px;
         border:1px solid;
         border-color:#444444;
