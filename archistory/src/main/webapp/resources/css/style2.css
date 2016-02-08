@@ -169,7 +169,7 @@ hr {
 }
 
 .gn-menu-main > li {
-		display: block;
+		display: inline;
 		float: left;
 		height: 100%;
 		border-right: 1px solid #c6d0da;
