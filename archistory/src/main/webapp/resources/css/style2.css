@@ -197,6 +197,7 @@ hr {
 .gn-menu-main > li > a {
 		padding: 0 30px;
 		float: left;
+		        white-space:nowrap;
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		font-weight: bold;
