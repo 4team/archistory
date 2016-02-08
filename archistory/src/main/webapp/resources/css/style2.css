@@ -415,11 +415,13 @@ input.gn-search:focus {
 }
 
 .gn-icon-menu::before {
-		margin-top: -10px;
+		margin-top: -12px;
 		margin-left: -25px;
-		vertical-align: -2px;
 		width: 30px;
-		       		background-color:#ff0000;
+		            padding : 2px;
+            border:1px solid;
+            border-color:#444444;
+		background-color:#303336;
 		/* backgnd: #eb5d1e;
 		box-shadow: 0 3px white, 0 -6px #eb5d1e, 0 -9px white, 0 -12px #eb5d1e;
 		content: ''; */
