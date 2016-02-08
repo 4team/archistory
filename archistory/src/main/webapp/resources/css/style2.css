@@ -329,7 +329,7 @@ input.gn-search:focus {
 
 .gn-icon::before {
 		display: inline-block;
-		width: 60px;
+		width: 24px;
 		text-align: center;
 		text-transform: none;
 		font-weight: normal;
@@ -403,7 +403,7 @@ input.gn-search:focus {
 }
 
 .gn-icon-menu::before {
-		margin-left: -15px;
+		margin-left: 0px;
 		vertical-align: -2px;
 		width: 30px;
 		height: 3px;
