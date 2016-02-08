@@ -444,7 +444,7 @@ input.gn-search:focus {
 }
 
 .gn-menu-wrapper.gn-open-all .gn-submenu li {
-		height: 30px
+		height: 30px;
 }
 
 @media screen and (max-width: 422px) { 

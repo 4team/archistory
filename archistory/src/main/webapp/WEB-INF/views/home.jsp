@@ -89,7 +89,6 @@
         }
         li{
             list-style: none;
-            margin-bottom: 15px;
         }
 
         small{
