@@ -196,6 +196,7 @@
 		z-index:999;
 		}
 		.fa{
+			margin:5px;
 			position:relative;
 			font-size: 1.5em;
 		}
