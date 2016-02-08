@@ -155,6 +155,7 @@ hr {
 
 .gn-menu-main a {
 		display: block;
+        white-space:nowrap;
 		height: 100%;
 		color: white; /*메뉴안에 소메뉴 글씨색*/
 		text-decoration: none;
