@@ -196,9 +196,9 @@
 		z-index:999;
 		}
 		.fa{
-		position:relative;
+			position:relative;
+			font-size: 20px;
 		}
-
 		.gn-menu li:hover{
         	border : 1px solid;
         	border-color:#aef;
