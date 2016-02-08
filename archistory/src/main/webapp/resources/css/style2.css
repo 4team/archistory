@@ -173,6 +173,7 @@ hr {
 .gn-menu li a {
 	white-space:nowrap;
 	float:right;
+	margin-right:10px;
 }
 
 .gn-menu-main > li {
