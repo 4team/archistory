@@ -289,7 +289,7 @@
   
 <body>
 
-<div id="menu">
+<div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
 					<a id="hamb" class="glyphicon glyphicon-menu-hamburger gn-icon-menu"></a>
