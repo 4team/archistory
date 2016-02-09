@@ -96,7 +96,8 @@
         }
         li{
             list-style: none;
-            margin-bottom: 15px;
+            padding-top: 5px;
+            padding-bottom:5px;
         }
 
         small{
@@ -184,7 +185,9 @@
 		margin:auto;
 		}
 		.fa{
-		position:absolute;
+			margin:5px;
+			position:relative;
+			font-size: 1.5em;
 		}
 
 		.gn-menu li:hover{
