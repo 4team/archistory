@@ -65,13 +65,7 @@
         	margin-left: 5px;
         }
         
-        span.glyphicon-menu-hamburger {
-	   		font-size: 1.8em;
-	   		margin:2px;
-	   		margin-top:3px;
-	   		color:#FFFFFF;
-		}
-		
+
 
 		#userJoinDiv{
 			display:none;
@@ -107,7 +101,8 @@
   
         li{
             list-style: none;
-            margin-bottom: 15px;
+            padding-top: 5px;
+            padding-bottom:5px;
         }
 
         small{
