@@ -11,6 +11,19 @@
 <head>
     <meta charset="UTF-8">
     <title>= Archistory(ADMIN) =</title>
+    
+      <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min2.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="css/style2.css" rel="stylesheet">
+	<link href="color/default.css" rel="stylesheet">
+	
 </head>
 
     <style>
@@ -1376,6 +1389,12 @@ $("#main").on("mouseover",function(){
  
 	        
 	</script>
+ <!-- Core JavaScript Files -->
 
+	<script src="/js/gnmenu.js"></script>
+	<script src="/js/jquery.scrollTo.js"></script>
+	<script src="/js/custom.js"></script>
+	<script src="/js/classie.js"></script>
+    
 </body>
 </html>
