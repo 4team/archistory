@@ -186,26 +186,7 @@
 		.fa{
 		position:absolute;
 		}
-		.fa-home{
-		top:20px;
-		left:22px;
-		}
-		.fa-map-marker{
-		top:94px;
-		left:25px;
-		}
-		.fa-question{
-		top:170px;
-		left:25px;
-		}
-		.fa-book{
-		top:246px;
-		left:22px;
-		}
-		.fa-download{
-		top:320px;
-		left:22px;
-		}
+
 		.gn-menu li:hover{
         	border : 1px solid;
         	border-color:#aef;
@@ -216,12 +197,16 @@
         }
         
        #hamb{
-       padding-top:10px;
+/*        padding-top:-10px;
        		padding-left:-15px;
-	   		font-size: 2em;
 	   		margin-left:0px;
 	   		margin:2px;
 	   		margin-top:3px;
+ */				
+					margin-top: 3px;
+		margin-left: -25px;
+			text-decoration:none;
+	   		font-size: 2em;
 	   		color:#FFFFFF;
 		}
     </style>
