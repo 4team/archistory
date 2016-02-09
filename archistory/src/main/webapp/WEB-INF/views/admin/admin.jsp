@@ -42,9 +42,9 @@
 			
 			z-index:100;
 			position: absolute;
-			top:5px;
+/* 			top:5px;
 			left:8px;
-			background-color:#303336;
+			background-color:#303336; */
 		}
         
         #menu:hover{
