@@ -290,24 +290,25 @@
 <body>
 
 <div id="menu">
-
-<div class="dropdown">
-  <a id="mDrop" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-    	<span class="glyphicon glyphicon-menu-hamburger"></span>
-  </a>
-
-<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/login_success">Home</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" id="routeShow">My Route List</a></li>
-    	<ul id="myRouteList">
-    	</ul>  
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
-  </ul>
-</div> 
+			<ul id="gn-menu" class="gn-menu-main">
+<li class="gn-trigger">
+					<a id="hamb" class="glyphicon glyphicon-menu-hamburger gn-icon-menu"></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								
+									<ul  id="myRouteList"></ul>
+									
+								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><i class="fa fa-download"></i><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+</ul>
 </div>
 
 
