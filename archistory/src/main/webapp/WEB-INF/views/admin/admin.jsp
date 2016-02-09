@@ -271,7 +271,33 @@
         height:0px;
         border:0px;
         }
-       
+       	.fa{
+			margin:5px;
+			position:relative;
+			font-size: 1.5em;
+		}
+		.gn-menu li:hover{
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+        }
+        .gn-menu-main{
+        z-index:1;
+        }
+        
+       #hamb{
+/*        padding-top:-10px;
+       		padding-left:-15px;
+	   		margin-left:0px;
+	   		margin:2px;
+	   		margin-top:3px;
+ */				
+					margin-top: 3px;
+		margin-left: -25px;
+			text-decoration:none;
+	   		font-size: 2em;
+	   		color:#FFFFFF;
+		}
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
