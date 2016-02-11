@@ -224,7 +224,7 @@
         #pageBtn{
 	        width:120px;
 	        margin-right:-60px;
-        	float:right;
+        	right:50%;
         }
 </style>
 
