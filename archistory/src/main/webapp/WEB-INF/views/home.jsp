@@ -217,11 +217,15 @@
 	   		margin:2px;
 	   		margin-top:3px;
  */				
-					margin-top: 3px;
-		margin-left: -25px;
+			margin-top: 3px;
+			margin-left: -25px;
 			text-decoration:none;
 	   		font-size: 2em;
 	   		color:#FFFFFF;
+		}
+		
+		#hamb:hover{
+			color:#eb5d1e;
 		}
     </style>
     
