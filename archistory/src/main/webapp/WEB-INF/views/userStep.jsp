@@ -121,6 +121,10 @@
         text-align: center;
         font-size : 20px;
     }
+    
+    #finishDiv p{
+    	text-align: left;
+    }
 
     #finishDiv img{
         width:60%;
