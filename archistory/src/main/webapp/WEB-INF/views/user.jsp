@@ -611,11 +611,11 @@ $("#imgSubmit").on("click",function(event){
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
 				if(curpage != 0){
-				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>Prev</button>";
+				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
 				}
 				str+= "  "+(page+1)+"/"+lastPage+"  ";
 				if(curpage != (lastPage-1)){
-				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>Next</button>";
+				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
 				}
 				$("#finishedDiv").html(str);
 			
