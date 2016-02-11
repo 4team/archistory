@@ -222,6 +222,9 @@
         }
         
         #pageBtn{
+	        width:120px;
+	        margin-right:-60px;
+        	right:50%;
         	float:right;
         }
 </style>
