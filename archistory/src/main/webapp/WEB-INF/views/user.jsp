@@ -417,6 +417,15 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="alertLast" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="position:absolute; top:40%; width:100%; text-align: center; font-weight: bold;">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <div>마지막페이지 입니다.</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- 사용자 이미지 입력하는 곳 -->
@@ -568,7 +577,7 @@ $("#imgSubmit").on("click",function(event){
 				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>Next</button>";
 				$("#finishedDiv").html(str);
 			
-		})		.error(function() {console.log("마지막 페이지입니다."); });
+		}).error(function() {$("#alertLast").modal('show'); });
 	}
 
 // 나의 위치를 읽어온다.
