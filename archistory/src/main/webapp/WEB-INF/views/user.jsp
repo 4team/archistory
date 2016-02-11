@@ -201,6 +201,10 @@
 	        height:200px;
 	        display:block;
         }
+        
+        #routePage{
+        	overflow-y:scroll;
+        }
 </style>
 
 	 <!-- Core JavaScript Files -->
@@ -353,7 +357,7 @@
 <div class="modal fade" id="myPageModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
     <div class="modal-dialog">
 
-        <div class="modal-content">
+        <div class="modal-content" id="routePage">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myPageModalLabel">Finished Route</h4>
