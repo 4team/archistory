@@ -558,7 +558,8 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>Route Creator</pre></center>";
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
-				str+="<p>"+new Date(FinishRouteVO.lastdate)+"</p>";
+				var lastdate = new Date(FinishRouteVO.lastdate);
+				str+="<p>"+lastdate.getYear+"</p>";
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
