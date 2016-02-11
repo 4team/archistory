@@ -635,13 +635,15 @@ $("#imgSubmit").on("click",function(event){
 				
 				if(curpage != (lastPage-1)){
 					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
-				}else{
-					$("#pageBtn").children().css("float","left");
 				}
 				
 				str+="</p></div><br>";
 				
 				$("#finishedDiv").html(str);
+				
+				if(curpage == (lastPage-1)){
+					$("#pageBtn").children("p").css("float","left");
+				}
 			
 		}).error(function() {$("#alertLast").modal('show'); });
 	}
