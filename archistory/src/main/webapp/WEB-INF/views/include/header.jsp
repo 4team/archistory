@@ -28,7 +28,7 @@
         html, body {
             width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
             font-family: sans-serif; color: white;
-            background-color: #000;
+            background-color: #000000;
         }
 
         #main{
