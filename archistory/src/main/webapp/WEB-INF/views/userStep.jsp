@@ -796,7 +796,7 @@ var myMarker = null;
 	            	str+="<tr><td>"+rank+". "+this.userName+"</td><td>"+this.score+"</td></tr>";
 	            	rank++;
 	            	if(rank == (length+1)){
-		            	str+="<tr><td><button id='endRoute' style='margin:auto;'>OK</button></td></tr></table>";
+		            	str+="<tr><td><button onclick='backto();' style='margin:auto;'>OK</button></td></tr></table>";
 		            	$("#finishDiv").html(str);
 	            	}
             	});
@@ -809,9 +809,9 @@ var myMarker = null;
         }
     });
     
-    $("#endRoute").on("click",function(){
+    function backto(){
             self.location = "/user";
-    });
+    };
 
 </script>
 
