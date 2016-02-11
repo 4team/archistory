@@ -610,8 +610,8 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
-				str+="<p>"+(page+1)+"/"+lastPage+"</p><br>";
 				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>Prev</button>";
+				str+="<p>"+(page+1)+"/"+lastPage+"</p>";
 				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>Next</button>";
 				$("#finishedDiv").html(str);
 			
