@@ -91,8 +91,8 @@
             border : 1px solid black;
             border-radius : 10px;
             background-color : #FFF;
-            top:46px;
-            left:157px;
+            top:70px;
+            left:200px;
             width:200px;
             height:400px;
             overflow-y:scroll;
