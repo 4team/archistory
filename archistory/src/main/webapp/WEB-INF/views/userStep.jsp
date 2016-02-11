@@ -757,10 +757,11 @@ var myMarker = null;
             	
             	var list = $(data);
 	            	$("#finishDiv").append("<p>User Name   Score</p>");
-            	
+            	var rank = 1;
             	list.each(function(){
 					console.log(this);
-	            	$("#finishDiv").append("<p>"+this.userName+"  "+this.score+"</p>");
+	            	$("#finishDiv").append("<p>"+rank+". "+this.userName+"  "+this.score+"</p>");
+	            	rank++;
             	});
             	$("#finishDiv").append("<button id='endRoute'>OK</button>");
             });
