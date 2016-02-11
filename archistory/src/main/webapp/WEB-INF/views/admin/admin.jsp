@@ -926,7 +926,7 @@ $("#main").on("mouseover",function(){
 	
 	$(".gn-menu").on("click","li",function(event){
 		console.log("LI클릭함.");
-		$(this).lastChild.click(); 
+		console.log($(this).lastChild);
 	});
 
 	//route list 보이기 
