@@ -621,9 +621,9 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
-				str+="<div id='pageBtn'>";
+				str+="<div id='pageBtn'><p>";
 				if(curpage != 0){
-				str+="<p><button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
+				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
 				}
 				str+= "  "+(page+1)+"/"+lastPage+"  ";
 				if(curpage != (lastPage-1)){
