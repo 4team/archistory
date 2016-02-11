@@ -559,7 +559,7 @@ $("#imgSubmit").on("click",function(event){
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
 				str+="<p>"+FinishRouteVO.lastdate+"</p>";
-				var dt = FinishRouteVO.lastdate;
+				var dt = new Date(FinishRouteVO.lastdate);
 				var month = dt.getMonth()+1;
 				var day = dt.getDate();
 				var year = dt.getFullYear();
