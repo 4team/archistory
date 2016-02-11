@@ -625,7 +625,7 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
-				str+="<div id='pageBtn'><p>";
+				str+="<div id='pageBtn'><p id='pageBtnP'>";
 				if(curpage != 0){
 					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
 				}
@@ -635,7 +635,7 @@ $("#imgSubmit").on("click",function(event){
 				}else{
 					console.log("이거맞나");
 					console.log($("#pageBtn").find('p'));
-					$("#pageBtn").find("p").addClass("float-left");
+					$("#pageBtnP").addClass("float-left");
 				}
 				str+="</p></div><br>";
 				$("#finishedDiv").html(str);
