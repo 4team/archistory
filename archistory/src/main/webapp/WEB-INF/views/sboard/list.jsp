@@ -15,6 +15,10 @@ margin-right:200px;
 .col-md-12{
 top:10px;
 }
+
+body {
+    background-color: #000000;
+}
 </style>
 
 <div class="center-container">
