@@ -77,7 +77,7 @@ body {
 				
 <table class="table table-bordered">
 	<tr>
-		<th style="width: 10px">BoardNO</th>
+		<th style="text-align:center; width: 10px;">BoardNO</th>
 		<th>TITLE</th>
 		<th>WRITER</th>
 		<th>REGDATE</th>
