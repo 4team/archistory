@@ -633,9 +633,9 @@ $("#imgSubmit").on("click",function(event){
 				if(curpage != (lastPage-1)){
 					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
 				}else{
+					$("#pageBtn p").css("float","left");
 					console.log("이거맞나");
 					console.log($("#pageBtnP"));
-					$("#pageBtnP").css("float","left");
 				}
 				str+="</p></div><br>";
 				$("#finishedDiv").html(str);
