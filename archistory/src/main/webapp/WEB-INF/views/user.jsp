@@ -624,7 +624,6 @@ function getLocation(){
     	        success: function(data){
     	        var list = $(data);
     			routeLi = "";
-    	        console.log(list);
     	        
     	        list.each(function(idx,value){
     	            var route = this;
