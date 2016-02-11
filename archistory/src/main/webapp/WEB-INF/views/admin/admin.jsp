@@ -296,6 +296,10 @@
 	   		font-size: 2em;
 	   		color:#FFFFFF;
 		}
+		
+		#hamb:hover{
+			color:#eb5d1e;
+		}
 
     </style>
     
