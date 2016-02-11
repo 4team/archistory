@@ -230,11 +230,6 @@
         
         #pageBtn p{
         	float:right;
-	        text-align:center;
-        }
-        
-        .float-left{
-        	float:left;
         }
 </style>
 
