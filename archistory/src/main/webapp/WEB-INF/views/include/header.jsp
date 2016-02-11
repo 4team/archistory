@@ -240,13 +240,13 @@
 						<div class="gn-scroller">
 							<ul class="gn-menu">
 								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								<li><i class="fa fa-map-marker"></i><a class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
 								
 									<ul  id="myRouteList"></ul>
 									
 								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
 								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
-								<li><i class="fa fa-download"></i><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+								<li><i class="fa fa-download"></i><a class="gn-icon gn-icon-download">App Download</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
