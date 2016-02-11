@@ -611,7 +611,7 @@ $("#imgSubmit").on("click",function(event){
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
 				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>Prev</button>";
-				str+= (page+1)+"/"+lastPage;
+				str+= "  "+(page+1)+"/"+lastPage+"  ";
 				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>Next</button>";
 				$("#finishedDiv").html(str);
 			
