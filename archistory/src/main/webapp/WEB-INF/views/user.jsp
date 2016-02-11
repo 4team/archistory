@@ -559,7 +559,9 @@ $("#imgSubmit").on("click",function(event){
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
 				var lastdate = new Date(FinishRouteVO.lastdate);
-				console.log(lastdate.getTime());
+				var f = new java.text.SimpleDateFormat();
+			
+				console.log(f.format(lastdate));
 				str+="<p>"+lastdate+"</p>";
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
