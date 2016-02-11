@@ -174,6 +174,7 @@
 	    }
 	
 	    #loginH{
+	    	max-width:300px;
 	        max-height:180px;
 	    }
         input{
