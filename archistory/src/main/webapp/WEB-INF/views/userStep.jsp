@@ -122,7 +122,12 @@
         font-size : 20px;
     }
     
-    #finishDiv p{
+    #finishDiv table{
+    	position:absolute;
+    	top:100;
+    	width:500px;
+    	left:50%;
+    	margin-left:-250px;
     	text-align: left;
     }
 
@@ -760,11 +765,11 @@ var myMarker = null;
             $.getJSON("http://14.32.66.127:4000/participate/ranking?routeno="+routeno,function(data){
             	
             	var list = $(data);
-	            	$("#finishDiv").append("<p>User Name   Score</p>");
+	            	$("#finishDiv").append("<table><tr><th>User Name</th><th>Score</th><tr>");
             	var rank = 1;
             	list.each(function(){
 					console.log(this);
-	            	$("#finishDiv").append("<p>"+rank+". "+this.userName+"  "+this.score+"</p>");
+	            	$("#finishDiv").append("<tr><td>"+rank+". "+this.userName+"</td><td>"+this.score+"</td></tr>");
 	            	rank++;
             	});
             	$("#finishDiv").append("<button id='endRoute' style='margin:auto;'>OK</button>");
