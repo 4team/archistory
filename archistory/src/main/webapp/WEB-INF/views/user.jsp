@@ -631,7 +631,7 @@ $("#imgSubmit").on("click",function(event){
 				}else{
 					console.log("이거맞나");
 					console.log($("#pageBtn").children('p'));
-					$("#pageBtn").children("p")[0].css("float","left");
+					$("#pageBtn").children("p").css("float","left");
 				}
 				str+="</p></div><br>";
 				$("#finishedDiv").html(str);
