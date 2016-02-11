@@ -225,12 +225,12 @@
         	position:absolute;
 	        width:160px;
 	        margin-left:-80px;
-	        text-align:center;
         	left:50%;
         }
         
         #pageBtn p{
         	float:right;
+	        text-align:center;
         }
         
         .float-left{
