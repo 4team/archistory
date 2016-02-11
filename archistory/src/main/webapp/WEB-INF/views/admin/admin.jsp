@@ -751,7 +751,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	$("#myProfile").on("click",function(){
 		
 			viewProfile();
-		
+			$("#adminInfo").hide();
 		   $("#myProfileModal").modal('show');
 	});
 
