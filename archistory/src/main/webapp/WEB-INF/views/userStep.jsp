@@ -780,14 +780,14 @@ var myMarker = null;
     $("#finishClose").on("click",function(event){
         if(memberno!=0) {
             console.log("GUEST가 아닙니다. 랭킹을 띄워준다.");
-            $("#finishDiv").html("<h1>랭킹</h1>");
+            var str ="";
+            str+="<h1>Ranking</h1>";
             
             $.getJSON("http://14.32.66.127:4000/participate/ranking?routeno="+routeno,function(data){
             	
             	var list = $(data);
             	var length = list.length;
             	console.log(length);
-            	var str ="";
 	            	str+="<table><tr><th>User Name</th><th>Score</th></tr>";
             	var rank = 1;
             	
