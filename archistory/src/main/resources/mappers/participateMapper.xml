@@ -41,7 +41,7 @@ where rno.routeno = R.routeno
   </select>
   
   <select id="ranking" resultType="org.kkamnyang.domain.RankingVO">
-	select M.username, P.score 
+	select distinct M.username, P.score 
 	from tbl_member AS M, tbl_participate AS P
 	where M.memberno = P.memberno AND routeno = #{routeno}
 	order by P.score desc
