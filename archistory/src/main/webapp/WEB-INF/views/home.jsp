@@ -252,7 +252,7 @@
 						<div class="gn-scroller">
 							<ul class="gn-menu">
 								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								<li><i class="fa fa-map-marker"></i><a class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
 								
 									<ul  id="myRouteList"></ul>
 									
