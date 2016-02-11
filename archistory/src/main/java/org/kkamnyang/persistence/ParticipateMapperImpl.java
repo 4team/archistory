@@ -33,7 +33,7 @@ public class ParticipateMapperImpl extends AbstractCRUDMapper<ParticipateVO, Int
 	}
 
 	@Override
-	public int finishRouteCoute(PageVO vo) {
+	public Integer finishRouteCoute(PageVO vo) {
 		return session.selectOne(namespace+".finishRouteCount",vo);
 	}
 

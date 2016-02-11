@@ -19,6 +19,6 @@ public interface ParticipateMapper extends CRUDMapper<ParticipateVO, Integer> {
 
 	List<RankingVO> ranking(Integer routeno);
 	
-	int finishRouteCoute(PageVO vo);
+	Integer finishRouteCoute(PageVO vo);
 
 }

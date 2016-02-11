@@ -106,8 +106,16 @@ public class ParticipateController {
 	}
 	
 	@RequestMapping(value="/finishRouteCount", method=RequestMethod.POST)
-	public int finishRouteCount(@RequestBody PageVO vo) throws Exception{
-		return mapper.finishRouteCoute(vo);
-	}
+	public Integer finishRouteCount(@RequestBody PageVO vo) throws Exception{
+		
+		Integer result = 0;
+		try{
+			 result = mapper.finishRouteCoute(vo);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result;
+		}
 	
 }

@@ -48,7 +48,7 @@ where rno.routeno = R.routeno
 	Limit 0,10
   </select>
   
-  <select id="finishRouteCount" resultType="int">
+  <select id="finishRouteCount" resultType="java.lang.Integer">
  	select count(*)
 	from tbl_participate AS P,tbl_route AS R , tbl_admin AS A
 	where P.routeno = R.routeno AND R.adminno = A.adminno AND P.memberno = #{memberno} AND P.routeno = #{routeno} AND P.finish = true
