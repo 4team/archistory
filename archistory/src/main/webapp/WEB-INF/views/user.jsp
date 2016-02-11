@@ -559,8 +559,7 @@ $("#imgSubmit").on("click",function(event){
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
 				var lastdate = new Date(FinishRouteVO.lastdate);
-				console.log(lastdate.getUTCFullYear());
-				str+="<p>"+lastdate.toLocaleDateString()+"  "+lastdate.toLocaleTimeString()+"+"</p>";
+				str+="<p>"+lastdate.toLocaleDateString()+"  "+lastdate.toLocaleTimeString()+"</p>";
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
