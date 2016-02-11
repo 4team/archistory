@@ -96,7 +96,7 @@ public class ParticipateController {
 		
 		FinishRouteVO result = mapper.finishRoute(vo);
 		System.out.println(result.getLastdate()+" LAST DATE");
-		model.addAttribute("date", result.getLastdate());
+		model.addAttribute("date", result.getLastdate().toString());
 		return result;
 	}
 	
