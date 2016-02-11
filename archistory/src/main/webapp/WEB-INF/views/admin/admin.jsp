@@ -943,10 +943,10 @@ $("#main").on("mouseover",function(){
 	    }
 	    
 	    $("#routeShow").on("click",function(){
-	    	 $("#myRouteList").show();
+	    	 $("#myRouteList").toggle();
 	    	 
 	    });
-	    
+
 	    var routeno;
 	    
 	  //routelist 에서   route 이름 클릭하면 -> 루트 수정, 멤버 등록, 루트 삭제 모달 창 뜸.    
