@@ -106,16 +106,17 @@ public class ParticipateController {
 	}
 	
 	@RequestMapping(value="/finishRouteCount", method=RequestMethod.POST)
-	public Integer finishRouteCount(@RequestBody PageVO vo) throws Exception{
-		
-		Integer result = 0;
+	public ResponseEntity<Integer> finishRouteCount(@RequestBody PageVO vo) throws Exception{
+		ResponseEntity entity = null;
+		System.out.println(vo.toString());
 		try{
-			 result = mapper.finishRouteCoute(vo);
+			 entity = new ResponseEntity<Integer>(mapper.finishRouteCoute(vo),HttpStatus.OK);
 		}catch(Exception e){
 			e.printStackTrace();
+			entity = new ResponseEntity<Integer>(0,HttpStatus.BAD_REQUEST);
 		}
 		
-		return result;
-		}
+		return entity;
+	}
 	
 }
