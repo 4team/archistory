@@ -763,7 +763,7 @@ var myMarker = null;
 	            	$("#finishDiv").append("<p>"+rank+". "+this.userName+"  "+this.score+"</p>");
 	            	rank++;
             	});
-            	$("#finishDiv").append("<button id='endRoute'>OK</button>");
+            	$("#finishDiv").append("<button id='endRoute' style='margin:auto;'>OK</button>");
             });
             
         }else{
