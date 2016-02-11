@@ -129,6 +129,11 @@
     	left:50%;
     	margin-left:-250px;
     }
+    
+    #finishDiv table tr td{
+    	text-align: left;
+    }
+    
 
     #finishDiv img{
         width:60%;
