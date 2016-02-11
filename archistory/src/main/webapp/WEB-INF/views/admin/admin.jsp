@@ -87,7 +87,7 @@
          	display:none;
             position:absolute;
             padding: 10px;
-            z-index:400;
+            z-index:9400;
             border : 1px solid black;
             border-radius : 10px;
             background-color : #FFF;
