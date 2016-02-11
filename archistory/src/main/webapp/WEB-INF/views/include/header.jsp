@@ -212,6 +212,10 @@
 	   		font-size: 2em;
 	   		color:#FFFFFF;
 		}
+		
+		#hamb:hover{
+			color:#eb5d1e;
+		}
     </style>
     
     <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -365,6 +369,12 @@ $("#main").on("mouseover",function(){
 $("#loginBtn").on("click",function(){
     $("#loginModal").modal('show');
 });
+
+//LI클릭해도 a클릭 먹히게...
+$(".gn-menu").on("click","li",function(event){
+	$(this)[0].lastChild.click();
+});
+
 
 	
 	$("#joinBtn").on("click",function(){
