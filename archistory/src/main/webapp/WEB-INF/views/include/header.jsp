@@ -225,12 +225,12 @@
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
-<body>
-
 <!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		
+<body>
+
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
@@ -348,13 +348,6 @@
     </div>
 </div>
 
-
-
-<!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
-<script>
-
-
-</script>
 
 <!-- 클릭 메뉴들과 관련된 스크립트 -->
 <script>
