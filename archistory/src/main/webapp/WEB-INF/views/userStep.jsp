@@ -766,7 +766,7 @@ var myMarker = null;
             	var list = $(data);
             	var length = list.length;
             	console.log(length);
-	            	$("#finishDiv").append("<table><tr><th>User Name</th><th>Score</th><tr>");
+	            	$("#finishDiv").append("<table><tr><th>User Name</th><th>Score</th></tr>");
             	var rank = 1;
             	
             	list.each(function(){
