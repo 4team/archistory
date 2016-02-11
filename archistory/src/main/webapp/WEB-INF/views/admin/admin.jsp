@@ -313,6 +313,7 @@
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
+									<ul  id="myRouteList"></ul>
 					<a id="hamb" class="glyphicon glyphicon-menu-hamburger gn-icon-menu"></a>
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller">
@@ -320,7 +321,6 @@
 								<li><i class="fa fa-home"></i><a href="/admin/login_success" class="gn-icon gn-icon-cog">Home</a></li>
 								<li><i class="fa fa-map-marker"></i><a class="gn-icon gn-icon-download" id="routeShow">My Route List</a></li>
 								
-									<ul  id="myRouteList"></ul>
 									
 								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
 								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
