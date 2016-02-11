@@ -571,7 +571,7 @@ $("#imgSubmit").on("click",function(event){
 		if(page == -1){
 			$("#alertFirst").modal("show");
 			page = 0;
-		}else if(page == lastPage){
+		}else if(page == (lastPage-1)){
 			$("#alertLast").modal('show');
 			return;
 		}
