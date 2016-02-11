@@ -552,7 +552,11 @@ $("#imgSubmit").on("click",function(event){
 		var curpage = page;
 		
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
-				var FinishRouteVO = $(data)[0];
+				try{
+					var FinishRouteVO = $(data)[0];
+				}catch(error){
+					console.log(error);
+				}
 				var str ="<center><pre>Route Name</pre></center>";
 				str+="<p>"+FinishRouteVO.routename+"</p>";
 				str+="<center><pre>Route Creator</pre></center>";
