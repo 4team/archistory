@@ -553,7 +553,7 @@ $("#imgSubmit").on("click",function(event){
 	});
 
 	function viewFinishRoute(routeno,page){
-		var lastPage = 0;
+		var lastPage = null;
 		$.ajax({
 			url:"http://14.32.66.127:4000/participate/finishRouteCount",
 			data:JSON.stringify({memberno:memberno,routeno:routeno}),
