@@ -623,11 +623,12 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>My Ranking</pre></center>";
 				str+="<div id='pageBtn'><p>";
 				if(curpage != 0){
-				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
+					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
 				}
 				str+= "  "+(page+1)+"/"+lastPage+"  ";
 				if(curpage != (lastPage-1)){
-				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
+					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
+					$("#pageBtn p").css("float","left");
 				}
 				str+="</p></div><br>";
 				$("#finishedDiv").html(str);
