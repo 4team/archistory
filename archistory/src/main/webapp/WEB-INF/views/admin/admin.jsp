@@ -293,6 +293,10 @@
 	   		font-size: 2em;
 	   		color:#FFFFFF;
 		}
+		
+		#editModal{
+			z-index:9999;
+		}
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
