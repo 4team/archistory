@@ -386,7 +386,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">확인</button>
+                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">OK</button>
             </div>
         </div>
 
