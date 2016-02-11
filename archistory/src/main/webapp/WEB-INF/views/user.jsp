@@ -225,6 +225,7 @@
         	width:100px;
         	left:50%;
         	margin-left:-50px;
+        	float:right;
         }
 </style>
 
