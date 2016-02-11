@@ -220,6 +220,12 @@
             border-radius: 10px;
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
         }
+        
+        #pageBtn{
+        	width:100px;
+        	left:50%;
+        	margin-left:-50px;
+        }
 </style>
 
 	 <!-- Core JavaScript Files -->
