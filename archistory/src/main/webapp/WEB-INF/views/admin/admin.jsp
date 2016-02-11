@@ -105,6 +105,7 @@
         li{
             list-style: none;
             padding-top: 5px;
+            padding-left:5px;
             padding-bottom:5px;
         }
 
