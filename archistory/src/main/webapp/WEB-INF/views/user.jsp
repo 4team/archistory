@@ -223,8 +223,8 @@
         
         #pageBtn{
         	position:absolute;
-	        width:160px;
-	        margin-left:-80px;
+	        width:140px;
+	        margin-left:-70px;
         	left:50%;
         }
         
