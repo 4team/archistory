@@ -559,7 +559,7 @@ $("#imgSubmit").on("click",function(event){
 			datatype:'json',
 	        headers: {
 	            "Content-Type":"application/json"},
-			type:'get',
+			type:'post',
 			success:function(data){
 				console.log("멤버 피니쉬 루트 갯수 : "+data);
 			}
