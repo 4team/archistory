@@ -768,14 +768,17 @@ var myMarker = null;
             	console.log(length);
 	            	$("#finishDiv").append("<table><tr><th>User Name</th><th>Score</th><tr>");
             	var rank = 1;
+            	
             	list.each(function(){
 					console.log(this);
 	            	$("#finishDiv").append("<tr><td>"+rank+". "+this.userName+"</td><td>"+this.score+"</td></tr>");
 	            	rank++;
 	            	if(rank==length){
 		            	$("#finishDiv").append("</table><button id='endRoute' style='margin:auto;'>OK</button>");
+		            	return false;
 	            	}
             	});
+            	
             });
             
         }else{
