@@ -209,8 +209,8 @@
 	   		text-align:center;
 	   		border:1px solid;
 	   		display:none;
-	   		top:25px;
-	   		right:6px;
+	   		top:28px;
+	   		right:4px;
 	   		text-align:left;
 	   		z-index:400;
 	   		width:100px;
