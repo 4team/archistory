@@ -226,6 +226,9 @@
 	        width:120px;
 	        margin-left:-60px;
         	left:50%;
+        }
+        
+        #pageBtn p{
         	float:right;
         }
 </style>
@@ -620,13 +623,13 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>My Ranking</pre></center>";
 				str+="<div id='pageBtn'>";
 				if(curpage != 0){
-				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
+				str+="<p><button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
 				}
 				str+= "  "+(page+1)+"/"+lastPage+"  ";
 				if(curpage != (lastPage-1)){
 				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
 				}
-				str+="</div><br>";
+				str+="</p></div><br>";
 				$("#finishedDiv").html(str);
 			
 		}).error(function() {$("#alertLast").modal('show'); });
