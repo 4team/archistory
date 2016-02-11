@@ -622,7 +622,7 @@ $("#imgSubmit").on("click",function(event){
 				if(curpage != (lastPage-1)){
 				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
 				}
-				str+="</div>";
+				str+="</div><br>";
 				$("#finishedDiv").html(str);
 			
 		}).error(function() {$("#alertLast").modal('show'); });
