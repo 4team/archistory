@@ -593,6 +593,7 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>My Ranking</pre></center>";
 				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>Prev</button>";
 				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>Next</button>";
+				str+="<p>"+(page+1)+"/"+lastPage+"</p>";
 				$("#finishedDiv").html(str);
 			
 		}).error(function() {$("#alertLast").modal('show'); });
