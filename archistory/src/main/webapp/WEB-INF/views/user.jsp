@@ -630,6 +630,7 @@ $("#imgSubmit").on("click",function(event){
 					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
 				}else{
 					console.log("이거맞나");
+					console.log($("#pageBtn").children());
 					$("#pageBtn").children("p").css("float","left");
 				}
 				str+="</p></div><br>";
