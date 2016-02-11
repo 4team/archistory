@@ -222,7 +222,7 @@
         }
         
         #pageBtn{
-        	
+        	position:absolute;
 	        width:120px;
 	        margin-left:-60px;
         	left:50%;
