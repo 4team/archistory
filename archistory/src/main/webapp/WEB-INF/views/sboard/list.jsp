@@ -18,6 +18,7 @@ top:10px;
 
 body {
     background-color: #000000;
+    color:#ffffff;
 }
 </style>
 
