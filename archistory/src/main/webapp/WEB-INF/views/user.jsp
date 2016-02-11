@@ -231,6 +231,10 @@
         #pageBtn p{
         	float:right;
         }
+        
+        .float-left{
+        	float:left;
+        }
 </style>
 
 	 <!-- Core JavaScript Files -->
@@ -631,7 +635,7 @@ $("#imgSubmit").on("click",function(event){
 				}else{
 					console.log("이거맞나");
 					console.log($("#pageBtn").find('p'));
-					$("#pageBtn").find("p").css("float");
+					$("#pageBtn").find("p").addClass("float-left");
 				}
 				str+="</p></div><br>";
 				$("#finishedDiv").html(str);
