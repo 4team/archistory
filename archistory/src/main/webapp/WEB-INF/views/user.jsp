@@ -559,7 +559,7 @@ $("#imgSubmit").on("click",function(event){
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
 				str+="<p>"+FinishRouteVO.lastdate+"</p>";
-				str+="<p><fmt:formatDate value=<%=new java.util.Date()%> pattern='yyyy-MM-dd' var='"+FinishRouteVO.lastdate+"'/></p>";
+				str+="<p><fmt:formatDate value="<%=new java.util.Date()%>" pattern='yyyy-MM-dd' var='"+FinishRouteVO.lastdate+"'/></p>";
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
