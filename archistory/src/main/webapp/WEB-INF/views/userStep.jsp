@@ -299,7 +299,7 @@
 </div>
 
 <div id="finishDiv">
-    <img class="img-responsive" src="http://14.32.66.127:4000/img/Contentulations.jpg">
+    <img src="http://14.32.66.127:4000/img/Contentulations.jpg">
    <div id="finishContent">'${routename}' Finish!</div>
     <button type="button" id="finishClose" class="btn btn-default">OK</button>
 </div>
