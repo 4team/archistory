@@ -171,10 +171,10 @@
        #loginBody{
 	        top:150px;
 	        z-index:2000;
+	    	max-width:300px;
 	    }
 	
 	    #loginH{
-	    	max-width:300px;
 	        max-height:180px;
 	    }
         input{
