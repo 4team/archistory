@@ -226,11 +226,6 @@
 	        width:120px;
 	        margin-left:-60px;
         	left:50%;
-        }
-        #pageBtn button{
-        	float:right;
-        }
-        #pageBtn p{
         	float:right;
         }
 </style>
