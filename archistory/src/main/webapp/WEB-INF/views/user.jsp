@@ -610,6 +610,7 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
+				str+="<div id='pageBtn'>";
 				if(curpage != 0){
 				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
 				}
@@ -617,6 +618,7 @@ $("#imgSubmit").on("click",function(event){
 				if(curpage != (lastPage-1)){
 				str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
 				}
+				str+="</div>";
 				$("#finishedDiv").html(str);
 			
 		}).error(function() {$("#alertLast").modal('show'); });
