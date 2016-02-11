@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -85,7 +86,7 @@ public class ParticipateController {
 	}
 	
 	@RequestMapping(value="/finishRoute")
-	public @ResponseBody FinishRouteVO finishList(@RequestParam("memberno")Integer memberno,@RequestParam("routeno")Integer routeno,@RequestParam("page")Integer page) throws Exception{
+	public @ResponseBody FinishRouteVO finishList(@RequestParam("memberno")Integer memberno,@RequestParam("routeno")Integer routeno,@RequestParam("page")Integer page, Model model) throws Exception{
 		
 		System.out.println("[ 유저가 완주한 루트의 상세페이지 ] Page : "+page);
 		PageVO vo = new PageVO();
@@ -95,7 +96,7 @@ public class ParticipateController {
 		
 		FinishRouteVO result = mapper.finishRoute(vo);
 		System.out.println(result.getLastdate()+" LAST DATE");
-		
+		model.addAttribute("date", result.getLastdate());
 		return result;
 	}
 	
