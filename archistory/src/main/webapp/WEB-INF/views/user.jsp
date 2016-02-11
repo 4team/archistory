@@ -553,6 +553,7 @@ $("#imgSubmit").on("click",function(event){
 	});
 
 	function viewFinishRoute(routeno,page){
+		var lastPage = 0;
 		$.ajax({
 			url:"http://14.32.66.127:4000/participate/finishRouteCount",
 			data:JSON.stringify({memberno:memberno,routeno:routeno}),
@@ -562,6 +563,7 @@ $("#imgSubmit").on("click",function(event){
 			type:'post',
 			success:function(data){
 				console.log("멤버 피니쉬 루트 갯수 : "+data);
+				lastPage = data;
 			}
 		});
 		
@@ -569,6 +571,9 @@ $("#imgSubmit").on("click",function(event){
 		if(page == -1){
 			$("#alertFirst").modal("show");
 			page = 0;
+		}else if(page == lastPage){
+			$("#alertLast").modal('show');
+			return;
 		}
 			console.log(page);
 		
