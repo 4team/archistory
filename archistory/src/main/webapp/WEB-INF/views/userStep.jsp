@@ -128,7 +128,6 @@
     	width:500px;
     	left:50%;
     	margin-left:-250px;
-    	text-align: left;
     }
 
     #finishDiv img{
