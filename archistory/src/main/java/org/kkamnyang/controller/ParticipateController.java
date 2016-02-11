@@ -93,7 +93,10 @@ public class ParticipateController {
 		vo.setRouteno(routeno);
 		vo.setPage(page);
 		
-		return mapper.finishRoute(vo);
+		FinishRouteVO result = mapper.finishRoute(vo);
+		System.out.println(result.getLastdate()+" LAST DATE");
+		
+		return result;
 	}
 	
 	@RequestMapping(value="/ranking")
