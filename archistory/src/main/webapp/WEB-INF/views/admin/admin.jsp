@@ -147,7 +147,7 @@
             background-color: #303336;
             width:32px;
             height:32px;
-            z-index: 330;
+            z-index: 9330;
             top:5px;
             left:43px;
             position : absolute;
@@ -318,7 +318,7 @@
 						<div class="gn-scroller">
 							<ul class="gn-menu">
 								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">My Route List</a></li>
 								
 									<ul  id="myRouteList"></ul>
 									
