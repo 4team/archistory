@@ -559,7 +559,11 @@ $("#imgSubmit").on("click",function(event){
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
 				str+="<p>"+FinishRouteVO.lastdate+"</p>";
-				str+="<p><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${date}" /></p>";
+				var dt = FinishRouteVO.lastdate;
+				var month = dt.getMonth()+1;
+				var day = dt.getDate();
+				var year = dt.getFullYear();
+				str+="<p>"+year+"/"+month+"/"+day+"</p>";
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
