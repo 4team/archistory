@@ -764,6 +764,8 @@ var myMarker = null;
             $.getJSON("http://14.32.66.127:4000/participate/ranking?routeno="+routeno,function(data){
             	
             	var list = $(data);
+            	var length = list.length;
+            	console.log(length);
 	            	$("#finishDiv").append("<table><tr><th>User Name</th><th>Score</th><tr>");
             	var rank = 1;
             	list.each(function(){
