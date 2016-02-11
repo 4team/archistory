@@ -772,8 +772,10 @@ var myMarker = null;
 					console.log(this);
 	            	$("#finishDiv").append("<tr><td>"+rank+". "+this.userName+"</td><td>"+this.score+"</td></tr>");
 	            	rank++;
+	            	if(rank==length){
+		            	$("#finishDiv").append("</table><button id='endRoute' style='margin:auto;'>OK</button>");
+	            	}
             	});
-            	$("#finishDiv").append("</table><button id='endRoute' style='margin:auto;'>OK</button>");
             });
             
         }else{
