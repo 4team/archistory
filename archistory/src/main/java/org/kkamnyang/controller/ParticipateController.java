@@ -105,4 +105,9 @@ public class ParticipateController {
 		return mapper.ranking(routeno);
 	}
 	
+	@RequestMapping(value="/finishRouteCount")
+	public int finishRouteCount(@RequestBody PageVO vo) throws Exception{
+		return mapper.finishRouteCoute(vo);
+	}
+	
 }

@@ -32,4 +32,9 @@ public class ParticipateMapperImpl extends AbstractCRUDMapper<ParticipateVO, Int
 		return session.selectList(namespace+".ranking",routeno);
 	}
 
+	@Override
+	public int finishRouteCoute(PageVO vo) {
+		return session.selectOne(namespace+".finishRouteCount",vo);
+	}
+
 }

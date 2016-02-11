@@ -553,6 +553,19 @@ $("#imgSubmit").on("click",function(event){
 	});
 
 	function viewFinishRoute(routeno,page){
+		$.ajax({
+			url:"http://14.32.66.127:4000/participate/finishRouteCount",
+			data:JSON.stringify({memberno:memberno,routeno:routeno}),
+			datatype:'json',
+	        headers: {
+	            "Content-Type":"application/json"},
+			type:'get',
+			success:function(data){
+				console.log("멤버 피니쉬 루트 갯수 : "+data);
+			}
+		});
+		
+		
 		if(page == -1){
 			$("#alertFirst").modal("show");
 			page = 0;
