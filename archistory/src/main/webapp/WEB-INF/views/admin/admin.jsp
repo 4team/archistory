@@ -909,6 +909,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 
 $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
+	 $("#myRouteList").hide();
 });  
 	
 	
