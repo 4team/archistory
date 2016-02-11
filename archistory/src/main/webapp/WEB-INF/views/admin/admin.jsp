@@ -91,7 +91,7 @@
             border : 1px solid black;
             border-radius : 10px;
             background-color : #FFF;
-            top:100px;
+            top:110px;
             left:200px;
             width:200px;
             height:400px;
