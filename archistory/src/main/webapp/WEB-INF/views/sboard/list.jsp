@@ -87,7 +87,7 @@ body {
 
 <c:forEach items="${list}" var="list">
 <tr>
-<td>${list.boardNo}</td>
+<td style="text-align:center; width: 10px;">${list.boardNo}</td>
 <td><a href='/sboard/read${pageMaker.makeSearch(pageMaker.cri.page) }&boardNo=${list.boardNo}'>${list.title}
     <strong> [${list.replycnt}]</strong></a></td>
 	<td>${list.writer}</td>
