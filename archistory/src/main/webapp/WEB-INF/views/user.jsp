@@ -626,18 +626,21 @@ $("#imgSubmit").on("click",function(event){
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
 				str+="<div id='pageBtn'><p id='pageBtnP'>";
+				
 				if(curpage != 0){
 					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
 				}
+				
 				str+= "  "+(page+1)+"/"+lastPage+"  ";
+				
 				if(curpage != (lastPage-1)){
 					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
 				}else{
-					$("#pageBtn p").css("float","left");
-					console.log("이거맞나");
-					console.log($("#pageBtnP"));
+					$("#pageBtn").css("float","left");
 				}
+				
 				str+="</p></div><br>";
+				
 				$("#finishedDiv").html(str);
 			
 		}).error(function() {$("#alertLast").modal('show'); });
