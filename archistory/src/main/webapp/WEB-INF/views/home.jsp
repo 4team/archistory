@@ -579,10 +579,17 @@ $(".gn-menu").on("click","li",function(event){
 			if($("#admin").is(":checked")){
 				
 				console.log("admin의 가입처리");
+				if($("#adminEmail").val() == "" || $("#adminpassword1").val()== "" || $("#adminpassword2").val() == "" 
+						|| $("#adminname").val() ==""){
+					alert("모든 정보를 입력해주세요.");
+				}
+				
 				
 			}else{
 				
 				console.log("user의 가입처리");
+				
+				
 				
 			}
 			
