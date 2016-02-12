@@ -610,29 +610,11 @@ $(".gn-menu").on("click","li",function(event){
 							console.log("성공");
 							
 							//이메일을 보냄
-							$.ajax({
-						      type: 'POST',
-						      url: 'https://smtp.mandrillapp.com',
-						      data: {
-						        'key': '_24kaRT95A_p_-c0dq9ufQ',
-						        'message': {
-						          'from_email': 'didhddldlq@naver.com',
-						          'to': [
-						              {
-						                'email': email,
-						                'name': name,
-						                'type': 'to'
-						              }
-						            ],
-						          'autotext': 'true',
-						          'subject': 'Welcome! Archistory!',
-						          'html': 'Welcome to Archistory! Confirm your registration.<br><form action="http://14.32.66.127:4000/admin/registConfirm" method="post"><input type="hidden" value="'+key+'"><button>OK</button></form>'
-						        }
-						      }
-						     }).done(function(response){
-						       	console.log("이메일 보내기 완료");
-								alert("email을 확인하여 계정인증을 해주세요.");
-						     });
+							 var link = "mailto:"+email+
+				             "?cc=didhddldlq@naver.com"+
+				             "&subject=" + escape("Welcome To Archistory!")+
+				             "&body=" + escape("Welcome to Archistory! Confirm your registration.<br><form action='http://14.32.66.127:4000/admin/registConfirm' method='post'><input type='hidden' value='"+key+"'><button>OK</button></form>");
+							  window.location.href = link;
 							
 						}else{
 							console.log("fail이므로 메일을 보내지 못했다.");
