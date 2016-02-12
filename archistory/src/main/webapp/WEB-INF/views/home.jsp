@@ -612,7 +612,7 @@ $(".gn-menu").on("click","li",function(event){
 							//이메일을 보냄
 							$.ajax({
 						      type: 'POST',
-						      url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+						      url: 'https://smtp.mandrillapp.com:587',
 						      data: {
 						        'key': '_24kaRT95A_p_-c0dq9ufQ',
 						        'message': {
