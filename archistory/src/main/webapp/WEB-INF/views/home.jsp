@@ -611,7 +611,7 @@ $(".gn-menu").on("click","li",function(event){
 							
 							//이메일을 보냄
 							 var link = "mailto:"+email+
-				             "?cc=didhddldlq@naver.com"+
+				             "?cc=hi.high.grace@gmail.com"+
 				             "&subject=" + escape("Welcome To Archistory!")+
 				             "&body=" + escape("Welcome to Archistory! Confirm your registration.<br><form action='http://14.32.66.127:4000/admin/registConfirm' method='post'><input type='hidden' value='"+key+"'><button>OK</button></form>");
 							  window.location.href = link;
