@@ -590,7 +590,7 @@ $(".gn-menu").on("click","li",function(event){
 				}
 				
 				var email = $("#adminEmail").val();
-				var passwrod = $("#adminpassword1").val();
+				var password = $("#adminpassword1").val();
 				var name = $("#adminname").val();
 				var phone = $("#phone").val();
 				var nation = $("#nation").val();
@@ -616,7 +616,7 @@ $(".gn-menu").on("click","li",function(event){
 						      data: {
 						        'key': '_24kaRT95A_p_-c0dq9ufQ',
 						        'message': {
-						          'from_email': 'hi.high.grace@gmail.com',
+						          'from_email': 'didhddldlq@naver.com',
 						          'to': [
 						              {
 						                'email': email,
