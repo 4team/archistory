@@ -880,6 +880,7 @@
     	$(".quploadedList").html("");
     	$("#myoutubeList").html("");
     	$("#youtubeList").html("");
+    	$("#mpoint").val("");
     	
 	  var template2 = Handlebars.compile($("#template").html());
          
@@ -891,6 +892,7 @@
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moorder").val(vo.attr("eorder"));
+            $("#mpoint").val(vo.attr("point"));
             $("#moeventno").val(eventno);
             
             var youtubeStr = vo.attr("youtube");
