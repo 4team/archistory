@@ -638,7 +638,7 @@ $(".gn-menu").on("click","li",function(event){
 					alert("모든 정보를 입력해주세요.");
 				}
 				
-				var email = $("#usermail").val();
+				var email = $("#useremail").val();
 				var password = $("#password1").val();
 				var name = $("#username").val();
 				
