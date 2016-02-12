@@ -620,7 +620,7 @@ $(".gn-menu").on("click","li",function(event){
 							
 							<% 
 							
-							String host = "mail.naver.com";
+							String host = "smtp.naver.com";
 							String subject = "제목입니다";
 							String content = "내용입니다."; 
 							String from = "aaa@abcd.com";
