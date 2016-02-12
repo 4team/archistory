@@ -125,9 +125,7 @@
     #finishDiv table{
     	position:absolute;
     	top:100;
-    	width:500px;
-    	left:50%;
-    	margin-left:-250px;
+    	width:100%;
     }
     
     #finishDiv table tr td{

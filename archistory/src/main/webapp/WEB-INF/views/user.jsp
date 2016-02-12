@@ -190,9 +190,6 @@
         	text-align: center;
         }
         
-        #finishDiv table{
-        	width:100%;
-        }
         
         #imgDiv{
           	margin:auto;
