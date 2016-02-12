@@ -839,6 +839,7 @@
         $("#s2").val("");
         $("#s3").val("");
         $("#s4").val("");
+        $("#point").val("");
         qattach=[];
         for(var i=1;i<5;i++) {
             var id = "#multipleAnswer";
