@@ -202,7 +202,7 @@ public class AdminController {
 	@RequestMapping(value="/regist", method=RequestMethod.POST)
 	public ResponseEntity<String> regist(@RequestBody AdminVO vo) throws Exception{
 		ResponseEntity<String> entity = null;
-		
+		System.out.println("[어드민의 회원가입]");
 		try{
 			UUID uid = UUID.randomUUID();
 			String key = vo.getUsername()+uid;
