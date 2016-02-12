@@ -213,7 +213,8 @@ public class AdminController {
 			vo.setEnablekey(key);
 			
 			System.out.println(vo.toString());
-			Integer adminno = service.regist(vo);
+			service.regist(vo);
+			Integer adminno = vo.getAdminno();
 			System.out.println("생성된 어드민 번호 :  "+adminno);
 			entity = new ResponseEntity<String>(key,HttpStatus.OK);
 		}catch(Exception e){
