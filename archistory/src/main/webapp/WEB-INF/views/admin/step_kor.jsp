@@ -371,7 +371,8 @@
                         <label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요."><br>
                         <label for="s3">3번 선택지</label><input type="text" class="form-control" id="mos3" placeholder="3번 보기를 입력하세요."><br>
                         <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
-
+						<label>Point</label><input type="text" class="form-control" id="mpoint" placeholder="point">
+						
                         <div id="momultipleAnswer" class="checkbox">
                             <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
                             <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2">2</label>
@@ -701,13 +702,14 @@
         var eorder = $("#order").val();
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
+        var point = $("#point").val();
         camera = $("#camera").val();
         attach2 = attach.join();
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
-        createEvent(routeno, eorder, title, content, attach2, lat, lng, camera,youtubeId, function(){
+        createEvent(routeno, eorder, title, content, attach2, lat, lng, camera,youtubeId,point, function(){
             console.log("attach2:" + attach2);
             clearEventDiv();
         	attach = [];
@@ -782,16 +784,16 @@
     }
     
     /*     <!-- 이벤트 생성 기능 --> */
-    function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,callback){
+    function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,point,callback){
     	
-        console.log(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId);
+        console.log(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,point);
         $.ajax({
             type:'post',
             url:"http://14.32.66.127:4000/event/attachCreate",
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtube:youtubeId}),
+            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtube:youtubeId,point:point}),
             success: function(data){
         		polyline.setMap(null);
                 console.log("<이벤트 생성!> eventno 가져옴:"+data);
