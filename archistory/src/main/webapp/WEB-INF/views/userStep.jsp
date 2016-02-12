@@ -114,7 +114,7 @@
     #finishDiv{
         position:absolute;
         z-index:5000;
-        background-color: #fff;
+        background-color: #000;
         width:100%;
         height:100%;
         display:none;
@@ -143,6 +143,7 @@
     #finishContent{
         position:absolute;
         text-align: center;
+        color: #fff;
         top:55%;
         left:50%;
         width:300px;
