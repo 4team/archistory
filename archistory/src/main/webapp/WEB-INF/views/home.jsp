@@ -576,7 +576,7 @@ $(".gn-menu").on("click","li",function(event){
 		
 		$("#eventCreateBtn").on("click",function(event){
 			
-			if($("#admin") == true){
+			if($("#admin").is(":checked")){
 				
 				console.log("admin의 가입처리");
 				
