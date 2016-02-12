@@ -579,15 +579,27 @@ $(".gn-menu").on("click","li",function(event){
 			if($("#admin").is(":checked")){
 				
 				console.log("admin의 가입처리");
+				
+				if($("#adminpassword1").val() != $("#adminpassword2").val()){
+					alert("입력한 비밀번호를 확인해주세요.");
+				}
+				
 				if($("#adminEmail").val() == "" || $("#adminpassword1").val()== "" || $("#adminpassword2").val() == "" 
 						|| $("#adminname").val() ==""){
 					alert("모든 정보를 입력해주세요.");
 				}
 				
+				var email = $("#adminEmail").val();
+				var passwrod = $("#adminpassword1").val();
+				
 				
 			}else{
 				
 				console.log("user의 가입처리");
+				
+				if($("#password1").val() != $("#password2").val()){
+					alert("입력한 비밀번호를 확인해주세요.");
+				}
 				
 				if($("#useremail").val() == "" || $("#password1").val()== "" || $("#password2").val() == "" 
 						|| $("#username").val() ==""){
