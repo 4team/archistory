@@ -56,7 +56,9 @@ public class HomeController {
 	public ResponseEntity<String> regist(@RequestBody AdminVO vo) throws Exception{
 		ResponseEntity<String> entity = null;
 		System.out.println("[어드민의 회원가입]");
+		
 		try{
+			
 			UUID uid = UUID.randomUUID();
 			String key = "archistory"+uid;
 			
