@@ -38,7 +38,9 @@
         float:right;
         margin:10px;
     }
-
+h1{
+	color:#FF7700;
+}
     #buttonContainer button{
         float : right;
         margin : 0px 0px 10px 5px;
