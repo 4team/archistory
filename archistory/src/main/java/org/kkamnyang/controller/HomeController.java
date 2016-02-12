@@ -58,7 +58,7 @@ public class HomeController {
 		System.out.println("[어드민의 회원가입]");
 		try{
 			UUID uid = UUID.randomUUID();
-			String key = vo.getUsername()+uid;
+			String key = "archistory"+uid;
 			
 			System.out.println("생성된 key는? "+key);
 			
