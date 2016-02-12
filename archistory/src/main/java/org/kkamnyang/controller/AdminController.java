@@ -206,6 +206,9 @@ public class AdminController {
 		try{
 			UUID uid = UUID.randomUUID();
 			String key = vo.getUsername()+uid;
+			
+			System.out.println("생성된 key는? "+key);
+			
 			vo.setEnablekey(key);
 			
 			service.regist(vo);
