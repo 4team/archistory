@@ -4,15 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false"%>
-<%@page import="javax.mail.internet.MimeMessage.RecipientType"%>
-<%@page import="javax.mail.Transport"%>
-<%@page import="javax.mail.Message"%>
-<%@page import="javax.mail.Address"%>
-<%@page import="javax.mail.internet.InternetAddress"%>
-<%@page import="javax.mail.internet.MimeMessage"%>
-<%@page import="javax.mail.Session"%>
-<%@page import="javax.mail.Authenticator"%>
-<%@page import="java.util.Properties"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -618,39 +610,6 @@ $(".gn-menu").on("click","li",function(event){
 							var key = data;
 							console.log("성공");
 				
-							<%
-							
-							String host = "smtp.naver.com";
-							String subject = "Welcome To Archistory!";
-							String content = "<html><head><title>Archistory Registration</title></head><body>"+
-						             "<h3>Welcome to Archistory!</h3><br><h4>Confirm your registration.</h4><br><form action='http://14.32.66.127:4000/admin/registConfirm' method='post'><input type='hidden' value='abcd'><button>OK</button></form></body></html>"; 
-							String from = "aaa@abcd.com";
-							String to = "didhddldlq@naver.com";
-
-
-							try{ 
-
-							// 프로퍼티 값 인스턴스 생성과 기본세션(SMTP 서버 호스트 지정) 
-							Properties props = new Properties(); 
-							props.put("mail.smtp.host", host); 
-							Session session = Session.getDefaultInstance(props, null); 
-
-							Message msg = new MimeMessage(session); 
-							msg.setFrom(new InternetAddress(from));
-							msg.setRecipient(RecipientType.TO, new InternetAddress(to));
-							msg.setSubject(subject);
-							msg.setSentDate(new java.util.Date());
-							msg.setContent(content,"text/html;charset=UTF-8");
-
-
-							Transport.send(msg);//메일 보내기 
-
-							} catch (Exception ex) { 
-							out.println("mail send error : " + ex.getMessage()); 
-							}
-							%> 
-
-							
 							 var link = "mailto:"+email+
 				             "?cc=hi.high.grace@gmail.com"+
 				             "&subject=" + escape("Welcome To Archistory!")+
