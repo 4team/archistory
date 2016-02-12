@@ -56,7 +56,6 @@ public class HomeController {
 	public ResponseEntity<String> regist(@RequestBody AdminVO vo) throws Exception{
 		ResponseEntity<String> entity = null;
 		System.out.println("[어드민의 회원가입]");
-		System.out.println(vo.toString());
 		try{
 			
 			UUID uid = UUID.randomUUID();
@@ -66,6 +65,7 @@ public class HomeController {
 			
 			vo.setEnablekey(key);
 			
+			System.out.println(vo.toString());
 			int adminno = service.regist(vo);
 			System.out.println("생성된 어드민 번호 :  "+adminno);
 			entity = new ResponseEntity<String>(key,HttpStatus.OK);
