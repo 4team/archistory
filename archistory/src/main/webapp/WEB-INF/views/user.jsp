@@ -666,7 +666,7 @@ function getLocation(){
         (function getRouteList(){
         	if(num==0){
             $.ajax({
-    	        type:'post',
+    	        type:'get',
     	        url:"http://14.32.66.127:4000/route/list",
     	        headers: {
     	            "Content-Type":"application/json"},
