@@ -66,7 +66,8 @@ public class HomeController {
 			
 			vo.setEnablekey(key);
 			
-			service.regist(vo);
+			int adminno = service.regist(vo);
+			System.out.println("생성된 어드민 번호 :  "+adminno);
 			entity = new ResponseEntity<String>(key,HttpStatus.OK);
 		}catch(Exception e){
 			e.printStackTrace();
