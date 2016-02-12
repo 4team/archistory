@@ -5,8 +5,8 @@
 
 <mapper namespace="org.kkamnyang.persistence.AdminMapper">
 	<insert id="create">
- 		insert into tbl_admin(email,password,username,phone,nation,img) 
- 		values(#{email},#{password},#{username},#{phone},#{nation},#{img},#{key})
+ 		insert into tbl_admin(email,password,username,phone,nation,img,enablekey) 
+ 		values(#{email},#{password},#{username},#{phone},#{nation},#{img},#{enablekey})
  	</insert>
  	
  	<select id="list" resultType="org.kkamnyang.domain.AdminVO">

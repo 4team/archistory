@@ -585,7 +585,7 @@ $(".gn-menu").on("click","li",function(event){
 				}
 				
 				if($("#adminEmail").val() == "" || $("#adminpassword1").val()== "" || $("#adminpassword2").val() == "" 
-						|| $("#adminname").val() ==""){
+						|| $("#adminname").val() =="" || $("#phone").val() == "" || $("#nation").val()==""){
 					alert("모든 정보를 입력해주세요.");
 				}
 				
@@ -596,7 +596,7 @@ $(".gn-menu").on("click","li",function(event){
 				var nation = $("#nation").val();
 				
 				$.ajax({
-					url:"http://14.32.66.127:4000/admin/regist",
+					url:"http://14.32.66.127:4000/regist",
 					data:JSON.stringify({email:email,password:password,username:name,phone:phone,nation:nation,enabled:false}),
 					datatype:'json',
 			        headers: {
