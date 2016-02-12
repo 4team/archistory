@@ -801,7 +801,7 @@ var myMarker = null;
 	            	str+="<tr><td style='width:50%;'>"+rank+". "+this.userName+"</td><td style='width:50%;'>"+this.score+"</td></tr>";
 	            	rank++;
 	            	if(rank == (length+1)){
-		            	str+="<tr><td><button onclick='backto();'>OK</button></td></tr></table>";
+		            	str+="<tr><td><br><button onclick='backto();'>OK</button></td></tr></table>";
 		            	$("#finishDiv").html(str);
 	            	}
             	});
