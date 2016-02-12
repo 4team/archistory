@@ -668,16 +668,15 @@ function getLocation(){
         (function getRouteList(){
         	if(num==0){
             $.ajax({
-    	        type:'get',
-    	        url:"http://14.32.66.127:4000/route/list?adminno=4",
-/*     	        headers: {
-    	            "Content-Type":"application/json"}, */
-    	        datatype: "text",
-/*     	        data:JSON.stringify({adminno:4}), */
+    	        type:'post',
+    	        url:"http://14.32.66.127:4000/route/closelist",
+     	        headers: {
+    	            "Content-Type":"application/json"},
+    	        datatype: "json",
+   	     		data:JSON.stringify({myLat:myLat,mtLng:myLng}), 
     	        success: function(data){
     	        var list = $(data);
     			routeLi = "";
-    			addList(list[0]);
     	        list.each(function(idx,value){
     	            var route = this;
     	            calcDistance(route);
