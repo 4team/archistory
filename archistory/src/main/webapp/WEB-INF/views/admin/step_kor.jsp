@@ -880,7 +880,6 @@
     	$(".quploadedList").html("");
     	$("#myoutubeList").html("");
     	$("#youtubeList").html("");
-    	$("#mpoint").val("");
     	
 	  var template2 = Handlebars.compile($("#template").html());
          
