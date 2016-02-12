@@ -673,10 +673,9 @@ function getLocation(){
     	        datatype: "text",
 /*     	        data:JSON.stringify({adminno:4}), */
     	        success: function(data){
-    	        	console.log(data);
     	        var list = $(data);
     			routeLi = "";
-    	        
+    	        console.log(list);
     	        list.each(function(idx,value){
     	            var route = this;
     	            calcDistance(route);
