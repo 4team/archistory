@@ -127,11 +127,14 @@
     	top:100;
     	width:100%;
     }
-    
-    #finishDiv table tr td{
-    	text-align: left;
+
+    #finishDiv table tr th{
+    	text-align: center;
     }
     
+    #finishDiv table tr td{
+    	text-align: center;
+    }
 
     #finishDiv img{
     	margin-top:100px;
