@@ -743,7 +743,7 @@
         var qObject = new Object();
         qObject.eventno = data;
         qObject.question = $("#questionTitle").val();
-        qObject.point = 500;
+        qObject.point = $("#point").val();
         qObject.qtype = $("#qType").val();
         qObject.choice1 = $("#s1").val();
         qObject.choice2 = $("#s2").val();
