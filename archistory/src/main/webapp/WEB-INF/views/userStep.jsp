@@ -123,6 +123,7 @@
     }
     
     #finishDiv table{
+    color:#fff;
     	position:absolute;
     	top:100;
     	width:100%;
