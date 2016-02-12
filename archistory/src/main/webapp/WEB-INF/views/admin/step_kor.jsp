@@ -284,7 +284,8 @@
                             <select class="form-control" id="qType">
                                 <option value="ox">O/X</option>
                                 <option value="multiple">객관식</option>
-                            </select><br>
+                            </select><label>Point</label><input type="text" class="form-control" id="point" placeholder="point"><br>
+
 
                             <label for="qTitle">문제</label>
                             <textarea class="form-control" id="questionTitle" placeholder="문제를 입력하세요."></textarea><br>
@@ -293,7 +294,6 @@
                                 <label for="s2">2번 선택지</label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요."><br>
                                 <label for="s3">3번 선택지</label><input type="text" class="form-control" id="s3" placeholder="3번 보기를 입력하세요."><br>
                                 <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
-								<label>Point</label><input type="text" class="form-control" id="point" placeholder="point">
                                 <div id="multipleAnswerBox" class="checkbox">
                                     <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
                                     <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
@@ -361,7 +361,8 @@
                     <select class="form-control" id="moqType">
                         <option value="ox">O/X</option>
                         <option value="multiple">객관식</option>
-                    </select><br>
+                    </select><label>Point</label><input type="text" class="form-control" id="mpoint" placeholder="point"><br>
+
 
                     <label for="qTitle">문제</label>
                     <input type="hidden" id="qno">
@@ -371,7 +372,6 @@
                         <label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요."><br>
                         <label for="s3">3번 선택지</label><input type="text" class="form-control" id="mos3" placeholder="3번 보기를 입력하세요."><br>
                         <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
-						<label>Point</label><input type="text" class="form-control" id="mpoint" placeholder="point">
 						
                         <div id="momultipleAnswer" class="checkbox">
                             <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
