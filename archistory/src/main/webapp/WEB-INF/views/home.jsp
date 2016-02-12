@@ -639,7 +639,7 @@ $(".gn-menu").on("click","li",function(event){
 				}
 				
 				var email = $("#usermail").val();
-				var passwrod = $("#password1").val();
+				var password = $("#password1").val();
 				var name = $("#username").val();
 				
 				$.ajax({
