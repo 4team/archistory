@@ -590,6 +590,10 @@ $(".gn-menu").on("click","li",function(event){
 				console.log("user의 가입처리");
 				
 				
+				if($("#useremail").val() == "" || $("#password1").val()== "" || $("#password2").val() == "" 
+						|| $("#username").val() ==""){
+					alert("모든 정보를 입력해주세요.");
+				}
 				
 			}
 			
