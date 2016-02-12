@@ -673,7 +673,7 @@ function getLocation(){
      	        headers: {
     	            "Content-Type":"application/json"},
     	        datatype: "json",
-   	     		data:JSON.stringify({myLat:myLat,mtLng:myLng}), 
+   	     		data:JSON.stringify({myLat:myLat,myLng:myLng}), 
     	        success: function(data){
     	        var list = $(data);
     			routeLi = "";
