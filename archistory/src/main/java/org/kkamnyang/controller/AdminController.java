@@ -198,7 +198,31 @@ public class AdminController {
 		return view;
 	}
 	
-
+	
+	@RequestMapping(value="/regist", method=RequestMethod.POST)
+	public ResponseEntity<String> regist(@RequestBody AdminVO vo) throws Exception{
+		ResponseEntity<String> entity = null;
+		System.out.println("[어드민의 회원가입]");
+		try{
+			
+			UUID uid = UUID.randomUUID();
+			String key = "archistory"+uid;
+			
+			System.out.println("생성된 key는? "+key);
+			
+			vo.setEnablekey(key);
+			
+			System.out.println(vo.toString());
+			Integer adminno = service.regist(vo);
+			System.out.println("생성된 어드민 번호 :  "+adminno);
+			entity = new ResponseEntity<String>(key,HttpStatus.OK);
+		}catch(Exception e){
+			e.printStackTrace();
+			entity = new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public @ResponseBody AdminVO view(@RequestParam("adminno") Integer adminno) throws Exception{
