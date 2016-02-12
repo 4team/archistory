@@ -143,7 +143,7 @@
     #finishContent{
         position:absolute;
         text-align: center;
-        top:40%;
+        top:50%;
         left:50%;
         width:300px;
         margin-left:-150px;
