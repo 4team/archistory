@@ -667,11 +667,11 @@ function getLocation(){
         	if(num==0){
             $.ajax({
     	        type:'post',
-    	        url:"http://14.32.66.127:4000/route/closelist",
+    	        url:"http://14.32.66.127:4000/route/list",
     	        headers: {
     	            "Content-Type":"application/json"},
     	        datatype: "json",
-    	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
+    	        data:JSON.stringify({adminno:4}),
     	        success: function(data){
     	        var list = $(data);
     			routeLi = "";
