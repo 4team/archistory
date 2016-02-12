@@ -646,8 +646,7 @@ $(".gn-menu").on("click","li",function(event){
 					url:"http://14.32.66.127:4000/member/register",
 					data:JSON.stringify({email:email,mPassword:password,userName:name}),
 					datatype:'json',
-			        headers: {
-			            "Content-Type":"application/json"},
+			        headers: {"Content-Type":"application/json"},
 					type:'post',
 					success:function(data){
 						console.log(data);
