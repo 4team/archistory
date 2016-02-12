@@ -1081,6 +1081,8 @@
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
         var camera = $("#mocamera").val();
+        var point = $("mpoint").val();
+        
         attach2 = attach.join();
         
         console.log(attach2);
@@ -1103,7 +1105,7 @@
             console.log("<이벤트 수정중> - 문제YES/YES");
             modifyQuestion(modiJson);
         }
-        modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,function(){
+        modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,point,function(){
         	 //clearEventDiv();
              //attach = [];
         });
@@ -1112,7 +1114,7 @@
         clearMoEventdiv();
     });
     /* <!-- 이벤트 수정 기능 --> */
-    function modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,callback){
+    function modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,point,callback){
         console.log("이벤트 수정"+eventno);
         $.ajax({
             type:'post',
@@ -1120,7 +1122,7 @@
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,camera:camera,youtube:youtubeId}),
+            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,camera:camera,youtube:youtubeId,point:point}),
             success: function(data){
         		polyline.setMap(null);
                 getEventList();
