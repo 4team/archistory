@@ -4,6 +4,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false"%>
+<%@page import="javax.mail.Transport"%>
+<%@page import="javax.mail.Message"%>
+<%@page import="javax.mail.Address"%>
+<%@page import="javax.mail.internet.InternetAddress"%>
+<%@page import="javax.mail.internet.MimeMessage"%>
+<%@page import="javax.mail.Session"%>
+<%@page import="mail.SMTPAuthenticatior"%>
+<%@page import="javax.mail.Authenticator"%>
+<%@page import="java.util.Properties"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -609,7 +618,38 @@ $(".gn-menu").on("click","li",function(event){
 							var key = data;
 							console.log("성공");
 							
-						
+							<% 
+							String host = "mail.naver.com";//smtp 주소 
+
+							String subject = "제목입니다";
+							String content = "내용입니다."; 
+							String from = "aaa@abcd.com"; //보내는 사람 
+							String to = "didhddldlq@naver.com"; //보내는 사람 
+
+
+							try{ 
+
+							// 프로퍼티 값 인스턴스 생성과 기본세션(SMTP 서버 호스트 지정) 
+							Properties props = new Properties(); 
+							props.put("mail.smtp.host", host); 
+							Session session = Session.getDefaultInstance(props, null); 
+
+							Message msg = new MimeMessage(session); 
+							msg.setFrom(new InternetAddress(from));//보내는 사람 설정 
+							msg.setRecipient(Message.RecipientType.TO, to);//받는 사람설정 
+							msg.setSubject(subject);//제목 설정 
+							msg.setSentDate(new java.util.Date());//보내는 날짜 설정 
+							msg.setContent(content,"text/html;charset=UTF-8"); // 내영 설정 (HTML 형식) 
+
+
+							Transport.send(msg);//메일 보내기 
+
+							} catch (Exception ex) { 
+							out.println("mail send error : " + ex.getMessage()); 
+							}
+							%> 
+
+							
 							 var link = "mailto:"+email+
 				             "?cc=hi.high.grace@gmail.com"+
 				             "&subject=" + escape("Welcome To Archistory!")+
