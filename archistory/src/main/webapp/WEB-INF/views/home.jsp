@@ -1,5 +1,4 @@
 <%@page import="javax.mail.internet.MimeMessage.RecipientType"%>
-<%@page import="javax.mail.Message.RecipientType"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -12,7 +11,6 @@
 <%@page import="javax.mail.internet.InternetAddress"%>
 <%@page import="javax.mail.internet.MimeMessage"%>
 <%@page import="javax.mail.Session"%>
-<%@page import="mail.SMTPAuthenticatior"%>
 <%@page import="javax.mail.Authenticator"%>
 <%@page import="java.util.Properties"%>
 <!DOCTYPE html>
