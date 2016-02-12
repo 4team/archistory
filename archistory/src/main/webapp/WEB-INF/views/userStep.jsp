@@ -135,15 +135,17 @@
     
 
     #finishDiv img{
+    	top:20%;
         width:60%;
     }
 
     #finishContent{
         position:absolute;
         text-align: center;
-        top:70%;
+        top:30%;
         left:50%;
-        margin-left:-100px;
+        width:300px;
+        margin-left:-150px;
         z-index: 6000;
     }
 
