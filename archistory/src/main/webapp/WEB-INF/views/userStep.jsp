@@ -135,7 +135,7 @@
     
 
     #finishDiv img{
-    	top:20%;
+    	margin-top:100px;
         width:60%;
     }
 
