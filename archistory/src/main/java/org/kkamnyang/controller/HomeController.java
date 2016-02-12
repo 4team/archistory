@@ -71,7 +71,7 @@ public class HomeController {
 			entity = new ResponseEntity<String>(key,HttpStatus.OK);
 		}catch(Exception e){
 			e.printStackTrace();
-			entity = new ResponseEntity<String>("fail",HttpStatus.OK);
+			entity = new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
 		}
 		
 		return entity;
