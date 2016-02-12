@@ -551,7 +551,6 @@ $(".gn-menu").on("click","li",function(event){
     	
     	var p1 = $("#adminpassword1").val();
     	var p2 = $("#adminpassword2").val();
-	   	console.log("어드민 패스워드 타이핑중");
 	   	var resultDiv = $(".duplResult");
     	
 	    if(p1 != p2){
@@ -565,7 +564,6 @@ $(".gn-menu").on("click","li",function(event){
     	
     	var p1 = $("#password1").val();
     	var p2 = $("#password2").val();
-	   	console.log("유저 패스워드 타이핑중");
 	   	var resultDiv = $(".duplResult");
     	
 	    if(p1 != p2){
@@ -574,6 +572,22 @@ $(".gn-menu").on("click","li",function(event){
 	    	resultDiv.html("");
 	    }
     });
+		
+		
+		$("#eventCreateBtn").on("click",function(event){
+			
+			if($("#admin") == true){
+				
+				console.log("admin의 가입처리");
+				
+			}else{
+				
+				console.log("user의 가입처리");
+				
+			}
+			
+		});
+		
 </script>
 <script src="/Cesium/js/map.js"></script>
 
