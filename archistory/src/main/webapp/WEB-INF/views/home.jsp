@@ -575,7 +575,7 @@ $(".gn-menu").on("click","li",function(event){
 		
 		
 		$("#eventCreateBtn").on("click",function(event){
-			
+			$("#joinModal").modal('hide');
 			if($("#admin").is(":checked")){
 				
 				console.log("admin의 가입처리");
