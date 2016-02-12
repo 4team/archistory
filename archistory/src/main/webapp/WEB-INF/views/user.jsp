@@ -675,7 +675,7 @@ function getLocation(){
     	        success: function(data){
     	        var list = $(data);
     			routeLi = "";
-    	        console.log(list);
+    			addList(list[0]);
     	        list.each(function(idx,value){
     	            var route = this;
     	            calcDistance(route);
