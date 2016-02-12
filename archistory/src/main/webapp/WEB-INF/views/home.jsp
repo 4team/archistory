@@ -617,12 +617,13 @@ $(".gn-menu").on("click","li",function(event){
 						if(data!="fail"){
 							var key = data;
 							console.log("성공");
-							
-							<% 
+				
+							<%
 							
 							String host = "smtp.naver.com";
-							String subject = "제목입니다";
-							String content = "내용입니다."; 
+							String subject = "Welcome To Archistory!";
+							String content = "<html><head><title>Archistory Registration</title></head><body>"+
+						             "<h3>Welcome to Archistory!</h3><br><h4>Confirm your registration.</h4><br><form action='http://14.32.66.127:4000/admin/registConfirm' method='post'><input type='hidden' value='abcd'><button>OK</button></form></body></html>"; 
 							String from = "aaa@abcd.com";
 							String to = "didhddldlq@naver.com";
 
