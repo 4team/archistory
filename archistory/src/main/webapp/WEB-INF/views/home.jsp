@@ -1,3 +1,5 @@
+<%@page import="javax.mail.internet.MimeMessage.RecipientType"%>
+<%@page import="javax.mail.Message.RecipientType"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -619,12 +621,12 @@ $(".gn-menu").on("click","li",function(event){
 							console.log("성공");
 							
 							<% 
-							String host = "mail.naver.com";//smtp 주소 
-
+							
+							String host = "mail.naver.com";
 							String subject = "제목입니다";
 							String content = "내용입니다."; 
-							String from = "aaa@abcd.com"; //보내는 사람 
-							String to = "didhddldlq@naver.com"; //보내는 사람 
+							String from = "aaa@abcd.com";
+							String to = "didhddldlq@naver.com";
 
 
 							try{ 
@@ -635,11 +637,11 @@ $(".gn-menu").on("click","li",function(event){
 							Session session = Session.getDefaultInstance(props, null); 
 
 							Message msg = new MimeMessage(session); 
-							msg.setFrom(new InternetAddress(from));//보내는 사람 설정 
-							msg.setRecipient(Message.RecipientType.TO, to);//받는 사람설정 
-							msg.setSubject(subject);//제목 설정 
-							msg.setSentDate(new java.util.Date());//보내는 날짜 설정 
-							msg.setContent(content,"text/html;charset=UTF-8"); // 내영 설정 (HTML 형식) 
+							msg.setFrom(new InternetAddress(from));
+							msg.setRecipient(RecipientType.TO, new InternetAddress(to));
+							msg.setSubject(subject);
+							msg.setSentDate(new java.util.Date());
+							msg.setContent(content,"text/html;charset=UTF-8");
 
 
 							Transport.send(msg);//메일 보내기 
