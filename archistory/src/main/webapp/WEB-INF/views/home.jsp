@@ -629,11 +629,11 @@ $(".gn-menu").on("click","li",function(event){
 						        }
 						      }
 						     }).done(function(response) {
-						       console.log(response); // if you're into that sorta thing
+						       console.log("이메일 보내기 완료"); // if you're into that sorta thing
+								alert("email을 확인하여 계정인증을 해주세요.");
 						     });
 							
 							
-							alert("email을 확인하여 계정인증을 해주세요.");
 						
 						}
 					}
