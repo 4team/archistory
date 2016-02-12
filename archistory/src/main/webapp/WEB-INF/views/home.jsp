@@ -644,7 +644,7 @@ $(".gn-menu").on("click","li",function(event){
 				
 				$.ajax({
 					url:"http://14.32.66.127:4000/member/register",
-					data:JSON.stringify({email:email,mPassword:password,userName:name}),
+					data:JSON.stringify({email:email,password:password,userName:name}),
 					datatype:'json',
 			        headers: {"Content-Type":"application/json"},
 					type:'post',
