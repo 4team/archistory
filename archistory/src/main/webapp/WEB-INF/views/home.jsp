@@ -609,7 +609,7 @@ $(".gn-menu").on("click","li",function(event){
 							var key = data;
 							console.log("성공");
 							
-							//이메일을 보냄
+						
 							 var link = "mailto:"+email+
 				             "?cc=hi.high.grace@gmail.com"+
 				             "&subject=" + escape("Welcome To Archistory!")+
