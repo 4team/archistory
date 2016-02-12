@@ -115,6 +115,7 @@
         position:absolute;
         z-index:5000;
         background-color: #fff;
+        height:100%;
         display:none;
         text-align: center;
         font-size : 20px;
