@@ -596,7 +596,7 @@ $(".gn-menu").on("click","li",function(event){
 				var nation = $("#nation").val();
 				
 				$.ajax({
-					url:"http://14.32.66.127:4000/regist",
+					url:"http://14.32.66.127:4000/admin/regist",
 					data:JSON.stringify({email:email,password:password,username:name,phone:phone,nation:nation,enabled:false}),
 					datatype:'json',
 			        headers: {
