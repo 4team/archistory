@@ -605,7 +605,7 @@ $(".gn-menu").on("click","li",function(event){
 					success:function(data){
 						console.log(data);
 						if(data!="fail"){
-						
+							var key = data;
 							console.log("성공");
 							
 							//이메일을 보냄
