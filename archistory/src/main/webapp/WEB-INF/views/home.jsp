@@ -613,7 +613,8 @@ $(".gn-menu").on("click","li",function(event){
 							 var link = "mailto:"+email+
 				             "?cc=hi.high.grace@gmail.com"+
 				             "&subject=" + escape("Welcome To Archistory!")+
-				             "&body=" + escape("Welcome to Archistory! Confirm your registration.<br><form action='http://14.32.66.127:4000/admin/registConfirm' method='post'><input type='hidden' value='"+key+"'><button>OK</button></form>");
+				             "&body=" + escape("<html><head><title>Archistory Registration</title></head><body>"+
+				             "<h3>Welcome to Archistory!</h3><br><h4>Confirm your registration.</h4><br><form action='http://14.32.66.127:4000/admin/registConfirm' method='post'><input type='hidden' value='"+key+"'><button>OK</button></form></body></html>");
 							  window.location.href = link;
 							
 						}else{
