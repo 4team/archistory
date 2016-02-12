@@ -591,6 +591,53 @@ $(".gn-menu").on("click","li",function(event){
 				
 				var email = $("#adminEmail").val();
 				var passwrod = $("#adminpassword1").val();
+				var name = $("#adminname").val();
+				var phone = $("#phone").val();
+				var nation = $("#nation").val();
+				
+				$.ajax({
+					url:"http://14.32.66.127:4000/admin/regist",
+					data:JSON.stringify({email:email,password:password,username:name,phone:phone,nation:nation,enabled:false}),
+					datatype:'json',
+			        headers: {
+			            "Content-Type":"application/json"},
+					type:'post',
+					success:function(data){
+						console.log(data);
+						if(data!="fail"){
+						
+							console.log("성공");
+							
+							//이메일을 보냄
+							$.ajax({
+						      type: 'POST',
+						      url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+						      data: {
+						        'key': '_24kaRT95A_p_-c0dq9ufQ',
+						        'message': {
+						          'from_email': 'hi.high.grace@gmail.com',
+						          'to': [
+						              {
+						                'email': email,
+						                'name': name,
+						                'type': 'to'
+						              }
+						            ],
+						          'autotext': 'true',
+						          'subject': 'Welcome! Archistory!',
+						          'html': 'Welcome to Archistory! Confirm your registration.<br><form action="http://14.32.66.127:4000/admin/registConfirm" method="post"><input type="hidden" value="'+key+'"><button>OK</button></form>'
+						        }
+						      }
+						     }).done(function(response) {
+						       console.log(response); // if you're into that sorta thing
+						     });
+							
+							
+							alert("email을 확인하여 계정인증을 해주세요.");
+						
+						}
+					}
+				});
 				
 				
 			}else{
@@ -605,6 +652,22 @@ $(".gn-menu").on("click","li",function(event){
 						|| $("#username").val() ==""){
 					alert("모든 정보를 입력해주세요.");
 				}
+				
+				var email = $("#usermail").val();
+				var passwrod = $("#password1").val();
+				var name = $("#username").val();
+				
+				$.ajax({
+					url:"http://14.32.66.127:4000/member/register",
+					data:JSON.stringify({email:email,mPassword:password,userName:name}),
+					datatype:'json',
+			        headers: {
+			            "Content-Type":"application/json"},
+					type:'post',
+					success:function(data){
+						console.log(data);
+					}
+				});
 				
 			}
 			

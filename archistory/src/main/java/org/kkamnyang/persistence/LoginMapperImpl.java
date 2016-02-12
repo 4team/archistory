@@ -33,7 +33,7 @@ public class LoginMapperImpl implements AuthenticationProvider {
 		try {
 			AdminVO vo = mapper.login(dto);
 			System.out.println(vo.toString());
-			if(vo.isEnable() == false){
+			if(vo.isEnabled() == false){
 				System.out.println("이용이 막힌 사용자가 로그인하였다.");
 				return null;
 			}

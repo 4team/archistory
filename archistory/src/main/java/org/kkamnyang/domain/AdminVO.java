@@ -3,6 +3,7 @@ package org.kkamnyang.domain;
 import java.sql.Date;
 
 public class AdminVO {
+
 	private java.lang.Integer adminno;
 	private java.lang.String email;
 	private java.lang.String password;
@@ -12,6 +13,7 @@ public class AdminVO {
 	private java.lang.String img;
 	private Date joindate;
 	private boolean enabled;
+	private String enablekey;
 	
 	
 	public java.lang.Integer getAdminno() {
@@ -62,20 +64,24 @@ public class AdminVO {
 	public void setJoindate(Date joindate) {
 		this.joindate = joindate;
 	}
-	
-	
-	public boolean isEnable() {
+	public boolean isEnabled() {
 		return enabled;
 	}
-	public void setEnable(boolean enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	public String getEnablekey() {
+		return enablekey;
+	}
+	public void setEnablekey(String enablekey) {
+		this.enablekey = enablekey;
 	}
 	
 	@Override
 	public String toString() {
 		return "AdminVO [adminno=" + adminno + ", email=" + email + ", password=" + password + ", username=" + username
 				+ ", phone=" + phone + ", nation=" + nation + ", img=" + img + ", joindate=" + joindate + ", enabled="
-				+ enabled + "]";
+				+ enabled + ", enablekey=" + enablekey + "]";
 	}
 
 }
