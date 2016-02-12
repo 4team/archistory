@@ -891,7 +891,6 @@
             $("#moeventName").val(vo.attr("title"));
             $("#moeventinfo").val(vo.attr("content"));
             $("#moorder").val(vo.attr("eorder"));
-            $("#mpoint").val(vo.attr("point"));
             $("#moeventno").val(eventno);
             
             var youtubeStr = vo.attr("youtube");
@@ -940,6 +939,7 @@
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
+            $("#mpoint").val(vo.attr("point"));
             if(typeof qno == "undefined"){
                 console.log("이벤트 VIEW - 문제 없음.");
                 $("#qno").val("no_Question");
