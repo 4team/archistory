@@ -13,17 +13,15 @@ public class OurUserDetails implements UserDetails {
 	private final String email;
 	private final String password;
 	private final String img;
-	private final int userno;
 	private final Collection<? extends GrantedAuthority> authorities;
 
 	
-	public OurUserDetails(Integer memberno,String username, String email,String password ,String img,int userno){
+	public OurUserDetails(Integer memberno,String username, String email,String password ,String img){
 		this.memberno = memberno;
 		this.username = username;
 		this.email = email;
 		this.password=password;
 		this.img = img;
-		this.userno = userno;
 		this.authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
 	}
 
@@ -53,20 +51,19 @@ public class OurUserDetails implements UserDetails {
 	}
 
 
-	public int getUserno() {
-		return userno;
-	}
-
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
 	}
 
 
+
+
+
 	@Override
 	public String toString() {
-		return "UserDetails [memberno=" + memberno + ", username=" + username + ", email=" + email + ", password="
-				+ password + ", img=" + img + ", userno=" + userno + ", authorities=" + authorities + "]\n";
+		return "OurUserDetails [memberno=" + memberno + ", username=" + username + ", email=" + email + ", password="
+				+ password + ", img=" + img + ", authorities=" + authorities + "]";
 	}
 
 
