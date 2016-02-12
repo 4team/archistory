@@ -797,7 +797,7 @@ var myMarker = null;
             	
             	list.each(function(){
 					console.log(this);
-	            	str+="<tr><td>"+rank+". "+this.userName+"</td><td>"+this.score+"</td></tr>";
+	            	str+="<tr><td style='width:50%;'>"+rank+". "+this.userName+"</td><td style='width:50%;'>"+this.score+"</td></tr>";
 	            	rank++;
 	            	if(rank == (length+1)){
 		            	str+="<tr><td><button onclick='backto();' style='margin:auto;'>OK</button></td></tr></table>";
