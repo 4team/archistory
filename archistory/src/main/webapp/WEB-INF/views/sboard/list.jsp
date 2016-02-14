@@ -17,7 +17,7 @@ top:10px;
 }
 
 body {
-    background-color: #000000;
+    background-image: url("/img/back1.jpg");
     color:#ffffff;
 }
 </style>
