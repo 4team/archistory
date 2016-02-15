@@ -87,7 +87,7 @@ top:50px;
 #contentDiv{
 	border: 0px;
 	width:100%;
-	hieght:40%;
+	hieght:400px;
 	background-color:rgba(95, 210, 255, 0.1);
 	overflow-y:scroll; 
 	
