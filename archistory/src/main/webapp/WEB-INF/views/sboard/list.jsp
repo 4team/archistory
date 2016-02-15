@@ -69,7 +69,7 @@
 <td><a href='/sboard/read${pageMaker.makeSearch(pageMaker.cri.page) }&boardNo=${list.boardNo}'>${list.title}
     <strong> [${list.replycnt}]</strong></a></td>
 	<td style="text-align:center; width: 30px;">${list.writer}</td>
-	<td style="text-align:center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${list.regdate}" /></td>
+	<td style="text-align:center; width:15%;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${list.regdate}" /></td>
 	<td style="text-align:center; width: 10px;"><span class="badge bg-red">${list.vcount}</span></td>
 </tr>
 </c:forEach>
