@@ -51,7 +51,7 @@
 				<div class="box-header with-border">
 				</div>
 				<div class="box-body">
-				
+				<br>
 <table class="table table-bordered">
 	<tr>
 		<th style="text-align:center; width: 10px;">NO</th>
