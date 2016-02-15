@@ -88,6 +88,7 @@
         .modal-body{
             height:400px;
             overflow-y: auto;
+            color:#000000;
         }
 
         .modal-title{
