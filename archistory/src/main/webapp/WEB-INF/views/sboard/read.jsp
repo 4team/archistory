@@ -70,13 +70,13 @@ top:50px;
 	margin-right:5px;
 }
 .box-body input{
-        white-space:nowrap;
-        float:left;
-
+    white-space:nowrap;
+    float:left;
 }
 
 .panel-body{
-padding:0px;
+	padding:0px;
+    white-space:nowrap;
 }
 </style>
 
