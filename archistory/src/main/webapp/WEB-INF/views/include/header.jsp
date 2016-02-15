@@ -170,6 +170,7 @@
         .gly{
             float:right;
         }
+        
         table{
             border-spacing: 50px;
         }
