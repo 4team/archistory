@@ -233,6 +233,9 @@
         #pageBtn p{
         	float:right;
         }
+        #secretModal{
+        	z-index:5000;
+        }
 </style>
 
 	 <!-- Core JavaScript Files -->
