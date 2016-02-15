@@ -18,8 +18,14 @@ $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
 });
 
-$("#loginBtn").on("click",function(){
-    $("#loginModal").modal('show');
+
+//admin myinfo page
+$("#myInfo").on("click",function(){
+	if(memberno !=0){
+		$("#userInfo").toggle();
+	}else{
+		$("#loginModal").modal('show');
+	}
 });
 
 //LI클릭해도 a클릭 먹히게...
