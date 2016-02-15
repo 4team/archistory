@@ -75,6 +75,9 @@ top:50px;
 
 }
 
+.panel-body{
+padding:0px;
+}
 </style>
 
  <div class='popup back' style="display: none;"></div>
