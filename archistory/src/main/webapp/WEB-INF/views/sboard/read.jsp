@@ -74,6 +74,7 @@ top:50px;
     float:left;
 }
 .box-body label{
+	margin-right:10px;
     white-space:nowrap;
     float:left;
 }
