@@ -89,6 +89,7 @@ top:50px;
 	width:80%;
 	hieght:40%;
 	background-color: transparent;
+	overflow-y:scroll; 
 	
 }
 </style>
