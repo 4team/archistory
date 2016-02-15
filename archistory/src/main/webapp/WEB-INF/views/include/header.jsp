@@ -243,6 +243,7 @@
 		}
 		a:hover{
 			color:#71D1F7;
+			text-decoration: none;
 		}
 		
     </style>
