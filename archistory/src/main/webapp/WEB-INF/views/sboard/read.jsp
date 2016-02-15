@@ -69,14 +69,18 @@ top:50px;
 	width:500px;
 	margin-right:5px;
 }
+.box-body input{
+    white-space:nowrap;
+    float:left;
+}
 .box-body label{
     white-space:nowrap;
     float:left;
 }
 
 .panel-body{
-	padding:0px;
     white-space:nowrap;
+	padding:0px;
 }
 </style>
 
