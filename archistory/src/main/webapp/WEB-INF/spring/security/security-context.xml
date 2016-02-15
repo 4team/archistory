@@ -19,9 +19,17 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 			<logout logout-url="/user/logout" logout-success-url="/user" delete-cookies="true"/>
 			  <csrf disabled="true"/>
 	</http>
+
 	<http pattern="/sboard/**" auto-config="true" use-expressions="true" authentication-manager-ref="userLoginManager">
 		<intercept-url pattern="/sboard/list" access="permitAll"/>
 		
+		<form-login login-page="/user" username-parameter="email"
+		password-parameter="password" login-processing-url="/user/login_process"
+		default-target-url="/user" authentication-failure-url="/user"
+		always-use-default-target='true'/>
+				
+			<logout logout-url="/user/logout" logout-success-url="/user" delete-cookies="true"/>
+			  <csrf disabled="true"/>
 	</http>
 	
 	<http auto-config="true" use-expressions="true" authentication-manager-ref="adminLoginManager">
