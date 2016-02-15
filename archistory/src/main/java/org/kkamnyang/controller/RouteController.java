@@ -100,6 +100,15 @@ public class RouteController{
 		return entity;
 	}
 	
-	
+	@RequestMapping(value="/secret", method = RequestMethod.GET)
+	public ResponseEntity<String> secret(@RequestParam("routeno")Integer routeno) throws Exception{
+		ResponseEntity<String> entity = null;
+		try{
+			entity = new ResponseEntity<String>(service.secret(routeno),HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
 	
 }

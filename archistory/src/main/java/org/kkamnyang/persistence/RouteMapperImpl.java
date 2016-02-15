@@ -18,4 +18,9 @@ public class RouteMapperImpl extends AbstractCRUDMapper<RouteVO,Integer> impleme
 	public List<RouteVO> closelist(LocationVO vo) throws Exception {
 		return session.selectList(namespace+".closelist",vo);
 	}
+
+	@Override
+	public String secret(Integer routeno) {
+		return session.selectOne(namespace+".secret",routeno);
+	}
 }

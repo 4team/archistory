@@ -744,8 +744,20 @@ function getLocation(){
     }
     $("#yesNo").on("click","#yes",function(){
         var icon= $(this);
-        console.log(icon.attr("value"));
-        viewRoute(icon.attr("value"));
+        var routeno = icon.attr("value");
+        
+        $.getJSON("http://14.32.66.127:4000/route/secret?routeno="+routeno,function(data){
+
+        	if(data == true){
+        		console.log("비밀번호 입력하는 모달창 뜨기.");
+        	}else if(data == false){
+		        viewRoute(icon.attr("value"));
+        	}else{
+        		$("#yesModal").modal('hide');
+        	}
+        	
+        });
+        
     });
     
     $("#yesNo").on("click","#no",function(){

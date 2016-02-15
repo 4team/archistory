@@ -36,5 +36,8 @@
  		delete from tbl_route where routeno = #{routeno}
  	</delete>
  	
+ 	<select id="secret">
+ 		select secret from tbl_route where routeno = #{routeno}
+ 	</select>
  	
  </mapper>

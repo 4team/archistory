@@ -41,5 +41,9 @@ public class RouteService {
 	public void remove(Integer routeno) throws Exception{
 		mapper.delete(routeno);
 	}
+
+	public String secret(Integer routeno) {
+		return mapper.secret(routeno);
+	}
 	
 }
