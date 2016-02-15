@@ -11,8 +11,9 @@
 <!-- 클릭 메뉴들과 관련된 스크립트 -->
 <script>
 
-
-var memberno = ${memberno};
+if(${memberno}){
+	var memberno = ${memberno};
+}
 
 $("#mDrop").on("mouseover",function(){
     $(".dropdown-menu").show();
