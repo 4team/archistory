@@ -18,6 +18,7 @@ top:10px;
 
 body {
     background-image: url("/img/back1.jpg");
+    background-size:100% 100%;
     color:#ffffff;
 }
 </style>
