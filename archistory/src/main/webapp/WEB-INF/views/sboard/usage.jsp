@@ -24,7 +24,7 @@
 				<div class="box-body"  >
 				
 				
-				<video class="video" controls="" width="60%" src="/video/jws.mp4"></video> 
+				<video class="video" controls="" width="60%" src="/video/admin_music.mp4"></video> 
 					
 				</div>
 				
