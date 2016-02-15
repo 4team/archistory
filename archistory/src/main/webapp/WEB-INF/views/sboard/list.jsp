@@ -169,6 +169,6 @@ $("#searchBtn").on("click",function(event){
 </div>
 <!-- /.content-wrapper -->
 </div>
-</div>    
+
     
 <%@include file="../include/footer.jsp"%>
