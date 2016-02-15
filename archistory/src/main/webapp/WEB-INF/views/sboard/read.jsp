@@ -63,7 +63,8 @@ top:50px;
 }
 
 #newcontent{
-width:500px;
+        white-space:nowrap;
+	width:500px;
 }
 
 </style>
@@ -145,8 +146,8 @@ width:500px;
                   <div class="box-body">
                      <label for="exampleInputEmail1">Writer</label> <input
                         class="form-control" type="text" placeholder="USER ID"
-                        id="newReplyWriter"> <label for="exampleInputEmail1">Reply
-                        Text</label> <input class="form-control" type="text"
+                        id="newReplyWriter"><label for="exampleInputEmail1">Reply
+                        Text</label><input class="form-control" type="text"
                         placeholder="REPLY TEXT" id="newcontent">
 
                   </div>
