@@ -13,11 +13,7 @@
 			<!-- general form elements -->
 
 			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">SEARCH</h3>
-				</div>
 
-				<h1>${cri.searchType}</h1>
 				<div class='box-body' id='searchDiv'>
 
 					<select name="searchType" id="searchType">
