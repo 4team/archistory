@@ -76,7 +76,7 @@
         width:420px;
     }
     .fileDrop {
-        width: 90%;
+        width: 100%;
         height: 100px;
         border: 2px dotted black;
         border-radius: 10px;
@@ -261,7 +261,6 @@
                        <label for="eventName">이름</label><br>
                         <input type="text" class="form-control" id="order" placeholder="순서" readonly="readonly" style="align:center">
                         <input type="text" class="form-control" id="eventName" placeholder="이벤트 이름을 입력하세요">
-                        <button type="button" id="search" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                         <label for="eventinfo">설명</label><textarea class="form-control" id="eventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                         <label for="imgInput">이미지</label>
                         <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>                        
@@ -285,7 +284,8 @@
                             <select class="form-control" id="qType">
                                 <option value="ox">O/X</option>
                                 <option value="multiple">객관식</option>
-                            </select><br>
+                            </select><label>Point</label><input type="text" class="form-control" id="point" placeholder="point"><br>
+
 
                             <label for="qTitle">문제</label>
                             <textarea class="form-control" id="questionTitle" placeholder="문제를 입력하세요."></textarea><br>
@@ -294,7 +294,6 @@
                                 <label for="s2">2번 선택지</label><input type="text" class="form-control" id="s2" placeholder="2번 보기를 입력하세요."><br>
                                 <label for="s3">3번 선택지</label><input type="text" class="form-control" id="s3" placeholder="3번 보기를 입력하세요."><br>
                                 <label for="s4">4번 선택지</label><input type="text" class="form-control" id="s4" placeholder="4번 보기를 입력하세요."><br>
-
                                 <div id="multipleAnswerBox" class="checkbox">
                                     <label><input type="checkbox" name="optionsRadios" id="multipleAnswer1" value="1">1</label>
                                     <label><input type="checkbox" name="optionsRadios" id="multipleAnswer2" value="2">2</label>
@@ -342,10 +341,8 @@
                     <input type="hidden" id="moeventno" value="">
                     <label for="eventName">이름</label><input type="text" class="form-control" id="moeventName" placeholder="이벤트 이름을 입력하세요">
                     <input type="text" class="form-control" id="moorder" placeholder="순서" readonly="readonly" style="align:center"><br>
-                    <button type="button" id="mosearch" class="btn btn-info btn-xs" style="float : right; margin-right: 10px; margin-top: 5px;">검색</button><br>
                     <label for="eventinfo">설명</label><textarea class="form-control" id="moeventinfo" rows="3" placeholder="이벤트 설명을 입력하세요."></textarea>
                     <label for="imgInput">이미지</label>
-                    <input type="file" id="moimgInput"><br>
                     <div class="fileDrop"><h5 align="center">마우스로 파일을 끌어오세요.</h5></div>    
                     <ul class="mailbox-attachments clearfix uploadedList" style="display:inline"></ul>
                     
@@ -364,7 +361,8 @@
                     <select class="form-control" id="moqType">
                         <option value="ox">O/X</option>
                         <option value="multiple">객관식</option>
-                    </select><br>
+                    </select><label>Point</label><input type="text" class="form-control" id="mpoint" placeholder="point"><br>
+
 
                     <label for="qTitle">문제</label>
                     <input type="hidden" id="qno">
@@ -374,7 +372,7 @@
                         <label for="s2">2번 선택지</label><input type="text" class="form-control" id="mos2" placeholder="2번 보기를 입력하세요."><br>
                         <label for="s3">3번 선택지</label><input type="text" class="form-control" id="mos3" placeholder="3번 보기를 입력하세요."><br>
                         <label for="s4">4번 선택지</label><input type="text" class="form-control" id="mos4" placeholder="4번 보기를 입력하세요."><br>
-
+						
                         <div id="momultipleAnswer" class="checkbox">
                             <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer1" value="1">1</label>
                             <label><input type="checkbox" name="optionsRadios" id="momultipleAnswer2" value="2">2</label>
@@ -704,13 +702,14 @@
         var eorder = $("#order").val();
         var title = $("#eventName").val();
         var content = $("#eventinfo").val();
+        var point = $("#point").val();
         camera = $("#camera").val();
         attach2 = attach.join();
         if(title=="" || content==""){
             alert("이벤트 이름과 설명을 입력해주세요!");
             return;
         }
-        createEvent(routeno, eorder, title, content, attach2, lat, lng, camera,youtubeId, function(){
+        createEvent(routeno, eorder, title, content, attach2, lat, lng, camera,youtubeId,point, function(){
             console.log("attach2:" + attach2);
             clearEventDiv();
         	attach = [];
@@ -744,7 +743,7 @@
         var qObject = new Object();
         qObject.eventno = data;
         qObject.question = $("#questionTitle").val();
-        qObject.point = 500;
+        qObject.point = $("#point").val();
         qObject.qtype = $("#qType").val();
         qObject.choice1 = $("#s1").val();
         qObject.choice2 = $("#s2").val();
@@ -785,16 +784,16 @@
     }
     
     /*     <!-- 이벤트 생성 기능 --> */
-    function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,callback){
+    function createEvent(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,point,callback){
     	
-        console.log(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId);
+        console.log(routeno,eorder,title,content,attach2,lat,lng,camera,youtubeId,point);
         $.ajax({
             type:'post',
             url:"http://14.32.66.127:4000/event/attachCreate",
             headers: {
                 "Content-Type":"application/json"},
             datatype: "json",
-            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtube:youtubeId}),
+            data:JSON.stringify({routeno:routeno, eorder:eorder,title:title,content:content,efiles:attach2,lat:lat,lng:lng,camera:camera,youtube:youtubeId,point:point}),
             success: function(data){
         		polyline.setMap(null);
                 console.log("<이벤트 생성!> eventno 가져옴:"+data);
@@ -840,6 +839,7 @@
         $("#s2").val("");
         $("#s3").val("");
         $("#s4").val("");
+        $("#point").val("");
         qattach=[];
         for(var i=1;i<5;i++) {
             var id = "#multipleAnswer";
@@ -940,6 +940,7 @@
             console.log("문제 넘버:"+qno+"읽어오기");
             console.log(vo);
             $("#qno").val(qno);
+            $("#mpoint").val(vo.attr("point"));
             if(typeof qno == "undefined"){
                 console.log("이벤트 VIEW - 문제 없음.");
                 $("#qno").val("no_Question");
@@ -1081,6 +1082,8 @@
         var eventno = $("#moeventno").val();
         var eorder = $("#moorder").val();
         var camera = $("#mocamera").val();
+        var point = $("mpoint").val();
+        
         attach2 = attach.join();
         
         console.log(attach2);
@@ -1103,7 +1106,7 @@
             console.log("<이벤트 수정중> - 문제YES/YES");
             modifyQuestion(modiJson);
         }
-        modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,function(){
+        modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,point,function(){
         	 //clearEventDiv();
              //attach = [];
         });
@@ -1112,7 +1115,7 @@
         clearMoEventdiv();
     });
     /* <!-- 이벤트 수정 기능 --> */
-    function modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,callback){
+    function modifyEvent(eventno,eorder,title,content,attach2,camera,youtubeId,point,callback){
         console.log("이벤트 수정"+eventno);
         $.ajax({
             type:'post',
@@ -1120,7 +1123,7 @@
             headers:{
                 "Content-Type" :"application/json"	},
             datatype : "json",
-            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,camera:camera,youtube:youtubeId}),
+            data: JSON.stringify({eventno:eventno,eorder:eorder,title:title,content:content,efiles:attach2,camera:camera,youtube:youtubeId,point:point}),
             success: function(data){
         		polyline.setMap(null);
                 getEventList();

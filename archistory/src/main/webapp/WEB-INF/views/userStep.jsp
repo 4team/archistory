@@ -38,7 +38,9 @@
         float:right;
         margin:10px;
     }
-
+h1{
+	color:#FF7700;
+}
     #buttonContainer button{
         float : right;
         margin : 0px 0px 10px 5px;
@@ -114,24 +116,42 @@
     #finishDiv{
         position:absolute;
         z-index:5000;
-        background-color: #fff;
+        background-color: #000;
         width:100%;
         height:100%;
         display:none;
         text-align: center;
         font-size : 20px;
     }
+    
+    #finishDiv table{
+    	color:#fff;
+    	position:absolute;
+    	top:100;
+    	width:100%;
+    }
+
+    #finishDiv table tr th{
+    	text-align: center;
+    }
+    
+    #finishDiv table tr td{
+    	text-align: center;
+    }
 
     #finishDiv img{
+    	margin-top:100px;
         width:60%;
     }
 
     #finishContent{
         position:absolute;
         text-align: center;
-        top:70%;
+        color: #fff;
+        top:55%;
         left:50%;
-        margin-left:-100px;
+        width:300px;
+        margin-left:-150px;
         z-index: 6000;
     }
 
@@ -299,7 +319,7 @@
 </div>
 
 <div id="finishDiv">
-    <img class="img-responsive" src="http://14.32.66.127:4000/img/Contentulations.jpg">
+    <img src="http://14.32.66.127:4000/img/Contentulations.jpg">
    <div id="finishContent">'${routename}' Finish!</div>
     <button type="button" id="finishClose" class="btn btn-default">OK</button>
 </div>
@@ -382,7 +402,8 @@ var customOverlay;
     
     //------------------------------------------유저 루트 참여 시작 -------------------------------------//
 
-
+if(memberno !=0){
+	
     $.ajax({
         type:'post',
         url:"http://14.32.66.127:4000/participate/join",
@@ -395,6 +416,8 @@ var customOverlay;
             participateno = parseInt(data);
         }
     });
+
+}
 
     //-------------------------------------------------------------------------------------------------//
     
@@ -634,23 +657,26 @@ var myMarker = null;
                 
                 nowOrder++;
 
-
-                $.ajax({
-                    type:'post',
-                    url:"http://14.32.66.127:4000/participate/next",
-                    headers: {"Content-Type":"application/json"},
-                    datatype: "json",
-                    data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:nowOrder}),
-                    success: function(data){
-                        console.log("=========Participate Next========");
-                        console.log(data);
-                    },
-                    error:function(data){
-                        console.log("=========Participate Next========");
-                        console.log(data);
-                    }
-
-                });
+				if(memberno != 0){
+					
+	                $.ajax({
+	                    type:'post',
+	                    url:"http://14.32.66.127:4000/participate/next",
+	                    headers: {"Content-Type":"application/json"},
+	                    datatype: "json",
+	                    data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:nowOrder}),
+	                    success: function(data){
+	                        console.log("=========Participate Next========");
+	                        console.log(data);
+	                    },
+	                    error:function(data){
+	                        console.log("=========Participate Next========");
+	                        console.log(data);
+	                    }
+	
+	                });
+	                
+				}
 
                 getEvent();
                 return;
@@ -682,32 +708,39 @@ var myMarker = null;
             console.log("정답입니다.");
             $("#resultShow").html("<h3>정답입니다.</h3>");
 
-            $.ajax({
-                type:"post",
-                url:"http://14.32.66.127:4000/question/solve",
-                headers:{ "Content-Type":"application/json"},
-                datatype:"json",
-                data:JSON.stringify({memberno:memberno,questionno:questionVO.questionno,result:true}),
-                success:function(data){
-                    console.log("문제를 풀고 받은 결과",data);
-                    score += questionVO.point;
-                }
-            });
+            if(memberno !=0){
+            	
+	            $.ajax({
+	                type:"post",
+	                url:"http://14.32.66.127:4000/question/solve",
+	                headers:{ "Content-Type":"application/json"},
+	                datatype:"json",
+	                data:JSON.stringify({memberno:memberno,questionno:questionVO.questionno,result:true}),
+	                success:function(data){
+	                    console.log("문제를 풀고 받은 결과",data);
+	                    score += questionVO.point;
+	                }
+	            });
+	            
+            }
 
         }else{
             console.log("틀렸습니다.");
             $("#resultShow").html("<h3>틀렸습니다.</h3>");
-
-            $.ajax({
-                type:"post",
-                url:"http://14.32.66.127:4000/question/solve",
-                headers:{ "Content-Type":"application/json"},
-                datatype:"json",
-                data:{memberno:memberno,questionno:questionVO.questionno,result:false},
-                success:function(data){
-                    console.log("문제를 풀고 받은 결과",data);
-                }
-            });
+			if(memberno != 0){
+				
+	           $.ajax({
+	               type:"post",
+	               url:"http://14.32.66.127:4000/question/solve",
+	               headers:{ "Content-Type":"application/json"},
+	               datatype:"json",
+	               data:{memberno:memberno,questionno:questionVO.questionno,result:false},
+	               success:function(data){
+	                   console.log("문제를 풀고 받은 결과",data);
+	               }
+	           });
+	           
+			}
         }
 
 
@@ -722,23 +755,26 @@ var myMarker = null;
         $("#moveNext").modal("show");
         
         nowOrder++;
-
-        $.ajax({
-            type:'post',
-            url:"http://14.32.66.127:4000/participate/next",
-            headers: {"Content-Type":"application/json"},
-            datatype: "json",
-            data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:nowOrder}),
-            success: function(data){
-                console.log("=========Participate Next========");
-                console.log(data);
-            },
-            error:function(data){
-                console.log("=========Participate Next========");
-                console.log(data);
-            }
-
-        });
+		if(memberno != 0){
+			
+	        $.ajax({
+	            type:'post',
+	            url:"http://14.32.66.127:4000/participate/next",
+	            headers: {"Content-Type":"application/json"},
+	            datatype: "json",
+	            data:JSON.stringify({participateno:participateno,routeno:routeno, memberno:memberno,score:score,stage:nowOrder}),
+	            success: function(data){
+	                console.log("=========Participate Next========");
+	                console.log(data);
+	            },
+	            error:function(data){
+	                console.log("=========Participate Next========");
+	                console.log(data);
+	            }
+	
+	        });
+			
+		}
 
         getEvent();
     });
@@ -751,18 +787,27 @@ var myMarker = null;
     $("#finishClose").on("click",function(event){
         if(memberno!=0) {
             console.log("GUEST가 아닙니다. 랭킹을 띄워준다.");
-            $("#finishDiv").html("<h1>랭킹</h1>");
+            var str ="";
+            str+="<h1>Ranking</h1>";
             
             $.getJSON("http://14.32.66.127:4000/participate/ranking?routeno="+routeno,function(data){
             	
             	var list = $(data);
-	            	$("#finishDiv").append("<p>User Name   Score</p>");
+            	var length = list.length;
+            	console.log(length);
+	            	str+="<table><tr><th>User Name</th><th>Score</th></tr>";
+            	var rank = 1;
             	
             	list.each(function(){
 					console.log(this);
-	            	$("#finishDiv").append("<p>"+this.userName+"  "+this.score+"</p>");
+	            	str+="<tr><td style='width:50%;'>"+rank+". "+this.userName+"</td><td style='width:50%;'>"+this.score+"</td></tr>";
+	            	rank++;
+	            	if(rank == (length+1)){
+		            	str+="<tr><td><br><center><button class='btn btn-primary' onclick='backto();'>OK</button></center></td></tr></table>";
+		            	$("#finishDiv").html(str);
+	            	}
             	});
-            	$("#finishDiv").append("<button id='endRoute'>OK</button>");
+            	
             });
             
         }else{
@@ -771,9 +816,9 @@ var myMarker = null;
         }
     });
     
-    $("#endRoute").on("click",function(){
+    function backto(){
             self.location = "/user";
-    });
+    };
 
 </script>
 

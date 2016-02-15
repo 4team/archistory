@@ -8,7 +8,7 @@ public class MemberVO {
 	private Integer userNo;
 	private String userName;
 	private String email;
-	private String mPassword;
+	private String password;
 	private String img;
 	private Date regdate;
 	public Integer getMemberno() {
@@ -35,11 +35,11 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getmPassword() {
-		return mPassword;
+	public String getPassword() {
+		return password;
 	}
-	public void setmPassword(String mPassword) {
-		this.mPassword = mPassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getImg() {
 		return img;
@@ -56,7 +56,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [memberno=" + memberno + ", userNo=" + userNo + ", userName=" + userName + ", email=" + email
-				+ ", mPassword=" + mPassword + ", img=" + img + ", regdate=" + regdate + "]";
+				+ ", mPassword=" +password + ", img=" + img + ", regdate=" + regdate + "]";
 	}
 	
 	

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false"%>
@@ -23,11 +23,17 @@
 	<link href="/color/default.css" rel="stylesheet">
 	
 </head>
+    
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
     <style>
         html, body {
             width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
             font-family: sans-serif; color: white;
+            background-color: #000000;
         }
 
         #main{
@@ -96,7 +102,8 @@
         }
         li{
             list-style: none;
-            margin-bottom: 15px;
+            padding-top: 5px;
+            padding-bottom:5px;
         }
 
         small{
@@ -169,6 +176,10 @@
         table{
             border-spacing: 50px;
         }
+        
+        table tr:hover{
+        	background-color:rgba(95, 210, 255, 0.1);
+        }
         table,th,td{
             border-collapse : collapse;
         }
@@ -184,28 +195,11 @@
 		margin:auto;
 		}
 		.fa{
-		position:absolute;
+			margin:5px;
+			position:relative;
+			font-size: 1.5em;
 		}
-		.fa-home{
-		top:20px;
-		left:22px;
-		}
-		.fa-map-marker{
-		top:94px;
-		left:25px;
-		}
-		.fa-question{
-		top:170px;
-		left:25px;
-		}
-		.fa-book{
-		top:246px;
-		left:22px;
-		}
-		.fa-download{
-		top:320px;
-		left:22px;
-		}
+
 		.gn-menu li:hover{
         	border : 1px solid;
         	border-color:#aef;
@@ -216,29 +210,56 @@
         }
         
        #hamb{
-       padding-top:10px;
+/*        padding-top:-10px;
        		padding-left:-15px;
-	   		font-size: 2em;
 	   		margin-left:0px;
 	   		margin:2px;
 	   		margin-top:3px;
+ */				
+					margin-top: 3px;
+		margin-left: -25px;
+			text-decoration:none;
+	   		font-size: 2em;
 	   		color:#FFFFFF;
 		}
+		
+		#hamb:hover{
+			color:#eb5d1e;
+		}
+		.box{
+		position : fix;
+		margin-left :200px;
+		margin-right:200px;
+		}
+		
+		.col-md-12{
+		top:10px;
+		}
+		
+		body {
+		    background-image: url("/img/back1.jpg");
+		    background-size:cover;
+		    color:#ffffff;
+		}
+		
+		a{
+			text-decoration: none;
+		}
+		a:hover{
+			color:#5DBFEC;
+			text-decoration: none;
+		}
+		
     </style>
-    
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
-<body>
-
 <!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		
+<body>
+
 <div class="menu">
 			<ul id="gn-menu" class="gn-menu-main">
 <li class="gn-trigger">
@@ -247,13 +268,13 @@
 						<div class="gn-scroller">
 							<ul class="gn-menu">
 								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								<li><i class="fa fa-map-marker"></i><a class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
 								
 									<ul  id="myRouteList"></ul>
 									
 								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
 								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
-								<li><i class="fa fa-download"></i><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+								<li><i class="fa fa-download"></i><a class="gn-icon gn-icon-download">App Download</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
@@ -357,55 +378,6 @@
 </div>
 
 
-
-<!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
-<script>
-
-
-</script>
-
-<!-- 클릭 메뉴들과 관련된 스크립트 -->
-<script>
-$("#mDrop").on("mouseover",function(){
-    $(".dropdown-menu").show();
-});
-
-$("#main").on("mouseover",function(){
-    $(".dropdown-menu").hide();
-});
-
-$("#loginBtn").on("click",function(){
-    $("#loginModal").modal('show');
-});
-
-	
-	$("#joinBtn").on("click",function(){
-		$("#joinModal").modal('show');
-	});
-
-    // 15일 5:29분부터 추가..
-    $("#user").on("click",function(){
-        $("#adminJoinDiv").hide();
-        $("#userJoinDiv").show();
-    });
-    $("#admin").on("click",function(){
-        $("#adminJoinDiv").show();
-        $("#userJoinDiv").hide();
-    });
-
-</script>
-
- <!-- Core JavaScript Files -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min2.js"></script>
-    <script src="/js/jquery.easing.min.js"></script>	
-	<script src="/js/classie.js"></script>
-	<script src="/js/gnmenu.js"></script>
-	<script src="/js/jquery.scrollTo.js"></script>
-	<script src="/js/nivo-lightbox.min.js"></script>
-	<script src="/js/stellar.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="/js/custom.js"></script>
     
     
     

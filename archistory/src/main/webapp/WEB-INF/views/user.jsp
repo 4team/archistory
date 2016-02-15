@@ -171,6 +171,7 @@
        #loginBody{
 	        top:150px;
 	        z-index:2000;
+	    	max-width:300px;
 	    }
 	
 	    #loginH{
@@ -188,15 +189,49 @@
         #finishedDiv p{
         	text-align: center;
         }
+        
+        
         #imgDiv{
           	margin:auto;
           	padding:0px;
       	}
         
       #imgDiv img{
+      		margin:auto;
+      		margin-bottom : 10px;
 	        width:200px;
 	        height:200px;
 	        display:block;
+        }
+        
+        #routePage{
+        max-height:400px;
+        	overflow-y:scroll;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+        
+        #pageBtn{
+        	position:absolute;
+	        width:140px;
+	        margin-left:-70px;
+        	left:50%;
+        }
+        
+        #pageBtn p{
+        	float:right;
         }
 </style>
 
@@ -350,7 +385,7 @@
 <div class="modal fade" id="myPageModal" tabindex="-1" role="dialog" aria-labelledby="routeCreateModalLabel" aria-hidden="false" >
     <div class="modal-dialog">
 
-        <div class="modal-content">
+        <div class="modal-content" id="routePage">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myPageModalLabel">Finished Route</h4>
@@ -364,7 +399,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">확인</button>
+                <button type="button" id="loginCancelBtn" class="btn btn-default" data-dismiss="modal">OK</button>
             </div>
         </div>
 
@@ -414,6 +449,15 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="alertLast" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="position:absolute; top:40%; width:100%; text-align: center; font-weight: bold;">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <div>마지막페이지 입니다.</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- 사용자 이미지 입력하는 곳 -->
@@ -429,13 +473,13 @@
             <div class="modal-body" style="height:80px;">
            		<form id='form1' action='/memberImgUpload' method='post' enctype='multipart/form-data' target="zeroFrame">
            			<input type='file' name='file' id="file">
-           			<button type='button' id="imgSubmit">등록</button>
-           		</form>
            		<iframe name="zeroFrame" style="height:30px; border:0px;"></iframe>
             </div>
             <div class="modal-footer">
 
-                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+                	<button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+           			<button type='button' id="imgSubmit" class="btn btn-primary">SAVE</button>
+           		</form>
             </div>
         </div>
     </div>
@@ -536,16 +580,37 @@ $("#imgSubmit").on("click",function(event){
 			});
 			
 		})
+
 			$("#myPageModal").modal('show');
 	});
 
+	var lastPage = null;
 	function viewFinishRoute(routeno,page){
+		$.ajax({
+			url:"http://14.32.66.127:4000/participate/finishRouteCount",
+			data:JSON.stringify({memberno:memberno,routeno:routeno}),
+			datatype:'json',
+	        headers: {
+	            "Content-Type":"application/json"},
+			type:'post',
+			success:function(data){
+				console.log("멤버 피니쉬 루트 갯수 : "+data);
+				lastPage = data;
+			}
+		});
+		
+		
 		if(page == -1){
 			$("#alertFirst").modal("show");
 			page = 0;
+		}else if(page == lastPage){
+			$("#alertLast").modal('show');
+			return;
 		}
 			console.log(page);
+		
 		var curpage = page;
+		
 		$.getJSON("http://14.32.66.127:4000/participate/finishRoute?memberno="+memberno+"&routeno="+routeno+"&page="+page,function(data){
 				var FinishRouteVO = $(data)[0];
 				var str ="<center><pre>Route Name</pre></center>";
@@ -553,15 +618,32 @@ $("#imgSubmit").on("click",function(event){
 				str+="<center><pre>Route Creator</pre></center>";
 				str+="<p>"+FinishRouteVO.username+"</p>";
 				str+="<center><pre>Finished Date</pre></center>";
-				str+="<p>"+FinishRouteVO.lastdate+"</p>";
+				var lastdate = new Date(FinishRouteVO.lastdate);
+				str+="<p>"+lastdate.toLocaleDateString()+"  "+lastdate.toLocaleTimeString()+"</p>";
 				str+="<center><pre>My Score</pre></center>";
 				str+="<p>"+FinishRouteVO.score+"</p>";
 				str+="<center><pre>My Ranking</pre></center>";
-				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>Prev</button>";
-				str+="<button class='btn btn-default' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>Next</button>";
+				str+="<div id='pageBtn'><p id='pageBtnP'>";
+				
+				if(curpage != 0){
+					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage-1)+")'>◀</button>";
+				}
+				
+				str+= "  "+(page+1)+"/"+lastPage+"  ";
+				
+				if(curpage != (lastPage-1)){
+					str+="<button class='btn btn-primary' onclick='viewFinishRoute("+routeno+","+(curpage+1)+")'>▶</button>";
+				}
+				
+				str+="</p></div><br>";
+				
 				$("#finishedDiv").html(str);
+				
+				if(curpage == (lastPage-1)){
+					$("#pageBtn").children("p").css("float","left");
+				}
 			
-		});
+		}).error(function() {$("#alertLast").modal('show'); });
 	}
 
 // 나의 위치를 읽어온다.
@@ -588,15 +670,13 @@ function getLocation(){
             $.ajax({
     	        type:'post',
     	        url:"http://14.32.66.127:4000/route/closelist",
-    	        headers: {
+     	        headers: {
     	            "Content-Type":"application/json"},
     	        datatype: "json",
-    	        data:JSON.stringify({myLat:myLat,myLng:myLng}),
+   	     		data:JSON.stringify({myLat:myLat,myLng:myLng}), 
     	        success: function(data){
     	        var list = $(data);
     			routeLi = "";
-    	        console.log(list);
-    	        
     	        list.each(function(idx,value){
     	            var route = this;
     	            calcDistance(route);

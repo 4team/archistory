@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +89,8 @@
         }
         li{
             list-style: none;
-            margin-bottom: 15px;
+            padding-top: 5px;
+            padding-bottom:5px;
         }
 
         small{
@@ -196,27 +197,9 @@
 		z-index:999;
 		}
 		.fa{
-		position:absolute;
-		}
-		.fa-home{
-		top:20px;
-		left:22px;
-		}
-		.fa-map-marker{
-		top:94px;
-		left:25px;
-		}
-		.fa-question{
-		top:170px;
-		left:25px;
-		}
-		.fa-book{
-		top:246px;
-		left:22px;
-		}
-		.fa-download{
-		top:320px;
-		left:22px;
+			margin:5px;
+			position:relative;
+			font-size: 1.5em;
 		}
 		.gn-menu li:hover{
         	border : 1px solid;
@@ -228,13 +211,21 @@
         }
         
        #hamb{
-       padding-top:10px;
+/*        padding-top:-10px;
        		padding-left:-15px;
-	   		font-size: 2em;
 	   		margin-left:0px;
 	   		margin:2px;
 	   		margin-top:3px;
+ */				
+			margin-top: 3px;
+			margin-left: -25px;
+			text-decoration:none;
+	   		font-size: 2em;
 	   		color:#FFFFFF;
+		}
+		
+		#hamb:hover{
+			color:#eb5d1e;
 		}
     </style>
     
@@ -261,7 +252,7 @@
 						<div class="gn-scroller">
 							<ul class="gn-menu">
 								<li><i class="fa fa-home"></i><a href="/" class="gn-icon gn-icon-cog">Home</a></li>
-								<li><i class="fa fa-map-marker"></i><a href="#about" class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
+								<li><i class="fa fa-map-marker"></i><a class="gn-icon gn-icon-download" id="routeShow">Tour Route</a></li>
 								
 									<ul  id="myRouteList"></ul>
 									
@@ -522,6 +513,12 @@ $("#loginBtn").on("click",function(){
     $("#loginModal").modal('show');
 });
 
+//LI클릭해도 a클릭 먹히게...
+$(".gn-menu").on("click","li",function(event){
+	$(this)[0].lastChild.click();
+});
+
+
 	
 	$("#joinBtn").on("click",function(){
 		$("#joinModal").modal('show');
@@ -554,7 +551,6 @@ $("#loginBtn").on("click",function(){
     	
     	var p1 = $("#adminpassword1").val();
     	var p2 = $("#adminpassword2").val();
-	   	console.log("어드민 패스워드 타이핑중");
 	   	var resultDiv = $(".duplResult");
     	
 	    if(p1 != p2){
@@ -568,7 +564,6 @@ $("#loginBtn").on("click",function(){
     	
     	var p1 = $("#password1").val();
     	var p2 = $("#password2").val();
-	   	console.log("유저 패스워드 타이핑중");
 	   	var resultDiv = $(".duplResult");
     	
 	    if(p1 != p2){
@@ -577,6 +572,90 @@ $("#loginBtn").on("click",function(){
 	    	resultDiv.html("");
 	    }
     });
+		
+		
+		$("#eventCreateBtn").on("click",function(event){
+			$("#joinModal").modal('hide');
+			if($("#admin").is(":checked")){
+				
+				console.log("admin의 가입처리");
+				
+				if($("#adminpassword1").val() != $("#adminpassword2").val()){
+					alert("입력한 비밀번호를 확인해주세요.");
+				}
+				
+				if($("#adminEmail").val() == "" || $("#adminpassword1").val()== "" || $("#adminpassword2").val() == "" 
+						|| $("#adminname").val() =="" || $("#phone").val() == "" || $("#nation").val()==""){
+					alert("모든 정보를 입력해주세요.");
+				}
+				
+				var email = $("#adminEmail").val();
+				var password = $("#adminpassword1").val();
+				var name = $("#adminname").val();
+				var phone = $("#phone").val();
+				var nation = $("#nation").val();
+				
+				$.ajax({
+					url:"http://14.32.66.127:4000/admin/regist",
+					data:JSON.stringify({email:email,password:password,username:name,phone:phone,nation:nation,enabled:false}),
+					datatype:'json',
+			        headers: {
+			            "Content-Type":"application/json"},
+					type:'post',
+					success:function(data){
+						console.log(data);
+						
+						if(data!="fail"){
+							var key = data;
+							console.log("성공");
+				
+							 var link = "mailto:"+email+
+				             "?subject=" + escape("Welcome To Archistory!")+
+				             "&body=" + escape("<html><head><title>Archistory Registration</title></head><body>"+
+				             "<h3>Welcome to Archistory!</h3><br><h4>Confirm your registration.</h4><br><form action='http://14.32.66.127:4000/admin/registConfirm' method='post'><input type='hidden' value='"+key+"'><button>OK</button></form></body></html>");
+							  window.location.href = link;
+							
+						}else{
+							console.log("fail이므로 메일을 보내지 못했다.");
+							alert("문제가 발생했습니다. 다시 시도해주세요.");
+						}
+					}
+			            
+				});
+				
+				
+			}else{
+				
+				console.log("user의 가입처리");
+				
+				if($("#password1").val() != $("#password2").val()){
+					alert("입력한 비밀번호를 확인해주세요.");
+				}
+				
+				if($("#useremail").val() == "" || $("#password1").val()== "" || $("#password2").val() == "" 
+						|| $("#username").val() ==""){
+					alert("모든 정보를 입력해주세요.");
+				}
+				
+				var email = $("#useremail").val();
+				var password = $("#password1").val();
+				var name = $("#username").val();
+				
+				$.ajax({
+					url:"http://14.32.66.127:4000/member/register",
+					data:JSON.stringify({email:email,password:password,userName:name}),
+					datatype:'json',
+			        headers: {"Content-Type":"application/json"},
+					type:'post',
+					success:function(data){
+						console.log(data);
+					}
+				});
+				
+			}
+			
+		});
+		
 </script>
 <script src="/Cesium/js/map.js"></script>
 

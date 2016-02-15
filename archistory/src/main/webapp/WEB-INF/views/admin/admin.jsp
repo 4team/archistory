@@ -11,6 +11,19 @@
 <head>
     <meta charset="UTF-8">
     <title>= Archistory(ADMIN) =</title>
+    
+      <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min2.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="/css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="/css/style2.css" rel="stylesheet">
+	<link href="/color/default.css" rel="stylesheet">
+	
 </head>
 
     <style>
@@ -29,9 +42,9 @@
 			
 			z-index:100;
 			position: absolute;
-			top:5px;
+/* 			top:5px;
 			left:8px;
-			background-color:#303336;
+			background-color:#303336; */
 		}
         
         #menu:hover{
@@ -52,13 +65,7 @@
         	margin-left: 5px;
         }
         
-        span.glyphicon-menu-hamburger {
-	   		font-size: 1.8em;
-	   		margin:2px;
-	   		margin-top:3px;
-	   		color:#FFFFFF;
-		}
-		
+
 
 		#userJoinDiv{
 			display:none;
@@ -75,17 +82,20 @@
         .modal-title{
             text-align: center;
         }
+        .modal-dialog{
+        			z-index:9999;
+        }
         
          #myRouteList{
          	display:none;
             position:absolute;
             padding: 10px;
-            z-index:400;
+            z-index:9400;
             border : 1px solid black;
             border-radius : 10px;
             background-color : #FFF;
-            top:46px;
-            left:157px;
+            top:110px;
+            left:200px;
             width:200px;
             height:400px;
             overflow-y:scroll;
@@ -94,7 +104,9 @@
   
         li{
             list-style: none;
-            margin-bottom: 15px;
+            padding-top: 5px;
+            padding-left:5px;
+            padding-bottom:5px;
         }
 
         small{
@@ -139,7 +151,7 @@
             background-color: #303336;
             width:32px;
             height:32px;
-            z-index: 330;
+            z-index: 9330;
             top:5px;
             left:43px;
             position : absolute;
@@ -198,8 +210,8 @@
 	   		text-align:center;
 	   		border:1px solid;
 	   		display:none;
-	   		top:35px;
-	   		right:6px;
+	   		top:30px;
+	   		right:3px;
 	   		text-align:left;
 	   		z-index:400;
 	   		width:100px;
@@ -258,7 +270,38 @@
         height:0px;
         border:0px;
         }
-       
+       	.fa{
+			margin:5px;
+			position:relative;
+			font-size: 1.5em;
+		}
+		.gn-menu li:hover{
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+        }
+        .gn-menu-main{
+        z-index:1;
+        }
+        
+       #hamb{
+/*        padding-top:-10px;
+       		padding-left:-15px;
+	   		margin-left:0px;
+	   		margin:2px;
+	   		margin-top:3px;
+ */				
+			margin-top: 3px;
+			margin-left: -25px;
+			text-decoration:none;
+	   		font-size: 2em;
+	   		color:#FFFFFF;
+		}
+		
+		#hamb:hover{
+			color:#eb5d1e;
+		}
+
     </style>
     
     <script src="/Cesium/js/jquery.js"></script>
@@ -276,25 +319,26 @@
   
 <body>
 
-<div id="menu">
-
-<div class="dropdown">
-  <a id="mDrop" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-    	<span class="glyphicon glyphicon-menu-hamburger"></span>
-  </a>
-
-<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/admin/login_success">Home</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" id="routeShow">My Route List</a></li>
-    	<ul id="myRouteList">
-    	</ul>  
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/usage">Usage</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/sboard/list">Reviews</a></li>
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">App Download</a></li>
-  </ul>
-</div> 
+<div class="menu">
+			<ul id="gn-menu" class="gn-menu-main">
+<li class="gn-trigger">
+									<ul  id="myRouteList"></ul>
+					<a id="hamb" class="glyphicon glyphicon-menu-hamburger gn-icon-menu"></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li><i class="fa fa-home"></i><a href="/admin/login_success" class="gn-icon gn-icon-cog">Home</a></li>
+								<li><i class="fa fa-map-marker"></i><a class="gn-icon gn-icon-download" id="routeShow">My Route List</a></li>
+								
+									
+								<li><i class="fa fa-question"></i><a href="/sboard/usage" class="gn-icon gn-icon-help">Usage</a></li>
+								<li><i class="fa fa-book"></i><a href="/sboard/list" class="gn-icon gn-icon-archive">Reviews</a></li>
+								<li><i class="fa fa-download"></i><a href="#" class="gn-icon gn-icon-download">App Download</a></li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+</ul>
 </div>
 
 
@@ -360,13 +404,12 @@
             <div class="modal-body" style="height:80px;">
            		<form id='form1' action='imgUpload' method='post' enctype='multipart/form-data' target="zeroFrame">
            			<input type='file' name='file'>
-           			<input type='submit'>
-           		</form>
            		<iframe name="zeroFrame"></iframe>
             </div>
             <div class="modal-footer">
-
-                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+	                <button type="button" id="cancleImgBtn" class="btn btn-default" data-dismiss="modal">CANCLE</button>
+           			<input type='submit' class="btn btn-primary" value="SAVE">
+           		</form>
             </div>
         </div>
     </div>
@@ -399,7 +442,7 @@
 
 
 <!-- route modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="false">
     <div class="modal-dialog">
         <div class="modal-content" >
             <div class="modal-header">
@@ -591,7 +634,7 @@ var adminno = ${adminno};
         timeline: false
     });
 
-    viewer.scene.skyBox.destroy();
+/*     viewer.scene.skyBox.destroy();
     viewer.scene.skyBox = undefined;
     viewer.scene.sun.destroy();
     viewer.scene.sun = undefined;
@@ -600,7 +643,7 @@ var adminno = ${adminno};
     viewer.scene.skyAtmosphere.destroy();
     viewer.scene.skyAtmosphere = undefined;
     viewer.scene.backgroundColor = new Cesium.Color(1,0.7,0.7,0.0);
-    
+     */
     var cartographic = new Cesium.Cartographic();
     var cartesian = new Cesium.Cartesian3();
     var camera = viewer.scene.camera;
@@ -713,7 +756,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 	$("#myProfile").on("click",function(){
 		
 			viewProfile();
-		
+			$("#adminInfo").hide();
 		   $("#myProfileModal").modal('show');
 	});
 
@@ -871,6 +914,7 @@ $.getJSON("http://14.32.66.127:4000/route/list?adminno="+adminno,function(data){
 
 $("#main").on("mouseover",function(){
     $(".dropdown-menu").hide();
+	 $("#myRouteList").hide();
 });  
 	
 	
@@ -879,6 +923,10 @@ $("#main").on("mouseover",function(){
 		$("#adminInfo").toggle();
 	});
 	
+	
+	$(".gn-menu").on("click","li",function(event){
+		$(this)[0].lastChild.click();
+	});
 
 	//route list 보이기 
 	
@@ -909,15 +957,16 @@ $("#main").on("mouseover",function(){
 	    }
 	    
 	    $("#routeShow").on("click",function(){
-	    	 $("#myRouteList").show();
+	    	 $("#myRouteList").toggle();
 	    	 
 	    });
-	    
+
 	    var routeno;
 	    
 	  //routelist 에서   route 이름 클릭하면 -> 루트 수정, 멤버 등록, 루트 삭제 모달 창 뜸.    
 	    $("#myRouteList").on("click","li",function(event){
 		       var select = $(this);
+		    	 $("#myRouteList").hide();
 		       routeno = parseInt(select.attr("data-routeno"));
 		       
 		       $("#editModal").modal('show');
@@ -1377,6 +1426,11 @@ $("#main").on("mouseover",function(){
  
 	        
 	</script>
-
+ <!-- Core JavaScript Files -->
+	<script src="/js/gnmenu.js"></script>
+	<script src="/js/jquery.scrollTo.js"></script>
+	<script src="/js/custom.js"></script>
+	<script src="/js/classie.js"></script>
+    
 </body>
 </html>

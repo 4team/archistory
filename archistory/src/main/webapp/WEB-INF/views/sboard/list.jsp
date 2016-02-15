@@ -1,21 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false"%>
-
 <%@include file="../include/header.jsp"%>
-<style type= "text/css">
-.box{
-position : fix;
-margin-left :200px;
-margin-right:200px;
-}
-
-.col-md-12{
-top:50px;
-}
-</style>
 
 <div class="center-container">
     <div class="center-row">
@@ -67,13 +50,12 @@ top:50px;
 		
 				<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">LIST PAGING</h3>
 				</div>
 				<div class="box-body">
 				
 <table class="table table-bordered">
 	<tr>
-		<th style="width: 10px">BoardNO</th>
+		<th style="text-align:center; width: 10px;">NO</th>
 		<th>TITLE</th>
 		<th>WRITER</th>
 		<th>REGDATE</th>
@@ -83,12 +65,12 @@ top:50px;
 
 <c:forEach items="${list}" var="list">
 <tr>
-<td>${list.boardNo}</td>
+<td style="text-align:center; width: 10px;">${list.boardNo}</td>
 <td><a href='/sboard/read${pageMaker.makeSearch(pageMaker.cri.page) }&boardNo=${list.boardNo}'>${list.title}
     <strong> [${list.replycnt}]</strong></a></td>
-	<td>${list.writer}</td>
-	<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${list.regdate}" /></td>
-	<td><span class="badge bg-red">${list.vcount}</span></td>
+	<td style="text-align:center; width: 30px;">${list.writer}</td>
+	<td style="text-align:center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${list.regdate}" /></td>
+	<td style="text-align:center; width: 10px;"><span class="badge bg-red">${list.vcount}</span></td>
 </tr>
 </c:forEach>
 
@@ -186,6 +168,6 @@ $("#searchBtn").on("click",function(event){
 </div>
 <!-- /.content-wrapper -->
 </div>
-</div>    
+
     
 <%@include file="../include/footer.jsp"%>

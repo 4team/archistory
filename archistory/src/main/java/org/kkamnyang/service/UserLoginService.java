@@ -31,10 +31,10 @@ public class UserLoginService implements UserDetailsService {
 			MemberVO vo = mapper.findByEmail(email);
 			System.out.println("========2=========");
 			System.out.println("호출된 MemberVO : "+vo);
-			user = new OurUserDetails(vo.getMemberno(),vo.getUserName(),vo.getEmail(),encoder.encode(vo.getmPassword()),vo.getImg(),vo.getUserNo());
+			user = new OurUserDetails(vo.getMemberno(),vo.getUserName(),vo.getEmail(),encoder.encode(vo.getPassword()),vo.getImg());
 		}catch(Exception e){
 			System.out.println("계정이 없는 Member의 로그인 시도였다.");
-			user = new OurUserDetails(0,"GUEST","guest@archistory.org",encoder.encode("guest"),"",0);
+			user = new OurUserDetails(0,"GUEST","guest@archistory.org",encoder.encode("guest"),"");
 			return user;
 		}
 		System.out.println("로그인 Member : " + user.toString());
