@@ -67,7 +67,7 @@ top:50px;
         white-space:nowrap;
 	width:500px;
 }
-.box-body label{
+.box-body input{
         white-space:nowrap;
 
 }
