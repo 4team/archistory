@@ -71,7 +71,7 @@
     <strong> [${list.replycnt}]</strong></a></td>
 	<td style="text-align:center; width: 30px;">${list.writer}</td>
 	<td style="text-align:center;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${list.regdate}" /></td>
-	<td><span class="badge bg-red">${list.vcount}</span></td>
+	<td style="text-align:center; width: 10px;"><span class="badge bg-red">${list.vcount}</span></td>
 </tr>
 </c:forEach>
 
