@@ -295,10 +295,18 @@
 	</div>
 	
 	
-<div id="upper-login">
-	<button type="button" id="loginBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Login</font></button>
-	<button type="button" id="joinBtn" class="btn btn-primary btn-xs"><font face="verdana" size="2" >Join</font></button>
-</div>
+	<div id="upper-login">
+		<button type="button" id="myInfo" data-src="${memberno}"
+			class="btn btn-primary">
+			<font face="verdana" size="2">${name}님</font>
+		</button>
+		<ul id="userInfo">
+			<li><a id="showInfo"> My Info </a></li>
+			<li><a id="myPage"> My Page </a></li>
+			<li><a href="/user/logout"> Logout </a></li>
+		</ul>
+	</div>
+
 
 
 <!-- ★로그인 모달 -->
