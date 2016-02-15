@@ -59,13 +59,15 @@ top:50px;
 }
 
 #newReplyWriter{
-        white-space:nowrap;
+    white-space:nowrap;
 	width:100px;
+	margin-right:5px;
 }
 
 #newcontent{
-        white-space:nowrap;
+    white-space:nowrap;
 	width:500px;
+	margin-right:5px;
 }
 .box-body input{
         white-space:nowrap;
@@ -157,7 +159,7 @@ top:50px;
                   </div>
                   <!-- /.box-body -->
                   <div class="box-footer">
-                     <button type="button" class="btn btn-primary" id="replyAddBtn">ADD  REPLY</button>
+                     <button type="button" class="btn btn-primary" id="replyAddBtn">+</button>
                   </div>
                </div>
 
