@@ -776,6 +776,7 @@ function getLocation(){
         		$("#secretModal").modal('show');
         		
 			    $("#secretBtn").on("click",function(event){
+			    	$("#yesModal").modal('hide');
 			    	var input = $("#routeSecret").val();
 			    	if(input == data){
 				        viewRoute(icon.attr("value"));
