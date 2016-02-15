@@ -104,7 +104,9 @@ public class RouteController{
 	public ResponseEntity<String> secret(@RequestParam("routeno")Integer routeno) throws Exception{
 		ResponseEntity<String> entity = null;
 		try{
-			entity = new ResponseEntity<String>(service.secret(routeno),HttpStatus.OK);
+			boolean result = service.secret(routeno);
+			
+			entity = new ResponseEntity<String>(result+"",HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<String>("fail",HttpStatus.BAD_REQUEST);
 		}

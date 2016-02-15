@@ -20,7 +20,7 @@ public class RouteMapperImpl extends AbstractCRUDMapper<RouteVO,Integer> impleme
 	}
 
 	@Override
-	public String secret(Integer routeno) {
+	public boolean secret(Integer routeno) {
 		return session.selectOne(namespace+".secret",routeno);
 	}
 }
