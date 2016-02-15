@@ -170,9 +170,8 @@
         .gly{
             float:right;
         }
-        .table-bordered{
+        table{
             border-spacing: 50px;
-          	margin:10px;
         }
         
         table tr:hover{
