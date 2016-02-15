@@ -108,22 +108,21 @@ top:50px;
 
 
                   <div class="box-body">
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Title</label> <input type="text"
-                           name='title' class="form-control" value="${boardVO.title}"
-                           disabled="disabled" >
+                     <div class="panel panel-default">
+                        <label for="exampleInputEmail1">Title</label> <div class="panel-body">${boardVO.title}
+                           </div>
                      </div>
-                     <div class="form-group">
+                     <div class="panel panel-default">
                         <label for="exampleInputPassword1">Content</label>
                         <textarea class="form-control" name="content" rows="3"
                            readonly="readonly">${boardVO.content}</textarea>
                      </div>
-                     <div class="form-group">
+                     <div class="panel panel-default">
                         <label for="exampleInputEmail1">Writer</label> <input
                            type="text" name="writer" class="form-control"
                            value="${boardVO.writer}" readonly="readonly">
                      </div>
-                     <div class="form-group">
+                     <div class="panel panel-default">
                         <label for="exampleInputEmail1">Attached Files</label>
                   <li class="clearfix uploadedList"></li>
                   </div>
