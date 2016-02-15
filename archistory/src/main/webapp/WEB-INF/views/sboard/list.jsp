@@ -13,6 +13,9 @@
 			<!-- general form elements -->
 
 			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">Archistory Reviews</h3>
+				</div>
 
 				<div class='box-body' id='searchDiv'>
 
