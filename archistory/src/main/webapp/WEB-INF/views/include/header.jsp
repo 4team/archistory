@@ -178,7 +178,7 @@
         }
         
         table tr:hover{
-        	background-color:rgba(95, 210, 255, 0.2);
+        	background-color:rgba(95, 210, 255, 0.1);
         }
         table,th,td{
             border-collapse : collapse;
