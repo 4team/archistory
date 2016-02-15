@@ -52,7 +52,7 @@
 				</div>
 				<div class="box-body">
 				
-<table class="table table-bordered">
+<table>
 	<tr>
 		<th style="text-align:center; width: 10px;">NO</th>
 		<th>TITLE</th>
