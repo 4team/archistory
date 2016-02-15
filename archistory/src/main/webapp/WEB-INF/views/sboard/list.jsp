@@ -44,7 +44,7 @@
 							Title OR Content OR Writer</option>
 					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
-							<button id='searchBtn'>Search</button>						
+							<button class='btn btn-primary' id='searchBtn'>Search</button>						
 			</div>
 		</div>
 		
