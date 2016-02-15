@@ -496,7 +496,7 @@
             </div>
             <div class="modal-body">
                 <label>Password</label><input type='password' id="routeSecret" class="form-control">
-                <button id="secretBtn">OK</button>
+                <button id="secretBtn" class="btn btn-primary">OK</button>
             </div>
             <!-- <div class="modal-footer" id="yesNoFooter">
             </div> -->
