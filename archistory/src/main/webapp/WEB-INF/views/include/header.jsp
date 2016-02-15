@@ -262,6 +262,63 @@
 		#searchDiv{
 			float:right;
 		}
+		
+		
+		
+		
+		#upper-login{
+        	padding:5px;
+       		position:absolute;
+        	z-index:99;
+        	right: 10px;
+        	top:5px;
+        }
+        
+	   	#userInfo{
+	   		position:absolute;
+	   		border-radius : 10px;
+	   		padding:2px;
+	   		text-align:center;
+	   		border:1px solid;
+	   		display:none;
+	   		top:40px;
+	   		right:6px;
+	   		text-align:left;
+	   		z-index:400;
+	   		width:100px;
+	   		height:70px;
+	   		background-color: #303336;
+	   	}
+	   	
+	   	#myPageModalLabel{
+	   		text-align: center;
+	   	}
+	   	
+	   	#userInfo:hover{
+	   		margin-top:1px;
+	   		margin-right:1px;
+        	border : 1px solid;
+        	border-color:#aef;
+        	box-shadow:0 0 8px #fff;
+        }
+        
+        #userInfo li{
+        	text-align:center;
+        }
+        
+        #userInfo a{
+        	color:#2169C1;
+        }
+        
+       #userInfo a:hover{
+       		text-decoration:none;
+        	color:#aef;
+        }
+        
+                
+        a{
+        text-decoration : none;
+        }
     </style>
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
