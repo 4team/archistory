@@ -172,6 +172,7 @@
         }
         table{
             border-spacing: 50px;
+            margin:10px;
         }
         
         table tr:hover{
