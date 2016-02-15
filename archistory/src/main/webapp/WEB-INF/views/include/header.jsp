@@ -176,6 +176,10 @@
         table{
             border-spacing: 50px;
         }
+        
+        table tr:hover{
+        	background-color: #184986;
+        }
         table,th,td{
             border-collapse : collapse;
         }
