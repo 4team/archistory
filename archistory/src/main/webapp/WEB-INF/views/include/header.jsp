@@ -242,7 +242,7 @@
 			text-decoration: none;
 		}
 		a:hover{
-			color:#98E7FD;
+			color:#71D1F7;
 		}
 		
     </style>
