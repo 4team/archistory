@@ -21,7 +21,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		<intercept-url pattern="/sboard/list" access="hasRole('ROLE_USER')"/>
 		
 		<form-login login-page="/sboard/list" username-parameter="email"
-		password-parameter="password" login-processing-url="/user/login_process"
+		password-parameter="password" login-processing-url="/sboard/login_process"
 		default-target-url="/sboard/list" authentication-failure-url="/"
 		always-use-default-target='true'/>
 				

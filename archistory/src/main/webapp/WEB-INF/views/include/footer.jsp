@@ -101,7 +101,7 @@ $(".gn-menu").on("click","li",function(event){
 
     // 로그인타입에 따른 폼 액션 바꾸기
     $("#userLogin").on("click",function(){
-        $("#loginForm")[0].action = "/user/login_process";
+        $("#loginForm")[0].action = "/sboard/login_process";
         console.log($("#loginForm")[0]);
     });
     
