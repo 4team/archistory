@@ -179,6 +179,7 @@
         
         table tr:hover{
         	background-color: #184986;
+        	opacity:0.3;
         }
         table,th,td{
             border-collapse : collapse;
