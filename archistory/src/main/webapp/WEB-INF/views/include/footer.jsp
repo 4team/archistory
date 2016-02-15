@@ -97,6 +97,46 @@ $(".gn-menu").on("click","li",function(event){
 			$("#myPageModal").modal('show');
 	});
 
+	
+
+    // 로그인타입에 따른 폼 액션 바꾸기
+    $("#userLogin").on("click",function(){
+        $("#loginForm")[0].action = "/user/login_process";
+        console.log($("#loginForm")[0]);
+    });
+    
+    $("#adminLogin").on("click",function(){
+        $("#loginForm")[0].action = "/admin/login";
+        
+        console.log($("#loginForm")[0]);
+    });
+    
+    $("#adminpassword2").keyup(function(){
+    	
+    	var p1 = $("#adminpassword1").val();
+    	var p2 = $("#adminpassword2").val();
+	   	var resultDiv = $(".duplResult");
+    	
+	    if(p1 != p2){
+	    	resultDiv.html("<ul><li>비밀번호가 다릅니다.</li></ul>");
+	    }else{
+	    	resultDiv.html("");
+	    }
+    });
+    
+		$("#password2").keyup(function(){
+    	
+    	var p1 = $("#password1").val();
+    	var p2 = $("#password2").val();
+	   	var resultDiv = $(".duplResult");
+    	
+	    if(p1 != p2){
+	    	resultDiv.html("<ul><li>비밀번호가 다릅니다.</li></ul>");
+	    }else{
+	    	resultDiv.html("");
+	    }
+    });
+		
 </script>
 
 	
