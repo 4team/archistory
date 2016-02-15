@@ -83,6 +83,10 @@ top:50px;
     white-space:nowrap;
 	padding:0px;
 }
+
+#contentDiv{
+
+}
 </style>
 
  <div class='popup back' style="display: none;"></div>
@@ -119,7 +123,8 @@ top:50px;
                         <label for="exampleInputEmail1">Title</label><div class="panel-body">${boardVO.title}</div>
                      <div class="box-body">
                         <label for="exampleInputPassword1">Content</label>
-                       <div class="panel-body">${boardVO.content}</div>
+                        <textarea id="contentDiv" name="content" rows="3"
+                           readonly="readonly">${boardVO.content}</textarea>
                      </div>
                      <div class="box-body">
                         <label for="exampleInputEmail1">Writer</label> <input
