@@ -119,8 +119,7 @@ top:50px;
                         <label for="exampleInputEmail1">Title</label><div class="panel-body">${boardVO.title}</div>
                      <div class="box-body">
                         <label for="exampleInputPassword1">Content</label>
-                        <textarea name="content" rows="3"
-                           readonly="readonly">${boardVO.content}</textarea>
+                       <div class="panel-body">${boardVO.content}</div>
                      </div>
                      <div class="box-body">
                         <label for="exampleInputEmail1">Writer</label> <input
