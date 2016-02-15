@@ -149,9 +149,8 @@ top:50px;
                      <h3 class="box-title">ADD NEW REPLY</h3>
                   </div>
                   <div class="box-body">
-                     <label for="exampleInputEmail1">Writer</label> <input class="form-control" type="text" placeholder="USER ID"
-                        id="newReplyWriter"><label for="exampleInputEmail1">Reply
-                        Text</label><input class="form-control" type="text"
+                     	<input class="form-control" type="text" placeholder="WRITER"
+                        id="newReplyWriter"><input class="form-control" type="text"
                         placeholder="REPLY TEXT" id="newcontent">
 
                   </div>
