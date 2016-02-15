@@ -764,7 +764,8 @@ function getLocation(){
         
         $("#yesNo").html(questionModal);
     }
-    $("#yesNo").on("click","#yes",function(){
+    $("#yesNo").on("click","#yes",function(){	       
+    	$("#yesModal").modal("hide");
         var icon= $(this);
         var routeno = icon.attr("value");
         
