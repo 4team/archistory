@@ -86,6 +86,9 @@ top:50px;
 
 #contentDiv{
 	border: 0px;
+	width:80%;
+	hieght:40%;
+	background-color: transparent;
 	
 }
 </style>
