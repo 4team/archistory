@@ -58,6 +58,14 @@ list-style:none;
 top:50px;
 }
 
+#newReplyWriter{
+	width:100px;
+}
+
+#newcontent{
+width:500px;
+}
+
 </style>
 
  <div class='popup back' style="display: none;"></div>
@@ -77,7 +85,6 @@ top:50px;
                <!-- general form elements -->
                <div class="box box-primary">
                   <div class="box-header">
-                     <h3 class="box-title">READ BOARD</h3>
                   </div>
                   <!-- /.box-header -->
 
@@ -145,8 +152,7 @@ top:50px;
                   </div>
                   <!-- /.box-body -->
                   <div class="box-footer">
-                     <button type="button" class="btn btn-primary" id="replyAddBtn">ADD
-                        REPLY</button>
+                     <button type="button" class="btn btn-primary" id="replyAddBtn">ADD  REPLY</button>
                   </div>
                </div>
 
