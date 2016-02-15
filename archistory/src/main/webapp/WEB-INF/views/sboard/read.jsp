@@ -108,7 +108,7 @@ top:50px;
 
 
                   <div class="box-body">
-                        <label for="exampleInputEmail1">Title</label> <div class="panel-body">${boardVO.title}</div>
+                        <label for="exampleInputEmail1">Title</label><div class="panel-body">${boardVO.title}</div>
                      <div class="box-body">
                         <label for="exampleInputPassword1">Content</label>
                         <textarea class="form-control" name="content" rows="3"
