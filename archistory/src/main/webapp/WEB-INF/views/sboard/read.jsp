@@ -165,7 +165,6 @@ top:50px;
                <div class="box box-success">
                   <div class="box-header">
                   <br>
-                     <h3 class="box-title">ADD NEW REPLY</h3>
                   </div>
                   <div class="box-body">
                      	<input class="form-control" type="text" placeholder="WRITER"
