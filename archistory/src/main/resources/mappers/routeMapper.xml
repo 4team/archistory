@@ -36,7 +36,7 @@
  		delete from tbl_route where routeno = #{routeno}
  	</delete>
  	
- 	<select id="secret" resultType="String">
+ 	<select id="secret" resultType="string">
  		select password from tbl_route where routeno = #{routeno}
  	</select>
  	
