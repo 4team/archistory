@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
  
 <div id="footer">
   <div class="container">
@@ -8,4 +7,11 @@
 
 
 	</body>
+	
+	 <!-- Core JavaScript Files -->
+	<script src="/js/classie.js"></script>
+	<script src="/js/gnmenu.js"></script>
+	<script src="/js/jquery.scrollTo.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/custom.js"></script>
 </html>

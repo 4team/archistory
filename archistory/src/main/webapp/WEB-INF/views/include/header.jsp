@@ -387,12 +387,7 @@ $(".gn-menu").on("click","li",function(event){
 
 </script>
 
- <!-- Core JavaScript Files -->
-	<script src="/js/classie.js"></script>
-	<script src="/js/gnmenu.js"></script>
-	<script src="/js/jquery.scrollTo.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="/js/custom.js"></script>
+
     
     
     
