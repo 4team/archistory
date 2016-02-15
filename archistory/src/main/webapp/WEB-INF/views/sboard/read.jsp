@@ -92,6 +92,10 @@ top:50px;
 	overflow-y:scroll; 
 	
 }
+
+#replycntSmall{
+	margin:0px;
+}
 </style>
 
  <div class='popup back' style="display: none;"></div>
