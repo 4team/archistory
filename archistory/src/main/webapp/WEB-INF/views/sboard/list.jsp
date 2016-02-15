@@ -18,7 +18,7 @@
 				</div>
 
 				<h1>${cri.searchType}</h1>
-				<div class='box-body'>
+				<div class='box-body' id='searchDiv'>
 
 					<select name="searchType" id="searchType">
 						<option value="n"
