@@ -90,7 +90,7 @@ top:50px;
 	height:300px;
 	background-color:rgba(95, 210, 255, 0.1);
 	overflow-y:scroll; 
-	
+	padding:10px;
 }
 
 #replycntSmall{
