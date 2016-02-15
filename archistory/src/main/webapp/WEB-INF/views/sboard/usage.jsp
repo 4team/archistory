@@ -23,7 +23,7 @@
 				
 				<div class="box-body"  >
 				
-				<div style="margin-top:20px;">
+				<div style="margin-top:70px;">
 					<video class="video" controls="" width="60%" src="/video/admin_music.mp4"></video> 
 				</div>
 			</div>
