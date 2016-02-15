@@ -237,7 +237,7 @@
 			text-decoration: none;
 		}
 		a:hover{
-		color:#46F2F7;
+			color:#98E7FD;
 		}
 		
     </style>
