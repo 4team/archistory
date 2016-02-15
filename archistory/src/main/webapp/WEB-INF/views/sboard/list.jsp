@@ -56,7 +56,7 @@
 				
 <table class="table table-bordered">
 	<tr>
-		<th style="text-align:center; width: 10px;">BoardNO</th>
+		<th style="text-align:center; width: 10px;">NO</th>
 		<th>TITLE</th>
 		<th>WRITER</th>
 		<th>REGDATE</th>
