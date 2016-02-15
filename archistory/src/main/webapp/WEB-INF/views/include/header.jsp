@@ -218,20 +218,20 @@
 			color:#eb5d1e;
 		}
 		.box{
-position : fix;
-margin-left :200px;
-margin-right:200px;
-}
-
-.col-md-12{
-top:10px;
-}
-
-body {
-    background-image: url("/img/back1.jpg");
-    background-size:cover;
-    color:#ffffff;
-}
+		position : fix;
+		margin-left :200px;
+		margin-right:200px;
+		}
+		
+		.col-md-12{
+		top:10px;
+		}
+		
+		body {
+		    background-image: url("/img/back1.jpg");
+		    background-size:cover;
+		    color:#ffffff;
+		}
     </style>
     
     <!-- 합쳐지고 최소화된 최신 CSS -->
