@@ -172,7 +172,7 @@
         }
         .table-bordered{
             border-spacing: 50px;
-          	padding:10px;
+          	margin:10px;
         }
         
         table tr:hover{
