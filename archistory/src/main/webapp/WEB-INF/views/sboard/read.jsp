@@ -69,7 +69,7 @@ top:50px;
 	width:500px;
 	margin-right:5px;
 }
-.box-body input{
+.box-body label{
     white-space:nowrap;
     float:left;
 }
