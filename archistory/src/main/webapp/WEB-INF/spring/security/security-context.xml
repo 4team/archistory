@@ -20,7 +20,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<http pattern="/sboard/**" auto-config="true" use-expressions="true" authentication-manager-ref="userLoginManager">
 		
 		<form-login login-page="/sboard/list" username-parameter="email"
-		password-parameter="password" login-processing-url="/sboard/login_process"
+		password-parameter="password" login-processing-url="/user/login_process"
 		default-target-url="/sboard/list" authentication-failure-url="/"
 		always-use-default-target='true'/>
 				
