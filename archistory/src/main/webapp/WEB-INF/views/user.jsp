@@ -775,6 +775,8 @@ function getLocation(){
 			    	var input = $("#routeSecret").val();
 			    	if(input == data){
 				        viewRoute(icon.attr("value"));
+			    	}else{
+			    		alert("비밀번호가 틀립니다!");
 			    	};
 			    });
 			    
