@@ -18,9 +18,9 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	</http>
 
 	<http pattern="/sboard/**" auto-config="true" use-expressions="true" authentication-manager-ref="userLoginManager">
-		<form-login login-page="/user" username-parameter="email"
+		<form-login login-page="/sboard/list" username-parameter="email"
 		password-parameter="password" login-processing-url="/user/login_process"
-		default-target-url="/user" authentication-failure-url="/user"
+		default-target-url="/sboard/list" authentication-failure-url="/sboard/list"
 		always-use-default-target='true'/>
 				
 			<logout logout-url="/user/logout" logout-success-url="/user" delete-cookies="true"/>
