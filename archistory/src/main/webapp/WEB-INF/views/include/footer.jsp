@@ -11,7 +11,7 @@
 <!-- 클릭 메뉴들과 관련된 스크립트 -->
 <script>
 
-if(${memberno}){
+if(${memberno}+""){
 	var memberno = ${memberno};
 }else{
 	var memberno = 0;
