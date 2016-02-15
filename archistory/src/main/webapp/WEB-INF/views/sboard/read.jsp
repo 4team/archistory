@@ -69,6 +69,7 @@ top:50px;
 }
 .box-body input{
         white-space:nowrap;
+        float:right;
 
 }
 
