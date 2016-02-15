@@ -485,6 +485,24 @@
     </div>
 </div>
 
+	<div class="modal fade" id="secretModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content"  id="yesModalContent">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Input Route Password</h4>
+            </div>
+            <div class="modal-body">
+                <label>Password</label><input type='text' id="routeSecret" class="form-control">
+            </div>
+            <!-- <div class="modal-footer" id="yesNoFooter">
+            </div> -->
+        </div>
+    </div>
+</div>
+
 
 <script>
 
