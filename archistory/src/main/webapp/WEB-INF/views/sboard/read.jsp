@@ -112,17 +112,17 @@ top:50px;
                         <label for="exampleInputEmail1">Title</label> <div class="panel-body">${boardVO.title}
                            </div>
                      </div>
-                     <div class="panel panel-default">
+                     <div class="box-body">
                         <label for="exampleInputPassword1">Content</label>
                         <textarea class="form-control" name="content" rows="3"
                            readonly="readonly">${boardVO.content}</textarea>
                      </div>
-                     <div class="panel panel-default">
+                     <div class="box-body">
                         <label for="exampleInputEmail1">Writer</label> <input
                            type="text" name="writer" class="form-control"
                            value="${boardVO.writer}" readonly="readonly">
                      </div>
-                     <div class="panel panel-default">
+                     <div class="box-body">
                         <label for="exampleInputEmail1">Attached Files</label>
                   <li class="clearfix uploadedList"></li>
                   </div>
