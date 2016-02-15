@@ -93,7 +93,7 @@
 					</div>
 			
 <div class="box-footer" style="float: right">
-	<button type="submit" class="btn btn-write">WRITE</button>	
+	<button type="submit" class="btn btn-danger">WRITE</button>	
 </div>
 
 
