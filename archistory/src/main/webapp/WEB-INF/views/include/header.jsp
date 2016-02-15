@@ -183,7 +183,7 @@
             border-collapse : collapse;
         }
         th{
-        	background-color: #171E2F;
+        	background-color: #111521;
             text-align: center;
         }
     
