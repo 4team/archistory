@@ -47,10 +47,6 @@
 			</div>
 		</div>
 		
-				<div class="box">
-				<div class="box-header with-border">
-				</div>
-				<div class="box-body">
 				<br>
 <table class="table table-bordered">
 	<tr>
