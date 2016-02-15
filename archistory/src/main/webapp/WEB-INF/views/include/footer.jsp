@@ -10,6 +10,10 @@
 	
 <!-- 클릭 메뉴들과 관련된 스크립트 -->
 <script>
+
+
+var memberno = ${memberno};
+
 $("#mDrop").on("mouseover",function(){
     $(".dropdown-menu").show();
 });
@@ -48,6 +52,51 @@ $(".gn-menu").on("click","li",function(event){
         $("#adminJoinDiv").show();
         $("#userJoinDiv").hide();
     });
+    $("#showInfo").on("click",function(){
+		if(memberno != 0){
+			$.getJSON("http://14.32.66.127:4000/member/view?memberno="+memberno,function(data){
+				var memberVO = $(data)[0];
+				
+				$("#proEmail").val(memberVO.email);
+				$("#proName").val(memberVO.userName);
+				
+				var dbimg = memberVO.img;
+				
+				 if(dbimg==null){  
+					   var imgTag=" <img class='img-circle' id='poto' src ='/img/profile.png'>";
+						$("#imgDiv").html(imgTag); 
+				   }else{
+				   
+					   var imgAddr="http://14.32.66.127:4000/displayFile?fileName=/member/"+dbimg;
+					   var imgTag1="<img class='img-circle' id='poto' src ='"+imgAddr+"'>";
+						$("#imgDiv").html(imgTag1); 
+				   }
+				   
+				
+			})
+   			$("#myProfileModal").modal('show');
+		}
+	});
+
+	
+	$("#myPage").on("click",function(){
+		$("#finishedDiv").html("");
+		
+		$.getJSON("http://14.32.66.127:4000/participate/finishList?memberno="+memberno,function(data){
+
+			var list = $(data);
+			
+			list.each(function(){
+				
+				var str ="<center><pre onclick='viewFinishRoute("+this.routeno+",0)'>"+this.routename+"</pre></center>";
+				$("#finishedDiv").append(str);
+				
+			});
+			
+		})
+
+			$("#myPageModal").modal('show');
+	});
 
 </script>
 
