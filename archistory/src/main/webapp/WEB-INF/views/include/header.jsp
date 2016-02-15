@@ -172,8 +172,7 @@
         }
         
         table{
-        			margin-top:10px;
-			margin-bottom:10px;
+        	margin-top:10px;
             border-spacing: 50px;
         }
         
