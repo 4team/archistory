@@ -88,7 +88,7 @@ top:50px;
 	border: 0px;
 	width:80%;
 	hieght:40%;
-	background-color: transparent;
+	background-color:rgba(95, 210, 255, 0.1);
 	overflow-y:scroll; 
 	
 }
