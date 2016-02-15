@@ -127,9 +127,7 @@ top:50px;
                            readonly="readonly">${boardVO.content}</textarea>
                      </div>
                      <div class="box-body">
-                        <label for="exampleInputEmail1">Writer</label> <input
-                           type="text" name="writer" class="form-control"
-                           value="${boardVO.writer}" readonly="readonly">
+                        <label for="exampleInputEmail1">Writer</label><div class="panel-body">${boardVO.writer}</div>
                      </div>
                      <div class="box-body">
                         <label for="exampleInputEmail1">Attached Files</label>
