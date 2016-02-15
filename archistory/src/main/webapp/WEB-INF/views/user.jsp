@@ -495,7 +495,7 @@
                 <h4 class="modal-title">Input Route Password</h4>
             </div>
             <div class="modal-body">
-                <label>Password</label><input type='text' id="routeSecret" class="form-control">
+                <label>Password</label><input type='password' id="routeSecret" class="form-control">
                 <button id="secretBtn">OK</button>
             </div>
             <!-- <div class="modal-footer" id="yesNoFooter">
@@ -770,12 +770,14 @@ function getLocation(){
         	if(data){
         		console.log("비밀번호 입력하는 모달창 뜨기.");
         		$("#secretModal").modal('show');
+        		
 			    $("#secretBtn").on("click",function(event){
-			    	var input = $("#secretPassword").val();
+			    	var input = $("#routeSecret").val();
 			    	if(input == data){
 				        viewRoute(icon.attr("value"));
 			    	};
 			    });
+			    
         	}else if(!data){
 		        viewRoute(icon.attr("value"));
         	}else{
