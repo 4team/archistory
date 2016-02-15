@@ -242,7 +242,7 @@
 			text-decoration: none;
 		}
 		a:hover{
-			color:#71D1F7;
+			color:#5DC4EC;
 			text-decoration: none;
 		}
 		
