@@ -106,9 +106,6 @@
             padding-bottom:5px;
         }
 
-        small{
-            float:right;
-        }
 
         ::-webkit-scrollbar {
             width: 1px;
