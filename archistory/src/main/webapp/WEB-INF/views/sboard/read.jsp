@@ -67,7 +67,7 @@ top:50px;
         white-space:nowrap;
 	width:500px;
 }
-.box-body{
+.box-body label{
         white-space:nowrap;
 
 }
