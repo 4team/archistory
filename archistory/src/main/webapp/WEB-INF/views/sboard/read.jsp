@@ -95,7 +95,7 @@ top:50px;
 
 #replycntSmall{
 	margin:0px;
-	float:left;
+	padding:0px;
 }
 </style>
 
