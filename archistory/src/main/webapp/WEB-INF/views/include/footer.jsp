@@ -13,6 +13,8 @@
 
 if(${memberno}){
 	var memberno = ${memberno};
+}else{
+	var memberno = 0;
 }
 
 $("#mDrop").on("mouseover",function(){
