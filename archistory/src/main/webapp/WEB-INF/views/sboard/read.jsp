@@ -85,7 +85,8 @@ top:50px;
 }
 
 #contentDiv{
-
+	border: 0px;
+	
 }
 </style>
 
