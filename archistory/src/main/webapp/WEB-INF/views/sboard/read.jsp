@@ -167,7 +167,7 @@ top:50px;
                   <br>
                   </div>
                   <div class="box-body">
-                     	Reply <input class="form-control" type="text" placeholder="WRITER"
+                     	<label>Reply</label><input class="form-control" type="text" placeholder="WRITER"
                         id="newReplyWriter"><input class="form-control" type="text"
                         placeholder="REPLY TEXT" id="newcontent">
 
