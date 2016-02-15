@@ -59,6 +59,7 @@ top:50px;
 }
 
 #newReplyWriter{
+        white-space:nowrap;
 	width:100px;
 }
 
