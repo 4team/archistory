@@ -11,6 +11,6 @@ public interface RouteMapper extends CRUDMapper<RouteVO,Integer> {
 	
 	public List<RouteVO> closelist(LocationVO vo) throws Exception;
 
-	public boolean secret(Integer routeno);
+	public String secret(Integer routeno);
 	
 }

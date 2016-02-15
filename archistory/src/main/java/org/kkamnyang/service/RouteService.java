@@ -42,7 +42,7 @@ public class RouteService {
 		mapper.delete(routeno);
 	}
 
-	public boolean secret(Integer routeno) {
+	public String secret(Integer routeno) {
 		return mapper.secret(routeno);
 	}
 	

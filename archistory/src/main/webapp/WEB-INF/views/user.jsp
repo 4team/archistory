@@ -496,6 +496,7 @@
             </div>
             <div class="modal-body">
                 <label>Password</label><input type='text' id="routeSecret" class="form-control">
+                <button id="secretBtn">OK</button>
             </div>
             <!-- <div class="modal-footer" id="yesNoFooter">
             </div> -->
@@ -766,9 +767,16 @@ function getLocation(){
         
         $.getJSON("http://14.32.66.127:4000/route/secret?routeno="+routeno,function(data){
 
-        	if(data == true){
+        	if(data){
         		console.log("비밀번호 입력하는 모달창 뜨기.");
-        	}else if(data == false){
+        		$("#secretModal").modal('show');
+			    $("#secretBtn").on("click",function(event){
+			    	var input = $("#secretPassword").val();
+			    	if(input == data){
+				        viewRoute(icon.attr("value"));
+			    	};
+			    });
+        	}else if(!data){
 		        viewRoute(icon.attr("value"));
         	}else{
         		$("#yesModal").modal('hide');
@@ -777,6 +785,7 @@ function getLocation(){
         });
         
     });
+    
     
     $("#yesNo").on("click","#no",function(){
         $("#yesModal").modal("hide");
