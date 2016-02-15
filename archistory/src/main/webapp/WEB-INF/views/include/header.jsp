@@ -228,6 +228,8 @@
 			position : fix;
 			margin-left :200px;
 			margin-right:200px;
+			margin-top:10px;
+			margin-bottom:10px;
 		}
 		
 		.col-md-12{
