@@ -23,10 +23,10 @@
 				
 				<div class="box-body"  >
 				
-				
-				<video class="video" controls="" width="60%" src="/video/admin_music.mp4"></video> 
-					
+				<div style="margin-top:70px;">
+					<video class="video" controls="" width="60%" src="/video/admin_music.mp4"></video> 
 				</div>
+			</div>
 				
 				
 				
