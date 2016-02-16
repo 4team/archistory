@@ -317,6 +317,7 @@
   	<link href="/Cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet"/>
 	<script src="/Cesium/Build/Cesium/Cesium.js"></script>
   
+  	<script src="/js/gnmenu.js"></script>
 <body>
 
 <div class="menu">
@@ -1427,7 +1428,7 @@ $("#main").on("mouseover",function(){
 	        
 	</script>
  <!-- Core JavaScript Files -->
-	<script src="/js/gnmenu.js"></script>
+
 	<script src="/js/custom.js"></script>
 	<script src="/js/classie.js"></script>
 	<script src="/js/jquery.scrollTo.js"></script>
