@@ -23,7 +23,7 @@
 				
 				<div class="box-body"  >
 				
-				<div style="margin-top:50px;">
+				<div style="margin-top:20px;">
 					<img src="/img/appdown.png">
 				</div>
 			</div>
