@@ -120,4 +120,9 @@ public class SearchBoardController {
 	public void usageGET() throws Exception{
 		logger.info("usage get....");
 	}
+  
+  @RequestMapping(value="/appDownload" , method=RequestMethod.GET)
+	public void appDownload() throws Exception{
+		logger.info("appDownload get....");
+	}
 }
