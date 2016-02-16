@@ -24,7 +24,7 @@
 				<div class="box-body"  >
 				
 				<div style="margin-top:70px;">
-					<img src="/img/download.png">
+					<img src="/img/appdown.png">
 				</div>
 			</div>
 				
