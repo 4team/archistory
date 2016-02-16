@@ -599,7 +599,7 @@
 <div id="myLocation"><span id="positionGly" class="glyphicon glyphicon-map-marker"></span></div>
 	<script src="/js/gnmenu.js"></script>
 	<script src="/js/jquery.scrollTo.js"></script>
-
+	<script src="/js/custom.js"></script>
 	<script src="/js/classie.js"></script>
 <!-- Cesium 초기화 및 이벤트를 위한 스크립트 -->
 <script>
